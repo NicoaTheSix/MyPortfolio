@@ -1,0 +1,2 @@
+# Published source assets must retain exact bytes for provenance and downloads.
+fusion-studio/assets/source/** -text

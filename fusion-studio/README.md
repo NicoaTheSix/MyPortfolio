@@ -29,6 +29,8 @@ node .\check-fusion-docs.mjs
 
 網站只收錄指南實際引用的公開範例、圖片，以及介紹／示範影片、字幕與研究範例。影片不自動播放，使用瀏覽器原生播放器，預設不下載完整影片。原始程式碼、開發驗證與非發布文件連至來源 repo；未提交且未納入發布範圍的開發附件顯示為參考文字，避免產生不存在的網址。
 
+根目錄 `.gitattributes` 對 `fusion-studio/assets/source/**` 停用 Git 文字換行轉換，讓 CSV／JSON／SVG／授權文字等與原始檔逐位元組相符，維持 SHA-256 可追溯性。
+
 Fusion Studio 原創程式及文件依來源專案授權；MITRE ATT&CK®、ATLAS、CAR、Qt 等維持各自出處及授權。本網站不是 MITRE 官方產品或背書。CAR 內容為研究參考，網站沒有攻擊執行、SIEM 查詢執行或偵測部署功能。Canvas、CWE 規劃不列為可操作指南。
 
 ## 驗證與預覽
