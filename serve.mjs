@@ -8,7 +8,7 @@ const port = Number(process.env.PORT || 4173);
 console.log(`[0/3] 輸入目錄（絕對路徑）：${root}`);
 console.log(`[0/3] 輸出：本機預覽 http://127.0.0.1:${port}/MyPortfolio/，不寫入檔案。`);
 const types = { '.html':'text/html; charset=utf-8', '.css':'text/css; charset=utf-8', '.js':'text/javascript; charset=utf-8', '.png':'image/png', '.svg':'image/svg+xml' };
-const publicFiles = new Set(['index.html', 'styles.css', 'script.js', 'assets/portrait.png', 'assets/business-card.png', 'assets/services-poster.png', 'assets/favicon.svg']);
+const publicFiles = new Set(['index.html', 'styles.css', 'script.js', 'assets/portrait.png', 'assets/business-card.png', 'assets/services-poster.png', 'assets/favicon.svg', 'assets/social-linkedin.png', 'assets/social-github.png', 'assets/social-medium.png', 'assets/social-youtube.png']);
 console.log('[1/3] 靜態檔案白名單完成。');
 const server = http.createServer(async (request, response) => {
   try {

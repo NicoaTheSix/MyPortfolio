@@ -11,7 +11,7 @@
 5. 複製信箱透過瀏覽器 Clipboard API；權限不足或不支援時會顯示手動複製提示。
 6. 服務小卡使用原生 `dialog`；支援關閉鈕、Escape 和點擊外側關閉。名片以原生 `details` 展開。
 
-網站不需套件安裝、編譯、資料庫、API 金鑰或外部字型。尚未提供的學歷、客戶案例與作品成果不虛構；目前作品入口連至使用者的 GitHub。
+網站不需套件安裝、編譯、資料庫、API 金鑰或外部字型。作品區提供 Mal-GPT 論文、MITREATTACK_SIMULATOR 程式專案與 Agent 架構實作筆記的外部連結。聖誕節卡片活動目前只有名稱，未設定日期或活動入口。
 
 ## 檔案
 
@@ -22,6 +22,7 @@
 | `script.js` | 點陣品牌字樣、年份、圖片對話框與複製信箱 |
 | `assets/` | 原始肖像、服務小卡、名片及 SVG 網站圖示 |
 | `prepare-assets.mjs` | 將使用者提供的三張原始 PNG 複製到網站素材目錄 |
+| `prepare-social-assets.mjs` | 依 LinkedIn、GitHub、Medium、YouTube 順序複製四張社群 PNG |
 | `serve.mjs` | 本機靜態預覽；只允許讀取網站公開檔案 |
 | `check-site.mjs` | 檢查錨點、相對路徑、PNG、替代文字與外部連結 |
 | `.nojekyll` | 靜態檔案標記 |
@@ -63,6 +64,32 @@ node --check .\script.js
 ```
 
 檢查程式會先顯示絕對輸入路徑與輸出目的，再依序驗證頁面結構、素材引用、基本可及性。結果顯示於終端，不寫入檔案。瀏覽器應另確認桌面、手機、圖片預覽、鍵盤操作與聯絡入口。
+
+## 社群連結與內容更新
+
+社群圖示直接使用擁有者提供的四張原始圖片，以 90 × 90 CSS 像素顯示。圖片位於本機 `assets/social-*.png`，瀏覽時不向 HackMD 取得圖片；點選後才在新分頁開啟對應社群網站。
+
+重新準備圖示時，在本目錄執行：
+
+```powershell
+node .\prepare-social-assets.mjs 'C:\素材\linkedin.png' 'C:\素材\github.png' 'C:\素材\medium.png' 'C:\素材\youtube.png'
+```
+
+程式先顯示四個輸入及四個輸出檔案的絕對路徑，再檢查檔案、依序複製並顯示五階段進度；會覆寫對應的四個目標圖檔。預覽伺服器的公開檔案白名單已加入四張圖片，新增其他素材時也要同步修改 `serve.mjs`。
+
+頁面顯示流程：作品與文章在「做過的事，寫下的想法」區；聯絡區顯示委託／詢問信箱，再依序顯示 LinkedIn、GitHub、Medium、YouTube 圖示連結。連結均依使用者提供的地址設定，沒有取得或重新發布外部論文、文章內容。
+
+| 類別 | 地址 |
+| --- | --- |
+| LinkedIn | https://www.linkedin.com/in/nicoa-wu-39301a266/ |
+| GitHub | https://github.com/NicoaTheSix |
+| Medium | https://medium.com/@nick5901879 |
+| YouTube | https://www.youtube.com/@NicoaTheSix |
+| 論文 | https://drive.google.com/file/d/1PhfLBf8n64QebqmwCDCnP-i2PVZu2-I4/view?usp=sharing |
+| 專案 | https://github.com/NicoaTheSix/MITREATTACK_SIMULATOR |
+| 文章 | https://hackmd.io/@nicoathe6/Bk5yICs_fl |
+
+此次更新驗證：10 個站內資源路徑及 PNG 檢查通過；桌面 1440 px、手機 390 px 與 320 px 無水平溢出；四張社群圖片均成功載入且顯示為 90 × 90；七個新增外部入口的網址已與提供內容核對，均以新分頁開啟；瀏覽器未發現 error 或 warning。外部文件及社群內容的登入／分享權限仍由各平台管理。
 
 ## 更新內容
 
