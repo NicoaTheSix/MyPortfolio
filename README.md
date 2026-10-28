@@ -1,6 +1,6 @@
 # Nicoa 個人作品集網站
 
-以使用者提供的三張黑白點陣圖片為視覺參考，建立 Nicoa（Chung-Lun Wu）的繁體中文個人網站。內容包含程式開發、Scratch 教學、文章寫作及中英文翻譯。GitHub 儲存庫為 `NicoaTheSix/MyPortfolio`，GitHub Pages 部署由網站擁有者自行操作。
+以使用者提供的黑白點陣圖片為視覺參考，建立 Nicoa（Chung-Lun Wu）的繁體中文與英文個人網站。內容包含程式開發、Scratch 教學、文章寫作、中英文翻譯及文書資料整理。GitHub 儲存庫為 `NicoaTheSix/MyPortfolio`。
 
 ## 網站結構與執行流程
 
@@ -93,11 +93,11 @@ node .\prepare-social-assets.mjs 'C:\素材\linkedin.png' 'C:\素材\github.png'
 
 ## 更新內容
 
-- 個人介紹與四項服務：修改 `index.html`。目前簡介及合作流程為依參考圖撰寫的第一版文案，可依實際習慣調整。
+- 個人介紹與五項服務：同步修改 `index.html` 與 `en/index.html`，保留相同的區塊 id，讓切換語言後可留在對應區塊。
 - 聯絡信箱：同步修改 `index.html`、`script.js`，並重新確認原始名片內的信箱。
 - 字體、間距與色彩：修改 `styles.css`。
 - 新增真實作品時，可在頁面加入作品介紹、實際貢獻、成果和 GitHub 連結。
-- 所有站內資源使用 `./` 相對路徑，避免部署到 `/MyPortfolio/` 時遺失資源。
+- 所有站內資源使用相對路徑，避免部署到 `/MyPortfolio/` 時遺失資源。
 
 ## 第一版驗證紀錄
 
@@ -124,4 +124,36 @@ HTTP 驗證可執行 `node .\check-fusion-docs.mjs --url 'http://127.0.0.1:4173/
 
 ## 部署責任
 
-此專案提供網站原始碼與本機預覽；GitHub Pages 啟用、發布來源及網域設定由擁有者自行處理。本程式不會修改 GitHub Pages 設定，也不包含自動部署工作流程。
+GitHub Pages 已使用既有 `main` 根目錄發布設定。本次依擁有者指示將雙語頁面與素材推送到 `main`，由既有 Pages 流程發布。程式不修改 Pages 設定，也不另增部署工作流程。
+
+## 雙語個人網站與圖片
+
+- 繁體中文首頁：`/MyPortfolio/`；英文首頁：`/MyPortfolio/en/`。兩頁都是可直接開啟的靜態 HTML。
+- 頁面最頂端的語言列提供「繁體中文 / English」，並標示目前語言。`script.js` 在點擊時將目前錨點附加至另一語言的連結，保留所在區塊；沒有自動重新導向。
+- 英文頁使用英文導覽、服務、作品介紹、合作流程、圖片說明、預覽／下載與信箱複製回饋。肖像與社群標誌共用；有中文文案的服務卡、名片及文書卡分別提供英文圖片。
+- 兩頁都新增獨立的文書處理與資料整理服務，可放大或下載對應語言圖卡。
+- 英文頁進入 Fusion Studio 英文文件，35 個英文文件頁的 Nicoa 返回入口連至英文作品集。`build-fusion-docs.mjs` 模板也已更新；本次沒有重新讀取或改寫來源手冊。
+
+### 素材與文件入口準備流程
+
+圖片已備妥，日常維護不需重跑。`prepare-portfolio-locales.mjs` 的四個輸入依序是英文服務卡、英文名片、中文文書卡、英文文書卡：
+
+```powershell
+node .\prepare-portfolio-locales.mjs 'C:\素材\services-en.png' 'C:\素材\business-card-en.png' 'C:\素材\office-zh.png' 'C:\素材\office-en.png'
+```
+
+程式先顯示四張輸入圖片、文件清單及所有輸出檔案／目錄的絕對路徑，再依序：
+
+1. 驗證四個 PNG 與比例（名片為橫幅，其餘正方形）。
+2. 複製至 `assets/services-poster-en.png`、`assets/business-card-en.png`、`assets/office-services-poster.png`、`assets/office-services-poster-en.png`，逐張顯示進度。
+3. 依 `fusion-studio/source-manifest.json` 盤點英文文件，只更新 35 頁的 Nicoa 返回連結；手冊正文與來源素材保持原樣。
+4. 顯示完成狀態；原始生成圖片保留在原位。生成工具、完整提示詞及來源位置見 [圖片生成紀錄](portfolio-image-prompts.md)。
+
+`serve.mjs` 白名單已納入英文頁與四張新圖。`check-site.mjs` 先列出雙語輸入檔案絕對路徑，再分四階段檢查：頁面錨點及對應 id、兩頁資源與跨頁錨點、語言切換與基本可及性、英文圖片／文案及文件返回入口。結果僅寫入終端。執行 `node .\check-site.mjs`，再用瀏覽器檢查語言切換、圖片預覽與手機版。
+
+### 本次雙語驗證紀錄
+
+- 雙語頁面 id 一致，19 個站內資源、跨頁錨點、PNG、替代文字、英文圖卡引用與 35 個文件返回連結通過。
+- JavaScript、素材準備程式與文件產生器語法通過。文件網站 70 頁、14 份來源素材及 378 筆搜尋章節通過；本機 HTTP 的 87 個頁面／素材與產物完全一致，影片 Range 正常。
+- 瀏覽器互動確認：英文兩張服務卡開啟、Escape／按鈕關閉、英文名片展開載入、信箱複製成功並顯示英文提示。英文切換至中文後保留 `#services`，窄螢幕時語言列仍固定在頂端。
+- 讀取瀏覽器 DOM 尺寸時，實際視窗寬度為 1107 與 300 CSS px，頁面未水平溢出；本次截圖工具未成功回傳截圖，因此沒有宣稱完成截圖視覺驗證。英文圖片本身已逐張目視核對。

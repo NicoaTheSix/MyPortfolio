@@ -1,6 +1,7 @@
 /* Browser progress stays in the developer console; page content is visitor-focused. */
 (() => {
   'use strict';
+  const english = document.documentElement.lang === 'en';
   console.info('[Nicoa 0/3] 輸入：', new URL('./index.html', location.href).href);
   console.info('[Nicoa 0/3] 輸出：目前瀏覽器頁面 DOM；不寫入檔案。');
   const glyphs = {
@@ -21,6 +22,13 @@
   shape.setAttribute('d', path);
   wordmark.append(shape);
   document.querySelector('#year').textContent = String(new Date().getFullYear());
+  document.querySelectorAll('[data-language-switch]').forEach(link => {
+    link.addEventListener('click', () => {
+      const destination = new URL(link.href);
+      destination.hash = location.hash;
+      link.href = destination.href;
+    });
+  });
   console.info('[Nicoa 1/3] 品牌字樣與年份完成。');
   document.querySelectorAll('[data-open-dialog]').forEach(button => {
     button.addEventListener('click', () => document.getElementById(button.dataset.openDialog).showModal());
@@ -37,9 +45,9 @@
     const status = document.querySelector('#copy-status');
     try {
       await navigator.clipboard.writeText('nick5901879@gmail.com');
-      status.textContent = '已複製信箱，期待收到你的來信！';
+      status.textContent = english ? 'Email copied. I look forward to hearing from you!' : '已複製信箱，期待收到你的來信！';
     } catch {
-      status.textContent = '無法自動複製，請選取上方信箱手動複製。';
+      status.textContent = english ? 'Copy unavailable. Please select and copy the email address above.' : '無法自動複製，請選取上方信箱手動複製。';
     }
   });
   console.info('[Nicoa 3/3] 聯絡功能就緒。');

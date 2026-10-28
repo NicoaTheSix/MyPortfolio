@@ -163,4 +163,91 @@
   .social-link > span { gap: 6px; }
   .featured-work h3 { font-size: 17px; }
 }
+/* The language selector is always available at the very top, including on mobile. */
+.language-bar {
+  position: sticky;
+  top: 0;
+  z-index: 25;
+  border-bottom: 1px solid var(--line);
+  background: var(--paper);
+}
+.language-bar-inner {
+  min-height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.language-bar-inner > span {
+  font: 9px var(--mono);
+  letter-spacing: 1px;
+  color: var(--muted);
+}
+.language-bar nav {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 11px;
+  white-space: nowrap;
+}
+.language-bar nav > span { color: #a1a295; }
+.language-bar a { padding-block: 4px; }
+.language-bar a[aria-current="page"] {
+  font-weight: 800;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.language-bar a:hover { text-decoration: underline; text-underline-offset: 4px; }
+.office-service {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  border: 1px solid var(--ink);
+  margin-top: 24px;
+  padding: 26px;
+}
+.office-service-image {
+  width: 190px;
+  flex-shrink: 0;
+  padding: 0;
+  background: white;
+}
+.office-service-image img { width: 100%; height: auto; }
+.office-service > div { min-width: 0; }
+.office-service h3 { font-size: 25px; margin: 8px 0 12px; }
+.office-service > div > p:not(.card-kicker) { font-size: 13px; color: var(--muted); line-height: 1.95; }
+.office-service > div > .office-delivery-note { margin-top: 12px; font-size: 11px; }
+.office-service .work-links { gap: 15px 25px; margin-top: 17px; }
+html[lang="en"] .service-card h3 { font-size: 21px; line-height: 1.45; }
+html[lang="en"] .service-card .tags { font-size: 9px; }
+html[lang="en"] .service-card .tags span { max-width: 100%; }
+html[lang="en"] .contact-top h2 { font-size: 34px; }
+@media (max-width:1050px) {
+  .site-header nav { gap: 20px; }
+  .site-header .brand-description { display: none; }
+  .site-header .brand-slash { display: none; }
+  .office-service { gap: 23px; padding: 23px; }
+  .office-service-image { width: 165px; }
+}
+@media (max-width:720px) {
+  .office-service { flex-direction: column; align-items: flex-start; gap: 20px; padding: 22px; }
+  .office-service-image { width: 150px; }
+  .office-service h3 { font-size: 23px; }
+  .office-service .work-links { flex-direction: column; align-items: flex-start; }
+  .language-bar-inner > span { font-size: 8px; letter-spacing: .2px; }
+  .language-bar nav { font-size: 10px; gap: 10px; }
+  html[lang="en"] .hero-title { font-size: 36px; }
+  html[lang="en"] .service-card h3 { font-size: 19px; }
+  html[lang="en"] .section-heading h2 { font-size: 25px; }
+  html[lang="en"] .contact-top h2 { font-size: 30px; }
+  html[lang="en"] .about-title h2 { font-size: 34px; }
+}
+@media (max-width:365px) {
+  .language-bar-inner > span { font-size: 7px; }
+  .language-bar nav { gap: 8px; }
+  html[lang="en"] .hero-title { font-size: 32px; }
+  html[lang="en"] .service-card h3 { font-size: 23px; }
+  html[lang="en"] .contact-top h2 { font-size: 26px; }
+  html[lang="en"] .about-title h2 { font-size: 30px; }
+}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}
