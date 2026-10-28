@@ -1,0 +1,157 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f6f5f0"><meta name="description" content="分數彙總與矩陣匯出 — Fusion Studio documentation. A free, open-source workspace for TTP-driven threat research."><title>分數彙總與矩陣匯出 | Fusion Studio Docs</title><link rel="icon" href="../assets/source/assets/fusion-studio-icon-monochrome-v3.png"><link rel="stylesheet" href="../docs.css"><link rel="alternate" hreflang="en" href="../en/aggregation-and-exports.html"><script defer src="../docs.js" data-search-index="../search-index.json"></script></head><body data-language="zh" data-page="aggregation-and-exports">
+  <a class="skip-link" href="#content">跳至文件內容</a><header class="docs-header"><a class="docs-brand" href="../index.html"><img src="../assets/source/assets/fusion-studio-icon-monochrome-v3.png" alt="" width="34" height="34"><span>Fusion Studio <small>DOCUMENTATION</small></span></a><div class="header-actions"><button id="open-search" type="button" aria-haspopup="dialog"><span aria-hidden="true">⌕</span> 搜尋文件 <kbd>Ctrl K</kbd></button><a class="language-switch" href="../en/aggregation-and-exports.html" hreflang="en" lang="en">English</a><a class="portfolio-link" href="../../index.html#works">Nicoa ↗</a></div></header>
+  <div class="mobile-toolbar"><button id="menu-button" type="button" aria-controls="docs-sidebar" aria-expanded="false">☰ 文件目錄</button><span>分數彙總與矩陣匯出</span></div>
+  <div class="docs-layout"><aside id="docs-sidebar" class="docs-sidebar" aria-label="文件導覽"><div class="sidebar-label">NICOA / OPEN SOURCE</div><nav><a class="sidebar-home " href="../index.html" >文件首頁</a><section class="nav-group"><h2>開始使用</h2><a href="quick-start.html" >快速開始</a><a href="first-research.html" >第一份研究文件</a><a href="installation.html" >安裝與啟動</a><a href="in-app-manual.html" >操作總覽</a><a href="in-app-index.html" >程式內指南索引</a><a href="guide-index.html" >全部指南對照表</a></section><section class="nav-group"><h2>工作區與選取</h2><a href="workspace-layout.html" >工作區、頁籤與側欄</a><a href="selection-and-search.html" >選取與搜尋</a><a href="detection-interaction.html" >偵測搜尋與來源複製</a><a href="source-relationship-selection.html" >來源關聯與批次選取</a><a href="source-hover-preview.html" >來源懸停預覽</a><a href="visibility-expansion-presets.html" >可見選取與展開</a></section><section class="nav-group"><h2>註記、保存與復原</h2><a href="batch-operations.html" >獨立狀態與批次註記</a><a href="studio-files.html" >儲存與工作階段復原</a></section><section class="nav-group"><h2>矩陣與 Navigator</h2><a href="matrix-display.html" >矩陣顯示與註記提示</a><a href="navigator-parity-controls.html" >Navigator 顯示與操作</a><a href="navigator-bundle-import.html" >多圖層 JSON 匯入</a><a href="advanced-navigator.html" >Navigator 進階操作</a><a href="layer-score-formulas.html" >圖層分數公式</a></section><section class="nav-group"><h2>匯出與交換</h2><a href="json-annotation-export.html" >JSON 註記匯出</a><a href="aggregation-and-exports.html" aria-current="page" class="current">分數彙總與矩陣匯出</a><a href="svg-paper.html" >SVG 紙張與方向</a><a href="svg-themes.html" >SVG 淺色與深色主題</a></section><section class="nav-group"><h2>ATLAS 與 CAR 參考</h2><a href="car-integration.html" >CAR、資料模型與感測器</a></section><section class="nav-group"><h2>版本遷移</h2><a href="upgrade-review.html" >升級逐項審核</a><a href="upgrade-content.html" >升級內容並排比較</a><a href="upgrade-mapping.html" >Tactic 搬移與衝突</a><a href="upgrade-summary.html" >升級摘要與略過理由</a></section><section class="nav-group"><h2>自訂來源與範例</h2><a href="custom-domains.html" >自訂 Domain 與 ID</a><a href="custom-data-url-import.html" >解析 customDataURL</a><a href="examples.html" >可載入範例</a><a href="project-readme.html" >產品 README 與完整安裝</a><a href="positioning.html" >產品定位與能力邊界</a><a href="car-provenance.html" >CAR 出處與授權</a></section></nav><div class="sidebar-bottom"><span>27 組雙語指南</span><a href="https://github.com/NicoaTheSix/MITREATTACK_SIMULATOR" target="_blank" rel="noopener noreferrer">GitHub ↗</a></div></aside>
+  <main id="content" class="docs-main" tabindex="-1"><div class="breadcrumb"><a href="../index.html">Docs</a><span>/</span><span>分數彙總與矩陣匯出</span></div><details class="mobile-toc"><summary>本頁章節</summary><nav><a class="toc-level-2" href="#%E8%A8%AD%E5%AE%9A%E7%88%B6%E5%AD%90%E6%8A%80%E8%A1%93%E5%88%86%E6%95%B8%E5%BD%99%E7%B8%BD">設定父／子技術分數彙總</a><a class="toc-level-2" href="#%E5%8C%AF%E5%87%BA-svg-%E6%88%96%E5%BD%A9%E8%89%B2-excel-%E7%9F%A9%E9%99%A3">匯出 SVG 或彩色 Excel 矩陣</a><a class="toc-level-2" href="#svg-%E9%80%B2%E9%9A%8E%E8%A8%AD%E5%AE%9A%E8%88%87%E9%A0%90%E8%A6%BD">SVG 進階設定與預覽</a><a class="toc-level-2" href="#%E6%89%80%E6%9C%89%E9%96%8B%E5%95%9F%E5%9C%96%E5%B1%A4%E5%8C%AF%E5%87%BA%E8%87%B3%E5%90%8C%E4%B8%80%E4%BB%BD-excel">所有開啟圖層匯出至同一份 Excel</a><a class="toc-level-2" href="#%E7%AF%84%E4%BE%8B%E6%AA%94%E6%A1%88%E8%88%87%E9%A9%97%E8%AD%89">範例檔案與驗證</a></nav></details><article class="prose"><h1 id="父子技術分數彙總與矩陣匯出">父子技術分數彙總與矩陣匯出<a class="heading-anchor" href="aggregation-and-exports.html#%E7%88%B6%E5%AD%90%E6%8A%80%E8%A1%93%E5%88%86%E6%95%B8%E5%BD%99%E7%B8%BD%E8%88%87%E7%9F%A9%E9%99%A3%E5%8C%AF%E5%87%BA" aria-label="本節連結">#</a></h1><p>本手冊適用於 Fusion Studio 的 ATT&amp;CK v4 以上圖層。啟動與環境設定見<a href="project-readme.html">專案 README</a>，公式建立新圖層見<a href="layer-score-formulas.html">圖層分數公式手冊</a>。</p>
+<h2 id="設定父子技術分數彙總">設定父／子技術分數彙總<a class="heading-anchor" href="aggregation-and-exports.html#%E8%A8%AD%E5%AE%9A%E7%88%B6%E5%AD%90%E6%8A%80%E8%A1%93%E5%88%86%E6%95%B8%E5%BD%99%E7%B8%BD" aria-label="本節連結">#</a></h2><ol>
+<li>開啟要分析的檔案與矩陣，替父技術或子技術設定 Score。</li>
+<li>選 <strong>Navigator → Layer settings…</strong>。</li>
+<li>勾選 <strong>Show parent/sub-technique aggregate scores</strong>。</li>
+<li>選擇 <strong>Average／Maximum／Minimum／Sum</strong>，需要時勾選 <strong>Count enabled unscored family members as zero</strong>。</li>
+<li>儲存後，滑鼠停在父技術可看到原始 <strong>Score</strong> 與衍生 <strong>Aggregate score</strong>。父技術的漸層使用彙總分數；其手動指定色仍優先。</li>
+</ol>
+<p>例如，同一 tactic 中父技術分數為 20，兩個子技術為 40、0，其他子技術未評分，且未啟用零值計數：</p>
+<div aria-label="資料表格，可水平捲動" role="region" tabindex="0" class="table-scroll"><table>
+<thead>
+<tr>
+<th>函數</th>
+<th>計算</th>
+<th align="right">結果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Average</td>
+<td><code>(20+40+0)/3</code></td>
+<td align="right">20</td>
+</tr>
+<tr>
+<td>Maximum</td>
+<td><code>max(20,40,0)</code></td>
+<td align="right">40</td>
+</tr>
+<tr>
+<td>Minimum</td>
+<td><code>min(20,40,0)</code></td>
+<td align="right">0</td>
+</tr>
+<tr>
+<td>Sum</td>
+<td><code>20+40+0</code></td>
+<td align="right">60</td>
+</tr>
+</tbody></table></div>
+<p>真實的 0 會參與計算。缺失值預設省略；啟用零值計數後，未評分但啟用的成員會以 0 參與所有函數，包括最小值。整個家族都未評分時仍維持未知。明確停用的成員不計入；同一技術的不同 tactic 各自計算。範圍是目錄中對應該 tactic 的完整家族，平台／搜尋只限制畫面，不會改變彙總結果。</p>
+<p>原始 Score 與勾選狀態保持不變。設定會保存於圖層的 <code>layout</code> 欄位，隨檔案的領域／版本紀錄保存。加總可能超過既有漸層上限，必要時提高 <strong>Maximum score</strong>，以免多個不同數值都顯示成相同的上限顏色。</p>
+<h2 id="匯出-svg-或彩色-excel-矩陣">匯出 SVG 或彩色 Excel 矩陣<a class="heading-anchor" href="aggregation-and-exports.html#%E5%8C%AF%E5%87%BA-svg-%E6%88%96%E5%BD%A9%E8%89%B2-excel-%E7%9F%A9%E9%99%A3" aria-label="本節連結">#</a></h2><ol>
+<li>在矩陣選擇平台、搜尋條件與是否顯示圖層色彩。需要疊色時勾選 <strong>Show all layers</strong>。</li>
+<li>選 <strong>Navigator → Export matrix SVG…</strong> 或 <strong>Export matrix Excel…</strong>。</li>
+<li>選擇已存在的目的資料夾，例如先建立 <code>examples</code>，再選 <code>examples/matrix.svg</code> 或 <code>examples/matrix.xlsx</code>。</li>
+<li>SVG 可先調整 <strong>Settings</strong> 並使用 <strong>Preview SVG · no file written</strong> 預覽；Excel 維持單圖層匯出視窗。按 <strong>Export SVG／Export XLSX</strong>，等待背景工作完成。</li>
+</ol>
+<p>寫入前會顯示輸出檔案及暫存檔的絕對位址，並依序顯示 <strong>1/4 投影、2/4 繪製、3/4 寫入、4/4 發布</strong>。驗證／寫入失敗或在發布前取消時，既有輸出不會被覆蓋，暫存檔會清除。</p>
+<p>輸入是目前圖層與已驗證目錄的記憶體快照；輸出是 SVG 或 XLSX。預設展開全部符合條件的子技術，包含畫面捲動範圍以外的內容；SVG 也可改成目前展開或不顯示子技術。平台、搜尋、隱藏停用項、色彩顯示與同領域／版本／資料集疊色會反映在輸出中。關閉色彩顯示時，輸出也會呈現中性色。</p>
+<p><strong>SVG</strong> 是可縮放的向量圖，包含技術 ID／名稱、原始與彙總分數、漸層／圖例，並在滑鼠提示中保留註解。子技術以 <code>&gt;</code> 與縮排標示。</p>
+<p><strong>單圖層 Excel</strong> 包含三個工作表：</p>
+<div aria-label="資料表格，可水平捲動" role="region" tabindex="0" class="table-scroll"><table>
+<thead>
+<tr>
+<th>工作表</th>
+<th>內容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Matrix</td>
+<td>各 tactic 的彩色矩陣、分數、註解，並凍結標題列</td>
+</tr>
+<tr>
+<td>Techniques</td>
+<td>技術／父技術 ID、勾選與停用狀態、原始分數、彙總、顏色與註解，可篩選</td>
+</tr>
+<tr>
+<td>Layer Info</td>
+<td>領域、版本、平台、搜尋、公式來源及圖例</td>
+</tr>
+</tbody></table></div>
+<p>名稱與註解以文字保存，開頭為 <code>=</code> 也不會變成 Excel 公式。Excel 單一儲存格上限為 32,767 字元，超長文字會使匯出明確失敗；需要保存完整長篇註解時請使用 JSON。</p>
+<p>SVG／Excel 是展示及分析輸出，不會重新命名檔案或把完整專案狀態標記為已儲存。保存原始分數、註解與跨領域／版本紀錄時，另匯出 Studio JSON；與官方工具交換目前圖層時使用 Navigator Layer JSON。</p>
+<h2 id="svg-進階設定與預覽">SVG 進階設定與預覽<a class="heading-anchor" href="aggregation-and-exports.html#svg-%E9%80%B2%E9%9A%8E%E8%A8%AD%E5%AE%9A%E8%88%87%E9%A0%90%E8%A6%BD" aria-label="本節連結">#</a></h2><p>選 <strong>Navigator → Export matrix SVG…</strong>、指定目的檔案後，在 <strong>Settings</strong> 調整。設定只屬於這次匯出視窗，不會改變圖層儲存資料。</p>
+<div aria-label="資料表格，可水平捲動" role="region" tabindex="0" class="table-scroll"><table>
+<thead>
+<tr>
+<th>設定</th>
+<th>使用方式</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>SVG 主題</td>
+<td>深色（初始預設）或淺色，僅影響本次輸出呈現；切換後請重新預覽</td>
+</tr>
+<tr>
+<td>紙張尺寸</td>
+<td>自訂、Letter、Legal、11×17、18×24、24×36 英吋；預設紙張鎖定寬高</td>
+</tr>
+<tr>
+<td>方向</td>
+<td>預設紙張可選直式／橫式；自訂寬高皆指定時切換會交換兩軸</td>
+</tr>
+<tr>
+<td>Units</td>
+<td>px、cm 或 in；切換單位時保持實際尺寸，以每英吋 96 邏輯像素換算</td>
+</tr>
+<tr>
+<td>Image width／height</td>
+<td>0 為自動；指定尺寸時完整矩陣會縮放至畫布內，不裁切</td>
+</tr>
+<tr>
+<td>Header height</td>
+<td>0 為自動；指定高度時標頭內容會縮放至指定範圍</td>
+</tr>
+<tr>
+<td>Font</td>
+<td>sans-serif、serif、monospace，套用於標頭、圖例及矩陣</td>
+</tr>
+<tr>
+<td>Header sections</td>
+<td>分別顯示／隱藏整個標頭、名稱與說明、領域與版本、平台與搜尋文字</td>
+</tr>
+<tr>
+<td>Cell border</td>
+<td>六位十六進位色碼，例如 <code>#808080</code></td>
+</tr>
+<tr>
+<td>Sub-techniques</td>
+<td>全部符合條件的子技術、開啟匯出視窗時已展開的子技術、或不顯示</td>
+</tr>
+<tr>
+<td>Legend</td>
+<td>顯示／隱藏；固定於標頭或獨立定位，以目前單位指定 X／Y／寬／高；高度 0 為自動</td>
+</tr>
+</tbody></table></div>
+<p>目前展開模式會逐父技術／tactic 擷取 Flat／Side／Mini 的實際狀態。矩陣仍在建立時，視窗會先等待，完成後才啟用預覽／匯出。擷取後的展開狀態固定；平台、搜尋、隱藏項目仍依該次匯出篩選處理。</p>
+<p>獨立定位的圖例可以刻意覆蓋矩陣，且隱藏標頭時仍保留；圖例必須放在畫布內，超出會要求調整位置、尺寸或畫布。固定於標頭的圖例隨標頭一起隱藏。圖例標籤會換行，指定圖例高度時會縮放內容。較小的圖片／標頭／圖例尺寸會讓文字縮小，不會自行刪掉資料列。數值上限為 100000 邏輯像素，圖片至少寬 80 像素，標頭下方須保留至少 40 像素的矩陣空間。</p>
+<p>範例：選 <strong>cm</strong>，寬 <code>20</code>、高 <code>25</code>、標頭高 <code>2</code>、字型 <strong>serif</strong>、框線 <code>#808080</code>，子技術選 <strong>Show children expanded when export opened</strong>，再預覽。矩陣很大時，增加寬度或縮小平台／搜尋範圍以保持可讀性。Qt 預覽會配合視窗縮放；輸出 SVG 保留指定的實際單位及尺寸。</p>
+<p><strong>Preview SVG · no file written</strong> 會先顯示記憶體輸入／輸出，再依序顯示 <strong>1/3 驗證 → 2/3 繪製 → 3/3 完成</strong>，於 <strong>Preview</strong> 分頁呈現向量圖。錯誤數值可修正後重試。真正匯出時才顯示最終／暫存檔的絕對位址及四階段發布進度。處理中設定暫時鎖定；取消或失敗保留原本輸出。完成後修改設定即可再次匯出至指定位置。</p>
+<p>SVG 明暗與程式介面主題獨立。不透明手動色／Tactic 色維持原值；透明分數／彙總及疊色會對所選主題底色重新合成。圖例文字／面板及停用格子隨主題變化，淺色增加可讀指示襯線及色票邊框；進階 Mini 匯出保留選取框。主題不寫入圖層 JSON，也不影響 Excel；重開匯出視窗預設深色。詳見<a href="svg-themes.html">SVG 主題範例與驗證</a>。</p>
+<p><a href="svg-paper.html">紙張尺寸與方向手冊</a>說明五種預設、實際單位換算、自訂草稿還原及上限。改紙張／方向保留標頭與圖例尺寸；獨立圖例超界時須明確調整。</p>
+<h2 id="所有開啟圖層匯出至同一份-excel">所有開啟圖層匯出至同一份 Excel<a class="heading-anchor" href="aggregation-and-exports.html#%E6%89%80%E6%9C%89%E9%96%8B%E5%95%9F%E5%9C%96%E5%B1%A4%E5%8C%AF%E5%87%BA%E8%87%B3%E5%90%8C%E4%B8%80%E4%BB%BD-excel" aria-label="本節連結">#</a></h2><ol>
+<li>開啟要輸出的文件，分別設定各層已保存的平台篩選、顏色、分數與啟用狀態。</li>
+<li>選 <strong>Navigator → Export all open layers to Excel…</strong>，指定例如既有 <code>examples</code> 資料夾內的 <code>all-layers.xlsx</code>。</li>
+<li>核對完整圖層清單與領域／版本欄，再按 <strong>Export all layers XLSX</strong>。</li>
+<li>等待 <strong>1/4 驗證 → 2/4 逐層投影與繪製 → 3/4 寫入整份活頁簿 → 4/4 原子發布</strong>。運作前顯示輸出與暫存檔絕對位址，輸入是不可變的記憶體快照。</li>
+</ol>
+<p>結果<strong>每份開啟文件各佔一個工作表</strong>，依頁籤順序，最多 50 份。Enterprise／Mobile／ICS、相容版本及自訂資料集可混合，各自獨立。每張表使用該層已保存的平台篩選、排序、隱藏停用設定與顏色，展開全部符合條件的子技術；不套用目前頁面的暫時搜尋、隱藏色彩或疊色開關。未勾選 TTP 仍會匯出該層矩陣；明確選空的平台篩選會保留一張標示無符合項目的表。</p>
+<p>第 1 列保留完整名稱，第 2 列顯示領域／版本／平台，第 3 列為 tactic 標頭。彩色格子包含技術 ID／名稱及分數；Excel 註解保留勾選／啟用狀態、註記、Links 與 Metadata。矩陣下方列出說明、圖層 Metadata／Links／公式 JSON 與圖例。凍結位置為 A4。此模式不另建 Techniques／Layer Info；單圖層 Excel 才有原本的三張表。</p>
+<p>工作表名稱會替換 Excel 不接受的字元、截斷至 31 個 UTF-16 單位，大小寫相同的重名加上如 <code>Assessment (2)</code> 的後綴，保留字 <code>History</code> 也會改名；第 1 列仍保存原名。以 <code>=</code> 開頭的內容仍是文字。無效控制字元、超過 32,767 字元的文字／註解、不支援的 v4 以前歷史圖層或後續任一圖層失敗，會明確中止整份活頁簿。取消／寫入失敗保留原檔並清除暫存檔。來源、選取與儲存標記不變；完整可編輯狀態仍請保存 Studio JSON。</p>
+<h2 id="範例檔案與驗證">範例檔案與驗證<a class="heading-anchor" href="aggregation-and-exports.html#%E7%AF%84%E4%BE%8B%E6%AA%94%E6%A1%88%E8%88%87%E9%A9%97%E8%AD%89" aria-label="本節連結">#</a></h2><ul>
+<li><a href="../assets/source/artifacts/layer-analysis-example.svg">SVG 範例</a></li>
+<li><a download="" href="../assets/source/artifacts/layer-analysis-example.xlsx">彩色 Excel 範例</a></li>
+<li><a href="../assets/source/artifacts/layer-analysis-svg-preview.png">SVG 預覽</a></li>
+<li><a href="../assets/source/artifacts/export-options/advanced.svg">進階 SVG 範例</a></li>
+<li><a download="" href="../assets/source/artifacts/export-options/all-layers.xlsx">所有圖層 Excel 範例</a></li>
+<li><a href="../en/aggregation-and-exports.html">英文手冊</a></li>
+</ul>
+<p>專案根目錄的 <code>audit_layer_analysis.py</code> 驗證既有運算、SVG 像素及單圖層 Excel。<code>audit_export_options.py</code> 驗證進階選項／單位、實際向量像素、三種子技術模式、工作表命名／領域隔離、空篩選、失敗／取消，以及原生預覽與匯出操作；七階段開始前會顯示輸入／輸出絕對位址，範例、截圖與 <code>audit.json</code> 位於 <code>artifacts/export-options</code>。設定 <code>QT_QPA_PLATFORM=offscreen</code> 後執行 <code>.venv\Scripts\python.exe -B audit_export_options.py</code>；環境設定見專案 README。</p>
+</article><nav class="page-pagination" aria-label="文件翻頁"><a href="json-annotation-export.html"><small>← 上一篇</small>JSON 註記匯出</a><a href="svg-paper.html"><small>下一篇 →</small>SVG 紙張與方向</a></nav>
+  <footer class="page-footer"><div class="source-caption"><strong>來源與發布版本</strong><p>manual/aggregation_and_exports+_zh.md</p><p>commit <code>b04e4ac796d8</code> · 含本機未提交更新 · 2026-10-28</p><a href="../source-manifest.json" download>檢視來源與 SHA-256 清單 ↓</a></div><p>免費、開源的 TTP 威脅研究工作區。獨立社群專案，未獲 MITRE 背書。 <a href="../assets/source/LICENSE">MIT License</a></p></footer></main>
+  <aside class="page-toc" aria-label="本頁章節"><p>本頁章節</p><nav><a class="toc-level-2" href="#%E8%A8%AD%E5%AE%9A%E7%88%B6%E5%AD%90%E6%8A%80%E8%A1%93%E5%88%86%E6%95%B8%E5%BD%99%E7%B8%BD">設定父／子技術分數彙總</a><a class="toc-level-2" href="#%E5%8C%AF%E5%87%BA-svg-%E6%88%96%E5%BD%A9%E8%89%B2-excel-%E7%9F%A9%E9%99%A3">匯出 SVG 或彩色 Excel 矩陣</a><a class="toc-level-2" href="#svg-%E9%80%B2%E9%9A%8E%E8%A8%AD%E5%AE%9A%E8%88%87%E9%A0%90%E8%A6%BD">SVG 進階設定與預覽</a><a class="toc-level-2" href="#%E6%89%80%E6%9C%89%E9%96%8B%E5%95%9F%E5%9C%96%E5%B1%A4%E5%8C%AF%E5%87%BA%E8%87%B3%E5%90%8C%E4%B8%80%E4%BB%BD-excel">所有開啟圖層匯出至同一份 Excel</a><a class="toc-level-2" href="#%E7%AF%84%E4%BE%8B%E6%AA%94%E6%A1%88%E8%88%87%E9%A9%97%E8%AD%89">範例檔案與驗證</a></nav><a class="toc-source" href="https://github.com/NicoaTheSix/MITREATTACK_SIMULATOR" target="_blank" rel="noopener noreferrer">原始專案 ↗</a></aside></div>
+  <dialog id="search-dialog" aria-labelledby="search-title"><div class="search-heading"><h2 id="search-title">搜尋 Fusion Studio 文件</h2><button id="close-search" type="button" aria-label="關閉搜尋">×</button></div><label class="search-input-label" for="docs-search">輸入主題、選單或關鍵字</label><input id="docs-search" type="search" autocomplete="off" placeholder="試試：儲存、CAR、SVG、fusionstudio"><p id="search-status" role="status" aria-live="polite">輸入文字搜尋目前語言的完整文件。</p><div id="search-results"></div></dialog><div id="toast" role="status" aria-live="polite"></div></body></html>

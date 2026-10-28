@@ -15,7 +15,8 @@ try {
   const files = new Set([...html.matchAll(/(?:src|href)="\.\/([^"#?]+)"/g)].map(match => match[1]));
   for (const relative of files) {
     const file = path.join(root, relative);
-    assert((await stat(file)).isFile(), `引用檔案不存在：${file}`);
+    const info=await stat(file);
+    assert(info.isFile() || info.isDirectory() && (await stat(path.join(file,'index.html'))).isFile(), `引用檔案不存在：${file}`);
     if (relative.endsWith('.png')) {
       const data = await readFile(file);
       assert.equal(data.subarray(0,8).toString('hex'), '89504e470d0a1a0a', `不是有效 PNG：${file}`);

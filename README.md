@@ -107,6 +107,21 @@ node .\prepare-social-assets.mjs 'C:\素材\linkedin.png' 'C:\素材\github.png'
 - 五個寄信入口的 `mailto:` 收件地址及主旨已確認；未實際寄出郵件。
 - 瀏覽器檢查時未發現 error 或 warning。
 
+## Fusion Studio 技術文件專區
+
+網站入口為 `./fusion-studio/`，從首頁導覽及 Fusion Studio 作品卡可進入。操作手冊以來源專案 `manual/` 為唯一主要維護位置，本站提供可重建的雙語 HTML 發布版本，不移動或修改來源手冊。
+
+根目錄新增程式流程：
+
+1. `npm ci` 依 `package-lock.json` 安裝固定的 Markdown 轉換／HTML 清理／文件驗證依賴（僅建置時使用，訪客無須安裝）。
+2. `node .\build-fusion-docs.mjs --source 'D:\MITREATTACK_SIMULATOR'` 先顯示絕對來源與輸出路徑，再依階段盤點手冊、記錄來源 commit 與未提交狀態、收集必要公開素材、轉換連結與雙語頁面、建立搜尋及來源清單。只讀來源，輸出至本 repo 的 `fusion-studio/`。
+3. `node .\check-fusion-docs.mjs` 顯示絕對輸入與報告輸出，檢查完整指南、頁面及錨點、圖片／下載、語言對應及搜尋索引，產生 `fusion-studio/validation-report.json`。
+4. `serve.mjs` 除既有首頁檔案外，僅允許提供 `fusion-studio/` 中的公開 HTML/CSS/JS/JSON 與選定素材，排除來源工具及隱藏檔。瀏覽 `http://127.0.0.1:4173/MyPortfolio/fusion-studio/` 檢查與 GitHub Pages 相同的子路徑。
+
+網站介面、產物／來源分離、影片、搜尋、連結處理與維護細節見 [文件網站 README](fusion-studio/README.md)。首次安裝建置工具需要 Node.js 20 以上；原有靜態首頁及本機預覽不需額外建置。
+
+HTTP 驗證可執行 `node .\check-fusion-docs.mjs --url 'http://127.0.0.1:4173/MyPortfolio/fusion-studio/'`，在靜態驗證後逐批檢查所有頁面與素材的 HTTP 內容與本次產物一致、影片 Range/MIME 正確，以及本機伺服器不提供 Git 設定與建置工具。每批顯示完成數，結果寫入同一驗證報告。
+
 ## 部署責任
 
 此專案提供網站原始碼與本機預覽；GitHub Pages 啟用、發布來源及網域設定由擁有者自行處理。本程式不會修改 GitHub Pages 設定，也不包含自動部署工作流程。

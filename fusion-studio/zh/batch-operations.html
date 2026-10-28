@@ -1,0 +1,73 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f6f5f0"><meta name="description" content="獨立狀態與批次註記 — Fusion Studio documentation. A free, open-source workspace for TTP-driven threat research."><title>獨立狀態與批次註記 | Fusion Studio Docs</title><link rel="icon" href="../assets/source/assets/fusion-studio-icon-monochrome-v3.png"><link rel="stylesheet" href="../docs.css"><link rel="alternate" hreflang="en" href="../en/batch-operations.html"><script defer src="../docs.js" data-search-index="../search-index.json"></script></head><body data-language="zh" data-page="batch-operations">
+  <a class="skip-link" href="#content">跳至文件內容</a><header class="docs-header"><a class="docs-brand" href="../index.html"><img src="../assets/source/assets/fusion-studio-icon-monochrome-v3.png" alt="" width="34" height="34"><span>Fusion Studio <small>DOCUMENTATION</small></span></a><div class="header-actions"><button id="open-search" type="button" aria-haspopup="dialog"><span aria-hidden="true">⌕</span> 搜尋文件 <kbd>Ctrl K</kbd></button><a class="language-switch" href="../en/batch-operations.html" hreflang="en" lang="en">English</a><a class="portfolio-link" href="../../index.html#works">Nicoa ↗</a></div></header>
+  <div class="mobile-toolbar"><button id="menu-button" type="button" aria-controls="docs-sidebar" aria-expanded="false">☰ 文件目錄</button><span>獨立狀態與批次註記</span></div>
+  <div class="docs-layout"><aside id="docs-sidebar" class="docs-sidebar" aria-label="文件導覽"><div class="sidebar-label">NICOA / OPEN SOURCE</div><nav><a class="sidebar-home " href="../index.html" >文件首頁</a><section class="nav-group"><h2>開始使用</h2><a href="quick-start.html" >快速開始</a><a href="first-research.html" >第一份研究文件</a><a href="installation.html" >安裝與啟動</a><a href="in-app-manual.html" >操作總覽</a><a href="in-app-index.html" >程式內指南索引</a><a href="guide-index.html" >全部指南對照表</a></section><section class="nav-group"><h2>工作區與選取</h2><a href="workspace-layout.html" >工作區、頁籤與側欄</a><a href="selection-and-search.html" >選取與搜尋</a><a href="detection-interaction.html" >偵測搜尋與來源複製</a><a href="source-relationship-selection.html" >來源關聯與批次選取</a><a href="source-hover-preview.html" >來源懸停預覽</a><a href="visibility-expansion-presets.html" >可見選取與展開</a></section><section class="nav-group"><h2>註記、保存與復原</h2><a href="batch-operations.html" aria-current="page" class="current">獨立狀態與批次註記</a><a href="studio-files.html" >儲存與工作階段復原</a></section><section class="nav-group"><h2>矩陣與 Navigator</h2><a href="matrix-display.html" >矩陣顯示與註記提示</a><a href="navigator-parity-controls.html" >Navigator 顯示與操作</a><a href="navigator-bundle-import.html" >多圖層 JSON 匯入</a><a href="advanced-navigator.html" >Navigator 進階操作</a><a href="layer-score-formulas.html" >圖層分數公式</a></section><section class="nav-group"><h2>匯出與交換</h2><a href="json-annotation-export.html" >JSON 註記匯出</a><a href="aggregation-and-exports.html" >分數彙總與矩陣匯出</a><a href="svg-paper.html" >SVG 紙張與方向</a><a href="svg-themes.html" >SVG 淺色與深色主題</a></section><section class="nav-group"><h2>ATLAS 與 CAR 參考</h2><a href="car-integration.html" >CAR、資料模型與感測器</a></section><section class="nav-group"><h2>版本遷移</h2><a href="upgrade-review.html" >升級逐項審核</a><a href="upgrade-content.html" >升級內容並排比較</a><a href="upgrade-mapping.html" >Tactic 搬移與衝突</a><a href="upgrade-summary.html" >升級摘要與略過理由</a></section><section class="nav-group"><h2>自訂來源與範例</h2><a href="custom-domains.html" >自訂 Domain 與 ID</a><a href="custom-data-url-import.html" >解析 customDataURL</a><a href="examples.html" >可載入範例</a><a href="project-readme.html" >產品 README 與完整安裝</a><a href="positioning.html" >產品定位與能力邊界</a><a href="car-provenance.html" >CAR 出處與授權</a></section></nav><div class="sidebar-bottom"><span>27 組雙語指南</span><a href="https://github.com/NicoaTheSix/MITREATTACK_SIMULATOR" target="_blank" rel="noopener noreferrer">GitHub ↗</a></div></aside>
+  <main id="content" class="docs-main" tabindex="-1"><div class="breadcrumb"><a href="../index.html">Docs</a><span>/</span><span>獨立狀態與批次註記</span></div><details class="mobile-toc"><summary>本頁章節</summary><nav><a class="toc-level-2" href="#%E7%B4%8D%E5%85%A5%E8%BC%B8%E5%87%BA%E8%88%87%E5%95%9F%E7%94%A8%E7%8B%80%E6%85%8B">納入輸出與啟用狀態</a><a class="toc-level-2" href="#%E6%89%B9%E6%AC%A1%E9%81%B8%E5%8F%96">批次選取</a><a class="toc-level-2" href="#%E6%89%B9%E6%AC%A1%E7%B7%A8%E8%BC%AF">批次編輯</a><a class="toc-level-2" href="#%E8%99%95%E7%90%86%E9%80%B2%E5%BA%A6%E8%88%87%E4%BF%9D%E5%AD%98">處理進度與保存</a></nav></details><article class="prose"><h1 id="獨立啟用狀態與批次操作手冊">獨立啟用狀態與批次操作手冊<a class="heading-anchor" href="batch-operations.html#%E7%8D%A8%E7%AB%8B%E5%95%9F%E7%94%A8%E7%8B%80%E6%85%8B%E8%88%87%E6%89%B9%E6%AC%A1%E6%93%8D%E4%BD%9C%E6%89%8B%E5%86%8A" aria-label="本節連結">#</a></h1><h2 id="納入輸出與啟用狀態">納入輸出與啟用狀態<a class="heading-anchor" href="batch-operations.html#%E7%B4%8D%E5%85%A5%E8%BC%B8%E5%87%BA%E8%88%87%E5%95%9F%E7%94%A8%E7%8B%80%E6%85%8B" aria-label="本節連結">#</a></h2><p>勾選框代表「將此 TTP 納入選取清單匯出」；Enabled 控制圖層顯示、分數彙總／公式參與，以及 Hide disabled 啟用時的可見性。兩者獨立：已勾選但停用的 TTP 仍會匯出；未勾選但啟用的 TTP 可以保留並顯示圖層註解。改變勾選不會重寫啟用狀態或自動產生顏色。</p>
+<p>矩陣 <strong>State… → Enable selected／Disable selected／Toggle selected states</strong>、Selected Techniques 的狀態選單，以及 Navigator 的 Enable／Disable 動作，作用於已納入 TTP 的所有有效範圍。技術右鍵也提供整個技術或 <strong>Enable／Disable in this tactic</strong>，未勾選的技術也可操作。單筆註解編輯器的 Include 與 Enabled 分開，Enabled 只修改目前選擇的註解範圍；特定 Tactic 列優先於全域列。停用／重新啟用會保留顏色、分數、註解、Links 與 Metadata。所有圖層檢視中，其他啟用圖層仍可能提供顏色；狀態操作只修改目前圖層。</p>
+<p>範例：勾選 T1053.005、加入註解與分數後停用，勾選不會取消、資料也不會刪除。Studio JSON／CSV 的選取列包含全域 <code>enabled</code> 與依 Tactic 排序的 <code>tactic_enabled</code>；Navigator JSON 保存實際啟用旗標與程式的選取 Metadata，重新匯入可分別還原「停用」與「已納入」。Navigator 圖層包含已自訂或已選取項目；Studio／CSV 的選取清單只列已納入 TTP。</p>
+<h2 id="批次選取">批次選取<a class="heading-anchor" href="batch-operations.html#%E6%89%B9%E6%AC%A1%E9%81%B8%E5%8F%96" aria-label="本節連結">#</a></h2><p>打開矩陣，選擇 <strong>Selection scope</strong>：</p>
+<ul>
+<li><strong>Platform scope · includes hidden</strong>：目前平台聯集中的技術，包含收合的子技術及被隱藏的停用技術，忽略搜尋文字。</li>
+<li><strong>Search matches · excludes hidden</strong>：直接比對已開啟的 TTP 搜尋欄位，不分大小寫、可輸入空格，排除隱藏的停用技術；不會自動勾選僅供祖先脈絡的父技術。</li>
+<li><strong>Visible / expanded cells</strong>：篩選後顯示的矩陣格，包含已展開子技術；不是只計算捲動視窗內的像素。</li>
+</ul>
+<p><strong>Selection behavior… → Select visible techniques only</strong> 會在父子／跨 Tactic 連動後限制所有範圍，包含來源 Add／Remove。開啟後，即使選平台範圍，也不會選到收合或隱藏的格子。預設關閉，切換時不清除既有勾選。詳見<a href="visibility-expansion-presets.html">可見選取與展開範例</a>。</p>
+<p>可再限定一個 Tactic。純分組用途、未映射到範圍的父技術不會被勾選。按 <strong>Select…</strong>：</p>
+<ul>
+<li>Select all in scope：加入此範圍，保留範圍外選取。</li>
+<li>Select only this scope：用此範圍取代整份選取清單。</li>
+<li>Deselect scope：只取消此範圍。</li>
+<li>Invert scope：只反轉此範圍的勾選。</li>
+<li>Select annotated only／Select unannotated only：用範圍內已註解／未註解的子集合取代整份選取清單。</li>
+</ul>
+<p>「已註解」指非空註解／顏色／Links、有分數（包括零）、使用者 Metadata／分隔線，或停用狀態。程式維護的選取 Metadata 與展開偏好不計入。限定單一 Tactic 時檢查該範圍的有效註解；所有 Tactic 時任一有效範圍有註解即符合。Tactic 標題右鍵也可加入、取消或反轉該平台／Tactic 範圍。選取遵守跨 Tactic／父子連動偏好；關閉跨 Tactic 同步時可逐格選取，不改變註解或啟用狀態。詳見<a href="selection-and-search.html">選取與搜尋手冊</a>。</p>
+<h2 id="批次編輯">批次編輯<a class="heading-anchor" href="batch-operations.html#%E6%89%B9%E6%AC%A1%E7%B7%A8%E8%BC%AF" aria-label="本節連結">#</a></h2><p>使用矩陣 <strong>Batch edit selected…</strong>、Selected Techniques 的 <strong>Batch edit included TTPs…</strong> 或 <strong>Navigator → Batch edit selected TTPs…</strong>。目標是目前文件全部已納入 TTP，包括矩陣篩選外的項目。開啟時每個欄位都預設 <strong>Keep unchanged</strong>。</p>
+<p>有部分選取時預設為 <strong>Selected tactic occurrences only</strong>；範圍也可選 <strong>Entire technique · all mapped scopes</strong>，或顯示受影響數量的單一 Tactic；不映射到該 Tactic 的 TTP 會略過。各欄位獨立選擇設定或清除：</p>
+<p>目標清單會列出確切技術 ID／名稱；滑鼠停留可先檢查目前全域或指定 Tactic 的值。切換範圍時，受影響與略過數量也會更新。</p>
+<div aria-label="資料表格，可水平捲動" role="region" tabindex="0" class="table-scroll"><table>
+<thead>
+<tr>
+<th>欄位</th>
+<th>Set / replace</th>
+<th>Clear / reset</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Enabled state</td>
+<td>啟用、停用、逐範圍反轉</td>
+<td>恢復預設啟用</td>
+</tr>
+<tr>
+<td>Comment</td>
+<td>文字，可包含換行</td>
+<td>移除註解</td>
+</tr>
+<tr>
+<td>Score</td>
+<td>有限數字，零有效</td>
+<td>恢復未評分</td>
+</tr>
+<tr>
+<td>Color</td>
+<td><code>#RRGGBB</code></td>
+<td>移除明確顏色，分數漸層可能仍存在</td>
+</tr>
+<tr>
+<td>Links</td>
+<td>取代標籤／HTTP(S) 網址／分隔線清單</td>
+<td>移除使用者連結</td>
+</tr>
+<tr>
+<td>Metadata</td>
+<td>取代文字名稱／值／分隔線清單</td>
+<td>移除使用者資料，保留程式的選取 Metadata</td>
+</tr>
+</tbody></table></div>
+<p>範例：選取 20 個 TTP，將 Comment 設為 <code>Validated in lab</code>、Score 設為 <code>0</code>，其他保持 Keep，套用只修改這兩欄。再選單一 Tactic 編輯，只影響映射到該 Tactic 的項目。建立新的 Tactic 列時會先複製目前全域註解，保留未修改欄位；既有範圍覆寫保持獨立。</p>
+<p><strong>Clear all selected annotations…</strong> 會開啟六個欄位都選 Clear 的草稿；確認目標與範圍後 Apply。它重設啟用狀態、移除已知註解欄位，保留勾選、排版偏好與未知擴充欄位。若要保留顏色／分數，先把相應欄位改回 Keep。無法映射的歷史註解範圍仍會保留。</p>
+<h2 id="處理進度與保存">處理進度與保存<a class="heading-anchor" href="batch-operations.html#%E8%99%95%E7%90%86%E9%80%B2%E5%BA%A6%E8%88%87%E4%BF%9D%E5%AD%98" aria-label="本節連結">#</a></h2><p>執行前 Output 顯示輸入／輸出都在記憶體，不寫檔；進度依序為驗證、逐項修改草稿、完整驗證。批次編輯使用背景工作，成功後才一次套用；無效分數／顏色／URL、取消或中斷都不改變原文件。狀態與選取操作也會顯示階段。Save／Export 會明確寫入文件，自動工作階段檢查點則可另行保存記憶體草稿；每次寫入都先顯示輸出與暫存檔絕對路徑。</p>
+<p>修改只屬於目前文件／領域／版本／資料集，複製圖層及記憶體領域／版本封存會保留獨立狀態。Save／Save As 保存完整註解與封存，Open Studio JSON 與工作階段復原可還原這些內容，詳見<a href="studio-files.html">文件操作手冊</a>。啟動與驗證命令見 <a href="project-readme.html">README</a>。</p>
+</article><nav class="page-pagination" aria-label="文件翻頁"><a href="visibility-expansion-presets.html"><small>← 上一篇</small>可見選取與展開</a><a href="studio-files.html"><small>下一篇 →</small>儲存與工作階段復原</a></nav>
+  <footer class="page-footer"><div class="source-caption"><strong>來源與發布版本</strong><p>manual/batch_operations+_zh.md</p><p>commit <code>b04e4ac796d8</code> · 含本機未提交更新 · 2026-10-28</p><a href="../source-manifest.json" download>檢視來源與 SHA-256 清單 ↓</a></div><p>免費、開源的 TTP 威脅研究工作區。獨立社群專案，未獲 MITRE 背書。 <a href="../assets/source/LICENSE">MIT License</a></p></footer></main>
+  <aside class="page-toc" aria-label="本頁章節"><p>本頁章節</p><nav><a class="toc-level-2" href="#%E7%B4%8D%E5%85%A5%E8%BC%B8%E5%87%BA%E8%88%87%E5%95%9F%E7%94%A8%E7%8B%80%E6%85%8B">納入輸出與啟用狀態</a><a class="toc-level-2" href="#%E6%89%B9%E6%AC%A1%E9%81%B8%E5%8F%96">批次選取</a><a class="toc-level-2" href="#%E6%89%B9%E6%AC%A1%E7%B7%A8%E8%BC%AF">批次編輯</a><a class="toc-level-2" href="#%E8%99%95%E7%90%86%E9%80%B2%E5%BA%A6%E8%88%87%E4%BF%9D%E5%AD%98">處理進度與保存</a></nav><a class="toc-source" href="https://github.com/NicoaTheSix/MITREATTACK_SIMULATOR" target="_blank" rel="noopener noreferrer">原始專案 ↗</a></aside></div>
+  <dialog id="search-dialog" aria-labelledby="search-title"><div class="search-heading"><h2 id="search-title">搜尋 Fusion Studio 文件</h2><button id="close-search" type="button" aria-label="關閉搜尋">×</button></div><label class="search-input-label" for="docs-search">輸入主題、選單或關鍵字</label><input id="docs-search" type="search" autocomplete="off" placeholder="試試：儲存、CAR、SVG、fusionstudio"><p id="search-status" role="status" aria-live="polite">輸入文字搜尋目前語言的完整文件。</p><div id="search-results"></div></dialog><div id="toast" role="status" aria-live="polite"></div></body></html>

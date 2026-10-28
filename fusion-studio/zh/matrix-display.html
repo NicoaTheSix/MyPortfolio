@@ -1,0 +1,81 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f6f5f0"><meta name="description" content="矩陣顯示與註記提示 — Fusion Studio documentation. A free, open-source workspace for TTP-driven threat research."><title>矩陣顯示與註記提示 | Fusion Studio Docs</title><link rel="icon" href="../assets/source/assets/fusion-studio-icon-monochrome-v3.png"><link rel="stylesheet" href="../docs.css"><link rel="alternate" hreflang="en" href="../en/matrix-display.html"><script defer src="../docs.js" data-search-index="../search-index.json"></script></head><body data-language="zh" data-page="matrix-display">
+  <a class="skip-link" href="#content">跳至文件內容</a><header class="docs-header"><a class="docs-brand" href="../index.html"><img src="../assets/source/assets/fusion-studio-icon-monochrome-v3.png" alt="" width="34" height="34"><span>Fusion Studio <small>DOCUMENTATION</small></span></a><div class="header-actions"><button id="open-search" type="button" aria-haspopup="dialog"><span aria-hidden="true">⌕</span> 搜尋文件 <kbd>Ctrl K</kbd></button><a class="language-switch" href="../en/matrix-display.html" hreflang="en" lang="en">English</a><a class="portfolio-link" href="../../index.html#works">Nicoa ↗</a></div></header>
+  <div class="mobile-toolbar"><button id="menu-button" type="button" aria-controls="docs-sidebar" aria-expanded="false">☰ 文件目錄</button><span>矩陣顯示與註記提示</span></div>
+  <div class="docs-layout"><aside id="docs-sidebar" class="docs-sidebar" aria-label="文件導覽"><div class="sidebar-label">NICOA / OPEN SOURCE</div><nav><a class="sidebar-home " href="../index.html" >文件首頁</a><section class="nav-group"><h2>開始使用</h2><a href="quick-start.html" >快速開始</a><a href="first-research.html" >第一份研究文件</a><a href="installation.html" >安裝與啟動</a><a href="in-app-manual.html" >操作總覽</a><a href="in-app-index.html" >程式內指南索引</a><a href="guide-index.html" >全部指南對照表</a></section><section class="nav-group"><h2>工作區與選取</h2><a href="workspace-layout.html" >工作區、頁籤與側欄</a><a href="selection-and-search.html" >選取與搜尋</a><a href="detection-interaction.html" >偵測搜尋與來源複製</a><a href="source-relationship-selection.html" >來源關聯與批次選取</a><a href="source-hover-preview.html" >來源懸停預覽</a><a href="visibility-expansion-presets.html" >可見選取與展開</a></section><section class="nav-group"><h2>註記、保存與復原</h2><a href="batch-operations.html" >獨立狀態與批次註記</a><a href="studio-files.html" >儲存與工作階段復原</a></section><section class="nav-group"><h2>矩陣與 Navigator</h2><a href="matrix-display.html" aria-current="page" class="current">矩陣顯示與註記提示</a><a href="navigator-parity-controls.html" >Navigator 顯示與操作</a><a href="navigator-bundle-import.html" >多圖層 JSON 匯入</a><a href="advanced-navigator.html" >Navigator 進階操作</a><a href="layer-score-formulas.html" >圖層分數公式</a></section><section class="nav-group"><h2>匯出與交換</h2><a href="json-annotation-export.html" >JSON 註記匯出</a><a href="aggregation-and-exports.html" >分數彙總與矩陣匯出</a><a href="svg-paper.html" >SVG 紙張與方向</a><a href="svg-themes.html" >SVG 淺色與深色主題</a></section><section class="nav-group"><h2>ATLAS 與 CAR 參考</h2><a href="car-integration.html" >CAR、資料模型與感測器</a></section><section class="nav-group"><h2>版本遷移</h2><a href="upgrade-review.html" >升級逐項審核</a><a href="upgrade-content.html" >升級內容並排比較</a><a href="upgrade-mapping.html" >Tactic 搬移與衝突</a><a href="upgrade-summary.html" >升級摘要與略過理由</a></section><section class="nav-group"><h2>自訂來源與範例</h2><a href="custom-domains.html" >自訂 Domain 與 ID</a><a href="custom-data-url-import.html" >解析 customDataURL</a><a href="examples.html" >可載入範例</a><a href="project-readme.html" >產品 README 與完整安裝</a><a href="positioning.html" >產品定位與能力邊界</a><a href="car-provenance.html" >CAR 出處與授權</a></section></nav><div class="sidebar-bottom"><span>27 組雙語指南</span><a href="https://github.com/NicoaTheSix/MITREATTACK_SIMULATOR" target="_blank" rel="noopener noreferrer">GitHub ↗</a></div></aside>
+  <main id="content" class="docs-main" tabindex="-1"><div class="breadcrumb"><a href="../index.html">Docs</a><span>/</span><span>矩陣顯示與註記提示</span></div><details class="mobile-toc"><summary>本頁章節</summary><nav><a class="toc-level-2" href="#%E5%90%8D%E7%A8%B1%E8%88%87-id-%E7%8D%A8%E7%AB%8B%E9%96%8B%E9%97%9C">名稱與 ID 獨立開關</a><a class="toc-level-2" href="#tactic-%E6%A8%99%E9%A0%AD%E8%83%8C%E6%99%AF%E8%89%B2">Tactic 標頭背景色</a><a class="toc-level-2" href="#expand-annotated">Expand annotated</a><a class="toc-level-2" href="#%E8%A8%BB%E8%A8%98%E8%A6%96%E8%A6%BA%E6%8F%90%E7%A4%BA">註記視覺提示</a><a class="toc-level-2" href="#%E5%8C%AF%E5%87%BA%E8%88%87%E9%81%8B%E4%BD%9C%E6%B5%81%E7%A8%8B">匯出與運作流程</a><a class="toc-level-2" href="#%E9%A9%97%E8%AD%89">驗證</a></nav></details><article class="prose"><h1 id="矩陣顯示與註記提示">矩陣顯示與註記提示<a class="heading-anchor" href="matrix-display.html#%E7%9F%A9%E9%99%A3%E9%A1%AF%E7%A4%BA%E8%88%87%E8%A8%BB%E8%A8%98%E6%8F%90%E7%A4%BA" aria-label="本節連結">#</a></h1><p>啟動方式見<a href="project-readme.html">專案 README</a>。本功能適用於 Enterprise、Mobile、ICS 與自訂 ATT&amp;CK 資料集中的相容 Navigator 圖層。</p>
+<h2 id="名稱與-id-獨立開關">名稱與 ID 獨立開關<a class="heading-anchor" href="matrix-display.html#%E5%90%8D%E7%A8%B1%E8%88%87-id-%E7%8D%A8%E7%AB%8B%E9%96%8B%E9%97%9C" aria-label="本節連結">#</a></h2><ol>
+<li>開啟文件，從 TTP 側邊欄開啟矩陣。</li>
+<li>分別切換 <strong>Show names</strong> 與 <strong>Show IDs</strong>。預設顯示名稱，不顯示 ID。</li>
+<li>兩者都開啟時顯示 ID 與名稱；都關閉時，技術格子與 tactic 標頭不顯示名稱／ID，勾選、顏色與滑鼠提示仍可使用。</li>
+<li>切到 <strong>Mini</strong> 時，暫時隱藏文字與自訂 tactic 背景，並停用工具列開關；回到 Flat／Side 就恢復原設定。</li>
+</ol>
+<p>這是顯示選項，不改變選取、註記或分數。完整 ID／名稱仍保留在提示文字、詳細資料及選取 TTP 的 JSON／CSV。名稱與 ID 開關也會套用到 tactic 標頭。</p>
+<h2 id="tactic-標頭背景色">Tactic 標頭背景色<a class="heading-anchor" href="matrix-display.html#tactic-%E6%A8%99%E9%A0%AD%E8%83%8C%E6%99%AF%E8%89%B2" aria-label="本節連結">#</a></h2><p>勾選 <strong>Tactic background</strong>，再用 <strong>Header color…</strong> 選顏色。選色會一併啟用背景顯示，文字會自動調整對比。取消勾選只隱藏背景，保留已選的顏色。</p>
+<p>也可透過 <strong>Navigator → Layer settings… → Display</strong> 一次編輯顯示開關與六位 <code>#RRGGBB</code> 色碼。Save 會驗證後套用；Cancel 或無效色碼不改變文件。Mini 模式仍可在此分頁預先設定，但畫面會暫時隱藏這些選項的效果。</p>
+<div aria-label="資料表格，可水平捲動" role="region" tabindex="0" class="table-scroll"><table>
+<thead>
+<tr>
+<th>保存欄位</th>
+<th>意義</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>layout.showName</code></td>
+<td>顯示技術／tactic 名稱</td>
+</tr>
+<tr>
+<td><code>layout.showID</code></td>
+<td>顯示技術／tactic 的 ATT&amp;CK ID</td>
+</tr>
+<tr>
+<td><code>showTacticRowBackground</code></td>
+<td>在 Flat／Side 顯示共用 tactic 標頭色</td>
+</tr>
+<tr>
+<td><code>tacticRowBackground</code></td>
+<td>標頭顏色，預設 <code>#dddddd</code></td>
+</tr>
+</tbody></table></div>
+<p>每層各自保存設定。切換頁籤、複製、Studio 儲存／重開、Navigator 交換、跨領域／版本紀錄與工作階段復原都會保留。修改後須儲存 Studio 文件，才算保存完整編輯狀態。</p>
+<h2 id="expand-annotated">Expand annotated<a class="heading-anchor" href="matrix-display.html#expand-annotated" aria-label="本節連結">#</a></h2><p>按 <strong>Expand annotated</strong> 會展開具有已註記子技術的家族，並收合其他家族。範圍依目前平台投影，逐 tactic 判定。註解、使用者 Metadata、Links、已設定分數（包含 <strong>0</strong>）、手動顏色、明確停用狀態與有效來源 Notes 都算註記。只有父技術有註解，不會讓未註記的子技術符合條件。</p>
+<p>這個操作展開的是<strong>家族</strong>：展開後，其他兄弟子技術仍依既有搜尋／隱藏停用篩選顯示，不會被刪除，也不會因此加入選取清單。例如父技術有五個子技術，只有一個有註解，該家族會展開；另一個家族只有父技術有註解，就維持收合。</p>
+<p>Expand annotated、Expand all、Collapse all 分別保存 <code>layout.expandedSubtechniques</code> 為 <code>annotated</code>、<code>all</code>、<code>none</code>，會讓文件待儲存，並在圖層切換、Save／重開、Navigator 交換及復原時還原。個別箭頭現在會保留其他家族，保存逐 Tactic 的標準 <code>showSubtechniques</code>，選單切換為 <strong>Per-technique · saved</strong>；Mini 也遵守明確收合旗標。搜尋可暫時展開命中家族，清空後還原保存狀態，不會保存自動展開。勾選與註記不變。SVG 選 <strong>Show children expanded when export opened</strong> 可匯出畫面。詳見<a href="detection-interaction.html">個別展開範例</a>、<a href="visibility-expansion-presets.html">全域模式</a>與<a href="aggregation-and-exports.html">SVG／Excel 匯出</a>。</p>
+<h2 id="註記視覺提示">註記視覺提示<a class="heading-anchor" href="matrix-display.html#%E8%A8%BB%E8%A8%98%E8%A6%96%E8%A6%BA%E6%8F%90%E7%A4%BA" aria-label="本節連結">#</a></h2><div aria-label="資料表格，可水平捲動" role="region" tabindex="0" class="table-scroll"><table>
+<thead>
+<tr>
+<th>顯示</th>
+<th>意義</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>黃色底線</td>
+<td>非空註解、使用者 Metadata 或來源 STIX Note</td>
+</tr>
+<tr>
+<td>藍色底線</td>
+<td>已指定 Links</td>
+</tr>
+<tr>
+<td>同時兩條線</td>
+<td>兩類註記都存在</td>
+</tr>
+<tr>
+<td>單純勾選沒有提示線</td>
+<td>保留選取標記與只有分隔列的清單不算註記</td>
+</tr>
+</tbody></table></div>
+<p>Flat／Side／Mini 都會顯示提示，包括被選取、被停用或關閉 <strong>Show layer colors</strong> 的格子。只有分數／顏色／狀態時，可參與已註記家族判定，但不會單獨產生註解／連結線。清除最後一份相關註記後，重新繪製就會移除提示；若來源 Notes 或其他 Metadata 仍存在，清除可編輯註解後黃色線仍可能保留。</p>
+<p>滑鼠提示會保留完整識別資訊、註解、Metadata、Links 與來源 Notes。Notes 來自精確領域／版本／資料集內，透過 <code>object_refs</code> 參照該技術的有效 STIX <code>note</code> 物件；撤銷、棄用或無關的參照不顯示。Notes 是唯讀來源內容，不會變成可編輯 Comment 或 CSV 的使用者註解欄。自訂 Bundle 的 Note 不必有 <code>name</code>，使用 <code>abstract</code> 與 <code>content</code>。</p>
+<p><strong>Show all layers</strong> 會合併相容圖層的提示，不依賴該來源是否有顏色；滑鼠提示會列出來源圖層的註記文字。名稱／ID 與標頭色仍使用目前編輯圖層的設定。</p>
+<h2 id="匯出與運作流程">匯出與運作流程<a class="heading-anchor" href="matrix-display.html#%E5%8C%AF%E5%87%BA%E8%88%87%E9%81%8B%E4%BD%9C%E6%B5%81%E7%A8%8B" aria-label="本節連結">#</a></h2><p>SVG 套用已保存的名稱／ID、Flat／Side 標頭色，以及黃／藍底線；Mini SVG 維持小格子、註記／狀態符號及提示。兩種 Excel 都依已保存開關產生直向標籤矩陣，即使原生畫面是 Mini 也是如此。標頭填色保留設定，黃色下框線代表註解／Metadata，藍色右框線代表 Links；Excel 註解保留完整識別資訊與來源 Notes。詳細資料工作表及 JSON／CSV 的 ID／名稱不受顯示開關影響。</p>
+<p>顯示設定在 <strong>1/2 驗證 → 2/2 套用</strong> 前會顯示 <strong>Input files: None／Output files: None</strong>；已註記家族展開會在 <strong>1/2 解析 → 2/2 更新欄位</strong> 前標示沒有檔案輸入／輸出。儲存、匯出與復原仍會先顯示最終／暫存檔絕對位址，再顯示原有階段進度；讀取目錄時會顯示絕對輸入路徑。繪圖或閱讀 Notes 不會寫入 Bundle，無效設定或取消會保留原狀態。</p>
+<h2 id="驗證">驗證<a class="heading-anchor" href="matrix-display.html#%E9%A9%97%E8%AD%89" aria-label="本節連結">#</a></h2><p>設定 <code>QT_QPA_PLATFORM=offscreen</code> 後執行 <code>.venv\Scripts\python.exe -B audit_matrix_display.py</code>。測試會顯示絕對位址及七階段進度，檢查實際提示線像素與清除、tactic 範圍／選取獨立性、Mini／Side、來源 Notes、文件／復原往返，以及 SVG／Excel 讀回。範例與 <code>audit.json</code> 位於 <code>artifacts/matrix-display</code>。</p>
+<ul>
+<li><a href="../assets/source/artifacts/matrix-display/matrix.svg">SVG 範例</a></li>
+<li><a download="" href="../assets/source/artifacts/matrix-display/matrix.xlsx">Excel 範例</a></li>
+<li><a href="../en/matrix-display.html">English manual</a></li>
+</ul>
+</article><nav class="page-pagination" aria-label="文件翻頁"><a href="studio-files.html"><small>← 上一篇</small>儲存與工作階段復原</a><a href="navigator-parity-controls.html"><small>下一篇 →</small>Navigator 顯示與操作</a></nav>
+  <footer class="page-footer"><div class="source-caption"><strong>來源與發布版本</strong><p>manual/matrix_display+_zh.md</p><p>commit <code>b04e4ac796d8</code> · 含本機未提交更新 · 2026-10-28</p><a href="../source-manifest.json" download>檢視來源與 SHA-256 清單 ↓</a></div><p>免費、開源的 TTP 威脅研究工作區。獨立社群專案，未獲 MITRE 背書。 <a href="../assets/source/LICENSE">MIT License</a></p></footer></main>
+  <aside class="page-toc" aria-label="本頁章節"><p>本頁章節</p><nav><a class="toc-level-2" href="#%E5%90%8D%E7%A8%B1%E8%88%87-id-%E7%8D%A8%E7%AB%8B%E9%96%8B%E9%97%9C">名稱與 ID 獨立開關</a><a class="toc-level-2" href="#tactic-%E6%A8%99%E9%A0%AD%E8%83%8C%E6%99%AF%E8%89%B2">Tactic 標頭背景色</a><a class="toc-level-2" href="#expand-annotated">Expand annotated</a><a class="toc-level-2" href="#%E8%A8%BB%E8%A8%98%E8%A6%96%E8%A6%BA%E6%8F%90%E7%A4%BA">註記視覺提示</a><a class="toc-level-2" href="#%E5%8C%AF%E5%87%BA%E8%88%87%E9%81%8B%E4%BD%9C%E6%B5%81%E7%A8%8B">匯出與運作流程</a><a class="toc-level-2" href="#%E9%A9%97%E8%AD%89">驗證</a></nav><a class="toc-source" href="https://github.com/NicoaTheSix/MITREATTACK_SIMULATOR" target="_blank" rel="noopener noreferrer">原始專案 ↗</a></aside></div>
+  <dialog id="search-dialog" aria-labelledby="search-title"><div class="search-heading"><h2 id="search-title">搜尋 Fusion Studio 文件</h2><button id="close-search" type="button" aria-label="關閉搜尋">×</button></div><label class="search-input-label" for="docs-search">輸入主題、選單或關鍵字</label><input id="docs-search" type="search" autocomplete="off" placeholder="試試：儲存、CAR、SVG、fusionstudio"><p id="search-status" role="status" aria-live="polite">輸入文字搜尋目前語言的完整文件。</p><div id="search-results"></div></dialog><div id="toast" role="status" aria-live="polite"></div></body></html>

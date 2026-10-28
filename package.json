@@ -1,0 +1,16 @@
+{
+  "name": "nicoa-myportfolio",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "build:docs": "node build-fusion-docs.mjs",
+    "check:docs": "node check-fusion-docs.mjs",
+    "preview": "node serve.mjs"
+  },
+  "devDependencies": {
+    "linkedom": "0.18.14",
+    "marked": "18.1.2",
+    "sanitize-html": "2.18.1"
+  }
+}

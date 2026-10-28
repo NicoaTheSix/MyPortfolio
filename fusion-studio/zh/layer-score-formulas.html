@@ -1,0 +1,370 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f6f5f0"><meta name="description" content="圖層分數公式 — Fusion Studio documentation. A free, open-source workspace for TTP-driven threat research."><title>圖層分數公式 | Fusion Studio Docs</title><link rel="icon" href="../assets/source/assets/fusion-studio-icon-monochrome-v3.png"><link rel="stylesheet" href="../docs.css"><link rel="alternate" hreflang="en" href="../en/layer-score-formulas.html"><script defer src="../docs.js" data-search-index="../search-index.json"></script></head><body data-language="zh" data-page="layer-score-formulas">
+  <a class="skip-link" href="#content">跳至文件內容</a><header class="docs-header"><a class="docs-brand" href="../index.html"><img src="../assets/source/assets/fusion-studio-icon-monochrome-v3.png" alt="" width="34" height="34"><span>Fusion Studio <small>DOCUMENTATION</small></span></a><div class="header-actions"><button id="open-search" type="button" aria-haspopup="dialog"><span aria-hidden="true">⌕</span> 搜尋文件 <kbd>Ctrl K</kbd></button><a class="language-switch" href="../en/layer-score-formulas.html" hreflang="en" lang="en">English</a><a class="portfolio-link" href="../../index.html#works">Nicoa ↗</a></div></header>
+  <div class="mobile-toolbar"><button id="menu-button" type="button" aria-controls="docs-sidebar" aria-expanded="false">☰ 文件目錄</button><span>圖層分數公式</span></div>
+  <div class="docs-layout"><aside id="docs-sidebar" class="docs-sidebar" aria-label="文件導覽"><div class="sidebar-label">NICOA / OPEN SOURCE</div><nav><a class="sidebar-home " href="../index.html" >文件首頁</a><section class="nav-group"><h2>開始使用</h2><a href="quick-start.html" >快速開始</a><a href="first-research.html" >第一份研究文件</a><a href="installation.html" >安裝與啟動</a><a href="in-app-manual.html" >操作總覽</a><a href="in-app-index.html" >程式內指南索引</a><a href="guide-index.html" >全部指南對照表</a></section><section class="nav-group"><h2>工作區與選取</h2><a href="workspace-layout.html" >工作區、頁籤與側欄</a><a href="selection-and-search.html" >選取與搜尋</a><a href="detection-interaction.html" >偵測搜尋與來源複製</a><a href="source-relationship-selection.html" >來源關聯與批次選取</a><a href="source-hover-preview.html" >來源懸停預覽</a><a href="visibility-expansion-presets.html" >可見選取與展開</a></section><section class="nav-group"><h2>註記、保存與復原</h2><a href="batch-operations.html" >獨立狀態與批次註記</a><a href="studio-files.html" >儲存與工作階段復原</a></section><section class="nav-group"><h2>矩陣與 Navigator</h2><a href="matrix-display.html" >矩陣顯示與註記提示</a><a href="navigator-parity-controls.html" >Navigator 顯示與操作</a><a href="navigator-bundle-import.html" >多圖層 JSON 匯入</a><a href="advanced-navigator.html" >Navigator 進階操作</a><a href="layer-score-formulas.html" aria-current="page" class="current">圖層分數公式</a></section><section class="nav-group"><h2>匯出與交換</h2><a href="json-annotation-export.html" >JSON 註記匯出</a><a href="aggregation-and-exports.html" >分數彙總與矩陣匯出</a><a href="svg-paper.html" >SVG 紙張與方向</a><a href="svg-themes.html" >SVG 淺色與深色主題</a></section><section class="nav-group"><h2>ATLAS 與 CAR 參考</h2><a href="car-integration.html" >CAR、資料模型與感測器</a></section><section class="nav-group"><h2>版本遷移</h2><a href="upgrade-review.html" >升級逐項審核</a><a href="upgrade-content.html" >升級內容並排比較</a><a href="upgrade-mapping.html" >Tactic 搬移與衝突</a><a href="upgrade-summary.html" >升級摘要與略過理由</a></section><section class="nav-group"><h2>自訂來源與範例</h2><a href="custom-domains.html" >自訂 Domain 與 ID</a><a href="custom-data-url-import.html" >解析 customDataURL</a><a href="examples.html" >可載入範例</a><a href="project-readme.html" >產品 README 與完整安裝</a><a href="positioning.html" >產品定位與能力邊界</a><a href="car-provenance.html" >CAR 出處與授權</a></section></nav><div class="sidebar-bottom"><span>27 組雙語指南</span><a href="https://github.com/NicoaTheSix/MITREATTACK_SIMULATOR" target="_blank" rel="noopener noreferrer">GitHub ↗</a></div></aside>
+  <main id="content" class="docs-main" tabindex="-1"><div class="breadcrumb"><a href="../index.html">Docs</a><span>/</span><span>圖層分數公式</span></div><details class="mobile-toc"><summary>本頁章節</summary><nav><a class="toc-level-2" href="#%E7%9B%AE%E5%89%8D%E6%94%AF%E6%8F%B4%E7%AF%84%E5%9C%8D">目前支援範圍</a><a class="toc-level-3" href="#%E7%B4%94%E9%87%8F%E8%AA%9E%E6%B3%95%E8%88%87%E5%87%BD%E5%BC%8Fnav-018">純量語法與函式（NAV-018）</a><a class="toc-level-3" href="#%E8%A8%88%E7%AE%97%E6%A8%A1%E5%BC%8F%E7%BC%BA%E5%80%BC%E8%88%87%E7%AF%84%E5%9C%8Dnav-019">計算模式：缺值與範圍（NAV-019）</a><a class="toc-level-3" href="#%E5%85%AC%E5%BC%8F%E7%B5%90%E6%9E%9C%E7%9A%84%E8%87%AA%E5%8B%95%E6%BC%B8%E5%B1%A4nav-020">公式結果的自動漸層（NAV-020）</a><a class="toc-level-2" href="#%E5%85%AC%E5%BC%8F%E8%88%87%E5%88%86%E6%95%B8%E4%BB%A3%E8%A1%A8%E4%BB%80%E9%BA%BC">公式與分數代表什麼</a><a class="toc-level-2" href="#%E7%AF%84%E4%BE%8B%E6%89%BE%E5%87%BA%E5%81%B5%E6%B8%AC%E7%BC%BA%E5%8F%A3">範例：找出偵測缺口</a><a class="toc-level-2" href="#%E6%93%8D%E4%BD%9C%E6%B5%81%E7%A8%8B">操作流程</a><a class="toc-level-3" href="#1-%E5%9C%A8%E6%A1%8C%E9%9D%A2%E7%A8%8B%E5%BC%8F%E6%BA%96%E5%82%99%E4%BE%86%E6%BA%90%E5%9C%96%E5%B1%A4">1. 在桌面程式準備來源圖層</a><a class="toc-level-3" href="#2-%E5%9C%A8%E7%A8%8B%E5%BC%8F%E5%85%A7%E5%BB%BA%E7%AB%8B%E5%85%AC%E5%BC%8F%E5%9C%96%E5%B1%A4">2. 在程式內建立公式圖層</a><a class="toc-level-3" href="#%E5%90%84%E9%A0%85%E5%B1%AC%E6%80%A7%E5%88%86%E5%88%A5%E7%B9%BC%E6%89%BF">各項屬性分別繼承</a><a class="toc-level-3" href="#3-%E5%8C%AF%E5%87%BA%E8%88%87%E5%AE%98%E6%96%B9%E5%B7%A5%E5%85%B7%E4%BA%A4%E6%8F%9B">3. 匯出與官方工具交換</a><a class="toc-level-2" href="#%E5%85%B6%E4%BB%96%E5%8F%AF%E7%94%A8%E7%9A%84%E5%88%86%E6%9E%90%E4%BE%8B%E5%AD%90">其他可用的分析例子</a><a class="toc-level-2" href="#%E6%AA%A2%E6%9F%A5%E9%87%8D%E9%BB%9E">檢查重點</a><a class="toc-level-2" href="#%E5%8F%83%E8%80%83%E8%B3%87%E6%96%99">參考資料</a></nav></details><article class="prose"><h1 id="圖層分數公式操作手冊與範例">圖層分數公式操作手冊與範例<a class="heading-anchor" href="layer-score-formulas.html#%E5%9C%96%E5%B1%A4%E5%88%86%E6%95%B8%E5%85%AC%E5%BC%8F%E6%93%8D%E4%BD%9C%E6%89%8B%E5%86%8A%E8%88%87%E7%AF%84%E4%BE%8B" aria-label="本節連結">#</a></h1><p>本手冊說明圖層分數公式的用途、分數定義，以及如何在 Fusion Studio 產生分析圖層，或與官方 ATT&amp;CK Navigator 交換資料。</p>
+<h2 id="目前支援範圍">目前支援範圍<a class="heading-anchor" href="layer-score-formulas.html#%E7%9B%AE%E5%89%8D%E6%94%AF%E6%8F%B4%E7%AF%84%E5%9C%8D" aria-label="本節連結">#</a></h2><p>使用 <strong>Navigator → Create layer from score formula…</strong>，最多 26 份來源快照對應變數 <code>a</code>–<code>z</code>，須使用相同領域、版本與資料集。支援官方 ATT&amp;CK v4 以上及相容的自訂資料。視窗分為 <strong>Formula and scope</strong>（公式與範圍）及 <strong>Inherit properties</strong>（屬性繼承）兩頁。開啟視窗與計算本身不寫入檔案。</p>
+<div aria-label="資料表格，可水平捲動" role="region" tabindex="0" class="table-scroll"><table>
+<thead>
+<tr>
+<th>表達式</th>
+<th>範例</th>
+<th>意義</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>四則運算與次方</td>
+<td><code>(a+b)/2</code>、<code>a%2</code>、<code>a^2</code></td>
+<td>平均、餘數、次方</td>
+</tr>
+<tr>
+<td>比較</td>
+<td><code>a&gt;b</code>、<code>a&gt;=75</code>、<code>a==b</code>、<code>a!=b</code></td>
+<td>成立為數字 1，否則為 0</td>
+</tr>
+<tr>
+<td>布林</td>
+<td><code>(a&gt;b) and (a&gt;=75)</code>、<code>a or b</code>、<code>a xor b</code>、<code>not a</code></td>
+<td>非零為真，結果為 1／0</td>
+</tr>
+<tr>
+<td>條件式</td>
+<td><code>a&gt;b ? 25 : 10</code></td>
+<td>依條件選擇分數</td>
+</tr>
+<tr>
+<td>函式</td>
+<td><code>max(a,b)</code>、<code>sqrt(abs(a-b))</code>、<code>round(a/3,2)</code></td>
+<td>使用允許的數學函式</td>
+</tr>
+</tbody></table></div>
+<p>次方使用 <code>^</code>，從右往左結合，且優先於正負號：<code>2^3^2</code> 為 512，<code>-2^2</code> 為 -4。<code>and</code>／<code>or</code> 與條件式只計算需要的算術分支。建立結果前先選 <strong>Formula syntax（公式語法）</strong>。視窗預設 <strong>Navigator scalar</strong>；若要重現先前 Studio 的計算規則，選 <strong>Studio scalar</strong>。既有已儲存圖層維持原本的結果，不會自動重算。</p>
+<h3 id="純量語法與函式nav-018">純量語法與函式（NAV-018）<a class="heading-anchor" href="layer-score-formulas.html#%E7%B4%94%E9%87%8F%E8%AA%9E%E6%B3%95%E8%88%87%E5%87%BD%E5%BC%8Fnav-018" aria-label="本節連結">#</a></h3><p>兩種純量語法皆提供常數 <code>pi</code>、<code>e</code>、<code>tau</code>、<code>phi</code>、<code>true</code>、<code>false</code>。在 Studio 計算模式中，若來源表列出圖層 <code>e</code>，它優先代表該圖層；自然常數請改寫成 <code>exp(1)</code>。Navigator 計算模式會先以空變數環境嘗試常數，詳見下節。</p>
+<div aria-label="資料表格，可水平捲動" role="region" tabindex="0" class="table-scroll"><table>
+<thead>
+<tr>
+<th>函式類型</th>
+<th>支援函式與參數</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>原有算術</td>
+<td><code>abs(x)</code>、<code>min(...)</code>、<code>max(...)</code>、<code>sqrt(x)</code>、<code>pow(x,y)</code>、<code>log(x[,base])</code>、<code>exp(x)</code></td>
+</tr>
+<tr>
+<td>捨入</td>
+<td><code>round(x[,digits])</code>、<code>floor(x)</code>、<code>ceil(x)</code>；Navigator 的 floor／ceil 也可指定 digits</td>
+</tr>
+<tr>
+<td>三角，角度使用弧度</td>
+<td><code>sin(x)</code>、<code>cos(x)</code>、<code>tan(x)</code>、<code>asin(x)</code>、<code>acos(x)</code>、<code>atan(x)</code>、<code>atan2(y,x)</code></td>
+</tr>
+<tr>
+<td>雙曲</td>
+<td><code>sinh(x)</code>、<code>cosh(x)</code>、<code>tanh(x)</code>、<code>asinh(x)</code>、<code>acosh(x)</code>、<code>atanh(x)</code></td>
+</tr>
+<tr>
+<td>對數與微小值</td>
+<td><code>log2(x)</code>、<code>log10(x)</code>、<code>log1p(x)</code>、<code>expm1(x)</code></td>
+</tr>
+<tr>
+<td>實數工具</td>
+<td><code>cbrt(x)</code>、<code>sign(x)</code>、<code>fix(x[,digits])</code>、<code>mod(x,y)</code></td>
+</tr>
+<tr>
+<td>Studio 擴充</td>
+<td>區分大小寫的 <code>nthRoot(x[,root])</code>；預設二次根，負數 x 須使用奇整數根，負根次取倒數</td>
+</tr>
+</tbody></table></div>
+<p><code>log(x)</code> 是自然對數。<code>fix</code> 向零截斷並修正捨入誤差，<code>cbrt(-8)</code> 為 -2，<code>sign</code> 回傳 -1／0／1。仍限制在實數定義域：<code>asin(2)</code>、<code>acosh(.5)</code>、<code>atanh(1)</code>、零根次都會失敗。新增的 <code>fix</code> 在兩模式都限制精度為 0–15；<code>mod</code> 函式在兩模式皆採 Navigator 規則。</p>
+<div aria-label="資料表格，可水平捲動" role="region" tabindex="0" class="table-scroll"><table>
+<thead>
+<tr>
+<th>行為</th>
+<th>Navigator scalar（新視窗預設）</th>
+<th>Studio scalar（舊有算術／Python API 預設）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>大小寫</td>
+<td>整份公式轉小寫；<code>SIN(PI/2)</code> → 1</td>
+<td>區分大小寫，寫 <code>sin(pi/2)</code></td>
+</tr>
+<tr>
+<td>中間值捨入</td>
+<td><code>round(2.5)</code> → 3、<code>round(-2.5)</code> → -3</td>
+<td>取偶數：分別為 2、-2</td>
+</tr>
+<tr>
+<td>小數精度</td>
+<td>round／floor／ceil／fix 須為 0–15 整數，含誤差修正</td>
+<td>round 可用 ±100 整數；floor／ceil 僅一個參數</td>
+</tr>
+<tr>
+<td>比較</td>
+<td>相對容差 1e-12、絕對容差 1e-15；<code>.1+.2==.3</code> → 1</td>
+<td>精確浮點比較；該例為 0</td>
+</tr>
+<tr>
+<td>連續比較</td>
+<td>相鄰值比較，短路求值；<code>3&gt;2&gt;1</code> → 1、<code>(3&gt;2)&gt;1</code> → 0</td>
+<td>明確寫成 <code>(a&lt;b) and (b&lt;c)</code></td>
+</tr>
+<tr>
+<td><code>not</code> 優先序</td>
+<td>與一元運算同級；<code>not 0&gt;1</code> → 0</td>
+<td>沿用舊規則；<code>not 0&gt;1</code> → 1</td>
+</tr>
+<tr>
+<td>餘數</td>
+<td><code>%</code>、中綴 <code>mod</code>、<code>mod(x,y)</code> 用向下取整商數；<code>5 mod -3</code> → -1、<code>3%0</code> → 3</td>
+<td><code>%</code> 沿用舊規則且拒絕零除數；可用新增的 <code>mod(x,y)</code></td>
+</tr>
+<tr>
+<td>n 次根</td>
+<td>拒絕：官方轉小寫會將 <code>nthRoot</code> 變成未定義的 <code>nthroot</code></td>
+<td><code>nthRoot(-8,3)</code> → -2、<code>nthRoot(16,-2)</code> → .25</td>
+</tr>
+</tbody></table></div>
+<p>Navigator 範例：<code>0&lt;=a&lt;=100 ? round(a,2) : 0</code>、<code>max(0, sin(pi/2)*a)</code>、<code>mod(a,10)</code>。當 a=80 時，結果分別是 80、80、0。語法記錄在 <code>x_ttp_studio_formula.syntax</code>；舊有紀錄缺此欄代表歷史 Studio 語意。Studio／Navigator JSON 與工作階段復原皆保留此欄；匯出結果不會要求官方 Navigator 重新執行公式。</p>
+<p>本次以 <a target="_blank" rel="noopener noreferrer" href="https://github.com/mitre-attack/attack-navigator/blob/v5.3.2/nav-app/src/app/services/viewmodels.service.ts">Navigator v5.3.2 的轉小寫／運算流程</a> 與 mathjs 15.2.0 比對，詳見<a rel="noopener noreferrer" target="_blank" href="https://github.com/NicoaTheSix/MITREATTACK_SIMULATOR/blob/b04e4ac796d806e51e55838af6ece7f2cb1684fc/scripts/formula-reference/README.md">可重現的參考測例</a>。這是有限純量子集：隱式乘法、階乘、後綴百分比、賦值、任意函式、陣列／矩陣、單位、複數、物件均拒絕。NAV-019 提供官方缺值／範圍模式，NAV-020 另加入下述自動漸層政策。</p>
+<h3 id="計算模式缺值與範圍nav-019">計算模式：缺值與範圍（NAV-019）<a class="heading-anchor" href="layer-score-formulas.html#%E8%A8%88%E7%AE%97%E6%A8%A1%E5%BC%8F%E7%BC%BA%E5%80%BC%E8%88%87%E7%AF%84%E5%9C%8Dnav-019" aria-label="本節連結">#</a></h3><p><strong>Calculation mode（計算模式）<strong>與</strong>公式語法</strong>分開。每次新開視窗仍預設 <strong>Studio · 使用指定範圍與缺值政策</strong>。若要採官方來源分數規則，改選 <strong>Navigator · 官方缺值與範圍規則</strong>；此時固定使用 Navigator 純量語法，Studio 的<strong>計算範圍</strong>與<strong>缺少分數</strong>控制停用。切回 Studio 會還原先前選項；小視窗可捲動設定與說明。</p>
+<div aria-label="資料表格，可水平捲動" role="region" tabindex="0" class="table-scroll"><table>
+<thead>
+<tr>
+<th>規則</th>
+<th>Studio 計算模式（預設）</th>
+<th>Navigator 計算模式</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>計算目標</td>
+<td>已選來源聯集或整張矩陣</td>
+<td>參照來源中至少有一份分數的有效 Technique／Tactic 格子</td>
+</tr>
+<tr>
+<td>勾選與可見性</td>
+<td>已選範圍跟隨勾選；整張矩陣忽略顯示篩選</td>
+<td>勾選、平台／搜尋篩選、隱藏／停用及收合狀態不縮小計算範圍</td>
+</tr>
+<tr>
+<td>部分參照輸入缺分</td>
+<td>維持未評分，或明確選擇補零</td>
+<td>缺分補零</td>
+</tr>
+<tr>
+<td>全部參照輸入缺分</td>
+<td>依 Studio 選定政策</td>
+<td>保持未評分，不產生人造零分；可建立空結果圖層</td>
+</tr>
+<tr>
+<td>停用來源的既有分數</td>
+<td>視為缺失</td>
+<td>仍採用原分數</td>
+</tr>
+<tr>
+<td>真正已儲存的零分</td>
+<td>是分數</td>
+<td>是分數，足以讓該格成為計算目標</td>
+</tr>
+<tr>
+<td>常數公式</td>
+<td>使用所選範圍</td>
+<td>先嘗試空變數環境，成功則初始化所有有效映射矩陣格子</td>
+</tr>
+<tr>
+<td>未評分結果狀態</td>
+<td>預設停用，可明確繼承覆蓋</td>
+<td>預設啟用，可明確繼承覆蓋</td>
+</tr>
+</tbody></table></div>
+<p>例如 <code>(a+b)/2</code>，a=80、b 缺分時，Navigator 模式結果為 <strong>40</strong>；來源 TTP 即使未勾選或停用也相同。若 a、b 都缺分，結果維持未評分。未使用來源有分數不會擴大目標；只用來繼承的來源可以複製註記／狀態，但不提供計算分數。分數逐 Technique／Tactic 計算，同一技術的 execution／persistence 可有不同結果；父技術彙總顯示不是公式輸入。</p>
+<p>空變數探測也遵守短路求值：<code>0 ? a : 50</code> 不讀取 a，直接將整張矩陣設為 50。此模式的單獨 <code>e</code> 會先解析為自然常數，即使來源表有圖層 e；<code>e+a</code> 因空變數探測無法完成，之後逐格運算則使用來源 e（缺分補零）。<code>exp(1)</code> 永遠明確代表自然常數。非常數公式的所有來源都未評分時，可產生合法的空結果圖層。</p>
+<p>Navigator 模式依來源 JSON 列的順序投影：全域列先展開到映射 Tactic，後面的列會取代該格較早的整列。較晚的精確 Tactic 列若沒有 Score，就清除該格較早全域列的分數；較晚的全域列也能取代較早的精確列。Studio 保留既有精確列／全域後備規則。計算限定目前資料集的有效映射格子；未解析／失效列不成為新增計算目標，原來源仍保留。</p>
+<p>操作流程：確認相容來源 → 選 Navigator 計算模式 → 輸入公式與結果名稱 → 選<strong>自動漸層模式</strong>或明確指定繼承來源 → <strong>建立結果圖層</strong> → 核對分數 → 另行儲存／匯出。五階段進度會先宣告輸入／輸出皆在記憶體，再驗證模式／常數探測、讀取快照、計算／繼承、完整驗證並一次新增獨立頁籤。錯誤／取消不發布部分結果，也不改來源。</p>
+<p><code>x_ttp_studio_formula</code> 記錄 <code>mode</code>、<code>syntax</code>、實際 <code>scope: "navigator"</code>、<code>missing: "zero-if-any-score"</code>、<code>evaluation: "constant"</code> 或 <code>"scored-union"</code>；Studio 則記錄所選範圍／缺值政策。Studio JSON、Navigator JSON 與工作階段復原保留這些欄位。歷史紀錄缺少 <code>mode</code> 代表 Studio 行為，保留原結果而不重算。CSV 保存選取結果 TTP 的註記，並非整份公式設定。</p>
+<h3 id="公式結果的自動漸層nav-020">公式結果的自動漸層（NAV-020）<a class="heading-anchor" href="layer-score-formulas.html#%E5%85%AC%E5%BC%8F%E7%B5%90%E6%9E%9C%E7%9A%84%E8%87%AA%E5%8B%95%E6%BC%B8%E5%B1%A4nav-020" aria-label="本節連結">#</a></h3><p>在<strong>公式與範圍</strong>頁面的<strong>自動漸層模式</strong>可選<strong>跟隨計算模式</strong>（預設）、<strong>Studio · 來源配色與包含零／一的範圍</strong>、<strong>Navigator · 官方結果範圍與二元色階</strong>。跟隨模式會在 Studio 計算時沿用 Studio 漸層，在 Navigator 計算時採官方漸層；也可獨立選擇色階政策，不改變分數／範圍規則。</p>
+<div aria-label="資料表格，可水平捲動" role="region" tabindex="0" class="table-scroll"><table>
+<thead>
+<tr>
+<th>計算分數</th>
+<th>Navigator 自動漸層</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>有差異的正分或負分，例如 20／40／80、-80／-20</td>
+<td>實際最小／最大值，官方紅／黃／綠配色</td>
+</tr>
+<tr>
+<td>範圍恰為 0–1，例如 0／1、0／.25／1</td>
+<td>透明白 <code>#ffffff00</code> → 藍色 <code>#66b1ffff</code>，上下限為 0–1</td>
+</tr>
+<tr>
+<td>只有一個分數、全部同分或常數公式</td>
+<td>預設紅／黃／綠，上下限保留 0–100</td>
+</tr>
+<tr>
+<td>沒有計算分數</td>
+<td>預設紅／黃／綠與 0–100，不自行新增分數或填色</td>
+</tr>
+<tr>
+<td>明確指定 <strong>Score gradient</strong> 來源</td>
+<td>完整保留來源漸層，含上下限與透明度，優先於自動政策</td>
+</tr>
+</tbody></table></div>
+<p>官方預設配色為 <code>#ff6666ff</code>、<code>#ffe766ff</code>、<code>#8ec843ff</code>。0–1 特例依實際上下限精確判斷，允許中間有小數；全部為零或全部為一因沒有分數範圍，仍採預設配色。最小值若為 <code>1e-16</code>，不會誤判為 0–1。常數 200 保留 0–100，顯示上界顏色，但儲存分數仍為 200。Studio 則保留第一個參照來源的配色，範圍包含零且上界至少為一。</p>
+<p>範例操作：將兩個 Tactic 格子設為 20、80 → 選 Navigator 計算模式 → 保留<strong>自動漸層模式：跟隨計算模式</strong> → 建立，結果上下限為 20–80。若結果是 0、1 的成員指標，零分透明、一分藍色。若要保留來源配色／上下限，到<strong>繼承屬性 → Score gradient → 指定來源</strong>；自動選單會停用但保留原選項，取消來源後重新啟用。手動色仍優先於分數色；明確停用的結果仍顯示停用樣式。分數先計算再繼承 Enabled，因此被繼承停用的結果分數仍參與自動上下限。</p>
+<p>切換政策建立獨立結果，不改來源分數、勾選、啟用狀態或註記。<code>x_ttp_studio_formula.gradient_mode</code> 記錄解析後的自動政策（<code>studio</code>／<code>navigator</code>），<code>inheritance.gradient</code> 記錄優先採用的來源。Studio JSON、Navigator JSON 與工作階段復原保留結果漸層及紀錄。舊檔若沒有 <code>gradient_mode</code>，包含 NAV-020 前建立的 Navigator 計算結果，都保留當時儲存的漸層，不自動重算。CSV 仍是選取 TTP 的註記匯出，不含完整圖層設定。</p>
+<p>固定參考測例實際執行 v5.3.2 的<a target="_blank" rel="noopener noreferrer" href="https://github.com/mitre-attack/attack-navigator/blob/v5.3.2/nav-app/src/app/services/viewmodels.service.ts">公式服務</a>與 <a target="_blank" rel="noopener noreferrer" href="https://github.com/mitre-attack/attack-navigator/blob/v5.3.2/nav-app/src/app/classes/gradient.ts">Gradient 類別</a>，使用固定版開發依賴，比對序列化配色／上下限及分數。原生矩陣、疊圖與 SVG／Excel 沿用既有連續 RGBA 插值及合成，並非逐像素複製官方 100 點 RGB 繪製器。重現步驟及七階段離線漸層檢查見<a rel="noopener noreferrer" target="_blank" href="https://github.com/NicoaTheSix/MITREATTACK_SIMULATOR/blob/b04e4ac796d806e51e55838af6ece7f2cb1684fc/scripts/formula-reference/README.md">參考工作流程</a>，包含原生顏色、SVG 像素及 Excel 填色；應用程式本身不需要 Node／TypeScript 套件。</p>
+<h2 id="公式與分數代表什麼">公式與分數代表什麼<a class="heading-anchor" href="layer-score-formulas.html#%E5%85%AC%E5%BC%8F%E8%88%87%E5%88%86%E6%95%B8%E4%BB%A3%E8%A1%A8%E4%BB%80%E9%BA%BC" aria-label="本節連結">#</a></h2><p>公式將來源圖層中同一個 Technique 的分數，計算成新圖層的分數。例如 <code>a</code> 是圖層 A、<code>b</code> 是圖層 B，某個技術的分數分別為 80 與 60，使用 <code>(a+b)/2</code> 後，其結果為 70。分數含義需要先由使用者定義；本手冊以下的數據皆為假設範例。</p>
+<h2 id="範例找出偵測缺口">範例：找出偵測缺口<a class="heading-anchor" href="layer-score-formulas.html#%E7%AF%84%E4%BE%8B%E6%89%BE%E5%87%BA%E5%81%B5%E6%B8%AC%E7%BC%BA%E5%8F%A3" aria-label="本節連結">#</a></h2><p>先定義兩份圖層的評分規則：</p>
+<ul>
+<li><strong>a：威脅技術清單</strong>。納入這次威脅分析的技術設為 <code>1</code>，其餘設為 <code>0</code>。</li>
+<li><strong>b：偵測能力</strong>。已驗證能偵測的技術設為 <code>1</code>，已確認沒有偵測能力的技術設為 <code>0</code>。</li>
+</ul>
+<p>使用公式：</p>
+<div class="code-block"><div class="code-bar"><span>text</span><button aria-label="複製程式碼區塊 1" class="copy-code" type="button">複製</button></div><pre><code class="language-text">a * (1 - b)
+</code></pre></div>
+<div aria-label="資料表格，可水平捲動" role="region" tabindex="0" class="table-scroll"><table>
+<thead>
+<tr>
+<th>Technique</th>
+<th align="right">a：威脅技術</th>
+<th align="right">b：能偵測</th>
+<th align="right">計算結果</th>
+<th>解讀</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>技術甲</td>
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td>這次分析中的偵測缺口</td>
+</tr>
+<tr>
+<td>技術乙</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">0</td>
+<td>已有偵測能力</td>
+</tr>
+<tr>
+<td>技術丙</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td>不在這次威脅分析範圍</td>
+</tr>
+</tbody></table></div>
+<p>結果 <code>1</code> 可以用紅色標示，協助安排補強工作；它是這套評分規則下的缺口標記，不能直接解讀為攻擊發生機率。尚未測試的技術應標示為未知，先決定是否排除或另外處理，再納入運算。</p>
+<h2 id="操作流程">操作流程<a class="heading-anchor" href="layer-score-formulas.html#%E6%93%8D%E4%BD%9C%E6%B5%81%E7%A8%8B" aria-label="本節連結">#</a></h2><h3 id="1-在桌面程式準備來源圖層">1. 在桌面程式準備來源圖層<a class="heading-anchor" href="layer-score-formulas.html#1-%E5%9C%A8%E6%A1%8C%E9%9D%A2%E7%A8%8B%E5%BC%8F%E6%BA%96%E5%82%99%E4%BE%86%E6%BA%90%E5%9C%96%E5%B1%A4" aria-label="本節連結">#</a></h3><ol>
+<li>依<a href="project-readme.html">專案 README</a>啟動程式。</li>
+<li>用 <strong>Navigator → New layer</strong> 建立兩份檔案，分別重新命名為「威脅技術」與「偵測能力」。確認兩份檔案使用相同 ATT&amp;CK 領域及版本。</li>
+<li>在「威脅技術」圖層中，可利用矩陣的 <strong>TTPs from → Group／Software／Campaign／Mitigation</strong> 加入相關技術。加入清單後仍須設定分數；勾選或顏色不會自動成為分數。</li>
+<li>使用 <strong>Score selected…</strong> 或個別 TTP 的註解編輯器設定 Score。以範例的定義建立 <code>0</code>／<code>1</code> 評分，並在 Comment 紀錄資料來源、驗證方式與日期。</li>
+<li>對準備參與計算的每個技術明確填入兩份圖層的分數。未知值保持與 <code>0</code> 區別，先釐清處理方式。</li>
+</ol>
+<h3 id="2-在程式內建立公式圖層">2. 在程式內建立公式圖層<a class="heading-anchor" href="layer-score-formulas.html#2-%E5%9C%A8%E7%A8%8B%E5%BC%8F%E5%85%A7%E5%BB%BA%E7%AB%8B%E5%85%AC%E5%BC%8F%E5%9C%96%E5%B1%A4" aria-label="本節連結">#</a></h3><ol>
+<li>開啟 <strong>Navigator → Create layer from score formula…</strong>，核對表格中 <code>a</code>、<code>b</code> 對應的來源檔案名稱。</li>
+<li>在 <strong>Formula and scope</strong> 輸入結果圖層名稱及 <code>a * (1 - b)</code>；本範例保留 <strong>計算模式：Studio</strong>，再選 **Formula syntax（公式語法）**及 <strong>Selected TTP union from referenced sources</strong>（參照來源已選 TTP 聯集）或 <strong>Entire matrix</strong>（整張矩陣）。若要採官方規則，先參考上方模式對照表。</li>
+<li><strong>Missing scores</strong> 預設保留未知：任一參照分數缺失／停用時，該結果維持未評分。只有明確決定將缺失值當成 0 時，才改選零值處理。</li>
+<li>視需要在 <strong>Inherit properties</strong> 分別指定各項屬性的來源，再按 <strong>Create result layer</strong>。背景工作依序顯示 1/5 驗證、2/5 讀取快照、3/5 計算與繼承、4/5 驗證完整結果、5/5 完成，然後開啟獨立的新圖層。</li>
+<li>核對上表的三種情況。在 <strong>Layer settings…</strong> 設定 0–1 的漸層，讓 <code>1</code> 顯示紅色。</li>
+</ol>
+<p>以下範圍／缺值段落說明 <strong>Studio 計算模式</strong>。公式逐個 Technique／tactic 使用原始 Score；父子彙總顯示不是公式輸入。預設的 <strong>Selected TTP union</strong> 只計算公式參照來源已勾選的 tactic 範圍。未使用的變數不影響缺失值或計算目標；常數使用所有列出來源的勾選聯集。只提供繼承屬性的來源不擴大計算目標。</p>
+<p><strong>Entire matrix</strong> 計算所有有效技術、子技術及其映射 tactic，包括目前收合、停用或被平台／搜尋篩選的格子。一次全部設成 50 的操作：開啟任一相容圖層 → 輸入 <code>50</code> → 選 <strong>Entire matrix</strong> → 保留預設繼承選項 → 建立。來源完全沒有勾選 TTP 也能使用。後續繼承的篩選只影響顯示，不縮小計算範圍。</p>
+<p>預設缺失值規則檢查<strong>公式提到的所有變數</strong>，包含未採用的條件分支；任一輸入缺失／停用，該格維持未評分。只有明確決定未知值視為零時才選零值政策。真正的零分仍會評分並納入選取。在計算目標內，來源原始分數是否參與計算與來源勾選狀態分開處理。有計算分數的結果即使繼承停用狀態也仍被選取；未評分結果預設停用，但明確指定的狀態來源可以覆蓋預設值。</p>
+<h3 id="各項屬性分別繼承">各項屬性分別繼承<a class="heading-anchor" href="layer-score-formulas.html#%E5%90%84%E9%A0%85%E5%B1%AC%E6%80%A7%E5%88%86%E5%88%A5%E7%B9%BC%E6%89%BF" aria-label="本節連結">#</a></h3><p>每個下拉選單都可以選不同來源。例如計算 <code>(a+b)/2</code>，<strong>Comments</strong> 選 <code>a</code>，<strong>Manual colors</strong> 選 <code>b</code>，漸層保留自動設定。</p>
+<div aria-label="資料表格，可水平捲動" role="region" tabindex="0" class="table-scroll"><table>
+<thead>
+<tr>
+<th>屬性</th>
+<th>複製內容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Score gradient</td>
+<td>指定來源就完整保留顏色／上下限，優先於自動漸層模式；未指定時依所選 Studio／Navigator 政策</td>
+</tr>
+<tr>
+<td>Manual colors／Comments</td>
+<td>精確 tactic 註記，沒有時取技術全域列；手動顏色會覆蓋分數色</td>
+</tr>
+<tr>
+<td>Links／Metadata</td>
+<td>技術及圖層層級清單，保留分隔列與擴充欄位</td>
+</tr>
+<tr>
+<td>Enabled states</td>
+<td>逐 tactic 狀態；來源沒有對應列時預設啟用</td>
+</tr>
+<tr>
+<td>Filters／hide disabled</td>
+<td>平台篩選與隱藏停用設定；不改變公式涵蓋範圍</td>
+</tr>
+<tr>
+<td>Legend</td>
+<td>來源圖層圖例</td>
+</tr>
+</tbody></table></div>
+<p>除了自動漸層，其他預設為 <strong>Do not inherit</strong>。缺少的屬性維持空白，不會自行產生顏色或父子繼承；Studio 精確 tactic 列／全域整列後備規則和原生矩陣一致，Navigator 則採上方的來源列順序投影。來源的保留選取標記會移除。即使繼承圖層 Metadata，公式來源紀錄仍保留在 <code>x_ttp_studio_formula</code>。來源名稱、分數、顏色、勾選與儲存狀態都不改變；結果會關閉疊色模式以顯示自身。</p>
+<h3 id="3-匯出與官方工具交換">3. 匯出與官方工具交換<a class="heading-anchor" href="layer-score-formulas.html#3-%E5%8C%AF%E5%87%BA%E8%88%87%E5%AE%98%E6%96%B9%E5%B7%A5%E5%85%B7%E4%BA%A4%E6%8F%9B" aria-label="本節連結">#</a></h3><ol>
+<li>用既有檔案匯出功能選擇 Navigator Layer JSON，或用 <strong>Navigator → Export all open layers…</strong> 匯出來源與結果圖層。目的資料夾須存在，例如先建立 <code>examples</code> 再儲存 <code>examples/layers.navigator.json</code>。</li>
+<li>寫入前會顯示最終／暫存檔的絕對位址，並顯示驗證、寫入及發布進度。</li>
+<li>可用 <strong>Navigator → Open ATT&amp;CK Navigator website</strong> 開啟官方工具，載入匯出的 JSON。計算分數與標準繼承屬性可使用；Studio 的公式來源擴充欄位是紀錄，不會指示官方工具重新計算。</li>
+<li>外部產生的結果可用 <strong>File → Import Navigator Layer</strong> 載回桌面程式。</li>
+</ol>
+<p>公式輸入與輸出都在記憶體，運作前會顯示 <strong>Input files: None／Output files: None</strong>。完整 Studio JSON 請用 <strong>Save／Save As</strong>；Navigator JSON／CSV 另行匯出，寫檔前會顯示最終與暫存檔的絕對位址及分階段進度。Studio JSON、Navigator JSON 與工作階段復原保留分數、繼承屬性與公式來源紀錄；CSV 保存選取 TTP 的註記，不是完整圖層設定。詳見<a href="studio-files.html">文件儲存手冊</a>與<a href="aggregation-and-exports.html">分數彙總及矩陣匯出</a>。</p>
+<p>公式上限為 512 字元、128 個語法 token、24 層巢狀。數值須為 ±1e300 內的有限實數，指數絕對值上限 10000，min／max 最多 32 個參數。未知變數／函式、不支援的語法、除以零、Studio <code>%</code> 的零除數及數學定義域／溢位錯誤會中止，不建立部分圖層。Navigator 取餘數遇到零除數會回傳被除數。<strong>Cancel／Close</strong> 會在背景工作的檢查點取消。失敗後可修正並重試，來源維持不變。</p>
+<h2 id="其他可用的分析例子">其他可用的分析例子<a class="heading-anchor" href="layer-score-formulas.html#%E5%85%B6%E4%BB%96%E5%8F%AF%E7%94%A8%E7%9A%84%E5%88%86%E6%9E%90%E4%BE%8B%E5%AD%90" aria-label="本節連結">#</a></h2><div aria-label="資料表格，可水平捲動" role="region" tabindex="0" class="table-scroll"><table>
+<thead>
+<tr>
+<th>用途</th>
+<th>分數定義</th>
+<th>公式</th>
+<th>結果代表</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>比較改善前後</td>
+<td>a＝改善後、b＝改善前，使用相同 0–100 評分標準</td>
+<td><code>a-b</code></td>
+<td>正值表示評分提升</td>
+</tr>
+<tr>
+<td>整合兩組評估</td>
+<td>a、b 使用相同指標與尺度</td>
+<td><code>(a+b)/2</code></td>
+<td>兩組評估的平均值</td>
+</tr>
+<tr>
+<td>統計多個威脅的共同技術</td>
+<td>a、b、c 各以 0／1 標示是否納入該清單</td>
+<td><code>a+b+c</code></td>
+<td>有幾份清單包含該技術</td>
+</tr>
+<tr>
+<td>找出兩份清單共同技術</td>
+<td>a、b 各使用 0／1</td>
+<td><code>a*b</code></td>
+<td>1 表示兩份清單都包含該技術</td>
+</tr>
+</tbody></table></div>
+<h2 id="檢查重點">檢查重點<a class="heading-anchor" href="layer-score-formulas.html#%E6%AA%A2%E6%9F%A5%E9%87%8D%E9%BB%9E" aria-label="本節連結">#</a></h2><ul>
+<li>來源圖層須使用相同領域及 ATT&amp;CK 版本，並確認公式中的變數對應。</li>
+<li>先記錄評分定義、尺度、證據及未知值的處理方式；空白分數與 <code>0</code> 不相同。</li>
+<li>公式逐項計算 Technique；具有不同 tactic 註解的同一技術，可能產生不同結果。</li>
+<li>「Show all layers」是視覺疊色；本手冊的公式會產生帶有計算分數的新圖層。</li>
+<li>使用少量已知資料核對結果後，再套用到完整清單。</li>
+</ul>
+<h2 id="參考資料">參考資料<a class="heading-anchor" href="layer-score-formulas.html#%E5%8F%83%E8%80%83%E8%B3%87%E6%96%99" aria-label="本節連結">#</a></h2><ul>
+<li><a target="_blank" rel="noopener noreferrer" href="https://github.com/mitre-attack/attack-navigator/blob/master/USAGE.md#creating-layers-from-other-layers">官方圖層公式說明</a></li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://github.com/mitre-attack/attack-navigator/blob/master/USAGE.md#scoring-techniques">官方分數說明</a></li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://github.com/mitre-attack/attack-navigator">官方 Navigator GitHub 專案</a></li>
+<li><a href="../en/layer-score-formulas.html">English manual</a></li>
+</ul>
+</article><nav class="page-pagination" aria-label="文件翻頁"><a href="advanced-navigator.html"><small>← 上一篇</small>Navigator 進階操作</a><a href="json-annotation-export.html"><small>下一篇 →</small>JSON 註記匯出</a></nav>
+  <footer class="page-footer"><div class="source-caption"><strong>來源與發布版本</strong><p>manual/layer_score_formulas+_zh.md</p><p>commit <code>b04e4ac796d8</code> · 含本機未提交更新 · 2026-10-28</p><a href="../source-manifest.json" download>檢視來源與 SHA-256 清單 ↓</a></div><p>免費、開源的 TTP 威脅研究工作區。獨立社群專案，未獲 MITRE 背書。 <a href="../assets/source/LICENSE">MIT License</a></p></footer></main>
+  <aside class="page-toc" aria-label="本頁章節"><p>本頁章節</p><nav><a class="toc-level-2" href="#%E7%9B%AE%E5%89%8D%E6%94%AF%E6%8F%B4%E7%AF%84%E5%9C%8D">目前支援範圍</a><a class="toc-level-3" href="#%E7%B4%94%E9%87%8F%E8%AA%9E%E6%B3%95%E8%88%87%E5%87%BD%E5%BC%8Fnav-018">純量語法與函式（NAV-018）</a><a class="toc-level-3" href="#%E8%A8%88%E7%AE%97%E6%A8%A1%E5%BC%8F%E7%BC%BA%E5%80%BC%E8%88%87%E7%AF%84%E5%9C%8Dnav-019">計算模式：缺值與範圍（NAV-019）</a><a class="toc-level-3" href="#%E5%85%AC%E5%BC%8F%E7%B5%90%E6%9E%9C%E7%9A%84%E8%87%AA%E5%8B%95%E6%BC%B8%E5%B1%A4nav-020">公式結果的自動漸層（NAV-020）</a><a class="toc-level-2" href="#%E5%85%AC%E5%BC%8F%E8%88%87%E5%88%86%E6%95%B8%E4%BB%A3%E8%A1%A8%E4%BB%80%E9%BA%BC">公式與分數代表什麼</a><a class="toc-level-2" href="#%E7%AF%84%E4%BE%8B%E6%89%BE%E5%87%BA%E5%81%B5%E6%B8%AC%E7%BC%BA%E5%8F%A3">範例：找出偵測缺口</a><a class="toc-level-2" href="#%E6%93%8D%E4%BD%9C%E6%B5%81%E7%A8%8B">操作流程</a><a class="toc-level-3" href="#1-%E5%9C%A8%E6%A1%8C%E9%9D%A2%E7%A8%8B%E5%BC%8F%E6%BA%96%E5%82%99%E4%BE%86%E6%BA%90%E5%9C%96%E5%B1%A4">1. 在桌面程式準備來源圖層</a><a class="toc-level-3" href="#2-%E5%9C%A8%E7%A8%8B%E5%BC%8F%E5%85%A7%E5%BB%BA%E7%AB%8B%E5%85%AC%E5%BC%8F%E5%9C%96%E5%B1%A4">2. 在程式內建立公式圖層</a><a class="toc-level-3" href="#%E5%90%84%E9%A0%85%E5%B1%AC%E6%80%A7%E5%88%86%E5%88%A5%E7%B9%BC%E6%89%BF">各項屬性分別繼承</a><a class="toc-level-3" href="#3-%E5%8C%AF%E5%87%BA%E8%88%87%E5%AE%98%E6%96%B9%E5%B7%A5%E5%85%B7%E4%BA%A4%E6%8F%9B">3. 匯出與官方工具交換</a><a class="toc-level-2" href="#%E5%85%B6%E4%BB%96%E5%8F%AF%E7%94%A8%E7%9A%84%E5%88%86%E6%9E%90%E4%BE%8B%E5%AD%90">其他可用的分析例子</a><a class="toc-level-2" href="#%E6%AA%A2%E6%9F%A5%E9%87%8D%E9%BB%9E">檢查重點</a><a class="toc-level-2" href="#%E5%8F%83%E8%80%83%E8%B3%87%E6%96%99">參考資料</a></nav><a class="toc-source" href="https://github.com/NicoaTheSix/MITREATTACK_SIMULATOR" target="_blank" rel="noopener noreferrer">原始專案 ↗</a></aside></div>
+  <dialog id="search-dialog" aria-labelledby="search-title"><div class="search-heading"><h2 id="search-title">搜尋 Fusion Studio 文件</h2><button id="close-search" type="button" aria-label="關閉搜尋">×</button></div><label class="search-input-label" for="docs-search">輸入主題、選單或關鍵字</label><input id="docs-search" type="search" autocomplete="off" placeholder="試試：儲存、CAR、SVG、fusionstudio"><p id="search-status" role="status" aria-live="polite">輸入文字搜尋目前語言的完整文件。</p><div id="search-results"></div></dialog><div id="toast" role="status" aria-live="polite"></div></body></html>

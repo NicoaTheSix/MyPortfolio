@@ -1,0 +1,393 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f6f5f0"><meta name="description" content="產品定位與能力邊界 — Fusion Studio documentation. A free, open-source workspace for TTP-driven threat research."><title>產品定位與能力邊界 | Fusion Studio Docs</title><link rel="icon" href="../assets/source/assets/fusion-studio-icon-monochrome-v3.png"><link rel="stylesheet" href="../docs.css"><link rel="alternate" hreflang="en" href="../en/positioning.html"><script defer src="../docs.js" data-search-index="../search-index.json"></script></head><body data-language="zh" data-page="positioning">
+  <a class="skip-link" href="#content">跳至文件內容</a><header class="docs-header"><a class="docs-brand" href="../index.html"><img src="../assets/source/assets/fusion-studio-icon-monochrome-v3.png" alt="" width="34" height="34"><span>Fusion Studio <small>DOCUMENTATION</small></span></a><div class="header-actions"><button id="open-search" type="button" aria-haspopup="dialog"><span aria-hidden="true">⌕</span> 搜尋文件 <kbd>Ctrl K</kbd></button><a class="language-switch" href="../en/positioning.html" hreflang="en" lang="en">English</a><a class="portfolio-link" href="../../index.html#works">Nicoa ↗</a></div></header>
+  <div class="mobile-toolbar"><button id="menu-button" type="button" aria-controls="docs-sidebar" aria-expanded="false">☰ 文件目錄</button><span>產品定位與能力邊界</span></div>
+  <div class="docs-layout"><aside id="docs-sidebar" class="docs-sidebar" aria-label="文件導覽"><div class="sidebar-label">NICOA / OPEN SOURCE</div><nav><a class="sidebar-home " href="../index.html" >文件首頁</a><section class="nav-group"><h2>開始使用</h2><a href="quick-start.html" >快速開始</a><a href="first-research.html" >第一份研究文件</a><a href="installation.html" >安裝與啟動</a><a href="in-app-manual.html" >操作總覽</a><a href="in-app-index.html" >程式內指南索引</a><a href="guide-index.html" >全部指南對照表</a></section><section class="nav-group"><h2>工作區與選取</h2><a href="workspace-layout.html" >工作區、頁籤與側欄</a><a href="selection-and-search.html" >選取與搜尋</a><a href="detection-interaction.html" >偵測搜尋與來源複製</a><a href="source-relationship-selection.html" >來源關聯與批次選取</a><a href="source-hover-preview.html" >來源懸停預覽</a><a href="visibility-expansion-presets.html" >可見選取與展開</a></section><section class="nav-group"><h2>註記、保存與復原</h2><a href="batch-operations.html" >獨立狀態與批次註記</a><a href="studio-files.html" >儲存與工作階段復原</a></section><section class="nav-group"><h2>矩陣與 Navigator</h2><a href="matrix-display.html" >矩陣顯示與註記提示</a><a href="navigator-parity-controls.html" >Navigator 顯示與操作</a><a href="navigator-bundle-import.html" >多圖層 JSON 匯入</a><a href="advanced-navigator.html" >Navigator 進階操作</a><a href="layer-score-formulas.html" >圖層分數公式</a></section><section class="nav-group"><h2>匯出與交換</h2><a href="json-annotation-export.html" >JSON 註記匯出</a><a href="aggregation-and-exports.html" >分數彙總與矩陣匯出</a><a href="svg-paper.html" >SVG 紙張與方向</a><a href="svg-themes.html" >SVG 淺色與深色主題</a></section><section class="nav-group"><h2>ATLAS 與 CAR 參考</h2><a href="car-integration.html" >CAR、資料模型與感測器</a></section><section class="nav-group"><h2>版本遷移</h2><a href="upgrade-review.html" >升級逐項審核</a><a href="upgrade-content.html" >升級內容並排比較</a><a href="upgrade-mapping.html" >Tactic 搬移與衝突</a><a href="upgrade-summary.html" >升級摘要與略過理由</a></section><section class="nav-group"><h2>自訂來源與範例</h2><a href="custom-domains.html" >自訂 Domain 與 ID</a><a href="custom-data-url-import.html" >解析 customDataURL</a><a href="examples.html" >可載入範例</a><a href="project-readme.html" >產品 README 與完整安裝</a><a href="positioning.html" aria-current="page" class="current">產品定位與能力邊界</a><a href="car-provenance.html" >CAR 出處與授權</a></section></nav><div class="sidebar-bottom"><span>27 組雙語指南</span><a href="https://github.com/NicoaTheSix/MITREATTACK_SIMULATOR" target="_blank" rel="noopener noreferrer">GitHub ↗</a></div></aside>
+  <main id="content" class="docs-main" tabindex="-1"><div class="breadcrumb"><a href="../index.html">Docs</a><span>/</span><span>產品定位與能力邊界</span></div><details class="mobile-toc"><summary>本頁章節</summary><nav><a class="toc-level-2" href="#1-%E7%94%A2%E5%93%81%E5%AE%9A%E4%BD%8D%E6%91%98%E8%A6%81">1. 產品定位摘要</a><a class="toc-level-2" href="#2-%E5%B7%B2%E7%A2%BA%E8%AA%8D%E7%9A%84%E7%94%A2%E5%93%81%E5%8E%9F%E5%89%87">2. 已確認的產品原則</a><a class="toc-level-3" href="#21-%E5%85%8D%E8%B2%BB%E8%88%87%E9%96%8B%E6%BA%90">2.1 免費與開源</a><a class="toc-level-3" href="#22-%E4%BB%A5%E7%A0%94%E7%A9%B6%E5%B7%A5%E4%BD%9C%E7%82%BA%E4%B8%AD%E5%BF%83">2.2 以研究工作為中心</a><a class="toc-level-3" href="#23-%E6%B8%85%E6%A5%9A%E5%8D%80%E5%88%86%E8%B3%87%E6%96%99%E8%88%87%E5%88%86%E6%9E%90%E5%88%A4%E6%96%B7">2.3 清楚區分資料與分析判斷</a><a class="toc-level-2" href="#3-%E6%A0%B8%E5%BF%83%E4%BD%BF%E7%94%A8%E8%80%85">3. 核心使用者</a><a class="toc-level-3" href="#31-%E7%AC%AC%E4%B8%80%E5%84%AA%E5%85%88%E5%A8%81%E8%84%85%E7%A0%94%E7%A9%B6%E8%88%87-cti-%E5%88%86%E6%9E%90%E8%80%85">3.1 第一優先：威脅研究與 CTI 分析者</a><a class="toc-level-3" href="#32-%E6%AC%A1%E8%A6%81%E4%BD%BF%E7%94%A8%E8%80%85">3.2 次要使用者</a><a class="toc-level-2" href="#4-%E8%A6%81%E8%A7%A3%E6%B1%BA%E7%9A%84%E5%95%8F%E9%A1%8C">4. 要解決的問題</a><a class="toc-level-2" href="#5-%E6%A0%B8%E5%BF%83%E5%83%B9%E5%80%BC%E8%88%87%E5%8A%9F%E8%83%BD%E4%BE%9D%E6%93%9A">5. 核心價值與功能依據</a><a class="toc-level-2" href="#6-%E9%81%A9%E5%90%88%E7%9A%84%E6%87%89%E7%94%A8%E6%83%85%E5%A2%83">6. 適合的應用情境</a><a class="toc-level-3" href="#%E6%83%85%E5%A2%83-a%E6%94%BB%E6%93%8A%E7%B5%84%E7%B9%94%E8%BB%9F%E9%AB%94%E6%88%96%E6%B4%BB%E5%8B%95%E7%9A%84-ttp-%E7%A0%94%E7%A9%B6">情境 A：攻擊組織、軟體或活動的 TTP 研究</a><a class="toc-level-3" href="#%E6%83%85%E5%A2%83-b%E4%BA%8B%E4%BB%B6%E8%AA%BF%E6%9F%A5%E7%B5%90%E6%9E%9C%E7%9A%84%E6%8A%80%E8%A1%93%E5%8C%96%E6%95%B4%E7%90%86">情境 B：事件調查結果的技術化整理</a><a class="toc-level-3" href="#%E6%83%85%E5%A2%83-c%E5%81%B5%E6%B8%AC%E5%85%A7%E5%AE%B9%E8%88%87%E8%B3%87%E6%96%99%E9%9C%80%E6%B1%82%E7%A0%94%E7%A9%B6">情境 C：偵測內容與資料需求研究</a><a class="toc-level-3" href="#%E6%83%85%E5%A2%83-d%E7%B4%AB%E9%9A%8A%E6%BC%94%E7%B7%B4%E7%9A%84%E7%AF%84%E5%9C%8D%E8%88%87%E7%B5%90%E6%9E%9C%E6%95%B4%E7%90%86">情境 D：紫隊演練的範圍與結果整理</a><a class="toc-level-3" href="#%E6%83%85%E5%A2%83-eai-%E7%B3%BB%E7%B5%B1%E7%9A%84%E5%A8%81%E8%84%85%E7%A0%94%E7%A9%B6">情境 E：AI 系統的威脅研究</a><a class="toc-level-3" href="#%E6%83%85%E5%A2%83-f%E7%A0%94%E7%A9%B6%E7%B6%AD%E8%AD%B7%E6%95%99%E5%AD%B8%E8%88%87%E6%88%90%E6%9E%9C%E5%B1%95%E7%A4%BA">情境 F：研究維護、教學與成果展示</a><a class="toc-level-2" href="#7-%E7%A0%94%E7%A9%B6%E6%88%90%E6%9E%9C%E8%88%87%E6%AA%94%E6%A1%88%E7%9A%84%E8%A7%92%E8%89%B2">7. 研究成果與檔案的角色</a><a class="toc-level-2" href="#8-%E7%94%A2%E5%93%81%E9%82%8A%E7%95%8C%E8%88%87%E5%B0%8D%E5%A4%96%E8%A1%A8%E8%BF%B0">8. 產品邊界與對外表述</a><a class="toc-level-2" href="#9-%E5%8A%9F%E8%83%BD%E5%8F%96%E6%8D%A8%E5%8E%9F%E5%89%87">9. 功能取捨原則</a><a class="toc-level-2" href="#10-%E5%AE%9A%E4%BD%8D%E9%A9%97%E8%AD%89%E8%88%87%E6%88%90%E5%8A%9F%E5%88%A4%E6%96%B7">10. 定位驗證與成功判斷</a><a class="toc-level-2" href="#11-%E5%8F%AF%E7%9B%B4%E6%8E%A5%E4%BD%BF%E7%94%A8%E7%9A%84%E5%B0%8D%E5%A4%96%E6%96%87%E6%A1%88">11. 可直接使用的對外文案</a><a class="toc-level-3" href="#%E7%9F%AD%E6%A8%99%E8%AA%9E">短標語</a><a class="toc-level-3" href="#%E4%B8%AD%E6%96%87%E7%B0%A1%E4%BB%8B">中文簡介</a><a class="toc-level-3" href="#english-introduction">English introduction</a><a class="toc-level-2" href="#12-%E4%BE%9D%E6%93%9A%E8%88%87%E7%B6%AD%E8%AD%B7">12. 依據與維護</a></nav></details><article class="prose"><h1 id="fusion-studio-產品定位">Fusion Studio 產品定位<a class="heading-anchor" href="positioning.html#fusion-studio-%E7%94%A2%E5%93%81%E5%AE%9A%E4%BD%8D" aria-label="本節連結">#</a></h1><p>版本：1.0 · 更新日期：2026-10-24（Asia/Taipei） · 作者／維護者：Nicoa Wu</p>
+<p>本文件作為產品方向、功能取捨、使用說明與推廣內容的共同基準。免費開源及原始開發目的已由作者確認；核心客群、問題普遍性與採用成效仍需透過實際使用者驗證。本文依目前專案 README、操作手冊與 LICENSE 整理，未在本次重跑應用程式或進行市場調查。</p>
+<h2 id="1-產品定位摘要">1. 產品定位摘要<a class="heading-anchor" href="positioning.html#1-%E7%94%A2%E5%93%81%E5%AE%9A%E4%BD%8D%E6%91%98%E8%A6%81" aria-label="本節連結">#</a></h2><blockquote>
+<p><strong>Fusion Studio 是免費、開源、以 TTP 為核心的威脅研究工作區，協助資安分析者整理威脅情報、記錄分析判斷，並保存與匯出可持續更新的研究成果。</strong></p>
+</blockquote>
+<p>英文定位：</p>
+<blockquote>
+<p><strong>Fusion Studio is a free, open-source workspace for TTP-driven threat research. It helps security analysts organize threat knowledge, document analytical judgments, and save or export their research.</strong></p>
+</blockquote>
+<div aria-label="資料表格，可水平捲動" role="region" tabindex="0" class="table-scroll"><table>
+<thead>
+<tr>
+<th>要素</th>
+<th>定位</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>產品類別</td>
+<td>資安威脅研究與分析成果整理的桌面工作區</td>
+</tr>
+<tr>
+<td>核心使用者</td>
+<td>需要整理 TTP、撰寫威脅研究報告的資安分析者、個人研究者與小型 CTI 團隊</td>
+</tr>
+<tr>
+<td>主要任務</td>
+<td>將查閱到的威脅資料，整理成有技術選取、註解及來源連結的研究文件</td>
+</tr>
+<tr>
+<td>核心價值</td>
+<td>讓技術資料、選取範圍與分析判斷可以一起保存、重開、更新與交付</td>
+</tr>
+<tr>
+<td>主要研究材料</td>
+<td>MITRE ATT&amp;CK、ATLAS 與 CAR；各資料維持其原始語意與適用範圍</td>
+</tr>
+<tr>
+<td>取得與使用原則</td>
+<td>免費使用、開源提供；目前原創專案程式採 MIT 授權，完整條款見 LICENSE</td>
+</tr>
+<tr>
+<td>目前產品階段</td>
+<td>持續開發與測試，功能與支援範圍以當次版本文件為準</td>
+</tr>
+</tbody></table></div>
+<p>對外介紹時，先說明使用者能完成的研究任務，再介紹框架、矩陣及匯出格式。免費開源是產品的基本原則；研究工作的實際價值是推廣主軸。</p>
+<h2 id="2-已確認的產品原則">2. 已確認的產品原則<a class="heading-anchor" href="positioning.html#2-%E5%B7%B2%E7%A2%BA%E8%AA%8D%E7%9A%84%E7%94%A2%E5%93%81%E5%8E%9F%E5%89%87" aria-label="本節連結">#</a></h2><h3 id="21-免費與開源">2.1 免費與開源<a class="heading-anchor" href="positioning.html#21-%E5%85%8D%E8%B2%BB%E8%88%87%E9%96%8B%E6%BA%90" aria-label="本節連結">#</a></h3><ul>
+<li>使用者不需要付費即可使用本專案提供的功能。</li>
+<li>以開源專案形式提供原始碼，方便理解、檢視、修改及參與改善；實際授權條件依 <a href="../assets/source/LICENSE">LICENSE</a>。</li>
+<li>文件與推廣採「使用者」作為主要稱呼，不以購買或訂閱作為使用流程的前提。</li>
+<li>第三方元件、圖示來源與上游資料保留各自的授權及標示；免費開源的產品定位不把所有第三方內容改成 MIT。</li>
+<li>免費提供不等於承諾企業級服務時效或完成所有客製需求；支援方式與開發優先序依專案實際公告。</li>
+</ul>
+<p>本文件不規劃收費方案、付費功能分級或訂閱服務，也不修改現有 LICENSE。</p>
+<h3 id="22-以研究工作為中心">2.2 以研究工作為中心<a class="heading-anchor" href="positioning.html#22-%E4%BB%A5%E7%A0%94%E7%A9%B6%E5%B7%A5%E4%BD%9C%E7%82%BA%E4%B8%AD%E5%BF%83" aria-label="本節連結">#</a></h3><p>作者已確認，最初開發目的是「整理威脅情報、TTP 與研究報告」。功能規劃因此優先支援從查閱到交付的連續流程：</p>
+<p><strong>查閱來源 → 界定研究範圍 → 選取 TTP → 記錄理由與來源連結 → 分析比較 → 保存／匯出 → 後續更新。</strong></p>
+<h3 id="23-清楚區分資料與分析判斷">2.3 清楚區分資料與分析判斷<a class="heading-anchor" href="positioning.html#23-%E6%B8%85%E6%A5%9A%E5%8D%80%E5%88%86%E8%B3%87%E6%96%99%E8%88%87%E5%88%86%E6%9E%90%E5%88%A4%E6%96%B7" aria-label="本節連結">#</a></h3><p>上游資料中的描述與關聯、使用者自行填寫的註解與評分，以及實際測試證據，應可辨識其來源。選取技術代表納入研究範圍；評分與顏色的意義由研究者定義。兩者本身均不證明攻擊已發生、偵測已部署或控制措施有效。</p>
+<h2 id="3-核心使用者">3. 核心使用者<a class="heading-anchor" href="positioning.html#3-%E6%A0%B8%E5%BF%83%E4%BD%BF%E7%94%A8%E8%80%85" aria-label="本節連結">#</a></h2><h3 id="31-第一優先威脅研究與-cti-分析者">3.1 第一優先：威脅研究與 CTI 分析者<a class="heading-anchor" href="positioning.html#31-%E7%AC%AC%E4%B8%80%E5%84%AA%E5%85%88%E5%A8%81%E8%84%85%E7%A0%94%E7%A9%B6%E8%88%87-cti-%E5%88%86%E6%9E%90%E8%80%85" aria-label="本節連結">#</a></h3><div aria-label="資料表格，可水平捲動" role="region" tabindex="0" class="table-scroll"><table>
+<thead>
+<tr>
+<th>項目</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>典型角色</td>
+<td>個人資安研究者、CTI 分析師、兼任威脅研究的資安人員，以及以檔案交換成果的小型研究團隊</td>
+</tr>
+<tr>
+<td>既有能力</td>
+<td>能閱讀基本資安資料，理解或正在學習以戰術、技術與子技術描述行為</td>
+</tr>
+<tr>
+<td>常見任務</td>
+<td>研究攻擊組織、惡意軟體、攻擊活動或事件，將相關 TTP 整理成研究清單與報告素材</td>
+</tr>
+<tr>
+<td>交付對象</td>
+<td>自己、同事、主管、研究合作對象或顧問服務對象</td>
+</tr>
+<tr>
+<td>需要保存的內容</td>
+<td>選取範圍、選取理由、研究註解、參考連結、使用資料版本，以及供後續整理的輸出</td>
+</tr>
+<tr>
+<td>開啟產品的時機</td>
+<td>已有研究題目，需要從大量技術與參考資料中整理一份自己的研究成果</td>
+</tr>
+</tbody></table></div>
+<p>核心客群以工作任務定義，無須先具備特定職稱。小型團隊的適用情境是分工研究與交換檔案；目前定位不承諾多人即時共同編輯。</p>
+<h3 id="32-次要使用者">3.2 次要使用者<a class="heading-anchor" href="positioning.html#32-%E6%AC%A1%E8%A6%81%E4%BD%BF%E7%94%A8%E8%80%85" aria-label="本節連結">#</a></h3><div aria-label="資料表格，可水平捲動" role="region" tabindex="0" class="table-scroll"><table>
+<thead>
+<tr>
+<th>使用者</th>
+<th>適合的工作</th>
+<th>與核心定位的關係</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>偵測工程師與藍隊研究人員</td>
+<td>查閱偵測策略、資料來源與 CAR，整理規則研究及資料需求</td>
+<td>將研究成果作為後續偵測開發的輸入</td>
+</tr>
+<tr>
+<td>紫隊與演練規劃人員</td>
+<td>規劃技術範圍、記錄目標與證據連結、整理演練結果</td>
+<td>沿用相同研究文件與矩陣工作流程</td>
+</tr>
+<tr>
+<td>AI 安全研究者</td>
+<td>查閱 ATLAS 技術、緩解措施與案例，整理 AI 威脅情境</td>
+<td>將同一工作流程應用於 AI 安全研究</td>
+</tr>
+<tr>
+<td>資安顧問與安全架構師</td>
+<td>整理技術、分析註解與評估資料，準備交付圖表</td>
+<td>使用研究成果支援顧問報告及討論</td>
+</tr>
+<tr>
+<td>教師、學生與自學者</td>
+<td>建立主題式技術清單、學習筆記與案例教材</td>
+<td>使用研究工作區協助理解與表達</td>
+</tr>
+</tbody></table></div>
+<p>早期推廣優先驗證第一優先客群，次要情境可作教學案例。上述客群排序是產品假設，尚非市場採用結果。</p>
+<h2 id="4-要解決的問題">4. 要解決的問題<a class="heading-anchor" href="positioning.html#4-%E8%A6%81%E8%A7%A3%E6%B1%BA%E7%9A%84%E5%95%8F%E9%A1%8C" aria-label="本節連結">#</a></h2><p>下列問題由作者開發目的與目前功能歸納；外部使用者是否同樣遇到、發生頻率及嚴重程度，需在訪談與實作中確認。</p>
+<div aria-label="資料表格，可水平捲動" role="region" tabindex="0" class="table-scroll"><table>
+<thead>
+<tr>
+<th>問題</th>
+<th>工作上的影響</th>
+<th>Fusion Studio 的處理方式</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>資料查閱與研究整理分散</td>
+<td>看過許多網頁與資料後，仍需重新整理本次研究涉及哪些技術</td>
+<td>在工作區瀏覽參考資料，將技術與 CAR 研究內容明確納入文件</td>
+</tr>
+<tr>
+<td>技術清單缺少選取理由</td>
+<td>只剩 ID 或勾選結果，之後難以理解當時的判斷</td>
+<td>使用註解、連結與適用的 Metadata 留下研究脈絡</td>
+</tr>
+<tr>
+<td>多個題目容易混在一起</td>
+<td>不同組織、事件或研究用途的技術與筆記互相干擾</td>
+<td>使用獨立文件與圖層，維持各自的研究狀態</td>
+</tr>
+<tr>
+<td>研究難以接續更新</td>
+<td>下一次工作仍需重建選取範圍與註記</td>
+<td>保存完整 Studio JSON，重新開啟後持續編輯</td>
+</tr>
+<tr>
+<td>從研究轉成報告素材需要重整</td>
+<td>相同內容要再製作成表格、矩陣或交換檔案</td>
+<td>依用途匯出 CSV、SVG、Excel 或 Navigator 圖層</td>
+</tr>
+<tr>
+<td>資料版本更新影響既有研究</td>
+<td>舊技術、註解與新版資料之間需要逐項檢視</td>
+<td>使用已支援的版本比較與審核式遷移流程</td>
+</tr>
+</tbody></table></div>
+<p>目前工作方式可能包含瀏覽器、試算表、筆記與圖層工具。這些是待訪談核對的替代流程，不代表已研究所有競品或證實本產品更快。</p>
+<h2 id="5-核心價值與功能依據">5. 核心價值與功能依據<a class="heading-anchor" href="positioning.html#5-%E6%A0%B8%E5%BF%83%E5%83%B9%E5%80%BC%E8%88%87%E5%8A%9F%E8%83%BD%E4%BE%9D%E6%93%9A" aria-label="本節連結">#</a></h2><div aria-label="資料表格，可水平捲動" role="region" tabindex="0" class="table-scroll"><table>
+<thead>
+<tr>
+<th>核心價值</th>
+<th>使用者得到什麼</th>
+<th>目前功能依據</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>形成自己的研究範圍</strong></td>
+<td>從參考資料中挑選出與題目有關的內容</td>
+<td>ATT&amp;CK／ATLAS 瀏覽、搜尋、矩陣與技術選取；CAR 獨立納入</td>
+</tr>
+<tr>
+<td><strong>保留分析判斷</strong></td>
+<td>記得為何選取某項技術，以及需要回查的來源</td>
+<td>技術註解、適用的分數／顏色、連結與 Metadata</td>
+</tr>
+<tr>
+<td><strong>持續累積研究成果</strong></td>
+<td>關閉後可重開，讓同一題目持續更新</td>
+<td>獨立文件、Studio Save/Open、工作階段復原與資料版本資訊</td>
+</tr>
+<tr>
+<td><strong>便於比較與表達</strong></td>
+<td>以矩陣、圖層及表格檢視研究內容</td>
+<td>Navigator 圖層、適用範圍內的比較與公式、SVG／Excel 匯出</td>
+</tr>
+<tr>
+<td><strong>方便成果交換</strong></td>
+<td>將研究整理成其他流程可使用的檔案</td>
+<td>Studio JSON、Navigator JSON、CSV 等，各有不同保存範圍</td>
+</tr>
+<tr>
+<td><strong>免費取得並參與改善</strong></td>
+<td>可自行使用與檢視專案，回報問題或參與貢獻</td>
+<td>公開原始碼、MIT 授權的原創程式、英文與繁體中文介面及手冊</td>
+</tr>
+</tbody></table></div>
+<p>「方便」與「降低整理負擔」是價值主張，仍需使用者實作驗證；本文件不宣稱特定省時比例、偵測成效或量化投資報酬。</p>
+<h2 id="6-適合的應用情境">6. 適合的應用情境<a class="heading-anchor" href="positioning.html#6-%E9%81%A9%E5%90%88%E7%9A%84%E6%87%89%E7%94%A8%E6%83%85%E5%A2%83" aria-label="本節連結">#</a></h2><h3 id="情境-a攻擊組織軟體或活動的-ttp-研究">情境 A：攻擊組織、軟體或活動的 TTP 研究<a class="heading-anchor" href="positioning.html#%E6%83%85%E5%A2%83-a%E6%94%BB%E6%93%8A%E7%B5%84%E7%B9%94%E8%BB%9F%E9%AB%94%E6%88%96%E6%B4%BB%E5%8B%95%E7%9A%84-ttp-%E7%A0%94%E7%A9%B6" aria-label="本節連結">#</a></h3><p>**觸發需求：**分析者需要針對一個研究對象，整理其資料中已記載的相關技術及自己的判斷。</p>
+<p>**工作流程：**建立獨立文件 → 查閱組織／軟體／活動與關聯技術 → 加入研究範圍 → 閱讀技術說明與案例 → 記錄理由、來源及待查項目 → 保存與匯出。</p>
+<p>**適合產出：**研究技術清單、帶註解的矩陣、報告附表與可重開研究文件。</p>
+<p>**範圍說明：**資料中的既有關聯不代表特定組織在每次事件都使用全部技術；本次事件適用性由分析者確認。</p>
+<h3 id="情境-b事件調查結果的技術化整理">情境 B：事件調查結果的技術化整理<a class="heading-anchor" href="positioning.html#%E6%83%85%E5%A2%83-b%E4%BA%8B%E4%BB%B6%E8%AA%BF%E6%9F%A5%E7%B5%90%E6%9E%9C%E7%9A%84%E6%8A%80%E8%A1%93%E5%8C%96%E6%95%B4%E7%90%86" aria-label="本節連結">#</a></h3><p>**觸發需求：**調查者已有事件觀察或證據，需要以一致的技術語言整理研究摘要。</p>
+<p>**工作流程：**建立事件研究文件 → 人工對照觀察與 TTP → 加上證據連結、判斷理由及不確定性 → 整理矩陣與清單 → 交付報告素材。</p>
+<p>**適合產出：**事件 TTP 摘要、分析筆記與後續討論材料。</p>
+<p>**範圍說明：**證據需由其他調查流程取得；目前不承諾自動匯入事件日誌、擷取 IOC、鑑識或自動歸因。</p>
+<h3 id="情境-c偵測內容與資料需求研究">情境 C：偵測內容與資料需求研究<a class="heading-anchor" href="positioning.html#%E6%83%85%E5%A2%83-c%E5%81%B5%E6%B8%AC%E5%85%A7%E5%AE%B9%E8%88%87%E8%B3%87%E6%96%99%E9%9C%80%E6%B1%82%E7%A0%94%E7%A9%B6" aria-label="本節連結">#</a></h3><p>**觸發需求：**偵測工程師要了解研究技術有哪些策略、資料來源或 CAR 分析可供參考。</p>
+<p>**工作流程：**選定技術 → 查閱偵測策略與資料關聯 → 閱讀相關 CAR 內容、Data Model 或 Sensors → 納入適合的研究項目 → 記錄資料需求與待測試事項 → 交付開發待辦。</p>
+<p>**適合產出：**偵測研究清單、參考查詢與實作資料、待驗證資料需求。</p>
+<p>**範圍說明：**CAR 選取與 TTP 選取各自獨立。感測器與分析的候選關聯不證明資料完整或偵測有效；實際部署及測試需另行完成。</p>
+<h3 id="情境-d紫隊演練的範圍與結果整理">情境 D：紫隊演練的範圍與結果整理<a class="heading-anchor" href="positioning.html#%E6%83%85%E5%A2%83-d%E7%B4%AB%E9%9A%8A%E6%BC%94%E7%B7%B4%E7%9A%84%E7%AF%84%E5%9C%8D%E8%88%87%E7%B5%90%E6%9E%9C%E6%95%B4%E7%90%86" aria-label="本節連結">#</a></h3><p>**觸發需求：**演練前要界定測試技術，演練後要保留觀察與結果。</p>
+<p>**工作流程：**選取本次技術 → 以註解與 Metadata 記錄目標、負責人及證據連結 → 由外部工具完成演練 → 更新研究內容 → 在相容範圍內比較圖層與整理圖表。</p>
+<p>**適合產出：**演練技術範圍、觀察筆記、待改善清單與討論矩陣。</p>
+<p>**範圍說明：**演練動作、日誌及驗證結果由外部流程提供；分數與顏色採用的規則需自行說明。</p>
+<h3 id="情境-eai-系統的威脅研究">情境 E：AI 系統的威脅研究<a class="heading-anchor" href="positioning.html#%E6%83%85%E5%A2%83-eai-%E7%B3%BB%E7%B5%B1%E7%9A%84%E5%A8%81%E8%84%85%E7%A0%94%E7%A9%B6" aria-label="本節連結">#</a></h3><p>**觸發需求：**研究者希望整理與某個 AI 系統有關的 ATLAS 技術、案例及緩解思路。</p>
+<p>**工作流程：**界定研究系統與假設 → 查閱 ATLAS 技術、案例與緩解措施 → 選取與題目相關內容 → 寫下適用理由與待驗證假設 → 保存並輸出適用格式。</p>
+<p>**適合產出：**AI 威脅研究清單、案例筆記及安全審查討論素材。</p>
+<p>**範圍說明：**ATLAS、ATT&amp;CK 與 CAR 在同一工作區提供參考，不代表三者存在通用、自動或完整的對應關係；各匯出與分析功能須依框架支援範圍使用。</p>
+<h3 id="情境-f研究維護教學與成果展示">情境 F：研究維護、教學與成果展示<a class="heading-anchor" href="positioning.html#%E6%83%85%E5%A2%83-f%E7%A0%94%E7%A9%B6%E7%B6%AD%E8%AD%B7%E6%95%99%E5%AD%B8%E8%88%87%E6%88%90%E6%9E%9C%E5%B1%95%E7%A4%BA" aria-label="本節連結">#</a></h3><p>**觸發需求：**研究需要配合資料版本更新，或將既有內容轉成易於解說的教材與圖表。</p>
+<p>**工作流程：**開啟既有文件 → 檢視資料版本及研究內容 → 使用適用的版本比較與遷移流程 → 更新註解 → 匯出矩陣或表格供教材、簡報與報告使用。</p>
+<p>**適合產出：**研究更新紀錄、課程技術清單、SVG 矩陣、Excel 分析表與可交換的研究檔案。</p>
+<p>**範圍說明：**跨版本及跨圖層比較有相容條件；完整教案、簡報敘事與研究結論仍需作者編寫。</p>
+<h2 id="7-研究成果與檔案的角色">7. 研究成果與檔案的角色<a class="heading-anchor" href="positioning.html#7-%E7%A0%94%E7%A9%B6%E6%88%90%E6%9E%9C%E8%88%87%E6%AA%94%E6%A1%88%E7%9A%84%E8%A7%92%E8%89%B2" aria-label="本節連結">#</a></h2><div aria-label="資料表格，可水平捲動" role="region" tabindex="0" class="table-scroll"><table>
+<thead>
+<tr>
+<th>格式／內容</th>
+<th>適合用途</th>
+<th>重要範圍</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Studio JSON</td>
+<td>保存並重開完整研究工作內容</td>
+<td>保存時需包含所需內容類型；完整保存與部分輸出有別</td>
+</tr>
+<tr>
+<td>Navigator JSON</td>
+<td>交換目前支援的 ATT&amp;CK 圖層與註記</td>
+<td>依圖層、資料版本及框架限制，不保存完整 CAR 研究狀態</td>
+</tr>
+<tr>
+<td>CSV</td>
+<td>將選取內容及對應欄位交給表格流程</td>
+<td>交換報表用途，不等同完整可重開文件</td>
+</tr>
+<tr>
+<td>SVG</td>
+<td>將支援的技術矩陣放進簡報與報告</td>
+<td>視覺呈現用途，不保存全部研究狀態</td>
+</tr>
+<tr>
+<td>Excel</td>
+<td>檢視支援的矩陣、技術與圖層資料</td>
+<td>依所選匯出功能而定，不取代完整 Studio 保存</td>
+</tr>
+<tr>
+<td>原始 STIX／TAXII JSON 複製</td>
+<td>查閱或引用所選來源物件</td>
+<td>與保存使用者研究文件是不同操作</td>
+</tr>
+</tbody></table></div>
+<p>對外可說「支援研究整理與報告素材輸出」。目前不承諾自動完成整份敘事型研究報告。</p>
+<h2 id="8-產品邊界與對外表述">8. 產品邊界與對外表述<a class="heading-anchor" href="positioning.html#8-%E7%94%A2%E5%93%81%E9%82%8A%E7%95%8C%E8%88%87%E5%B0%8D%E5%A4%96%E8%A1%A8%E8%BF%B0" aria-label="本節連結">#</a></h2><div aria-label="資料表格，可水平捲動" role="region" tabindex="0" class="table-scroll"><table>
+<thead>
+<tr>
+<th>項目</th>
+<th>可以說明的能力</th>
+<th>仍需其他工具、流程或後續工作</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>威脅知識</td>
+<td>查閱資料、關聯及原始內容，整理自己的選取與註解</td>
+<td>即時情報蒐集、外部來源自動監控與完整 TIP 工作流程</td>
+</tr>
+<tr>
+<td>偵測研究</td>
+<td>閱讀策略、資料需求與 CAR 參考內容</td>
+<td>SIEM／EDR 蒐集、查詢執行、規則部署與成效驗證</td>
+</tr>
+<tr>
+<td>攻防規劃</td>
+<td>整理演練範圍、研究紀錄與結果連結</td>
+<td>攻擊執行、漏洞掃描與自動化演練</td>
+</tr>
+<tr>
+<td>評分與比較</td>
+<td>使用者定義分數、顏色與註解，進行支援的分析</td>
+<td>自動量化企業風險、證明安全覆蓋率或控制有效性</td>
+</tr>
+<tr>
+<td>團隊使用</td>
+<td>以檔案交換研究成果</td>
+<td>雲端即時共同編輯、集中權限與企業案件管理</td>
+</tr>
+<tr>
+<td>本機工作</td>
+<td>使用已準備的本機資料與研究文件</td>
+<td>首次資料取得、更新及外部連結仍可能需要網路；不宣稱全流程永久離線</td>
+</tr>
+<tr>
+<td>中英文使用</td>
+<td>英文與繁體中文介面及手冊</td>
+<td>上游資料完整繁中翻譯；來源內容保留原有語言</td>
+</tr>
+</tbody></table></div>
+<p>VS Code 風格是操作介面的設計特點，不代表本產品是 VS Code 擴充套件。<code>fusionstudio</code> 目前是啟動桌面程式的命令，不能描述成已完成的 TTP 查詢／自動化 CLI。平台安裝及實測範圍依當版安裝文件，不從開源或 Qt 技術直接推定所有系統皆已支援。</p>
+<p>Fusion Studio 是獨立社群專案，沒有 MITRE 官方背書。各框架、資料與相依元件維持其原始名稱、來源與授權。</p>
+<h2 id="9-功能取捨原則">9. 功能取捨原則<a class="heading-anchor" href="positioning.html#9-%E5%8A%9F%E8%83%BD%E5%8F%96%E6%8D%A8%E5%8E%9F%E5%89%87" aria-label="本節連結">#</a></h2><p>後續功能優先考慮下列問題：</p>
+<ol>
+<li>是否讓核心使用者更容易完成一份真實的威脅研究？</li>
+<li>是否讓技術選取、註解與來源連結更清楚，並在保存、重開及交換時保留？</li>
+<li>是否改善資料版本相容性、匯出可信度或研究接續能力？</li>
+<li>是否降低首次安裝、第一次完成研究與後續更新的阻礙？</li>
+<li>是否符合免費開源原則，且能以現有維護能力持續支援？</li>
+</ol>
+<p>優先方向包括研究入口、註解與來源脈絡、保存與交換、清楚的匯出用途、範例與手冊。新平台、更多資料來源或自動化功能應說明它們改善哪個核心任務，再排入規劃。本節為方向準則，不是已排定的開發承諾。</p>
+<h2 id="10-定位驗證與成功判斷">10. 定位驗證與成功判斷<a class="heading-anchor" href="positioning.html#10-%E5%AE%9A%E4%BD%8D%E9%A9%97%E8%AD%89%E8%88%87%E6%88%90%E5%8A%9F%E5%88%A4%E6%96%B7" aria-label="本節連結">#</a></h2><p>目前已確認的是作者自己的需求及免費開源意願。外部使用者是否需要本產品、是否願意持續使用，以及相較既有工作方式的實際效益，尚需驗證。</p>
+<p>建議以少量願意實作的威脅研究者開始，讓每人帶入自己的題目，完成以下任務：</p>
+<ol>
+<li>找到研究對象或技術，建立一份獨立文件。</li>
+<li>選取相關 TTP，至少記錄一項選取理由及可回查的來源。</li>
+<li>保存、關閉並重新開啟，確認內容保留。</li>
+<li>匯出一種自己會使用的報告素材。</li>
+<li>在後續研究中再次開啟、修改或更新該文件。</li>
+</ol>
+<p>觀察成功啟動、任務完成、需要協助的步驟、保存與重開正確性、匯出是否可用，以及是否用真實題目再次使用。訪談應詢問原本流程、具體卡點與成果用途，並同時記錄不需要本工具的原因。</p>
+<p>Star、下載與影片觀看可作觸及參考；持續完成研究與再次使用更接近產品價值。時間改善需在明確任務及對照流程下量測後，才作對外主張。回饋以自願提供為原則，本文件不要求新增使用遙測。</p>
+<h2 id="11-可直接使用的對外文案">11. 可直接使用的對外文案<a class="heading-anchor" href="positioning.html#11-%E5%8F%AF%E7%9B%B4%E6%8E%A5%E4%BD%BF%E7%94%A8%E7%9A%84%E5%B0%8D%E5%A4%96%E6%96%87%E6%A1%88" aria-label="本節連結">#</a></h2><h3 id="短標語">短標語<a class="heading-anchor" href="positioning.html#%E7%9F%AD%E6%A8%99%E8%AA%9E" aria-label="本節連結">#</a></h3><p><strong>整理威脅知識，留下分析判斷，累積研究成果。</strong></p>
+<h3 id="中文簡介">中文簡介<a class="heading-anchor" href="positioning.html#%E4%B8%AD%E6%96%87%E7%B0%A1%E4%BB%8B" aria-label="本節連結">#</a></h3><p>Fusion Studio 是免費、開源、以 TTP 為核心的威脅研究工作區。它將 ATT&amp;CK、ATLAS 與 CAR 參考內容帶入熟悉的桌面介面，協助資安分析者查閱技術、選取研究範圍、留下註解，並保存、更新及匯出研究成果。適合威脅情報整理、TTP 分析，以及研究報告的矩陣與表格素材製作。</p>
+<h3 id="english-introduction">English introduction<a class="heading-anchor" href="positioning.html#english-introduction" aria-label="本節連結">#</a></h3><p>Fusion Studio is a free, open-source desktop workspace for TTP-driven threat research. It brings ATT&amp;CK, ATLAS, and CAR reference content into a familiar interface, helping security analysts explore techniques, define research scope, keep analytical notes, and save or export their work. It supports threat research and the preparation of matrices and tables for reports. Available workflows and export formats depend on the selected framework and dataset version.</p>
+<p>對外文案應隨實際版本更新。涉及來源映射、評分、部署及驗證的內容，須保留必要的能力邊界；不使用尚未驗證的「自動證明覆蓋率」「保證降低風險」或「官方認證」等主張。</p>
+<h2 id="12-依據與維護">12. 依據與維護<a class="heading-anchor" href="positioning.html#12-%E4%BE%9D%E6%93%9A%E8%88%87%E7%B6%AD%E8%AD%B7" aria-label="本節連結">#</a></h2><div aria-label="資料表格，可水平捲動" role="region" tabindex="0" class="table-scroll"><table>
+<thead>
+<tr>
+<th>依據</th>
+<th>對應內容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>作者於本對話確認的需求</td>
+<td>整理威脅情報、TTP 與研究報告；使用者免費使用、專案開源</td>
+</tr>
+<tr>
+<td><a href="project-readme.html">專案 README</a></td>
+<td>當前功能、版本、平台與保存／匯出範圍</td>
+</tr>
+<tr>
+<td><a href="../assets/source/LICENSE">MIT 授權原文</a></td>
+<td>原創專案程式的既有授權</td>
+</tr>
+<tr>
+<td><a href="guide-index.html">操作手冊索引</a></td>
+<td>實際工作流程與中英文手冊</td>
+</tr>
+<tr>
+<td><a href="../en/source-relationship-selection.html">來源關聯與選取</a></td>
+<td>關聯路徑、資料範圍與來源批次操作</td>
+</tr>
+<tr>
+<td><a href="../en/advanced-navigator.html">進階 Navigator 操作</a></td>
+<td>註解、Links、Metadata、圖層與相容條件</td>
+</tr>
+<tr>
+<td><a href="../en/car-integration.html">CAR 整合手冊</a></td>
+<td>CAR 獨立研究內容、保存與參考用途限制</td>
+</tr>
+<tr>
+<td><a href="../en/aggregation-and-exports.html">矩陣與表格匯出</a></td>
+<td>SVG／Excel 用途與保存差異</td>
+</tr>
+<tr>
+<td><a href="../en/studio-files.html">Studio 檔案與復原</a></td>
+<td>文件保存、重開與工作階段復原</td>
+</tr>
+</tbody></table></div>
+<p>產品核心任務、使用者範圍、免費開源原則或功能能力有實質改變時更新本文。市場回饋與採用證據另記日期與來源，不把建議客群或價值假設改寫成已驗證事實。</p>
+</article><nav class="page-pagination" aria-label="文件翻頁"><a href="project-readme.html"><small>← 上一篇</small>產品 README 與完整安裝</a><a href="car-provenance.html"><small>下一篇 →</small>CAR 出處與授權</a></nav>
+  <footer class="page-footer"><div class="source-caption"><strong>來源與發布版本</strong><p>PRODUCT_POSITIONING.md</p><p>commit <code>b04e4ac796d8</code> · 含本機未提交更新 · 2026-10-28</p><a href="../source-manifest.json" download>檢視來源與 SHA-256 清單 ↓</a></div><p>免費、開源的 TTP 威脅研究工作區。獨立社群專案，未獲 MITRE 背書。 <a href="../assets/source/LICENSE">MIT License</a></p></footer></main>
+  <aside class="page-toc" aria-label="本頁章節"><p>本頁章節</p><nav><a class="toc-level-2" href="#1-%E7%94%A2%E5%93%81%E5%AE%9A%E4%BD%8D%E6%91%98%E8%A6%81">1. 產品定位摘要</a><a class="toc-level-2" href="#2-%E5%B7%B2%E7%A2%BA%E8%AA%8D%E7%9A%84%E7%94%A2%E5%93%81%E5%8E%9F%E5%89%87">2. 已確認的產品原則</a><a class="toc-level-3" href="#21-%E5%85%8D%E8%B2%BB%E8%88%87%E9%96%8B%E6%BA%90">2.1 免費與開源</a><a class="toc-level-3" href="#22-%E4%BB%A5%E7%A0%94%E7%A9%B6%E5%B7%A5%E4%BD%9C%E7%82%BA%E4%B8%AD%E5%BF%83">2.2 以研究工作為中心</a><a class="toc-level-3" href="#23-%E6%B8%85%E6%A5%9A%E5%8D%80%E5%88%86%E8%B3%87%E6%96%99%E8%88%87%E5%88%86%E6%9E%90%E5%88%A4%E6%96%B7">2.3 清楚區分資料與分析判斷</a><a class="toc-level-2" href="#3-%E6%A0%B8%E5%BF%83%E4%BD%BF%E7%94%A8%E8%80%85">3. 核心使用者</a><a class="toc-level-3" href="#31-%E7%AC%AC%E4%B8%80%E5%84%AA%E5%85%88%E5%A8%81%E8%84%85%E7%A0%94%E7%A9%B6%E8%88%87-cti-%E5%88%86%E6%9E%90%E8%80%85">3.1 第一優先：威脅研究與 CTI 分析者</a><a class="toc-level-3" href="#32-%E6%AC%A1%E8%A6%81%E4%BD%BF%E7%94%A8%E8%80%85">3.2 次要使用者</a><a class="toc-level-2" href="#4-%E8%A6%81%E8%A7%A3%E6%B1%BA%E7%9A%84%E5%95%8F%E9%A1%8C">4. 要解決的問題</a><a class="toc-level-2" href="#5-%E6%A0%B8%E5%BF%83%E5%83%B9%E5%80%BC%E8%88%87%E5%8A%9F%E8%83%BD%E4%BE%9D%E6%93%9A">5. 核心價值與功能依據</a><a class="toc-level-2" href="#6-%E9%81%A9%E5%90%88%E7%9A%84%E6%87%89%E7%94%A8%E6%83%85%E5%A2%83">6. 適合的應用情境</a><a class="toc-level-3" href="#%E6%83%85%E5%A2%83-a%E6%94%BB%E6%93%8A%E7%B5%84%E7%B9%94%E8%BB%9F%E9%AB%94%E6%88%96%E6%B4%BB%E5%8B%95%E7%9A%84-ttp-%E7%A0%94%E7%A9%B6">情境 A：攻擊組織、軟體或活動的 TTP 研究</a><a class="toc-level-3" href="#%E6%83%85%E5%A2%83-b%E4%BA%8B%E4%BB%B6%E8%AA%BF%E6%9F%A5%E7%B5%90%E6%9E%9C%E7%9A%84%E6%8A%80%E8%A1%93%E5%8C%96%E6%95%B4%E7%90%86">情境 B：事件調查結果的技術化整理</a><a class="toc-level-3" href="#%E6%83%85%E5%A2%83-c%E5%81%B5%E6%B8%AC%E5%85%A7%E5%AE%B9%E8%88%87%E8%B3%87%E6%96%99%E9%9C%80%E6%B1%82%E7%A0%94%E7%A9%B6">情境 C：偵測內容與資料需求研究</a><a class="toc-level-3" href="#%E6%83%85%E5%A2%83-d%E7%B4%AB%E9%9A%8A%E6%BC%94%E7%B7%B4%E7%9A%84%E7%AF%84%E5%9C%8D%E8%88%87%E7%B5%90%E6%9E%9C%E6%95%B4%E7%90%86">情境 D：紫隊演練的範圍與結果整理</a><a class="toc-level-3" href="#%E6%83%85%E5%A2%83-eai-%E7%B3%BB%E7%B5%B1%E7%9A%84%E5%A8%81%E8%84%85%E7%A0%94%E7%A9%B6">情境 E：AI 系統的威脅研究</a><a class="toc-level-3" href="#%E6%83%85%E5%A2%83-f%E7%A0%94%E7%A9%B6%E7%B6%AD%E8%AD%B7%E6%95%99%E5%AD%B8%E8%88%87%E6%88%90%E6%9E%9C%E5%B1%95%E7%A4%BA">情境 F：研究維護、教學與成果展示</a><a class="toc-level-2" href="#7-%E7%A0%94%E7%A9%B6%E6%88%90%E6%9E%9C%E8%88%87%E6%AA%94%E6%A1%88%E7%9A%84%E8%A7%92%E8%89%B2">7. 研究成果與檔案的角色</a><a class="toc-level-2" href="#8-%E7%94%A2%E5%93%81%E9%82%8A%E7%95%8C%E8%88%87%E5%B0%8D%E5%A4%96%E8%A1%A8%E8%BF%B0">8. 產品邊界與對外表述</a><a class="toc-level-2" href="#9-%E5%8A%9F%E8%83%BD%E5%8F%96%E6%8D%A8%E5%8E%9F%E5%89%87">9. 功能取捨原則</a><a class="toc-level-2" href="#10-%E5%AE%9A%E4%BD%8D%E9%A9%97%E8%AD%89%E8%88%87%E6%88%90%E5%8A%9F%E5%88%A4%E6%96%B7">10. 定位驗證與成功判斷</a><a class="toc-level-2" href="#11-%E5%8F%AF%E7%9B%B4%E6%8E%A5%E4%BD%BF%E7%94%A8%E7%9A%84%E5%B0%8D%E5%A4%96%E6%96%87%E6%A1%88">11. 可直接使用的對外文案</a><a class="toc-level-3" href="#%E7%9F%AD%E6%A8%99%E8%AA%9E">短標語</a><a class="toc-level-3" href="#%E4%B8%AD%E6%96%87%E7%B0%A1%E4%BB%8B">中文簡介</a><a class="toc-level-3" href="#english-introduction">English introduction</a><a class="toc-level-2" href="#12-%E4%BE%9D%E6%93%9A%E8%88%87%E7%B6%AD%E8%AD%B7">12. 依據與維護</a></nav><a class="toc-source" href="https://github.com/NicoaTheSix/MITREATTACK_SIMULATOR" target="_blank" rel="noopener noreferrer">原始專案 ↗</a></aside></div>
+  <dialog id="search-dialog" aria-labelledby="search-title"><div class="search-heading"><h2 id="search-title">搜尋 Fusion Studio 文件</h2><button id="close-search" type="button" aria-label="關閉搜尋">×</button></div><label class="search-input-label" for="docs-search">輸入主題、選單或關鍵字</label><input id="docs-search" type="search" autocomplete="off" placeholder="試試：儲存、CAR、SVG、fusionstudio"><p id="search-status" role="status" aria-live="polite">輸入文字搜尋目前語言的完整文件。</p><div id="search-results"></div></dialog><div id="toast" role="status" aria-live="polite"></div></body></html>

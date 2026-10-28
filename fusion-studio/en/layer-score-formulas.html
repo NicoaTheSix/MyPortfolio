@@ -1,0 +1,368 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f6f5f0"><meta name="description" content="Layer score formulas — Fusion Studio documentation. A free, open-source workspace for TTP-driven threat research."><title>Layer score formulas | Fusion Studio Docs</title><link rel="icon" href="../assets/source/assets/fusion-studio-icon-monochrome-v3.png"><link rel="stylesheet" href="../docs.css"><link rel="alternate" hreflang="zh-Hant" href="../zh/layer-score-formulas.html"><script defer src="../docs.js" data-search-index="../search-index.json"></script></head><body data-language="en" data-page="layer-score-formulas">
+  <a class="skip-link" href="#content">Skip to content</a><header class="docs-header"><a class="docs-brand" href="index.html"><img src="../assets/source/assets/fusion-studio-icon-monochrome-v3.png" alt="" width="34" height="34"><span>Fusion Studio <small>DOCUMENTATION</small></span></a><div class="header-actions"><button id="open-search" type="button" aria-haspopup="dialog"><span aria-hidden="true">⌕</span> Search docs <kbd>Ctrl K</kbd></button><a class="language-switch" href="../zh/layer-score-formulas.html" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a><a class="portfolio-link" href="../../index.html#works">Nicoa ↗</a></div></header>
+  <div class="mobile-toolbar"><button id="menu-button" type="button" aria-controls="docs-sidebar" aria-expanded="false">☰ Documentation menu</button><span>Layer score formulas</span></div>
+  <div class="docs-layout"><aside id="docs-sidebar" class="docs-sidebar" aria-label="Documentation navigation"><div class="sidebar-label">NICOA / OPEN SOURCE</div><nav><a class="sidebar-home " href="index.html" >Documentation home</a><section class="nav-group"><h2>Getting started</h2><a href="quick-start.html" >Quick start</a><a href="first-research.html" >Your first research</a><a href="installation.html" >Installation</a><a href="in-app-manual.html" >Operating manual</a><a href="in-app-index.html" >In-app guide index</a><a href="guide-index.html" >All guide pairs</a></section><section class="nav-group"><h2>Workspace &amp; selection</h2><a href="workspace-layout.html" >Workspace layout</a><a href="selection-and-search.html" >Selection &amp; search</a><a href="detection-interaction.html" >Detection &amp; source JSON</a><a href="source-relationship-selection.html" >Source relationships</a><a href="source-hover-preview.html" >Source hover preview</a><a href="visibility-expansion-presets.html" >Visibility &amp; expansion</a></section><section class="nav-group"><h2>Annotations &amp; persistence</h2><a href="batch-operations.html" >States &amp; batch editing</a><a href="studio-files.html" >Save &amp; session recovery</a></section><section class="nav-group"><h2>Matrix &amp; Navigator</h2><a href="matrix-display.html" >Matrix display</a><a href="navigator-parity-controls.html" >Navigator controls</a><a href="navigator-bundle-import.html" >Multi-layer JSON import</a><a href="advanced-navigator.html" >Advanced Navigator</a><a href="layer-score-formulas.html" aria-current="page" class="current">Layer score formulas</a></section><section class="nav-group"><h2>Export &amp; exchange</h2><a href="json-annotation-export.html" >JSON annotation export</a><a href="aggregation-and-exports.html" >Aggregation &amp; exports</a><a href="svg-paper.html" >SVG paper &amp; orientation</a><a href="svg-themes.html" >SVG light &amp; dark themes</a></section><section class="nav-group"><h2>ATLAS &amp; CAR references</h2><a href="car-integration.html" >CAR, Data Model &amp; Sensors</a></section><section class="nav-group"><h2>Version migration</h2><a href="upgrade-review.html" >Upgrade review</a><a href="upgrade-content.html" >Upgrade content comparison</a><a href="upgrade-mapping.html" >Tactic mapping &amp; conflicts</a><a href="upgrade-summary.html" >Upgrade summary</a></section><section class="nav-group"><h2>Custom sources &amp; examples</h2><a href="custom-domains.html" >Custom domains &amp; IDs</a><a href="custom-data-url-import.html" >Resolve customDataURL</a><a href="examples.html" >Loadable examples</a><a href="project-readme.html" >Product README &amp; setup</a><a href="positioning.html" >Positioning &amp; boundaries</a><a href="car-provenance.html" >CAR provenance &amp; licensing</a></section></nav><div class="sidebar-bottom"><span>27 bilingual guide pairs</span><a href="https://github.com/NicoaTheSix/MITREATTACK_SIMULATOR" target="_blank" rel="noopener noreferrer">GitHub ↗</a></div></aside>
+  <main id="content" class="docs-main" tabindex="-1"><div class="breadcrumb"><a href="index.html">Docs</a><span>/</span><span>Layer score formulas</span></div><details class="mobile-toc"><summary>On this page</summary><nav><a class="toc-level-2" href="#current-support">Current Support</a><a class="toc-level-3" href="#scalar-syntax-and-functions-nav-018">Scalar syntax and functions (NAV-018)</a><a class="toc-level-3" href="#calculation-modes-missing-scores-and-scope-nav-019">Calculation modes: missing scores and scope (NAV-019)</a><a class="toc-level-3" href="#automatic-result-gradients-nav-020">Automatic result gradients (NAV-020)</a><a class="toc-level-2" href="#meaning-of-formulas-and-scores">Meaning of Formulas and Scores</a><a class="toc-level-2" href="#example-detection-gaps">Example: Detection Gaps</a><a class="toc-level-2" href="#operating-steps">Operating Steps</a><a class="toc-level-3" href="#1-prepare-source-layers-in-the-desktop-application">1. Prepare Source Layers in the Desktop Application</a><a class="toc-level-3" href="#2-create-a-native-formula-layer">2. Create a Native Formula Layer</a><a class="toc-level-3" href="#independent-property-inheritance">Independent Property Inheritance</a><a class="toc-level-3" href="#3-export-and-exchange-with-the-official-tool">3. Export and Exchange with the Official Tool</a><a class="toc-level-2" href="#other-analysis-examples">Other Analysis Examples</a><a class="toc-level-2" href="#verification-checklist">Verification Checklist</a><a class="toc-level-2" href="#references">References</a></nav></details><article class="prose"><h1 id="layer-score-formulas-manual-and-examples">Layer Score Formulas: Manual and Examples<a class="heading-anchor" href="layer-score-formulas.html#layer-score-formulas-manual-and-examples" aria-label="Link to section">#</a></h1><p>This guide explains score definitions and native formula layers in Fusion Studio, with optional exchange through the official ATT&amp;CK Navigator.</p>
+<h2 id="current-support">Current Support<a class="heading-anchor" href="layer-score-formulas.html#current-support" aria-label="Link to section">#</a></h2><p>Use <strong>Navigator → Create layer from score formula…</strong>. Up to 26 source snapshots map to variables <code>a</code>–<code>z</code> and must share the domain, version and exact dataset. Official ATT&amp;CK v4+ and compatible custom data are supported. The dialog provides <strong>Formula and scope</strong> and <strong>Inherit properties</strong> tabs. Opening it and calculating do not write files.</p>
+<div aria-label="Scrollable data table" role="region" tabindex="0" class="table-scroll"><table>
+<thead>
+<tr>
+<th>Expression</th>
+<th>Example</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Arithmetic and power</td>
+<td><code>(a+b)/2</code>, <code>a%2</code>, <code>a^2</code></td>
+<td>Average, remainder, exponent</td>
+</tr>
+<tr>
+<td>Comparison</td>
+<td><code>a&gt;b</code>, <code>a&gt;=75</code>, <code>a==b</code>, <code>a!=b</code></td>
+<td>Numeric 1 if true, otherwise 0</td>
+</tr>
+<tr>
+<td>Boolean</td>
+<td><code>(a&gt;b) and (a&gt;=75)</code>, <code>a or b</code>, <code>a xor b</code>, <code>not a</code></td>
+<td>Nonzero is true; results are 1/0</td>
+</tr>
+<tr>
+<td>Conditional</td>
+<td><code>a&gt;b ? 25 : 10</code></td>
+<td>Choose a score based on the condition</td>
+</tr>
+<tr>
+<td>Functions</td>
+<td><code>max(a,b)</code>, <code>sqrt(abs(a-b))</code>, <code>round(a/3,2)</code></td>
+<td>Compute using the allowlisted functions</td>
+</tr>
+</tbody></table></div>
+<p>Powers use <code>^</code>, associate right-to-left, and precede unary signs: <code>2^3^2</code> is 512, <code>-2^2</code> is -4. <code>and</code>/<code>or</code> and conditional branches short-circuit arithmetic evaluation. Choose <strong>Formula syntax</strong> before creating the result. The dialog defaults to <strong>Navigator scalar</strong>; select <strong>Studio scalar</strong> when reproducing earlier Studio arithmetic. Existing saved layers keep their stored results.</p>
+<h3 id="scalar-syntax-and-functions-nav-018">Scalar syntax and functions (NAV-018)<a class="heading-anchor" href="layer-score-formulas.html#scalar-syntax-and-functions-nav-018" aria-label="Link to section">#</a></h3><p>Both scalar syntaxes provide constants <code>pi</code>, <code>e</code>, <code>tau</code>, <code>phi</code>, <code>true</code>, <code>false</code>. In Studio calculation mode, a listed source layer <code>e</code> takes precedence over Euler's constant; use <code>exp(1)</code> for the constant. Navigator calculation mode first tries an empty-scope constant, as explained below.</p>
+<div aria-label="Scrollable data table" role="region" tabindex="0" class="table-scroll"><table>
+<thead>
+<tr>
+<th>Function family</th>
+<th>Available functions and arguments</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Existing arithmetic</td>
+<td><code>abs(x)</code>, <code>min(...)</code>, <code>max(...)</code>, <code>sqrt(x)</code>, <code>pow(x,y)</code>, <code>log(x[,base])</code>, <code>exp(x)</code></td>
+</tr>
+<tr>
+<td>Rounding</td>
+<td><code>round(x[,digits])</code>, <code>floor(x)</code>, <code>ceil(x)</code>; Navigator also accepts digits for floor/ceil</td>
+</tr>
+<tr>
+<td>Trigonometry, radians</td>
+<td><code>sin(x)</code>, <code>cos(x)</code>, <code>tan(x)</code>, <code>asin(x)</code>, <code>acos(x)</code>, <code>atan(x)</code>, <code>atan2(y,x)</code></td>
+</tr>
+<tr>
+<td>Hyperbolic</td>
+<td><code>sinh(x)</code>, <code>cosh(x)</code>, <code>tanh(x)</code>, <code>asinh(x)</code>, <code>acosh(x)</code>, <code>atanh(x)</code></td>
+</tr>
+<tr>
+<td>Logarithms and small values</td>
+<td><code>log2(x)</code>, <code>log10(x)</code>, <code>log1p(x)</code>, <code>expm1(x)</code></td>
+</tr>
+<tr>
+<td>Real utilities</td>
+<td><code>cbrt(x)</code>, <code>sign(x)</code>, <code>fix(x[,digits])</code>, <code>mod(x,y)</code></td>
+</tr>
+<tr>
+<td>Studio extension</td>
+<td>Case-sensitive <code>nthRoot(x[,root])</code>; default root 2, negative x requires an odd integer root, negative root takes the reciprocal</td>
+</tr>
+</tbody></table></div>
+<p><code>log(x)</code> is natural logarithm. <code>fix</code> truncates toward zero with roundoff correction, <code>cbrt(-8)</code> is -2, and <code>sign</code> returns -1/0/1. Real domains still apply: <code>asin(2)</code>, <code>acosh(.5)</code>, <code>atanh(1)</code> and zero roots fail. The new <code>fix</code> precision is 0–15 in both modes; <code>mod</code> has the Navigator behavior in both modes.</p>
+<div aria-label="Scrollable data table" role="region" tabindex="0" class="table-scroll"><table>
+<thead>
+<tr>
+<th>Behavior</th>
+<th>Navigator scalar (new dialog default)</th>
+<th>Studio scalar (earlier arithmetic / API default)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Case</td>
+<td>Lowercases the whole expression; <code>SIN(PI/2)</code> → 1</td>
+<td>Case-sensitive; write <code>sin(pi/2)</code></td>
+</tr>
+<tr>
+<td>Half rounding</td>
+<td><code>round(2.5)</code> → 3, <code>round(-2.5)</code> → -3</td>
+<td>Ties to even: 2 and -2</td>
+</tr>
+<tr>
+<td>Decimal digits</td>
+<td>Integer 0–15 for round/floor/ceil/fix, with roundoff correction</td>
+<td>round accepts integer ±100; floor/ceil take one argument</td>
+</tr>
+<tr>
+<td>Comparison</td>
+<td>Relative tolerance 1e-12 / absolute 1e-15; <code>.1+.2==.3</code> → 1</td>
+<td>Exact floating comparison; that example → 0</td>
+</tr>
+<tr>
+<td>Chained comparison</td>
+<td>Adjacent operands, short-circuit: <code>3&gt;2&gt;1</code> → 1; <code>(3&gt;2)&gt;1</code> → 0</td>
+<td>Write <code>(a&lt;b) and (b&lt;c)</code> explicitly</td>
+</tr>
+<tr>
+<td><code>not</code> precedence</td>
+<td>Unary: <code>not 0&gt;1</code> → 0</td>
+<td>Earlier rule: <code>not 0&gt;1</code> → 1</td>
+</tr>
+<tr>
+<td>Remainder</td>
+<td><code>%</code>, infix <code>mod</code>, <code>mod(x,y)</code> use floor quotient; <code>5 mod -3</code> → -1; <code>3%0</code> → 3</td>
+<td><code>%</code> retains its earlier behavior and rejects zero divisor; new <code>mod(x,y)</code> is available</td>
+</tr>
+<tr>
+<td>nth root</td>
+<td>Rejected: official lowercasing changes <code>nthRoot</code> into undefined <code>nthroot</code></td>
+<td><code>nthRoot(-8,3)</code> → -2; <code>nthRoot(16,-2)</code> → .25</td>
+</tr>
+</tbody></table></div>
+<p>Navigator examples: <code>0&lt;=a&lt;=100 ? round(a,2) : 0</code>, <code>max(0, sin(pi/2)*a)</code>, <code>mod(a,10)</code>. An example with <code>a=80</code> gives 80, 80 and 0 respectively. Syntax is recorded in <code>x_ttp_studio_formula.syntax</code>; old provenance without it means historical Studio semantics. Studio/Navigator JSON and session recovery preserve the field. Exporting a result does not ask official Navigator to recalculate it.</p>
+<p>This scalar subset is checked against <a target="_blank" rel="noopener noreferrer" href="https://github.com/mitre-attack/attack-navigator/blob/v5.3.2/nav-app/src/app/services/viewmodels.service.ts">Navigator v5.3.2's lowercasing/evaluation pipeline</a> and mathjs 15.2.0; see the <a rel="noopener noreferrer" target="_blank" href="https://github.com/NicoaTheSix/MITREATTACK_SIMULATOR/blob/b04e4ac796d806e51e55838af6ece7f2cb1684fc/scripts/formula-reference/README.md">reproducible fixtures</a>. It does not implement all mathjs grammar: implicit multiplication, factorial, postfix percentages, assignment, arbitrary calls, arrays/matrices, units, complex numbers and objects are rejected. NAV-019 provides the missing-score/scope mode and NAV-020 adds the automatic-gradient policy below.</p>
+<h3 id="calculation-modes-missing-scores-and-scope-nav-019">Calculation modes: missing scores and scope (NAV-019)<a class="heading-anchor" href="layer-score-formulas.html#calculation-modes-missing-scores-and-scope-nav-019" aria-label="Link to section">#</a></h3><p><strong>Calculation mode</strong> is separate from <strong>Formula syntax</strong>. Each new dialog defaults to <strong>Studio · chosen scope and missing-score policy</strong>. To use official source-score rules, choose <strong>Navigator · official missing scores and scope</strong>. It fixes syntax to Navigator scalar and disables the Studio <strong>Calculation scope</strong> and <strong>Missing scores</strong> controls. Switching back restores your previous Studio choices. Settings and descriptions are scrollable on smaller displays.</p>
+<div aria-label="Scrollable data table" role="region" tabindex="0" class="table-scroll"><table>
+<thead>
+<tr>
+<th>Rule</th>
+<th>Studio calculation mode (default)</th>
+<th>Navigator calculation mode</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Targets</td>
+<td>Selected source union or Entire matrix</td>
+<td>Every active mapped technique/tactic with a score in at least one referenced source</td>
+</tr>
+<tr>
+<td>Source inclusion and visibility</td>
+<td>Selected scope follows checkboxes; matrix scope ignores display filters</td>
+<td>Checkboxes, platform/search filters, hidden/disabled state and collapsed children do not limit calculation</td>
+</tr>
+<tr>
+<td>One referenced input missing</td>
+<td>Keep result unscored, or explicitly substitute zero</td>
+<td>Substitute zero</td>
+</tr>
+<tr>
+<td>Every referenced input missing</td>
+<td>Follow the chosen Studio policy</td>
+<td>Leave unscored, without creating a synthetic zero; empty results are valid</td>
+</tr>
+<tr>
+<td>Stored score on a disabled source</td>
+<td>Count as missing</td>
+<td>Use the stored score</td>
+</tr>
+<tr>
+<td>Genuine stored zero</td>
+<td>A score</td>
+<td>A score; enough to make that cell a candidate</td>
+</tr>
+<tr>
+<td>Constant</td>
+<td>Use the chosen scope</td>
+<td>Try an empty source scope first, then initialize every active mapped matrix cell</td>
+</tr>
+<tr>
+<td>Unscored result state</td>
+<td>Disabled unless explicitly inherited</td>
+<td>Enabled by default; explicit Enabled inheritance can change it</td>
+</tr>
+</tbody></table></div>
+<p>For <code>(a+b)/2</code>, <code>a=80</code> and missing <code>b</code> produces <strong>40</strong> in Navigator mode, even when that source TTP is unselected or disabled. If both inputs are missing, the result stays unscored. A score in an unused source does not add targets; an inheritance-only source can copy annotations/states but does not supply computed scores. Scores are per Technique/Tactic; the same technique can have separate execution/persistence results. Parent aggregate displays are not formula inputs.</p>
+<p>The empty-scope probe also respects short-circuit branches: <code>0 ? a : 50</code> initializes the whole matrix to 50 without reading source <code>a</code>. A standalone <code>e</code> becomes Euler's constant in this mode even if layer <code>e</code> is listed; for <code>e+a</code>, the failed empty-scope probe is followed by per-cell evaluation using source <code>e</code> (or zero when that source is missing). <code>exp(1)</code> always requests the constant. A nonconstant formula over completely unscored sources produces a valid empty result layer.</p>
+<p>Navigator mode projects serialized source annotations in file order: a global row expands to mapped tactics, and a later row replaces the earlier whole row for that cell. A later exact row without Score clears that cell's earlier global Score; a later global row can replace an earlier exact row. Studio retains its existing exact-row/global fallback. Calculation remains bounded to the current catalog's active mapped cells; unresolved/inactive rows are not new computation targets and remain in the source documents.</p>
+<p>Workflow: select compatible sources → choose Navigator calculation mode → enter the formula and result name → choose <strong>Automatic gradient mode</strong> or explicit inheritance → <strong>Create result layer</strong> → review scores → Save/Export separately. The five visible stages announce in-memory inputs/outputs, validate the mode/probe, read snapshots, calculate/inherit, validate the complete result and publish one independent tab. Errors/cancellation publish no partial result and preserve sources.</p>
+<p><code>x_ttp_studio_formula</code> records <code>mode</code>, <code>syntax</code>, effective <code>scope: "navigator"</code>, <code>missing: "zero-if-any-score"</code> and <code>evaluation: "constant"</code> or <code>"scored-union"</code>. Studio mode records its chosen scope/policy. Studio JSON, Navigator JSON and recovery retain these values. Historical records without <code>mode</code> mean Studio behavior and are preserved without recomputation. CSV keeps selected computed TTP annotations, rather than the complete formula configuration.</p>
+<h3 id="automatic-result-gradients-nav-020">Automatic result gradients (NAV-020)<a class="heading-anchor" href="layer-score-formulas.html#automatic-result-gradients-nav-020" aria-label="Link to section">#</a></h3><p>In <strong>Formula and scope</strong>, <strong>Automatic gradient mode</strong> offers <strong>Follow calculation mode</strong> (default), <strong>Studio · source colors and range including zero/one</strong>, and <strong>Navigator · official result range and binary colors</strong>. Follow uses Studio gradients for Studio calculation mode and official gradients for Navigator calculation mode. You can choose either gradient policy independently of the score/scope policy.</p>
+<div aria-label="Scrollable data table" role="region" tabindex="0" class="table-scroll"><table>
+<thead>
+<tr>
+<th>Computed scores</th>
+<th>Navigator automatic gradient</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Different positive or negative values, e.g. 20/40/80 or -80/-20</td>
+<td>Actual minimum/maximum; official red/yellow/green colors</td>
+</tr>
+<tr>
+<td>Range exactly 0–1, e.g. 0/1 or 0/.25/1</td>
+<td>Transparent white <code>#ffffff00</code> → blue <code>#66b1ffff</code>, bounds 0–1</td>
+</tr>
+<tr>
+<td>One score, identical scores, or a constant formula</td>
+<td>Default red/yellow/green with bounds 0–100</td>
+</tr>
+<tr>
+<td>No computed score</td>
+<td>Default red/yellow/green with bounds 0–100; no synthetic scores or fills</td>
+</tr>
+<tr>
+<td>An explicit <strong>Score gradient</strong> source</td>
+<td>Exact source gradient overrides the automatic policy, including its bounds and alpha</td>
+</tr>
+</tbody></table></div>
+<p>The default official palette is <code>#ff6666ff</code>, <code>#ffe766ff</code>, <code>#8ec843ff</code>. The 0–1 trigger uses exact result bounds and can include fractional intermediate scores. All-zero or all-one results have no range and keep the default palette; a near-zero lower bound such as <code>1e-16</code> does not trigger the 0–1 preset. Constant 200 retains bounds 0–100 and displays the upper endpoint; it does not change the stored score. Studio keeps the first referenced source's palette with a range including zero and at least one.</p>
+<p>To see the difference, assign two Tactic cells scores 20 and 80 → choose Navigator calculation mode → leave <strong>Automatic gradient mode: Follow calculation mode</strong> → create. Bounds become 20–80. For a membership result with scores 0 and 1, zero is transparent and one is blue. To retain a chosen source palette/bounds, use <strong>Inherit properties → Score gradient → source</strong>; this disables the automatic dropdown while retaining its prior choice. Clearing the source selection re-enables it. Manual colors still override score colors, and explicitly disabled result cells retain their disabled appearance. Scores computed before Enabled inheritance still determine automatic bounds.</p>
+<p>Policy changes create a new result without changing source scores, selections, enabled states or annotations. <code>x_ttp_studio_formula.gradient_mode</code> records the resolved automatic policy (<code>studio</code> or <code>navigator</code>); <code>inheritance.gradient</code> records an overriding source. Studio JSON, Navigator JSON and recovery preserve the resulting gradient and provenance. Older results without <code>gradient_mode</code>, including pre-NAV-020 Navigator calculations, keep their stored historical gradient without recomputation. CSV remains a selected-TTP annotation export, not a complete layer configuration.</p>
+<p>The checked-in reference executes the actual v5.3.2 <a target="_blank" rel="noopener noreferrer" href="https://github.com/mitre-attack/attack-navigator/blob/v5.3.2/nav-app/src/app/services/viewmodels.service.ts">formula service</a> and <a target="_blank" rel="noopener noreferrer" href="https://github.com/mitre-attack/attack-navigator/blob/v5.3.2/nav-app/src/app/classes/gradient.ts">Gradient class</a>, with pinned development-only dependencies. It compares serialized palette/bounds and scores. Native matrix, overlay and SVG/Excel keep their existing continuous RGBA interpolation/compositing; this is not a pixel-identical recreation of the official 100-sample RGB renderer. See the <a rel="noopener noreferrer" target="_blank" href="https://github.com/NicoaTheSix/MITREATTACK_SIMULATOR/blob/b04e4ac796d806e51e55838af6ece7f2cb1684fc/scripts/formula-reference/README.md">reference workflow</a> for regeneration and the seven-stage offline gradient audit, including actual native colors, SVG pixels and Excel fills. The application requires no Node/TypeScript packages.</p>
+<h2 id="meaning-of-formulas-and-scores">Meaning of Formulas and Scores<a class="heading-anchor" href="layer-score-formulas.html#meaning-of-formulas-and-scores" aria-label="Link to section">#</a></h2><p>A formula calculates a new score from the source scores for the same technique. If <code>a</code> and <code>b</code> contain scores of 80 and 60, <code>(a+b)/2</code> produces 70. Define the meaning of each score before calculating. All data below are hypothetical.</p>
+<h2 id="example-detection-gaps">Example: Detection Gaps<a class="heading-anchor" href="layer-score-formulas.html#example-detection-gaps" aria-label="Link to section">#</a></h2><ul>
+<li><strong>a: Threat technique list.</strong> Use <code>1</code> for techniques included in this threat analysis and <code>0</code> for the others.</li>
+<li><strong>b: Detection capability.</strong> Use <code>1</code> for verified detection capability and <code>0</code> for a confirmed absence of detection capability.</li>
+</ul>
+<div class="code-block"><div class="code-bar"><span>text</span><button aria-label="Copy code block 1" class="copy-code" type="button">Copy</button></div><pre><code class="language-text">a * (1 - b)
+</code></pre></div>
+<div aria-label="Scrollable data table" role="region" tabindex="0" class="table-scroll"><table>
+<thead>
+<tr>
+<th>Technique</th>
+<th align="right">a: Threat technique</th>
+<th align="right">b: Detectable</th>
+<th align="right">Result</th>
+<th>Interpretation</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Technique A</td>
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td>Detection gap in this analysis</td>
+</tr>
+<tr>
+<td>Technique B</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">0</td>
+<td>Detection capability exists</td>
+</tr>
+<tr>
+<td>Technique C</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td>Outside this threat analysis</td>
+</tr>
+</tbody></table></div>
+<p>Color result <code>1</code> red to help prioritize detection improvements. This is a gap indicator under the chosen scoring rules, not an attack probability. Untested techniques remain unknown; decide whether to exclude them or handle them separately before calculating.</p>
+<h2 id="operating-steps">Operating Steps<a class="heading-anchor" href="layer-score-formulas.html#operating-steps" aria-label="Link to section">#</a></h2><h3 id="1-prepare-source-layers-in-the-desktop-application">1. Prepare Source Layers in the Desktop Application<a class="heading-anchor" href="layer-score-formulas.html#1-prepare-source-layers-in-the-desktop-application" aria-label="Link to section">#</a></h3><ol>
+<li>Start the application using the <a href="project-readme.html">project README</a>.</li>
+<li>Create two files with <strong>Navigator → New layer</strong> and rename them “Threat Techniques” and “Detection Capability.” Use the same ATT&amp;CK domain and version.</li>
+<li>In the threat layer, the matrix's <strong>TTPs from → Group / Software / Campaign / Mitigation</strong> controls can add related techniques. Selection and color do not automatically assign scores.</li>
+<li>Use <strong>Score selected…</strong> or the individual TTP annotation editor to enter the example's <code>0</code>/<code>1</code> scores. Record evidence, verification methods, and dates in Comment.</li>
+<li>Explicitly assign both source scores for each technique participating in the calculation. Keep unknown values distinct from <code>0</code> until their handling is defined.</li>
+</ol>
+<h3 id="2-create-a-native-formula-layer">2. Create a Native Formula Layer<a class="heading-anchor" href="layer-score-formulas.html#2-create-a-native-formula-layer" aria-label="Link to section">#</a></h3><ol>
+<li>Open <strong>Navigator → Create layer from score formula…</strong> and verify the source names mapped to <code>a</code> and <code>b</code>.</li>
+<li>In <strong>Formula and scope</strong>, enter a result name and <code>a * (1 - b)</code>. For this example keep <strong>Calculation mode: Studio</strong>, choose <strong>Formula syntax</strong>, then <strong>Selected TTP union from referenced sources</strong> or <strong>Entire matrix</strong>. Use the mode comparison above when deliberately choosing Navigator rules.</li>
+<li>The default <strong>Missing scores</strong> policy preserves unknowns: missing/disabled referenced scores leave that result unscored. Select the zero policy only when this interpretation is intentional.</li>
+<li>Optionally choose individual source layers in <strong>Inherit properties</strong>, then click <strong>Create result layer</strong>. Background progress shows 1/5 validation, 2/5 snapshot reading, 3/5 calculation/inheritance, 4/5 result validation and 5/5 completion. A separate result tab opens.</li>
+<li>Check the three example cases and configure a 0–1 gradient with result <code>1</code> colored red through <strong>Layer settings…</strong>.</li>
+</ol>
+<p>The following scope/missing-policy paragraphs describe <strong>Studio calculation mode</strong>. Calculations use stored Score values per technique/tactic; displayed parent aggregates are separate. In the default <strong>Selected TTP union</strong> scope, only occurrences selected in referenced sources are targets. Unused variables do not introduce missing inputs or targets. Constant formulas use all listed sources' selected union. An inheritance-only source does not add targets.</p>
+<p><strong>Entire matrix</strong> targets all active mapped techniques, sub-techniques and tactics, including collapsed, disabled and platform/search-filtered cells. To initialize everything to 50: open any compatible layer, enter <code>50</code>, choose <strong>Entire matrix</strong>, leave inheritance at its defaults, then create. No source selection is required. Filters inherited afterward change visibility, not coverage.</p>
+<p>The default missing policy checks <strong>every variable mentioned</strong>, including unchosen conditional branches; any missing/disabled input makes that cell unscored. Choose the zero policy intentionally if unknowns should count as zero. A genuine zero result stays scored/included. Within the target scope, stored source scores can contribute independently of source checkbox inclusion. Scored results are included even if their inherited Enabled state is false; missing results are disabled unless an explicit state source overrides that default.</p>
+<h3 id="independent-property-inheritance">Independent Property Inheritance<a class="heading-anchor" href="layer-score-formulas.html#independent-property-inheritance" aria-label="Link to section">#</a></h3><p>Each dropdown may use a different source. For example, calculate <code>(a+b)/2</code>, inherit <strong>Comments</strong> from <code>a</code>, <strong>Manual colors</strong> from <code>b</code>, and retain the automatic gradient for new scores.</p>
+<div aria-label="Scrollable data table" role="region" tabindex="0" class="table-scroll"><table>
+<thead>
+<tr>
+<th>Property</th>
+<th>What is copied</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Score gradient</td>
+<td>Exact source colors/bounds override Automatic gradient mode; without a source, follow the chosen Studio/Navigator policy</td>
+</tr>
+<tr>
+<td>Manual colors / Comments</td>
+<td>Exact tactic annotation, or global-row fallback; colors override score colors</td>
+</tr>
+<tr>
+<td>Links / Metadata</td>
+<td>Technique lists plus layer-level lists, preserving dividers and extension fields</td>
+</tr>
+<tr>
+<td>Enabled states</td>
+<td>Source state per tactic; absent source rows default to Enabled</td>
+</tr>
+<tr>
+<td>Filters / hide disabled</td>
+<td>Platform filters and hide-disabled flag; calculations still cover the selected scope</td>
+</tr>
+<tr>
+<td>Legend</td>
+<td>Source layer legend entries</td>
+</tr>
+</tbody></table></div>
+<p>All properties except the automatic gradient default to <strong>Do not inherit</strong>. An absent property produces no synthetic annotation; there is no parent/child inheritance. Studio uses exact tactic rows with the native whole-row global fallback; Navigator uses the file-order projection described above. Reserved source selection markers are removed. Formula provenance remains in <code>x_ttp_studio_formula</code> even when layer metadata is inherited. Source names, scores, colors, inclusion and save state remain unchanged. Combined-color mode is switched off to show the result.</p>
+<h3 id="3-export-and-exchange-with-the-official-tool">3. Export and Exchange with the Official Tool<a class="heading-anchor" href="layer-score-formulas.html#3-export-and-exchange-with-the-official-tool" aria-label="Link to section">#</a></h3><ol>
+<li>Export a Navigator Layer JSON through the existing file export controls, or use <strong>Navigator → Export all open layers…</strong> for sources/results. Choose an existing folder, or create <code>examples</code> before saving <code>examples/layers.navigator.json</code>.</li>
+<li>The application reports absolute final/temporary paths before validation, writing and publication.</li>
+<li><strong>Navigator → Open ATT&amp;CK Navigator website</strong> opens the official tool for loading the exported JSON. Scalar scores and inherited standard properties are available there; Studio formula provenance is an extension, not an instruction to recompute the formula.</li>
+<li>Import external result layers through <strong>File → Import Navigator Layer</strong>.</li>
+</ol>
+<p>Formula inputs and outputs are in memory and are announced as <strong>Input files: None / Output files: None</strong> before processing. Use <strong>Save / Save As</strong> for complete Studio JSON and a separate export for Navigator JSON/CSV; those operations show absolute final/temporary paths before stage progress. Studio JSON, Navigator JSON and recovery retain scores, inherited properties and formula provenance; CSV contains selected TTP annotations rather than the entire layer configuration. See <a href="studio-files.html">Studio Files</a> and <a href="aggregation-and-exports.html">Aggregation and Matrix Exports</a>.</p>
+<p>The parser accepts at most 512 characters, 128 tokens and 24 nesting levels. Numeric values must be real, finite and within ±1e300; exponent magnitude is limited to 10000, and min/max accept at most 32 arguments. Unknown variables/functions, unsupported syntax, division by zero, Studio <code>%</code> by zero and domain/overflow errors stop the operation without creating a partial layer. Navigator remainder with zero divisor returns the dividend. <strong>Cancel / Close</strong> interrupts at worker checkpoints. On failure, correct the input and retry; sources remain unchanged.</p>
+<h2 id="other-analysis-examples">Other Analysis Examples<a class="heading-anchor" href="layer-score-formulas.html#other-analysis-examples" aria-label="Link to section">#</a></h2><div aria-label="Scrollable data table" role="region" tabindex="0" class="table-scroll"><table>
+<thead>
+<tr>
+<th>Purpose</th>
+<th>Score definition</th>
+<th>Formula</th>
+<th>Interpretation</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Before/after comparison</td>
+<td>a = after, b = before; same 0–100 scoring rules</td>
+<td><code>a-b</code></td>
+<td>Positive values indicate improvement</td>
+</tr>
+<tr>
+<td>Combine two assessments</td>
+<td>Same metric and scale in a and b</td>
+<td><code>(a+b)/2</code></td>
+<td>Mean assessment score</td>
+</tr>
+<tr>
+<td>Count shared threat techniques</td>
+<td>Each of a, b, c uses 0/1 list membership</td>
+<td><code>a+b+c</code></td>
+<td>Number of lists containing a technique</td>
+</tr>
+<tr>
+<td>Identify common techniques</td>
+<td>Both a and b use 0/1 membership</td>
+<td><code>a*b</code></td>
+<td>1 means membership in both lists</td>
+</tr>
+</tbody></table></div>
+<h2 id="verification-checklist">Verification Checklist<a class="heading-anchor" href="layer-score-formulas.html#verification-checklist" aria-label="Link to section">#</a></h2><ul>
+<li>Match source domains/ATT&amp;CK versions and verify variable assignments.</li>
+<li>Document score definitions, scales, evidence, and unknown-value handling. Unscored and <code>0</code> are different.</li>
+<li>Calculations are per technique; separate tactic annotations can yield different results.</li>
+<li><strong>Show all layers</strong> blends displayed colors. Formula calculations generate a new layer containing computed scores.</li>
+<li>Verify a small known dataset before processing a full list.</li>
+</ul>
+<h2 id="references">References<a class="heading-anchor" href="layer-score-formulas.html#references" aria-label="Link to section">#</a></h2><ul>
+<li><a target="_blank" rel="noopener noreferrer" href="https://github.com/mitre-attack/attack-navigator/blob/master/USAGE.md#creating-layers-from-other-layers">Official layer formula documentation</a></li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://github.com/mitre-attack/attack-navigator/blob/master/USAGE.md#scoring-techniques">Official score documentation</a></li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://github.com/mitre-attack/attack-navigator">Official Navigator repository</a></li>
+<li><a href="../zh/layer-score-formulas.html">繁體中文手冊</a></li>
+</ul>
+</article><nav class="page-pagination" aria-label="Page navigation"><a href="advanced-navigator.html"><small>← Previous</small>Advanced Navigator</a><a href="json-annotation-export.html"><small>Next →</small>JSON annotation export</a></nav>
+  <footer class="page-footer"><div class="source-caption"><strong>Source & publication</strong><p>manual/layer_score_formulas_en.md</p><p>commit <code>b04e4ac796d8</code> · Includes uncommitted local changes · 2026-10-28</p><a href="../source-manifest.json" download>Source & SHA-256 manifest ↓</a></div><p>A free, open-source workspace for TTP-driven threat research. Independent community project; no MITRE endorsement. <a href="../assets/source/LICENSE">MIT License</a></p></footer></main>
+  <aside class="page-toc" aria-label="On this page"><p>ON THIS PAGE</p><nav><a class="toc-level-2" href="#current-support">Current Support</a><a class="toc-level-3" href="#scalar-syntax-and-functions-nav-018">Scalar syntax and functions (NAV-018)</a><a class="toc-level-3" href="#calculation-modes-missing-scores-and-scope-nav-019">Calculation modes: missing scores and scope (NAV-019)</a><a class="toc-level-3" href="#automatic-result-gradients-nav-020">Automatic result gradients (NAV-020)</a><a class="toc-level-2" href="#meaning-of-formulas-and-scores">Meaning of Formulas and Scores</a><a class="toc-level-2" href="#example-detection-gaps">Example: Detection Gaps</a><a class="toc-level-2" href="#operating-steps">Operating Steps</a><a class="toc-level-3" href="#1-prepare-source-layers-in-the-desktop-application">1. Prepare Source Layers in the Desktop Application</a><a class="toc-level-3" href="#2-create-a-native-formula-layer">2. Create a Native Formula Layer</a><a class="toc-level-3" href="#independent-property-inheritance">Independent Property Inheritance</a><a class="toc-level-3" href="#3-export-and-exchange-with-the-official-tool">3. Export and Exchange with the Official Tool</a><a class="toc-level-2" href="#other-analysis-examples">Other Analysis Examples</a><a class="toc-level-2" href="#verification-checklist">Verification Checklist</a><a class="toc-level-2" href="#references">References</a></nav><a class="toc-source" href="https://github.com/NicoaTheSix/MITREATTACK_SIMULATOR" target="_blank" rel="noopener noreferrer">Source repository ↗</a></aside></div>
+  <dialog id="search-dialog" aria-labelledby="search-title"><div class="search-heading"><h2 id="search-title">Search Fusion Studio docs</h2><button id="close-search" type="button" aria-label="Close search">×</button></div><label class="search-input-label" for="docs-search">Enter a topic, menu or keyword</label><input id="docs-search" type="search" autocomplete="off" placeholder="Try: save, CAR, SVG, fusionstudio"><p id="search-status" role="status" aria-live="polite">Search full documentation in the current language.</p><div id="search-results"></div></dialog><div id="toast" role="status" aria-live="polite"></div></body></html>

@@ -1,0 +1,81 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f6f5f0"><meta name="description" content="Matrix display — Fusion Studio documentation. A free, open-source workspace for TTP-driven threat research."><title>Matrix display | Fusion Studio Docs</title><link rel="icon" href="../assets/source/assets/fusion-studio-icon-monochrome-v3.png"><link rel="stylesheet" href="../docs.css"><link rel="alternate" hreflang="zh-Hant" href="../zh/matrix-display.html"><script defer src="../docs.js" data-search-index="../search-index.json"></script></head><body data-language="en" data-page="matrix-display">
+  <a class="skip-link" href="#content">Skip to content</a><header class="docs-header"><a class="docs-brand" href="index.html"><img src="../assets/source/assets/fusion-studio-icon-monochrome-v3.png" alt="" width="34" height="34"><span>Fusion Studio <small>DOCUMENTATION</small></span></a><div class="header-actions"><button id="open-search" type="button" aria-haspopup="dialog"><span aria-hidden="true">⌕</span> Search docs <kbd>Ctrl K</kbd></button><a class="language-switch" href="../zh/matrix-display.html" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a><a class="portfolio-link" href="../../index.html#works">Nicoa ↗</a></div></header>
+  <div class="mobile-toolbar"><button id="menu-button" type="button" aria-controls="docs-sidebar" aria-expanded="false">☰ Documentation menu</button><span>Matrix display</span></div>
+  <div class="docs-layout"><aside id="docs-sidebar" class="docs-sidebar" aria-label="Documentation navigation"><div class="sidebar-label">NICOA / OPEN SOURCE</div><nav><a class="sidebar-home " href="index.html" >Documentation home</a><section class="nav-group"><h2>Getting started</h2><a href="quick-start.html" >Quick start</a><a href="first-research.html" >Your first research</a><a href="installation.html" >Installation</a><a href="in-app-manual.html" >Operating manual</a><a href="in-app-index.html" >In-app guide index</a><a href="guide-index.html" >All guide pairs</a></section><section class="nav-group"><h2>Workspace &amp; selection</h2><a href="workspace-layout.html" >Workspace layout</a><a href="selection-and-search.html" >Selection &amp; search</a><a href="detection-interaction.html" >Detection &amp; source JSON</a><a href="source-relationship-selection.html" >Source relationships</a><a href="source-hover-preview.html" >Source hover preview</a><a href="visibility-expansion-presets.html" >Visibility &amp; expansion</a></section><section class="nav-group"><h2>Annotations &amp; persistence</h2><a href="batch-operations.html" >States &amp; batch editing</a><a href="studio-files.html" >Save &amp; session recovery</a></section><section class="nav-group"><h2>Matrix &amp; Navigator</h2><a href="matrix-display.html" aria-current="page" class="current">Matrix display</a><a href="navigator-parity-controls.html" >Navigator controls</a><a href="navigator-bundle-import.html" >Multi-layer JSON import</a><a href="advanced-navigator.html" >Advanced Navigator</a><a href="layer-score-formulas.html" >Layer score formulas</a></section><section class="nav-group"><h2>Export &amp; exchange</h2><a href="json-annotation-export.html" >JSON annotation export</a><a href="aggregation-and-exports.html" >Aggregation &amp; exports</a><a href="svg-paper.html" >SVG paper &amp; orientation</a><a href="svg-themes.html" >SVG light &amp; dark themes</a></section><section class="nav-group"><h2>ATLAS &amp; CAR references</h2><a href="car-integration.html" >CAR, Data Model &amp; Sensors</a></section><section class="nav-group"><h2>Version migration</h2><a href="upgrade-review.html" >Upgrade review</a><a href="upgrade-content.html" >Upgrade content comparison</a><a href="upgrade-mapping.html" >Tactic mapping &amp; conflicts</a><a href="upgrade-summary.html" >Upgrade summary</a></section><section class="nav-group"><h2>Custom sources &amp; examples</h2><a href="custom-domains.html" >Custom domains &amp; IDs</a><a href="custom-data-url-import.html" >Resolve customDataURL</a><a href="examples.html" >Loadable examples</a><a href="project-readme.html" >Product README &amp; setup</a><a href="positioning.html" >Positioning &amp; boundaries</a><a href="car-provenance.html" >CAR provenance &amp; licensing</a></section></nav><div class="sidebar-bottom"><span>27 bilingual guide pairs</span><a href="https://github.com/NicoaTheSix/MITREATTACK_SIMULATOR" target="_blank" rel="noopener noreferrer">GitHub ↗</a></div></aside>
+  <main id="content" class="docs-main" tabindex="-1"><div class="breadcrumb"><a href="index.html">Docs</a><span>/</span><span>Matrix display</span></div><details class="mobile-toc"><summary>On this page</summary><nav><a class="toc-level-2" href="#independent-names-and-ids">Independent Names and IDs</a><a class="toc-level-2" href="#tactic-header-background">Tactic Header Background</a><a class="toc-level-2" href="#expand-annotated">Expand Annotated</a><a class="toc-level-2" href="#annotation-indicators">Annotation Indicators</a><a class="toc-level-2" href="#export-and-processing">Export and Processing</a><a class="toc-level-2" href="#verification">Verification</a></nav></details><article class="prose"><h1 id="matrix-display-and-annotation-indicators">Matrix Display and Annotation Indicators<a class="heading-anchor" href="matrix-display.html#matrix-display-and-annotation-indicators" aria-label="Link to section">#</a></h1><p>See the <a href="project-readme.html">project README</a> for startup. These features apply to compatible Navigator layers in Enterprise, Mobile, ICS and custom ATT&amp;CK datasets.</p>
+<h2 id="independent-names-and-ids">Independent Names and IDs<a class="heading-anchor" href="matrix-display.html#independent-names-and-ids" aria-label="Link to section">#</a></h2><ol>
+<li>Open a document, then open its matrix from the TTP sidebar.</li>
+<li>Toggle <strong>Show names</strong> and <strong>Show IDs</strong> independently. Names default On, IDs Off.</li>
+<li>Both On shows the ID and name; both Off leaves unlabeled cells and tactic headings. Checkboxes, colors and hover information remain usable.</li>
+<li>Switch to <strong>Mini</strong>: labels and custom tactic header backgrounds are suppressed, and the toolbar controls are disabled. Returning to Flat/Side restores the saved choices.</li>
+</ol>
+<p>These are presentation choices. Full technique IDs/names remain in tooltips, details and selected-TTP JSON/CSV. Name/ID flags also apply to tactic headers. They do not change inclusion, annotations or scoring.</p>
+<h2 id="tactic-header-background">Tactic Header Background<a class="heading-anchor" href="matrix-display.html#tactic-header-background" aria-label="Link to section">#</a></h2><p>Check <strong>Tactic background</strong>, then use <strong>Header color…</strong> to choose a color. Choosing a color enables its display. Text contrast adjusts automatically. Uncheck the option to hide the background while retaining its color.</p>
+<p>Alternatively use <strong>Navigator → Layer settings… → Display</strong> to edit all display flags and the six-digit <code>#RRGGBB</code> header color in one draft. Save applies a validated result; Cancel or invalid color leaves the document unchanged. Display preferences can be configured in this tab even while Mini is active; Mini still suppresses them visually.</p>
+<div aria-label="Scrollable data table" role="region" tabindex="0" class="table-scroll"><table>
+<thead>
+<tr>
+<th>Stored field</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>layout.showName</code></td>
+<td>Show technique/tactic names</td>
+</tr>
+<tr>
+<td><code>layout.showID</code></td>
+<td>Show technique/tactic ATT&amp;CK IDs</td>
+</tr>
+<tr>
+<td><code>showTacticRowBackground</code></td>
+<td>Show the shared tactic header color in Flat/Side</td>
+</tr>
+<tr>
+<td><code>tacticRowBackground</code></td>
+<td>Header color, default <code>#dddddd</code></td>
+</tr>
+</tbody></table></div>
+<p>These settings are independent per layer. Switching tabs, duplicating layers, Studio Save/reopen, Navigator exchange, domain/version archives and session recovery preserve them. Editing them makes the layer unsaved until Studio Save.</p>
+<h2 id="expand-annotated">Expand Annotated<a class="heading-anchor" href="matrix-display.html#expand-annotated" aria-label="Link to section">#</a></h2><p>Click <strong>Expand annotated</strong> to expand families whose mapped children have annotations and collapse the other families. It follows the current platform projection and checks each tactic separately. Comments, user Metadata, Links, a stored score including <strong>0</strong>, manual color, explicit disabled state and active source Notes count as annotations. A parent comment alone does not qualify an unannotated child.</p>
+<p>The operation expands a <strong>family</strong>: once open, its siblings remain visible under the existing search/hide-disabled filters. It does not remove unannotated siblings or add any technique to the selected list. Example: a parent with five children and one child comment opens; another parent with only a parent comment stays collapsed.</p>
+<p>Expand annotated, Expand all and Collapse all save <code>layout.expandedSubtechniques</code> as <code>annotated</code>, <code>all</code> and <code>none</code>. These mark the file unsaved and restore on layer switches, Save/reopen, Navigator exchange and recovery. Individual arrows now preserve other families and save standard per-tactic <code>showSubtechniques</code> flags, switching the dropdown to <strong>Per-technique · saved</strong>. Mini honors explicit closed flags. Search may open matching families temporarily; clearing it restores saved states without saving automatic search expansion. Selection and annotations are unchanged. To export this view, choose SVG <strong>Show children expanded when export opened</strong>. See <a href="detection-interaction.html">individual expansion examples</a>, <a href="visibility-expansion-presets.html">global modes</a> and <a href="aggregation-and-exports.html">SVG/Excel exports</a>.</p>
+<h2 id="annotation-indicators">Annotation Indicators<a class="heading-anchor" href="matrix-display.html#annotation-indicators" aria-label="Link to section">#</a></h2><div aria-label="Scrollable data table" role="region" tabindex="0" class="table-scroll"><table>
+<thead>
+<tr>
+<th>Visual</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Yellow underline</td>
+<td>Nonempty comment, user Metadata or a source STIX Note</td>
+</tr>
+<tr>
+<td>Blue underline</td>
+<td>Assigned Links</td>
+</tr>
+<tr>
+<td>Both lines</td>
+<td>Both categories apply</td>
+</tr>
+<tr>
+<td>No line from selection alone</td>
+<td>Reserved selection metadata and divider-only lists are ignored</td>
+</tr>
+</tbody></table></div>
+<p>Indicators work in Flat/Side/Mini, including selected or disabled cells and when <strong>Show layer colors</strong> is off. Scores/colors/states qualify for annotated expansion but do not create note/link lines by themselves. Clearing the final comment/Metadata or Links removes its indicator on repaint. A yellow line may remain after clearing an editable comment if source Notes or other user Metadata still exist.</p>
+<p>Hover to read full identity, comments, Metadata, Links and source Notes. Notes are read-only content from active STIX <code>note</code> objects referencing the technique in the exact domain/version/dataset. Revoked/deprecated Notes and unrelated references are ignored. Notes do not become editable comments or selected-row CSV comment fields. Custom Bundles can contain Notes without a <code>name</code>; they use <code>abstract</code> and <code>content</code>.</p>
+<p><strong>Show all layers</strong> combines indicators from compatible layers independently of colored overlap. The tooltip identifies source-layer annotation text, including a source that has annotations without color. Label switches/header color still come from the active layer.</p>
+<h2 id="export-and-processing">Export and Processing<a class="heading-anchor" href="matrix-display.html#export-and-processing" aria-label="Link to section">#</a></h2><p>SVG uses the saved label flags, Flat/Side header background and yellow/blue underlines. Mini SVG keeps compact cells with annotation/state symbols and tooltips. Both Excel modes use a labeled vertical matrix according to the stored flags even when the native view is Mini. Header fills preserve saved colors; yellow bottom borders mark notes/Metadata and blue right borders mark Links. Excel comments retain full IDs/names and source Note text. Details sheets and JSON/CSV retain identities regardless of display choices.</p>
+<p>Display edits announce <strong>Input files: None / Output files: None</strong> before <strong>1/2 validate → 2/2 apply</strong>. Annotated expansion announces no file I/O before <strong>1/2 resolve → 2/2 update columns</strong>. Save/export/recovery operations show absolute final/temporary paths before their existing stage progress. Source catalog reads announce their absolute input paths; rendering/viewing Notes never writes Bundles. Invalid settings and Cancel preserve previous state.</p>
+<h2 id="verification">Verification<a class="heading-anchor" href="matrix-display.html#verification" aria-label="Link to section">#</a></h2><p>Run <code>.venv\Scripts\python.exe -B audit_matrix_display.py</code> with <code>QT_QPA_PLATFORM=offscreen</code>. It reports absolute paths and seven stages, verifies actual painted pixels and clearing, scope/selection independence, Mini/Side behavior, source Notes, file/recovery round trips and SVG/Excel readback. Examples and <code>audit.json</code> are in <code>artifacts/matrix-display</code>.</p>
+<ul>
+<li><a href="../assets/source/artifacts/matrix-display/matrix.svg">SVG example</a></li>
+<li><a download="" href="../assets/source/artifacts/matrix-display/matrix.xlsx">Excel example</a></li>
+<li><a href="../zh/matrix-display.html">繁體中文手冊</a></li>
+</ul>
+</article><nav class="page-pagination" aria-label="Page navigation"><a href="studio-files.html"><small>← Previous</small>Save &amp; session recovery</a><a href="navigator-parity-controls.html"><small>Next →</small>Navigator controls</a></nav>
+  <footer class="page-footer"><div class="source-caption"><strong>Source & publication</strong><p>manual/matrix_display_en.md</p><p>commit <code>b04e4ac796d8</code> · Includes uncommitted local changes · 2026-10-28</p><a href="../source-manifest.json" download>Source & SHA-256 manifest ↓</a></div><p>A free, open-source workspace for TTP-driven threat research. Independent community project; no MITRE endorsement. <a href="../assets/source/LICENSE">MIT License</a></p></footer></main>
+  <aside class="page-toc" aria-label="On this page"><p>ON THIS PAGE</p><nav><a class="toc-level-2" href="#independent-names-and-ids">Independent Names and IDs</a><a class="toc-level-2" href="#tactic-header-background">Tactic Header Background</a><a class="toc-level-2" href="#expand-annotated">Expand Annotated</a><a class="toc-level-2" href="#annotation-indicators">Annotation Indicators</a><a class="toc-level-2" href="#export-and-processing">Export and Processing</a><a class="toc-level-2" href="#verification">Verification</a></nav><a class="toc-source" href="https://github.com/NicoaTheSix/MITREATTACK_SIMULATOR" target="_blank" rel="noopener noreferrer">Source repository ↗</a></aside></div>
+  <dialog id="search-dialog" aria-labelledby="search-title"><div class="search-heading"><h2 id="search-title">Search Fusion Studio docs</h2><button id="close-search" type="button" aria-label="Close search">×</button></div><label class="search-input-label" for="docs-search">Enter a topic, menu or keyword</label><input id="docs-search" type="search" autocomplete="off" placeholder="Try: save, CAR, SVG, fusionstudio"><p id="search-status" role="status" aria-live="polite">Search full documentation in the current language.</p><div id="search-results"></div></dialog><div id="toast" role="status" aria-live="polite"></div></body></html>

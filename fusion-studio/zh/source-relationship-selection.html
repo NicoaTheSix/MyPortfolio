@@ -1,0 +1,73 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f6f5f0"><meta name="description" content="來源關聯與批次選取 — Fusion Studio documentation. A free, open-source workspace for TTP-driven threat research."><title>來源關聯與批次選取 | Fusion Studio Docs</title><link rel="icon" href="../assets/source/assets/fusion-studio-icon-monochrome-v3.png"><link rel="stylesheet" href="../docs.css"><link rel="alternate" hreflang="en" href="../en/source-relationship-selection.html"><script defer src="../docs.js" data-search-index="../search-index.json"></script></head><body data-language="zh" data-page="source-relationship-selection">
+  <a class="skip-link" href="#content">跳至文件內容</a><header class="docs-header"><a class="docs-brand" href="../index.html"><img src="../assets/source/assets/fusion-studio-icon-monochrome-v3.png" alt="" width="34" height="34"><span>Fusion Studio <small>DOCUMENTATION</small></span></a><div class="header-actions"><button id="open-search" type="button" aria-haspopup="dialog"><span aria-hidden="true">⌕</span> 搜尋文件 <kbd>Ctrl K</kbd></button><a class="language-switch" href="../en/source-relationship-selection.html" hreflang="en" lang="en">English</a><a class="portfolio-link" href="../../index.html#works">Nicoa ↗</a></div></header>
+  <div class="mobile-toolbar"><button id="menu-button" type="button" aria-controls="docs-sidebar" aria-expanded="false">☰ 文件目錄</button><span>來源關聯與批次選取</span></div>
+  <div class="docs-layout"><aside id="docs-sidebar" class="docs-sidebar" aria-label="文件導覽"><div class="sidebar-label">NICOA / OPEN SOURCE</div><nav><a class="sidebar-home " href="../index.html" >文件首頁</a><section class="nav-group"><h2>開始使用</h2><a href="quick-start.html" >快速開始</a><a href="first-research.html" >第一份研究文件</a><a href="installation.html" >安裝與啟動</a><a href="in-app-manual.html" >操作總覽</a><a href="in-app-index.html" >程式內指南索引</a><a href="guide-index.html" >全部指南對照表</a></section><section class="nav-group"><h2>工作區與選取</h2><a href="workspace-layout.html" >工作區、頁籤與側欄</a><a href="selection-and-search.html" >選取與搜尋</a><a href="detection-interaction.html" >偵測搜尋與來源複製</a><a href="source-relationship-selection.html" aria-current="page" class="current">來源關聯與批次選取</a><a href="source-hover-preview.html" >來源懸停預覽</a><a href="visibility-expansion-presets.html" >可見選取與展開</a></section><section class="nav-group"><h2>註記、保存與復原</h2><a href="batch-operations.html" >獨立狀態與批次註記</a><a href="studio-files.html" >儲存與工作階段復原</a></section><section class="nav-group"><h2>矩陣與 Navigator</h2><a href="matrix-display.html" >矩陣顯示與註記提示</a><a href="navigator-parity-controls.html" >Navigator 顯示與操作</a><a href="navigator-bundle-import.html" >多圖層 JSON 匯入</a><a href="advanced-navigator.html" >Navigator 進階操作</a><a href="layer-score-formulas.html" >圖層分數公式</a></section><section class="nav-group"><h2>匯出與交換</h2><a href="json-annotation-export.html" >JSON 註記匯出</a><a href="aggregation-and-exports.html" >分數彙總與矩陣匯出</a><a href="svg-paper.html" >SVG 紙張與方向</a><a href="svg-themes.html" >SVG 淺色與深色主題</a></section><section class="nav-group"><h2>ATLAS 與 CAR 參考</h2><a href="car-integration.html" >CAR、資料模型與感測器</a></section><section class="nav-group"><h2>版本遷移</h2><a href="upgrade-review.html" >升級逐項審核</a><a href="upgrade-content.html" >升級內容並排比較</a><a href="upgrade-mapping.html" >Tactic 搬移與衝突</a><a href="upgrade-summary.html" >升級摘要與略過理由</a></section><section class="nav-group"><h2>自訂來源與範例</h2><a href="custom-domains.html" >自訂 Domain 與 ID</a><a href="custom-data-url-import.html" >解析 customDataURL</a><a href="examples.html" >可載入範例</a><a href="project-readme.html" >產品 README 與完整安裝</a><a href="positioning.html" >產品定位與能力邊界</a><a href="car-provenance.html" >CAR 出處與授權</a></section></nav><div class="sidebar-bottom"><span>27 組雙語指南</span><a href="https://github.com/NicoaTheSix/MITREATTACK_SIMULATOR" target="_blank" rel="noopener noreferrer">GitHub ↗</a></div></aside>
+  <main id="content" class="docs-main" tabindex="-1"><div class="breadcrumb"><a href="../index.html">Docs</a><span>/</span><span>來源關聯與批次選取</span></div><details class="mobile-toc"><summary>本頁章節</summary><nav><a class="toc-level-2" href="#%E5%BE%9E%E6%90%9C%E5%B0%8B%E7%B5%90%E6%9E%9C%E6%95%B4%E6%89%B9%E5%8A%A0%E5%85%A5%E7%A7%BB%E9%99%A4">從搜尋結果整批加入／移除</a><a class="toc-level-2" href="#%E7%9F%A9%E9%99%A3%E4%BE%86%E6%BA%90%E9%81%B8%E5%96%AE">矩陣來源選單</a><a class="toc-level-2" href="#%E9%97%9C%E8%81%AF%E7%9A%84%E5%AF%A6%E9%9A%9B%E5%90%AB%E6%84%8F">關聯的實際含意</a><a class="toc-level-2" href="#%E9%81%B8%E5%8F%96%E5%81%8F%E5%A5%BD%E8%88%87%E8%A8%88%E6%95%B8">選取偏好與計數</a><a class="toc-level-2" href="#%E7%A8%8B%E5%BC%8F%E6%B5%81%E7%A8%8B%E8%88%87%E6%AA%94%E6%A1%88">程式流程與檔案</a></nav></details><article class="prose"><h1 id="來源搜尋結果批次操作與關聯技術選取">來源搜尋結果批次操作與關聯技術選取<a class="heading-anchor" href="source-relationship-selection.html#%E4%BE%86%E6%BA%90%E6%90%9C%E5%B0%8B%E7%B5%90%E6%9E%9C%E6%89%B9%E6%AC%A1%E6%93%8D%E4%BD%9C%E8%88%87%E9%97%9C%E8%81%AF%E6%8A%80%E8%A1%93%E9%81%B8%E5%8F%96" aria-label="本節連結">#</a></h1><p><a href="../en/source-relationship-selection.html">English</a> · <a rel="noopener noreferrer" target="_blank" href="https://github.com/NicoaTheSix/MITREATTACK_SIMULATOR/blob/b04e4ac796d806e51e55838af6ece7f2cb1684fc/NOTIMPLEMENTYET.md">完整功能追蹤</a></p>
+<h2 id="從搜尋結果整批加入移除">從搜尋結果整批加入／移除<a class="heading-anchor" href="source-relationship-selection.html#%E5%BE%9E%E6%90%9C%E5%B0%8B%E7%B5%90%E6%9E%9C%E6%95%B4%E6%89%B9%E5%8A%A0%E5%85%A5%E7%A7%BB%E9%99%A4" aria-label="本節連結">#</a></h2><p>側欄開啟 Groups、Software、Campaigns、Mitigations、Assets 或 Detections，用 <strong>Source search fields…</strong> 選 Name／ID／Description，再輸入字面查詢。新摘要顯示目前文件 Domain 中符合的來源數、去重技術數與映射 Tactic 格子數。</p>
+<ul>
+<li><strong>加入搜尋結果的所有 TTP</strong>：將結果來源的技術聯集一次加入，保留其他選取。</li>
+<li><strong>取消選取搜尋結果的所有 TTP</strong>：一次取消選取同一聯集，保留其他選取。</li>
+<li>空查詢代表目前分類中所有支援的來源；沒有映射的結果不會更動文件。</li>
+<li>其他 Domain 的項目仍可瀏覽，但不納入這份文件的批次。Detections 的 Analytics 僅供瀏覽，不作為批次來源。</li>
+</ul>
+<p><strong>範例：</strong> 兩個 Group 都對應 T1059，其中一個另有 T1059.001。搜尋結果有兩個來源、兩個去重技術。「加入搜尋結果的所有 TTP」只加入兩個 ID 一次；原先勾選的其他技術保留。「取消選取搜尋結果的所有 TTP」取消這兩個 ID 的選取。若另一個來源也曾加入相同 ID，仍會取消；目前不追蹤來源所有權。</p>
+<p>更改文字、選來源或關閉下拉框都不會更動 TTP；只有按加入／移除才套用。按鍵立即執行，不額外開確認視窗。來源失效、資料集已切換或整批包含無效 ID 時，整批拒絕，避免只套用一部分。</p>
+<h2 id="矩陣來源選單">矩陣來源選單<a class="heading-anchor" href="source-relationship-selection.html#%E7%9F%A9%E9%99%A3%E4%BE%86%E6%BA%90%E9%81%B8%E5%96%AE" aria-label="本節連結">#</a></h2><p><strong>TTPs from</strong> 現在支援八類：Campaign、Software、Group、Mitigation、Asset、Detection Strategy、Data Component、Data Source。</p>
+<ol>
+<li>選來源類型，打開列表或輸入名稱／ID／描述查詢；大小寫不敏感、支援空格。</li>
+<li>選定完整結果，使用 <strong>Add techniques / Remove techniques</strong> 處理單一來源。</li>
+<li>尚在輸入部分文字時，可用 <strong>加入搜尋結果的所有 TTP / 取消選取搜尋結果的所有 TTP</strong> 處理目前所有命中來源；單筆按鍵此時維持停用。</li>
+<li>清空文字代表該類所有來源；選定完整結果後，結果批次縮小為該一筆。</li>
+<li><strong>View source</strong> 開原生詳情與對應技術表，該頁也有 Add all TTPs／Remove all TTPs。</li>
+</ol>
+<p>Data Component 的標籤顯示 <code>Data Source : Component</code>，有確切來源參照時才分組。相同顯示名稱會加完整 STIX ID 區分。來源欄位搜尋同時考慮元件及其確切父來源；例如只留 Name，輸入 Data Source 名稱可找到所屬元件。Detections 側欄另有 Data Sources 分類可瀏覽。</p>
+<p><strong>範例：</strong> 切 Detection Strategy，只開 Description，輸入描述中的片語。摘要統計所有命中策略的技術聯集。若要只處理一項，從完成清單選完整結果後再按 Add techniques。</p>
+<h2 id="關聯的實際含意">關聯的實際含意<a class="heading-anchor" href="source-relationship-selection.html#%E9%97%9C%E8%81%AF%E7%9A%84%E5%AF%A6%E9%9A%9B%E5%90%AB%E6%84%8F" aria-label="本節連結">#</a></h2><p>來源下拉／完成清單及側欄現在可懸停預覽矩陣。青色實線表示映射格子，父項虛線表示相關子技術收合。側欄按 <strong>Show matrix preview（顯示矩陣預覽）</strong> 可保留來源列表並在右側顯示矩陣。移開後還原，不更動選取、註記或 dirty 狀態。詳見<a href="source-hover-preview.html">懸停預覽手冊</a>的範圍與清除規則。</p>
+<div aria-label="資料表格，可水平捲動" role="region" tabindex="0" class="table-scroll"><table>
+<thead>
+<tr>
+<th>來源</th>
+<th>取技術方式</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Group／Software／Campaign</td>
+<td>有效來源 <code>uses</code> 技術</td>
+</tr>
+<tr>
+<td>Mitigation</td>
+<td>有效來源 <code>mitigates</code> 技術</td>
+</tr>
+<tr>
+<td>Asset</td>
+<td>由技術 <code>targets</code> 該資產反向查找</td>
+</tr>
+<tr>
+<td>Detection Strategy</td>
+<td>有效策略 <code>detects</code> 技術</td>
+</tr>
+<tr>
+<td>Data Component</td>
+<td>舊版直接 <code>detects</code>；或由策略的 Analytic 日誌來源參照回推</td>
+</tr>
+<tr>
+<td>Data Source</td>
+<td>合併以 <code>x_mitre_data_source_ref</code> 明確參照此來源的元件技術</td>
+</tr>
+</tbody></table></div>
+<p>新版元件路徑為：Strategy <code>detects</code> Technique，Strategy 的 <code>x_mitre_analytic_refs</code> 指向 Analytic，再由 <code>x_mitre_log_source_references[*].x_mitre_data_component_ref</code> 指向 Component。詳情頁用 <strong>Explicit reference path (derived mapping)</strong> 區分衍生映射與原始 STIX 關聯，並提供策略／Analytic／元件／來源的本地連結。</p>
+<p>只使用目前文件的資料集、Domain、版本。撤銷或棄用的來源、技術、關聯、Analytic，以及缺少或型別錯誤的參照都不會提供映射。不同名稱相同的物件不會自動連結；只有舊版技術文字欄位的資料來源仍可由 TTP Data Sources 搜尋找到，但不靠該文字虛構來源 ID 或關聯。沒有某種物件的歷史版本顯示空列表。這些關聯表示參考資料映射，不代表已部署或驗證偵測效果。</p>
+<h2 id="選取偏好與計數">選取偏好與計數<a class="heading-anchor" href="source-relationship-selection.html#%E9%81%B8%E5%8F%96%E5%81%8F%E5%A5%BD%E8%88%87%E8%A8%88%E6%95%B8" aria-label="本節連結">#</a></h2><p>來源操作從技術全部有效映射 Tactic 開始，再沿用家族連動、跨 Tactic 與只選可見偏好。摘要是套用偏好前的來源映射數；完成訊息另列實際變動的 Tactic 格子數。平台篩選、矩陣技術搜尋與子技術收合，會在只選可見開啟時限制資格。Select… 的範圍控制不限制來源按鍵。</p>
+<p><strong>範例：</strong> Windows、Collapse all、開啟家族連動及只選可見，再加入某元件的結果。收合子項與只支援 Linux 的技術不會被額外選入；原本已勾選的其他項目不會清除。</p>
+<p>Enabled 狀態與納入清單獨立。來源加入／移除不改分數、手動色、註解、Links、Metadata 或停用狀態。選取可照既有功能保存到 Studio、Navigator JSON、CSV 與工作階段復原；來源關聯本身由對應快取 Bundle 重新建立，不變成 CSV 裡的來源所有權。</p>
+<h2 id="程式流程與檔案">程式流程與檔案<a class="heading-anchor" href="source-relationship-selection.html#%E7%A8%8B%E5%BC%8F%E6%B5%81%E7%A8%8B%E8%88%87%E6%AA%94%E6%A1%88" aria-label="本節連結">#</a></h2><p>載入時先顯示 Bundle／pointer 的絕對路徑，再由既有背景工作依序建立直接關聯、策略／Analytic／元件路徑及來源聯集，顯示進度。查詢使用記憶體索引。按批次按鍵先顯示沒有輸入／輸出檔案，再顯示解析／驗證整批、套用偏好、完成三階段；失敗保留原文件。選取本身不寫匯出檔。</p>
+<p>Save／Save As 及匯出仍先顯示實際輸入／輸出絕對路徑，驗證後原子寫入。未儲存文件遵循既有關閉提醒與復原流程。</p>
+<p>從專案根目錄檢查：</p>
+<div class="code-block"><div class="code-bar"><span>powershell</span><button aria-label="複製程式碼區塊 1" class="copy-code" type="button">複製</button></div><pre><code class="language-powershell">$env:QT_QPA_PLATFORM = 'offscreen'
+&amp; '.\.venv\Scripts\python.exe' -B '.\audit_source_selection.py'
+</code></pre></div>
+<p>七階段檢查先列印 <code>&lt;project-root&gt;/data/attack</code> 與 <code>&lt;project-root&gt;/artifacts/source-selection</code> 的絕對路徑，再讀取既有官方快取及三 Domain 隔離 fixture，驗證原始 STIX 對照、重疊聯集、同名、錯誤／撤銷參照、可見／家族偏好、過期來源拒絕、Studio／Navigator／CSV／復原往返。輸出包含 <code>audit.json</code>、範例與截圖；不下載資料、不變更官方 pointer。</p>
+</article><nav class="page-pagination" aria-label="文件翻頁"><a href="detection-interaction.html"><small>← 上一篇</small>偵測搜尋與來源複製</a><a href="source-hover-preview.html"><small>下一篇 →</small>來源懸停預覽</a></nav>
+  <footer class="page-footer"><div class="source-caption"><strong>來源與發布版本</strong><p>manual/source_relationship_selection+_zh.md</p><p>commit <code>b04e4ac796d8</code> · 含本機未提交更新 · 2026-10-28</p><a href="../source-manifest.json" download>檢視來源與 SHA-256 清單 ↓</a></div><p>免費、開源的 TTP 威脅研究工作區。獨立社群專案，未獲 MITRE 背書。 <a href="../assets/source/LICENSE">MIT License</a></p></footer></main>
+  <aside class="page-toc" aria-label="本頁章節"><p>本頁章節</p><nav><a class="toc-level-2" href="#%E5%BE%9E%E6%90%9C%E5%B0%8B%E7%B5%90%E6%9E%9C%E6%95%B4%E6%89%B9%E5%8A%A0%E5%85%A5%E7%A7%BB%E9%99%A4">從搜尋結果整批加入／移除</a><a class="toc-level-2" href="#%E7%9F%A9%E9%99%A3%E4%BE%86%E6%BA%90%E9%81%B8%E5%96%AE">矩陣來源選單</a><a class="toc-level-2" href="#%E9%97%9C%E8%81%AF%E7%9A%84%E5%AF%A6%E9%9A%9B%E5%90%AB%E6%84%8F">關聯的實際含意</a><a class="toc-level-2" href="#%E9%81%B8%E5%8F%96%E5%81%8F%E5%A5%BD%E8%88%87%E8%A8%88%E6%95%B8">選取偏好與計數</a><a class="toc-level-2" href="#%E7%A8%8B%E5%BC%8F%E6%B5%81%E7%A8%8B%E8%88%87%E6%AA%94%E6%A1%88">程式流程與檔案</a></nav><a class="toc-source" href="https://github.com/NicoaTheSix/MITREATTACK_SIMULATOR" target="_blank" rel="noopener noreferrer">原始專案 ↗</a></aside></div>
+  <dialog id="search-dialog" aria-labelledby="search-title"><div class="search-heading"><h2 id="search-title">搜尋 Fusion Studio 文件</h2><button id="close-search" type="button" aria-label="關閉搜尋">×</button></div><label class="search-input-label" for="docs-search">輸入主題、選單或關鍵字</label><input id="docs-search" type="search" autocomplete="off" placeholder="試試：儲存、CAR、SVG、fusionstudio"><p id="search-status" role="status" aria-live="polite">輸入文字搜尋目前語言的完整文件。</p><div id="search-results"></div></dialog><div id="toast" role="status" aria-live="polite"></div></body></html>

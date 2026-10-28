@@ -1,0 +1,92 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f6f5f0"><meta name="description" content="可見選取與展開 — Fusion Studio documentation. A free, open-source workspace for TTP-driven threat research."><title>可見選取與展開 | Fusion Studio Docs</title><link rel="icon" href="../assets/source/assets/fusion-studio-icon-monochrome-v3.png"><link rel="stylesheet" href="../docs.css"><link rel="alternate" hreflang="en" href="../en/visibility-expansion-presets.html"><script defer src="../docs.js" data-search-index="../search-index.json"></script></head><body data-language="zh" data-page="visibility-expansion-presets">
+  <a class="skip-link" href="#content">跳至文件內容</a><header class="docs-header"><a class="docs-brand" href="../index.html"><img src="../assets/source/assets/fusion-studio-icon-monochrome-v3.png" alt="" width="34" height="34"><span>Fusion Studio <small>DOCUMENTATION</small></span></a><div class="header-actions"><button id="open-search" type="button" aria-haspopup="dialog"><span aria-hidden="true">⌕</span> 搜尋文件 <kbd>Ctrl K</kbd></button><a class="language-switch" href="../en/visibility-expansion-presets.html" hreflang="en" lang="en">English</a><a class="portfolio-link" href="../../index.html#works">Nicoa ↗</a></div></header>
+  <div class="mobile-toolbar"><button id="menu-button" type="button" aria-controls="docs-sidebar" aria-expanded="false">☰ 文件目錄</button><span>可見選取與展開</span></div>
+  <div class="docs-layout"><aside id="docs-sidebar" class="docs-sidebar" aria-label="文件導覽"><div class="sidebar-label">NICOA / OPEN SOURCE</div><nav><a class="sidebar-home " href="../index.html" >文件首頁</a><section class="nav-group"><h2>開始使用</h2><a href="quick-start.html" >快速開始</a><a href="first-research.html" >第一份研究文件</a><a href="installation.html" >安裝與啟動</a><a href="in-app-manual.html" >操作總覽</a><a href="in-app-index.html" >程式內指南索引</a><a href="guide-index.html" >全部指南對照表</a></section><section class="nav-group"><h2>工作區與選取</h2><a href="workspace-layout.html" >工作區、頁籤與側欄</a><a href="selection-and-search.html" >選取與搜尋</a><a href="detection-interaction.html" >偵測搜尋與來源複製</a><a href="source-relationship-selection.html" >來源關聯與批次選取</a><a href="source-hover-preview.html" >來源懸停預覽</a><a href="visibility-expansion-presets.html" aria-current="page" class="current">可見選取與展開</a></section><section class="nav-group"><h2>註記、保存與復原</h2><a href="batch-operations.html" >獨立狀態與批次註記</a><a href="studio-files.html" >儲存與工作階段復原</a></section><section class="nav-group"><h2>矩陣與 Navigator</h2><a href="matrix-display.html" >矩陣顯示與註記提示</a><a href="navigator-parity-controls.html" >Navigator 顯示與操作</a><a href="navigator-bundle-import.html" >多圖層 JSON 匯入</a><a href="advanced-navigator.html" >Navigator 進階操作</a><a href="layer-score-formulas.html" >圖層分數公式</a></section><section class="nav-group"><h2>匯出與交換</h2><a href="json-annotation-export.html" >JSON 註記匯出</a><a href="aggregation-and-exports.html" >分數彙總與矩陣匯出</a><a href="svg-paper.html" >SVG 紙張與方向</a><a href="svg-themes.html" >SVG 淺色與深色主題</a></section><section class="nav-group"><h2>ATLAS 與 CAR 參考</h2><a href="car-integration.html" >CAR、資料模型與感測器</a></section><section class="nav-group"><h2>版本遷移</h2><a href="upgrade-review.html" >升級逐項審核</a><a href="upgrade-content.html" >升級內容並排比較</a><a href="upgrade-mapping.html" >Tactic 搬移與衝突</a><a href="upgrade-summary.html" >升級摘要與略過理由</a></section><section class="nav-group"><h2>自訂來源與範例</h2><a href="custom-domains.html" >自訂 Domain 與 ID</a><a href="custom-data-url-import.html" >解析 customDataURL</a><a href="examples.html" >可載入範例</a><a href="project-readme.html" >產品 README 與完整安裝</a><a href="positioning.html" >產品定位與能力邊界</a><a href="car-provenance.html" >CAR 出處與授權</a></section></nav><div class="sidebar-bottom"><span>27 組雙語指南</span><a href="https://github.com/NicoaTheSix/MITREATTACK_SIMULATOR" target="_blank" rel="noopener noreferrer">GitHub ↗</a></div></aside>
+  <main id="content" class="docs-main" tabindex="-1"><div class="breadcrumb"><a href="../index.html">Docs</a><span>/</span><span>可見選取與展開</span></div><details class="mobile-toc"><summary>本頁章節</summary><nav><a class="toc-level-2" href="#%E5%8F%AA%E9%81%B8%E5%8F%96%E5%8F%AF%E8%A6%8B%E6%8A%80%E8%A1%93">只選取可見技術</a><a class="toc-level-2" href="#%E4%BF%9D%E5%AD%98%E8%88%87%E9%82%84%E5%8E%9F%E5%B1%95%E9%96%8B%E6%A8%A1%E5%BC%8F">保存與還原展開模式</a><a class="toc-level-2" href="#%E4%BE%86%E6%BA%90-description-%E6%90%9C%E5%B0%8B">來源 Description 搜尋</a><a class="toc-level-2" href="#%E6%BC%B8%E5%B1%A4%E9%A0%90%E8%A8%AD%E7%B5%84%E5%90%88">漸層預設組合</a><a class="toc-level-2" href="#%E9%80%B2%E5%BA%A6%E8%88%87%E9%A9%97%E8%AD%89">進度與驗證</a></nav></details><article class="prose"><h1 id="可見技術選取展開模式保存與漸層預設">可見技術選取、展開模式保存與漸層預設<a class="heading-anchor" href="visibility-expansion-presets.html#%E5%8F%AF%E8%A6%8B%E6%8A%80%E8%A1%93%E9%81%B8%E5%8F%96%E5%B1%95%E9%96%8B%E6%A8%A1%E5%BC%8F%E4%BF%9D%E5%AD%98%E8%88%87%E6%BC%B8%E5%B1%A4%E9%A0%90%E8%A8%AD" aria-label="本節連結">#</a></h1><h2 id="只選取可見技術">只選取可見技術<a class="heading-anchor" href="visibility-expansion-presets.html#%E5%8F%AA%E9%81%B8%E5%8F%96%E5%8F%AF%E8%A6%8B%E6%8A%80%E8%A1%93" aria-label="本節連結">#</a></h2><p>在 <strong>Selection behavior…</strong> 開啟 <strong>Select visible techniques only</strong>。每份文件獨立保存，預設關閉。此限制在跨 Tactic 與父子／兄弟連動之後套用，連動不會額外選到不可見的格子。</p>
+<p>矩陣點擊、Select… 批次、Tactic 標題操作，以及 Group／Software／Campaign／Mitigation 的 Add／Remove，使用目前矩陣的平台、搜尋、隱藏停用與子技術展開狀態。側欄勾選則依側欄自己的篩選與展開分支。「可見」是邏輯上顯示的列，包含捲動後可見的內容，不只目前螢幕的像素範圍。僅作分組的父標題不能選取。矩陣正在重建或沒有對應資料集時，此偏好下的來源操作沒有可選目標；請先開啟矩陣並等候 Ready。</p>
+<p><strong>範例：</strong> 選 Windows、Collapse all，開啟父子連動與只選可見。勾選父技術後，只納入可見的父技術 Tactic 格子，不包含收合的子技術或僅支援 Linux 的成員。Expand all 後再勾選，才會納入可見子技術；Hide disabled 也會排除被隱藏的停用列。</p>
+<p>開啟偏好不會清除先前已選的隱藏項目。Remove／Invert 只處理符合可見條件的目標；Replace、已註記／未註記選取仍以符合條件的結果取代整份選取集合。明確指定範圍的顏色、分數、狀態與註記編輯維持原有範圍。來源按鍵數字是直接映射 ID 數，實際變更數可能因可見限制較小，也可能因家族連動較大。</p>
+<h2 id="保存與還原展開模式">保存與還原展開模式<a class="heading-anchor" href="visibility-expansion-presets.html#%E4%BF%9D%E5%AD%98%E8%88%87%E9%82%84%E5%8E%9F%E5%B1%95%E9%96%8B%E6%A8%A1%E5%BC%8F" aria-label="本節連結">#</a></h2><p>使用 <strong>Expand annotated</strong> 旁的下拉選單，或以下按鍵：</p>
+<div aria-label="資料表格，可水平捲動" role="region" tabindex="0" class="table-scroll"><table>
+<thead>
+<tr>
+<th>操作</th>
+<th>保存的 <code>layout.expandedSubtechniques</code></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Collapse all</td>
+<td><code>none</code></td>
+</tr>
+<tr>
+<td>Expand all</td>
+<td><code>all</code></td>
+</tr>
+<tr>
+<td>Expand annotated</td>
+<td><code>annotated</code></td>
+</tr>
+<tr>
+<td>Per-technique · saved</td>
+<td>移除全域欄位，使用已保存／匯入的父技術／Tactic 逐項設定</td>
+</tr>
+</tbody></table></div>
+<p>三種模式皆支援 Flat、Side、Mini。按 Save 儲存 Studio 文件後才會保存到磁碟。切換圖層、複製、重開、Navigator 交換與工作階段復原都會還原模式。模式變更會讓文件成為待儲存，但不改技術勾選或註記。</p>
+<p>Annotated 會展開具有已註記映射子技術的家族：註解、使用者 Metadata、Links、已設定分數（含零）、明確顏色、停用狀態與有效來源 Note 都算註記。只有父技術有註解不符合。展開仍保留其他符合篩選的兄弟子技術。搜尋可暫時展開命中家族，清空後還原保存狀態。個別箭頭現在會保存父技術／Tactic 的 <code>showSubtechniques</code>，保留其他家族並切到 Per-technique 模式。Mini 也遵守明確收合旗標，沒有旗標時才使用舊有預設展開。詳見<a href="detection-interaction.html">個別展開與滑鼠範例</a>。</p>
+<p><strong>範例：</strong> 替一個子技術新增註解，選 Expand annotated，再 Save。重開後該家族展開，沒有子技術註記的家族維持收合。之後修改註記時會重新計算 Annotated 模式。</p>
+<p>SVG 的 <strong>Show children expanded when export opened</strong> 擷取實際畫面；沒有畫面快照時，僅展開項目的投影依保存模式。預設 SVG／Excel 匯出仍包含全部符合篩選的子技術。CSV 不含矩陣顯示設定。</p>
+<h2 id="來源-description-搜尋">來源 Description 搜尋<a class="heading-anchor" href="visibility-expansion-presets.html#%E4%BE%86%E6%BA%90-description-%E6%90%9C%E5%B0%8B" aria-label="本節連結">#</a></h2><p>來源側欄與矩陣 <strong>TTPs from</strong> 八種類別皆預設搜尋 Name、ID、Description，可由 <strong>Source search fields…</strong> 個別控制，與 TTP 搜尋欄位選單獨立。Campaign 也支援 Description。詳見<a href="navigator-parity-controls.html">來源搜尋控制</a>與<a href="source-relationship-selection.html">來源批次操作</a>。</p>
+<p><strong>範例：</strong> 在 Mitigations 輸入描述中的一句話，即使標題不含該句也能找到。矩陣來源類型切換 Mitigation，輸入同一句話；完成清單仍顯示簡短 ID／名稱，滑鼠停留可讀 Description。必須選定完整結果才能 Add／Remove，部分輸入文字不會執行上一個項目。支援空格及字面標點、不分大小寫，比對忽略外圍空白。搜尋只讀取目前載入的資料，不會抓取其他版本。圖書分類中仍隱藏 TTP 專用控制。</p>
+<h2 id="漸層預設組合">漸層預設組合<a class="heading-anchor" href="visibility-expansion-presets.html#%E6%BC%B8%E5%B1%A4%E9%A0%90%E8%A8%AD%E7%B5%84%E5%90%88" aria-label="本節連結">#</a></h2><p>開啟 <strong>Layer settings… → Gradient preset</strong>。開啟視窗時保留現有漸層，選單從 Custom 開始；選取預設會填入色碼與分數上下限：</p>
+<div aria-label="資料表格，可水平捲動" role="region" tabindex="0" class="table-scroll"><table>
+<thead>
+<tr>
+<th>預設</th>
+<th>範圍</th>
+<th>色碼順序</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Red / Yellow / Green</td>
+<td>0–100</td>
+<td><code>#ff6666</code>、<code>#ffe766</code>、<code>#8ec843</code></td>
+</tr>
+<tr>
+<td>Green / Yellow / Red</td>
+<td>0–100</td>
+<td><code>#8ec843</code>、<code>#ffe766</code>、<code>#ff6666</code></td>
+</tr>
+<tr>
+<td>White / Blue</td>
+<td>0–100</td>
+<td><code>#ffffff</code>、<code>#007acc</code></td>
+</tr>
+<tr>
+<td>Blue / White / Red</td>
+<td>−100–100</td>
+<td><code>#2166ac</code>、<code>#ffffff</code>、<code>#b2182b</code></td>
+</tr>
+<tr>
+<td>Purple / White / Orange</td>
+<td>−100–100</td>
+<td><code>#762a83</code>、<code>#ffffff</code>、<code>#e66101</code></td>
+</tr>
+<tr>
+<td>Transparent / Blue</td>
+<td>0–100</td>
+<td><code>#007acc00</code>、<code>#007accff</code></td>
+</tr>
+</tbody></table></div>
+<p><strong>範例：</strong> 給技術 −50、0、50 的分數，選 Blue／White／Red 後 Save，分別呈現偏藍、白色中點、偏紅。若表示覆蓋程度，可選 White／Blue，分數越高越藍。顏色沒有固定風險意義，應自行定義並記錄分數尺度。</p>
+<p>手動修改後選單回到 Custom，仍支援 2–32 個 RGB／RGBA 色點及有限、遞增的上下限。Save 驗證並套用草稿，Cancel 放棄。選預設不會替技術新增分數、手動顏色或勾選。技術的手動顏色優先於分數漸層，Clear color 後會顯示該分數應有顏色。透明色會與矩陣背景混合。Studio／Navigator JSON 和復原保存實際色碼與範圍；帶色 SVG／Excel 使用這些值。CSV 保持選取技術／註記格式。</p>
+<h2 id="進度與驗證">進度與驗證<a class="heading-anchor" href="visibility-expansion-presets.html#%E9%80%B2%E5%BA%A6%E8%88%87%E9%A9%97%E8%AD%89" aria-label="本節連結">#</a></h2><p>操作先顯示記憶體輸入／無直接輸出檔案，再顯示選取、來源／索引、展開及預設填入的階段進度。Save、Export 與復原快照會在原子發佈前顯示最終／暫存檔絕對路徑。取消或設定錯誤保留原文件。</p>
+<p>安裝相依套件後，在專案根目錄執行：</p>
+<div class="code-block"><div class="code-bar"><span>powershell</span><button aria-label="複製程式碼區塊 1" class="copy-code" type="button">複製</button></div><pre><code class="language-powershell">$env:QT_QPA_PLATFORM = 'offscreen'
+.\.venv\Scripts\python.exe -B .\audit_visibility_presets.py
+</code></pre></div>
+<p>七階段檢查會先列出輸入、輸出絕對路徑，再建立隔離 STIX 範例，檢查三種排版、可見與家族／Tactic／來源操作、Description 字面完成及實際輸入、每組漸層與取消、舊檔相容、Studio／Navigator／Session 往返及 SVG／XLSX／CSV 輸出。範例、畫面及 <code>audit.json</code> 位於 <code>&lt;project-root&gt;/artifacts/visibility-presets</code>，並檢查官方資料指標未變動。</p>
+<p>啟動與流程見 <a href="project-readme.html">README</a>，另見<a href="selection-and-search.html">選取與搜尋</a>、<a href="matrix-display.html">矩陣顯示</a>、<a href="studio-files.html">文件與復原</a>。</p>
+</article><nav class="page-pagination" aria-label="文件翻頁"><a href="source-hover-preview.html"><small>← 上一篇</small>來源懸停預覽</a><a href="batch-operations.html"><small>下一篇 →</small>獨立狀態與批次註記</a></nav>
+  <footer class="page-footer"><div class="source-caption"><strong>來源與發布版本</strong><p>manual/visibility_expansion_presets+_zh.md</p><p>commit <code>b04e4ac796d8</code> · 含本機未提交更新 · 2026-10-28</p><a href="../source-manifest.json" download>檢視來源與 SHA-256 清單 ↓</a></div><p>免費、開源的 TTP 威脅研究工作區。獨立社群專案，未獲 MITRE 背書。 <a href="../assets/source/LICENSE">MIT License</a></p></footer></main>
+  <aside class="page-toc" aria-label="本頁章節"><p>本頁章節</p><nav><a class="toc-level-2" href="#%E5%8F%AA%E9%81%B8%E5%8F%96%E5%8F%AF%E8%A6%8B%E6%8A%80%E8%A1%93">只選取可見技術</a><a class="toc-level-2" href="#%E4%BF%9D%E5%AD%98%E8%88%87%E9%82%84%E5%8E%9F%E5%B1%95%E9%96%8B%E6%A8%A1%E5%BC%8F">保存與還原展開模式</a><a class="toc-level-2" href="#%E4%BE%86%E6%BA%90-description-%E6%90%9C%E5%B0%8B">來源 Description 搜尋</a><a class="toc-level-2" href="#%E6%BC%B8%E5%B1%A4%E9%A0%90%E8%A8%AD%E7%B5%84%E5%90%88">漸層預設組合</a><a class="toc-level-2" href="#%E9%80%B2%E5%BA%A6%E8%88%87%E9%A9%97%E8%AD%89">進度與驗證</a></nav><a class="toc-source" href="https://github.com/NicoaTheSix/MITREATTACK_SIMULATOR" target="_blank" rel="noopener noreferrer">原始專案 ↗</a></aside></div>
+  <dialog id="search-dialog" aria-labelledby="search-title"><div class="search-heading"><h2 id="search-title">搜尋 Fusion Studio 文件</h2><button id="close-search" type="button" aria-label="關閉搜尋">×</button></div><label class="search-input-label" for="docs-search">輸入主題、選單或關鍵字</label><input id="docs-search" type="search" autocomplete="off" placeholder="試試：儲存、CAR、SVG、fusionstudio"><p id="search-status" role="status" aria-live="polite">輸入文字搜尋目前語言的完整文件。</p><div id="search-results"></div></dialog><div id="toast" role="status" aria-live="polite"></div></body></html>

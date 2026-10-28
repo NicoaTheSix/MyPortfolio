@@ -1,0 +1,989 @@
+{
+  "schemaVersion": 1,
+  "repository": "https://github.com/NicoaTheSix/MITREATTACK_SIMULATOR",
+  "baseCommit": "b04e4ac796d806e51e55838af6ece7f2cb1684fc",
+  "generatedDate": "2026-10-28",
+  "timeZone": "Asia/Taipei",
+  "includesUncommittedChanges": true,
+  "changedPublishedSources": [
+    "README.md",
+    "PRODUCT_POSITIONING.md",
+    "artifacts/intro-video/fusion-studio-intro-zh-TW.mp4"
+  ],
+  "manualPairs": 27,
+  "pages": [
+    {
+      "path": "zh/advanced-navigator.html",
+      "key": "advanced-navigator",
+      "lang": "zh",
+      "source": "manual/advanced_navigator+_zh.md",
+      "sourceLanguage": "zh"
+    },
+    {
+      "path": "en/advanced-navigator.html",
+      "key": "advanced-navigator",
+      "lang": "en",
+      "source": "manual/advanced_navigator_en.md",
+      "sourceLanguage": "en"
+    },
+    {
+      "path": "zh/aggregation-and-exports.html",
+      "key": "aggregation-and-exports",
+      "lang": "zh",
+      "source": "manual/aggregation_and_exports+_zh.md",
+      "sourceLanguage": "zh"
+    },
+    {
+      "path": "en/aggregation-and-exports.html",
+      "key": "aggregation-and-exports",
+      "lang": "en",
+      "source": "manual/aggregation_and_exports_en.md",
+      "sourceLanguage": "en"
+    },
+    {
+      "path": "zh/batch-operations.html",
+      "key": "batch-operations",
+      "lang": "zh",
+      "source": "manual/batch_operations+_zh.md",
+      "sourceLanguage": "zh"
+    },
+    {
+      "path": "en/batch-operations.html",
+      "key": "batch-operations",
+      "lang": "en",
+      "source": "manual/batch_operations_en.md",
+      "sourceLanguage": "en"
+    },
+    {
+      "path": "zh/car-integration.html",
+      "key": "car-integration",
+      "lang": "zh",
+      "source": "manual/car_integration+_zh.md",
+      "sourceLanguage": "zh"
+    },
+    {
+      "path": "en/car-integration.html",
+      "key": "car-integration",
+      "lang": "en",
+      "source": "manual/car_integration_en.md",
+      "sourceLanguage": "en"
+    },
+    {
+      "path": "zh/custom-data-url-import.html",
+      "key": "custom-data-url-import",
+      "lang": "zh",
+      "source": "manual/custom_data_url_import+_zh.md",
+      "sourceLanguage": "zh"
+    },
+    {
+      "path": "en/custom-data-url-import.html",
+      "key": "custom-data-url-import",
+      "lang": "en",
+      "source": "manual/custom_data_url_import_en.md",
+      "sourceLanguage": "en"
+    },
+    {
+      "path": "zh/custom-domains.html",
+      "key": "custom-domains",
+      "lang": "zh",
+      "source": "manual/custom_domains+_zh.md",
+      "sourceLanguage": "zh"
+    },
+    {
+      "path": "en/custom-domains.html",
+      "key": "custom-domains",
+      "lang": "en",
+      "source": "manual/custom_domains_en.md",
+      "sourceLanguage": "en"
+    },
+    {
+      "path": "zh/detection-interaction.html",
+      "key": "detection-interaction",
+      "lang": "zh",
+      "source": "manual/detection_interaction+_zh.md",
+      "sourceLanguage": "zh"
+    },
+    {
+      "path": "en/detection-interaction.html",
+      "key": "detection-interaction",
+      "lang": "en",
+      "source": "manual/detection_interaction_en.md",
+      "sourceLanguage": "en"
+    },
+    {
+      "path": "zh/in-app-index.html",
+      "key": "in-app-index",
+      "lang": "zh",
+      "source": "manual/in_app_index+_zh.md",
+      "sourceLanguage": "zh"
+    },
+    {
+      "path": "en/in-app-index.html",
+      "key": "in-app-index",
+      "lang": "en",
+      "source": "manual/in_app_index_en.md",
+      "sourceLanguage": "en"
+    },
+    {
+      "path": "zh/in-app-manual.html",
+      "key": "in-app-manual",
+      "lang": "zh",
+      "source": "manual/in_app_manual+_zh.md",
+      "sourceLanguage": "zh"
+    },
+    {
+      "path": "en/in-app-manual.html",
+      "key": "in-app-manual",
+      "lang": "en",
+      "source": "manual/in_app_manual_en.md",
+      "sourceLanguage": "en"
+    },
+    {
+      "path": "zh/installation.html",
+      "key": "installation",
+      "lang": "zh",
+      "source": "manual/installation+_zh.md",
+      "sourceLanguage": "zh"
+    },
+    {
+      "path": "en/installation.html",
+      "key": "installation",
+      "lang": "en",
+      "source": "manual/installation_en.md",
+      "sourceLanguage": "en"
+    },
+    {
+      "path": "zh/json-annotation-export.html",
+      "key": "json-annotation-export",
+      "lang": "zh",
+      "source": "manual/json_annotation_export+_zh.md",
+      "sourceLanguage": "zh"
+    },
+    {
+      "path": "en/json-annotation-export.html",
+      "key": "json-annotation-export",
+      "lang": "en",
+      "source": "manual/json_annotation_export_en.md",
+      "sourceLanguage": "en"
+    },
+    {
+      "path": "zh/layer-score-formulas.html",
+      "key": "layer-score-formulas",
+      "lang": "zh",
+      "source": "manual/layer_score_formulas+_zh.md",
+      "sourceLanguage": "zh"
+    },
+    {
+      "path": "en/layer-score-formulas.html",
+      "key": "layer-score-formulas",
+      "lang": "en",
+      "source": "manual/layer_score_formulas_en.md",
+      "sourceLanguage": "en"
+    },
+    {
+      "path": "zh/matrix-display.html",
+      "key": "matrix-display",
+      "lang": "zh",
+      "source": "manual/matrix_display+_zh.md",
+      "sourceLanguage": "zh"
+    },
+    {
+      "path": "en/matrix-display.html",
+      "key": "matrix-display",
+      "lang": "en",
+      "source": "manual/matrix_display_en.md",
+      "sourceLanguage": "en"
+    },
+    {
+      "path": "zh/navigator-bundle-import.html",
+      "key": "navigator-bundle-import",
+      "lang": "zh",
+      "source": "manual/navigator_bundle_import+_zh.md",
+      "sourceLanguage": "zh"
+    },
+    {
+      "path": "en/navigator-bundle-import.html",
+      "key": "navigator-bundle-import",
+      "lang": "en",
+      "source": "manual/navigator_bundle_import_en.md",
+      "sourceLanguage": "en"
+    },
+    {
+      "path": "zh/navigator-parity-controls.html",
+      "key": "navigator-parity-controls",
+      "lang": "zh",
+      "source": "manual/navigator_parity_controls+_zh.md",
+      "sourceLanguage": "zh"
+    },
+    {
+      "path": "en/navigator-parity-controls.html",
+      "key": "navigator-parity-controls",
+      "lang": "en",
+      "source": "manual/navigator_parity_controls_en.md",
+      "sourceLanguage": "en"
+    },
+    {
+      "path": "zh/selection-and-search.html",
+      "key": "selection-and-search",
+      "lang": "zh",
+      "source": "manual/selection_and_search+_zh.md",
+      "sourceLanguage": "zh"
+    },
+    {
+      "path": "en/selection-and-search.html",
+      "key": "selection-and-search",
+      "lang": "en",
+      "source": "manual/selection_and_search_en.md",
+      "sourceLanguage": "en"
+    },
+    {
+      "path": "zh/source-hover-preview.html",
+      "key": "source-hover-preview",
+      "lang": "zh",
+      "source": "manual/source_hover_preview+_zh.md",
+      "sourceLanguage": "zh"
+    },
+    {
+      "path": "en/source-hover-preview.html",
+      "key": "source-hover-preview",
+      "lang": "en",
+      "source": "manual/source_hover_preview_en.md",
+      "sourceLanguage": "en"
+    },
+    {
+      "path": "zh/source-relationship-selection.html",
+      "key": "source-relationship-selection",
+      "lang": "zh",
+      "source": "manual/source_relationship_selection+_zh.md",
+      "sourceLanguage": "zh"
+    },
+    {
+      "path": "en/source-relationship-selection.html",
+      "key": "source-relationship-selection",
+      "lang": "en",
+      "source": "manual/source_relationship_selection_en.md",
+      "sourceLanguage": "en"
+    },
+    {
+      "path": "zh/studio-files.html",
+      "key": "studio-files",
+      "lang": "zh",
+      "source": "manual/studio_files+_zh.md",
+      "sourceLanguage": "zh"
+    },
+    {
+      "path": "en/studio-files.html",
+      "key": "studio-files",
+      "lang": "en",
+      "source": "manual/studio_files_en.md",
+      "sourceLanguage": "en"
+    },
+    {
+      "path": "zh/svg-paper.html",
+      "key": "svg-paper",
+      "lang": "zh",
+      "source": "manual/svg_paper+_zh.md",
+      "sourceLanguage": "zh"
+    },
+    {
+      "path": "en/svg-paper.html",
+      "key": "svg-paper",
+      "lang": "en",
+      "source": "manual/svg_paper_en.md",
+      "sourceLanguage": "en"
+    },
+    {
+      "path": "zh/svg-themes.html",
+      "key": "svg-themes",
+      "lang": "zh",
+      "source": "manual/svg_themes+_zh.md",
+      "sourceLanguage": "zh"
+    },
+    {
+      "path": "en/svg-themes.html",
+      "key": "svg-themes",
+      "lang": "en",
+      "source": "manual/svg_themes_en.md",
+      "sourceLanguage": "en"
+    },
+    {
+      "path": "zh/upgrade-content.html",
+      "key": "upgrade-content",
+      "lang": "zh",
+      "source": "manual/upgrade_content+_zh.md",
+      "sourceLanguage": "zh"
+    },
+    {
+      "path": "en/upgrade-content.html",
+      "key": "upgrade-content",
+      "lang": "en",
+      "source": "manual/upgrade_content_en.md",
+      "sourceLanguage": "en"
+    },
+    {
+      "path": "zh/upgrade-mapping.html",
+      "key": "upgrade-mapping",
+      "lang": "zh",
+      "source": "manual/upgrade_mapping+_zh.md",
+      "sourceLanguage": "zh"
+    },
+    {
+      "path": "en/upgrade-mapping.html",
+      "key": "upgrade-mapping",
+      "lang": "en",
+      "source": "manual/upgrade_mapping_en.md",
+      "sourceLanguage": "en"
+    },
+    {
+      "path": "zh/upgrade-review.html",
+      "key": "upgrade-review",
+      "lang": "zh",
+      "source": "manual/upgrade_review+_zh.md",
+      "sourceLanguage": "zh"
+    },
+    {
+      "path": "en/upgrade-review.html",
+      "key": "upgrade-review",
+      "lang": "en",
+      "source": "manual/upgrade_review_en.md",
+      "sourceLanguage": "en"
+    },
+    {
+      "path": "zh/upgrade-summary.html",
+      "key": "upgrade-summary",
+      "lang": "zh",
+      "source": "manual/upgrade_summary+_zh.md",
+      "sourceLanguage": "zh"
+    },
+    {
+      "path": "en/upgrade-summary.html",
+      "key": "upgrade-summary",
+      "lang": "en",
+      "source": "manual/upgrade_summary_en.md",
+      "sourceLanguage": "en"
+    },
+    {
+      "path": "zh/visibility-expansion-presets.html",
+      "key": "visibility-expansion-presets",
+      "lang": "zh",
+      "source": "manual/visibility_expansion_presets+_zh.md",
+      "sourceLanguage": "zh"
+    },
+    {
+      "path": "en/visibility-expansion-presets.html",
+      "key": "visibility-expansion-presets",
+      "lang": "en",
+      "source": "manual/visibility_expansion_presets_en.md",
+      "sourceLanguage": "en"
+    },
+    {
+      "path": "zh/workspace-layout.html",
+      "key": "workspace-layout",
+      "lang": "zh",
+      "source": "manual/workspace_layout+_zh.md",
+      "sourceLanguage": "zh"
+    },
+    {
+      "path": "en/workspace-layout.html",
+      "key": "workspace-layout",
+      "lang": "en",
+      "source": "manual/workspace_layout_en.md",
+      "sourceLanguage": "en"
+    },
+    {
+      "path": "zh/guide-index.html",
+      "key": "guide-index",
+      "lang": "zh",
+      "source": "manual/README.md",
+      "sourceLanguage": "en"
+    },
+    {
+      "path": "en/guide-index.html",
+      "key": "guide-index",
+      "lang": "en",
+      "source": "manual/README.md",
+      "sourceLanguage": "en"
+    },
+    {
+      "path": "zh/project-readme.html",
+      "key": "project-readme",
+      "lang": "zh",
+      "source": "README.md",
+      "sourceLanguage": "en"
+    },
+    {
+      "path": "en/project-readme.html",
+      "key": "project-readme",
+      "lang": "en",
+      "source": "README.md",
+      "sourceLanguage": "en"
+    },
+    {
+      "path": "zh/positioning.html",
+      "key": "positioning",
+      "lang": "zh",
+      "source": "PRODUCT_POSITIONING.md",
+      "sourceLanguage": "zh"
+    },
+    {
+      "path": "en/positioning.html",
+      "key": "positioning",
+      "lang": "en",
+      "source": "PRODUCT_POSITIONING.md",
+      "sourceLanguage": "zh"
+    },
+    {
+      "path": "zh/examples.html",
+      "key": "examples",
+      "lang": "zh",
+      "source": "manual/examples/README.md",
+      "sourceLanguage": "en"
+    },
+    {
+      "path": "en/examples.html",
+      "key": "examples",
+      "lang": "en",
+      "source": "manual/examples/README.md",
+      "sourceLanguage": "en"
+    },
+    {
+      "path": "zh/car-provenance.html",
+      "key": "car-provenance",
+      "lang": "zh",
+      "source": "data/car/PROVENANCE.md",
+      "sourceLanguage": "en"
+    },
+    {
+      "path": "en/car-provenance.html",
+      "key": "car-provenance",
+      "lang": "en",
+      "source": "data/car/PROVENANCE.md",
+      "sourceLanguage": "en"
+    },
+    {
+      "path": "zh/quick-start.html",
+      "key": "quick-start",
+      "lang": "zh",
+      "source": "README.md",
+      "sourceLanguage": "en"
+    },
+    {
+      "path": "zh/first-research.html",
+      "key": "first-research",
+      "lang": "zh",
+      "source": "README.md",
+      "sourceLanguage": "en"
+    },
+    {
+      "path": "en/quick-start.html",
+      "key": "quick-start",
+      "lang": "en",
+      "source": "README.md",
+      "sourceLanguage": "en"
+    },
+    {
+      "path": "en/first-research.html",
+      "key": "first-research",
+      "lang": "en",
+      "source": "README.md",
+      "sourceLanguage": "en"
+    }
+  ],
+  "generatedHtml": [
+    "zh/advanced-navigator.html",
+    "en/advanced-navigator.html",
+    "zh/aggregation-and-exports.html",
+    "en/aggregation-and-exports.html",
+    "zh/batch-operations.html",
+    "en/batch-operations.html",
+    "zh/car-integration.html",
+    "en/car-integration.html",
+    "zh/custom-data-url-import.html",
+    "en/custom-data-url-import.html",
+    "zh/custom-domains.html",
+    "en/custom-domains.html",
+    "zh/detection-interaction.html",
+    "en/detection-interaction.html",
+    "zh/in-app-index.html",
+    "en/in-app-index.html",
+    "zh/in-app-manual.html",
+    "en/in-app-manual.html",
+    "zh/installation.html",
+    "en/installation.html",
+    "zh/json-annotation-export.html",
+    "en/json-annotation-export.html",
+    "zh/layer-score-formulas.html",
+    "en/layer-score-formulas.html",
+    "zh/matrix-display.html",
+    "en/matrix-display.html",
+    "zh/navigator-bundle-import.html",
+    "en/navigator-bundle-import.html",
+    "zh/navigator-parity-controls.html",
+    "en/navigator-parity-controls.html",
+    "zh/selection-and-search.html",
+    "en/selection-and-search.html",
+    "zh/source-hover-preview.html",
+    "en/source-hover-preview.html",
+    "zh/source-relationship-selection.html",
+    "en/source-relationship-selection.html",
+    "zh/studio-files.html",
+    "en/studio-files.html",
+    "zh/svg-paper.html",
+    "en/svg-paper.html",
+    "zh/svg-themes.html",
+    "en/svg-themes.html",
+    "zh/upgrade-content.html",
+    "en/upgrade-content.html",
+    "zh/upgrade-mapping.html",
+    "en/upgrade-mapping.html",
+    "zh/upgrade-review.html",
+    "en/upgrade-review.html",
+    "zh/upgrade-summary.html",
+    "en/upgrade-summary.html",
+    "zh/visibility-expansion-presets.html",
+    "en/visibility-expansion-presets.html",
+    "zh/workspace-layout.html",
+    "en/workspace-layout.html",
+    "zh/guide-index.html",
+    "en/guide-index.html",
+    "zh/project-readme.html",
+    "en/project-readme.html",
+    "zh/positioning.html",
+    "en/positioning.html",
+    "zh/examples.html",
+    "en/examples.html",
+    "zh/car-provenance.html",
+    "en/car-provenance.html",
+    "zh/quick-start.html",
+    "zh/first-research.html",
+    "en/quick-start.html",
+    "en/first-research.html",
+    "index.html",
+    "en/index.html"
+  ],
+  "files": [
+    {
+      "path": "manual/advanced_navigator+_zh.md",
+      "sha256": "826ffef5a10978d4424a6e60fcd4b4871c10e6d09ce850c458bfec4e3b89a3e2",
+      "bytes": 10326
+    },
+    {
+      "path": "manual/advanced_navigator_en.md",
+      "sha256": "6042435d7b1f587790fc96a958d52e2a72bed053560e1cb93c76331781daaaa1",
+      "bytes": 12109
+    },
+    {
+      "path": "manual/aggregation_and_exports+_zh.md",
+      "sha256": "b60913a6e5cd26155d25398aa8f81fc9e565e3b0ba2632dfd6b28a864407699f",
+      "bytes": 10430
+    },
+    {
+      "path": "manual/aggregation_and_exports_en.md",
+      "sha256": "03841fdb6c8ec55696a0d3f112b398dde82573320c6b430e394bd21c84d6ee2f",
+      "bytes": 11178
+    },
+    {
+      "path": "manual/batch_operations+_zh.md",
+      "sha256": "b17307b223401f480a4237a4c52bb0855416de19225b2bdd5d4360c2eb2b4050",
+      "bytes": 6198
+    },
+    {
+      "path": "manual/batch_operations_en.md",
+      "sha256": "59b7f6e1f980fabaea6d9829e54032de550c4da6b7167be1e7901b79f1bfa581",
+      "bytes": 6857
+    },
+    {
+      "path": "manual/car_integration+_zh.md",
+      "sha256": "06af3c8ec712164f8f4ae2ce3833b9b09aa652e8ebcf654c30ff54b648de1e36",
+      "bytes": 7562
+    },
+    {
+      "path": "manual/car_integration_en.md",
+      "sha256": "24de16fe737dc2f65fa24c615f3f8a17daec7a793ccb2105dbe8a4baf532de30",
+      "bytes": 8690
+    },
+    {
+      "path": "manual/custom_data_url_import+_zh.md",
+      "sha256": "75ced39e406146e42b069ed941d9e0229441a92daea80fbf53e59dbb25231fb2",
+      "bytes": 6211
+    },
+    {
+      "path": "manual/custom_data_url_import_en.md",
+      "sha256": "cc2f7f4ede2af23cd576408640f7f89d1e76cc9cf22823162ab7b0261a97b69c",
+      "bytes": 7038
+    },
+    {
+      "path": "manual/custom_domains+_zh.md",
+      "sha256": "76678151bf29f369248a3325b5186645e7b8f15b3c2d1db1f97009df23dcdce9",
+      "bytes": 8017
+    },
+    {
+      "path": "manual/custom_domains_en.md",
+      "sha256": "b1d5dbaaa113dc32cccf07e8454a73fbc754cd9d3be67a7c065e7c3d81efb0df",
+      "bytes": 9362
+    },
+    {
+      "path": "manual/detection_interaction+_zh.md",
+      "sha256": "236c641971319674851348f89b77747bb63c50d1857b526323c537ef1671b9ab",
+      "bytes": 7127
+    },
+    {
+      "path": "manual/detection_interaction_en.md",
+      "sha256": "a27e7d7847470b610cf4143ad80837022633100107dae3cd3d7fb40b9ea3b3a5",
+      "bytes": 8199
+    },
+    {
+      "path": "manual/in_app_index+_zh.md",
+      "sha256": "3e8e09f59cc05c4ab2aad76ed13c57f3fa9f6f5ea4b0dcb419c818fc37fe2a6f",
+      "bytes": 2630
+    },
+    {
+      "path": "manual/in_app_index_en.md",
+      "sha256": "e0b230196304c553f6cda4dda956ea93c601224a2719d0c6f2936f878011854a",
+      "bytes": 2816
+    },
+    {
+      "path": "manual/in_app_manual+_zh.md",
+      "sha256": "d5023bcd56bd1b990d32a6f0f8c77a981361d3dd858b82b4c3043062942ab7ee",
+      "bytes": 11154
+    },
+    {
+      "path": "manual/in_app_manual_en.md",
+      "sha256": "2479b4026330fe811e73981cf0ea3987af32c048d5541d1a637e5882bebe3388",
+      "bytes": 11805
+    },
+    {
+      "path": "manual/installation+_zh.md",
+      "sha256": "0fc058627947c75de3268ec3f015f3445bbac0d4fef7b7cc2ba40dd4f3b4641b",
+      "bytes": 6091
+    },
+    {
+      "path": "manual/installation_en.md",
+      "sha256": "63c9f62c77359b7f84a05aa7aab63df3a0fcb55da64b3c412511f1ab95a2cb6f",
+      "bytes": 6497
+    },
+    {
+      "path": "manual/json_annotation_export+_zh.md",
+      "sha256": "88720bc13bf52df6b18080fade9e6552f750875670e1f95393711ad232ebbc22",
+      "bytes": 4849
+    },
+    {
+      "path": "manual/json_annotation_export_en.md",
+      "sha256": "2cb0e405893bc910ab6a59f631cdae2f2e20b6468438066c72892d5610af5d8c",
+      "bytes": 5292
+    },
+    {
+      "path": "manual/layer_score_formulas+_zh.md",
+      "sha256": "4981c4d694a618d0935e86ecc4f390386116c9bd6ceeac05e2e28c4549ab8628",
+      "bytes": 20659
+    },
+    {
+      "path": "manual/layer_score_formulas_en.md",
+      "sha256": "360d16651600250afa667ca76c98e52e256df54a5c2f8aad2acab9ba78128b7e",
+      "bytes": 22077
+    },
+    {
+      "path": "manual/matrix_display+_zh.md",
+      "sha256": "15b6c3cc2573d3636674ba3deb88967fc524cffbfb25ab81020049e7f5ad4611",
+      "bytes": 6158
+    },
+    {
+      "path": "manual/matrix_display_en.md",
+      "sha256": "1c63385ff8d17c8b66f0dd1961089340e7fdc8b697991160f15e1d7f9f05def6",
+      "bytes": 6637
+    },
+    {
+      "path": "manual/navigator_bundle_import+_zh.md",
+      "sha256": "4103b2eb921bd2fb64352057510dd12e868b4bb437323a56a9c97b31bbd20ffc",
+      "bytes": 6032
+    },
+    {
+      "path": "manual/navigator_bundle_import_en.md",
+      "sha256": "698781935773cc1d47164866b9e9b31474af946934f97d6d2717569488e63b78",
+      "bytes": 6703
+    },
+    {
+      "path": "manual/navigator_parity_controls+_zh.md",
+      "sha256": "20e659df96de108db5359be6640000940e08f0d8e9d914c6e81ae319c48533b0",
+      "bytes": 6439
+    },
+    {
+      "path": "manual/navigator_parity_controls_en.md",
+      "sha256": "eb88dbdb28e21b9c9ae283bb4f1ff2006d2ecdf11139875c6401a12500ae1b20",
+      "bytes": 7073
+    },
+    {
+      "path": "manual/selection_and_search+_zh.md",
+      "sha256": "a843c7847a92c3fe3e184bdb2f70dac5d06104f01515ed5010b48b2f44215e10",
+      "bytes": 8117
+    },
+    {
+      "path": "manual/selection_and_search_en.md",
+      "sha256": "354706872075fdd76057ded17766e1dc04425d582883d9150f71c3098c756c6f",
+      "bytes": 8763
+    },
+    {
+      "path": "manual/source_hover_preview+_zh.md",
+      "sha256": "61f9dd57a8386507807aa4fc16669e6c34a6a9ea6fded9541da8328abb72d9fa",
+      "bytes": 5094
+    },
+    {
+      "path": "manual/source_hover_preview_en.md",
+      "sha256": "342c9481ca32c8e21b731d6637e56595bff0580d3202775df163dfb5a2a69706",
+      "bytes": 5425
+    },
+    {
+      "path": "manual/source_relationship_selection+_zh.md",
+      "sha256": "dda608f44192bcd2d973ae39dd3569a8aeee95755dd4a876cea70154ac9fd6d4",
+      "bytes": 6697
+    },
+    {
+      "path": "manual/source_relationship_selection_en.md",
+      "sha256": "8bb983088e68b543df1aadabc58c0f97d081199fe28494639fac1ab708adf1ed",
+      "bytes": 6919
+    },
+    {
+      "path": "manual/studio_files+_zh.md",
+      "sha256": "548efe4c808a374ad4ed85f5a22de0baf0f5b4df872cef2d18c47a023d7479ac",
+      "bytes": 8173
+    },
+    {
+      "path": "manual/studio_files_en.md",
+      "sha256": "880f31c0bc9ba03dff3d9767a1afc929f7ff6d8642777399b14764fbeac6c591",
+      "bytes": 8794
+    },
+    {
+      "path": "manual/svg_paper+_zh.md",
+      "sha256": "bf2362451410b7081078f3d20aae8e51482bacdfa28fa413e78e8e3478bf14c4",
+      "bytes": 6453
+    },
+    {
+      "path": "manual/svg_paper_en.md",
+      "sha256": "8bb8067f95842b6e5eeb3c2863b7065ddcf81c6118555819a691a1e24c8acdd2",
+      "bytes": 7499
+    },
+    {
+      "path": "manual/svg_themes+_zh.md",
+      "sha256": "36be28fbf27f2833aa2828f73f8cee7da300a412e9d42813cfd13c1a9d8aa9e6",
+      "bytes": 5920
+    },
+    {
+      "path": "manual/svg_themes_en.md",
+      "sha256": "38b68829ace484fd26a0a930b3dfde17d4793ad4df81a78509c6859d14568389",
+      "bytes": 6963
+    },
+    {
+      "path": "manual/upgrade_content+_zh.md",
+      "sha256": "09844984efdb075afbef0f3c18758053cebc96e625c50ff1e7fd5ed90097c119",
+      "bytes": 6633
+    },
+    {
+      "path": "manual/upgrade_content_en.md",
+      "sha256": "cb2ff72bb69921b312bdba180e6dead5f09af74a3d32ae61b41d5cfa7b914cf0",
+      "bytes": 7718
+    },
+    {
+      "path": "manual/upgrade_mapping+_zh.md",
+      "sha256": "a8484101bf70b886ce4216d6774351ff7f45692aa5832cf624c345f3a8eb8164",
+      "bytes": 6355
+    },
+    {
+      "path": "manual/upgrade_mapping_en.md",
+      "sha256": "b1ef4e02f5d7f126ad0b2e987d007817b9611dc21b66248f0d1e26823c76ec55",
+      "bytes": 7728
+    },
+    {
+      "path": "manual/upgrade_review+_zh.md",
+      "sha256": "8178b6f435dab9f54514c1e7665b1bd8b037ef0e07c31471446de82225e465b9",
+      "bytes": 6199
+    },
+    {
+      "path": "manual/upgrade_review_en.md",
+      "sha256": "8fe7e4b58a44f6d6685e42393905a264ce14471efb3dfc38f434068e7369459f",
+      "bytes": 6884
+    },
+    {
+      "path": "manual/upgrade_summary+_zh.md",
+      "sha256": "1f35603273c45dbd5cfc8bdbe7b4f3693147694c2f2496e8cc0fff6c31954aa6",
+      "bytes": 6841
+    },
+    {
+      "path": "manual/upgrade_summary_en.md",
+      "sha256": "3257a08b750c1e15804c9e538065eb7c7c7853c8c79fd49453c0c953a128593c",
+      "bytes": 7746
+    },
+    {
+      "path": "manual/visibility_expansion_presets+_zh.md",
+      "sha256": "b7c4c01baf1a56b284f425043d34e3946dd6c45d84fa85d820e771b1fb79e841",
+      "bytes": 6672
+    },
+    {
+      "path": "manual/visibility_expansion_presets_en.md",
+      "sha256": "7f4f2e4e79fa9eb595ecf792398c7ade18bca6528329698a14a82e2e747b6f47",
+      "bytes": 7185
+    },
+    {
+      "path": "manual/workspace_layout+_zh.md",
+      "sha256": "2abfec5008c874f0d8fbf89994b8f4acc6f6121ae53760ffe66473f680b23729",
+      "bytes": 7201
+    },
+    {
+      "path": "manual/workspace_layout_en.md",
+      "sha256": "fe27e0db4cb9240e64ae6f8e2c1b534047f0eb454908544e94f3fe422503a9c0",
+      "bytes": 7862
+    },
+    {
+      "path": "README.md",
+      "sha256": "1c505c2c9dcccc5c4c0e8c673163e66a46c309502e29d0f819ea2215543e295c",
+      "bytes": 314043
+    },
+    {
+      "path": "manual/README.md",
+      "sha256": "dd0ca86f76d5f3b474815c82b5c69c0a66999cded87a70449b8e0274fdbf017a",
+      "bytes": 10413
+    },
+    {
+      "path": "PRODUCT_POSITIONING.md",
+      "sha256": "b71c3e64c04acb9d6ebc164327ecdce51ff86aaacdd10dd3a29675995a97f485",
+      "bytes": 18624
+    },
+    {
+      "path": "manual/examples/README.md",
+      "sha256": "d05b736143f25f360953f4db6c6ffbeabc0c4b698106746db0b19a42fd6cd002",
+      "bytes": 1505
+    },
+    {
+      "path": "data/car/PROVENANCE.md",
+      "sha256": "3a2432cc939358b64904774949d3d30ab2571bd8226a8caa77413fde53c4079d",
+      "bytes": 2279
+    },
+    {
+      "path": "assets/fusion-studio-icon-monochrome-v3.png",
+      "sha256": "0a970a51f79dac191f653a59ccdc9a5bc4d7bd678b8812f060264febb76e62dc",
+      "bytes": 394208
+    },
+    {
+      "path": "LICENSE",
+      "sha256": "678bcf76122cdc33cd7e3c5f9b146b79b5d7c6a0a760c3c9eee74ef99fa5738d",
+      "bytes": 1065
+    },
+    {
+      "path": "artifacts/intro-video/fusion-studio-intro-zh-TW.mp4",
+      "sha256": "6797b2af4fe3932d8d7df9a0b3d9c6a9688926574ce2fdd4e6942d33167a6f40",
+      "bytes": 2421239
+    },
+    {
+      "path": "artifacts/demo-video/fusion-studio-demo-zh-TW.mp4",
+      "sha256": "09bdd879bf2ddf567529ecca17c00c8671ddbcbf696cd78693732c681cf3012b",
+      "bytes": 2482547
+    },
+    {
+      "path": "artifacts/demo-video/demo-research.json",
+      "sha256": "7b598bb085912c844ae74a2ceee1394158f0755aa6f1c04a71c19a87a18d7a68",
+      "bytes": 9243
+    },
+    {
+      "path": "artifacts/demo-video/demo-research.csv",
+      "sha256": "5dd4bfdf58e907509782eb7ce5df946ba39ebca1ce7917daa86d739a635a4376",
+      "bytes": 1551
+    },
+    {
+      "path": "manual/examples/custom_domain_bundle.json",
+      "sha256": "d25d65f78e6e39f34654898b0ddb5855606ff2c0042222090628a65ae1c0263b",
+      "bytes": 3089
+    },
+    {
+      "path": "artifacts/layer-analysis-example.svg",
+      "sha256": "77d1d6b8549bd70e074149c1fd48d27839926309363aa847290f4ce9c8b75cbc",
+      "bytes": 5888
+    },
+    {
+      "path": "artifacts/layer-analysis-example.xlsx",
+      "sha256": "b1ac629342473a0b02ac42a0c9122a18df8f737f17a3ad938644f6f68c719051",
+      "bytes": 9759
+    },
+    {
+      "path": "artifacts/layer-analysis-svg-preview.png",
+      "sha256": "86e4cf74d800952e66dc01f1f47893922d1f939f649eae2d06945c4e9350a601",
+      "bytes": 50503
+    },
+    {
+      "path": "artifacts/export-options/advanced.svg",
+      "sha256": "fdf0e2e9633d6ea076fa43709822f9212cb03ee6a4d18d718da108aa70c62265",
+      "bytes": 4650
+    },
+    {
+      "path": "artifacts/export-options/all-layers.xlsx",
+      "sha256": "9b6ea5ad7fc119ba5d8d2394b7960d4becb854b502b3148a885bb909fa7deb84",
+      "bytes": 57162
+    },
+    {
+      "path": "artifacts/matrix-display/matrix.svg",
+      "sha256": "2c6378beba47eb6b666d7ab8d21b494944b1d1cce19c3d0ee2e1c26d463774a7",
+      "bytes": 6861
+    },
+    {
+      "path": "artifacts/matrix-display/matrix.xlsx",
+      "sha256": "c00fd7fb81c0eda754547adbaf22de09ca1f2df2584b55079f8d49c9f22a1f95",
+      "bytes": 10037
+    }
+  ],
+  "assets": [
+    {
+      "source": "assets/fusion-studio-icon-monochrome-v3.png",
+      "path": "assets/source/assets/fusion-studio-icon-monochrome-v3.png"
+    },
+    {
+      "source": "LICENSE",
+      "path": "assets/source/LICENSE"
+    },
+    {
+      "source": "artifacts/intro-video/fusion-studio-intro-zh-TW.mp4",
+      "path": "assets/source/artifacts/intro-video/fusion-studio-intro-zh-TW.mp4"
+    },
+    {
+      "source": "artifacts/demo-video/fusion-studio-demo-zh-TW.mp4",
+      "path": "assets/source/artifacts/demo-video/fusion-studio-demo-zh-TW.mp4"
+    },
+    {
+      "source": "artifacts/demo-video/demo-research.json",
+      "path": "assets/source/artifacts/demo-video/demo-research.json"
+    },
+    {
+      "source": "artifacts/demo-video/demo-research.csv",
+      "path": "assets/source/artifacts/demo-video/demo-research.csv"
+    },
+    {
+      "source": "manual/examples/custom_domain_bundle.json",
+      "path": "assets/source/manual/examples/custom_domain_bundle.json"
+    },
+    {
+      "source": "artifacts/layer-analysis-example.svg",
+      "path": "assets/source/artifacts/layer-analysis-example.svg"
+    },
+    {
+      "source": "artifacts/layer-analysis-example.xlsx",
+      "path": "assets/source/artifacts/layer-analysis-example.xlsx"
+    },
+    {
+      "source": "artifacts/layer-analysis-svg-preview.png",
+      "path": "assets/source/artifacts/layer-analysis-svg-preview.png"
+    },
+    {
+      "source": "artifacts/export-options/advanced.svg",
+      "path": "assets/source/artifacts/export-options/advanced.svg"
+    },
+    {
+      "source": "artifacts/export-options/all-layers.xlsx",
+      "path": "assets/source/artifacts/export-options/all-layers.xlsx"
+    },
+    {
+      "source": "artifacts/matrix-display/matrix.svg",
+      "path": "assets/source/artifacts/matrix-display/matrix.svg"
+    },
+    {
+      "source": "artifacts/matrix-display/matrix.xlsx",
+      "path": "assets/source/artifacts/matrix-display/matrix.xlsx"
+    }
+  ]
+}

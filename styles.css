@@ -8,6 +8,10 @@
 @media(max-width:720px){.hero-title br{display:revert}.brand-description{display:none}.brand,.nav-contact,.hero-actions .button,.hero-actions .text-link{white-space:nowrap}}
 @media(max-width:365px){.service-grid{grid-template-columns:1fr}.service-card{border-right:0;padding:22px}.service-card:not(:last-child){border-bottom:1px solid var(--ink)}.service-card h3{font-size:23px}.service-card>p:not(.card-kicker){font-size:13px}.tags{font-size:10px}}
 @media(max-width:365px){.english-name{font-size:9px;letter-spacing:.6px}.hero .eyebrow{font-size:8px;letter-spacing:.8px}.hero-actions{gap:14px}.hero-actions .button{font-size:11px;padding-inline:11px;gap:12px}.hero-actions .text-link{font-size:10px;gap:6px}}
+.fusion-project { grid-column:1 / -1; display:flex; align-items:center; gap:28px; padding:28px; }
+.fusion-project > img { flex-shrink:0; object-fit:contain; }
+.fusion-project h3 { margin-top:10px; }
+@media(max-width:720px) { .fusion-project { flex-direction:column; align-items:flex-start; gap:18px; padding:22px; } .fusion-project .eyebrow { font-size:9px; } }
 /* Work, writing and activities use the same paper-and-ink layout as the services. */
 .work-grid {
   display: grid;

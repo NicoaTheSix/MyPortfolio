@@ -1,0 +1,40 @@
+{
+  "generatedDate": "2026-10-28",
+  "pageCount": 70,
+  "searchEntries": 378,
+  "assetCount": 14,
+  "linkTransformations": [
+    {
+      "source": "manual/in_app_manual+_zh.md",
+      "from": "_2",
+      "to": "資料集與舊版本",
+      "kind": "legacy-anchor"
+    },
+    {
+      "source": "README.md",
+      "path": "artifacts/intro-video/README.md",
+      "kind": "unpublished-source-reference"
+    },
+    {
+      "source": "README.md",
+      "path": "artifacts/intro-video/README.md",
+      "kind": "unpublished-source-reference"
+    }
+  ],
+  "upstreamReferences": [
+    "CAR_INTEGRATION_PLAN.md",
+    "CAR_REQUIREMENTS.md",
+    "LINUX_WSL2_TEST_REPORT.md",
+    "NOTIMPLEMENTYET.md",
+    "README.md",
+    "artifacts/demo-video/README.md",
+    "artifacts/linux-command-setup/6cb2fcfdaf3840468989a72115dfe814/audit.json",
+    "artifacts/linux-command-setup/audit.json",
+    "artifacts/linux-command-setup/gui-smoke.png",
+    "artifacts/linux-wsl/verification.json",
+    "data/car/LICENSE.txt",
+    "data/car/NOTICE.txt",
+    "scripts/README.md",
+    "scripts/formula-reference/README.md"
+  ]
+}

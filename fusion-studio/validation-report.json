@@ -1,0 +1,21 @@
+{
+  "status": "passed",
+  "checkedAt": "2026-10-28T05:20:23.775Z",
+  "baseCommit": "b04e4ac796d806e51e55838af6ece7f2cb1684fc",
+  "includesUncommittedChanges": true,
+  "manualPairs": 27,
+  "htmlPages": 70,
+  "localReferences": 5761,
+  "assets": 14,
+  "downloads": 88,
+  "searchSections": 378,
+  "externalUrls": 41,
+  "externalValidation": "URL syntax and local source tracking only; external network availability and access permissions are not asserted.",
+  "httpValidation": {
+    "baseUrl": "http://127.0.0.1:4178/MyPortfolio/fusion-studio/",
+    "exactContentMatches": 87,
+    "videoRange": "passed",
+    "privatePaths": "blocked"
+  },
+  "browserValidation": "See README.md for separately recorded browser checks."
+}

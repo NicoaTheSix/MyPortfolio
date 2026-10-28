@@ -1,0 +1,157 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f6f5f0"><meta name="description" content="Aggregation &amp; exports — Fusion Studio documentation. A free, open-source workspace for TTP-driven threat research."><title>Aggregation &amp; exports | Fusion Studio Docs</title><link rel="icon" href="../assets/source/assets/fusion-studio-icon-monochrome-v3.png"><link rel="stylesheet" href="../docs.css"><link rel="alternate" hreflang="zh-Hant" href="../zh/aggregation-and-exports.html"><script defer src="../docs.js" data-search-index="../search-index.json"></script></head><body data-language="en" data-page="aggregation-and-exports">
+  <a class="skip-link" href="#content">Skip to content</a><header class="docs-header"><a class="docs-brand" href="index.html"><img src="../assets/source/assets/fusion-studio-icon-monochrome-v3.png" alt="" width="34" height="34"><span>Fusion Studio <small>DOCUMENTATION</small></span></a><div class="header-actions"><button id="open-search" type="button" aria-haspopup="dialog"><span aria-hidden="true">⌕</span> Search docs <kbd>Ctrl K</kbd></button><a class="language-switch" href="../zh/aggregation-and-exports.html" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a><a class="portfolio-link" href="../../index.html#works">Nicoa ↗</a></div></header>
+  <div class="mobile-toolbar"><button id="menu-button" type="button" aria-controls="docs-sidebar" aria-expanded="false">☰ Documentation menu</button><span>Aggregation &amp; exports</span></div>
+  <div class="docs-layout"><aside id="docs-sidebar" class="docs-sidebar" aria-label="Documentation navigation"><div class="sidebar-label">NICOA / OPEN SOURCE</div><nav><a class="sidebar-home " href="index.html" >Documentation home</a><section class="nav-group"><h2>Getting started</h2><a href="quick-start.html" >Quick start</a><a href="first-research.html" >Your first research</a><a href="installation.html" >Installation</a><a href="in-app-manual.html" >Operating manual</a><a href="in-app-index.html" >In-app guide index</a><a href="guide-index.html" >All guide pairs</a></section><section class="nav-group"><h2>Workspace &amp; selection</h2><a href="workspace-layout.html" >Workspace layout</a><a href="selection-and-search.html" >Selection &amp; search</a><a href="detection-interaction.html" >Detection &amp; source JSON</a><a href="source-relationship-selection.html" >Source relationships</a><a href="source-hover-preview.html" >Source hover preview</a><a href="visibility-expansion-presets.html" >Visibility &amp; expansion</a></section><section class="nav-group"><h2>Annotations &amp; persistence</h2><a href="batch-operations.html" >States &amp; batch editing</a><a href="studio-files.html" >Save &amp; session recovery</a></section><section class="nav-group"><h2>Matrix &amp; Navigator</h2><a href="matrix-display.html" >Matrix display</a><a href="navigator-parity-controls.html" >Navigator controls</a><a href="navigator-bundle-import.html" >Multi-layer JSON import</a><a href="advanced-navigator.html" >Advanced Navigator</a><a href="layer-score-formulas.html" >Layer score formulas</a></section><section class="nav-group"><h2>Export &amp; exchange</h2><a href="json-annotation-export.html" >JSON annotation export</a><a href="aggregation-and-exports.html" aria-current="page" class="current">Aggregation &amp; exports</a><a href="svg-paper.html" >SVG paper &amp; orientation</a><a href="svg-themes.html" >SVG light &amp; dark themes</a></section><section class="nav-group"><h2>ATLAS &amp; CAR references</h2><a href="car-integration.html" >CAR, Data Model &amp; Sensors</a></section><section class="nav-group"><h2>Version migration</h2><a href="upgrade-review.html" >Upgrade review</a><a href="upgrade-content.html" >Upgrade content comparison</a><a href="upgrade-mapping.html" >Tactic mapping &amp; conflicts</a><a href="upgrade-summary.html" >Upgrade summary</a></section><section class="nav-group"><h2>Custom sources &amp; examples</h2><a href="custom-domains.html" >Custom domains &amp; IDs</a><a href="custom-data-url-import.html" >Resolve customDataURL</a><a href="examples.html" >Loadable examples</a><a href="project-readme.html" >Product README &amp; setup</a><a href="positioning.html" >Positioning &amp; boundaries</a><a href="car-provenance.html" >CAR provenance &amp; licensing</a></section></nav><div class="sidebar-bottom"><span>27 bilingual guide pairs</span><a href="https://github.com/NicoaTheSix/MITREATTACK_SIMULATOR" target="_blank" rel="noopener noreferrer">GitHub ↗</a></div></aside>
+  <main id="content" class="docs-main" tabindex="-1"><div class="breadcrumb"><a href="index.html">Docs</a><span>/</span><span>Aggregation &amp; exports</span></div><details class="mobile-toc"><summary>On this page</summary><nav><a class="toc-level-2" href="#configure-parentsub-technique-aggregation">Configure Parent/Sub-technique Aggregation</a><a class="toc-level-2" href="#export-svg-or-colored-excel">Export SVG or Colored Excel</a><a class="toc-level-2" href="#advanced-svg-settings-and-preview">Advanced SVG Settings and Preview</a><a class="toc-level-2" href="#export-every-open-layer-into-one-excel-workbook">Export Every Open Layer into One Excel Workbook</a><a class="toc-level-2" href="#examples-and-verification">Examples and Verification</a></nav></details><article class="prose"><h1 id="family-score-aggregation-and-matrix-exports">Family Score Aggregation and Matrix Exports<a class="heading-anchor" href="aggregation-and-exports.html#family-score-aggregation-and-matrix-exports" aria-label="Link to section">#</a></h1><p>This guide applies to Fusion Studio layers on ATT&amp;CK v4+. See the <a href="project-readme.html">project README</a> for setup and the <a href="layer-score-formulas.html">formula guide</a> for creating computed layers.</p>
+<h2 id="configure-parentsub-technique-aggregation">Configure Parent/Sub-technique Aggregation<a class="heading-anchor" href="aggregation-and-exports.html#configure-parentsub-technique-aggregation" aria-label="Link to section">#</a></h2><ol>
+<li>Open a document/matrix and assign Score values to parents or sub-techniques.</li>
+<li>Choose <strong>Navigator → Layer settings…</strong>.</li>
+<li>Enable <strong>Show parent/sub-technique aggregate scores</strong>.</li>
+<li>Select <strong>Average / Maximum / Minimum / Sum</strong> and optionally <strong>Count enabled unscored family members as zero</strong>.</li>
+<li>Save. Parent tooltips show the original <strong>Score</strong> and derived <strong>Aggregate score</strong> separately. The parent gradient uses the aggregate unless an explicit parent color overrides it.</li>
+</ol>
+<p>For a parent scored 20 and two children scored 40 and 0 in the same tactic, with other children unscored and zero counting disabled:</p>
+<div aria-label="Scrollable data table" role="region" tabindex="0" class="table-scroll"><table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Calculation</th>
+<th align="right">Result</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Average</td>
+<td><code>(20+40+0)/3</code></td>
+<td align="right">20</td>
+</tr>
+<tr>
+<td>Maximum</td>
+<td><code>max(20,40,0)</code></td>
+<td align="right">40</td>
+</tr>
+<tr>
+<td>Minimum</td>
+<td><code>min(20,40,0)</code></td>
+<td align="right">0</td>
+</tr>
+<tr>
+<td>Sum</td>
+<td><code>20+40+0</code></td>
+<td align="right">60</td>
+</tr>
+</tbody></table></div>
+<p>Actual zero participates in calculations. Missing scores are omitted by default; enabling zero counting includes enabled unscored members as zero in every function, including minimum. A wholly unscored family remains unknown. Explicitly disabled members are excluded. Tactic scopes are calculated separately using the catalog's complete mapped family; platform/search filters affect visibility, not aggregation.</p>
+<p>Original scores and selections are preserved. Standard layer <code>layout</code> fields store the settings within existing document/domain/version archives. Sums can exceed the existing gradient range; increase <strong>Maximum score</strong> when needed to distinguish values that would otherwise share the clamped endpoint color.</p>
+<h2 id="export-svg-or-colored-excel">Export SVG or Colored Excel<a class="heading-anchor" href="aggregation-and-exports.html#export-svg-or-colored-excel" aria-label="Link to section">#</a></h2><ol>
+<li>Set matrix platform/search/color visibility. Enable <strong>Show all layers</strong> when a combined view is wanted.</li>
+<li>Choose <strong>Navigator → Export matrix SVG…</strong> or <strong>Export matrix Excel…</strong>.</li>
+<li>Choose an existing destination directory, or create <code>examples</code> before selecting <code>examples/matrix.svg</code> or <code>examples/matrix.xlsx</code>.</li>
+<li>For SVG, adjust <strong>Settings</strong> and optionally use <strong>Preview SVG · no file written</strong>; for Excel, keep the single-layer export dialog. Click <strong>Export SVG / Export XLSX</strong> and wait for background completion.</li>
+</ol>
+<p>The application reports absolute final/temporary paths before <strong>1/4 projection, 2/4 rendering, 3/4 writing, 4/4 publication</strong>. Failed validation/writes or cancellation before publication preserve existing output and remove temporary files.</p>
+<p>Inputs are in-memory layer/catalog snapshots; output is SVG or XLSX. Default exports expand all matching sub-techniques, including content outside the visible viewport. SVG can instead use expanded-only or no children. Platform/search, hidden disabled entries, color visibility and matching domain/version/dataset overlays are honored. Turning color visibility off also produces neutral exported cells.</p>
+<p><strong>SVG</strong> is a scalable vector matrix with IDs/names, original/aggregate scores, gradient/legend swatches and annotation hover context. Child techniques use an ASCII <code>&gt;</code> marker and indentation.</p>
+<p><strong>Single-layer Excel</strong> contains three worksheets:</p>
+<div aria-label="Scrollable data table" role="region" tabindex="0" class="table-scroll"><table>
+<thead>
+<tr>
+<th>Sheet</th>
+<th>Contents</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Matrix</td>
+<td>Colored tactic columns, scores, cell comments and frozen headers</td>
+</tr>
+<tr>
+<td>Techniques</td>
+<td>Technique/parent IDs, selected/enabled state, original/aggregate scores, colors and notes; filterable</td>
+</tr>
+<tr>
+<td>Layer Info</td>
+<td>Domain/version, platform/search, formula provenance and legend</td>
+</tr>
+</tbody></table></div>
+<p>Names/comments remain literal text even when starting with <code>=</code>. Excel's 32,767-character cell limit is enforced with a visible export failure rather than silent truncation. Use JSON for full oversized annotation text.</p>
+<p>SVG/XLSX are presentation/analysis artifacts. They do not rename documents or mark complete project state saved. Export Studio JSON for original annotations and domain/version archives, or Navigator Layer JSON for exchanging the current layer.</p>
+<h2 id="advanced-svg-settings-and-preview">Advanced SVG Settings and Preview<a class="heading-anchor" href="aggregation-and-exports.html#advanced-svg-settings-and-preview" aria-label="Link to section">#</a></h2><p>In <strong>Navigator → Export matrix SVG…</strong>, choose the destination and open <strong>Settings</strong>. Options are local to this export dialog and do not change saved layer data.</p>
+<div aria-label="Scrollable data table" role="region" tabindex="0" class="table-scroll"><table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Operation</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>SVG theme</td>
+<td>Dark (initial default) or Light for this export; changes presentation only; preview again after switching</td>
+</tr>
+<tr>
+<td>Paper size</td>
+<td>Custom, Letter, Legal, 11×17, 18×24 or 24×36 inches; presets lock width/height</td>
+</tr>
+<tr>
+<td>Orientation</td>
+<td>Portrait/Landscape for presets; swaps explicit Custom axes when both are set</td>
+</tr>
+<tr>
+<td>Units</td>
+<td>px, cm or in; changing units preserves physical size, using 96 logical pixels per inch</td>
+</tr>
+<tr>
+<td>Image width / height</td>
+<td>0 = automatic; explicit values fit the whole matrix into the canvas without cropping</td>
+</tr>
+<tr>
+<td>Header height</td>
+<td>0 = automatic; explicit heights fit header content into the requested area</td>
+</tr>
+<tr>
+<td>Font</td>
+<td>sans-serif, serif or monospace for header, legend and matrix</td>
+</tr>
+<tr>
+<td>Header sections</td>
+<td>Show/hide the whole header, layer name/description, domain/version, or platform/search text independently</td>
+</tr>
+<tr>
+<td>Cell border</td>
+<td>Enter a six-digit hexadecimal color, such as <code>#808080</code></td>
+</tr>
+<tr>
+<td>Sub-techniques</td>
+<td>All matching children, children expanded when the dialog opened, or none</td>
+</tr>
+<tr>
+<td>Legend</td>
+<td>Show/hide; dock in the header or undock and specify X/Y/width/height in the chosen units; height 0 = automatic</td>
+</tr>
+</tbody></table></div>
+<p>Expanded-only captures each parent/tactic independently, including Flat/Side/Mini view state. If the native matrix is still building, the dialog waits before enabling preview/export. The snapshot stays fixed even if background matrix work finishes later. Hidden/filtered data still follow the captured export filters.</p>
+<p>An undocked legend can intentionally overlap the matrix and stays visible when the header is hidden. It must fit inside the image; otherwise validation asks you to change its position/size or canvas. Docked legends follow the header and disappear with it. Legend labels wrap; explicit legend heights scale the contents to fit. Smaller image/header/legend sizes produce smaller text rather than dropping rows. Numeric sizes are limited to 100000 logical pixels; image width must be at least 80 pixels and the matrix needs at least 40 pixels below the header.</p>
+<p>Example: choose <strong>cm</strong>, width <code>20</code>, height <code>25</code>, header height <code>2</code>, <strong>serif</strong>, border <code>#808080</code>, and <strong>Show children expanded when export opened</strong>. Preview first. For a large matrix, increase width or narrow platform/search filters for readable text. Qt's preview fits the vector to its panel; the exported root retains the physical units and dimensions.</p>
+<p><strong>Preview SVG · no file written</strong> announces in-memory inputs/outputs, then shows <strong>1/3 validate → 2/3 render → 3/3 ready</strong>. The <strong>Preview</strong> tab displays the vector. Correct any invalid value and retry. Export then announces absolute final/temporary file paths and uses the four publication stages above. Settings freeze during work; cancellation or failure preserves existing output. Editing settings after export enables another export to the chosen destination.</p>
+<p>Light/Dark is independent of the application theme. Opaque manual/tactic colors remain exact; transparent score/aggregate and overlay colors are recomposed against the chosen neutral background. Legend text/panels and disabled cells follow the theme; Light adds readable indicator backing and swatch borders. Advanced Mini export preserves selected outlines. SVG theme is not stored in layer JSON and does not affect Excel. Reopening the export dialog defaults to Dark. See <a href="svg-themes.html">SVG theme examples and verification</a>.</p>
+<p><a href="svg-paper.html">Paper sizes and orientation</a> explains all five presets, physical unit conversions, Custom draft restoration and limits. Changing paper/direction retains header and legend sizes; an out-of-page detached legend needs an explicit adjustment.</p>
+<h2 id="export-every-open-layer-into-one-excel-workbook">Export Every Open Layer into One Excel Workbook<a class="heading-anchor" href="aggregation-and-exports.html#export-every-open-layer-into-one-excel-workbook" aria-label="Link to section">#</a></h2><ol>
+<li>Open the desired documents and set each layer's saved platform filters, colors, scores and enabled states.</li>
+<li>Choose <strong>Navigator → Export all open layers to Excel…</strong> and select, for example, <code>examples/all-layers.xlsx</code> in an existing directory.</li>
+<li>Review the complete layer list and domain/version column, then click <strong>Export all layers XLSX</strong>.</li>
+<li>Wait for <strong>1/4 validate → 2/4 project/render each layer → 3/4 write workbook → 4/4 atomic publication</strong>. Absolute output and temporary paths appear before processing; inputs are immutable in-memory snapshots.</li>
+</ol>
+<p>The result has <strong>exactly one worksheet per open document</strong>, in tab order (up to 50). Mixed Enterprise/Mobile/ICS, compatible versions and custom datasets remain independent. Every sheet uses its own saved platform filters, sorting, hidden-disabled setting and colors, with all matching children. The active transient search, hidden-colors toggle and combined-overlay toggle are not applied. An empty selection still exports its layer matrix; an explicit empty platform filter produces a labeled empty sheet.</p>
+<p>Row 1 keeps the full layer name; row 2 identifies domain/version/platform; row 3 holds tactic headers. Colored matrix cells include IDs/names and scores; Excel comments retain selection/enabled state, annotations, Links and Metadata. Description, layer metadata/links/formula JSON and legend entries appear below the matrix. Headers are frozen at A4. This mode has no additional Techniques or Layer Info worksheets; single-layer Excel keeps those sheets.</p>
+<p>Excel-invalid characters are replaced, long names are truncated to 31 UTF-16 units, and duplicates receive case-insensitive suffixes such as <code>Assessment (2)</code>; reserved <code>History</code> is renamed. Full names remain in row 1, and text beginning with <code>=</code> remains literal. Invalid controls or text/comments over 32,767 characters, unsupported pre-v4 historical layers or an invalid later layer abort the whole workbook visibly. Cancellation/write failure retains the previous file and removes temporary output. Source documents, selections and save markers remain unchanged; use Studio JSON for complete editable state.</p>
+<h2 id="examples-and-verification">Examples and Verification<a class="heading-anchor" href="aggregation-and-exports.html#examples-and-verification" aria-label="Link to section">#</a></h2><ul>
+<li><a href="../assets/source/artifacts/layer-analysis-example.svg">SVG example</a></li>
+<li><a download="" href="../assets/source/artifacts/layer-analysis-example.xlsx">Colored Excel example</a></li>
+<li><a href="../assets/source/artifacts/layer-analysis-svg-preview.png">SVG preview</a></li>
+<li><a href="../assets/source/artifacts/export-options/advanced.svg">Advanced SVG example</a></li>
+<li><a download="" href="../assets/source/artifacts/export-options/all-layers.xlsx">All-layer Excel example</a></li>
+<li><a href="../zh/aggregation-and-exports.html">繁體中文手冊</a></li>
+</ul>
+<p>The root-level <code>audit_layer_analysis.py</code> checks existing arithmetic, SVG pixels and single-layer Excel. <code>audit_export_options.py</code> checks advanced options/units, actual vector pixels, all/expanded/no children, sheet names/domain separation, empty filters, atomic failure/cancellation and native preview/export actions. It prints absolute input/output paths before seven stages and writes examples/screenshots plus <code>artifacts/export-options/audit.json</code>. Run <code>.venv\Scripts\python.exe -B audit_export_options.py</code> with <code>QT_QPA_PLATFORM=offscreen</code>; setup is documented in the project README.</p>
+</article><nav class="page-pagination" aria-label="Page navigation"><a href="json-annotation-export.html"><small>← Previous</small>JSON annotation export</a><a href="svg-paper.html"><small>Next →</small>SVG paper &amp; orientation</a></nav>
+  <footer class="page-footer"><div class="source-caption"><strong>Source & publication</strong><p>manual/aggregation_and_exports_en.md</p><p>commit <code>b04e4ac796d8</code> · Includes uncommitted local changes · 2026-10-28</p><a href="../source-manifest.json" download>Source & SHA-256 manifest ↓</a></div><p>A free, open-source workspace for TTP-driven threat research. Independent community project; no MITRE endorsement. <a href="../assets/source/LICENSE">MIT License</a></p></footer></main>
+  <aside class="page-toc" aria-label="On this page"><p>ON THIS PAGE</p><nav><a class="toc-level-2" href="#configure-parentsub-technique-aggregation">Configure Parent/Sub-technique Aggregation</a><a class="toc-level-2" href="#export-svg-or-colored-excel">Export SVG or Colored Excel</a><a class="toc-level-2" href="#advanced-svg-settings-and-preview">Advanced SVG Settings and Preview</a><a class="toc-level-2" href="#export-every-open-layer-into-one-excel-workbook">Export Every Open Layer into One Excel Workbook</a><a class="toc-level-2" href="#examples-and-verification">Examples and Verification</a></nav><a class="toc-source" href="https://github.com/NicoaTheSix/MITREATTACK_SIMULATOR" target="_blank" rel="noopener noreferrer">Source repository ↗</a></aside></div>
+  <dialog id="search-dialog" aria-labelledby="search-title"><div class="search-heading"><h2 id="search-title">Search Fusion Studio docs</h2><button id="close-search" type="button" aria-label="Close search">×</button></div><label class="search-input-label" for="docs-search">Enter a topic, menu or keyword</label><input id="docs-search" type="search" autocomplete="off" placeholder="Try: save, CAR, SVG, fusionstudio"><p id="search-status" role="status" aria-live="polite">Search full documentation in the current language.</p><div id="search-results"></div></dialog><div id="toast" role="status" aria-live="polite"></div></body></html>
