@@ -39,13 +39,13 @@ Keep all lettering crisp, beautifully spaced, correctly spelled, safely inside t
 ## English business card — exact prompt
 
 ```text
-Use case: text-localization. Create the ENGLISH edition of this exact wide black-and-white pixel-art personal business-card banner. Preserve its wide landscape aspect ratio of approximately 2.7:1, the entire retro computer desk composition, the two people's portraits inside the CRT screen, books, keyboard, mouse, mug, notebook and plant. Keep the large Nicoa wordmark, the name Chung-Lun Wu, and all four C++ / Python / JAVA / Scratch badges exactly recognizable. Pure black-and-white 1-bit pixel/dither art, no color, no photographic replacement, no cropping of frame edges or text, no new branding.
+Use case: text-localization. Create the ENGLISH edition of this exact wide black-and-white pixel-art personal business-card banner. Preserve its wide landscape aspect ratio of approximately 2.7:1, the entire retro computer desk composition, the two people's portraits inside the CRT screen, books, keyboard, mouse, mug, notebook and plant. Keep the large Nicoa wordmark, the name Nicoa The Six, and all four C++ / Python / JAVA / Scratch badges exactly recognizable. Pure black-and-white 1-bit pixel/dither art, no color, no photographic replacement, no cropping of frame edges or text, no new branding.
 
 Change only the written Chinese wording into English, with carefully adjusted pixel typography and spacing:
 Replace the slogan under the name with: "I write words. I write code."
 Replace the lower service line with: "Development | Scratch Lessons | Writing"
 Preserve the email EXACTLY as: "nick5901879@gmail.com"
-Preserve "Nicoa" and "Chung-Lun Wu".
+Preserve "Nicoa" and "Nicoa The Six".
 Every remaining written phrase should be English; do not add prices or contact details. All words must be clean, readable and fully visible. Preserve the original charming portrait identities and monochrome 8-bit style. The result must remain a long horizontal website business-card image, not a square poster.
 ```
 

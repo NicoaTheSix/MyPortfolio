@@ -42,6 +42,8 @@ try {
   console.log(`[2/4] ${references.size} 個站內資源、跨頁錨點與 PNG 通過 /MyPortfolio/ 子路徑檢查。`);
   for(const page of pages) {
     assert(page.html.includes(`<html lang="${page.lang}">`),'缺少語言設定');
+    assert(page.html.includes('<title>Nicoa The Six'),'頁面標題應使用公開名稱');
+    assert(!/\bchung[-\s]+lun\s+wu\b/i.test(page.html),'頁面仍有已移除的姓名');
     assert(page.html.includes('name="viewport"'),'缺少行動裝置設定');
     assert.equal((page.html.match(/aria-current="page"/g)||[]).length,1,'語言列應只有一個目前頁面');
     assert.equal((page.html.match(/data-language-switch/g)||[]).length,1,'缺少語言切換入口');

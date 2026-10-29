@@ -1,4 +1,12 @@
-# Nicoa 個人作品集網站
+# Nicoa The Six 個人作品集網站
+
+## 公開名稱與名片更新
+
+網站對外名稱為 `Nicoa The Six`。中英文頁面的姓名、SEO 描述、圖片替代文字與個人介紹已改用此名稱；像素字標保留 Nicoa，下一行顯示 THE SIX，合為完整品牌。兩張名片內的原姓名也替換為 The Six。聯絡信箱、社群連結與作品網址依既有設定保留。
+
+`update-portfolio-brand.mjs` 的輸入為中、英文新版名片 PNG，依序執行 `node .\update-portfolio-brand.mjs 'C:\素材\business-card-zh.png' 'C:\素材\business-card-en.png'`。程式先列出圖片與所有文字檔的絕對輸入／輸出路徑，再依四階段驗證比例、複製名片、更新中英文頁面與文件返回入口／產生器、檢查 72 頁無原姓名。名片沿用原檔名覆寫，頁面加上版本查詢參數以更新快取；生成來源保留原位。根目錄 README 與歷史圖片提示詞中的姓名也一併更新，歷史提示詞的姓名欄因此是調整後版本。新名片生成方式與完整提示詞見 [名稱更新圖片紀錄](brand-image-prompts.md)。
+
+本次驗證：72 頁無原姓名；中英文頁面、文件與 GTM 檢查通過。瀏覽器以桌面 1440 px、英文手機 390 px、中文窄螢幕 320 px 檢查，沒有頁面水平溢出；語言切換與新版名片載入正常，未發現 error／warning。桌面截圖保存在本機 `.preview/nicoa-the-six-desktop.png`（不隨網站發布）。
 
 ## Google 網站驗證檔
 
@@ -21,7 +29,7 @@
 
 發布檔案檢查只能證實 GTM 已安裝；容器內 GA4 標籤是否觸發及資料是否送達，需在 Google Tag Assistant 與 GA4「即時」報表確認。放置方式依據 [官方 GTM 安裝文件](https://support.google.com/tagmanager/answer/14847097)。
 
-以使用者提供的黑白點陣圖片為視覺參考，建立 Nicoa（Chung-Lun Wu）的繁體中文與英文個人網站。內容包含程式開發、Scratch 教學、文章寫作、中英文翻譯及文書資料整理。GitHub 儲存庫為 `NicoaTheSix/MyPortfolio`。
+以使用者提供的黑白點陣圖片為視覺參考，建立 Nicoa The Six的繁體中文與英文個人網站。內容包含程式開發、Scratch 教學、文章寫作、中英文翻譯及文書資料整理。GitHub 儲存庫為 `NicoaTheSix/MyPortfolio`。
 
 ## 網站結構與執行流程
 

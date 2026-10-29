@@ -164,6 +164,9 @@
   .featured-work h3 { font-size: 17px; }
 }
 /* The language selector is always available at the very top, including on mobile. */
+.english-name { font-size: 18px; font-weight: 900; letter-spacing: 7px; margin-top: 12px; }
+.about-title h2 { overflow-wrap: anywhere; }
+.language-bar-inner > span { min-width: 0; }
 .language-bar {
   position: sticky;
   top: 0;
@@ -230,6 +233,9 @@ html[lang="en"] .contact-top h2 { font-size: 34px; }
   .office-service-image { width: 165px; }
 }
 @media (max-width:720px) {
+  .english-name { font-size: 16px; letter-spacing: 5px; }
+  .header-inner { gap: 14px; }
+  .brand { flex-shrink: 0; }
   .office-service { flex-direction: column; align-items: flex-start; gap: 20px; padding: 22px; }
   .office-service-image { width: 150px; }
   .office-service h3 { font-size: 23px; }
@@ -243,6 +249,7 @@ html[lang="en"] .contact-top h2 { font-size: 34px; }
   html[lang="en"] .about-title h2 { font-size: 34px; }
 }
 @media (max-width:365px) {
+  .header-inner { gap: 10px; }
   .language-bar-inner > span { font-size: 7px; }
   .language-bar nav { gap: 8px; }
   html[lang="en"] .hero-title { font-size: 32px; }
