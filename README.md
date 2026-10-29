@@ -4,6 +4,21 @@
 
 根目錄的 `google6c8f54a1ecc35592.html` 為擁有者提供的 Google 網站驗證檔，從 `C:\Users\nick5\Downloads\google6c8f54a1ecc35592.html` 原樣複製，並以 SHA-256 核對內容一致。推送至 `main` 且 GitHub Pages 發布完成後，公開位置為 <https://nicoathesix.github.io/MyPortfolio/google6c8f54a1ecc35592.html>。保留原始檔名與內容，以供 Google 驗證網站所有權。
 
+## Google Analytics 4
+
+依網站擁有者提供的標準 Google tag，使用評估 ID `G-YN3DEJ0WBH`。中英文首頁與 Fusion Studio 的 70 頁 HTML（共 72 頁）在 `<head>` 後方各放置一份非同步載入代碼與一個 `gtag('config', ...)`。不另送手動 `page_view`，避免與 config 的自動頁面瀏覽重複。Google 網站驗證檔保留原文，不加入追蹤。
+
+`google-tag.mjs` 是維護工具使用的共用代碼來源。瀏覽器實際讀取各頁內嵌的標準代碼，建立 `dataLayer` 並加入初始化命令，非同步載入 Google 程式後送往擁有者的 GA4 資源；瀏覽器阻擋追蹤時不影響既有網站功能。網站會向 Google 載入分析程式，不需要訪客安裝套件。網站不額外將信箱、文件搜尋內容或表單內容設為自訂分析參數。
+
+維護流程（Node.js 20 以上）：
+
+1. `node .\sync-google-tag.mjs`：先顯示設定檔、文件頁清單、產生器與每個頁面的絕對輸入／輸出路徑，再分四階段盤點、驗證、原檔寫入及完成回報。所有頁面先驗證成功才開始寫入；已存在同一代碼時不重複插入，遇到其他追蹤設定則停止。
+2. `node .\sync-google-tag.mjs --check`（或 `npm run check:analytics`）：僅檢查 72 頁與產生器模板的代碼位置、唯一性、ID、重複 page_view 及內嵌 JavaScript 語法，結果輸出終端，不寫入檔案。
+3. `node .\sync-google-tag.mjs --check --url 'https://nicoathesix.github.io/MyPortfolio/'`：本機檢查通過後，每批八頁讀取公開網站，確認每頁 HTTP 200 且相同代碼已發布，逐批顯示進度。
+4. `build-fusion-docs.mjs` 直接引用共用代碼，日後重建文件仍會保留分析設定。修改 ID 時同步更新既有頁面的舊代碼後再檢查；同步程式不會自動覆寫其他 ID。
+
+發布檔案檢查只能證實代碼已安裝；實際資料接收狀態需在 GA4「即時」報表或 Google Tag Assistant 確認。放置方式依據 [Google tag 官方文件](https://developers.google.com/tag-platform/gtagjs)。
+
 以使用者提供的黑白點陣圖片為視覺參考，建立 Nicoa（Chung-Lun Wu）的繁體中文與英文個人網站。內容包含程式開發、Scratch 教學、文章寫作、中英文翻譯及文書資料整理。GitHub 儲存庫為 `NicoaTheSix/MyPortfolio`。
 
 ## 網站結構與執行流程
