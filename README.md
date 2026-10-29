@@ -1,5 +1,9 @@
 # Nicoa 個人作品集網站
 
+## Google 網站驗證檔
+
+根目錄的 `google6c8f54a1ecc35592.html` 為擁有者提供的 Google 網站驗證檔，從 `C:\Users\nick5\Downloads\google6c8f54a1ecc35592.html` 原樣複製，並以 SHA-256 核對內容一致。推送至 `main` 且 GitHub Pages 發布完成後，公開位置為 <https://nicoathesix.github.io/MyPortfolio/google6c8f54a1ecc35592.html>。保留原始檔名與內容，以供 Google 驗證網站所有權。
+
 以使用者提供的黑白點陣圖片為視覺參考，建立 Nicoa（Chung-Lun Wu）的繁體中文與英文個人網站。內容包含程式開發、Scratch 教學、文章寫作、中英文翻譯及文書資料整理。GitHub 儲存庫為 `NicoaTheSix/MyPortfolio`。
 
 ## 網站結構與執行流程
