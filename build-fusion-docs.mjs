@@ -6,7 +6,7 @@ import { createHash } from 'node:crypto';
 import { Marked } from 'marked';
 import sanitizeHtml from 'sanitize-html';
 import { parseHTML } from 'linkedom';
-import { googleTag } from './google-tag.mjs';
+import { googleTag, googleTagBody } from './google-tag.mjs';
 
 const root = path.dirname(fileURLToPath(import.meta.url));
 const sourceArg = process.argv.indexOf('--source');
@@ -193,6 +193,7 @@ function shell(page, body, pairCount) {
   return `<!doctype html><html lang="${zh?'zh-Hant':'en'}"><head>
 ${googleTag}
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f6f5f0"><meta name="description" content="${escape(page.title)} — Fusion Studio documentation. A free, open-source workspace for TTP-driven threat research."><title>${escape(page.title)} | Fusion Studio Docs</title><link rel="icon" href="${relative(page.file,'assets/source/assets/fusion-studio-icon-monochrome-v3.png')}"><link rel="stylesheet" href="${relative(page.file,'docs.css')}"><link rel="alternate" hreflang="${zh?'en':'zh-Hant'}" href="${relative(page.file,oppositeFile)}"><script defer src="${relative(page.file,'docs.js')}" data-search-index="${relative(page.file,'search-index.json')}"></script></head><body data-language="${page.lang}" data-page="${page.key}">
+${googleTagBody}
   <a class="skip-link" href="#content">${zh?'跳至文件內容':'Skip to content'}</a><header class="docs-header"><a class="docs-brand" href="${relative(page.file,homeFile(page.lang))}"><img src="${relative(page.file,'assets/source/assets/fusion-studio-icon-monochrome-v3.png')}" alt="" width="34" height="34"><span>Fusion Studio <small>DOCUMENTATION</small></span></a><div class="header-actions"><button id="open-search" type="button" aria-haspopup="dialog"><span aria-hidden="true">⌕</span> ${zh?'搜尋文件':'Search docs'} <kbd>Ctrl K</kbd></button><a class="language-switch" href="${relative(page.file,oppositeFile)}" hreflang="${zh?'en':'zh-Hant'}" lang="${zh?'en':'zh-Hant'}">${zh?'English':'繁體中文'}</a><a class="portfolio-link" href="${relative(page.file,zh?'../index.html':'../en/index.html')}#works">Nicoa ↗</a></div></header>
   <div class="mobile-toolbar"><button id="menu-button" type="button" aria-controls="docs-sidebar" aria-expanded="false">☰ ${zh?'文件目錄':'Documentation menu'}</button><span>${escape(page.title)}</span></div>
   <div class="docs-layout"><aside id="docs-sidebar" class="docs-sidebar" aria-label="${zh?'文件導覽':'Documentation navigation'}"><div class="sidebar-label">NICOA / OPEN SOURCE</div><nav>${navigation(page)}</nav><div class="sidebar-bottom"><span>${pairCount} ${zh?'組雙語指南':'bilingual guide pairs'}</span><a href="${repo}" target="_blank" rel="noopener noreferrer">GitHub ↗</a></div></aside>
