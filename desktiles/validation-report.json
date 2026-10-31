@@ -1,0 +1,13 @@
+{
+  "project": "DeskTiles",
+  "passed": true,
+  "pages": 6,
+  "assets": 15,
+  "localReferences": 415,
+  "searchEntries": 54,
+  "zipBytes": 408789,
+  "zipSha256": "77b336514c7a961abe52dcd579ec4e20ad41e0fd8b6b4099deaf1ab6b789e8a8",
+  "httpFiles": 24,
+  "httpVerified": true,
+  "applicationTests": "Not rerun; project-provided validation only."
+}

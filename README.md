@@ -1,5 +1,17 @@
 # Nicoa The Six 個人作品集網站
 
+## DeskTiles 桌面拼格專案
+
+新增 `/MyPortfolio/desktiles/` 與 `/MyPortfolio/desktiles/en/`，提供專案介紹、中英文使用說明、專案 README、原始 Markdown、含圖片的範例 JSON 與 Windows x64 免安裝 ZIP。根目錄中英文首頁提供專案卡與桌面導覽入口。原始碼公開倉庫與專案授權尚未確認，沒有設定猜測的原始碼連結或宣稱開源。
+
+建置與驗證程式位於本 README 相同目錄。先執行 `node .\build-desktiles.mjs --source 'D:\DeskTile'`，再執行 `node .\check-desktiles.mjs`。建置器在操作前列出來源、所有素材／翻譯輸入、所有產物與首頁輸出的絕對路徑，依五階段核對 ZIP 雜湊、原樣複製明確指定素材、產生六個 HTML、建立雙語搜尋與來源清單、更新首頁卡片。驗證器先列出絕對輸入與報告輸出，再逐階段檢查頁面／錨點、資產與原始下載雜湊、雙語導覽與搜尋、追蹤設定，以及選用的 HTTP 發布內容比對。
+
+本機執行 `node .\serve.mjs` 後，可用 `node .\check-desktiles.mjs --url 'http://127.0.0.1:4173/MyPortfolio/desktiles/'` 核對所有公開檔案與 ZIP。發布後將 URL 換成 `https://nicoathesix.github.io/MyPortfolio/desktiles/`。預覽白名單依專案來源清單擴充，支援 Markdown 與 ZIP 的下載 MIME。`sync-google-tag.mjs` 同時納入六個新頁面，與原有 72 頁共用同一 GTM，合計 78 頁；新增頁面重用原文件的導覽／搜尋程式，其 console 進度前綴由頁面專案名稱決定。
+
+只讀交接提供的專案文件與明列素材，不讀取、複製或發布 LocalAppData、個人版面或日誌；不執行或重包 EXE／ZIP。170 項核心與 123 項 Windows 整合檢查為來源提供的驗證結果，網站只核對發布內容；不將短時間效能樣本寫成通用保證。詳細流程見 [DeskTiles 維護說明](desktiles/README.md)。
+
+2026-10-31 發布驗證：六頁文件、15 份公開素材、54 筆搜尋索引、24 個專區 HTTP 檔案及既有 70 頁 Fusion Studio 文件檢查通過；全站 78 頁 GTM 檢查通過。瀏覽器檢查 1440px 桌面、390px 與 320px 手機；中文「透明」與英文「timer」搜尋、同頁語言切換及手機導覽正常，表格在容器內捲動。Windows ZIP 已透過網站下載，與來源 SHA-256 相同。首頁服務圖卡及手機僅顯示圖片／標籤的設定保留。
+
 ## 公開名稱與名片更新
 
 網站對外名稱為 `Nicoa The Six`。中英文頁面的姓名、SEO 描述、圖片替代文字與個人介紹已改用此名稱；像素字標保留 Nicoa，下一行顯示 THE SIX，合為完整品牌。兩張名片內的原姓名也替換為 The Six。聯絡信箱、社群連結與作品網址依既有設定保留。

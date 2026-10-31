@@ -1,0 +1,179 @@
+<!doctype html><html lang="en"><head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-N43HBCRC');</script>
+<!-- End Google Tag Manager -->
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f6f5f0"><meta name="description" content="DeskTiles for Windows: arrange text, images and timers in three shapes. Download the portable ZIP, read the user guide and browse the project README."><title>Project README | DeskTiles · Nicoa The Six</title><link rel="icon" href="../assets/DeskTiles.svg" type="image/svg+xml"><link rel="stylesheet" href="../desktiles.css"><link rel="alternate" hreflang="zh-Hant" href="../readme.html"><script defer src="../../fusion-studio/docs.js" data-search-index="../search-index.json"></script></head><body data-project="DeskTiles Docs" data-language="en" data-page="readme">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N43HBCRC"
+height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Manager"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<a class="skip-link" href="#content">Skip to content</a><header class="docs-header"><a class="docs-brand" href="index.html"><img src="../assets/DeskTiles-logo.png" width="34" height="34" alt=""><span>DeskTiles<small>PROJECT & DOCS</small></span></a><div class="header-actions"><button id="open-search" type="button" aria-haspopup="dialog"><span aria-hidden="true">⌕</span> Search docs <kbd>Ctrl K</kbd></button><a class="language-switch" href="../readme.html" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a><a class="portfolio-link" href="../../en/index.html#project-desktiles">Nicoa The Six ↗</a></div></header><div class="mobile-toolbar"><button id="menu-button" type="button" aria-controls="docs-sidebar" aria-expanded="false">☰ Project navigation</button><span>Project README</span></div><div class="docs-layout"><aside id="docs-sidebar" class="docs-sidebar" aria-label="Project navigation"><div class="sidebar-label">NICOA THE SIX / DESKTOP TOOLS</div><nav><section class="nav-group"><h2>DeskTiles</h2><a href="index.html">DeskTiles</a><a href="guide.html">User guide</a><a href="readme.html" class="current" aria-current="page">Project README</a></section><section class="nav-group"><h2>Get the app</h2><a href="../downloads/DeskTiles-Windows-x64.zip" download>Windows x64 ZIP ↓</a><a href="../downloads/mixed-shapes.json" download>Example JSON ↓</a><a href="../downloads/SHA256SUMS.txt" download>SHA256SUMS.txt ↓</a></section></nav><div class="sidebar-bottom"><a href="../../en/index.html#project-desktiles">Portfolio ↗</a></div></aside><main id="content" class="docs-main" tabindex="-1"><div class="breadcrumb"><a href="index.html">DeskTiles</a><span>/</span><span>Project README</span></div><div class="page-actions"><a href="../downloads/readme-en.md" download>Download Markdown ↓</a><a href="../downloads/DeskTiles-Windows-x64.zip" download>Windows x64 ZIP ↓</a></div><details class="mobile-toc"><summary>On this page</summary><nav><a class="toc-level-2" href="#start-here-as-a-user">Start here as a user</a><a class="toc-level-2" href="#common-actions">Common actions</a><a class="toc-level-2" href="#features-and-scope">Features and scope</a><a class="toc-level-2" href="#data-location-and-startup-issues">Data location and startup issues</a><a class="toc-level-2" href="#execution-flow-and-progress">Execution flow and progress</a><a class="toc-level-2" href="#development-checks-and-packaging">Development, checks and packaging</a><a class="toc-level-2" href="#project-files">Project files</a><a class="toc-level-2" href="#technical-basis-and-future-work">Technical basis and future work</a></nav></details><article class="prose"><h1>DeskTiles</h1>
+<p>A native Windows desktop widget app for arranging text, images and timers in hexagonal, triangular or rectangular tiles. It supports group dragging, snapping, always-on-top or desktop layers, transparent backgrounds, pixel / RGB / breathing borders, and JSON configurations with embedded images.</p>
+<h2 id="start-here-as-a-user">Start here as a user</h2>
+<ol>
+<li>Download <a href="../downloads/DeskTiles-Windows-x64.zip">DeskTiles-Windows-x64.zip</a> and extract the entire archive.</li>
+<li>Open the extracted <code>DeskTiles</code> folder and double-click <code>DeskTiles.exe</code>.</li>
+<li>Choose a shape on the left and add it. Edit content on the right and apply it.</li>
+</ol>
+<p><strong>The portable ZIP runs after extraction.</strong> It supports Windows 10 / 11 x64, with no Visual Studio, Python, .NET, extra runtime installation or administrator permissions required. The EXE uses the static C++ runtime and contains an embedded logo.</p>
+<p><strong>The source project must be built.</strong> A source-only checkout does not include a ready-to-run user EXE unless it has been built separately. A Linux version has not been developed and remains future work.</p>
+<p>The source project's extracted user build is <code>release/DeskTiles/DeskTiles.exe</code>. See the <a href="guide.html">user guide</a> for full steps. The ZIP contains <code>README.txt</code>, the user guide, an example configuration with embedded image data and third-party license notices.</p>
+<h2 id="common-actions">Common actions</h2>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Task</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Add tiles</td>
+<td>Select a hexagon (default), upward-pointing equilateral triangle or 3:2 rectangle; choose Add tile</td>
+</tr>
+<tr>
+<td>Select / move a group</td>
+<td>Shift + click to select multiple tiles; drag any selected tile to move the group and snap near other tiles</td>
+</tr>
+<tr>
+<td>Text, images, timers</td>
+<td>Select tiles, choose the content type on the right, configure it and apply</td>
+</tr>
+<tr>
+<td>Size and font</td>
+<td>Size and text; width 80–480 px, font size 8–96 px</td>
+</tr>
+<tr>
+<td>Appearance</td>
+<td>Borders and style / Background and transparency; can apply to multiple tiles</td>
+</tr>
+<tr>
+<td>Display layer</td>
+<td>Choose always-on-top or desktop layer from the context menu or controller</td>
+</tr>
+<tr>
+<td>Back up / move</td>
+<td>Export a configuration JSON with embedded images; replace or merge on import</td>
+</tr>
+<tr>
+<td>Recover missing tiles</td>
+<td>Recover all tiles from the tray menu</td>
+</tr>
+<tr>
+<td>Exit</td>
+<td>Apply edits, then choose Save and exit DeskTiles from a context menu or the tray</td>
+</tr>
+</tbody></table></div>
+<p>Closing the controller only hides it; tiles continue running in the background. Double-click a tile or launch the program again to restore the controller. Save and exit the old version before updating.</p>
+<p><img loading="lazy" src="../assets/control.png" alt="DeskTiles controller, original Chinese UI"></p>
+<h2 id="features-and-scope">Features and scope</h2>
+<ul>
+<li>Hexagons, equilateral triangles and 3:2 rectangles in independent borderless windows. Areas outside the shapes allow normal desktop interaction.</li>
+<li>Text, PNG / JPEG / BMP images, elapsed-time timers and countdowns. Multiple selected tiles can be updated together.</li>
+<li>Relative group positions, mixed-shape collision detection and snapping within 22 px. An overlapping drop restores the previous position.</li>
+<li>Custom sizes, installed fonts, font sizes and text colors. A resize that causes collisions retains the existing settings for the entire group.</li>
+<li>Solid, pixel, RGB rainbow and selected-color breathing borders. Border thickness 1–12 px and animation cycles 2–60 seconds.</li>
+<li>Separate background color and 0–100% transparency controls. Only the background is affected; fully transparent areas remain selectable and draggable.</li>
+<li>An 18 px controller UI, 32 px header and monochrome pixel 2×2 logo. Tile content font size is configured independently.</li>
+<li>JSON contains the full layout and Base64 image data. Imports can replace or merge; imported timers start paused.</li>
+<li>Limits: 500 tiles, 128 MiB JSON, 16 MiB per image, 64 MiB of image data in total and 64 million pixels per image.</li>
+</ul>
+<h2 id="data-location-and-startup-issues">Data location and startup issues</h2>
+<p>The default data folder is <code>%LOCALAPPDATA%\HexDesk</code>. Its previous name is retained to reuse existing layouts. You may run:</p>
+<div class="code-block"><div class="desk-code-label"><span>POWERSHELL</span><button class="copy-code" type="button">Copy</button></div><pre><code class="language-powershell">.\DeskTiles.exe --data-dir 'D:\DeskTilesData'
+</code></pre></div>
+<p>Startup displays the absolute layout and log paths and progress. The layout file is <code>layout.hexdesk</code>; the previous saved version is <code>layout.backup</code>. Imports create an additional <code>import-before-*.hexdesk</code> backup. Imported images are saved to <code>assets</code> using SHA-256 names. Directly selected external images continue to reference their original paths; export JSON to include them in a backup.</p>
+<p>Only one process may write to a given data directory. Repeated launch identifies the lock owner and restores that instance's controller, without resetting unapplied fields or terminating the older version. A genuine write failure displays the data location and Windows error code. A remaining <code>session.lock</code> file is normal; do not delete it to fix startup issues.</p>
+<h2 id="execution-flow-and-progress">Execution flow and progress</h2>
+<ul>
+<li><strong>Startup:</strong> Resolve the data folder → acquire the lock or restore the existing window → display absolute input / output paths → five initialization stages → load layout and icons → create tiles, controller and tray → wait for input.</li>
+<li><strong>Add:</strong> Display output layout path → find adjacent free space, create a tile and save, with three progress stages.</li>
+<li><strong>Drag:</strong> Record original group positions → create contact candidates → check group collisions → snap → commit or restore → save.</li>
+<li><strong>Appearance / size / background:</strong> Display input / output locations → validate → apply checked fields and refresh caches → save. Settings dialogs show three-stage progress.</li>
+<li><strong>Save:</strong> Write a temporary file → back up the previous version → atomically replace it. Corrupt layouts are not overwritten directly; timers reopen paused.</li>
+<li><strong>JSON export:</strong> Display paths → collect layout and images → validate → atomically replace the destination after completing a temporary file.</li>
+<li><strong>JSON import:</strong> Display paths → validate format, values, overlap and images → back up → save images and a candidate layout → recreate windows. Merge preserves existing IDs and timer states; imported tiles receive new IDs and may shift as a group.</li>
+<li><strong>Animation and timing:</strong> Reuse caches for static content. Active animations share an approximately 12 FPS timer; timers use per-second events. Events are removed when not needed.</li>
+</ul>
+<h2 id="development-checks-and-packaging">Development, checks and packaging</h2>
+<p>Development requires Windows x64, PowerShell, Visual Studio C++ desktop development tools and the Windows SDK. The portable user build does not require these tools.</p>
+<div class="code-block"><div class="desk-code-label"><span>POWERSHELL</span><button class="copy-code" type="button">Copy</button></div><pre><code class="language-powershell"># Build and run 170 core checks; use a separate output while the old EXE is running
+.\build.ps1 -OutputName DeskTiles-update.exe
+
+# Windows UI, corrupt-file protection and exclusive-lock checks
+.\verify.ps1 -ExecutableName DeskTiles-update.exe
+
+# Duplicate launch restores the hidden controller and preserves the existing layout
+.\verify-activation.ps1 -ExecutableName DeskTiles-update.exe
+
+# Copy the executable and docs, then create the ZIP and SHA-256 checksums
+.\package.ps1
+
+# Extract the ZIP and run the packaged build to verify Windows functionality
+.\verify-package.ps1
+</code></pre></div>
+<p>Each script prints absolute input / output paths before progress stages. <code>run.ps1</code> can launch the newest build or accept <code>-ExecutableName</code> and <code>-DataDir</code>. Desktop-layer tests require access to a normal desktop and Explorer. The application itself does not need administrator permissions.</p>
+<p>See the <a href="../downloads/validation.txt">validation summary</a>. Tests use dedicated working directories and do not use or package personal layouts.</p>
+<h2 id="project-files">Project files</h2>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Location</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>release/</code></td>
+<td>Ready-to-run folder, ZIP and SHA-256 checksums</td>
+</tr>
+<tr>
+<td><code>core.hpp</code></td>
+<td>Cross-platform model, shapes, selection, snapping, collision detection, timers and internal persistence</td>
+</tr>
+<tr>
+<td><code>config.hpp</code></td>
+<td>JSON, Base64 images, validation and merging</td>
+</tr>
+<tr>
+<td><code>win32.cpp</code></td>
+<td>Windows tiles, controller, desktop layer, icons, tray and integration checks</td>
+</tr>
+<tr>
+<td><code>tests.cpp</code></td>
+<td>Core checks</td>
+</tr>
+<tr>
+<td><code>DeskTiles.rc</code>, <code>HexDesk.manifest</code></td>
+<td>Embedded icons, standard-user permissions and DPI declarations</td>
+</tr>
+<tr>
+<td><code>assets/</code></td>
+<td>Monochrome pixel sources, logo outputs and asset scripts</td>
+</tr>
+<tr>
+<td><code>third_party/nlohmann/</code></td>
+<td>JSON dependency and MIT license; no build-time download required</td>
+</tr>
+<tr>
+<td><code>docs/</code></td>
+<td>User guide, current screenshots, example configuration and validation summary</td>
+</tr>
+<tr>
+<td><code>build/</code></td>
+<td>Development executables and reproducible build / test artifacts</td>
+</tr>
+</tbody></table></div>
+<p>The internal format is <code>HEXDESK 5</code>, with v1–v4 read support. JSON uses <code>format: HexDesk</code>, version 2 and can read version 1. Shape values are 0 for hexagons, 1 for triangles and 2 for rectangles; old formats without a shape field default to hexagons. Selection, control identifiers and other transient state are not saved to JSON. Fonts are stored by name; font files are not packaged.</p>
+<h2 id="technical-basis-and-future-work">Technical basis and future work</h2>
+<p>Built with C++17, Win32, GDI+ and Windows system libraries. Transparency and the interactive shape region are managed separately so alpha-zero areas do not become click-through. The desktop layer depends on an Explorer host and is sensitive to compatibility differences.</p>
+<ul>
+<li>Duplicate launch uses <a rel="noopener noreferrer" target="_blank" href="https://learn.microsoft.com/en-us/windows/win32/api/restartmanager/nf-restartmanager-rmgetlist">Restart Manager</a> only to identify the lock holder, then restores its controller. It does not shut down or restart other programs.</li>
+<li>Layered-window rendering follows <a rel="noopener noreferrer" target="_blank" href="https://learn.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-updatelayeredwindow">UpdateLayeredWindow</a> and <a rel="noopener noreferrer" target="_blank" href="https://learn.microsoft.com/en-us/windows/win32/winmsg/extended-window-styles">extended window styles</a>.</li>
+<li>JSON uses <a rel="noopener noreferrer" target="_blank" href="https://github.com/nlohmann/json/releases/tag/v3.12.0">nlohmann/json v3.12.0</a>. Its license is included in the portable package.</li>
+<li>A Linux display backend and packaging are future work. The Windows EXE is not a native Linux application.</li>
+<li>Further testing is needed across Windows versions, DPI / multiple displays, Explorer restarts, large layouts and long-running workloads. Existing performance numbers are short local samples, not a guarantee for every environment.</li>
+</ul>
+</article><nav class="page-pagination" aria-label="Document navigation"><a href="guide.html"><small>01 / GUIDE</small>User guide ↗</a><a href="readme.html"><small>02 / PROJECT</small>Project README ↗</a></nav><footer class="page-footer"><p>Nicoa The Six · DeskTiles documentation · 2026-10-31</p><p>Downloads and original Chinese documents are supplied by the project; English documents are website translations.</p><a href="../../en/index.html#project-desktiles">Portfolio ↗</a></footer></main><aside class="page-toc" aria-label="On this page"><p>On this page</p><nav><a class="toc-level-2" href="#start-here-as-a-user">Start here as a user</a><a class="toc-level-2" href="#common-actions">Common actions</a><a class="toc-level-2" href="#features-and-scope">Features and scope</a><a class="toc-level-2" href="#data-location-and-startup-issues">Data location and startup issues</a><a class="toc-level-2" href="#execution-flow-and-progress">Execution flow and progress</a><a class="toc-level-2" href="#development-checks-and-packaging">Development, checks and packaging</a><a class="toc-level-2" href="#project-files">Project files</a><a class="toc-level-2" href="#technical-basis-and-future-work">Technical basis and future work</a></nav></aside></div><dialog id="search-dialog" aria-labelledby="search-heading"><div class="search-heading"><h2 id="search-heading">Search docs</h2><button id="close-search" type="button" aria-label="Close search">×</button></div><label class="sr-only" for="docs-search">Search docs</label><input id="docs-search" type="search" placeholder="Search dragging, transparency, JSON…" autocomplete="off"><p id="search-status" role="status">Search the documentation in the current language.</p><div id="search-results"></div></dialog><div id="toast" role="status" aria-live="polite"></div></body></html>

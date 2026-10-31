@@ -1,11 +1,12 @@
 (() => {
   'use strict';
   const zh = document.body.dataset.language === 'zh';
+  const logPrefix = document.body.dataset.project || 'Fusion Docs';
   const script = document.querySelector('script[data-search-index]');
   const indexUrl = new URL(script.dataset.searchIndex, location.href);
-  console.info('[Fusion Docs 0/3] 輸入頁面（絕對 URL）：', location.href);
-  console.info('[Fusion Docs 0/3] 輸入搜尋索引（絕對 URL）：', indexUrl.href);
-  console.info('[Fusion Docs 0/3] 輸出：目前瀏覽器 DOM／使用者要求的剪貼簿；無檔案輸出。');
+  console.info(`[${logPrefix} 0/3] 輸入頁面（絕對 URL）：`, location.href);
+  console.info(`[${logPrefix} 0/3] 輸入搜尋索引（絕對 URL）：`, indexUrl.href);
+  console.info(`[${logPrefix} 0/3] 輸出：目前瀏覽器 DOM／使用者要求的剪貼簿；無檔案輸出。`);
   const sidebar = document.querySelector('#docs-sidebar');
   const menu = document.querySelector('#menu-button');
   const closeMenu = () => { sidebar.classList.remove('is-open'); menu.setAttribute('aria-expanded', 'false'); };
@@ -28,7 +29,7 @@
     }, {rootMargin:'-105px 0px -60% 0px'});
     headings.forEach(heading => observer.observe(heading));
   }
-  console.info('[Fusion Docs 1/3] 文件導覽、目前頁面與章節目錄就緒。');
+  console.info(`[${logPrefix} 1/3] 文件導覽、目前頁面與章節目錄就緒。`);
   let toastTimer;
   const toast = text => {
     const element = document.querySelector('#toast');
@@ -45,7 +46,7 @@
       toast(zh ? '無法自動複製，請選取程式碼手動複製。' : 'Copy unavailable. Select and copy the code manually.');
     }
   }));
-  console.info('[Fusion Docs 2/3] 程式碼複製功能就緒。');
+  console.info(`[${logPrefix} 2/3] 程式碼複製功能就緒。`);
   const dialog = document.querySelector('#search-dialog');
   const input = document.querySelector('#docs-search');
   const status = document.querySelector('#search-status');
@@ -104,5 +105,5 @@
   document.addEventListener('keydown', event => {
     if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === 'k') {event.preventDefault();openSearch();}
   });
-  console.info('[Fusion Docs 3/3] 目前語言的全文搜尋已就緒，開啟搜尋時載入索引。');
+  console.info(`[${logPrefix} 3/3] 目前語言的全文搜尋已就緒，開啟搜尋時載入索引。`);
 })();

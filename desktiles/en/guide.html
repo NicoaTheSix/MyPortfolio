@@ -1,0 +1,76 @@
+<!doctype html><html lang="en"><head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-N43HBCRC');</script>
+<!-- End Google Tag Manager -->
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f6f5f0"><meta name="description" content="DeskTiles for Windows: arrange text, images and timers in three shapes. Download the portable ZIP, read the user guide and browse the project README."><title>User guide | DeskTiles · Nicoa The Six</title><link rel="icon" href="../assets/DeskTiles.svg" type="image/svg+xml"><link rel="stylesheet" href="../desktiles.css"><link rel="alternate" hreflang="zh-Hant" href="../guide.html"><script defer src="../../fusion-studio/docs.js" data-search-index="../search-index.json"></script></head><body data-project="DeskTiles Docs" data-language="en" data-page="guide">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N43HBCRC"
+height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Manager"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<a class="skip-link" href="#content">Skip to content</a><header class="docs-header"><a class="docs-brand" href="index.html"><img src="../assets/DeskTiles-logo.png" width="34" height="34" alt=""><span>DeskTiles<small>PROJECT & DOCS</small></span></a><div class="header-actions"><button id="open-search" type="button" aria-haspopup="dialog"><span aria-hidden="true">⌕</span> Search docs <kbd>Ctrl K</kbd></button><a class="language-switch" href="../guide.html" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a><a class="portfolio-link" href="../../en/index.html#project-desktiles">Nicoa The Six ↗</a></div></header><div class="mobile-toolbar"><button id="menu-button" type="button" aria-controls="docs-sidebar" aria-expanded="false">☰ Project navigation</button><span>User guide</span></div><div class="docs-layout"><aside id="docs-sidebar" class="docs-sidebar" aria-label="Project navigation"><div class="sidebar-label">NICOA THE SIX / DESKTOP TOOLS</div><nav><section class="nav-group"><h2>DeskTiles</h2><a href="index.html">DeskTiles</a><a href="guide.html" class="current" aria-current="page">User guide</a><a href="readme.html">Project README</a></section><section class="nav-group"><h2>Get the app</h2><a href="../downloads/DeskTiles-Windows-x64.zip" download>Windows x64 ZIP ↓</a><a href="../downloads/mixed-shapes.json" download>Example JSON ↓</a><a href="../downloads/SHA256SUMS.txt" download>SHA256SUMS.txt ↓</a></section></nav><div class="sidebar-bottom"><a href="../../en/index.html#project-desktiles">Portfolio ↗</a></div></aside><main id="content" class="docs-main" tabindex="-1"><div class="breadcrumb"><a href="index.html">DeskTiles</a><span>/</span><span>User guide</span></div><div class="page-actions"><a href="../downloads/guide-en.md" download>Download Markdown ↓</a><a href="../downloads/DeskTiles-Windows-x64.zip" download>Windows x64 ZIP ↓</a></div><details class="mobile-toc"><summary>On this page</summary><nav><a class="toc-level-2" href="#start-here">Start here</a><a class="toc-level-2" href="#add-select-and-move-tiles">Add, select and move tiles</a><a class="toc-level-2" href="#text-images-and-timers">Text, images and timers</a><a class="toc-level-2" href="#size-typography-and-borders">Size, typography and borders</a><a class="toc-level-2" href="#save-back-up-and-move-to-another-computer">Save, back up and move to another computer</a><a class="toc-level-2" href="#close-exit-and-update">Close, exit and update</a><a class="toc-level-2" href="#troubleshooting">Troubleshooting</a><a class="toc-level-2" href="#ui-screenshots">Application screenshots</a></nav></details><article class="prose"><h1>DeskTiles user guide</h1>
+<p>Arrange hexagonal, triangular and rectangular tiles on your Windows desktop to display text, images or timers. Each tile can stay above other windows or on the desktop layer. You can also select a group to move it or update its appearance together.</p>
+<h2 id="start-here">Start here</h2>
+<ol>
+<li>Download <a href="../downloads/DeskTiles-Windows-x64.zip">DeskTiles-Windows-x64.zip</a> and extract the entire archive.</li>
+<li>Open the extracted <code>DeskTiles</code> folder and double-click <code>DeskTiles.exe</code>.</li>
+<li>On first launch, three example tiles and the content controller appear.</li>
+<li>Select tiles on the left, edit the content on the right, then click <strong>Apply to all selected tiles</strong> (套用至所有選取格).</li>
+</ol>
+<p>The portable build supports <strong>Windows 10 / 11 x64</strong>. You do not need Visual Studio, Python, .NET, extra runtime packages or administrator permissions. A Linux version has not been implemented. A source-code checkout must be built separately; the portable ZIP already contains the compiled EXE.</p>
+<p>The screenshots and the current application use Chinese UI labels. This guide explains their actions in English.</p>
+<h2 id="add-select-and-move-tiles">Add, select and move tiles</h2>
+<ul>
+<li>The shape selector defaults to a hexagon. You can also choose an upward-pointing equilateral triangle or a 3:2 rectangle, then click <strong>Add tile</strong>. The context menu and system tray also offer add actions.</li>
+<li>Click a tile to select it. <strong>Shift + click</strong> adds it to or removes it from the selection. Clicking an already selected tile makes it the only selection; starting a drag instead preserves the group selection.</li>
+<li>Drag any selected tile to move the entire group while preserving its relative positions.</li>
+<li>Tiles snap when brought near another tile. Different shapes prefer edge midpoints or corners and can also snap along edges. Releasing a group in an overlapping position restores its original position.</li>
+<li>Press <strong>Esc</strong> to clear the selection. Double-click a tile to reopen the controller.</li>
+<li>Use the tile context menu to set selected tiles to <strong>Always on top</strong> or <strong>Desktop layer</strong>.</li>
+</ul>
+<h2 id="text-images-and-timers">Text, images and timers</h2>
+<p>Select tiles first, then choose a content type on the right of the controller.</p>
+<ul>
+<li><strong>Text:</strong> Supports Chinese text, multiple lines and centered display. Enter the text, then apply it.</li>
+<li><strong>Images:</strong> Browse to a PNG, JPEG or BMP file, then apply it. Images retain their aspect ratio and are cropped to the tile shape. Directly selected images reference the original file path. Export a JSON configuration to back them up or move them to another computer.</li>
+<li><strong>Timers:</strong> Choose a countdown or elapsed-time timer. For a countdown, enter the total number of seconds and apply it, then start, pause or reset. Elapsed time is saved when the program closes; timers remain paused when reopened.</li>
+</ul>
+<p>Applying content with multiple tiles selected changes all selected tiles. To change appearance only, use the separate appearance buttons on the left.</p>
+<h2 id="size-typography-and-borders">Size, typography and borders</h2>
+<ul>
+<li><strong>Size and text:</strong> Choose whether to apply tile size, text styling or both. Width ranges from 80–480 px; font size ranges from 8–96 px. Select an installed font and choose a text color or enter its color code.</li>
+<li>Resizing a group scales its relative positions. If there is insufficient space, the existing configuration is retained.</li>
+<li><strong>Borders and style:</strong> Solid, pixel, RGB rainbow and single-color breathing borders are supported. Border width ranges from 1–12 px; animation cycles range from 2–60 seconds. You can change colors or stop playback.</li>
+<li><strong>Background and transparency:</strong> Background color and transparency can be applied separately. 0% is opaque and 100% is fully transparent. Only the background changes; text, images and borders retain their own settings. Fully transparent empty areas remain selectable and draggable.</li>
+<li>Click <strong>Apply</strong> after editing settings. The controller defaults to an 18 px UI font and a 32 px header. These sizes are separate from each tile's content font.</li>
+</ul>
+<h2 id="save-back-up-and-move-to-another-computer">Save, back up and move to another computer</h2>
+<p>Completed actions are saved automatically. The default data folder is <code>%LOCALAPPDATA%\HexDesk</code>; the older folder name is retained for compatibility. Startup displays the actual absolute input and output paths.</p>
+<p>The <strong>Configuration JSON</strong> menu in the upper right provides:</p>
+<ol>
+<li><strong>Export entire layout:</strong> Saves every tile, position, style and image content into one JSON file.</li>
+<li><strong>Replace import:</strong> Replaces the current layout after confirmation and a backup.</li>
+<li><strong>Merge import:</strong> Keeps existing tiles, assigns new IDs to imported tiles and, if needed, shifts the imported group to avoid overlaps.</li>
+</ol>
+<p>The bundled example configuration contains all three shapes and one embedded example image. Try it with merge import. Images are embedded in the JSON and are saved to the data folder's <code>assets</code> directory after import. Fonts are stored by name only. If another computer lacks a font, the program reports it and uses a fallback font.</p>
+<p>Limits: 500 tiles, 16 MiB per image, 64 MiB of images in total, a 128 MiB JSON file and 64 million pixels per image. Invalid configurations or damaged images leave the current layout unchanged.</p>
+<h2 id="close-exit-and-update">Close, exit and update</h2>
+<p>Closing the controller only hides its panel. Desktop tiles and timers keep running. Double-click a tile or use the system tray to bring the panel back.</p>
+<p>Before exiting, apply any pending edits, then choose <strong>Save and exit DeskTiles</strong> from a tile context menu or the system tray. Exit the old version before running an update. The new version restores the layout from the same data folder.</p>
+<p>Starting the program again with the same data folder brings back the existing controller. It does not start two writers for the same layout or automatically terminate the old version.</p>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<ul>
+<li><strong>An older version is still running:</strong> The new launch normally restores its window. Save and exit the old version from the tray, then start the new EXE.</li>
+<li><strong>The data directory is not writable:</strong> Check the displayed path and Windows error code, or choose another writable directory.</li>
+<li><strong>A <code>session.lock</code> file remains:</strong> This is normal. Its presence alone does not mean the program is running. Do not delete the lock file to resolve duplicate launches.</li>
+<li><strong>Tiles are missing:</strong> Choose <strong>Recover all tiles</strong> in the tray menu to move them onto the main display and bring them to the top.</li>
+<li><strong>An image cannot be loaded:</strong> Select its source file again, or import a JSON configuration that includes it.</li>
+</ul>
+<p>For an independent data folder, run this in PowerShell:</p>
+<div class="code-block"><div class="desk-code-label"><span>POWERSHELL</span><button class="copy-code" type="button">Copy</button></div><pre><code class="language-powershell">.\DeskTiles.exe --data-dir 'D:\DeskTilesData'
+</code></pre></div>
+<p>Different data directories can run separately without changing one another's layouts. Compatibility across Windows versions, multiple displays, DPI settings and Explorer restarts remains subject to further testing.</p>
+</article><section class="prose"><h2 id="ui-screenshots">Application screenshots</h2><p>Screenshots show the actual Windows build with its original Chinese UI.</p><div class="screenshot-grid"><figure><a href="../assets/control.png" target="_blank" rel="noopener noreferrer"><img src="../assets/control.png" alt="Controller: select tiles and edit text, images or timers" loading="lazy"></a><figcaption>Controller: select tiles and edit text, images or timers</figcaption></figure><figure><a href="../assets/border.png" target="_blank" rel="noopener noreferrer"><img src="../assets/border.png" alt="Borders: solid, pixel, RGB and breathing styles" loading="lazy"></a><figcaption>Borders: solid, pixel, RGB and breathing styles</figcaption></figure><figure><a href="../assets/background.png" target="_blank" rel="noopener noreferrer"><img src="../assets/background.png" alt="Background: separate color and transparency settings" loading="lazy"></a><figcaption>Background: separate color and transparency settings</figcaption></figure><figure><a href="../assets/typography.png" target="_blank" rel="noopener noreferrer"><img src="../assets/typography.png" alt="Size and text: tile size, font and text color" loading="lazy"></a><figcaption>Size and text: tile size, font and text color</figcaption></figure></div></section><nav class="page-pagination" aria-label="Document navigation"><a href="guide.html"><small>01 / GUIDE</small>User guide ↗</a><a href="readme.html"><small>02 / PROJECT</small>Project README ↗</a></nav><footer class="page-footer"><p>Nicoa The Six · DeskTiles documentation · 2026-10-31</p><p>Downloads and original Chinese documents are supplied by the project; English documents are website translations.</p><a href="../../en/index.html#project-desktiles">Portfolio ↗</a></footer></main><aside class="page-toc" aria-label="On this page"><p>On this page</p><nav><a class="toc-level-2" href="#start-here">Start here</a><a class="toc-level-2" href="#add-select-and-move-tiles">Add, select and move tiles</a><a class="toc-level-2" href="#text-images-and-timers">Text, images and timers</a><a class="toc-level-2" href="#size-typography-and-borders">Size, typography and borders</a><a class="toc-level-2" href="#save-back-up-and-move-to-another-computer">Save, back up and move to another computer</a><a class="toc-level-2" href="#close-exit-and-update">Close, exit and update</a><a class="toc-level-2" href="#troubleshooting">Troubleshooting</a><a class="toc-level-2" href="#ui-screenshots">Application screenshots</a></nav></aside></div><dialog id="search-dialog" aria-labelledby="search-heading"><div class="search-heading"><h2 id="search-heading">Search docs</h2><button id="close-search" type="button" aria-label="Close search">×</button></div><label class="sr-only" for="docs-search">Search docs</label><input id="docs-search" type="search" placeholder="Search dragging, transparency, JSON…" autocomplete="off"><p id="search-status" role="status">Search the documentation in the current language.</p><div id="search-results"></div></dialog><div id="toast" role="status" aria-live="polite"></div></body></html>

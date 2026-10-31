@@ -4,6 +4,8 @@
   "type": "module",
   "engines": { "node": ">=20" },
   "scripts": {
+    "build:desktiles": "node build-desktiles.mjs",
+    "check:desktiles": "node check-desktiles.mjs",
     "sync:analytics": "node sync-google-tag.mjs",
     "check:analytics": "node sync-google-tag.mjs --check",
     "build:docs": "node build-fusion-docs.mjs",

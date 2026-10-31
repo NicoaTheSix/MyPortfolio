@@ -8,7 +8,7 @@ const root = path.dirname(fileURLToPath(import.meta.url));
 const port = Number(process.env.PORT || 4173);
 console.log(`[0/3] 輸入目錄（絕對路徑）：${root}`);
 console.log(`[0/3] 輸出：本機預覽 http://127.0.0.1:${port}/MyPortfolio/，不寫入檔案。`);
-const types = { '.html':'text/html; charset=utf-8', '.css':'text/css; charset=utf-8', '.js':'text/javascript; charset=utf-8', '.png':'image/png', '.svg':'image/svg+xml', '.json':'application/json; charset=utf-8', '.mp4':'video/mp4', '.csv':'text/csv; charset=utf-8', '.xlsx':'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', '.srt':'text/plain; charset=utf-8', '.txt':'text/plain; charset=utf-8' };
+const types = { '.html':'text/html; charset=utf-8', '.css':'text/css; charset=utf-8', '.js':'text/javascript; charset=utf-8', '.png':'image/png', '.svg':'image/svg+xml', '.json':'application/json; charset=utf-8', '.mp4':'video/mp4', '.csv':'text/csv; charset=utf-8', '.xlsx':'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', '.srt':'text/plain; charset=utf-8', '.txt':'text/plain; charset=utf-8', '.md':'text/markdown; charset=utf-8', '.zip':'application/zip' };
 const publicFiles = new Set(['index.html', 'styles.css', 'script.js', 'assets/portrait.png', 'assets/business-card.png', 'assets/services-poster.png', 'assets/favicon.svg', 'assets/social-linkedin.png', 'assets/social-github.png', 'assets/social-medium.png', 'assets/social-youtube.png']);
 for(const file of ['en/index.html','assets/services-poster-en.png','assets/business-card-en.png','assets/office-services-poster.png','assets/office-services-poster-en.png'])publicFiles.add(file);
 publicFiles.add('service-cards.css');
@@ -19,6 +19,14 @@ try {
     const absolute=path.resolve(root,'fusion-studio',relative);
     if(!absolute.startsWith(path.join(root,'fusion-studio')+path.sep))throw new Error('文件發布清單路徑無效');
     publicFiles.add('fusion-studio/'+relative);
+  }
+} catch(error) { if(error.code!=='ENOENT')throw error; }
+try {
+  const manifest=JSON.parse(await readFile(path.join(root,'desktiles/source-manifest.json'),'utf8'));
+  for(const relative of manifest.publicFiles) {
+    const absolute=path.resolve(root,'desktiles',relative);
+    if(!absolute.startsWith(path.join(root,'desktiles')+path.sep))throw new Error('DeskTiles 發布清單路徑無效');
+    publicFiles.add('desktiles/'+relative);
   }
 } catch(error) { if(error.code!=='ENOENT')throw error; }
 console.log('[1/3] 靜態檔案白名單完成。');
@@ -59,7 +67,7 @@ const server = http.createServer(async (request, response) => {
       return;
     }
     const data = await readFile(file);
-    response.writeHead(200, { 'Content-Type':types[path.extname(file)] || 'application/octet-stream', 'Cache-Control':'no-store', 'Content-Length':data.length, ...(path.extname(file)==='.mp4'?{'Accept-Ranges':'bytes'}:{}) });
+    response.writeHead(200, { 'Content-Type':types[path.extname(file)] || 'application/octet-stream', 'Cache-Control':'no-store', 'Content-Length':data.length, ...(['.zip','.md'].includes(path.extname(file))?{'Content-Disposition':'attachment; filename="'+path.basename(file)+'"'}:{}), ...(path.extname(file)==='.mp4'?{'Accept-Ranges':'bytes'}:{}) });
     response.end(request.method === 'HEAD' ? undefined : data);
     console.log(`[預覽] ${request.method} ${url.pathname} → 200`);
   } catch {

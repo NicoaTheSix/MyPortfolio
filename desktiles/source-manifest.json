@@ -1,0 +1,140 @@
+{
+  "schemaVersion": 1,
+  "project": "DeskTiles",
+  "publishedDate": "2026-10-31",
+  "sourceRepository": null,
+  "platform": "Windows 10 / 11 x64",
+  "zipSha256": "77b336514c7a961abe52dcd579ec4e20ad41e0fd8b6b4099deaf1ab6b789e8a8",
+  "zipBytes": 408789,
+  "generatedHtml": [
+    "index.html",
+    "guide.html",
+    "readme.html",
+    "en/index.html",
+    "en/guide.html",
+    "en/readme.html"
+  ],
+  "publicFiles": [
+    "index.html",
+    "guide.html",
+    "readme.html",
+    "en/index.html",
+    "en/guide.html",
+    "en/readme.html",
+    "downloads/README.md",
+    "downloads/guide-zh.md",
+    "assets/shapes.png",
+    "assets/control.png",
+    "assets/border.png",
+    "assets/background.png",
+    "assets/typography.png",
+    "assets/DeskTiles.svg",
+    "assets/DeskTiles-logo.png",
+    "downloads/DeskTiles-Windows-x64.zip",
+    "downloads/SHA256SUMS.txt",
+    "downloads/mixed-shapes.json",
+    "downloads/validation.txt",
+    "downloads/guide-en.md",
+    "downloads/readme-en.md",
+    "desktiles.css",
+    "search-index.json",
+    "source-manifest.json"
+  ],
+  "assets": [
+    {
+      "path": "downloads/README.md",
+      "source": "README.md",
+      "sha256": "cfac92f7b21685236af3b522ec1afd3264f2f0a9a04fb95877cab447bb4bdfd3",
+      "bytes": 8804
+    },
+    {
+      "path": "downloads/guide-zh.md",
+      "source": "docs/使用說明.md",
+      "sha256": "27f40e5e93942b6f4018caa6f7ccd3da3259a1f3eeccdc17ae124360436ecc20",
+      "bytes": 5399
+    },
+    {
+      "path": "assets/shapes.png",
+      "source": "docs/shapes.png",
+      "sha256": "249ba190472a6baa134fff00bb62f854c3909be161e022adf98bdd142e8bdf7f",
+      "bytes": 16918
+    },
+    {
+      "path": "assets/control.png",
+      "source": "docs/control.png",
+      "sha256": "2b3c11b22cb77b06c76f4d97ea5386b6c3dd74797abfa70b60baf8e2c6492082",
+      "bytes": 44362
+    },
+    {
+      "path": "assets/border.png",
+      "source": "docs/border.png",
+      "sha256": "bd5dec032555efccf5be9fffc5e34999a10fe9423bd1afa2facb6bda9de2f593",
+      "bytes": 25968
+    },
+    {
+      "path": "assets/background.png",
+      "source": "docs/background.png",
+      "sha256": "08e611d56a2744f95b0d944a5ec27b6e6947b220caba597f5c28f7e2a40800eb",
+      "bytes": 20247
+    },
+    {
+      "path": "assets/typography.png",
+      "source": "docs/typography.png",
+      "sha256": "4baa3268dd0d9cb9f1947ea716e5a96ed4fb932d80a842e9d9c8b5d5788b1a6f",
+      "bytes": 24883
+    },
+    {
+      "path": "assets/DeskTiles.svg",
+      "source": "assets/DeskTiles.svg",
+      "sha256": "2dfb5e028ed636414a23ba24a3ac4a89b4038ee43e07d156a90e4a5ef1df5064",
+      "bytes": 18106
+    },
+    {
+      "path": "assets/DeskTiles-logo.png",
+      "source": "assets/DeskTiles-logo.png",
+      "sha256": "f59c4191a70309e2734938f22967adfe547a5980269c4457c206f4390a9a5da4",
+      "bytes": 5366
+    },
+    {
+      "path": "downloads/DeskTiles-Windows-x64.zip",
+      "source": "release/DeskTiles-Windows-x64.zip",
+      "sha256": "77b336514c7a961abe52dcd579ec4e20ad41e0fd8b6b4099deaf1ab6b789e8a8",
+      "bytes": 408789
+    },
+    {
+      "path": "downloads/SHA256SUMS.txt",
+      "source": "release/SHA256SUMS.txt",
+      "sha256": "980ca06a2471f705e15fe10e037774f1193faf87337a9919c21f3ee74a929988",
+      "bytes": 184
+    },
+    {
+      "path": "downloads/mixed-shapes.json",
+      "source": "docs/mixed-shapes.json",
+      "sha256": "67deeca7a478c8a185370b71151ee7f6633f7b8b1633636370ce697bd4ea23b6",
+      "bytes": 4290
+    },
+    {
+      "path": "downloads/validation.txt",
+      "source": "docs/驗證摘要.txt",
+      "sha256": "eb3428878ae1ae94e727681d62f01aa17e2cf2241d85494010178e8eb7cd862b",
+      "bytes": 1661
+    },
+    {
+      "path": "downloads/guide-en.md",
+      "source": "website:content/guide-en.md",
+      "sha256": "d7d9c764961684ab9919e5dfcff84809bfc2876edc843ca364626480d37d6bf6",
+      "bytes": 6741
+    },
+    {
+      "path": "downloads/readme-en.md",
+      "source": "website:content/readme-en.md",
+      "sha256": "0d9329db93afab4fc46c7f31b81302afbafe4f43683c70f3d6f1346a7aaaa096",
+      "bytes": 9967
+    }
+  ],
+  "sourceValidation": {
+    "coreChecks": 170,
+    "windowsChecks": 123,
+    "note": "Project-provided local validation; not rerun by the website publisher. Performance samples are not universal guarantees."
+  }
+}

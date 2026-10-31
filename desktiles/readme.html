@@ -1,0 +1,181 @@
+<!doctype html><html lang="zh-Hant"><head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-N43HBCRC');</script>
+<!-- End Google Tag Manager -->
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f6f5f0"><meta name="description" content="桌面拼格 DeskTiles：Windows 桌面文字、圖片與計時器小工具。三種形狀、自由拼排、JSON 備份。免安裝 ZIP、完整使用說明與專案 README。"><title>專案 README | DeskTiles · Nicoa The Six</title><link rel="icon" href="assets/DeskTiles.svg" type="image/svg+xml"><link rel="stylesheet" href="desktiles.css"><link rel="alternate" hreflang="en" href="en/readme.html"><script defer src="../fusion-studio/docs.js" data-search-index="search-index.json"></script></head><body data-project="DeskTiles Docs" data-language="zh" data-page="readme">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N43HBCRC"
+height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Manager"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<a class="skip-link" href="#content">跳至內容</a><header class="docs-header"><a class="docs-brand" href="index.html"><img src="assets/DeskTiles-logo.png" width="34" height="34" alt=""><span>DeskTiles<small>專案與文件</small></span></a><div class="header-actions"><button id="open-search" type="button" aria-haspopup="dialog"><span aria-hidden="true">⌕</span> 搜尋文件 <kbd>Ctrl K</kbd></button><a class="language-switch" href="en/readme.html" hreflang="en" lang="en">English</a><a class="portfolio-link" href="../index.html#project-desktiles">Nicoa The Six ↗</a></div></header><div class="mobile-toolbar"><button id="menu-button" type="button" aria-controls="docs-sidebar" aria-expanded="false">☰ 專案導覽</button><span>專案 README</span></div><div class="docs-layout"><aside id="docs-sidebar" class="docs-sidebar" aria-label="專案導覽"><div class="sidebar-label">NICOA THE SIX / DESKTOP TOOLS</div><nav><section class="nav-group"><h2>DeskTiles</h2><a href="index.html">桌面拼格 DeskTiles</a><a href="guide.html">使用說明</a><a href="readme.html" class="current" aria-current="page">專案 README</a></section><section class="nav-group"><h2>取得使用版</h2><a href="downloads/DeskTiles-Windows-x64.zip" download>Windows x64 ZIP ↓</a><a href="downloads/mixed-shapes.json" download>範例配置 JSON ↓</a><a href="downloads/SHA256SUMS.txt" download>SHA256SUMS.txt ↓</a></section></nav><div class="sidebar-bottom"><a href="../index.html#project-desktiles">回作品集 ↗</a></div></aside><main id="content" class="docs-main" tabindex="-1"><div class="breadcrumb"><a href="index.html">DeskTiles</a><span>/</span><span>專案 README</span></div><div class="page-actions"><a href="downloads/README.md" download>下載 Markdown ↓</a><a href="downloads/DeskTiles-Windows-x64.zip" download>Windows x64 ZIP ↓</a></div><details class="mobile-toc"><summary>本頁內容</summary><nav><a class="toc-level-2" href="#%E4%B8%80%E8%88%AC%E4%BD%BF%E7%94%A8%E8%80%85%E5%BE%9E%E9%80%99%E8%A3%A1%E9%96%8B%E5%A7%8B">一般使用者從這裡開始</a><a class="toc-level-2" href="#%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C">常用操作</a><a class="toc-level-2" href="#%E5%8A%9F%E8%83%BD%E8%88%87%E7%AF%84%E5%9C%8D">功能與範圍</a><a class="toc-level-2" href="#%E8%B3%87%E6%96%99%E4%BD%8D%E7%BD%AE%E8%88%87%E5%95%9F%E5%8B%95%E5%95%8F%E9%A1%8C">資料位置與啟動問題</a><a class="toc-level-2" href="#%E5%9F%B7%E8%A1%8C%E6%B5%81%E7%A8%8B%E8%88%87%E9%80%B2%E5%BA%A6">執行流程與進度</a><a class="toc-level-2" href="#%E9%96%8B%E7%99%BC%E9%A9%97%E8%AD%89%E8%88%87%E6%89%93%E5%8C%85">開發、驗證與打包</a><a class="toc-level-2" href="#%E5%B0%88%E6%A1%88%E6%AA%94%E6%A1%88">專案檔案</a><a class="toc-level-2" href="#%E6%8A%80%E8%A1%93%E4%BE%9D%E6%93%9A%E8%88%87%E5%BE%8C%E7%BA%8C%E5%B7%A5%E4%BD%9C">技術依據與後續工作</a></nav></details><article class="prose"><h1>桌面拼格 DeskTiles</h1>
+
+<p>可在 Windows 桌面拼放六角形、三角形與矩形，顯示文字、圖片或計時器。支援多選拖曳、吸附、置頂／桌面層、背景透明、像素／RGB／呼吸邊框及含圖片的 JSON 配置。</p>
+<h2 id="一般使用者從這裡開始">一般使用者從這裡開始</h2>
+<ol>
+<li>取得 <a href="downloads/DeskTiles-Windows-x64.zip">DeskTiles-Windows-x64.zip</a>，完整解壓縮。</li>
+<li>進入解壓後的 <code>DeskTiles</code> 資料夾，雙擊 <code>DeskTiles.exe</code>。</li>
+<li>左側選形狀並新增；右側編輯內容後按套用。</li>
+</ol>
+<p><strong>免安裝 ZIP 解壓後即可執行。</strong> 適用 Windows 10／11 x64，不需要安裝 Visual Studio、Python、.NET 或其他額外執行套件，也不需要管理員權限。EXE 使用靜態 C++ 執行階段，Logo 已內嵌。</p>
+<p><strong>原始碼專案需要建置。</strong> 若只下載程式原始碼而沒有使用版 EXE，請依下方開發指令建置。Linux 版尚未開發，列於後續規劃。</p>
+<p>本機已解壓的使用版位於 <code>release/DeskTiles/DeskTiles.exe</code>。完整步驟見 <a href="guide.html">使用說明</a>，套件提供 <code>README.txt</code>、使用說明、內嵌圖片的範例配置與第三方授權。</p>
+
+<h2 id="常用操作">常用操作</h2>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>要做的事</th>
+<th>操作</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>新增</td>
+<td>左側選六角形（預設）、朝上正三角形或 3:2 矩形，再按「新增圖形」</td>
+</tr>
+<tr>
+<td>多選／移動</td>
+<td>Shift＋單擊多選，拖曳任一選取格移動整組；靠近其他格吸附</td>
+</tr>
+<tr>
+<td>文字、圖片、計時器</td>
+<td>選格後在右側選內容類型，設定後按套用</td>
+</tr>
+<tr>
+<td>大小與字體</td>
+<td>「大小與文字…」；寬度 80～480 px，字級 8～96 px</td>
+</tr>
+<tr>
+<td>外觀</td>
+<td>「邊框與風格…」「背景與透明度…」，可多選套用</td>
+</tr>
+<tr>
+<td>顯示層</td>
+<td>右鍵或控制視窗選置頂／固定桌面</td>
+</tr>
+<tr>
+<td>備份與搬移</td>
+<td>「配置 JSON…」匯出含圖片的配置；匯入可覆蓋或合併</td>
+</tr>
+<tr>
+<td>找回圖形</td>
+<td>系統匣選「找回全部圖形」</td>
+</tr>
+<tr>
+<td>結束</td>
+<td>先套用編輯，再從右鍵／系統匣選「儲存並結束桌面拼格」</td>
+</tr>
+</tbody></table></div>
+<p>關閉控制視窗只會隱藏面板，圖形仍在背景運作。再次雙擊圖形或重新執行程式可帶回控制視窗。換新版之前請先儲存並結束舊版。</p>
+<p><img loading="lazy" src="assets/control.png" alt="控制視窗"></p>
+<h2 id="功能與範圍">功能與範圍</h2>
+<ul>
+<li>六角形、正三角形、3:2 矩形，獨立無邊框視窗；圖形外可操作原桌面。</li>
+<li>文字、PNG／JPEG／BMP 圖片、正向／倒數計時器；多選可批次套用。</li>
+<li>多選保持相對位置、混合形狀碰撞檢查與 22 px 範圍吸附；重疊放置回復原位。</li>
+<li>自訂尺寸、字體、字級、文字顏色；縮放造成碰撞時整批保留原設定。</li>
+<li>邊框實色、像素、RGB 彩虹與指定色呼吸燈；厚度 1～12 px，動畫週期 2～60 秒。</li>
+<li>背景顏色及 0～100% 透明度獨立套用。只影響背景；全透明區仍可選取和拖曳。</li>
+<li>控制介面 18 px、標題 32 px，黑白像素 2×2 Logo；內容字級另行設定。</li>
+<li>JSON 含全版面與 Base64 圖片，支援覆蓋及合併；匯入格子的計時器預設暫停。</li>
+<li>最多 500 格；JSON 128 MiB，單張圖片 16 MiB，圖片總量 64 MiB，解析度上限 6400 萬像素。</li>
+</ul>
+<h2 id="資料位置與啟動問題">資料位置與啟動問題</h2>
+<p>預設資料存於 <code>%LOCALAPPDATA%\HexDesk</code>，保留舊名稱以沿用既有版面。可執行：</p>
+<div class="code-block"><div class="desk-code-label"><span>POWERSHELL</span><button class="copy-code" type="button">複製</button></div><pre><code class="language-powershell">.\DeskTiles.exe --data-dir 'D:\DeskTilesData'
+</code></pre></div>
+<p>啟動時會先顯示版面與日誌的絕對路徑及進度。版面為 <code>layout.hexdesk</code>，上次保存備份為 <code>layout.backup</code>；JSON 匯入另存 <code>import-before-*.hexdesk</code>。匯入的圖片存於 <code>assets</code>，使用 SHA256 命名。選自其他資料夾的圖片仍引用來源路徑，請用 JSON 一起備份。</p>
+<p>同一資料目錄只允許一份程式寫入。重複啟動時會找到資料鎖持有者，帶回該執行個體的控制視窗；不會重設未套用的欄位或終止舊版。若確實無法寫入，會顯示資料位置及 Windows 錯誤碼。<code>session.lock</code> 留在磁碟上屬正常情況，不應靠刪除它處理啟動問題。</p>
+<h2 id="執行流程與進度">執行流程與進度</h2>
+<ul>
+<li><strong>啟動</strong>：解析資料位置 → 取得資料鎖或帶回既有視窗 → 顯示絕對輸入／輸出路徑 → 五階段初始化 → 載入版面與圖示 → 建立圖形、控制視窗及系統匣 → 等待操作。</li>
+<li><strong>新增</strong>：列出輸出版面路徑 → 三階段找相鄰空間、建立圖形、保存。</li>
+<li><strong>拖曳</strong>：記錄整組原位置 → 產生接觸候選 → 檢查整組碰撞 → 吸附 → 提交或回復 → 保存。</li>
+<li><strong>外觀／大小／背景</strong>：顯示輸入及輸出位置 → 驗證 → 套用勾選欄位並更新快取 → 保存；各視窗顯示三階段進度。</li>
+<li><strong>保存</strong>：寫入暫存檔 → 備份上一版 → 原子替換。損壞檔案不直接覆寫；重開後計時器暫停。</li>
+<li><strong>JSON 匯出</strong>：顯示路徑 → 整理配置與圖片 → 驗證 → 暫存檔完成後原子替換輸出。</li>
+<li><strong>JSON 匯入</strong>：顯示路徑 → 驗證格式、數值、重疊與圖片 → 備份 → 保存圖片及候選版面 → 重建視窗。合併保留既有 ID 與計時狀態，匯入格分配新 ID，必要時整組平移。</li>
+<li><strong>動畫與計時</strong>：靜態內容快取重用，啟用時共用約 12 FPS 動畫或每秒計時事件；不需要時移除事件。</li>
+</ul>
+<h2 id="開發驗證與打包">開發、驗證與打包</h2>
+<p>開發需要 Windows x64、PowerShell、Visual Studio C++ 桌面開發工具與 Windows SDK。使用版不需要這些工具。</p>
+<div class="code-block"><div class="desk-code-label"><span>POWERSHELL</span><button class="copy-code" type="button">複製</button></div><pre><code class="language-powershell"># 建置與 170 項核心檢查；另輸出更新版，避免原 EXE 使用中
+.\build.ps1 -OutputName DeskTiles-update.exe
+
+# Windows UI、損壞檔保護與獨占鎖測試
+.\verify.ps1 -ExecutableName DeskTiles-update.exe
+
+# 重複啟動應帶回隱藏視窗，原程序與版面維持不變
+.\verify-activation.ps1 -ExecutableName DeskTiles-update.exe
+
+# 複製執行檔與說明、建立 ZIP 和 SHA256
+.\package.ps1
+
+# 從 ZIP 解壓並直接執行，驗證完整 Windows 功能
+.\verify-package.ps1
+</code></pre></div>
+<p>每個腳本都先列出絕對輸入／輸出路徑，再顯示階段進度。<code>run.ps1</code> 可啟動最新建置，也可指定 <code>-ExecutableName</code>、<code>-DataDir</code>。Windows 桌面層測試需在可存取一般桌面與 Explorer 的環境執行；應用程式本身不需管理員權限。</p>
+<p>最新結果集中於 <a href="downloads/validation.txt">驗證摘要</a>。測試使用專用工作目錄，不使用或打包個人版面。</p>
+<h2 id="專案檔案">專案檔案</h2>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>位置</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>release/</code></td>
+<td>可直接使用的資料夾、ZIP 與 SHA256</td>
+</tr>
+<tr>
+<td><code>core.hpp</code></td>
+<td>跨平台模型、形狀、選取、吸附、碰撞、計時及內部保存</td>
+</tr>
+<tr>
+<td><code>config.hpp</code></td>
+<td>JSON、Base64 圖片、驗證與合併</td>
+</tr>
+<tr>
+<td><code>win32.cpp</code></td>
+<td>Windows 圖形／控制視窗、桌面層、圖示、系統匣及整合檢查</td>
+</tr>
+<tr>
+<td><code>tests.cpp</code></td>
+<td>核心檢查</td>
+</tr>
+<tr>
+<td><code>DeskTiles.rc</code>、<code>HexDesk.manifest</code></td>
+<td>內嵌圖示、一般使用者權限及 DPI 宣告</td>
+</tr>
+<tr>
+<td><code>assets/</code></td>
+<td>黑白像素來源、Logo 輸出與產生腳本</td>
+</tr>
+<tr>
+<td><code>third_party/nlohmann/</code></td>
+<td>JSON 相依檔及 MIT 授權；不需建置時下載</td>
+</tr>
+<tr>
+<td><code>docs/</code></td>
+<td>使用說明、最新截圖、範例配置與驗證摘要</td>
+</tr>
+<tr>
+<td><code>build/</code></td>
+<td>最新開發執行檔及可重新產生的編譯／測試產物</td>
+</tr>
+</tbody></table></div>
+<p>內部格式為 <code>HEXDESK 5</code>，可讀取 v1～v4；JSON 為 <code>format: HexDesk</code>、version 2，可讀取 version 1。形狀值為 0 六角形／1 三角形／2 矩形。舊格式缺少形狀時還原為六角形。格子選取、控制項代碼等暫時狀態不寫入 JSON；字體以名稱保存，不打包字型檔案。</p>
+<h2 id="技術依據與後續工作">技術依據與後續工作</h2>
+<p>採 C++17、Win32、GDI+ 與 Windows 內建函式庫。透明顯示與六角形／三角形／矩形的互動區域分開，避免 alpha 0 區域點擊穿透。桌面層依賴 Explorer 宿主，屬相容性敏感部分。</p>
+<ul>
+<li>重複啟動只用 <a rel="noopener noreferrer" target="_blank" href="https://learn.microsoft.com/en-us/windows/win32/api/restartmanager/nf-restartmanager-rmgetlist">Restart Manager</a> 查詢鎖持有者，再帶回控制視窗；不呼叫關閉或重啟其他程式的 API。</li>
+<li>視窗透明依據 <a rel="noopener noreferrer" target="_blank" href="https://learn.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-updatelayeredwindow">UpdateLayeredWindow</a> 與 <a rel="noopener noreferrer" target="_blank" href="https://learn.microsoft.com/en-us/windows/win32/winmsg/extended-window-styles">extended window styles</a>。</li>
+<li>JSON 使用 <a rel="noopener noreferrer" target="_blank" href="https://github.com/nlohmann/json/releases/tag/v3.12.0">nlohmann/json v3.12.0</a>，授權隨使用版提供。</li>
+<li>後續開發 Linux 顯示後端與打包；Windows EXE 不能直接作為 Linux 原生程式執行。</li>
+<li>待驗收：不同 Windows 版本、DPI／多螢幕、Explorer 重啟、大量格子及長時間資源壓力。既有數字是本機短時間測試，並非所有環境的效能保證。</li>
+</ul>
+</article><nav class="page-pagination" aria-label="文件導覽"><a href="guide.html"><small>01 / GUIDE</small>使用說明 ↗</a><a href="readme.html"><small>02 / PROJECT</small>專案 README ↗</a></nav><footer class="page-footer"><p>Nicoa The Six · DeskTiles 文件 · 2026-10-31</p><p>下載檔與原始中文文件由專案提供；英文為網站翻譯。</p><a href="../index.html#project-desktiles">回作品集 ↗</a></footer></main><aside class="page-toc" aria-label="本頁內容"><p>本頁內容</p><nav><a class="toc-level-2" href="#%E4%B8%80%E8%88%AC%E4%BD%BF%E7%94%A8%E8%80%85%E5%BE%9E%E9%80%99%E8%A3%A1%E9%96%8B%E5%A7%8B">一般使用者從這裡開始</a><a class="toc-level-2" href="#%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C">常用操作</a><a class="toc-level-2" href="#%E5%8A%9F%E8%83%BD%E8%88%87%E7%AF%84%E5%9C%8D">功能與範圍</a><a class="toc-level-2" href="#%E8%B3%87%E6%96%99%E4%BD%8D%E7%BD%AE%E8%88%87%E5%95%9F%E5%8B%95%E5%95%8F%E9%A1%8C">資料位置與啟動問題</a><a class="toc-level-2" href="#%E5%9F%B7%E8%A1%8C%E6%B5%81%E7%A8%8B%E8%88%87%E9%80%B2%E5%BA%A6">執行流程與進度</a><a class="toc-level-2" href="#%E9%96%8B%E7%99%BC%E9%A9%97%E8%AD%89%E8%88%87%E6%89%93%E5%8C%85">開發、驗證與打包</a><a class="toc-level-2" href="#%E5%B0%88%E6%A1%88%E6%AA%94%E6%A1%88">專案檔案</a><a class="toc-level-2" href="#%E6%8A%80%E8%A1%93%E4%BE%9D%E6%93%9A%E8%88%87%E5%BE%8C%E7%BA%8C%E5%B7%A5%E4%BD%9C">技術依據與後續工作</a></nav></aside></div><dialog id="search-dialog" aria-labelledby="search-heading"><div class="search-heading"><h2 id="search-heading">搜尋文件</h2><button id="close-search" type="button" aria-label="關閉搜尋">×</button></div><label class="sr-only" for="docs-search">搜尋文件</label><input id="docs-search" type="search" placeholder="搜尋拖曳、透明度、JSON…" autocomplete="off"><p id="search-status" role="status">輸入文字搜尋目前語言的文件。</p><div id="search-results"></div></dialog><div id="toast" role="status" aria-live="polite"></div></body></html>
