@@ -8,7 +8,7 @@ import {parseHTML} from 'linkedom';
 const root=path.dirname(fileURLToPath(import.meta.url));
 const pages=['index.html','en/index.html'];
 const scripts=['home-pixel.js','pixel-scenes.js','pixel-service-posters.js'];
-const sources=[...pages,...scripts,'home-pixel.css','pixel-scenes.css','assets/development-pixel-manifest.json','assets/service-animation-manifest.json'];
+const sources=[...pages,...scripts,'poster-image-ready.js','home-pixel.css','pixel-scenes.css','assets/development-pixel-manifest.json','assets/service-animation-manifest.json'];
 for(const file of sources)console.log('[0/4] 輸入絕對路徑：',path.join(root,file));
 console.log('[0/4] 輸出：終端驗證結果，不寫入檔案。');
 const at=process.argv.indexOf('--url'),url=at>=0?new URL(process.argv[at+1]):null;

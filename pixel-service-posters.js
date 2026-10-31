@@ -17,12 +17,13 @@
     image.addEventListener('error',()=>reject(new Error(`素材無法載入：${url}`)),{once:true});
     image.src=url;
   });
-  const mount=async config => {
+  const mount=async(config,waitForPosterImage)=>{
     const root=document.querySelector(`[data-service-poster="${config.id}"]`);
     const poster=root.querySelector('.poster-frame');
     const imageURL=new URL(config.source,manifestURL).href;
     console.info(`[${config.title} 0/4] 輸入原圖：`,imageURL);
     config.scenes.forEach(scene=>console.info(`[${config.title} 0/4] 輸入影格表：`,new URL(scene.sprite,manifestURL).href));
+    const baseReady=waitForPosterImage(poster,en);
     const prefix=`service-${config.id}`;
     const [tx,ty,tw,th]=config.titleRect;
     const title=document.createElement('button');
@@ -78,6 +79,7 @@
     }));
     model.scenes.forEach(scene=>gallery.append(scene.card));
     console.info(`[${config.title} 2/4] 四格、共 96 影格載入完成。`);
+    await baseReady;
     const fit=()=>model.scenes.forEach(scene=>{
       if(!scene.surface.clientWidth||!scene.surface.clientHeight)return;
       const factor=Math.min(scene.surface.clientWidth/config.width,scene.surface.clientHeight/config.height);
@@ -107,6 +109,7 @@
     console.info(`[${config.title} 4/4] 四格動畫就緒。`);
   };
   const start=async()=>{
+    const {waitForPosterImage}=await import(new URL('poster-image-ready.js',base));
     const response=await fetch(manifestURL);if(!response.ok)throw new Error(`規格載入失敗：${response.status}`);
     const manifest=await response.json();
     if(en){
@@ -118,7 +121,12 @@
       manifest.services.forEach(config=>{const local=localized[config.id];config.title=local.title;config.titleRect=local.titleRect;config.source=`service-${config.id}-en.png`;config.scenes.forEach((scene,index)=>{scene.title=local.names[index];if(local.rects)scene.rect=local.rects[index];});});
     }
     console.info('[服務動畫 1/3] 三項服務、十二個場景規格完成。');
-    const results=await Promise.allSettled(manifest.services.map(config=>mount(config)));
+    // Start the shared clock before waiting for every poster, so one slow image
+    // cannot hold back posters that have already loaded.
+    setInterval(()=>{if(document.hidden||globalPause())return;models.forEach(model=>{
+      if(model.view==='animated'&&!model.paused&&model.visible){model.frame=(model.frame+1)%24;model.draw();}
+    });},125);
+    const results=await Promise.allSettled(manifest.services.map(config=>mount(config,waitForPosterImage)));
     results.forEach((result,index)=>{if(result.status==='rejected'){
       const root=document.querySelector(`[data-service-poster="${manifest.services[index].id}"]`);
       root.querySelector('.scene-grid')?.setAttribute('hidden','');root.querySelector('.poster-frame').dataset.view='original';
@@ -126,9 +134,6 @@
       console.warn('[服務動畫] 保留原圖：',manifest.services[index].title,result.reason.message);
     }});
     console.info(`[服務動畫 2/3] ${models.length}/3 海報載入完成。`);
-    setInterval(()=>{if(document.hidden||globalPause())return;models.forEach(model=>{
-      if(model.view==='animated'&&!model.paused&&model.visible){model.frame=(model.frame+1)%24;model.draw();}
-    });},125);
     console.info('[服務動畫 3/3] 播放時鐘就緒；離開畫面、原圖模式及背景分頁不前進影格。');
   };
   start().catch(error=>console.warn('[服務動畫] 保留三張原圖：',error.message));

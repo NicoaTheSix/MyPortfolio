@@ -17,6 +17,7 @@ for (const file of ['pixel-prototype.html', 'pixel-prototype.css', 'pixel-protot
 for (const file of ['pixel-automation.css', 'pixel-automation.js', ...['sprite.png','still.png','manifest.json'].map(suffix => `assets/automation-pixel-${suffix}`), 'assets/automation-pixel.gif']) publicFiles.add(file);
 for (const file of ['pixel-scenes.css','pixel-scenes.js','assets/gui-pixel-states.png','assets/api-pixel-sprite.png','assets/docs-pixel-sprite.png','assets/development-pixel.gif','assets/development-pixel-still.png','assets/development-pixel-manifest.json']) publicFiles.add(file);
 publicFiles.add('pixel-service-posters.js');
+publicFiles.add('poster-image-ready.js');
 publicFiles.add('assets/service-animation-manifest.json');
 for (const [service,scenes] of Object.entries({scratch:['teaching','game','animation','debug'],translation:['software','technical','articles','terminology'],office:['convert','formula','ocr','batch']})) {
   for(const scene of scenes) publicFiles.add(`assets/${service}-${scene}-pixel.png`);

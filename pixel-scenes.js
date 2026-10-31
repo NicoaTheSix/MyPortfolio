@@ -52,6 +52,8 @@
     image.src = source;
   });
   const start = async () => {
+    const {waitForPosterImage}=await import(new URL('poster-image-ready.js',base));
+    const baseReady=waitForPosterImage(poster,en);
     const response = await fetch(manifestURL);
     if (!response.ok) throw new Error(`素材規格載入失敗：${response.status}`);
     const manifest = await response.json();
@@ -73,6 +75,7 @@
       return { ...config, sprite, card, canvas, context, state:0 };
     }));
     console.info('[四格像素 2/5] GUI 八種狀態、齒輪、API 與文件影格表載入完成。');
+    await baseReady;
     const drawScene = scene => {
       const index = scene.interactive ? scene.state : frame;
       scene.context.drawImage(scene.sprite,index*256+CROP.x,CROP.y,CROP.width,CROP.height,0,0,CROP.width,CROP.height);

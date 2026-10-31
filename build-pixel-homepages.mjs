@@ -5,7 +5,7 @@ import {parseHTML} from 'linkedom';
 import {googleTag,googleTagBody} from './google-tag.mjs';
 
 const root=path.dirname(fileURLToPath(import.meta.url));
-const version='20261031-pixel-live';
+const version='20261031-poster-ready';
 const pages=['index.html','en/index.html'];
 for(const file of ['build-pixel-homepages.mjs','google-tag.mjs','pixel-prototype.html',...pages])console.log('[0/4] 輸入絕對路徑：',path.join(root,file));
 for(const file of pages)console.log('[0/4] 輸出絕對路徑：',path.join(root,file));
