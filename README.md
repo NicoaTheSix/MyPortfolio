@@ -1,5 +1,87 @@
 # Nicoa The Six 個人作品集網站
 
+## 中英文正式首頁：黑白像素與十六格動畫（2026-10-31）
+
+正式入口為 `/MyPortfolio/` 及 `/MyPortfolio/en/`。兩頁已整合試作的白底黑框、像素字標、階梯進場、閃爍游標、閱讀進度及四項服務共十六格動畫。各服務保留原海報 2×2 排列，懸停／鍵盤焦點／點選標題顯示各自漸層；右上可切換原圖／動畫。「播放控制」可展開暫停、逐格、滑桿與 GIF 下載，「放大原圖」保留既有對話框。英文頁使用四張英文海報，標題遮罩與動畫區依英文字形／版面調整，按鈕、提示、Canvas 替代文字及 GUI 七個欄位均為英文。作品、文件、下載、社群、名片、郵件、語言切換及 GTM 保留。文件專區不載入首頁像素樣式。
+
+`build-pixel-homepages.mjs`、`home-pixel.js`、`home-pixel.css`、`check-pixel-homepages.mjs` 與本 README 同目錄。頁面整合器執行 `node .\build-pixel-homepages.mjs`，先列出自身、追蹤模板、原型與雙語首頁的絕對輸入／輸出路徑，再以四階段讀取程式開發海報模板、分別整合中英文正式頁、完成輸出；重跑會跳過既有海報，避免巢狀互動與重複 id，原有正式內容不從原型覆蓋。後續文案直接維護雙語 HTML；共用外觀與互動維護三支前端及兩支 CSS。GTM 由 `google-tag.mjs` 保留原模板格式。
+
+`home-pixel.js` 開始前輸出輸入頁面、腳本與樣式的絕對 URL，以及輸出 DOM 的絕對 URL；依三階段建立雙語全站暫停／系統減少動態偏好、區塊進場與重播、閱讀進度。`pixel-scenes.js` 與 `pixel-service-posters.js` 維持各自分階段進度；資產根路徑依腳本絕對 URL 解析，因此英文 `/en/` 不會誤讀 `/en/assets/`。四組海報可獨立控制，離開視野／背景分頁／原圖模式不更新，系統減少動態與全站暫停均適用。播放控制與額外場景於成功載入後才顯示，停用 JavaScript 或素材失敗時保留可讀原圖。原圖與影格表分離，標題漸層不修改 PNG。
+
+驗證執行 `node .\check-site.mjs`、`node .\check-pixel-homepages.mjs --url 'http://127.0.0.1:4173/MyPortfolio/'`、`node .\sync-google-tag.mjs --check`。像素檢查器先列出雙語頁面、前端、樣式與規格的絕對輸入路徑，輸出僅終端；分四階段檢查海報結構／正確語系原圖／無巢狀按鈕／可索引設定、前端語法／十六張 1-bit 影格表／七個互動區、所有動態素材存在，以及選用 HTTP 內容逐十項比對。正式發布後把 `--url` 換成 `https://nicoathesix.github.io/MyPortfolio/`，可確認部署內容。既有 GitHub Pages 由 main 根目錄發布；不改 Pages 設定。
+
+本次正式頁驗證：雙語站內錨點、36 個靜態引用、英文文案與原圖、35 個英文文件返回入口通過；37 個首頁與動態動畫資源的本機 HTTP 內容比對通過；全站 78 頁 GTM 驗證通過。瀏覽器確認兩頁各載入十六張 Canvas，英文控制／替代文字無未翻譯中文，四種漸層對準英文標題；GUI 點選反白顯示英文狀態，原圖／動畫切換、英文原圖放大與關閉、全站暫停同步四組控制均正常。從英文切換繁中保留 `#services`。實際桌面 1107 CSS px 與窄螢幕 300 CSS px 皆無頁面水平溢出，每張海報內仍維持四格排列；未發現瀏覽器 warning／error。截圖存於 `.preview/production-en-desktop.png`、`.preview/production-en-mobile.png`、`.preview/production-zh-mobile.png`。
+
+## 黑白像素視覺測試版（以下為試作紀錄，已整合正式首頁）
+
+### 四項服務、十六個場景（目前版本）
+
+測試頁 `pixel-prototype.html#pixel-lab` 保留程式開發四格，新增 `#scratch-lab`、`#translation-lab`、`#office-lab`，每項服務皆完整四格動畫，並提供頂部服務動畫導覽。三張新海報沿用各自原圖的外框、中文標題、標籤與 2×2 排列。每張獨立切換原圖／動畫、暫停、下一格、影格滑桿及 GIF 下載，頁面底部全站動畫開關與系統減少動態設定同時適用。正式首頁未改動。
+
+配色：程式開發保留粉紅 `#ff5cb8` → 黃色 `#ffe65b`；Scratch 教學為橙色 `#ff7a18` → 珊瑚粉 `#ff4b83`；中英文翻譯為藍色 `#45a8ff` → 紫色 `#a66bff`；文書自動化為綠色 `#19b986` → 青色 `#53d8ed`。各 SVG 漸層、反相濾鏡與遮罩皆使用服務前綴，避免海報間引用錯誤。Scratch 原標題為空心字，漸層沿用其黑色描邊形狀。標題支援懸停、鍵盤焦點及點選保留彩色。
+
+十二個新場景：Scratch 的積木依序亮起與教學對話、貓角色走向旗幟與方向鍵、三格跑步動畫與時間軸、邏輯積木檢查與錯誤轉勾選；翻譯的 EN／中介面切換、文件雙向對照、鉛筆書寫與文章轉換、用詞選取與語氣確認；文書的資料逐格轉換、1 至 5 加總為 15、圖片掃描與文字逐行輸出、齒輪批次處理與文件依序完成。每個場景都具有獨立變化，不是整張圖位移。
+
+產生器 `build-service-animations.py` 與本 README 同目錄。執行：`& 'C:\Users\nick5\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' .\build-service-animations.py`。需 Python 與 Pillow。開始前列出自身絕對輸入路徑及全部 19 個絕對輸出路徑，以逐行立即輸出的五階段進度完成：建立繪圖元件、逐場景繪製並回報 1/12 至 12/12、輸出三份 GIF／預覽、檢查黑白兩色與 1-bit PNG 及影格變化、寫入規格。各場景畫布 240×122，24 格／3 秒循環；每個場景至少四個不同影格。輸出為 `assets/{service}-{scene}-pixel.png` 十二張影格表、`assets/{service}-animation-preview.gif` 三份 GIF、同名 PNG 預覽三張，以及 `assets/service-animation-manifest.json`。重跑僅覆寫這 19 個生成檔，不讀取或覆寫原始海報。
+
+前端共用 `pixel-service-posters.js`，與本 README 同目錄；原程式開發維持既有 `pixel-scenes.js`。前端在載入素材前先列出頁面、腳本、樣式、JSON、原圖及十二張影格表的絕對輸入 URL，和三個海報 DOM 的絕對輸出 URL；先回報規格載入，再分服務回報四階段（建立介面、96 格載入、縮放與控制、就緒），最後啟動共用 8fps 時鐘。各服務的播放狀態獨立，四格略微錯開時序；僅在動畫模式、海報可見、分頁前景且未暫停時更新。所有 Canvas 禁用平滑插值並以 pixelated 等比放大。新增素材已列入唯讀預覽白名單，變更後需重啟 `npm run preview`。腳本或素材失敗時保留原圖；互動版請使用本機預覽 URL。
+
+本次驗證：產生器確認十二張影格表皆為 1-bit、每個場景至少四個不同影格；三份 GIF 皆為黑白兩色、24 格／3000ms。前端與預覽伺服器語法檢查通過。瀏覽器確認三張新海報各有四格，標題橙粉／藍紫／綠青漸層與原圖字形貼合；每張的原圖／動畫切換、滑桿與下一格正常，切換前後皆維持 1160×773.33 CSS px。已固定場景的 DOM 閱讀順序，避免素材載入速度改變順序。獨立播放時其他暫停海報的影格保持不變；全站暫停會同步停用三組播放按鈕。320px 手機維持 2×2 排列、無水平溢出，觸控標題變色及右上切換正常。未發現瀏覽器 error／warning。截圖存於 `.preview/scratch-poster-colour.png`、`.preview/translation-poster-colour.png`、`.preview/office-poster-colour.png`、`.preview/services-mobile.png`。此版本僅本機測試，未發布。
+
+### 原圖版面、漸層標題與原圖／動畫切換（程式開發）
+
+測試入口維持 `pixel-prototype.html#pixel-lab`。海報改為原始 `assets/service-development-zh.png` 作為底圖，保留外框、Nicoa 字樣、程式開發標題、技術橫條及原本的四格中文標籤。四個動畫僅覆蓋各格內的圖案區，桌面與手機都保留 2×2 排列，不再改成手機單欄。手機整張等比例縮小；底部控制列維持可操作尺寸。
+
+「程式開發」是原圖字形上的透明互動區。滑鼠懸停或鍵盤焦點時，以 SVG 反相亮度遮罩貼合原圖的黑色筆畫，套用上粉紅 `#ff5cb8`、下黃色 `#ffe65b` 的垂直漸層；不重新排字或改寫原圖。點選可切換保留彩色效果，供觸控裝置使用。圖的右上方提供「原圖／動畫」兩個原生按鈕，帶有 aria-pressed 狀態與讀屏提示。素材載入完成後預設動畫；原圖模式隱藏四個 Canvas 與互動區、停止前進影格，隱藏並停用底部播放控制但保留其空間，海報尺寸不跳動。標題互動在兩個模式皆可使用。載入失敗或關閉 JavaScript 時仍保留原始海報。
+
+前端仍使用同目錄的 `pixel-scenes.js`、`pixel-scenes.css`，執行前列出原圖、腳本、樣式、規格與影格表的絕對輸入 URL，以及輸出頁面 DOM 的絕對 URL，沿用五階段進度。載入後以原影格表的 `(8,28,240,122)` 內容區繪製 Canvas，去掉試作素材自帶的標題列與外框；GUI 七個反白區同步換算裁切後的座標。Canvas 關閉平滑插值、CSS 使用 pixelated，依海報區域等比縮放，為保持原構圖可能使用非整數顯示倍率；底層影格素材仍為原始黑白逐格圖片。原圖與所有生成素材皆未覆寫。既有 GIF 是前一版獨立四格動畫示範，沒有網站標題的懸停效果或顯示模式切換。
+
+本次驗證：前端語法通過；桌面確認原字形的漸層上粉紅／下黃色、切換按鈕與選取狀態正確、原圖模式影格停留在相同位置，恢復動畫與裁切後 GUI 的點選／Tab 反白正常。兩種模式的海報皆維持 1160×773.33 CSS px，無切換尺寸跳動。320px 手機無水平溢出，四格維持左右兩欄、上下兩列，標題點選變色與右上切換可用。未發現瀏覽器 error／warning。完整海報及手機預覽分別存於 `.preview/pixel-poster-colour.png`、`.preview/pixel-poster-mobile.png`。此變更只在測試頁，未發布。
+
+### 四格互動動畫擴充（前一版）
+
+同一個 `pixel-prototype.html#pixel-lab` 已擴充成四格：圖形化介面／自動化工具／API 串接／技術文件，桌面兩欄、手機單欄。正式首頁、原服務圖片及既有內容不受影響。圖形化介面的兩個欄位、兩個按鈕、三個側欄項目，共七個真實互動區域；滑鼠懸停、Tab 焦點、手機點選皆切換黑底白字。這些是視覺示範按鈕，並非資料輸入表單。API 箭頭向左右逐格移動，線路中資料來回傳輸；技術文件逐行寫入程式碼、閃爍游標，最後顯示完成勾選。自動化工具保留原先齒輪與清單動畫。
+
+建置程式為本目錄 `build-pixel-scenes.py`，執行方式：`& 'C:\Users\nick5\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' .\build-pixel-scenes.py`。需 Python 與 Pillow；其他電腦可換成當地已安裝 Pillow 的 Python。運作前先列出自身與自動化產生器的絕對輸入路徑、生成中介輸入與六項輸出的絕對路徑。六階段依序：呼叫既有齒輪產生器（會重建原有四項自動化素材，並自行列路徑與進度）、繪製新場景與分批回報、輸出 GUI 八個狀態與 API／文件各 24 格影格表、合成四格 GIF／靜態圖、驗證黑白兩色／PNG bit depth／影格變化與 GIF 總長、寫入 JSON 規格。原始服務圖片只是構圖參考，不由程式讀取、裁切或覆寫。
+
+新增輸出：`assets/gui-pixel-states.png`、`assets/api-pixel-sprite.png`、`assets/docs-pixel-sprite.png`、`assets/development-pixel.gif`、`assets/development-pixel-still.png`、`assets/development-pixel-manifest.json`。每個場景維持 256×160 固定像素格；PNG 為 1-bit，GIF 僅黑白兩色、24 格／3000ms。GIF 內 GUI 由游標依序示範反白，不能接收真實滑鼠互動；實際懸停請使用測試頁。
+
+瀏覽器改載入同目錄 `pixel-scenes.js`／`pixel-scenes.css`，舊的單格 `pixel-automation.js`／CSS 保留但不再載入。前端先在主控台列出所有輸入的絕對 URL 與四個 Canvas 的輸出頁面 URL，再顯示五階段進度：載入規格、載入影格、建立七個欄位、整數縮放與控制、播放就緒。透明原生按鈕覆蓋於 GUI 圖中，位置來自 JSON 的邏輯像素矩形，放大時同步縮放；無縮放圖片旋轉、無抗鋸齒。GUI 反白會即時重繪，動畫暫停時仍可操作。其餘三格共用 8fps 時鐘，可暫停、逐格、拖曳影格滑桿，並遵守全站暫停、系統減少動態、背景分頁與離開畫面設定。桌面依容器採 1 或 2 倍，手機為 1 倍；載入失敗或關閉 JavaScript 時顯示四格靜態圖。
+
+預覽白名單已加入新 JS／CSS 與六項素材，修改後需重啟 `npm run preview`。不連線真實 API、不寄出表單、不儲存欄位內容。
+
+本次驗證：生成器檢查三張新增 PNG 皆為 1-bit、GIF 全部 24 影格僅黑白、循環總長 3000ms，各場景內容確實改變；四格 GIF 為 599645 bytes。前端與伺服器語法檢查通過。瀏覽器驗證滑鼠進入欄位（未聚焦時已反白）、七個區域以 Tab 逐一切換、全站暫停、暫停時欄位仍可操作、下一格會同步前進齒輪／API／文件，恢復播放後持續更新。曾發現舊滑鼠懸停位置優先於新鍵盤焦點，已改成依最後使用的輸入方式選擇高亮。桌面 1280px 四張 Canvas 皆為 512px 寬，320px 與 390px 皆無頁面水平溢出，手機為 256px 原尺寸。未發現 console error／warning。截圖存於 `.preview/pixel-scenes-desktop.png` 與 `.preview/pixel-scenes-mobile.png`。互動版會 fetch 素材規格，請使用本機預覽 URL；直接以 file 開啟時可能僅顯示靜態圖。
+
+### 自動化工具：真正黑白像素動畫試作
+
+在原型頁新增 `#pixel-lab`：<http://127.0.0.1:4173/MyPortfolio/pixel-prototype.html#pixel-lab>。只參考原服務插畫右上角構圖，透過程式重繪三個齒輪、傳輸線與任務清單，沒有改動原圖或正式首頁。圖像為 256×160 的固定網格、純黑白兩色、24 格／3 秒循環；PNG 為真正 1-bit，GIF 為只使用黑白的索引色格式，並非宣稱符合特定遊戲機硬體限制。
+
+生成程式 `build-pixel-automation.py` 與本 README 同目錄，需要 Python 及 Pillow。本工作環境可執行 `& 'C:\Users\nick5\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' .\build-pixel-automation.py`。其他電腦可使用已安裝 Pillow 的 Python 執行相同腳本。
+
+執行流程：先顯示程式輸入與四項輸出的絕對路徑，再依五階段建立網格與手寫 5×7 點陣字、分批繪製 24 格（每六格回報進度）、輸出圖檔、驗證所有 GIF 影格只有黑白與總長 3000ms、寫入素材規格 JSON。輸出至 `assets/automation-pixel-sprite.png`、`assets/automation-pixel.gif`、`assets/automation-pixel-still.png`、`assets/automation-pixel-manifest.json`，重跑會覆寫這四個生成檔。素材完全由程式繪製，沒有使用圖片生成服務。
+
+瀏覽器流程由同目錄 `pixel-automation.js`／`pixel-automation.css` 負責：運作前在主控台列出頁面、腳本、樣式與素材的絕對輸入 URL、Canvas 輸出位置；三階段完成畫布、素材載入與互動、每秒 8 格播放。Canvas 僅複製完整影格，不進行平滑旋轉或抗鋸齒；依容器寬度採 1、2 或 3 倍整數放大。支援獨立暫停、下一格與滑桿，並遵守全站動畫暫停及系統減少動態設定；離開畫面或背景分頁時不前進影格。素材載入失敗或停用 JavaScript 時保留靜態圖。GIF 下載檔本身獨立循環，不受網頁動畫開關控制。
+
+預覽伺服器已加入兩個新前端檔與四個素材的白名單及 GIF MIME；修改白名單後需重新啟動 `npm run preview`。
+
+本次驗證：生成器核對全部 24 格均僅黑白、總時長 3000ms，且影格內容確實改變；輸出 GIF 約 290 KB、網頁影格表約 12 KB。前端與伺服器語法檢查通過。瀏覽器確認播放會前進影格、暫停與下一格、滑桿 Home／向右鍵、全站暫停連動；390px 與 320px 無水平溢出，Canvas 均為 256px 寬，1280px 桌面為 768px 寬（3 倍整數放大）。未發現 console error／warning。測試截圖存於 `.preview/pixel-automation-desktop.png`、`.preview/pixel-automation-mobile.png`。底部「像素動畫」可直接跳到試作區，頂部閱讀關卡已擴充為六區段。尚未發布正式網站。
+
+獨立入口為 `pixel-prototype.html`，搭配同目錄 `pixel-prototype.css` 與 `pixel-prototype.js`，用一版可丟棄的原型比較「NES 風格黑白介面＋街機動畫節奏」。正式中英文首頁與樣式保留。這是視覺討論稿，尚未發布，沒有分析追蹤、資料儲存或新增套件。
+
+啟動方式：在本目錄執行 `npm run preview`，開啟 <http://127.0.0.1:4173/MyPortfolio/pixel-prototype.html>。若預覽埠已使用，可在 PowerShell 設定 `$env:PORT = '4174'` 後執行相同命令，並改開 4174。也可直接以瀏覽器開啟 HTML；剪貼簿功能依安全環境與權限提供手動複製提示。三個新檔案已加入既有預覽伺服器白名單。
+
+執行流程：
+
+1. 預覽伺服器先列出本機絕對輸入目錄、輸出 URL，再顯示三階段進度。頁面載入後，`pixel-prototype.js` 在瀏覽器開發者主控台先列出 HTML、CSS、JavaScript 與全部圖片素材的絕對輸入 URL、選用字型來源及輸出頁面 DOM 的絕對 URL；不寫入檔案。實體輸入皆以本 README 所在目錄為根，圖片沿用 `assets/`、`desktiles/assets/` 與既有 Fusion Studio 圖示。
+2. 第一階段讀取系統減少動態設定，建立「暫停／啟用動畫」控制；偏好僅保存在記憶體。
+3. 第二階段以 IntersectionObserver 觸發服務與作品的階梯式進場，每個區塊每次重播只進場一次。底部「重播進場」回到首頁並重播標題／區塊；停用 JavaScript 或不支援觀察器時仍能閱讀全部內容。
+4. 第三階段以實際捲動位置更新六區段狀態列與閱讀進度，依序為首頁、像素動畫、服務、關於、作品、聯絡。捲動事件以 requestAnimationFrame 合併更新。
+5. 第四階段提供複製既有信箱與成功／手動複製提示。服務郵件、專案文件、社群與返回原站均為可用連結，不會自動寄信。
+
+美術包含 SVG 像素字標、既有黑白肖像、四張服務插畫、按鈕按壓、閃爍游標與星形裝飾。文字及邊框為 HTML/CSS，未套用或複製付費樣板原始碼。英文字型選用 Google Fonts Silkscreen（需網路），失敗則回退本機等寬字型；中文使用系統可讀字型。此版尚未加入 YouTube 播放器，因尚未指定要展示的影片。系統偏好減少動態時停用動畫及平滑捲動，控制列可另外暫停全部動態效果。手機改為單欄。
+
+驗證：JavaScript 與預覽伺服器語法檢查通過。瀏覽器確認七張圖片載入、服務／作品／聯絡導覽、五區段狀態列、動畫暫停與啟用、鍵盤重播回到 `#home`、複製信箱成功提示；未發現 console error／warning。桌面與 390px、320px 手機尺寸檢查通過，手機導覽與關卡列分兩行，頁面無水平溢出。預覽截圖放在 `.preview/pixel-prototype-desktop.png` 與 `.preview/pixel-prototype-mobile.png`，不隨網站發布。重播直接回頂端後才重播標題，避免從長頁底部平滑捲動時錯過開場。
+
 ## DeskTiles 桌面拼格專案
 
 新增 `/MyPortfolio/desktiles/` 與 `/MyPortfolio/desktiles/en/`，提供專案介紹、中英文使用說明、專案 README、原始 Markdown、含圖片的範例 JSON 與 Windows x64 免安裝 ZIP。根目錄中英文首頁提供專案卡與桌面導覽入口。原始碼公開倉庫與專案授權尚未確認，沒有設定猜測的原始碼連結或宣稱開源。

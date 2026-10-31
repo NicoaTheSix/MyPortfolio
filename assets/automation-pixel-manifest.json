@@ -1,0 +1,16 @@
+{
+  "width": 256,
+  "height": 160,
+  "frames": 24,
+  "fps": 8,
+  "durationMs": 3000,
+  "colors": [
+    "#000000",
+    "#ffffff"
+  ],
+  "pngBitDepth": 1,
+  "sprite": "automation-pixel-sprite.png",
+  "gif": "automation-pixel.gif",
+  "still": "automation-pixel-still.png",
+  "authorship": "Original code-drawn pixel artwork; existing service image used only as visual reference."
+}

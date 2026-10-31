@@ -1,0 +1,202 @@
+{
+  "services": [
+    {
+      "id": "scratch",
+      "title": "Scratch 教學",
+      "source": "service-scratch-zh.png",
+      "gradient": [
+        "#ff7a18",
+        "#ff4b83"
+      ],
+      "titleRect": [
+        228,
+        88,
+        1086,
+        172
+      ],
+      "width": 240,
+      "height": 122,
+      "frames": 24,
+      "fps": 8,
+      "gif": "scratch-animation-preview.gif",
+      "scenes": [
+        {
+          "id": "teaching",
+          "title": "一對一教學",
+          "rect": [
+            54,
+            503,
+            690,
+            201
+          ],
+          "sprite": "scratch-teaching-pixel.png"
+        },
+        {
+          "id": "game",
+          "title": "遊戲製作",
+          "rect": [
+            793,
+            502,
+            685,
+            202
+          ],
+          "sprite": "scratch-game-pixel.png"
+        },
+        {
+          "id": "animation",
+          "title": "動畫實作",
+          "rect": [
+            47,
+            783,
+            700,
+            200
+          ],
+          "sprite": "scratch-animation-pixel.png"
+        },
+        {
+          "id": "debug",
+          "title": "邏輯與除錯",
+          "rect": [
+            800,
+            782,
+            680,
+            198
+          ],
+          "sprite": "scratch-debug-pixel.png"
+        }
+      ]
+    },
+    {
+      "id": "translation",
+      "title": "中英文翻譯",
+      "source": "service-translation-zh.png",
+      "gradient": [
+        "#45a8ff",
+        "#a66bff"
+      ],
+      "titleRect": [
+        280,
+        108,
+        960,
+        166
+      ],
+      "width": 240,
+      "height": 122,
+      "frames": 24,
+      "fps": 8,
+      "gif": "translation-animation-preview.gif",
+      "scenes": [
+        {
+          "id": "software",
+          "title": "軟體介面",
+          "rect": [
+            78,
+            454,
+            646,
+            186
+          ],
+          "sprite": "translation-software-pixel.png"
+        },
+        {
+          "id": "technical",
+          "title": "技術文件",
+          "rect": [
+            823,
+            454,
+            617,
+            186
+          ],
+          "sprite": "translation-technical-pixel.png"
+        },
+        {
+          "id": "articles",
+          "title": "文章翻譯",
+          "rect": [
+            76,
+            751,
+            650,
+            204
+          ],
+          "sprite": "translation-articles-pixel.png"
+        },
+        {
+          "id": "terminology",
+          "title": "用詞與語氣",
+          "rect": [
+            807,
+            751,
+            653,
+            206
+          ],
+          "sprite": "translation-terminology-pixel.png"
+        }
+      ]
+    },
+    {
+      "id": "office",
+      "title": "文書自動化",
+      "source": "service-office-zh.png",
+      "gradient": [
+        "#19b986",
+        "#53d8ed"
+      ],
+      "titleRect": [
+        369,
+        78,
+        792,
+        233
+      ],
+      "width": 240,
+      "height": 122,
+      "frames": 24,
+      "fps": 8,
+      "gif": "office-animation-preview.gif",
+      "scenes": [
+        {
+          "id": "convert",
+          "title": "表格轉換",
+          "rect": [
+            71,
+            410,
+            656,
+            201
+          ],
+          "sprite": "office-convert-pixel.png"
+        },
+        {
+          "id": "formula",
+          "title": "公式計算",
+          "rect": [
+            810,
+            414,
+            658,
+            195
+          ],
+          "sprite": "office-formula-pixel.png"
+        },
+        {
+          "id": "ocr",
+          "title": "圖片轉文字",
+          "rect": [
+            61,
+            720,
+            674,
+            188
+          ],
+          "sprite": "office-ocr-pixel.png"
+        },
+        {
+          "id": "batch",
+          "title": "批次處理",
+          "rect": [
+            794,
+            720,
+            682,
+            188
+          ],
+          "sprite": "office-batch-pixel.png"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,102 @@
+<!doctype html>
+<!-- Throwaway visual prototype: one black-and-white pixel portfolio; production homepage is unchanged. -->
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#ffffff">
+  <title>Nicoa The Six — 黑白像素測試版</title>
+  <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./pixel-prototype.css">
+  <link rel="stylesheet" href="./pixel-scenes.css">
+  <script src="./pixel-prototype.js" defer></script>
+  <script src="./pixel-scenes.js" defer></script>
+  <script src="./pixel-service-posters.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#home">跳至主要內容</a>
+  <header class="hud">
+    <a class="brand" href="#home"><span class="brand-mark" aria-hidden="true">N</span><span>NICOA<span class="brand-small">THE SIX / WORDS & CODE</span></span></a>
+    <div class="hud-level"><span class="tiny">YOU ARE HERE</span><span id="level">01 / HELLO</span><div class="segments" aria-hidden="true"><i class="filled"></i><i></i><i></i><i></i><i></i><i></i></div></div>
+    <nav aria-label="主要導覽"><a href="#services">服務</a><a href="#works">作品</a><a href="#contact">聯絡 <span aria-hidden="true">↗</span></a></nav>
+    <span class="edition">測試版 01</span>
+    <div class="reading-track" aria-hidden="true"><span id="reading-progress"></span></div>
+  </header>
+  <main>
+    <section class="hero wrap stage" id="home" data-label="HELLO" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="status-light" aria-hidden="true"></span> A LITTLE STUDIO. A LOT OF IDEAS.</p>
+        <h1 id="hero-title"><span class="sr-only">Nicoa The Six</span><svg class="pixel-logo" viewBox="0 0 33 7" aria-hidden="true"><path d="M0 0h1v7H0zM4 0h1v7H4zM1 1h1v2H1zM2 3h1v1H2zM3 4h1v2H3zM7 0h5v1H7zM9 1h1v5H9zM7 6h5v1H7zM15 0h4v1h-4zM14 1h1v5h-1zM15 6h4v1h-4zM18 1h1v1h-1zM18 5h1v1h-1zM22 0h3v1h-3zM21 1h1v5h-1zM25 1h1v5h-1zM22 6h3v1h-3zM29 0h3v1h-3zM28 1h1v6h-1zM32 1h1v6h-1zM29 3h3v1h-3z"/></svg><span class="name-line" aria-hidden="true">T H E &nbsp; S I X<span class="cursor">_</span></span></h1>
+        <h2>把腦中的想法，<br>做成眼前的<span class="underlined">作品。</span></h2>
+        <p class="intro">寫程式，也寫文字。<br>在工具、教學與翻譯之間，<br>陪你把「如果可以」變成「真的可以」。</p>
+        <div class="hero-actions"><a class="button primary" href="#services"><span aria-hidden="true">▶</span> 探索我的工作室</a><a class="plain-link" href="#works">先看作品 <span aria-hidden="true">↓</span></a></div>
+        <p class="hero-foot pixel-type">C++ &nbsp;/&nbsp; PYTHON &nbsp;/&nbsp; JAVA &nbsp;/&nbsp; SCRATCH</p>
+      </div>
+      <div class="hero-visual">
+        <span class="floating-star star-a" aria-hidden="true">✦</span><span class="floating-star star-b" aria-hidden="true">+</span>
+        <div class="portrait-window">
+          <div class="window-title"><span class="pixel-type">PLAYER_01.PNG</span><span aria-hidden="true">─ &nbsp; □ &nbsp; ×</span></div>
+          <div class="portrait-stage"><img src="./assets/portrait.png" alt="Nicoa 的黑白點陣肖像，肩上有一隻黑貓" width="1254" height="1254" fetchpriority="high"><span class="portrait-tag pixel-type">NICOA THE SIX</span></div>
+          <div class="window-bottom"><span><span class="status-light" aria-hidden="true"></span> 好奇心，持續上線中</span><span class="pixel-type">LV. 01</span></div>
+        </div>
+        <div class="speech"><span class="pixel-type">HELLO, WORLD!</span><span>歡迎來到我的工作室。</span><b class="speech-arrow" aria-hidden="true">▼</b></div>
+        <span class="visual-coordinate pixel-type" aria-hidden="true">X: IDEAS &nbsp; Y: POSSIBILITIES</span>
+      </div>
+      <a class="scroll-note pixel-type" href="#services">SCROLL TO EXPLORE <span aria-hidden="true">↓</span></a>
+    </section>
+    <div class="ribbon" aria-hidden="true"><span>CODE WITH CURIOSITY</span><b>✦</b><span>WRITE WITH CLARITY</span><b>✦</b><span>LEARN BY MAKING</span><b>✦</b><span>把想法變成作品</span></div>
+    <section class="wrap pixel-lab stage" id="pixel-lab" data-label="PIXEL LAB" aria-labelledby="pixel-lab-title">
+      <div class="section-heading"><div><p class="eyebrow">PIXEL LAB / FOUR SERVICES, SIXTEEN SCENES</p><h2 id="pixel-lab-title">每種服務，都有自己的動作。</h2></div><p>移到各張海報的標題上，看看顏色。<br>右上角可各自切換原圖與動畫。</p></div>
+      <nav class="poster-service-nav" aria-label="服務動畫導覽"><a href="#development-poster-frame">程式開發</a><a href="#scratch-lab">Scratch 教學</a><a href="#translation-lab">中英文翻譯</a><a href="#office-lab">文書自動化</a></nav>
+      <div class="poster-frame" id="development-poster-frame" data-view="original">
+      <img id="scenes-fallback" class="poster-base" src="./assets/service-development-zh.png" width="1536" height="1024" alt="程式開發海報：圖形化介面、自動化工具、API 串接與技術文件">
+      <button id="poster-title" class="poster-title" type="button" aria-pressed="false" aria-label="程式開發：切換上粉紅下黃色的漸層字體"><span class="sr-only">程式開發</span></button>
+      <svg class="poster-title-colour" viewBox="0 0 1536 1024" aria-hidden="true" focusable="false">
+        <defs>
+          <linearGradient id="poster-pink-yellow" x1="0" y1="102" x2="0" y2="313" gradientUnits="userSpaceOnUse"><stop stop-color="#ff5cb8"/><stop offset=".48" stop-color="#ff9a9b"/><stop offset="1" stop-color="#ffe65b"/></linearGradient>
+          <filter id="poster-invert-ink" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="-1 0 0 0 1  0 -1 0 0 1  0 0 -1 0 1  0 0 0 1 0"/></filter>
+          <mask id="poster-title-mask" x="0" y="0" width="1536" height="1024" maskUnits="userSpaceOnUse" style="mask-type:luminance"><image href="./assets/service-development-zh.png" width="1536" height="1024" filter="url(#poster-invert-ink)"/></mask>
+        </defs>
+        <rect x="274" y="100" width="989" height="215" fill="url(#poster-pink-yellow)" mask="url(#poster-title-mask)"/>
+      </svg>
+      <div class="poster-switch" role="group" aria-label="海報顯示模式"><button id="poster-original" type="button" aria-pressed="true" aria-controls="pixel-gallery">原圖</button><button id="poster-animated" type="button" aria-pressed="false" aria-controls="pixel-gallery" disabled>動畫</button></div>
+      <span id="poster-view-status" class="sr-only" role="status" aria-live="polite">目前顯示原圖</span>
+      <div id="pixel-gallery" class="scene-grid" hidden>
+        <article class="scene-card" data-scene="gui"><div class="scene-heading"><h3>圖形化介面</h3><span class="scene-mode">滑鼠互動</span></div><div class="scene-surface"><div class="scene-canvas-wrap"><canvas width="256" height="160" role="img" aria-label="像素圖形化介面；可透過覆蓋在欄位上的按鈕體驗反白"></canvas><div class="gui-hotspots" role="group" aria-label="圖形化介面反白體驗" aria-describedby="gui-help"></div></div></div><p id="gui-help" class="scene-description">滑鼠移入／Tab 選取；手機點選欄位。</p><p id="gui-status" class="scene-status" role="status" aria-live="polite">等你選一個欄位。</p></article>
+        <article class="scene-card" data-scene="automation"><div class="scene-heading"><h3>自動化工具</h3><span class="scene-mode">循環動畫</span></div><div class="scene-surface"><div class="scene-canvas-wrap"><canvas width="256" height="160" role="img" aria-label="三個像素齒輪旋轉、訊號傳送、清單依序完成"></canvas></div></div><p class="scene-description">齒輪轉動，讓重複的工作逐一完成。</p><p class="scene-status">轉動 → 傳送 → 完成</p></article>
+        <article class="scene-card" data-scene="api"><div class="scene-heading"><h3>API 串接</h3><span class="scene-mode">雙向傳輸</span></div><div class="scene-surface"><div class="scene-canvas-wrap"><canvas width="256" height="160" role="img" aria-label="兩台終端機之間，像素箭頭向左右移動，資料往返傳送"></canvas></div></div><p class="scene-description">請求送出去，回應沿著另一條線返回。</p><p class="scene-status">CLIENT ⇄ SERVER</p></article>
+        <article class="scene-card" data-scene="docs"><div class="scene-heading"><h3>技術文件</h3><span class="scene-mode">逐行寫入</span></div><div class="scene-surface"><div class="scene-canvas-wrap"><canvas width="256" height="160" role="img" aria-label="README 文件中程式碼逐行出現，游標閃爍，最後顯示完成勾選"></canvas></div></div><p class="scene-description">從第一行開始，把想法寫成清楚的文件。</p><p class="scene-status">寫入 → 檢查 → 存檔</p></article>
+      </div>
+      </div>
+      <div class="scene-controls" id="scene-controls" aria-label="四格動畫控制"><button id="pixel-play" type="button" disabled>載入中</button><button id="pixel-step" type="button" disabled>下一格 →</button><label>影格 <input id="pixel-seek" type="range" min="0" max="23" value="0" step="1" aria-label="選擇動畫影格" disabled></label><output id="pixel-frame" class="pixel-type">01 / 24</output><a href="./assets/development-pixel.gif" download="Nicoa-development-pixel.gif">下載四格 GIF ↓</a></div>
+      <p class="scene-footnote">標題可懸停或點選變色；動畫模式的介面欄位可懸停、Tab 選取或點選反白。四格保持原圖排列。</p>
+      <div id="more-service-posters">
+        <article id="scratch-lab" class="additional-service" data-service-poster="scratch"><header class="additional-service-heading"><div><p class="eyebrow">02 / LEARN & PLAY</p><h3>Scratch 教學</h3></div><p>橙色 → 珊瑚粉</p></header><div class="poster-frame" data-view="original"><img class="poster-base" src="./assets/service-scratch-zh.png" width="1536" height="1024" loading="lazy" alt="Scratch 教學海報：一對一教學、遊戲製作、動畫實作、邏輯與除錯"></div></article>
+        <article id="translation-lab" class="additional-service" data-service-poster="translation"><header class="additional-service-heading"><div><p class="eyebrow">03 / WORDS ACROSS WORLDS</p><h3>中英文翻譯</h3></div><p>藍色 → 紫色</p></header><div class="poster-frame" data-view="original"><img class="poster-base" src="./assets/service-translation-zh.png" width="1536" height="1024" loading="lazy" alt="中英文翻譯海報：軟體介面、技術文件、文章翻譯、用詞與語氣"></div></article>
+        <article id="office-lab" class="additional-service" data-service-poster="office"><header class="additional-service-heading"><div><p class="eyebrow">04 / LESS REPETITION, MORE POSSIBILITIES</p><h3>文書自動化</h3></div><p>綠色 → 青色</p></header><div class="poster-frame" data-view="original"><img class="poster-base" src="./assets/service-office-zh.png" width="1536" height="1024" loading="lazy" alt="文書自動化海報：表格轉換、公式計算、圖片轉文字、批次處理"></div></article>
+      </div>
+    </section>
+    <section class="wrap section stage" id="services" data-label="SERVICES" aria-labelledby="services-title">
+      <div class="section-heading reveal"><div><p class="eyebrow">01 / CHOOSE YOUR QUEST</p><h2 id="services-title">今天，想完成什麼？</h2></div><p>選一個起點。<br>我們一起把事情做好。</p></div>
+      <div class="service-grid">
+        <article class="service-card reveal"><div class="card-bar"><span class="pixel-type">QUEST_01</span><span>程式 × 工具</span></div><img src="./assets/service-development-zh.png" alt="程式開發：圖形化介面、自動化工具、API 串接與技術文件" width="1536" height="1024" loading="lazy"><div class="service-body"><h3>讓程式，接手重複的事。</h3><p>實用工具、流程自動化與 API 串接，<br>把時間留給真正重要的想法。</p><div class="tags"><span>C++ / JAVA / PYTHON</span><span>自動化</span></div><a href="mailto:nick5901879@gmail.com?subject=程式開發需求討論" class="card-link">聊聊開發需求 <span aria-hidden="true">↗</span></a></div></article>
+        <article class="service-card reveal"><div class="card-bar"><span class="pixel-type">QUEST_02</span><span>教學 × 遊戲</span></div><img src="./assets/service-scratch-zh.png" alt="Scratch 教學：線上一對一、遊戲製作、動畫與邏輯除錯" width="1536" height="1024" loading="lazy"><div class="service-body"><h3>從第一塊積木，開始冒險。</h3><p>用 Scratch 做遊戲、說故事，<br>在動手的過程裡，練習解決問題。</p><div class="tags"><span>SCRATCH</span><span>線上一對一</span></div><a href="mailto:nick5901879@gmail.com?subject=Scratch教學需求討論" class="card-link">聊聊學習目標 <span aria-hidden="true">↗</span></a></div></article>
+        <article class="service-card reveal"><div class="card-bar"><span class="pixel-type">QUEST_03</span><span>文字 × 翻譯</span></div><img src="./assets/service-translation-zh.png" alt="中英文翻譯與繁體中文在地化" width="1536" height="1024" loading="lazy"><div class="service-body"><h3>換一種語言，意思依然到位。</h3><p>從軟體介面到技術文件，<br>讓用詞、語氣與資訊都清楚傳達。</p><div class="tags"><span>EN ⇄ 繁體中文</span><span>在地化</span></div><a href="mailto:nick5901879@gmail.com?subject=中英文翻譯需求討論" class="card-link">聊聊翻譯內容 <span aria-hidden="true">↗</span></a></div></article>
+        <article class="service-card reveal"><div class="card-bar"><span class="pixel-type">QUEST_04</span><span>文件 × 資料</span></div><img src="./assets/service-office-zh.png" alt="文書自動化：Word、Excel、OCR 與批次處理" width="1536" height="1024" loading="lazy"><div class="service-body"><h3>把零散資料，整理得剛剛好。</h3><p>文件排版、表格轉換與圖片轉文字，<br>讓資料變成能直接使用的成果。</p><div class="tags"><span>WORD / EXCEL / OCR</span><span>資料整理</span></div><a href="mailto:nick5901879@gmail.com?subject=文書資料整理需求討論" class="card-link">聊聊文書需求 <span aria-hidden="true">↗</span></a></div></article>
+      </div>
+      <p class="section-note">＋ 每個任務都不同，內容、交期與報價，我們一起確認。</p>
+    </section>
+    <section class="about stage" id="about" data-label="ABOUT" aria-labelledby="about-title"><div class="wrap about-inner reveal"><div><p class="eyebrow">02 / THE HUMAN BEHIND THE PIXELS</p><h2 id="about-title">像素是方的。<br>想法，可以很自由。</h2><span class="about-cross" aria-hidden="true">✦</span></div><div class="about-copy"><p class="pixel-type about-label">[ PLAYER PROFILE ]</p><p class="about-lead">你好，我是 Nicoa The Six。</p><p>喜歡文字，也喜歡程式。相信好的工具與清楚的表達，能讓日常少一點繁瑣，多一點可能。</p><p>這裡放著我的實作、筆記與各種嘗試。無論你帶來的是一個問題，還是一個還沒成形的點子，都歡迎一起聊聊。</p><a class="inverse-link" href="https://github.com/NicoaTheSix" target="_blank" rel="noopener noreferrer">到 GitHub 看看我的實作 ↗</a></div></div></section>
+    <section class="wrap section stage" id="works" data-label="WORKS" aria-labelledby="works-title"><div class="section-heading reveal"><div><p class="eyebrow">03 / SAVE FILES</p><h2 id="works-title">做過的事，都存檔在這。</h2></div><p>從一個想法出發，<br>留下可以使用的作品。</p></div>
+      <div class="projects"><article class="project reveal"><div class="project-cover tiled"><img src="./desktiles/assets/shapes.png" alt="DeskTiles 桌面文字、圖片與計時器拼格" width="597" height="448" loading="lazy"><span class="project-number pixel-type">SAVE_001</span></div><div class="project-copy"><p class="eyebrow">DESKTOP TOOL / WINDOWS</p><h3>桌面拼格 <span>DeskTiles</span></h3><p>文字、圖片、計時器，拼出屬於自己的桌面。<br>讓工作提醒與小小靈感，各就各位。</p><a class="button" href="./desktiles/">打開專案 <span aria-hidden="true">↗</span></a></div></article>
+      <article class="project reveal"><div class="project-cover fusion-cover"><img src="./fusion-studio/assets/source/assets/fusion-studio-icon-monochrome-v3.png" alt="Fusion Studio 黑白像素圖示" width="100" height="100" loading="lazy"><span class="pixel-type">FUSION<br>STUDIO<span class="cursor">_</span></span><span class="project-number pixel-type">SAVE_002</span></div><div class="project-copy"><p class="eyebrow">RESEARCH / OPEN SOURCE</p><h3>Fusion Studio</h3><p>把威脅研究內容整理到同一個工作空間。<br>選取範圍、留下註記，保存與匯出研究成果。</p><a class="button" href="./fusion-studio/">閱讀技術文件 <span aria-hidden="true">↗</span></a></div></article></div>
+      <a class="notebook reveal" href="https://hackmd.io/@nicoathe6/Bk5yICs_fl" target="_blank" rel="noopener noreferrer"><span class="pixel-type">READ_ME.TXT</span><span>代理系統（Agent）架構實作筆記</span><span aria-hidden="true">↗</span></a>
+    </section>
+    <section class="contact stage" id="contact" data-label="CONTACT" aria-labelledby="contact-title"><div class="wrap contact-inner reveal"><p class="eyebrow">04 / A NEW QUEST AWAITS</p><h2 id="contact-title">下一個想法，<br>一起做出來<span class="cursor" aria-hidden="true">_</span></h2><p>不用先有完整規格。<br>從一句「我想……」開始就好。</p><div class="contact-buttons"><a class="button primary" href="mailto:nick5901879@gmail.com?subject=嗨Nicoa，我想聊聊合作">▶ 寫封信給我</a><button class="button" id="copy-email" type="button">複製信箱 ＋</button></div><a class="email" href="mailto:nick5901879@gmail.com">nick5901879@gmail.com</a><nav class="social" aria-label="社群連結"><a href="https://github.com/NicoaTheSix" target="_blank" rel="noopener noreferrer">GITHUB ↗</a><a href="https://medium.com/@nick5901879" target="_blank" rel="noopener noreferrer">MEDIUM ↗</a><a href="https://www.youtube.com/@NicoaTheSix" target="_blank" rel="noopener noreferrer">YOUTUBE ↗</a></nav></div></section>
+  </main>
+  <footer class="wrap footer"><span>© 2026 NICOA THE SIX</span><span class="pixel-type">MADE OF PIXELS & POSSIBILITIES.</span><a href="#home">回到頂端 ↑</a></footer>
+  <aside class="prototype-tools" aria-label="測試版控制"><a href="#pixel-lab">▶ 像素動畫</a><button id="motion-toggle" type="button" aria-pressed="false">暫停動畫</button><button id="replay" type="button">重播進場 ↺</button><a href="./index.html">原版網站 ↗</a></aside>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

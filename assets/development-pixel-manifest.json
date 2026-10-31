@@ -1,0 +1,104 @@
+{
+  "width": 256,
+  "height": 160,
+  "frames": 24,
+  "fps": 8,
+  "colors": [
+    "#000000",
+    "#ffffff"
+  ],
+  "fields": [
+    {
+      "label": "名稱欄位",
+      "rect": [
+        77,
+        52,
+        230,
+        70
+      ]
+    },
+    {
+      "label": "工具選單",
+      "rect": [
+        77,
+        79,
+        230,
+        97
+      ]
+    },
+    {
+      "label": "執行按鈕",
+      "rect": [
+        83,
+        111,
+        149,
+        132
+      ]
+    },
+    {
+      "label": "重設按鈕",
+      "rect": [
+        161,
+        111,
+        230,
+        132
+      ]
+    },
+    {
+      "label": "左側第一個項目",
+      "rect": [
+        18,
+        49,
+        61,
+        67
+      ]
+    },
+    {
+      "label": "左側第二個項目",
+      "rect": [
+        18,
+        76,
+        61,
+        94
+      ]
+    },
+    {
+      "label": "左側第三個項目",
+      "rect": [
+        18,
+        103,
+        61,
+        121
+      ]
+    }
+  ],
+  "scenes": [
+    {
+      "id": "gui",
+      "title": "圖形化介面",
+      "sprite": "gui-pixel-states.png",
+      "frames": 8,
+      "interactive": true
+    },
+    {
+      "id": "automation",
+      "title": "自動化工具",
+      "sprite": "automation-pixel-sprite.png",
+      "frames": 24
+    },
+    {
+      "id": "api",
+      "title": "API 串接",
+      "sprite": "api-pixel-sprite.png",
+      "frames": 24
+    },
+    {
+      "id": "docs",
+      "title": "技術文件",
+      "sprite": "docs-pixel-sprite.png",
+      "frames": 24
+    }
+  ],
+  "gif": "development-pixel.gif",
+  "still": "development-pixel-still.png"
+}

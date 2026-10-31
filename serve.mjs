@@ -8,10 +8,20 @@ const root = path.dirname(fileURLToPath(import.meta.url));
 const port = Number(process.env.PORT || 4173);
 console.log(`[0/3] 輸入目錄（絕對路徑）：${root}`);
 console.log(`[0/3] 輸出：本機預覽 http://127.0.0.1:${port}/MyPortfolio/，不寫入檔案。`);
-const types = { '.html':'text/html; charset=utf-8', '.css':'text/css; charset=utf-8', '.js':'text/javascript; charset=utf-8', '.png':'image/png', '.svg':'image/svg+xml', '.json':'application/json; charset=utf-8', '.mp4':'video/mp4', '.csv':'text/csv; charset=utf-8', '.xlsx':'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', '.srt':'text/plain; charset=utf-8', '.txt':'text/plain; charset=utf-8', '.md':'text/markdown; charset=utf-8', '.zip':'application/zip' };
+const types = { '.html':'text/html; charset=utf-8', '.css':'text/css; charset=utf-8', '.js':'text/javascript; charset=utf-8', '.png':'image/png', '.gif':'image/gif', '.svg':'image/svg+xml', '.json':'application/json; charset=utf-8', '.mp4':'video/mp4', '.csv':'text/csv; charset=utf-8', '.xlsx':'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', '.srt':'text/plain; charset=utf-8', '.txt':'text/plain; charset=utf-8', '.md':'text/markdown; charset=utf-8', '.zip':'application/zip' };
 const publicFiles = new Set(['index.html', 'styles.css', 'script.js', 'assets/portrait.png', 'assets/business-card.png', 'assets/services-poster.png', 'assets/favicon.svg', 'assets/social-linkedin.png', 'assets/social-github.png', 'assets/social-medium.png', 'assets/social-youtube.png']);
 for(const file of ['en/index.html','assets/services-poster-en.png','assets/business-card-en.png','assets/office-services-poster.png','assets/office-services-poster-en.png'])publicFiles.add(file);
 publicFiles.add('service-cards.css');
+for(const file of ['home-pixel.css','home-pixel.js'])publicFiles.add(file);
+for (const file of ['pixel-prototype.html', 'pixel-prototype.css', 'pixel-prototype.js']) publicFiles.add(file);
+for (const file of ['pixel-automation.css', 'pixel-automation.js', ...['sprite.png','still.png','manifest.json'].map(suffix => `assets/automation-pixel-${suffix}`), 'assets/automation-pixel.gif']) publicFiles.add(file);
+for (const file of ['pixel-scenes.css','pixel-scenes.js','assets/gui-pixel-states.png','assets/api-pixel-sprite.png','assets/docs-pixel-sprite.png','assets/development-pixel.gif','assets/development-pixel-still.png','assets/development-pixel-manifest.json']) publicFiles.add(file);
+publicFiles.add('pixel-service-posters.js');
+publicFiles.add('assets/service-animation-manifest.json');
+for (const [service,scenes] of Object.entries({scratch:['teaching','game','animation','debug'],translation:['software','technical','articles','terminology'],office:['convert','formula','ocr','batch']})) {
+  for(const scene of scenes) publicFiles.add(`assets/${service}-${scene}-pixel.png`);
+  for(const ext of ['gif','png']) publicFiles.add(`assets/${service}-animation-preview.${ext}`);
+}
 for(const language of ['zh','en'])for(const service of ['development','scratch','translation','office'])publicFiles.add(`assets/service-${service}-${language}.png`);
 try {
   const manifest=JSON.parse(await readFile(path.join(root,'fusion-studio','source-manifest.json'),'utf8'));
