@@ -50,12 +50,15 @@ try {
     for(const lang of ['en','zh-Hant'])assert(page.html.includes(`rel="alternate" hreflang="${lang}"`),`缺少 ${lang} 語系對應`);
     for(const image of page.html.matchAll(/<img\b[^>]*>/g))assert(/\balt="[^"]+"/.test(image[0]),'圖片缺少替代文字');
     for(const [,attrs] of page.html.matchAll(/<a\b([^>]*target="_blank"[^>]*)>/g))assert(attrs.includes('noopener'),'外部連結缺少 noopener');
-    for(const [,id] of page.html.matchAll(/data-open-dialog="([^"]+)"/g))assert(page.html.includes(`<dialog id="${id}"`),`找不到對話框：${id}`);
+    for(const [,id] of page.html.matchAll(/data-open-dialog="([^"]+)"/g))assert([...page.html.matchAll(/<dialog\b[^>]*\bid="([^"]+)"/g)].some(match=>match[1]===id),`找不到對話框：${id}`);
   }
   console.log('[3/4] 語言列、替代文字、預覽入口與外部連結通過。');
-  for(const name of ['services-poster','business-card','office-services-poster']) {
-    assert(pages[1].html.includes(`../assets/${name}-en.png`),`英文頁缺少英文圖片：${name}`);
-    assert(!pages[1].html.includes(`../assets/${name}.png`),`英文頁誤用中文圖片：${name}`);
+  assert(pages[1].html.includes('../assets/business-card-en.png'),'英文頁缺少英文名片');
+  for(const name of ['development','scratch','translation','office']) {
+    assert(pages[1].html.includes(`../assets/service-${name}-en.png`),`英文頁缺少英文圖片：${name}`);
+    assert(pages[0].html.includes(`./assets/service-${name}-zh.png`),`中文頁缺少中文圖片：${name}`);
+    assert(!pages[1].html.includes(`service-${name}-zh.png`),`英文頁誤用中文圖片：${name}`);
+    for(const page of pages)assert(page.html.includes(`id="${name}-poster"`),`缺少服務圖預覽：${name}`);
   }
   const englishText=pages[1].html.replaceAll('繁體中文','').replaceAll('中','');
   assert(!/\p{Script=Han}/u.test(englishText),'英文頁存在尚未翻譯的中文');
@@ -66,7 +69,7 @@ try {
     const href=html.match(/class="portfolio-link" href="([^"]+)"/)?.[1];
     assert.equal(new URL(href,new URL('fusion-studio/'+file,origin)).href,new URL('en/index.html#works',origin).href,`${file} 未返回英文作品集`);
   }
-  console.log('[4/4] 三組語系圖片、英文內容及 35 個英文文件返回入口通過。');
+  console.log('[4/4] 四組服務圖片、雙語名片、英文內容及 35 個英文文件返回入口通過。');
 } catch (error) {
   console.error('檢查失敗：', error.message);
   process.exitCode = 1;
