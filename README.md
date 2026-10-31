@@ -12,6 +12,10 @@
 
 本次正式頁驗證：雙語站內錨點、36 個靜態引用、英文文案與原圖、35 個英文文件返回入口通過；37 個首頁與動態動畫資源的本機 HTTP 內容比對通過；全站 78 頁 GTM 驗證通過。瀏覽器確認兩頁各載入十六張 Canvas，英文控制／替代文字無未翻譯中文，四種漸層對準英文標題；GUI 點選反白顯示英文狀態，原圖／動畫切換、英文原圖放大與關閉、全站暫停同步四組控制均正常。從英文切換繁中保留 `#services`。實際桌面 1107 CSS px 與窄螢幕 300 CSS px 皆無頁面水平溢出，每張海報內仍維持四格排列；未發現瀏覽器 warning／error。截圖存於 `.preview/production-en-desktop.png`、`.preview/production-en-mobile.png`、`.preview/production-zh-mobile.png`。
 
+公開比對時，HTML／CSS／JS／JSON 先統一 CRLF 與 LF 再比較全文，避免 Git 在 Windows 工作目錄與 Pages 產物之間轉換換行而誤判；PNG／GIF 仍逐位元組比較。內容不符時僅回報資源路徑，不列出整份二進位差異。
+
+發布紀錄：首頁提交 `b5b0a45` 已推送 main，GitHub Pages 工作 `41207877411` 回報 success。正式網址的 37 個首頁／動畫資源全部比對通過；公開英文頁確實載入十六格，播放影格前進、標題點選變色正常，未出現 warning／error。
+
 ## 黑白像素視覺測試版（以下為試作紀錄，已整合正式首頁）
 
 ### 四項服務、十六個場景（目前版本）

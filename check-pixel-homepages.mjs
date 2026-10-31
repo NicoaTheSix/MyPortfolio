@@ -58,7 +58,9 @@ try{
     for(const file of references){
       const response=await fetch(new URL(file,url));assert(response.ok,`${file}: HTTP ${response.status}`);
       const remote=Buffer.from(await response.arrayBuffer()),local=await readFile(path.join(root,file));
-      assert.deepEqual(remote,local,`${file}: HTTP 內容與本機不同`);
+      const isText=/\.(?:html|css|js|json)$/.test(file);
+      const same=isText?remote.toString('utf8').replaceAll('\r\n','\n')===local.toString('utf8').replaceAll('\r\n','\n'):remote.equals(local);
+      assert(same,`${file}: HTTP 內容與本機不同${isText?'（已忽略 CRLF／LF 差異）':''}`);
       count++;if(count%10===0||count===references.size)console.log(`[4/4] HTTP 比對進度：${count}/${references.size}`);
     }
   }else console.log('[4/4] 本機檢查完成；可加 --url 比對預覽或正式網址。');
