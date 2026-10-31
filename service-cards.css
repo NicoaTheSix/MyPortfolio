@@ -9,15 +9,10 @@
 .service-card-content > p:not(.card-kicker) { font-size:13px; color:var(--muted); }
 .service-card-content .card-link { margin-top:auto; }
 #services .card-link::after { content:none; }
-.writing-service { margin-top:24px; padding:24px; border:1px solid var(--ink); }
-.writing-service h3 { margin:6px 0 12px; font-size:23px; }
-.writing-service > p:not(.card-kicker) { font-size:13px; color:var(--muted); }
-.writing-service .tags { flex-direction:row; flex-wrap:wrap; margin:16px 0; }
-.writing-service .card-link { max-width:280px; }
 .service-image-dialog { width:min(1100px,calc(100% - 32px)); }
 @media(max-width:720px) {
   #services .service-grid { grid-template-columns:minmax(0,1fr); gap:20px; }
-  .service-card-content,.writing-service { padding:20px; }
+  .service-card-content { padding:20px; }
   .service-card-content > :not(.tags) { display:none; }
   .service-card-content .tags { flex-direction:row; flex-wrap:wrap; margin:0; }
   #services .service-card h3 { font-size:23px; }

@@ -43,7 +43,7 @@
 
 發布檔案檢查只能證實 GTM 已安裝；容器內 GA4 標籤是否觸發及資料是否送達，需在 Google Tag Assistant 與 GA4「即時」報表確認。放置方式依據 [官方 GTM 安裝文件](https://support.google.com/tagmanager/answer/14847097)。
 
-以使用者提供的黑白點陣圖片為視覺參考，建立 Nicoa The Six的繁體中文與英文個人網站。內容包含程式開發、Scratch 教學、文章寫作、中英文翻譯及文書資料整理。GitHub 儲存庫為 `NicoaTheSix/MyPortfolio`。
+以使用者提供的黑白點陣圖片為視覺參考，建立 Nicoa The Six的繁體中文與英文個人網站。目前服務包含程式開發、Scratch 教學、中英文翻譯及文書資料整理；文章寫作服務已依要求移除，作品區的文章與筆記保留。更新流程見 [服務圖片維護說明](service-images/README.md)。GitHub 儲存庫為 `NicoaTheSix/MyPortfolio`。
 
 ## 網站結構與執行流程
 

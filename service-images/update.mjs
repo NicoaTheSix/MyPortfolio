@@ -75,8 +75,7 @@ try {
         const dialog = `${services[i]}-poster`;
         return `<article class="service-card"><button type="button" class="service-card-image" data-open-dialog="${dialog}" aria-label="${en ? 'Enlarge: ' : '放大：'}${titles[i]}"><img src="${src}" alt="${descriptions[i]}" width="${file.width}" height="${file.height}" loading="lazy"></button><div class="service-card-content">${body}</div></article>`;
       }).join('\n        ');
-      const writing = cards[2].replace('class="service-card"', 'class="writing-service"').replace(/<div class="card-top">[\s\S]*?<\/div>/, '').replace('WORDS &amp; IDEAS', '05 / WORDS &amp; IDEAS').replace('WORDS & IDEAS', '05 / WORDS &amp; IDEAS');
-      html = html.replace(grid[0], `<div class="service-grid">\n        ${newCards}\n      </div>\n      ${writing}`);
+      html = html.replace(grid[0], `<div class="service-grid">\n        ${newCards}\n      </div>`);
       html = html.replace(/<button\b[^>]*data-open-dialog="service-poster"[\s\S]*?<\/button>/, '');
       html = html.replace(/\s*<dialog id="(?:service|office)-poster"[\s\S]*?<\/dialog>/g, '');
       const dialogs = services.map((service, i) => {
@@ -87,6 +86,15 @@ try {
       }).join('\n');
       html = html.replace('</body>', `${dialogs}\n</body>`);
     }
+    html = html.replace(/\s*<article class="writing-service">[\s\S]*?<\/article>/g, '');
+    html = html.replace('Scratch 教學、文章寫作、中英文翻譯', 'Scratch 教學、中英文翻譯')
+      .replace('Scratch lessons, writing, Chinese–English translation', 'Scratch lessons, Chinese–English translation')
+      .replace('從一段程式、一堂課，到一篇文章。', '從一段程式、一堂課，到一份文件。')
+      .replace('A piece of code, a lesson, or a few well-chosen words.', 'A piece of code, a lesson, or a well-organized document.')
+      .replace('在程式、教學與文字之間的各種嘗試', '在程式、教學與翻譯之間的各種嘗試')
+      .replace('或是有一段想好好說清楚的內容', '或是需要翻譯與整理文件')
+      .replace('programming, teaching and writing come together', 'programming, teaching, translation and document services come together')
+      .replace('have an idea to explain clearly, or need a document put in order', 'need a translation or a document put in order');
     if (!html.includes('class="tags office-tags"')) {
       const tags = en
         ? '<div class="tags office-tags"><span>Word / Excel / OCR</span><span>Formulas / Batch processing</span></div>'
@@ -104,10 +112,10 @@ try {
       assert(html.includes(`service-${service}-${lang}.png`));
       assert(html.includes(`id="${service}-poster"`));
     }
-    assert(html.includes('class="writing-service"'));
+    assert(!html.includes('class="writing-service"'));
     assert(!html.includes('data-open-dialog="service-poster"'));
   }
-  console.log('[4/4] 四項服務的中英文圖片、放大及下載入口完成，文章寫作服務保留。');
+  console.log('[4/4] 四項服務的中英文圖片、放大及下載入口完成；文章寫作服務已移除，作品與筆記保留。');
 } catch (error) {
   console.error('服務圖片更新失敗：', error.message);
   process.exitCode = 1;
