@@ -2,12 +2,12 @@
   "project": "DeskTiles",
   "passed": true,
   "pages": 6,
-  "assets": 15,
-  "localReferences": 415,
-  "searchEntries": 54,
-  "zipBytes": 408789,
-  "zipSha256": "77b336514c7a961abe52dcd579ec4e20ad41e0fd8b6b4099deaf1ab6b789e8a8",
-  "httpFiles": 24,
+  "assets": 17,
+  "localReferences": 488,
+  "searchEntries": 70,
+  "zipBytes": 459907,
+  "zipSha256": "8b506c952970ad54c37015f493739d7b0b87792868c28c6bfcb54545212724b9",
+  "httpFiles": 26,
   "httpVerified": true,
   "applicationTests": "Not rerun; project-provided validation only."
 }

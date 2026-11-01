@@ -1,11 +1,13 @@
 {
   "schemaVersion": 1,
   "project": "DeskTiles",
-  "publishedDate": "2026-10-31",
-  "sourceRepository": null,
+  "publishedDate": "2026-11-01",
+  "sourceRepository": "https://github.com/NicoaTheSix/DeskTile",
   "platform": "Windows 10 / 11 x64",
-  "zipSha256": "77b336514c7a961abe52dcd579ec4e20ad41e0fd8b6b4099deaf1ab6b789e8a8",
-  "zipBytes": 408789,
+  "zipSha256": "8b506c952970ad54c37015f493739d7b0b87792868c28c6bfcb54545212724b9",
+  "zipBytes": 459907,
+  "releaseExeSha256": "3b27f00ac33c7df41efc86c5031c06f546e8dfc871bd26b26d5be9b4c8836106",
+  "releaseExeBytes": 1330688,
   "generatedHtml": [
     "index.html",
     "guide.html",
@@ -23,6 +25,9 @@
     "en/readme.html",
     "downloads/README.md",
     "downloads/guide-zh.md",
+    "downloads/guide-en.md",
+    "assets/control-en.png",
+    "assets/DeskTiles-fixes-demo.mp4",
     "assets/shapes.png",
     "assets/control.png",
     "assets/border.png",
@@ -34,7 +39,6 @@
     "downloads/SHA256SUMS.txt",
     "downloads/mixed-shapes.json",
     "downloads/validation.txt",
-    "downloads/guide-en.md",
     "downloads/readme-en.md",
     "desktiles.css",
     "search-index.json",
@@ -44,14 +48,32 @@
     {
       "path": "downloads/README.md",
       "source": "README.md",
-      "sha256": "cfac92f7b21685236af3b522ec1afd3264f2f0a9a04fb95877cab447bb4bdfd3",
-      "bytes": 8804
+      "sha256": "50cd4697f3fcf10c80557df8fd05924e76308ae9d2cb8a56634e4c0011ff16fc",
+      "bytes": 15331
     },
     {
       "path": "downloads/guide-zh.md",
       "source": "docs/使用說明.md",
-      "sha256": "27f40e5e93942b6f4018caa6f7ccd3da3259a1f3eeccdc17ae124360436ecc20",
-      "bytes": 5399
+      "sha256": "19ea692f31f7ddddda8dc3b1473e9cd48506439e2bbb4442741dc59c73aceca0",
+      "bytes": 7110
+    },
+    {
+      "path": "downloads/guide-en.md",
+      "source": "docs/UserGuide.en.md",
+      "sha256": "e5518098e9c74a6bfaa3f04f419e2001131e31496b6936d81ad25f836d966a97",
+      "bytes": 5090
+    },
+    {
+      "path": "assets/control-en.png",
+      "source": "docs/control-en.png",
+      "sha256": "290c68ba21c78fb4c277a930d9f138c76ffba42a1cfbe86df71e478a6b952aa5",
+      "bytes": 41508
+    },
+    {
+      "path": "assets/DeskTiles-fixes-demo.mp4",
+      "source": "docs/DeskTiles-fixes-demo.mp4",
+      "sha256": "33baf4e936ef754b5bd08f2a61643880ecf72939b1455ad016b77c73ceb1f2f2",
+      "bytes": 478500
     },
     {
       "path": "assets/shapes.png",
@@ -62,8 +84,8 @@
     {
       "path": "assets/control.png",
       "source": "docs/control.png",
-      "sha256": "2b3c11b22cb77b06c76f4d97ea5386b6c3dd74797abfa70b60baf8e2c6492082",
-      "bytes": 44362
+      "sha256": "cfa801344574b9feed59ab08de81bcd22abb43f08805fd2a733ee5ca1d855958",
+      "bytes": 45143
     },
     {
       "path": "assets/border.png",
@@ -98,13 +120,13 @@
     {
       "path": "downloads/DeskTiles-Windows-x64.zip",
       "source": "release/DeskTiles-Windows-x64.zip",
-      "sha256": "77b336514c7a961abe52dcd579ec4e20ad41e0fd8b6b4099deaf1ab6b789e8a8",
-      "bytes": 408789
+      "sha256": "8b506c952970ad54c37015f493739d7b0b87792868c28c6bfcb54545212724b9",
+      "bytes": 459907
     },
     {
       "path": "downloads/SHA256SUMS.txt",
       "source": "release/SHA256SUMS.txt",
-      "sha256": "980ca06a2471f705e15fe10e037774f1193faf87337a9919c21f3ee74a929988",
+      "sha256": "5a0756bc0998f388dc8015a86bba20ec143f53522d798fe71e931e66a9db2f01",
       "bytes": 184
     },
     {
@@ -116,25 +138,24 @@
     {
       "path": "downloads/validation.txt",
       "source": "docs/驗證摘要.txt",
-      "sha256": "eb3428878ae1ae94e727681d62f01aa17e2cf2241d85494010178e8eb7cd862b",
-      "bytes": 1661
-    },
-    {
-      "path": "downloads/guide-en.md",
-      "source": "website:content/guide-en.md",
-      "sha256": "d7d9c764961684ab9919e5dfcff84809bfc2876edc843ca364626480d37d6bf6",
-      "bytes": 6741
+      "sha256": "428baf692c8e92590c822e556e99e5a9edbfe1671909579de1f42c85d1dfa0c2",
+      "bytes": 3781
     },
     {
       "path": "downloads/readme-en.md",
       "source": "website:content/readme-en.md",
-      "sha256": "0d9329db93afab4fc46c7f31b81302afbafe4f43683c70f3d6f1346a7aaaa096",
-      "bytes": 9967
+      "sha256": "835fbe0d46bd310fff60bcaaee0607483b64a298f5844731d40690f63adeead6",
+      "bytes": 17395
     }
   ],
   "sourceValidation": {
-    "coreChecks": 170,
-    "windowsChecks": 123,
+    "coreChecks": 179,
+    "windowsChecks": 166,
+    "actualScreenChecks": 64,
+    "languages": [
+      "zh-Hant",
+      "en"
+    ],
     "note": "Project-provided local validation; not rerun by the website publisher. Performance samples are not universal guarantees."
   }
 }

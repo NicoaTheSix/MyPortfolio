@@ -100,13 +100,17 @@
 
 ## DeskTiles 桌面拼格專案
 
-新增 `/MyPortfolio/desktiles/` 與 `/MyPortfolio/desktiles/en/`，提供專案介紹、中英文使用說明、專案 README、原始 Markdown、含圖片的範例 JSON 與 Windows x64 免安裝 ZIP。根目錄中英文首頁提供專案卡與桌面導覽入口。原始碼公開倉庫與專案授權尚未確認，沒有設定猜測的原始碼連結或宣稱開源。
+新增 `/MyPortfolio/desktiles/` 與 `/MyPortfolio/desktiles/en/`，提供專案介紹、中英文使用說明、專案 README、原始 Markdown、含圖片的範例 JSON 與 Windows x64 免安裝 ZIP。根目錄中英文首頁提供專案卡與桌面導覽入口。倉庫已確認為 `https://github.com/NicoaTheSix/DeskTile`；整體專案授權未指定，不宣稱開源授權。
+
+2026-11-01 修正版：採用本機 `D:\DeskTile\release\DeskTiles-Windows-x64.zip`（459907 bytes），SHA-256 `8B506C952970AD54C37015F493739D7B0B87792868C28C6BFCB54545212724B9`。新版支援繁中／English 即時切換、偏好保存，修正一般啟動黑色／不可見圖形、透明顯示與置頂／桌面模式。首頁作品卡、雙語介紹與文件已同步，保留現有首頁動畫 class。頁面提醒先從舊版系統匣儲存並結束，不能只按 X；既有配置不需刪除。下載以驗證完成的本機 release 為準，不從尚未包含全部修正的遠端重建。
+
+建置器先列出所有輸入／輸出絕對路徑，再依五階段校驗指定 ZIP 與 EXE、原樣複製中英文指南／六張截圖／示範影片／其他明列素材、產生六頁文件與 70 筆搜尋、記錄來源、更新首頁。英文指南直接來自 `docs/UserGuide.en.md`；只有英文 README 是網站翻譯。下載與媒體附日期版本參數，避免舊快取。示範 MP4 使用 controls／playsinline，不自動播放；預覽沿用既有 MP4 Range。維護詳見 [DeskTiles 維護說明](desktiles/README.md)。
 
 建置與驗證程式位於本 README 相同目錄。先執行 `node .\build-desktiles.mjs --source 'D:\DeskTile'`，再執行 `node .\check-desktiles.mjs`。建置器在操作前列出來源、所有素材／翻譯輸入、所有產物與首頁輸出的絕對路徑，依五階段核對 ZIP 雜湊、原樣複製明確指定素材、產生六個 HTML、建立雙語搜尋與來源清單、更新首頁卡片。驗證器先列出絕對輸入與報告輸出，再逐階段檢查頁面／錨點、資產與原始下載雜湊、雙語導覽與搜尋、追蹤設定，以及選用的 HTTP 發布內容比對。
 
 本機執行 `node .\serve.mjs` 後，可用 `node .\check-desktiles.mjs --url 'http://127.0.0.1:4173/MyPortfolio/desktiles/'` 核對所有公開檔案與 ZIP。發布後將 URL 換成 `https://nicoathesix.github.io/MyPortfolio/desktiles/`。預覽白名單依專案來源清單擴充，支援 Markdown 與 ZIP 的下載 MIME。`sync-google-tag.mjs` 同時納入六個新頁面，與原有 72 頁共用同一 GTM，合計 78 頁；新增頁面重用原文件的導覽／搜尋程式，其 console 進度前綴由頁面專案名稱決定。
 
-只讀交接提供的專案文件與明列素材，不讀取、複製或發布 LocalAppData、個人版面或日誌；不執行或重包 EXE／ZIP。170 項核心與 123 項 Windows 整合檢查為來源提供的驗證結果，網站只核對發布內容；不將短時間效能樣本寫成通用保證。詳細流程見 [DeskTiles 維護說明](desktiles/README.md)。
+只讀交接提供的專案文件與明列素材，不讀取、複製或發布 LocalAppData、個人版面或日誌；不執行或重包 EXE／ZIP。最新 179 項核心、繁中與英文各 166 項 Windows 整合、解壓後一般啟動 64 項實際螢幕檢查，均為來源提供的驗證結果；網站只核對發布內容與下載完整性，不將短時間效能樣本寫成通用保證。詳細流程見 [DeskTiles 維護說明](desktiles/README.md)。
 
 2026-10-31 發布驗證：六頁文件、15 份公開素材、54 筆搜尋索引、24 個專區 HTTP 檔案及既有 70 頁 Fusion Studio 文件檢查通過；全站 78 頁 GTM 檢查通過。瀏覽器檢查 1440px 桌面、390px 與 320px 手機；中文「透明」與英文「timer」搜尋、同頁語言切換及手機導覽正常，表格在容器內捲動。Windows ZIP 已透過網站下載，與來源 SHA-256 相同。首頁服務圖卡及手機僅顯示圖片／標籤的設定保留。
 

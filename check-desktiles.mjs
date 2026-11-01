@@ -65,6 +65,20 @@ try {
   assert.equal(hash(zip).toUpperCase(),manifest.zipSha256.toUpperCase());
   const sums=await readFile(path.join(site,'downloads/SHA256SUMS.txt'),'utf8');
   assert.equal(sums.match(/([a-f0-9]{64})\s+DeskTiles-Windows-x64\.zip/i)?.[1].toLowerCase(),hash(zip));
+  assert.equal(hash(zip),'8b506c952970ad54c37015f493739d7b0b87792868c28c6bfcb54545212724b9','不是 2026-11-01 指定版');
+  assert.equal(zip.length,459907);
+  assert.equal(manifest.releaseExeSha256,'3b27f00ac33c7df41efc86c5031c06f546e8dfc871bd26b26d5be9b4c8836106');
+  assert.equal(manifest.sourceValidation.coreChecks,179);
+  assert.equal(manifest.sourceValidation.windowsChecks,166);
+  assert.equal(manifest.sourceValidation.actualScreenChecks,64);
+  assert.equal(manifest.assets.find(asset=>asset.path==='downloads/guide-en.md')?.source,'docs/UserGuide.en.md','應採用來源提供的英文指南');
+  for(const lang of ['zh','en']) {
+    const page=documents.get('desktiles/'+(lang==='en'?'en/':'')+'index.html').document;
+    assert(page.querySelector('#release-update')?.textContent.includes(lang==='zh'?'既有配置不必刪除':'Keep your existing layout'),'缺少保留配置提醒');
+    assert(page.querySelector('#release-update')?.textContent.includes(lang==='zh'?'儲存並結束桌面拼格':'Save and exit DeskTiles'),'缺少結束舊版提醒');
+    assert(page.querySelector('video[controls][playsinline] source[type="video/mp4"]'),'缺少示範影片');
+    assert(!page.querySelector('video[autoplay]'),'影片不應自動播放');
+  }
   console.log(`[2/5] ${references} 個站內引用與錨點、${manifest.assets.length} 個素材／下載雜湊及 ZIP 校驗通過。`);
   const index=JSON.parse(await readFile(path.join(site,'search-index.json'),'utf8'));
   for(const entry of index) {
@@ -85,6 +99,7 @@ try {
     assert.equal((html.match(/<!-- Google Tag Manager \(noscript\) -->/g)||[]).length,1);
     assert(!html.includes('gtag/js?id='),'不應重複直接載入 GA4');
     for(const image of document.querySelectorAll('img'))assert(image.hasAttribute('alt'),'缺少圖片替代文字');
+    if(file==='en/guide.html')assert(document.querySelector('img[src*="control-en.png"]'),'英文指南缺少原生英文截圖');
     for(const link of document.querySelectorAll('a[target="_blank"]'))assert(link.getAttribute('rel')?.includes('noopener'),'外部連結缺少 noopener');
   }
   for(const lang of ['zh','en']) {
@@ -112,6 +127,14 @@ try {
       httpFiles+=results.length;
       console.log(`[4/5] HTTP 內容與下載核對 ${httpFiles}/${manifest.publicFiles.length}。`);
     }
+    const video='assets/DeskTiles-fixes-demo.mp4';
+    const response=await fetch(new URL(video,base),{headers:{Range:'bytes=0-1023'},signal:AbortSignal.timeout(20000)});
+    assert.equal(response.status,206,'影片不支援 Range');
+    assert(response.headers.get('content-type')?.includes('video/mp4'),'影片 MIME 不正確');
+    const expected=await readFile(path.join(site,video));
+    assert.equal(response.headers.get('content-range'),`bytes 0-1023/${expected.length}`);
+    assert.equal(hash(Buffer.from(await response.arrayBuffer())),hash(expected.subarray(0,1024)),'影片 Range 內容不同');
+    console.log('[4/5] 影片 Range 與 MP4 MIME 核對通過。');
   } else console.log('[4/5] 未指定 --url，略過 HTTP 發布比對。');
   await writeFile(reportFile,JSON.stringify({project:'DeskTiles',passed:true,pages:manifest.generatedHtml.length,assets:manifest.assets.length,localReferences:references,searchEntries:index.length,zipBytes:zip.length,zipSha256:hash(zip),httpFiles,httpVerified:Boolean(base),applicationTests:'Not rerun; project-provided validation only.'},null,2)+'\n');
   console.log('[5/5] DeskTiles 發布檢查成功：',reportFile);

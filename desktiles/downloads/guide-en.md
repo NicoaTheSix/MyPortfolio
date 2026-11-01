@@ -1,79 +1,67 @@
-# DeskTiles user guide
+# DeskTiles — User Guide
 
-Arrange hexagonal, triangular and rectangular tiles on your Windows desktop to display text, images or timers. Each tile can stay above other windows or on the desktop layer. You can also select a group to move it or update its appearance together.
+DeskTiles is a native Windows desktop widget app. Arrange text, images and timers in hexagonal, triangular or rectangular tiles. Windows 10/11 x64 is supported; Linux is planned.
 
-## Start here
+## Start
 
-1. Download [DeskTiles-Windows-x64.zip](release/DeskTiles-Windows-x64.zip) and extract the entire archive.
-2. Open the extracted `DeskTiles` folder and double-click `DeskTiles.exe`.
-3. On first launch, three example tiles and the content controller appear.
-4. Select tiles on the left, edit the content on the right, then click **Apply to all selected tiles** (套用至所有選取格).
+1. Extract the complete `DeskTiles-Windows-x64.zip` archive.
+2. Open the `DeskTiles` folder and run `DeskTiles.exe`. No installer, administrator rights, Python, .NET or separate C++ runtime is required.
+3. In the upper-right language selector, choose **English**. You can also use the **Language** submenu in a tile's context menu or the tray menu.
 
-The portable build supports **Windows 10 / 11 x64**. You do not need Visual Studio, Python, .NET, extra runtime packages or administrator permissions. A Linux version has not been implemented. A source-code checkout must be built separately; the portable ZIP already contains the compiled EXE.
+The interface changes immediately. Your preference is remembered at the next launch. Switching preserves pending edits, selected tiles, font settings and running timers. It changes interface text only; your own tile content, paths and font names are never translated.
 
-The screenshots and the current application use Chinese UI labels. This guide explains their actions in English.
+## Tiles and selection
 
-## Add, select and move tiles
+- Choose **Hexagon (default)**, **Triangle** or **Rectangle (3:2)** and click **+ Add tile**.
+- Click a tile to select it. Hold **Shift** and click to add or remove a tile from the selection.
+- Drag a selected tile to move the entire selected group while preserving its relative positions. Shift-drag also works. Nearby tiles snap together; overlapping drops return to their original positions.
+- Press **Esc** to clear selection. Double-click a tile to open the controller.
+- Use **Always on top** or **Pin to desktop** to choose the display layer for selected tiles.
 
-- The shape selector defaults to a hexagon. You can also choose an upward-pointing equilateral triangle or a 3:2 rectangle, then click **Add tile**. The context menu and system tray also offer add actions.
-- Click a tile to select it. **Shift + click** adds it to or removes it from the selection. Clicking an already selected tile makes it the only selection; starting a drag instead preserves the group selection.
-- Drag any selected tile to move the entire group while preserving its relative positions.
-- Tiles snap when brought near another tile. Different shapes prefer edge midpoints or corners and can also snap along edges. Releasing a group in an overlapping position restores its original position.
-- Press **Esc** to clear the selection. Double-click a tile to reopen the controller.
-- Use the tile context menu to set selected tiles to **Always on top** or **Desktop layer**.
+## Content
 
-## Text, images and timers
+Select one or more tiles, choose **Text**, **Image** or **Timer**, edit the fields, then click **Apply to selected tiles**.
 
-Select tiles first, then choose a content type on the right of the controller.
+- Text supports multiple lines and Unicode.
+- Images support PNG, JPEG and BMP. Images are cropped to fill the selected shape. Directly chosen images reference their original paths; export a JSON layout to include them in a portable backup.
+- Timers support count down and count up. Use **Start timer**, **Pause timer** and **Reset timer**. Saved timers reopen paused.
 
-- **Text:** Supports Chinese text, multiple lines and centered display. Enter the text, then apply it.
-- **Images:** Browse to a PNG, JPEG or BMP file, then apply it. Images retain their aspect ratio and are cropped to the tile shape. Directly selected images reference the original file path. Export a JSON configuration to back them up or move them to another computer.
-- **Timers:** Choose a countdown or elapsed-time timer. For a countdown, enter the total number of seconds and apply it, then start, pause or reset. Elapsed time is saved when the program closes; timers remain paused when reopened.
+## Appearance
 
-Applying content with multiple tiles selected changes all selected tiles. To change appearance only, use the separate appearance buttons on the left.
+- **Size and text…**: width 80–480 px; requested font size 8–96 px; installed supported fonts and text color. Check only the settings you want to apply.
+- Text that does not fit is rendered smaller without changing the saved font size. Long content can be shortened with an ellipsis. Missing Chinese glyphs use a covering fallback font for consistent measurement and rendering.
+- **Border style…**: solid, pixel, animated RGB or single-color breathing; width 1–12 px and effect cycle 2–60 seconds.
+- **Background…**: color and 0–100% transparency. Transparency affects the background only. Text, images and borders keep their opacity; fully transparent tile areas remain selectable and draggable.
+- Appearance changes can be applied to multiple selected tiles. Resizing that would cause a collision leaves the settings unchanged.
 
-## Size, typography and borders
+## Save, export and import
 
-- **Size and text:** Choose whether to apply tile size, text styling or both. Width ranges from 80–480 px; font size ranges from 8–96 px. Select an installed font and choose a text color or enter its color code.
-- Resizing a group scales its relative positions. If there is insufficient space, the existing configuration is retained.
-- **Borders and style:** Solid, pixel, RGB rainbow and single-color breathing borders are supported. Border width ranges from 1–12 px; animation cycles range from 2–60 seconds. You can change colors or stop playback.
-- **Background and transparency:** Background color and transparency can be applied separately. 0% is opaque and 100% is fully transparent. Only the background changes; text, images and borders retain their own settings. Fully transparent empty areas remain selectable and draggable.
-- Click **Apply** after editing settings. The controller defaults to an 18 px UI font and a 32 px header. These sizes are separate from each tile's content font.
+Changes are saved automatically after successful operations. Default data folder: `%LOCALAPPDATA%\HexDesk` (the historic folder name is retained for compatibility).
 
-## Save, back up and move to another computer
+**Layout JSON…** provides:
 
-Completed actions are saved automatically. The default data folder is `%LOCALAPPDATA%\HexDesk`; the older folder name is retained for compatibility. Startup displays the actual absolute input and output paths.
+- **Export layout with images…**: save tiles, positions, styles and embedded images in one JSON file.
+- **Import JSON: replace…**: replace the current layout after confirmation and a backup.
+- **Import JSON: merge…**: keep existing tiles and add the imported group with new IDs, repositioning it if necessary to avoid overlaps.
 
-The **Configuration JSON** menu in the upper right provides:
+The included `範例配置.json` is a three-shape sample with an embedded image. Font files are not embedded; unavailable fonts use a fallback. Imported timers start paused.
 
-1. **Export entire layout:** Saves every tile, position, style and image content into one JSON file.
-2. **Replace import:** Replaces the current layout after confirmation and a backup.
-3. **Merge import:** Keeps existing tiles, assigns new IDs to imported tiles and, if needed, shifts the imported group to avoid overlaps.
+Limits: 500 tiles, 128 MiB JSON, 16 MiB per image, 64 MiB of images in total and 64 million pixels per decoded image.
 
-The bundled example configuration contains all three shapes and one embedded example image. Try it with merge import. Images are embedded in the JSON and are saved to the data folder's `assets` directory after import. Fonts are stored by name only. If another computer lacks a font, the program reports it and uses a fallback font.
+Language is stored separately in `ui-settings.json` in the data folder. Importing a layout never changes it. Missing, unknown or corrupt preferences default to Traditional Chinese. Corrupt preferences are not overwritten at startup; an explicit language choice can replace them. If saving fails, the current language and pending edits stay intact.
 
-Limits: 500 tiles, 16 MiB per image, 64 MiB of images in total, a 128 MiB JSON file and 64 million pixels per image. Invalid configurations or damaged images leave the current layout unchanged.
+## Close, update and troubleshoot
 
-## Close, exit and update
+Closing the controller hides it; tiles continue to run. Double-click a tile or use **Open controller** from the tray to return. To quit, apply pending edits and choose **Save and exit DeskTiles**.
 
-Closing the controller only hides its panel. Desktop tiles and timers keep running. Double-click a tile or use the system tray to bring the panel back.
+Before updating, save and exit the old version, then open the new executable. Starting another copy with the same data folder restores the existing controller instead of running two writers. A leftover `session.lock` file alone is normal; do not delete it as a workaround.
 
-Before exiting, apply any pending edits, then choose **Save and exit DeskTiles** from a tile context menu or the system tray. Exit the old version before running an update. The new version restores the layout from the same data folder.
-
-Starting the program again with the same data folder brings back the existing controller. It does not start two writers for the same layout or automatically terminate the old version.
-
-## Troubleshooting
-
-- **An older version is still running:** The new launch normally restores its window. Save and exit the old version from the tray, then start the new EXE.
-- **The data directory is not writable:** Check the displayed path and Windows error code, or choose another writable directory.
-- **A `session.lock` file remains:** This is normal. Its presence alone does not mean the program is running. Do not delete the lock file to resolve duplicate launches.
-- **Tiles are missing:** Choose **Recover all tiles** in the tray menu to move them onto the main display and bring them to the top.
-- **An image cannot be loaded:** Select its source file again, or import a JSON configuration that includes it.
-
-For an independent data folder, run this in PowerShell:
+- Missing tiles: **Bring back all tiles** moves them to the main display and sets them always on top.
+- Missing image: choose the source file again or import a JSON backup containing it.
+- Unwritable data folder: use the folder and Windows error shown by the app, or choose a different location:
 
 ```powershell
 .\DeskTiles.exe --data-dir 'D:\DeskTilesData'
 ```
 
-Different data directories can run separately without changing one another's layouts. Compatibility across Windows versions, multiple displays, DPI settings and Explorer restarts remains subject to further testing.
+The app logs absolute input/output paths and progress in `session.log`. Layout backups include `layout.backup` and pre-import backups. Windows system file/color dialogs use the language resources available in Windows.

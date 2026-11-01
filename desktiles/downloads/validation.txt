@@ -1,29 +1,52 @@
-DeskTiles latest validation — 2026-10-31 Asia/Taipei
-Core: 170 checks passed.
-Packaged EXE: 123 Windows integration checks passed after extracting ZIP.
-Duplicate launch: hidden controller restored; existing process stays alive; layout SHA256 unchanged.
-Legacy DeskTiles duplicate launch: hidden controller restored; layout SHA256 unchanged.
-Original startup cause: an old background DeskTiles process held the data directory lock.
-Fix: query exact lock owner and restore controller; permission failures have a separate path/error-code message.
-Windows x64 PE confirmed. Dependencies are Windows DLLs; no dynamic VC runtime, .NET, Python or browser runtime.
-Package includes EXE, README.txt, user guide, example JSON and third-party MIT notice.
-Package resource sample (three tiles, short local sample):
-PASS checks=123
-idle_sample_seconds=5
-idle_cpu_one_core_percent=0
-working_set_mib=30.4805
-private_mib=7.84766
-handles=245
-gdi_objects=64
-idle_tile_paints=0
-rgb_sample_seconds=10
-rgb_cpu_one_core_percent=0.3125
-rgb_timer_frames=107
-rgb_tile_paints=214
-SHA256 checksums:
-Standard verification: 123 Windows checks passed.
-Additional protection: Unicode paths, corrupt file SHA256 preserved, exclusive data lock rejection all passed.
-77B336514C7A961ABE52DCD579EC4E20AD41E0FD8B6B4099DEAF1AB6B789E8A8  DeskTiles-Windows-x64.zip
-4F7074CE24AA65A186989299E35FD92B2CC7260FFEAAC9AB10358E04F422A17C  DeskTiles/DeskTiles.exe
-Final ZIP rebuilt from current documentation/example; embedded EXE hash matches the fully tested binary.
-Published release EXE launched successfully using the existing user data directory; initialization completed.
+DeskTiles rendering and window-layer validation - 2026-11-01 Asia/Taipei
+Project: D:\DeskTile
+Release EXE: D:\DeskTile\release\DeskTiles\DeskTiles.exe
+Release EXE SHA256: 3B27F00AC33C7DF41EFC86C5031C06F546E8DFC871BD26B26D5BE9B4C8836106
+ZIP: D:\DeskTile\release\DeskTiles-Windows-x64.zip
+ZIP SHA256: 8B506C952970AD54C37015F493739D7B0B87792868C28C6BFCB54545212724B9
+
+Confirmed cause:
+- Build and old release EXEs were identical (8F81EF145050631C05867C907B5E2AFCF319438096153E99E1EE5B6BD16F03C5).
+- Normal startup could produce black/invisible content despite valid cached pixels and successful UpdateLayeredWindow calls.
+- WS_EX_NOREDIRECTIONBITMAP on the input host suppressed composition of its layered child.
+- Converting the host into an Explorer child also lost layered presentation through Explorer's no-redirection surface.
+- Previous smoke runs and exported frame previews did not establish visible content in ordinary startup.
+
+Fix:
+- Normal top-level polygon input host, DWM full-client transparent frame, zero-alpha host paint, layered content child.
+- Desktop mode: Explorer-owned popup, bottom of normal window band, no mouse activation.
+- On top: clear Explorer owner and explicitly set HWND_TOPMOST. Coordinates remain in screen space in both modes.
+- Reset the transparent frame after DWM composition changes.
+- Preserve alpha 0 hit testing, cache reuse, shared animation clock, stored layouts and bilingual UI.
+
+Regression evidence:
+- Old release: 11/30 checks passed; actual visible content/borders/images failed as expected.
+  D:\DeskTile\build\composition-20261101-175425-002400\results.json
+- Final extracted EXE, ordinary startup with saved on-top mode: 30/30 passed.
+  D:\DeskTile\build\composition-20261101-175951-393000\results.json
+- Same extracted EXE, ordinary startup with saved desktop mode: 34/34 passed.
+  D:\DeskTile\build\composition-20261101-180001-748100\results.json
+- Both use actual screen pixels, not PrintWindow or native frame exports.
+- Ordinary foreground-window coverage and desktop input occlusion verified.
+- Alpha oracle uses a persistent topmost white/black fixture behind the tested tiles; this prevents another application from changing the expected underlay.
+- Alpha 0 displays exact white beneath it, retains text/borders/images, passes real WindowFromPoint hit testing and can select/drag.
+- Desktop visibility capture checks for windows reactivated during the fixture. Minimized windows are restored by the wrapper's finally block.
+
+Other validation on final code:
+Core: 179 checks passed.
+Traditional Chinese Windows integration: 166 checks passed.
+English Windows integration: 166 checks passed.
+Language regression: 18 checks, actual preference restarts and corrupt/save-failure protection passed.
+Core results: D:\DeskTile\build\core-test-results.txt
+UI/protection: D:\DeskTile\build\verify-20261101-175316-890
+Language: D:\DeskTile\build\language-20261101-175340-612
+ZIP integration: D:\DeskTile\build\package-test-20261101-175807-828\data\integration-results.txt
+The ZIP UI run and final compositor run were recorded separately; the exact extracted EXE SHA256 is identical.
+ZIP has six required files; extracted EXE equals build and release EXE.
+
+Data and limits:
+- Dedicated fictional fixtures only; personal layouts/images not modified or bundled. The existing user process was not stopped.
+- The running old image is retained under build; use Save and Exit in its tray menu before opening the new EXE.
+- UI pixel verification requires an interactive Windows desktop; concurrent foreground activity may interrupt it.
+- Other Windows versions, Explorer restart, DPI/multiple monitors and long-duration stress remain further compatibility work.
+- Linux remains planned.

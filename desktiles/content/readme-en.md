@@ -1,5 +1,7 @@
 # DeskTiles
 
+Project repository: [NicoaTheSix/DeskTile](https://github.com/NicoaTheSix/DeskTile). The portable build is available below. The website download is the verified local release; the repository does not yet contain all recent rendering fixes. An overall project license has not been specified; third-party notices remain in the ZIP.
+
 A native Windows desktop widget app for arranging text, images and timers in hexagonal, triangular or rectangular tiles. It supports group dragging, snapping, always-on-top or desktop layers, transparent backgrounds, pixel / RGB / breathing borders, and JSON configurations with embedded images.
 
 ## Start here as a user
@@ -13,6 +15,12 @@ A native Windows desktop widget app for arranging text, images and timers in hex
 **The source project must be built.** A source-only checkout does not include a ready-to-run user EXE unless it has been built separately. A Linux version has not been developed and remains future work.
 
 The source project's extracted user build is `release/DeskTiles/DeskTiles.exe`. See the [user guide](docs/使用說明.md) for full steps. The ZIP contains `README.txt`, the user guide, an example configuration with embedded image data and third-party license notices.
+
+## Bilingual interface
+
+Choose **Language → English / 繁體中文** in the controller, a tile's context menu or the tray menu. The interface updates immediately and remembers your preference. It preserves pending edits, selection and running timers; your own tile content is not translated. See the project-provided [English user guide](docs/UserGuide.en.md).
+
+**Before updating, choose Save and exit DeskTiles from the old version's tray menu, then open the new EXE. Closing the controller with X only hides it. Keep your existing configuration.**
 
 ## Common actions
 
@@ -30,7 +38,7 @@ The source project's extracted user build is `release/DeskTiles/DeskTiles.exe`. 
 
 Closing the controller only hides it; tiles continue running in the background. Double-click a tile or launch the program again to restore the controller. Save and exit the old version before updating.
 
-![DeskTiles controller, original Chinese UI](docs/control.png)
+![DeskTiles controller in English](docs/control-en.png)
 
 ## Features and scope
 
@@ -60,7 +68,7 @@ Only one process may write to a given data directory. Repeated launch identifies
 
 - **Startup:** Resolve the data folder → acquire the lock or restore the existing window → display absolute input / output paths → five initialization stages → load layout and icons → create tiles, controller and tray → wait for input.
 - **Add:** Display output layout path → find adjacent free space, create a tile and save, with three progress stages.
-- **Drag:** Record original group positions → create contact candidates → check group collisions → snap → commit or restore → save.
+- **Drag:** Select the primary tile immediately and update the panel → capture the mouse and record group positions → preview snapping after the movement threshold → read final coordinates on release → check collision and commit or restore → save. Shift-click deselection and double-click controller activation wait until release without movement; interrupted capture cancels the preview.
 - **Appearance / size / background:** Display input / output locations → validate → apply checked fields and refresh caches → save. Settings dialogs show three-stage progress.
 - **Save:** Write a temporary file → back up the previous version → atomically replace it. Corrupt layouts are not overwritten directly; timers reopen paused.
 - **JSON export:** Display paths → collect layout and images → validate → atomically replace the destination after completing a temporary file.
@@ -72,7 +80,7 @@ Only one process may write to a given data directory. Repeated launch identifies
 Development requires Windows x64, PowerShell, Visual Studio C++ desktop development tools and the Windows SDK. The portable user build does not require these tools.
 
 ```powershell
-# Build and run 170 core checks; use a separate output while the old EXE is running
+# Build and run 179 core checks; use a separate output while the old EXE is running
 .\build.ps1 -OutputName DeskTiles-update.exe
 
 # Windows UI, corrupt-file protection and exclusive-lock checks
@@ -81,16 +89,31 @@ Development requires Windows x64, PowerShell, Visual Studio C++ desktop developm
 # Duplicate launch restores the hidden controller and preserves the existing layout
 .\verify-activation.ps1 -ExecutableName DeskTiles-update.exe
 
+# Language switching, actual restarts, preference protection and full English integration
+.\verify-language.ps1 -FullEnglish
+
 # Copy the executable and docs, then create the ZIP and SHA-256 checksums
 .\package.ps1
 
-# Extract the ZIP and run the packaged build to verify Windows functionality
-.\verify-package.ps1
+# Extract the ZIP and verify real-screen composition and window layers during normal startup
+.\verify-package.ps1 -Composition
 ```
 
 Each script prints absolute input / output paths before progress stages. `run.ps1` can launch the newest build or accept `-ExecutableName` and `-DataDir`. Desktop-layer tests require access to a normal desktop and Explorer. The application itself does not need administrator permissions.
 
 See the [validation summary](docs/驗證摘要.txt). Tests use dedicated working directories and do not use or package personal layouts.
+
+## Rendering and window layers
+
+1. Startup displays the absolute layout and log paths, then loads configuration, creates windows and opens the controller in five stages.
+2. Each polygon uses a normal borderless input host with a DWM full-client transparent frame. The host is painted with zero alpha; a layered child presents text, images and borders through `UpdateLayeredWindow`. Polygon hit testing remains active even in transparent areas. The host no longer uses `WS_EX_NOREDIRECTIONBITMAP`, which suppressed visible composition during ordinary startup.
+3. Desktop mode keeps independent top-level composition and uses Explorer as the owner, below normal windows; it no longer reparents the host as an Explorer child. Always-on-top mode clears the owner and explicitly sets `HWND_TOPMOST`. Coordinates remain screen coordinates, and desktop clicks do not activate the window.
+4. Content caches and the shared animation timer are retained. The transparent frame is reset after DWM composition changes; existing data and layout formats remain compatible.
+5. `verify-composition.ps1` calls `verify-composition.py` to launch saved on-top and desktop layouts normally. It checks actual screen pixels, backgrounds, borders, text, images, foreground-window coverage, transparent hit testing and dragging. Memory exports or `PrintWindow` are not treated as proof of visible output.
+
+Developer command: `./verify-composition.ps1 -ExecutablePath 'D:\DeskTile\release\DeskTiles\DeskTiles.exe'`. These checks require an interactive Windows desktop, Python and Pillow 12.3 or newer; the portable app does not. The script logs absolute paths and progress, temporarily shows the desktop and restores windows in `finally`, and operates only on dedicated fixtures. Results go to `build/composition-*`. Concurrent foreground activity can interfere with pixel checks.
+
+The project reports **179 core checks, 166 Windows integration checks in each UI language, and 64 actual-screen checks of the extracted EXE during normal startup**. Language regression covers 18 checks, actual preference restarts, corrupt preferences and failed saves. These are project-provided results; website publication verifies file integrity and does not rerun the desktop suite. Other Windows versions, Explorer restarts, DPI, multiple monitors and sustained workloads still need compatibility testing. Linux remains planned.
 
 ## Project files
 
@@ -98,6 +121,7 @@ See the [validation summary](docs/驗證摘要.txt). Tests use dedicated working
 | --- | --- |
 | `release/` | Ready-to-run folder, ZIP and SHA-256 checksums |
 | `core.hpp` | Cross-platform model, shapes, selection, snapping, collision detection, timers and internal persistence |
+| `localization.hpp` | Traditional Chinese / English strings, language codes and core error translations |
 | `config.hpp` | JSON, Base64 images, validation and merging |
 | `win32.cpp` | Windows tiles, controller, desktop layer, icons, tray and integration checks |
 | `tests.cpp` | Core checks |
@@ -118,3 +142,31 @@ Built with C++17, Win32, GDI+ and Windows system libraries. Transparency and the
 - JSON uses [nlohmann/json v3.12.0](https://github.com/nlohmann/json/releases/tag/v3.12.0). Its license is included in the portable package.
 - A Linux display backend and packaging are future work. The Windows EXE is not a native Linux application.
 - Further testing is needed across Windows versions, DPI / multiple displays, Explorer restarts, large layouts and long-running workloads. Existing performance numbers are short local samples, not a guarantee for every environment.
+
+## Git publishing flow
+
+Inspect changes and remotes → exclude personal layouts, logs and temporary files → validate scripts and release SHA-256 → commit source, documentation and release files → push to origin/main → compare local and remote commits. `build/`, `Data/` and `*.user` are ignored. Personal data remains outside the project in LocalAppData.
+
+## Dragging and font regression checks
+
+Launch `--interaction-test --data-dir` with an absolute path to a dedicated empty test folder → log paths and progress → exercise immediate selection, quick release, repeated clicks followed by dragging, Shift and lost capture → verify text and timer pixels for three shapes at small sizes and large requested fonts → restore the test layout → write `interaction-results.txt` and exit. This mode must use a dedicated data folder, never a personal layout.
+
+Font rendering resolves the requested font and styles, falls back to Microsoft JhengHei UI when needed, computes the shape's content region and measures multiline text. A bounded binary search reduces the displayed size if needed; only complete lines are drawn and long content receives an ellipsis. Static output is cached. Saved font names and sizes are not changed. If the requested font lacks Chinese glyphs, the whole content run uses a font covering those characters so measurement and drawing remain consistent; supported English content keeps the selected font.
+
+Selection changes redraw only affected borders without rebuilding text or image caches. The 25 dragging/font checks are part of full Windows verification. The current total, including 18 language checks, is 166 Windows integration checks.
+
+## Demonstration video
+
+[Watch the 30-second demonstration](docs/DeskTiles-fixes-demo.mp4).
+
+`record-demo.py` is a development recording tool requiring Python, Pillow and FFmpeg; the app does not require them. It logs absolute executable, dedicated fixture and output paths, creates fictional data, launches a separate instance, replays actual Win32 selection, dragging and font controls, captures only that process's windows, encodes a 30-second H.264 MP4, validates saved positions and fonts, and exits its own instance. Frame progress is reported every second. The output is `docs/DeskTiles-fixes-demo.mp4`; its validation summary shares the filename with a `.txt` extension, and sample frames are stored in `build/video-demo-*`.
+
+`--demo-capture --data-dir` is explicitly enabled only for dedicated demonstration data; normal startup does not export tile PNGs.
+
+## Language switching implementation and verification
+
+Build the Chinese/English strings in `localization.hpp` → connect the controller, dialogs, menus, tile state and errors → save the preference separately as `ui-settings.json` → capture pending edits → change labels and menu choices → restore values, selection and focus → redraw tiles → verify switching and preference persistence after an actual restart. Stages log progress and absolute paths.
+
+Language tests run `--language-test` with dedicated data, switch every window while preserving drafts and timers, simulate a locked preference file, restart into English, switch back and restart into Chinese, and check corrupt-file recovery without overwriting it. `-FullEnglish` runs all Windows functionality in English. Settings change only when Apply is explicitly pressed.
+
+The app sets Windows UI language preferences with [SetThreadUILanguage](https://learn.microsoft.com/en-us/windows/win32/api/winnls/nf-winnls-setthreaduilanguage); system file and color dialogs depend on the language resources installed in Windows.

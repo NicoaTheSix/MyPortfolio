@@ -1,4 +1,6 @@
 @import url('../fusion-studio/docs.css');
+.release-note { padding:20px; border:1px solid var(--line); background:var(--wash); }
+.desk-demo { display:block; width:100%; max-height:560px; background:#171817; }
 .product-hero h1>span { display:block; font-size:20px; letter-spacing:.5px; margin-top:7px; font-weight:600; }
 .product-hero .platform-note { font:11px/1.8 var(--mono); margin-top:15px; }
 .product-cover { margin-top:30px; border:1px solid var(--line); background:#e9f0ef; }

@@ -4,7 +4,21 @@
     "title": "桌面拼格 DeskTiles",
     "pageTitle": "桌面拼格 DeskTiles",
     "url": "index.html",
-    "text": "DeskTiles/桌面拼格 DeskTiles本頁內容一張桌面，幾種可能。形狀自由拼排放入當下需要的內容外觀各有自己的節奏版面可以一起帶走解壓縮，就能開始。下載與文件已驗證的範圍與後續工作NICOA THE SIX / WINDOWS DESKTOP TOOL桌面拼格DeskTiles桌面上的一小格，留給重要的事。把想記住的文字、圖片與時間，放進可以自由拼排的小格子。選一個形狀，為桌面留一點自己的空間。下載 Windows x64 ZIP ↓閱讀使用說明 ↗Windows 10 / 11 x64 · 免安裝 ZIP三種形狀，可以是提醒、圖片，也可以是時間。 一張桌面，幾種可能。01 / FEATURES01形狀自由拼排六角形、朝上正三角形與 3:2 矩形。Shift 多選後一起拖曳，靠近其他格自動吸附。02放入當下需要的內容顯示文字、PNG／JPEG／BMP 圖片，或正向與倒數計時器。03外觀各有自己的節奏調整大小、字體、背景透明度，選擇實色、像素、RGB 或單色呼吸邊框。04版面可以一起帶走匯出含圖片的 JSON；匯入時可覆蓋或合併，搬移時不用逐一找回圖片。 解壓縮，就能開始。下載 Windows x64 ZIP，完整解壓縮。開啟 DeskTiles 資料夾，雙擊 DeskTiles.exe。選形狀並新增格子；編輯內容後按「套用至所有選取格」。適用 Windows 10／11 x64，不需要 Visual Studio、Python、.NET 或額外執行套件，也不需要管理員權限。關閉控制面板只會隱藏視窗；要結束程式，請從右鍵或系統匣選「儲存並結束桌面拼格」。 下載與文件DeskTiles-Windows-x64.zip免安裝使用版 · 399.2 KiB ↓閱讀使用說明新增、拖曳、外觀、備份與疑難排解 ↗專案 README功能範圍、資料格式與開發資訊 ↗範例配置 JSON三種形狀與內嵌圖片；可用合併匯入 ↓中文使用說明 Markdown · 專案 README Markdown下載完整性與授權資訊SHA-25677b336514c7a961abe52dcd579ec4e20ad41e0fd8b6b4099deaf1ab6b789e8a8SHA256SUMS.txt ↓ZIP 保留完整第三方 MIT 授權聲明。下載內容為 Windows 使用版與文件。 已驗證的範圍與後續工作依專案提供的驗證摘要：170 項核心檢查、123 項 Windows 整合檢查通過，並已從 ZIP 解壓後直接執行。不同 Windows 版本、DPI、多螢幕、Explorer 重啟、大量格子與長時間資源壓力仍需持續驗收。效能數字是本機短時間樣本，不是所有電腦的保證。Linux 版尚未開發。下載原始驗證摘要 ↓C++17 / Win32 / GDI+ · 使用版免建置；原始碼專案需自行建置。01 / GUIDE使用說明 ↗02 / PROJECT專案 README ↗Nicoa The Six · DeskTiles 文件 · 2026-10-31下載檔與原始中文文件由專案提供；英文為網站翻譯。回作品集 ↗"
+    "text": "DeskTiles/桌面拼格 DeskTiles本頁內容2026-11-01 更新操作示範一張桌面，幾種可能。形狀自由拼排放入當下需要的內容外觀各有自己的節奏版面可以一起帶走解壓縮，就能開始。下載與文件已驗證的範圍與後續工作NICOA THE SIX / WINDOWS DESKTOP TOOL桌面拼格DeskTiles桌面上的一小格，留給重要的事。把想記住的文字、圖片與時間，放進可以自由拼排的小格子。選一個形狀，為桌面留一點自己的空間。下載 Windows x64 ZIP ↓閱讀使用說明 ↗Windows 10 / 11 x64 · 免安裝 ZIP三種形狀，可以是提醒、圖片，也可以是時間。 2026-11-01 更新同一個 EXE 可即時切換繁體中文與 English，保留尚未套用的編輯，並記住語言偏好。修正一般啟動時圖形變黑或不可見、透明顯示，以及置頂與固定桌面模式切換。更新前，先在舊版系統匣選「儲存並結束桌面拼格」，再執行新版。只按控制視窗 X 不會退出程式；既有配置不必刪除。本頁下載為本機驗證完成的修正版；原始碼倉庫尚未包含全部近期修正，請直接下載這份 ZIP。查看 GitHub 專案倉庫 ↗操作示範開啟操作示範影片專案提供的 30 秒操作示範，使用虛構的示範配置。一張桌面，幾種可能。01 / FEATURES01形狀自由拼排六角形、朝上正三角形與 3:2 矩形。Shift 多選後一起拖曳，靠近其他格自動吸附。02放入當下需要的內容顯示文字、PNG／JPEG／BMP 圖片，或正向與倒數計時器。03外觀各有自己的節奏調整大小、字體、背景透明度，選擇實色、像素、RGB 或單色呼吸邊框。04版面可以一起帶走匯出含圖片的 JSON；匯入時可覆蓋或合併，搬移時不用逐一找回圖片。 解壓縮，就能開始。下載 Windows x64 ZIP，完整解壓縮。開啟 DeskTiles 資料夾，雙擊 DeskTiles.exe。選形狀並新增格子；編輯內容後按「套用至所有選取格」。適用 Windows 10／11 x64，不需要 Visual Studio、Python、.NET 或額外執行套件，也不需要管理員權限。關閉控制面板只會隱藏視窗；要結束程式，請從右鍵或系統匣選「儲存並結束桌面拼格」。 下載與文件DeskTiles-Windows-x64.zip免安裝使用版 · 449.1 KiB ↓閱讀使用說明新增、拖曳、外觀、備份與疑難排解 ↗專案 README功能範圍、資料格式與開發資訊 ↗範例配置 JSON三種形狀與內嵌圖片；可用合併匯入 ↓中文使用說明 Markdown · 專案 README Markdown下載完整性與授權資訊SHA-2568b506c952970ad54c37015f493739d7b0b87792868c28c6bfcb54545212724b9SHA256SUMS.txt ↓ZIP 保留完整第三方 MIT 授權聲明。下載內容為 Windows 使用版與文件。 已驗證的範圍與後續工作依專案提供的驗證摘要：179 項核心檢查、166 項 Windows 整合檢查通過（繁中與英文皆驗證），另完成解壓後一般啟動的 64 項實際螢幕檢查。不同 Windows 版本、DPI、多螢幕、Explorer 重啟、大量格子與長時間資源壓力仍需持續驗收。效能數字是本機短時間樣本，不是所有電腦的保證。Linux 版尚未開發。下載原始驗證摘要 ↓C++17 / Win32 / GDI+ · 使用版免建置；原始碼專案需自行建置。01 / GUIDE使用說明 ↗02"
+  },
+  {
+    "lang": "zh",
+    "title": "2026-11-01 更新",
+    "pageTitle": "桌面拼格 DeskTiles",
+    "url": "index.html#2026-11-01-%E6%9B%B4%E6%96%B0",
+    "text": "同一個 EXE 可即時切換繁體中文與 English，保留尚未套用的編輯，並記住語言偏好。修正一般啟動時圖形變黑或不可見、透明顯示，以及置頂與固定桌面模式切換。 更新前，先在舊版系統匣選「儲存並結束桌面拼格」，再執行新版。只按控制視窗 X 不會退出程式；既有配置不必刪除。 本頁下載為本機驗證完成的修正版；原始碼倉庫尚未包含全部近期修正，請直接下載這份 ZIP。 查看 GitHub 專案倉庫 ↗"
+  },
+  {
+    "lang": "zh",
+    "title": "操作示範",
+    "pageTitle": "桌面拼格 DeskTiles",
+    "url": "index.html#%E6%93%8D%E4%BD%9C%E7%A4%BA%E7%AF%84",
+    "text": "開啟操作示範影片 專案提供的 30 秒操作示範，使用虛構的示範配置。"
   },
   {
     "lang": "zh",
@@ -53,21 +67,21 @@
     "title": "下載與文件",
     "pageTitle": "桌面拼格 DeskTiles",
     "url": "index.html#%E4%B8%8B%E8%BC%89%E8%88%87%E6%96%87%E4%BB%B6",
-    "text": "DeskTiles-Windows-x64.zip免安裝使用版 · 399.2 KiB ↓閱讀使用說明新增、拖曳、外觀、備份與疑難排解 ↗專案 README功能範圍、資料格式與開發資訊 ↗範例配置 JSON三種形狀與內嵌圖片；可用合併匯入 ↓ 中文使用說明 Markdown · 專案 README Markdown 下載完整性與授權資訊SHA-25677b336514c7a961abe52dcd579ec4e20ad41e0fd8b6b4099deaf1ab6b789e8a8SHA256SUMS.txt ↓ZIP 保留完整第三方 MIT 授權聲明。下載內容為 Windows 使用版與文件。"
+    "text": "DeskTiles-Windows-x64.zip免安裝使用版 · 449.1 KiB ↓閱讀使用說明新增、拖曳、外觀、備份與疑難排解 ↗專案 README功能範圍、資料格式與開發資訊 ↗範例配置 JSON三種形狀與內嵌圖片；可用合併匯入 ↓ 中文使用說明 Markdown · 專案 README Markdown 下載完整性與授權資訊SHA-2568b506c952970ad54c37015f493739d7b0b87792868c28c6bfcb54545212724b9SHA256SUMS.txt ↓ZIP 保留完整第三方 MIT 授權聲明。下載內容為 Windows 使用版與文件。"
   },
   {
     "lang": "zh",
     "title": "已驗證的範圍與後續工作",
     "pageTitle": "桌面拼格 DeskTiles",
     "url": "index.html#%E5%B7%B2%E9%A9%97%E8%AD%89%E7%9A%84%E7%AF%84%E5%9C%8D%E8%88%87%E5%BE%8C%E7%BA%8C%E5%B7%A5%E4%BD%9C",
-    "text": "依專案提供的驗證摘要：170 項核心檢查、123 項 Windows 整合檢查通過，並已從 ZIP 解壓後直接執行。 不同 Windows 版本、DPI、多螢幕、Explorer 重啟、大量格子與長時間資源壓力仍需持續驗收。效能數字是本機短時間樣本，不是所有電腦的保證。Linux 版尚未開發。 下載原始驗證摘要 ↓ C++17 / Win32 / GDI+ · 使用版免建置；原始碼專案需自行建置。"
+    "text": "依專案提供的驗證摘要：179 項核心檢查、166 項 Windows 整合檢查通過（繁中與英文皆驗證），另完成解壓後一般啟動的 64 項實際螢幕檢查。 不同 Windows 版本、DPI、多螢幕、Explorer 重啟、大量格子與長時間資源壓力仍需持續驗收。效能數字是本機短時間樣本，不是所有電腦的保證。Linux 版尚未開發。 下載原始驗證摘要 ↓ C++17 / Win32 / GDI+ · 使用版免建置；原始碼專案需自行建置。"
   },
   {
     "lang": "zh",
     "title": "使用說明",
     "pageTitle": "使用說明",
     "url": "guide.html",
-    "text": "DeskTiles/使用說明下載 Markdown ↓Windows x64 ZIP ↓本頁內容從這裡開始新增、選取與移動文字、圖片與計時器大小、字體與邊框保存、備份與換電腦關閉、結束與更新打不開時操作畫面桌面拼格 DeskTiles 使用說明 桌面拼格可在桌面擺放六角形、三角形、矩形，用來顯示文字、圖片或計時器。每格可獨立置頂或固定於桌面層，也能多選一起移動與修改外觀。 從這裡開始 下載 DeskTiles-Windows-x64.zip，完整解壓縮。 開啟解壓後的 DeskTiles 資料夾，雙擊 DeskTiles.exe。 第一次啟動會顯示三個示範格與內容控制視窗。 在控制視窗左側選擇格子，右側輸入內容，按「套用至所有選取格」。 使用版適用 Windows 10／11 x64，不需要安裝編譯器、Python、.NET 或額外執行套件，不需要管理員權限。Linux 版本尚未實作。只下載原始碼專案時需要自行建置；免安裝 ZIP 已包含建置完成的 EXE。 新增、選取與移動 左側形狀選單預設六角形，可選朝上正三角形或 3:2 矩形，再按「＋新增圖形」。右鍵與系統匣也可新增。 單擊選取一格；Shift＋單擊加入或取消多選。直接單擊已選取的一格會改成單選，開始拖曳則保留原多選。 從任一選取格拖曳即可移動整組，保持彼此的相對位置。 靠近其他格會吸附；不同形狀優先對齊邊中點或角點，也能沿邊吸附。放開後若重疊會回到原位。 Esc 取消選取。雙擊圖形重新開啟控制視窗。 圖形右鍵可將選取格設成「顯示於最上層」或「固定於桌面層」。 文字、圖片與計時器 先選取圖形，再從右側內容類型選文字、圖片或計時器。 文字：支援中文、多行與置中顯示；輸入後按套用。 圖片：瀏覽 PNG、JPEG 或 BMP 後按套用，圖片依格子形狀等比例裁切。直接選取的圖片會引用來源路徑；要一起備份或搬到別台電腦，請匯出 JSON。 計時器：可選倒數或正向計時，倒數輸入總秒數後按套用，再按開始／暫停或重設。程式結束後保存已計時間，下次開啟維持暫停。 多選時按套用會改動所有選取格的內容。只想調外觀時，使用左側獨立的外觀設定按鈕。 大小、字體與邊框 「大小與文字…」可分別勾選套用大小、文字樣式。寬度 80～480 px，字級 8～96 px；字體可選本機已安裝字型，文字顏色可輸入色碼或選色。 多選調整大小會等比例改變位置；空間不足時保留原設定。 「邊框與風格…」支援實色、像素、RGB 彩虹與單色呼吸燈。厚度 1～12 px，動畫週期 2～60 秒，可修改顏色與停止播放。 「背景與透明度…」可分別套用背景色與透明度。0% 不透明、100% 完全透明；只影響背景，文字、圖片與邊框保持原設定。完全透明的空白區仍可選取與拖曳。 設定視窗修改後必須按套用。控制介面的預設字級為 18 px，頁首標題為 32 px；與每格內容字級分開設定。 保存、備份與換電腦 一般操作完成後會自動儲存。預設資料位置為 %LOCALAPPDATA%\\HexDesk；保留此舊名稱以維持版本相容性。啟動時會顯示實際輸入／輸出絕對路徑。 右上角「配置 JSON…」提供： 匯出整體配置：保存全部格子、位置、樣式及圖片內容，成為單一 JSON。 覆蓋匯入：以 JSON 取代目前配置，先確認並備份。 合併匯入：保留目前格子，匯入新格並分配新 ID；必要時整組平移以免重疊。 套件中的「範例配置.json」含三種形狀及一張示範圖片，可用合併匯入試用。圖片內容已內嵌，匯入後保存到資料目錄的 assets。字體只保存名稱；別台電腦沒有該字體時會提示"
+    "text": "DeskTiles/使用說明下載 Markdown ↓Windows x64 ZIP ↓本頁內容從這裡開始切換語言新增、選取與移動文字、圖片與計時器大小、字體與邊框保存、備份與換電腦關閉、結束與更新打不開時操作畫面桌面拼格 DeskTiles 使用說明 桌面拼格可在桌面擺放六角形、三角形、矩形，用來顯示文字、圖片或計時器。每格可獨立置頂或固定於桌面層，也能多選一起移動與修改外觀。 從這裡開始 下載 DeskTiles-Windows-x64.zip，完整解壓縮。 開啟解壓後的 DeskTiles 資料夾，雙擊 DeskTiles.exe。 第一次啟動會顯示三個示範格與內容控制視窗。 在控制視窗左側選擇格子，右側輸入內容，按「套用至所有選取格」。 使用版適用 Windows 10／11 x64，不需要安裝編譯器、Python、.NET 或額外執行套件，不需要管理員權限。Linux 版本尚未實作。只下載原始碼專案時需要自行建置；免安裝 ZIP 已包含建置完成的 EXE。 切換語言 控制視窗右上角的「語言 / Language」選單可選 繁體中文 或 English；圖形右鍵與系統匣選單也有語言入口。選擇後立即更新介面，不需要重開。 主視窗、設定視窗、選單、提示、圖形狀態與錯誤訊息皆支援英文。切換會保留尚未套用的內容、字體、數值、核取選項、文字選取與目前多選；正在運行的計時器不會被重設。格子自己的文字、圖片路徑與字體名稱維持原內容，不會自動翻譯。 偏好存於資料目錄的 ui-settings.json，下次啟動自動沿用；預設繁體中文。這份偏好不屬於 JSON 版面，匯入配置不會改變介面語言。設定檔損壞時會使用預設語言，保留原設定檔；若無法保存選擇，會顯示原因並保留目前語言。Windows 系統檔案與選色對話框的可用語言由系統資源決定。 英文操作說明見 UserGuide.en.md。 新增、選取與移動 左側形狀選單預設六角形，可選朝上正三角形或 3:2 矩形，再按「＋新增圖形」。右鍵與系統匣也可新增。 按下圖形時立即更新主選取與右側內容面板。Shift＋單擊加入或取消多選；取消主格後會改選仍在多選中的格子。直接單擊已選取的一格會改成單選，開始拖曳則保留原多選。 從任一選取格拖曳即可移動整組，保持彼此的相對位置。按住 Shift 也可整組拖曳；只有原地單擊才取消該格。快速連按後直接拖曳仍可移動，單純雙擊則在放開後開啟控制視窗。 靠近其他格會吸附；不同形狀優先對齊邊中點或角點，也能沿邊吸附。放開後若重疊會回到原位。 Esc 取消選取。雙擊圖形重新開啟控制視窗。 圖形右鍵可將選取格設成「顯示於最上層」或「固定於桌面層」。 文字、圖片與計時器 先選取圖形，再從右側內容類型選文字、圖片或計時器。 文字：支援中文、多行與置中顯示；輸入後按套用。 圖片：瀏覽 PNG、JPEG 或 BMP 後按套用，圖片依格子形狀等比例裁切。直接選取的圖片會引用來源路徑；要一起備份或搬到別台電腦，請匯出 JSON。 計時器：可選倒數或正向計時，倒數輸入總秒數後按套用，再按開始／暫停或重設。程式結束後保存已計時間，下次開啟維持暫停。 多選時按套用會改動所有選取格的內容。只想調外觀時，使用左側獨立的外觀設定按鈕。 大小、字體與邊框 「大小與文字…」可分別勾選套用大小、文字樣式。寬度 80～480 px，字級 8～96 px；字體清單列出本機已安裝且可繪製的字體，文字顏色可輸入色碼或選色。當文字或計時數字放不進圖形時，會縮小實際顯示字級（最低 8 px），原設定仍保留；內容過長時顯示省略符號"
   },
   {
     "lang": "zh",
@@ -78,10 +92,17 @@
   },
   {
     "lang": "zh",
+    "title": "切換語言",
+    "pageTitle": "使用說明",
+    "url": "guide.html#%E5%88%87%E6%8F%9B%E8%AA%9E%E8%A8%80",
+    "text": "控制視窗右上角的「語言 / Language」選單可選 繁體中文 或 English；圖形右鍵與系統匣選單也有語言入口。選擇後立即更新介面，不需要重開。 主視窗、設定視窗、選單、提示、圖形狀態與錯誤訊息皆支援英文。切換會保留尚未套用的內容、字體、數值、核取選項、文字選取與目前多選；正在運行的計時器不會被重設。格子自己的文字、圖片路徑與字體名稱維持原內容，不會自動翻譯。 偏好存於資料目錄的 ui-settings.json，下次啟動自動沿用；預設繁體中文。這份偏好不屬於 JSON 版面，匯入配置不會改變介面語言。設定檔損壞時會使用預設語言，保留原設定檔；若無法保存選擇，會顯示原因並保留目前語言。Windows 系統檔案與選色對話框的可用語言由系統資源決定。 英文操作說明見 UserGuide.en.md。"
+  },
+  {
+    "lang": "zh",
     "title": "新增、選取與移動",
     "pageTitle": "使用說明",
     "url": "guide.html#%E6%96%B0%E5%A2%9E%E9%81%B8%E5%8F%96%E8%88%87%E7%A7%BB%E5%8B%95",
-    "text": "左側形狀選單預設六角形，可選朝上正三角形或 3:2 矩形，再按「＋新增圖形」。右鍵與系統匣也可新增。 單擊選取一格；Shift＋單擊加入或取消多選。直接單擊已選取的一格會改成單選，開始拖曳則保留原多選。 從任一選取格拖曳即可移動整組，保持彼此的相對位置。 靠近其他格會吸附；不同形狀優先對齊邊中點或角點，也能沿邊吸附。放開後若重疊會回到原位。 Esc 取消選取。雙擊圖形重新開啟控制視窗。 圖形右鍵可將選取格設成「顯示於最上層」或「固定於桌面層」。"
+    "text": "左側形狀選單預設六角形，可選朝上正三角形或 3:2 矩形，再按「＋新增圖形」。右鍵與系統匣也可新增。 按下圖形時立即更新主選取與右側內容面板。Shift＋單擊加入或取消多選；取消主格後會改選仍在多選中的格子。直接單擊已選取的一格會改成單選，開始拖曳則保留原多選。 從任一選取格拖曳即可移動整組，保持彼此的相對位置。按住 Shift 也可整組拖曳；只有原地單擊才取消該格。快速連按後直接拖曳仍可移動，單純雙擊則在放開後開啟控制視窗。 靠近其他格會吸附；不同形狀優先對齊邊中點或角點，也能沿邊吸附。放開後若重疊會回到原位。 Esc 取消選取。雙擊圖形重新開啟控制視窗。 圖形右鍵可將選取格設成「顯示於最上層」或「固定於桌面層」。"
   },
   {
     "lang": "zh",
@@ -95,7 +116,7 @@
     "title": "大小、字體與邊框",
     "pageTitle": "使用說明",
     "url": "guide.html#%E5%A4%A7%E5%B0%8F%E5%AD%97%E9%AB%94%E8%88%87%E9%82%8A%E6%A1%86",
-    "text": "「大小與文字…」可分別勾選套用大小、文字樣式。寬度 80～480 px，字級 8～96 px；字體可選本機已安裝字型，文字顏色可輸入色碼或選色。 多選調整大小會等比例改變位置；空間不足時保留原設定。 「邊框與風格…」支援實色、像素、RGB 彩虹與單色呼吸燈。厚度 1～12 px，動畫週期 2～60 秒，可修改顏色與停止播放。 「背景與透明度…」可分別套用背景色與透明度。0% 不透明、100% 完全透明；只影響背景，文字、圖片與邊框保持原設定。完全透明的空白區仍可選取與拖曳。 設定視窗修改後必須按套用。控制介面的預設字級為 18 px，頁首標題為 32 px；與每格內容字級分開設定。"
+    "text": "「大小與文字…」可分別勾選套用大小、文字樣式。寬度 80～480 px，字級 8～96 px；字體清單列出本機已安裝且可繪製的字體，文字顏色可輸入色碼或選色。當文字或計時數字放不進圖形時，會縮小實際顯示字級（最低 8 px），原設定仍保留；內容過長時顯示省略符號。缺少字體時優先使用支援中文的替代字體。 多選調整大小會等比例改變位置；空間不足時保留原設定。 「邊框與風格…」支援實色、像素、RGB 彩虹與單色呼吸燈。厚度 1～12 px，動畫週期 2～60 秒，可修改顏色與停止播放。 「背景與透明度…」可分別套用背景色與透明度。0% 不透明、100% 完全透明；只影響背景，文字、圖片與邊框保持原設定。完全透明的空白區仍可選取與拖曳。 設定視窗修改後必須按套用。控制介面的預設字級為 18 px，頁首標題為 32 px；與每格內容字級分開設定。"
   },
   {
     "lang": "zh",
@@ -116,21 +137,21 @@
     "title": "打不開時",
     "pageTitle": "使用說明",
     "url": "guide.html#%E6%89%93%E4%B8%8D%E9%96%8B%E6%99%82",
-    "text": "若舊版仍在背景執行：新版通常會帶回舊版視窗。請先從系統匣儲存並結束，再開新版本。 若顯示資料目錄不可寫：檢查提示中的實際資料位置與 Windows 錯誤碼，或指定另一個可寫入目錄。 session.lock 留在資料夾是正常情況，檔案是否存在不代表程式正在執行；不要靠刪除鎖檔解決重複啟動。 圖形找不到：從系統匣選「找回全部圖形」，會移到主螢幕並置頂。 圖片無法讀取：重新選擇來源圖片，或匯入包含圖片的 JSON。 需要獨立資料目錄時，在 PowerShell 執行： POWERSHELL複製.\\DeskTiles.exe --data-dir 'D:\\DeskTilesData' 不同資料目錄可以分別執行，彼此不會改動對方版面。不同 Windows 版本、多螢幕、DPI 與 Explorer 重新啟動的相容性仍需持續驗收。"
+    "text": "若舊版仍在背景執行：新版通常會帶回舊版視窗。請先從系統匣儲存並結束，再開新版本。 若顯示資料目錄不可寫：檢查提示中的實際資料位置與 Windows 錯誤碼，或指定另一個可寫入目錄。 session.lock 留在資料夾是正常情況，檔案是否存在不代表程式正在執行；不要靠刪除鎖檔解決重複啟動。 圖形找不到：從系統匣選「找回全部圖形」，會移到主螢幕並置頂。 圖片無法讀取：重新選擇來源圖片，或匯入包含圖片的 JSON。 需要獨立資料目錄時，在 PowerShell 執行： POWERSHELL複製.\\DeskTiles.exe --data-dir 'D:\\DeskTilesData' 不同資料目錄可以分別執行，彼此不會改動對方版面。不同 Windows 版本、多螢幕、DPI 與 Explorer 重新啟動的相容性仍需持續驗收。 所選字體缺少內容中的中文字元時，整段內容會使用可完整顯示的中文字體替代，讓量測與繪製保持一致，避免字元重疊；原字體名稱與字級設定仍保留，純英文且受支援的內容維持選定字體。"
   },
   {
     "lang": "zh",
     "title": "操作畫面",
     "pageTitle": "使用說明",
     "url": "guide.html#ui-screenshots",
-    "text": "以下為實際 Windows 版本畫面。 控制視窗：選取格子、編輯文字、圖片與計時器邊框與風格：實色、像素、RGB 與呼吸燈背景與透明度：分別套用背景色與透明度大小與文字：尺寸、字體、字級與文字顏色"
+    "text": "以下為實際 Windows 版本畫面，可在程式中切換繁體中文與 English。 控制視窗：選取格子、編輯文字、圖片與計時器邊框與風格：實色、像素、RGB 與呼吸燈背景與透明度：分別套用背景色與透明度大小與文字：尺寸、字體、字級與文字顏色"
   },
   {
     "lang": "zh",
     "title": "專案 README",
     "pageTitle": "專案 README",
     "url": "readme.html",
-    "text": "DeskTiles/專案 README下載 Markdown ↓Windows x64 ZIP ↓本頁內容一般使用者從這裡開始常用操作功能與範圍資料位置與啟動問題執行流程與進度開發、驗證與打包專案檔案技術依據與後續工作桌面拼格 DeskTiles 可在 Windows 桌面拼放六角形、三角形與矩形，顯示文字、圖片或計時器。支援多選拖曳、吸附、置頂／桌面層、背景透明、像素／RGB／呼吸邊框及含圖片的 JSON 配置。 一般使用者從這裡開始 取得 DeskTiles-Windows-x64.zip，完整解壓縮。 進入解壓後的 DeskTiles 資料夾，雙擊 DeskTiles.exe。 左側選形狀並新增；右側編輯內容後按套用。 免安裝 ZIP 解壓後即可執行。 適用 Windows 10／11 x64，不需要安裝 Visual Studio、Python、.NET 或其他額外執行套件，也不需要管理員權限。EXE 使用靜態 C++ 執行階段，Logo 已內嵌。 原始碼專案需要建置。 若只下載程式原始碼而沒有使用版 EXE，請依下方開發指令建置。Linux 版尚未開發，列於後續規劃。 本機已解壓的使用版位於 release/DeskTiles/DeskTiles.exe。完整步驟見 使用說明，套件提供 README.txt、使用說明、內嵌圖片的範例配置與第三方授權。 常用操作 要做的事 操作 新增 左側選六角形（預設）、朝上正三角形或 3:2 矩形，再按「新增圖形」 多選／移動 Shift＋單擊多選，拖曳任一選取格移動整組；靠近其他格吸附 文字、圖片、計時器 選格後在右側選內容類型，設定後按套用 大小與字體 「大小與文字…」；寬度 80～480 px，字級 8～96 px 外觀 「邊框與風格…」「背景與透明度…」，可多選套用 顯示層 右鍵或控制視窗選置頂／固定桌面 備份與搬移 「配置 JSON…」匯出含圖片的配置；匯入可覆蓋或合併 找回圖形 系統匣選「找回全部圖形」 結束 先套用編輯，再從右鍵／系統匣選「儲存並結束桌面拼格」 關閉控制視窗只會隱藏面板，圖形仍在背景運作。再次雙擊圖形或重新執行程式可帶回控制視窗。換新版之前請先儲存並結束舊版。 功能與範圍 六角形、正三角形、3:2 矩形，獨立無邊框視窗；圖形外可操作原桌面。 文字、PNG／JPEG／BMP 圖片、正向／倒數計時器；多選可批次套用。 多選保持相對位置、混合形狀碰撞檢查與 22 px 範圍吸附；重疊放置回復原位。 自訂尺寸、字體、字級、文字顏色；縮放造成碰撞時整批保留原設定。 邊框實色、像素、RGB 彩虹與指定色呼吸燈；厚度 1～12 px，動畫週期 2～60 秒。 背景顏色及 0～100% 透明度獨立套用。只影響背景；全透明區仍可選取和拖曳。 控制介面 18 px、標題 32 px，黑白像素 2×2 Logo；內容字級另行設定。 JSON 含全版面與 Base64 圖片，支援覆蓋及合併；匯入格子的計時器預設暫停。 最多 500 格；JSON 128 MiB，單張圖片 16 MiB，圖片總量 64 MiB，解析度上限 6400 萬像素。 資料位置與啟動問題 預設資料存於 %LOCALAPPDATA%\\HexDesk，保留舊名稱以沿用既有版面。可執行： POWERSHELL複製.\\DeskTiles.exe --data-dir 'D:\\DeskTilesData' 啟動時會先顯示版面與日誌的絕對路徑及進度。版面為 layout.hexdesk，上次保存備份為 layout.backup；JSO"
+    "text": "DeskTiles/專案 README下載 Markdown ↓Windows x64 ZIP ↓本頁內容一般使用者從這裡開始中英文操作入口常用操作功能與範圍資料位置與啟動問題執行流程與進度開發、驗證與打包實際畫面與顯示層的運作流程專案檔案技術依據與後續工作Git 上傳流程拖曳與字體回歸驗證操作示範影片中英文介面切換桌面拼格 DeskTiles 專案倉庫：NicoaTheSix/DeskTile。本機開發目錄為 D:\\DeskTile；免安裝執行檔位於 release/DeskTiles/DeskTiles.exe。搬移不影響原本的使用者版面資料。 可在 Windows 桌面拼放六角形、三角形與矩形，顯示文字、圖片或計時器。支援多選拖曳、吸附、置頂／桌面層、背景透明、像素／RGB／呼吸邊框及含圖片的 JSON 配置。 一般使用者從這裡開始 取得 DeskTiles-Windows-x64.zip，完整解壓縮。 進入解壓後的 DeskTiles 資料夾，雙擊 DeskTiles.exe。 左側選形狀並新增；右側編輯內容後按套用。 免安裝 ZIP 解壓後即可執行。 適用 Windows 10／11 x64，不需要安裝 Visual Studio、Python、.NET 或其他額外執行套件，也不需要管理員權限。EXE 使用靜態 C++ 執行階段，Logo 已內嵌。 原始碼專案需要建置。 若只下載程式原始碼而沒有使用版 EXE，請依下方開發指令建置。Linux 版尚未開發，列於後續規劃。 本機已解壓的使用版位於 release/DeskTiles/DeskTiles.exe。完整步驟見 使用說明，套件提供 README.txt、使用說明、內嵌圖片的範例配置與第三方授權。 中英文操作入口 右上角選擇 語言 → English / 繁體中文，立即切換並記住偏好。右鍵與系統匣也提供 Language 選單；不會翻譯格子內容或清除尚未套用的編輯。英文說明見 English user guide。 常用操作 要做的事 操作 新增 左側選六角形（預設）、朝上正三角形或 3:2 矩形，再按「新增圖形」 多選／移動 Shift＋單擊多選，拖曳任一選取格移動整組；靠近其他格吸附 文字、圖片、計時器 選格後在右側選內容類型，設定後按套用 大小與字體 「大小與文字…」；寬度 80～480 px，字級 8～96 px 外觀 「邊框與風格…」「背景與透明度…」，可多選套用 顯示層 右鍵或控制視窗選置頂／固定桌面 備份與搬移 「配置 JSON…」匯出含圖片的配置；匯入可覆蓋或合併 找回圖形 系統匣選「找回全部圖形」 結束 先套用編輯，再從右鍵／系統匣選「儲存並結束桌面拼格」 關閉控制視窗只會隱藏面板，圖形仍在背景運作。再次雙擊圖形或重新執行程式可帶回控制視窗。換新版之前請先儲存並結束舊版。 功能與範圍 六角形、正三角形、3:2 矩形，獨立無邊框視窗；圖形外可操作原桌面。 文字、PNG／JPEG／BMP 圖片、正向／倒數計時器；多選可批次套用。 多選保持相對位置、混合形狀碰撞檢查與 22 px 範圍吸附；重疊放置回復原位。 自訂尺寸、字體、字級、文字顏色；縮放造成碰撞時整批保留原設定。 邊框實色、像素、RGB 彩虹與指定色呼吸燈；厚度 1～12 px，動畫週期 2～60 秒。 背景顏色及 0～100% 透明度獨立套用。只影響背景；全透明區仍可選取和拖曳。 控制介面 18 px、標題 32 px，黑白像素 2×2 Logo；內容字級另行設定。 JSON 含全版面與 Base64 圖片，"
   },
   {
     "lang": "zh",
@@ -138,6 +159,13 @@
     "pageTitle": "專案 README",
     "url": "readme.html#%E4%B8%80%E8%88%AC%E4%BD%BF%E7%94%A8%E8%80%85%E5%BE%9E%E9%80%99%E8%A3%A1%E9%96%8B%E5%A7%8B",
     "text": "取得 DeskTiles-Windows-x64.zip，完整解壓縮。 進入解壓後的 DeskTiles 資料夾，雙擊 DeskTiles.exe。 左側選形狀並新增；右側編輯內容後按套用。 免安裝 ZIP 解壓後即可執行。 適用 Windows 10／11 x64，不需要安裝 Visual Studio、Python、.NET 或其他額外執行套件，也不需要管理員權限。EXE 使用靜態 C++ 執行階段，Logo 已內嵌。 原始碼專案需要建置。 若只下載程式原始碼而沒有使用版 EXE，請依下方開發指令建置。Linux 版尚未開發，列於後續規劃。 本機已解壓的使用版位於 release/DeskTiles/DeskTiles.exe。完整步驟見 使用說明，套件提供 README.txt、使用說明、內嵌圖片的範例配置與第三方授權。"
+  },
+  {
+    "lang": "zh",
+    "title": "中英文操作入口",
+    "pageTitle": "專案 README",
+    "url": "readme.html#%E4%B8%AD%E8%8B%B1%E6%96%87%E6%93%8D%E4%BD%9C%E5%85%A5%E5%8F%A3",
+    "text": "右上角選擇 語言 → English / 繁體中文，立即切換並記住偏好。右鍵與系統匣也提供 Language 選單；不會翻譯格子內容或清除尚未套用的編輯。英文說明見 English user guide。"
   },
   {
     "lang": "zh",
@@ -165,21 +193,28 @@
     "title": "執行流程與進度",
     "pageTitle": "專案 README",
     "url": "readme.html#%E5%9F%B7%E8%A1%8C%E6%B5%81%E7%A8%8B%E8%88%87%E9%80%B2%E5%BA%A6",
-    "text": "啟動：解析資料位置 → 取得資料鎖或帶回既有視窗 → 顯示絕對輸入／輸出路徑 → 五階段初始化 → 載入版面與圖示 → 建立圖形、控制視窗及系統匣 → 等待操作。 新增：列出輸出版面路徑 → 三階段找相鄰空間、建立圖形、保存。 拖曳：記錄整組原位置 → 產生接觸候選 → 檢查整組碰撞 → 吸附 → 提交或回復 → 保存。 外觀／大小／背景：顯示輸入及輸出位置 → 驗證 → 套用勾選欄位並更新快取 → 保存；各視窗顯示三階段進度。 保存：寫入暫存檔 → 備份上一版 → 原子替換。損壞檔案不直接覆寫；重開後計時器暫停。 JSON 匯出：顯示路徑 → 整理配置與圖片 → 驗證 → 暫存檔完成後原子替換輸出。 JSON 匯入：顯示路徑 → 驗證格式、數值、重疊與圖片 → 備份 → 保存圖片及候選版面 → 重建視窗。合併保留既有 ID 與計時狀態，匯入格分配新 ID，必要時整組平移。 動畫與計時：靜態內容快取重用，啟用時共用約 12 FPS 動畫或每秒計時事件；不需要時移除事件。"
+    "text": "啟動：解析資料位置 → 取得資料鎖或帶回既有視窗 → 顯示絕對輸入／輸出路徑 → 五階段初始化 → 載入版面與圖示 → 建立圖形、控制視窗及系統匣 → 等待操作。 新增：列出輸出版面路徑 → 三階段找相鄰空間、建立圖形、保存。 拖曳：按下立即切換主格並重繪選取與面板 → 擷取滑鼠、記錄整組原位置 → 超過移動門檻後產生吸附預覽 → 放開時讀取最後座標 → 檢查碰撞並提交或回復 → 保存。Shift 取消選取與雙擊開啟面板延後到原地放開；擷取中斷則取消預覽。 外觀／大小／背景：顯示輸入及輸出位置 → 驗證 → 套用勾選欄位並更新快取 → 保存；各視窗顯示三階段進度。 保存：寫入暫存檔 → 備份上一版 → 原子替換。損壞檔案不直接覆寫；重開後計時器暫停。 JSON 匯出：顯示路徑 → 整理配置與圖片 → 驗證 → 暫存檔完成後原子替換輸出。 JSON 匯入：顯示路徑 → 驗證格式、數值、重疊與圖片 → 備份 → 保存圖片及候選版面 → 重建視窗。合併保留既有 ID 與計時狀態，匯入格分配新 ID，必要時整組平移。 動畫與計時：靜態內容快取重用，啟用時共用約 12 FPS 動畫或每秒計時事件；不需要時移除事件。"
   },
   {
     "lang": "zh",
     "title": "開發、驗證與打包",
     "pageTitle": "專案 README",
     "url": "readme.html#%E9%96%8B%E7%99%BC%E9%A9%97%E8%AD%89%E8%88%87%E6%89%93%E5%8C%85",
-    "text": "開發需要 Windows x64、PowerShell、Visual Studio C++ 桌面開發工具與 Windows SDK。使用版不需要這些工具。 POWERSHELL複製# 建置與 170 項核心檢查；另輸出更新版，避免原 EXE 使用中 .\\build.ps1 -OutputName DeskTiles-update.exe # Windows UI、損壞檔保護與獨占鎖測試 .\\verify.ps1 -ExecutableName DeskTiles-update.exe # 重複啟動應帶回隱藏視窗，原程序與版面維持不變 .\\verify-activation.ps1 -ExecutableName DeskTiles-update.exe # 複製執行檔與說明、建立 ZIP 和 SHA256 .\\package.ps1 # 從 ZIP 解壓並直接執行，驗證完整 Windows 功能 .\\verify-package.ps1 每個腳本都先列出絕對輸入／輸出路徑，再顯示階段進度。run.ps1 可啟動最新建置，也可指定 -ExecutableName、-DataDir。Windows 桌面層測試需在可存取一般桌面與 Explorer 的環境執行；應用程式本身不需管理員權限。 最新結果集中於 驗證摘要。測試使用專用工作目錄，不使用或打包個人版面。"
+    "text": "開發需要 Windows x64、PowerShell、Visual Studio C++ 桌面開發工具與 Windows SDK。使用版不需要這些工具。 POWERSHELL複製# 建置與 179 項核心檢查；另輸出更新版，避免原 EXE 使用中 .\\build.ps1 -OutputName DeskTiles-update.exe # Windows UI、損壞檔保護與獨占鎖測試 .\\verify.ps1 -ExecutableName DeskTiles-update.exe # 重複啟動應帶回隱藏視窗，原程序與版面維持不變 .\\verify-activation.ps1 -ExecutableName DeskTiles-update.exe # 語言切換、實際重新啟動、設定保護與英文完整功能 .\\verify-language.ps1 -FullEnglish # 複製執行檔與說明、建立 ZIP 和 SHA256 .\\package.ps1 # 從 ZIP 解壓並直接執行，另用一般啟動驗證真實螢幕合成與置頂 .\\verify-package.ps1 -Composition 每個腳本都先列出絕對輸入／輸出路徑，再顯示階段進度。run.ps1 可啟動最新建置，也可指定 -ExecutableName、-DataDir。Windows 桌面層測試需在可存取一般桌面與 Explorer 的環境執行；應用程式本身不需管理員權限。 最新結果集中於 驗證摘要。測試使用專用工作目錄，不使用或打包個人版面。"
+  },
+  {
+    "lang": "zh",
+    "title": "實際畫面與顯示層的運作流程",
+    "pageTitle": "專案 README",
+    "url": "readme.html#%E5%AF%A6%E9%9A%9B%E7%95%AB%E9%9D%A2%E8%88%87%E9%A1%AF%E7%A4%BA%E5%B1%A4%E7%9A%84%E9%81%8B%E4%BD%9C%E6%B5%81%E7%A8%8B",
+    "text": "啟動時先列出 layout.hexdesk 和 session.log 的絕對輸入／輸出路徑，再依五個階段載入配置、建立視窗和顯示控制面板。 每個圖形使用帶 DWM 全客戶區透明框架的普通無邊框輸入視窗；繪製時將宿主清為 alpha 0，透明子視窗用 UpdateLayeredWindow 呈現文字、圖片及邊框。宿主保留多邊形滑鼠命中區，完全透明處也能操作。不使用會使一般啟動畫面變黑的 WS_EX_NOREDIRECTIONBITMAP。 桌面模式保留獨立頂層合成，以 Explorer 為 owner 並放在普通視窗下方；不再將視窗轉成 Explorer 的子視窗。置頂模式解除 owner，再以 HWND_TOPMOST 顯示。兩種模式的座標都用螢幕座標；桌面單擊不啟用前景視窗。 內容仍使用快取，動畫共用計時器；DWM 合成重新啟用時會重設透明框架。配置格式與個人資料目錄保持相容。 verify-composition.ps1 呼叫同目錄 verify-composition.py，各以一般啟動方式測試保存為置頂／桌面的兩種配置；驗證實際螢幕背景、邊框、文字、圖片、前景遮擋、透明命中和拖曳。它不以記憶體畫面匯出或 PrintWindow 作為顯示成功的依據。 開發者可執行 ./verify-composition.ps1 -ExecutablePath 'D:\\DeskTile\\release\\DeskTiles\\DeskTiles.exe'。測試需要互動式 Windows 桌面、Python 和 Pillow 12.3 以上；這些是開發驗證相依，免安裝 App 不需要。腳本會先列出絕對路徑和階段進度，暫時顯示桌面並於 finally 還原視窗；只操作專用配置，結果與圖形截圖寫入 build/composition-*。需避免同時操作電腦或執行其他 UI 測試，以免前景視窗干擾像素驗證。"
   },
   {
     "lang": "zh",
     "title": "專案檔案",
     "pageTitle": "專案 README",
     "url": "readme.html#%E5%B0%88%E6%A1%88%E6%AA%94%E6%A1%88",
-    "text": "位置 用途 release/ 可直接使用的資料夾、ZIP 與 SHA256 core.hpp 跨平台模型、形狀、選取、吸附、碰撞、計時及內部保存 config.hpp JSON、Base64 圖片、驗證與合併 win32.cpp Windows 圖形／控制視窗、桌面層、圖示、系統匣及整合檢查 tests.cpp 核心檢查 DeskTiles.rc、HexDesk.manifest 內嵌圖示、一般使用者權限及 DPI 宣告 assets/ 黑白像素來源、Logo 輸出與產生腳本 third_party/nlohmann/ JSON 相依檔及 MIT 授權；不需建置時下載 docs/ 使用說明、最新截圖、範例配置與驗證摘要 build/ 最新開發執行檔及可重新產生的編譯／測試產物 內部格式為 HEXDESK 5，可讀取 v1～v4；JSON 為 format: HexDesk、version 2，可讀取 version 1。形狀值為 0 六角形／1 三角形／2 矩形。舊格式缺少形狀時還原為六角形。格子選取、控制項代碼等暫時狀態不寫入 JSON；字體以名稱保存，不打包字型檔案。"
+    "text": "位置 用途 release/ 可直接使用的資料夾、ZIP 與 SHA256 core.hpp 跨平台模型、形狀、選取、吸附、碰撞、計時及內部保存 localization.hpp 繁體中文／英文詞條、語言代碼與核心錯誤翻譯 config.hpp JSON、Base64 圖片、驗證與合併 win32.cpp Windows 圖形／控制視窗、桌面層、圖示、系統匣及整合檢查 tests.cpp 核心檢查 DeskTiles.rc、HexDesk.manifest 內嵌圖示、一般使用者權限及 DPI 宣告 assets/ 黑白像素來源、Logo 輸出與產生腳本 third_party/nlohmann/ JSON 相依檔及 MIT 授權；不需建置時下載 docs/ 使用說明、最新截圖、範例配置與驗證摘要 build/ 最新開發執行檔及可重新產生的編譯／測試產物 內部格式為 HEXDESK 5，可讀取 v1～v4；JSON 為 format: HexDesk、version 2，可讀取 version 1。形狀值為 0 六角形／1 三角形／2 矩形。舊格式缺少形狀時還原為六角形。格子選取、控制項代碼等暫時狀態不寫入 JSON；字體以名稱保存，不打包字型檔案。"
   },
   {
     "lang": "zh",
@@ -189,11 +224,53 @@
     "text": "採 C++17、Win32、GDI+ 與 Windows 內建函式庫。透明顯示與六角形／三角形／矩形的互動區域分開，避免 alpha 0 區域點擊穿透。桌面層依賴 Explorer 宿主，屬相容性敏感部分。 重複啟動只用 Restart Manager 查詢鎖持有者，再帶回控制視窗；不呼叫關閉或重啟其他程式的 API。 視窗透明依據 UpdateLayeredWindow 與 extended window styles。 JSON 使用 nlohmann/json v3.12.0，授權隨使用版提供。 後續開發 Linux 顯示後端與打包；Windows EXE 不能直接作為 Linux 原生程式執行。 待驗收：不同 Windows 版本、DPI／多螢幕、Explorer 重啟、大量格子及長時間資源壓力。既有數字是本機短時間測試，並非所有環境的效能保證。"
   },
   {
+    "lang": "zh",
+    "title": "Git 上傳流程",
+    "pageTitle": "專案 README",
+    "url": "readme.html#git-%E4%B8%8A%E5%82%B3%E6%B5%81%E7%A8%8B",
+    "text": "在專案根目錄檢查變更與遠端 → 確認不含個人版面、日誌與暫存檔 → 驗證腳本及套件 SHA256 → 提交原始碼、文件與使用版 → 推送至 origin/main → 比對本機與遠端提交。build/、Data/ 及 *.user 由 .gitignore 排除；使用者資料仍保存在專案外的 LocalAppData。"
+  },
+  {
+    "lang": "zh",
+    "title": "拖曳與字體回歸驗證",
+    "pageTitle": "專案 README",
+    "url": "readme.html#%E6%8B%96%E6%9B%B3%E8%88%87%E5%AD%97%E9%AB%94%E5%9B%9E%E6%AD%B8%E9%A9%97%E8%AD%89",
+    "text": "專用空資料目錄啟動 --interaction-test --data-dir 絕對路徑 → 顯示輸入／輸出位置 → 實際視窗訊息測試立即選取、快速放開、連按拖曳、Shift 與擷取中斷 → 檢查三形狀小尺寸／大字級的文字與計時器像素 → 還原測試版面 → 寫入 interaction-results.txt 後結束。此模式必須指定資料目錄，不能使用個人版面。"
+  },
+  {
+    "lang": "zh",
+    "title": "操作示範影片",
+    "pageTitle": "專案 README",
+    "url": "readme.html#%E6%93%8D%E4%BD%9C%E7%A4%BA%E7%AF%84%E5%BD%B1%E7%89%87",
+    "text": "觀看 30 秒操作示範。 record-demo.py 是開發用錄製工具，需要 Python、Pillow 與 FFmpeg；一般使用者執行桌面拼格不需要這些工具。它先列出執行檔、專用示範版面與輸出影片的絕對路徑，再依序建立虛構資料 → 啟動獨立程式 → 重播真實 Win32 選取、拖曳與字體控制 → 僅擷取該程序視窗 → 合成 30 秒 H.264 MP4 → 比對保存位置及字體設定 → 結束自己建立的程序。每秒回報幀數進度，不擷取整個桌面；輸出為 docs/DeskTiles-fixes-demo.mp4，驗證摘要與影片同名 .txt，抽樣影格保存在 build/video-demo-*。 字體繪製流程：解析指定字體與可用樣式 → 缺少時優先使用微軟正黑體 UI → 依形狀計算內容區域 → 量測多行文字 → 必要時有限次二分搜尋縮小顯示字級 → 只繪製完整行，過長時省略 → 快取靜態內容。此流程不修改保存的字體名稱或字級。 快速檢查指令：.\\verify-interaction.ps1。25 項拖曳／字體檢查亦納入完整 verify.ps1；Windows 整合總數由 123 增為 148。示範擷取使用 --demo-capture --data-dir 絕對路徑，只在明確啟用時輸出該專用目錄的圖形 PNG；一般啟動不啟用。 所選字體缺少內容中的中文字元時，整段內容會使用可完整顯示的中文字體替代，讓量測與繪製保持一致，避免字元重疊；原字體名稱與字級設定仍保留，純英文且受支援的內容維持選定字體。 即時選取只重繪選取狀態改變的邊框，不重建文字與圖片快取，避免每次按下都重新量測全版面的文字。"
+  },
+  {
+    "lang": "zh",
+    "title": "中英文介面切換",
+    "pageTitle": "專案 README",
+    "url": "readme.html#%E4%B8%AD%E8%8B%B1%E6%96%87%E4%BB%8B%E9%9D%A2%E5%88%87%E6%8F%9B",
+    "text": "實作流程：建立 localization.hpp 中英文詞條 → 接入主視窗、設定視窗、選單、圖形狀態與錯誤訊息 → 語言偏好獨立保存於資料目錄 ui-settings.json → 切換前擷取尚未套用的輸入 → 更新文字及選單選項 → 還原輸入、選取與焦點 → 重繪圖形 → 驗證切換與重新啟動後的偏好。所有設定與驗證階段都顯示進度及絕對輸入／輸出位置。 語言驗證流程：專用資料目錄執行 --language-test → 實際切換全部視窗並驗證草稿與計時器 → 模擬偏好檔被鎖住時的保存失敗 → 結束後真正重新啟動確認英文 → 切回中文後再次重啟 → 損壞設定檔回復預設且保持原檔 → 選用 -FullEnglish 執行全部 Windows 功能。原生語言檢查 18 項納入完整整合測試，目前 179 項核心、166 項 Windows 整合檢查。語言切換後保留未套用狀態；只有明確按套用才更動格子設定。 Windows 系統視窗的語言偏好以 SetThreadUILanguage 設定；檔案與選色對話框可用翻譯取決於 Windows 內建語言資源。"
+  },
+  {
     "lang": "en",
     "title": "DeskTiles",
     "pageTitle": "DeskTiles",
     "url": "en/index.html",
-    "text": "DeskTiles/DeskTilesOn this pageA desktop with room for possibilities.Arrange your own shapesKeep useful content nearbyGive each tile its own styleTake the whole layout with youExtract it. Open it. Make it yours.Downloads and documentationValidation scope and next stepsNICOA THE SIX / WINDOWS DESKTOP TOOLDeskTilesMake room for what matters.Text, images and timers. Your desktop, arranged your way.Keep a note, a picture or a timer within reach. Pick a shape and make a small space of your own on the desktop.Download Windows x64 ZIP ↓Read the user guide ↗Windows 10 / 11 x64 · Portable ZIPThree shapes. A reminder, a picture, a moment in time. A desktop with room for possibilities.01 / FEATURES01Arrange your own shapesHexagons, upward triangles and 3:2 rectangles. Shift-select a group, drag it together and snap near other tiles.02Keep useful content nearbyDisplay text, PNG / JPEG / BMP images, elapsed-time timers or countdowns.03Give each tile its own styleAdjust size, font and background transparency. Choose solid, pixel, RGB or single-color breathing borders.04Take the whole layout with youExport JSON with embedded images. Replace or merge on import without finding every image again. Extract it. Open it. Make it yours.Download the Windows x64 ZIP and extract the entire archive.Open the DeskTiles folder and double-click DeskTiles.exe.Choose a shape and add a tile. Edit content and apply it to your selection.For Windows 10 / 11 x64. No Visual Studio, Python, .NET, extra runtime pack"
+    "text": "DeskTiles/DeskTilesOn this page2026-11-01 updateSee it in actionA desktop with room for possibilities.Arrange your own shapesKeep useful content nearbyGive each tile its own styleTake the whole layout with youExtract it. Open it. Make it yours.Downloads and documentationValidation scope and next stepsNICOA THE SIX / WINDOWS DESKTOP TOOLDeskTilesMake room for what matters.Text, images and timers. Your desktop, arranged your way.Keep a note, a picture or a timer within reach. Pick a shape and make a small space of your own on the desktop.Download Windows x64 ZIP ↓Read the user guide ↗Windows 10 / 11 x64 · Portable ZIPThree shapes. A reminder, a picture, a moment in time. 2026-11-01 updateSwitch between Traditional Chinese and English in the same executable. Pending edits are preserved and your preference is remembered.Fixes black or invisible tiles during ordinary startup, transparent rendering, and switching between always-on-top and desktop modes.Before updating, choose Save and exit DeskTiles from the old version’s tray menu, then open the new version. Closing the controller with X does not quit the app. Keep your existing layout.The download is the locally verified release. The repository does not yet contain every recent fix; use this ZIP for the updated app.View the project on GitHub ↗See it in actionOpen the demonstration videoA project-provided 30-second demonstration using a fictional sample layout.A desktop with room for possibilities.01 / FEATURES01Arrange your own s"
+  },
+  {
+    "lang": "en",
+    "title": "2026-11-01 update",
+    "pageTitle": "DeskTiles",
+    "url": "en/index.html#2026-11-01-update",
+    "text": "Switch between Traditional Chinese and English in the same executable. Pending edits are preserved and your preference is remembered.Fixes black or invisible tiles during ordinary startup, transparent rendering, and switching between always-on-top and desktop modes. Before updating, choose Save and exit DeskTiles from the old version’s tray menu, then open the new version. Closing the controller with X does not quit the app. Keep your existing layout. The download is the locally verified release. The repository does not yet contain every recent fix; use this ZIP for the updated app. View the project on GitHub ↗"
+  },
+  {
+    "lang": "en",
+    "title": "See it in action",
+    "pageTitle": "DeskTiles",
+    "url": "en/index.html#see-it-in-action",
+    "text": "Open the demonstration video A project-provided 30-second demonstration using a fictional sample layout."
   },
   {
     "lang": "en",
@@ -242,84 +319,77 @@
     "title": "Downloads and documentation",
     "pageTitle": "DeskTiles",
     "url": "en/index.html#downloads-and-documentation",
-    "text": "DeskTiles-Windows-x64.zipPortable Windows build · 399.2 KiB ↓Read the user guideAdd, move, style, back up and troubleshoot ↗Project READMEScope, data formats and development notes ↗Example configuration JSONThree shapes and an embedded image; try merge import ↓ Original Chinese guide Markdown · Original project README Markdown · English guide Markdown · English README Markdown Download integrity and license noticesSHA-25677b336514c7a961abe52dcd579ec4e20ad41e0fd8b6b4099deaf1ab6b789e8a8SHA256SUMS.txt ↓The original ZIP retains its third-party MIT license notices and includes the Windows build and documentation."
+    "text": "DeskTiles-Windows-x64.zipPortable Windows build · 449.1 KiB ↓Read the user guideAdd, move, style, back up and troubleshoot ↗Project READMEScope, data formats and development notes ↗Example configuration JSONThree shapes and an embedded image; try merge import ↓ Original Chinese guide Markdown · Original project README Markdown · English guide Markdown · English README Markdown Download integrity and license noticesSHA-2568b506c952970ad54c37015f493739d7b0b87792868c28c6bfcb54545212724b9SHA256SUMS.txt ↓The original ZIP retains its third-party MIT license notices and includes the Windows build and documentation."
   },
   {
     "lang": "en",
     "title": "Validation scope and next steps",
     "pageTitle": "DeskTiles",
     "url": "en/index.html#validation-scope-and-next-steps",
-    "text": "The project-provided validation summary reports 170 core checks and 123 Windows integration checks passed, including running the extracted ZIP build. Testing continues across Windows versions, DPI, multiple displays, Explorer restarts, large layouts and sustained workloads. Performance samples are short local observations, not guarantees for every computer. A Linux version has not been developed. Download the original validation summary ↓ C++17 / Win32 / GDI+ · The portable build is ready to run; source projects require a separate build."
+    "text": "The project-provided validation summary reports 179 core checks and 166 Windows integration checks passed in both UI languages, plus 64 actual-screen checks of the extracted build during ordinary startup. Testing continues across Windows versions, DPI, multiple displays, Explorer restarts, large layouts and sustained workloads. Performance samples are short local observations, not guarantees for every computer. A Linux version has not been developed. Download the original validation summary ↓ C++17 / Win32 / GDI+ · The portable build is ready to run; source projects require a separate build."
   },
   {
     "lang": "en",
     "title": "User guide",
     "pageTitle": "User guide",
     "url": "en/guide.html",
-    "text": "DeskTiles/User guideDownload Markdown ↓Windows x64 ZIP ↓On this pageStart hereAdd, select and move tilesText, images and timersSize, typography and bordersSave, back up and move to another computerClose, exit and updateTroubleshootingApplication screenshotsDeskTiles user guide Arrange hexagonal, triangular and rectangular tiles on your Windows desktop to display text, images or timers. Each tile can stay above other windows or on the desktop layer. You can also select a group to move it or update its appearance together. Start here Download DeskTiles-Windows-x64.zip and extract the entire archive. Open the extracted DeskTiles folder and double-click DeskTiles.exe. On first launch, three example tiles and the content controller appear. Select tiles on the left, edit the content on the right, then click Apply to all selected tiles (套用至所有選取格). The portable build supports Windows 10 / 11 x64. You do not need Visual Studio, Python, .NET, extra runtime packages or administrator permissions. A Linux version has not been implemented. A source-code checkout must be built separately; the portable ZIP already contains the compiled EXE. The screenshots and the current application use Chinese UI labels. This guide explains their actions in English. Add, select and move tiles The shape selector defaults to a hexagon. You can also choose an upward-pointing equilateral triangle or a 3:2 rectangle, then click Add tile. The context menu and system tray also offer add actions. Click a tile to s"
+    "text": "DeskTiles/User guideDownload Markdown ↓Windows x64 ZIP ↓On this pageStartTiles and selectionContentAppearanceSave, export and importClose, update and troubleshootApplication screenshotsDeskTiles — User Guide DeskTiles is a native Windows desktop widget app. Arrange text, images and timers in hexagonal, triangular or rectangular tiles. Windows 10/11 x64 is supported; Linux is planned. Start Extract the complete DeskTiles-Windows-x64.zip archive. Open the DeskTiles folder and run DeskTiles.exe. No installer, administrator rights, Python, .NET or separate C++ runtime is required. In the upper-right language selector, choose English. You can also use the Language submenu in a tile's context menu or the tray menu. The interface changes immediately. Your preference is remembered at the next launch. Switching preserves pending edits, selected tiles, font settings and running timers. It changes interface text only; your own tile content, paths and font names are never translated. Tiles and selection Choose Hexagon (default), Triangle or Rectangle (3:2) and click + Add tile. Click a tile to select it. Hold Shift and click to add or remove a tile from the selection. Drag a selected tile to move the entire selected group while preserving its relative positions. Shift-drag also works. Nearby tiles snap together; overlapping drops return to their original positions. Press Esc to clear selection. Double-click a tile to open the controller. Use Always on top or Pin to desktop to choose the "
   },
   {
     "lang": "en",
-    "title": "Start here",
+    "title": "Start",
     "pageTitle": "User guide",
-    "url": "en/guide.html#start-here",
-    "text": "Download DeskTiles-Windows-x64.zip and extract the entire archive. Open the extracted DeskTiles folder and double-click DeskTiles.exe. On first launch, three example tiles and the content controller appear. Select tiles on the left, edit the content on the right, then click Apply to all selected tiles (套用至所有選取格). The portable build supports Windows 10 / 11 x64. You do not need Visual Studio, Python, .NET, extra runtime packages or administrator permissions. A Linux version has not been implemented. A source-code checkout must be built separately; the portable ZIP already contains the compiled EXE. The screenshots and the current application use Chinese UI labels. This guide explains their actions in English."
+    "url": "en/guide.html#start",
+    "text": "Extract the complete DeskTiles-Windows-x64.zip archive. Open the DeskTiles folder and run DeskTiles.exe. No installer, administrator rights, Python, .NET or separate C++ runtime is required. In the upper-right language selector, choose English. You can also use the Language submenu in a tile's context menu or the tray menu. The interface changes immediately. Your preference is remembered at the next launch. Switching preserves pending edits, selected tiles, font settings and running timers. It changes interface text only; your own tile content, paths and font names are never translated."
   },
   {
     "lang": "en",
-    "title": "Add, select and move tiles",
+    "title": "Tiles and selection",
     "pageTitle": "User guide",
-    "url": "en/guide.html#add-select-and-move-tiles",
-    "text": "The shape selector defaults to a hexagon. You can also choose an upward-pointing equilateral triangle or a 3:2 rectangle, then click Add tile. The context menu and system tray also offer add actions. Click a tile to select it. Shift + click adds it to or removes it from the selection. Clicking an already selected tile makes it the only selection; starting a drag instead preserves the group selection. Drag any selected tile to move the entire group while preserving its relative positions. Tiles snap when brought near another tile. Different shapes prefer edge midpoints or corners and can also snap along edges. Releasing a group in an overlapping position restores its original position. Press Esc to clear the selection. Double-click a tile to reopen the controller. Use the tile context menu to set selected tiles to Always on top or Desktop layer."
+    "url": "en/guide.html#tiles-and-selection",
+    "text": "Choose Hexagon (default), Triangle or Rectangle (3:2) and click + Add tile. Click a tile to select it. Hold Shift and click to add or remove a tile from the selection. Drag a selected tile to move the entire selected group while preserving its relative positions. Shift-drag also works. Nearby tiles snap together; overlapping drops return to their original positions. Press Esc to clear selection. Double-click a tile to open the controller. Use Always on top or Pin to desktop to choose the display layer for selected tiles."
   },
   {
     "lang": "en",
-    "title": "Text, images and timers",
+    "title": "Content",
     "pageTitle": "User guide",
-    "url": "en/guide.html#text-images-and-timers",
-    "text": "Select tiles first, then choose a content type on the right of the controller. Text: Supports Chinese text, multiple lines and centered display. Enter the text, then apply it. Images: Browse to a PNG, JPEG or BMP file, then apply it. Images retain their aspect ratio and are cropped to the tile shape. Directly selected images reference the original file path. Export a JSON configuration to back them up or move them to another computer. Timers: Choose a countdown or elapsed-time timer. For a countdown, enter the total number of seconds and apply it, then start, pause or reset. Elapsed time is saved when the program closes; timers remain paused when reopened. Applying content with multiple tiles selected changes all selected tiles. To change appearance only, use the separate appearance buttons on the left."
+    "url": "en/guide.html#content-2",
+    "text": "Select one or more tiles, choose Text, Image or Timer, edit the fields, then click Apply to selected tiles. Text supports multiple lines and Unicode. Images support PNG, JPEG and BMP. Images are cropped to fill the selected shape. Directly chosen images reference their original paths; export a JSON layout to include them in a portable backup. Timers support count down and count up. Use Start timer, Pause timer and Reset timer. Saved timers reopen paused."
   },
   {
     "lang": "en",
-    "title": "Size, typography and borders",
+    "title": "Appearance",
     "pageTitle": "User guide",
-    "url": "en/guide.html#size-typography-and-borders",
-    "text": "Size and text: Choose whether to apply tile size, text styling or both. Width ranges from 80–480 px; font size ranges from 8–96 px. Select an installed font and choose a text color or enter its color code. Resizing a group scales its relative positions. If there is insufficient space, the existing configuration is retained. Borders and style: Solid, pixel, RGB rainbow and single-color breathing borders are supported. Border width ranges from 1–12 px; animation cycles range from 2–60 seconds. You can change colors or stop playback. Background and transparency: Background color and transparency can be applied separately. 0% is opaque and 100% is fully transparent. Only the background changes; text, images and borders retain their own settings. Fully transparent empty areas remain selectable and draggable. Click Apply after editing settings. The controller defaults to an 18 px UI font and a 32 px header. These sizes are separate from each tile's content font."
+    "url": "en/guide.html#appearance",
+    "text": "Size and text…: width 80–480 px; requested font size 8–96 px; installed supported fonts and text color. Check only the settings you want to apply. Text that does not fit is rendered smaller without changing the saved font size. Long content can be shortened with an ellipsis. Missing Chinese glyphs use a covering fallback font for consistent measurement and rendering. Border style…: solid, pixel, animated RGB or single-color breathing; width 1–12 px and effect cycle 2–60 seconds. Background…: color and 0–100% transparency. Transparency affects the background only. Text, images and borders keep their opacity; fully transparent tile areas remain selectable and draggable. Appearance changes can be applied to multiple selected tiles. Resizing that would cause a collision leaves the settings unchanged."
   },
   {
     "lang": "en",
-    "title": "Save, back up and move to another computer",
+    "title": "Save, export and import",
     "pageTitle": "User guide",
-    "url": "en/guide.html#save-back-up-and-move-to-another-computer",
-    "text": "Completed actions are saved automatically. The default data folder is %LOCALAPPDATA%\\HexDesk; the older folder name is retained for compatibility. Startup displays the actual absolute input and output paths. The Configuration JSON menu in the upper right provides: Export entire layout: Saves every tile, position, style and image content into one JSON file. Replace import: Replaces the current layout after confirmation and a backup. Merge import: Keeps existing tiles, assigns new IDs to imported tiles and, if needed, shifts the imported group to avoid overlaps. The bundled example configuration contains all three shapes and one embedded example image. Try it with merge import. Images are embedded in the JSON and are saved to the data folder's assets directory after import. Fonts are stored by name only. If another computer lacks a font, the program reports it and uses a fallback font. Limits: 500 tiles, 16 MiB per image, 64 MiB of images in total, a 128 MiB JSON file and 64 million pixels per image. Invalid configurations or damaged images leave the current layout unchanged."
+    "url": "en/guide.html#save-export-and-import",
+    "text": "Changes are saved automatically after successful operations. Default data folder: %LOCALAPPDATA%\\HexDesk (the historic folder name is retained for compatibility). Layout JSON… provides: Export layout with images…: save tiles, positions, styles and embedded images in one JSON file. Import JSON: replace…: replace the current layout after confirmation and a backup. Import JSON: merge…: keep existing tiles and add the imported group with new IDs, repositioning it if necessary to avoid overlaps. The included 範例配置.json is a three-shape sample with an embedded image. Font files are not embedded; unavailable fonts use a fallback. Imported timers start paused. Limits: 500 tiles, 128 MiB JSON, 16 MiB per image, 64 MiB of images in total and 64 million pixels per decoded image. Language is stored separately in ui-settings.json in the data folder. Importing a layout never changes it. Missing, unknown or corrupt preferences default to Traditional Chinese. Corrupt preferences are not overwritten at startup; an explicit language choice can replace them. If saving fails, the current language and pending edits stay intact."
   },
   {
     "lang": "en",
-    "title": "Close, exit and update",
+    "title": "Close, update and troubleshoot",
     "pageTitle": "User guide",
-    "url": "en/guide.html#close-exit-and-update",
-    "text": "Closing the controller only hides its panel. Desktop tiles and timers keep running. Double-click a tile or use the system tray to bring the panel back. Before exiting, apply any pending edits, then choose Save and exit DeskTiles from a tile context menu or the system tray. Exit the old version before running an update. The new version restores the layout from the same data folder. Starting the program again with the same data folder brings back the existing controller. It does not start two writers for the same layout or automatically terminate the old version."
-  },
-  {
-    "lang": "en",
-    "title": "Troubleshooting",
-    "pageTitle": "User guide",
-    "url": "en/guide.html#troubleshooting",
-    "text": "An older version is still running: The new launch normally restores its window. Save and exit the old version from the tray, then start the new EXE. The data directory is not writable: Check the displayed path and Windows error code, or choose another writable directory. A session.lock file remains: This is normal. Its presence alone does not mean the program is running. Do not delete the lock file to resolve duplicate launches. Tiles are missing: Choose Recover all tiles in the tray menu to move them onto the main display and bring them to the top. An image cannot be loaded: Select its source file again, or import a JSON configuration that includes it. For an independent data folder, run this in PowerShell: POWERSHELLCopy.\\DeskTiles.exe --data-dir 'D:\\DeskTilesData' Different data directories can run separately without changing one another's layouts. Compatibility across Windows versions, multiple displays, DPI settings and Explorer restarts remains subject to further testing."
+    "url": "en/guide.html#close-update-and-troubleshoot",
+    "text": "Closing the controller hides it; tiles continue to run. Double-click a tile or use Open controller from the tray to return. To quit, apply pending edits and choose Save and exit DeskTiles. Before updating, save and exit the old version, then open the new executable. Starting another copy with the same data folder restores the existing controller instead of running two writers. A leftover session.lock file alone is normal; do not delete it as a workaround. Missing tiles: Bring back all tiles moves them to the main display and sets them always on top. Missing image: choose the source file again or import a JSON backup containing it. Unwritable data folder: use the folder and Windows error shown by the app, or choose a different location: POWERSHELLCopy.\\DeskTiles.exe --data-dir 'D:\\DeskTilesData' The app logs absolute input/output paths and progress in session.log. Layout backups include layout.backup and pre-import backups. Windows system file/color dialogs use the language resources available in Windows."
   },
   {
     "lang": "en",
     "title": "Application screenshots",
     "pageTitle": "User guide",
     "url": "en/guide.html#ui-screenshots",
-    "text": "Screenshots show the actual Windows build with its original Chinese UI. Controller: select tiles and edit text, images or timersBorders: solid, pixel, RGB and breathing stylesBackground: separate color and transparency settingsSize and text: tile size, font and text color"
+    "text": "The controller below uses the English UI. Additional settings screenshots show the original Chinese labels; the app supports both languages. Controller: select tiles and edit text, images or timersBorders: solid, pixel, RGB and breathing stylesBackground: separate color and transparency settingsSize and text: tile size, font and text color"
   },
   {
     "lang": "en",
     "title": "Project README",
     "pageTitle": "Project README",
     "url": "en/readme.html",
-    "text": "DeskTiles/Project READMEDownload Markdown ↓Windows x64 ZIP ↓On this pageStart here as a userCommon actionsFeatures and scopeData location and startup issuesExecution flow and progressDevelopment, checks and packagingProject filesTechnical basis and future workDeskTiles A native Windows desktop widget app for arranging text, images and timers in hexagonal, triangular or rectangular tiles. It supports group dragging, snapping, always-on-top or desktop layers, transparent backgrounds, pixel / RGB / breathing borders, and JSON configurations with embedded images. Start here as a user Download DeskTiles-Windows-x64.zip and extract the entire archive. Open the extracted DeskTiles folder and double-click DeskTiles.exe. Choose a shape on the left and add it. Edit content on the right and apply it. The portable ZIP runs after extraction. It supports Windows 10 / 11 x64, with no Visual Studio, Python, .NET, extra runtime installation or administrator permissions required. The EXE uses the static C++ runtime and contains an embedded logo. The source project must be built. A source-only checkout does not include a ready-to-run user EXE unless it has been built separately. A Linux version has not been developed and remains future work. The source project's extracted user build is release/DeskTiles/DeskTiles.exe. See the user guide for full steps. The ZIP contains README.txt, the user guide, an example configuration with embedded image data and third-party license notices. Common actions T"
+    "text": "DeskTiles/Project READMEDownload Markdown ↓Windows x64 ZIP ↓On this pageStart here as a userBilingual interfaceCommon actionsFeatures and scopeData location and startup issuesExecution flow and progressDevelopment, checks and packagingRendering and window layersProject filesTechnical basis and future workGit publishing flowDragging and font regression checksDemonstration videoLanguage switching implementation and verificationDeskTiles Project repository: NicoaTheSix/DeskTile. The portable build is available below. The website download is the verified local release; the repository does not yet contain all recent rendering fixes. An overall project license has not been specified; third-party notices remain in the ZIP. A native Windows desktop widget app for arranging text, images and timers in hexagonal, triangular or rectangular tiles. It supports group dragging, snapping, always-on-top or desktop layers, transparent backgrounds, pixel / RGB / breathing borders, and JSON configurations with embedded images. Start here as a user Download DeskTiles-Windows-x64.zip and extract the entire archive. Open the extracted DeskTiles folder and double-click DeskTiles.exe. Choose a shape on the left and add it. Edit content on the right and apply it. The portable ZIP runs after extraction. It supports Windows 10 / 11 x64, with no Visual Studio, Python, .NET, extra runtime installation or administrator permissions required. The EXE uses the static C++ runtime and contains an embedded logo. "
   },
   {
     "lang": "en",
@@ -327,6 +397,13 @@
     "pageTitle": "Project README",
     "url": "en/readme.html#start-here-as-a-user",
     "text": "Download DeskTiles-Windows-x64.zip and extract the entire archive. Open the extracted DeskTiles folder and double-click DeskTiles.exe. Choose a shape on the left and add it. Edit content on the right and apply it. The portable ZIP runs after extraction. It supports Windows 10 / 11 x64, with no Visual Studio, Python, .NET, extra runtime installation or administrator permissions required. The EXE uses the static C++ runtime and contains an embedded logo. The source project must be built. A source-only checkout does not include a ready-to-run user EXE unless it has been built separately. A Linux version has not been developed and remains future work. The source project's extracted user build is release/DeskTiles/DeskTiles.exe. See the user guide for full steps. The ZIP contains README.txt, the user guide, an example configuration with embedded image data and third-party license notices."
+  },
+  {
+    "lang": "en",
+    "title": "Bilingual interface",
+    "pageTitle": "Project README",
+    "url": "en/readme.html#bilingual-interface",
+    "text": "Choose Language → English / 繁體中文 in the controller, a tile's context menu or the tray menu. The interface updates immediately and remembers your preference. It preserves pending edits, selection and running timers; your own tile content is not translated. See the project-provided English user guide. Before updating, choose Save and exit DeskTiles from the old version's tray menu, then open the new EXE. Closing the controller with X only hides it. Keep your existing configuration."
   },
   {
     "lang": "en",
@@ -354,21 +431,28 @@
     "title": "Execution flow and progress",
     "pageTitle": "Project README",
     "url": "en/readme.html#execution-flow-and-progress",
-    "text": "Startup: Resolve the data folder → acquire the lock or restore the existing window → display absolute input / output paths → five initialization stages → load layout and icons → create tiles, controller and tray → wait for input. Add: Display output layout path → find adjacent free space, create a tile and save, with three progress stages. Drag: Record original group positions → create contact candidates → check group collisions → snap → commit or restore → save. Appearance / size / background: Display input / output locations → validate → apply checked fields and refresh caches → save. Settings dialogs show three-stage progress. Save: Write a temporary file → back up the previous version → atomically replace it. Corrupt layouts are not overwritten directly; timers reopen paused. JSON export: Display paths → collect layout and images → validate → atomically replace the destination after completing a temporary file. JSON import: Display paths → validate format, values, overlap and images → back up → save images and a candidate layout → recreate windows. Merge preserves existing IDs and timer states; imported tiles receive new IDs and may shift as a group. Animation and timing: Reuse caches for static content. Active animations share an approximately 12 FPS timer; timers use per-second events. Events are removed when not needed."
+    "text": "Startup: Resolve the data folder → acquire the lock or restore the existing window → display absolute input / output paths → five initialization stages → load layout and icons → create tiles, controller and tray → wait for input. Add: Display output layout path → find adjacent free space, create a tile and save, with three progress stages. Drag: Select the primary tile immediately and update the panel → capture the mouse and record group positions → preview snapping after the movement threshold → read final coordinates on release → check collision and commit or restore → save. Shift-click deselection and double-click controller activation wait until release without movement; interrupted capture cancels the preview. Appearance / size / background: Display input / output locations → validate → apply checked fields and refresh caches → save. Settings dialogs show three-stage progress. Save: Write a temporary file → back up the previous version → atomically replace it. Corrupt layouts are not overwritten directly; timers reopen paused. JSON export: Display paths → collect layout and images → validate → atomically replace the destination after completing a temporary file. JSON import: Display paths → validate format, values, overlap and images → back up → save images and a candidate layout → recreate windows. Merge preserves existing IDs and timer states; imported tiles receive new IDs and may shift as a group. Animation and timing: Reuse caches for static content. Active animations share an approximately 12 FPS timer; timers use per-second events. Events are removed when not needed."
   },
   {
     "lang": "en",
     "title": "Development, checks and packaging",
     "pageTitle": "Project README",
     "url": "en/readme.html#development-checks-and-packaging",
-    "text": "Development requires Windows x64, PowerShell, Visual Studio C++ desktop development tools and the Windows SDK. The portable user build does not require these tools. POWERSHELLCopy# Build and run 170 core checks; use a separate output while the old EXE is running .\\build.ps1 -OutputName DeskTiles-update.exe # Windows UI, corrupt-file protection and exclusive-lock checks .\\verify.ps1 -ExecutableName DeskTiles-update.exe # Duplicate launch restores the hidden controller and preserves the existing layout .\\verify-activation.ps1 -ExecutableName DeskTiles-update.exe # Copy the executable and docs, then create the ZIP and SHA-256 checksums .\\package.ps1 # Extract the ZIP and run the packaged build to verify Windows functionality .\\verify-package.ps1 Each script prints absolute input / output paths before progress stages. run.ps1 can launch the newest build or accept -ExecutableName and -DataDir. Desktop-layer tests require access to a normal desktop and Explorer. The application itself does not need administrator permissions. See the validation summary. Tests use dedicated working directories and do not use or package personal layouts."
+    "text": "Development requires Windows x64, PowerShell, Visual Studio C++ desktop development tools and the Windows SDK. The portable user build does not require these tools. POWERSHELLCopy# Build and run 179 core checks; use a separate output while the old EXE is running .\\build.ps1 -OutputName DeskTiles-update.exe # Windows UI, corrupt-file protection and exclusive-lock checks .\\verify.ps1 -ExecutableName DeskTiles-update.exe # Duplicate launch restores the hidden controller and preserves the existing layout .\\verify-activation.ps1 -ExecutableName DeskTiles-update.exe # Language switching, actual restarts, preference protection and full English integration .\\verify-language.ps1 -FullEnglish # Copy the executable and docs, then create the ZIP and SHA-256 checksums .\\package.ps1 # Extract the ZIP and verify real-screen composition and window layers during normal startup .\\verify-package.ps1 -Composition Each script prints absolute input / output paths before progress stages. run.ps1 can launch the newest build or accept -ExecutableName and -DataDir. Desktop-layer tests require access to a normal desktop and Explorer. The application itself does not need administrator permissions. See the validation summary. Tests use dedicated working directories and do not use or package personal layouts."
+  },
+  {
+    "lang": "en",
+    "title": "Rendering and window layers",
+    "pageTitle": "Project README",
+    "url": "en/readme.html#rendering-and-window-layers",
+    "text": "Startup displays the absolute layout and log paths, then loads configuration, creates windows and opens the controller in five stages. Each polygon uses a normal borderless input host with a DWM full-client transparent frame. The host is painted with zero alpha; a layered child presents text, images and borders through UpdateLayeredWindow. Polygon hit testing remains active even in transparent areas. The host no longer uses WS_EX_NOREDIRECTIONBITMAP, which suppressed visible composition during ordinary startup. Desktop mode keeps independent top-level composition and uses Explorer as the owner, below normal windows; it no longer reparents the host as an Explorer child. Always-on-top mode clears the owner and explicitly sets HWND_TOPMOST. Coordinates remain screen coordinates, and desktop clicks do not activate the window. Content caches and the shared animation timer are retained. The transparent frame is reset after DWM composition changes; existing data and layout formats remain compatible. verify-composition.ps1 calls verify-composition.py to launch saved on-top and desktop layouts normally. It checks actual screen pixels, backgrounds, borders, text, images, foreground-window coverage, transparent hit testing and dragging. Memory exports or PrintWindow are not treated as proof of visible output. Developer command: ./verify-composition.ps1 -ExecutablePath 'D:\\DeskTile\\release\\DeskTiles\\DeskTiles.exe'. These checks require an interactive Windows desktop, Python and Pillow 12.3 or newer; the portable app does not. The script logs absolute paths and progress, temporarily shows the desktop and restores windows in finally, and operates only on dedicated fixtures. Results go to build/composition-*. Concurrent foreground activity can interfere with pixel checks. The project reports 179 core checks, 166 Windows integration checks in each UI language, and 64 actual-screen checks of the extracted EXE during normal startup. Language regression covers 18 checks, actual preference restarts, corrupt preferences and failed saves. These are project-provided results; website publication verifies file integrity and does not rerun the desktop suite. Other Windows versions, Explorer restarts, DPI, multiple monitors and sustained workloads still need compatibility testing. Linux remains planned."
   },
   {
     "lang": "en",
     "title": "Project files",
     "pageTitle": "Project README",
     "url": "en/readme.html#project-files",
-    "text": "Location Purpose release/ Ready-to-run folder, ZIP and SHA-256 checksums core.hpp Cross-platform model, shapes, selection, snapping, collision detection, timers and internal persistence config.hpp JSON, Base64 images, validation and merging win32.cpp Windows tiles, controller, desktop layer, icons, tray and integration checks tests.cpp Core checks DeskTiles.rc, HexDesk.manifest Embedded icons, standard-user permissions and DPI declarations assets/ Monochrome pixel sources, logo outputs and asset scripts third_party/nlohmann/ JSON dependency and MIT license; no build-time download required docs/ User guide, current screenshots, example configuration and validation summary build/ Development executables and reproducible build / test artifacts The internal format is HEXDESK 5, with v1–v4 read support. JSON uses format: HexDesk, version 2 and can read version 1. Shape values are 0 for hexagons, 1 for triangles and 2 for rectangles; old formats without a shape field default to hexagons. Selection, control identifiers and other transient state are not saved to JSON. Fonts are stored by name; font files are not packaged."
+    "text": "Location Purpose release/ Ready-to-run folder, ZIP and SHA-256 checksums core.hpp Cross-platform model, shapes, selection, snapping, collision detection, timers and internal persistence localization.hpp Traditional Chinese / English strings, language codes and core error translations config.hpp JSON, Base64 images, validation and merging win32.cpp Windows tiles, controller, desktop layer, icons, tray and integration checks tests.cpp Core checks DeskTiles.rc, HexDesk.manifest Embedded icons, standard-user permissions and DPI declarations assets/ Monochrome pixel sources, logo outputs and asset scripts third_party/nlohmann/ JSON dependency and MIT license; no build-time download required docs/ User guide, current screenshots, example configuration and validation summary build/ Development executables and reproducible build / test artifacts The internal format is HEXDESK 5, with v1–v4 read support. JSON uses format: HexDesk, version 2 and can read version 1. Shape values are 0 for hexagons, 1 for triangles and 2 for rectangles; old formats without a shape field default to hexagons. Selection, control identifiers and other transient state are not saved to JSON. Fonts are stored by name; font files are not packaged."
   },
   {
     "lang": "en",
@@ -376,5 +460,33 @@
     "pageTitle": "Project README",
     "url": "en/readme.html#technical-basis-and-future-work",
     "text": "Built with C++17, Win32, GDI+ and Windows system libraries. Transparency and the interactive shape region are managed separately so alpha-zero areas do not become click-through. The desktop layer depends on an Explorer host and is sensitive to compatibility differences. Duplicate launch uses Restart Manager only to identify the lock holder, then restores its controller. It does not shut down or restart other programs. Layered-window rendering follows UpdateLayeredWindow and extended window styles. JSON uses nlohmann/json v3.12.0. Its license is included in the portable package. A Linux display backend and packaging are future work. The Windows EXE is not a native Linux application. Further testing is needed across Windows versions, DPI / multiple displays, Explorer restarts, large layouts and long-running workloads. Existing performance numbers are short local samples, not a guarantee for every environment."
+  },
+  {
+    "lang": "en",
+    "title": "Git publishing flow",
+    "pageTitle": "Project README",
+    "url": "en/readme.html#git-publishing-flow",
+    "text": "Inspect changes and remotes → exclude personal layouts, logs and temporary files → validate scripts and release SHA-256 → commit source, documentation and release files → push to origin/main → compare local and remote commits. build/, Data/ and *.user are ignored. Personal data remains outside the project in LocalAppData."
+  },
+  {
+    "lang": "en",
+    "title": "Dragging and font regression checks",
+    "pageTitle": "Project README",
+    "url": "en/readme.html#dragging-and-font-regression-checks",
+    "text": "Launch --interaction-test --data-dir with an absolute path to a dedicated empty test folder → log paths and progress → exercise immediate selection, quick release, repeated clicks followed by dragging, Shift and lost capture → verify text and timer pixels for three shapes at small sizes and large requested fonts → restore the test layout → write interaction-results.txt and exit. This mode must use a dedicated data folder, never a personal layout. Font rendering resolves the requested font and styles, falls back to Microsoft JhengHei UI when needed, computes the shape's content region and measures multiline text. A bounded binary search reduces the displayed size if needed; only complete lines are drawn and long content receives an ellipsis. Static output is cached. Saved font names and sizes are not changed. If the requested font lacks Chinese glyphs, the whole content run uses a font covering those characters so measurement and drawing remain consistent; supported English content keeps the selected font. Selection changes redraw only affected borders without rebuilding text or image caches. The 25 dragging/font checks are part of full Windows verification. The current total, including 18 language checks, is 166 Windows integration checks."
+  },
+  {
+    "lang": "en",
+    "title": "Demonstration video",
+    "pageTitle": "Project README",
+    "url": "en/readme.html#demonstration-video",
+    "text": "Watch the 30-second demonstration. record-demo.py is a development recording tool requiring Python, Pillow and FFmpeg; the app does not require them. It logs absolute executable, dedicated fixture and output paths, creates fictional data, launches a separate instance, replays actual Win32 selection, dragging and font controls, captures only that process's windows, encodes a 30-second H.264 MP4, validates saved positions and fonts, and exits its own instance. Frame progress is reported every second. The output is docs/DeskTiles-fixes-demo.mp4; its validation summary shares the filename with a .txt extension, and sample frames are stored in build/video-demo-*. --demo-capture --data-dir is explicitly enabled only for dedicated demonstration data; normal startup does not export tile PNGs."
+  },
+  {
+    "lang": "en",
+    "title": "Language switching implementation and verification",
+    "pageTitle": "Project README",
+    "url": "en/readme.html#language-switching-implementation-and-verification",
+    "text": "Build the Chinese/English strings in localization.hpp → connect the controller, dialogs, menus, tile state and errors → save the preference separately as ui-settings.json → capture pending edits → change labels and menu choices → restore values, selection and focus → redraw tiles → verify switching and preference persistence after an actual restart. Stages log progress and absolute paths. Language tests run --language-test with dedicated data, switch every window while preserving drafts and timers, simulate a locked preference file, restart into English, switch back and restart into Chinese, and check corrupt-file recovery without overwriting it. -FullEnglish runs all Windows functionality in English. Settings change only when Apply is explicitly pressed. The app sets Windows UI language preferences with SetThreadUILanguage; system file and color dialogs depend on the language resources installed in Windows."
   }
 ]
