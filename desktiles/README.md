@@ -1,5 +1,9 @@
 # DeskTiles 網站發布與維護
 
+## GitHub 與星星提示（2026-11-02）
+
+中英文作品集 DeskTiles 卡片與專案介紹頁的下載入口下方，提供 `https://github.com/NicoaTheSix/DeskTile` 及邀請按 Star 的文字。連結另開分頁並設定 `noopener noreferrer`。執行根目錄 `node build-desktiles.mjs --source 'D:\DeskTile'` 時，先顯示來源與輸出的絕對路徑，再分階段複製素材、產生文件與搜尋索引、更新兩張首頁卡片；`githubSupport()` 共用文案確保重新建置後仍保留。執行 `node check-desktiles.mjs` 與 `node check-site.mjs` 驗證輸出與連結。
+
 這是 Nicoa The Six 作品集中的 DeskTiles 專區。沿用既有黑白文件版型、語言切換、側欄、章節目錄、搜尋與 GTM，提供中英文專案介紹、使用說明與專案 README。英文指南直接採用來源 `docs/UserGuide.en.md`，英文 README 為網站翻譯；英文控制視窗使用原生英文截圖，其他設定截圖保留中文並註明。倉庫已確認為 https://github.com/NicoaTheSix/DeskTile，尚未指定整體專案授權，不宣稱開源授權。
 
 ## 2026-11-01 修正版

@@ -44,6 +44,9 @@ for(const file of ['index.html','en/index.html'])console.log('[0/5] 首頁輸入
 
 let zipSha,zipSize;
 const parser=new Marked({gfm:true});
+function githubSupport(lang) {
+  return `<p class="desktiles-support"><a class="text-link" href="${repository}" target="_blank" rel="noopener noreferrer">${lang==='zh'?'GitHub 專案':'View on GitHub'} ↗</a><br>${lang==='zh'?'覺得 DeskTiles 好用，歡迎到 GitHub 幫我按顆星星（Star）！':'Enjoying DeskTiles? Please consider giving the project a star on GitHub!'}</p>`;
+}
 function gallery(lang) {
   const captions=lang==='zh'?['控制視窗：選取格子、編輯文字、圖片與計時器','邊框與風格：實色、像素、RGB 與呼吸燈','背景與透明度：分別套用背景色與透明度','大小與文字：尺寸、字體、字級與文字顏色']:['Controller: select tiles and edit text, images or timers','Borders: solid, pixel, RGB and breathing styles','Background: separate color and transparency settings','Size and text: tile size, font and text color'];
   return '<h2 id="ui-screenshots">'+(lang==='zh'?'操作畫面':'Application screenshots')+'</h2><p>'+(lang==='zh'?'以下為實際 Windows 版本畫面，可在程式中切換繁體中文與 English。':'The controller below uses the English UI. Additional settings screenshots show the original Chinese labels; the app supports both languages.')+'</p><div class="screenshot-grid">'+[lang==='en'?'control-en':'control','border','background','typography'].map((name,i)=>{const src=relative(fileFor(lang,'guide'),'assets/'+name+'.png');return '<figure><a href="'+src+'" target="_blank" rel="noopener noreferrer"><img src="'+src+'" alt="'+captions[i]+'" loading="lazy"></a><figcaption>'+captions[i]+'</figcaption></figure>';}).join('')+'</div>';
@@ -140,7 +143,7 @@ try {
   const search=[];
   for(const page of pages) {
     const input=page.key==='index'?null:path.join(output,'downloads',page.key==='guide'?(page.lang==='zh'?'guide-zh.md':'guide-en.md'):(page.lang==='zh'?'README.md':'readme-en.md'));
-    const content=page.key==='index'?overview(page):renderMarkdown(await readFile(input,'utf8'),page);
+    const content=page.key==='index'?overview(page).replace('<p class="platform-note">',githubSupport(page.lang)+'<p class="platform-note">'):renderMarkdown(await readFile(input,'utf8'),page);
     const updated=page.key==='index'?content.replace('<section class="home-section" id="features">',releaseNotes(page)+'<section class="home-section" id="features">').replace('170 項核心檢查、123 項 Windows 整合檢查通過，並已從 ZIP 解壓後直接執行。','179 項核心檢查、166 項 Windows 整合檢查通過（繁中與英文皆驗證），另完成解壓後一般啟動的 64 項實際螢幕檢查。').replace('170 core checks and 123 Windows integration checks passed, including running the extracted ZIP build.','179 core checks and 166 Windows integration checks passed in both UI languages, plus 64 actual-screen checks of the extracted build during ordinary startup.'):content;
     const decorated=decorate(updated),html=template(page,decorated.content,decorated.headings).replace('下載檔與原始中文文件由專案提供；英文為網站翻譯。','下載檔、中英文指南與截圖由專案提供；英文 README 為網站翻譯。').replace('Downloads and original Chinese documents are supplied by the project; English documents are website translations.','Downloads, bilingual user guides and screenshots are supplied by the project; the English README is a website translation.');
     const destination=path.join(output,page.file);await mkdir(path.dirname(destination),{recursive:true});await writeFile(destination,html);
@@ -162,9 +165,10 @@ try {
     const card=`<article class="work-card desktiles-project" id="project-desktiles"><a class="desktiles-cover" href="${prefix}desktiles/${lang==='en'?'en/':''}"><img src="${prefix}desktiles/assets/shapes.png" alt="${lang==='zh'?'桌面拼格：六角形文字、三角形圖片與矩形計時器':'DeskTiles: a hexagonal note, triangular image and rectangular timer'}" width="597" height="448" loading="lazy"></a><div class="work-body"><p class="eyebrow">WINDOWS 10 / 11 x64 · C++17 / WIN32 / GDI+</p><h3>${lang==='zh'?'桌面拼格 DeskTiles':'DeskTiles'}</h3><p class="work-description">${lang==='zh'?'在桌面拼放文字、圖片與計時器。三種形狀，支援多選拖曳、自動吸附、透明背景與動態邊框；含圖片的 JSON 配置可以備份與搬移。':'Arrange text, images and timers on your desktop. Three shapes, group dragging, snapping, transparent backgrounds and animated borders, with portable JSON layouts that include images.'}</p><p class="desktiles-platform">${lang==='zh'?'免安裝 ZIP，解壓後直接執行。Linux 版尚未提供。':'Portable ZIP: extract and run. Linux is not yet available.'}</p><div class="work-links"><a class="text-link" href="${prefix}desktiles/${lang==='en'?'en/':''}">${lang==='zh'?'專案介紹':'Explore the project'} ↗</a><a class="text-link" href="${prefix}desktiles/${lang==='en'?'en/':''}guide.html">${lang==='zh'?'使用說明':'User guide'} ↗</a><a class="text-link" href="${prefix}desktiles/${zipFile}" download>${lang==='zh'?'下載 Windows ZIP':'Download Windows ZIP'} ↓</a></div></div></article>`;
     const cardClasses=parseHTML(html).document.querySelector('#project-desktiles')?.className||'work-card desktiles-project';
     const updatedCard=card.replace('class="work-card desktiles-project"','class="'+escape(cardClasses)+'"').replace('</p><p class="desktiles-platform">',(lang==='zh'?' 可切換繁體中文與 English，並記住語言偏好。':' Switch between Traditional Chinese and English, with your preference remembered.')+'</p><p class="desktiles-platform">').replace('href="'+prefix+'desktiles/'+zipFile+'"','href="'+prefix+'desktiles/'+zipFile+'?v='+date+'"');
+    const supportedCard=updatedCard.replace('</div></div></article>','</div>'+githubSupport(lang)+'</div></article>');
     html=html.replace(/\s*<article\b[^>]*\bid="project-desktiles"[^>]*>[\s\S]*?<\/article>/,'');
     assert(html.includes('<div class="work-grid">'),'找不到首頁作品區');
-    html=html.replace('<div class="work-grid">','<div class="work-grid">\n        '+updatedCard);
+    html=html.replace('<div class="work-grid">','<div class="work-grid">\n        '+supportedCard);
     html=html.replace(/<a class="nav-desktiles"[^>]*>DeskTiles<\/a>/,'');
     const fusionLink=`<a href="${prefix}fusion-studio/${lang==='en'?'en/':''}">Fusion Studio</a>`;
     assert(html.includes(fusionLink),'找不到既有文件導覽入口');

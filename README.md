@@ -1,5 +1,9 @@
 # Nicoa The Six 個人作品集網站
 
+## DeskTiles GitHub 與星星提示（2026-11-02）
+
+中英文首頁作品卡及 DeskTiles 介紹頁加入 GitHub 專案連結與邀請按 Star 的文案。來源為 `build-desktiles.mjs` 的共用 `githubSupport()`；執行 `node build-desktiles.mjs --source 'D:\DeskTile'`，先顯示所有輸入／輸出絕對路徑，再依五階段更新公開素材、六頁文件、搜尋索引及兩個首頁。維護流程見 [DeskTiles README](desktiles/README.md)，建置後執行 `node check-desktiles.mjs` 與 `node check-site.mjs`。
+
 ## 中英文正式首頁：黑白像素與十六格動畫（2026-10-31）
 
 ### 海報底圖慢速載入修正
