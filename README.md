@@ -1,5 +1,13 @@
 # Nicoa The Six 個人作品集網站
 
+## 正式版本與驗收登記
+
+目前正式版本記錄於同目錄 `VERSION`，為 `v1.01`。2026-11-05 使用者確認「前面待驗收都確認驗收」，將歷史盤點中的 16 項已交付成果合併為一批驗收。既有交付快照 `53143573cdacd7a0ebdc0a815f04ed52b86788e9` 為 `v1` 基準；本次僅增加一次 `0.01`，不按歷史任務數逐項升版。
+
+批次：`portfolio-historical-acceptance-20261105`。確認 ID：`portfolio-acceptance-1793858526402-l4ew3b-confirmation`。此次驗收不包含聖誕節活動待補內容、Fusion 手冊自動同步、sitemap／聯絡意圖事件與 GA4 實際收數確認；不新增功能或重新部署。
+
+版本登記流程：先顯示輸入快照及 `VERSION`、`README.md` 的絕對路徑，核對追蹤檔與交付快照一致，保留既有未追蹤檔；記錄使用者原始訊息及中央確認事件，建立 `v1` 基準，更新版本資訊，執行既有網站檢查，再僅提交版本資訊並建立 `v1.01` 標籤。最後追加中央完成事件並更新專案 metadata。中央檔案寫入與儀表板 UI／雙向橋接的實際狀態分開回報。
+
 ## DeskTiles GitHub 與星星提示（2026-11-02）
 
 中英文首頁作品卡及 DeskTiles 介紹頁加入 GitHub 專案連結與邀請按 Star 的文案。來源為 `build-desktiles.mjs` 的共用 `githubSupport()`；執行 `node build-desktiles.mjs --source 'D:\DeskTile'`，先顯示所有輸入／輸出絕對路徑，再依五階段更新公開素材、六頁文件、搜尋索引及兩個首頁。維護流程見 [DeskTiles README](desktiles/README.md)，建置後執行 `node check-desktiles.mjs` 與 `node check-site.mjs`。
