@@ -10,6 +10,8 @@ console.log(`[0/3] 輸入目錄（絕對路徑）：${root}`);
 console.log(`[0/3] 輸出：本機預覽 http://127.0.0.1:${port}/MyPortfolio/，不寫入檔案。`);
 const types = { '.html':'text/html; charset=utf-8', '.css':'text/css; charset=utf-8', '.js':'text/javascript; charset=utf-8', '.png':'image/png', '.gif':'image/gif', '.svg':'image/svg+xml', '.json':'application/json; charset=utf-8', '.mp4':'video/mp4', '.csv':'text/csv; charset=utf-8', '.xlsx':'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', '.srt':'text/plain; charset=utf-8', '.txt':'text/plain; charset=utf-8', '.md':'text/markdown; charset=utf-8', '.zip':'application/zip' };
 const publicFiles = new Set(['index.html', 'styles.css', 'script.js', 'assets/portrait.png', 'assets/business-card.png', 'assets/services-poster.png', 'assets/favicon.svg', 'assets/social-linkedin.png', 'assets/social-github.png', 'assets/social-medium.png', 'assets/social-youtube.png']);
+types['.woff2']='font/woff2';
+for(const file of ['fonts.css','cubic-11.woff2','OFL-Cubic-11.txt'])publicFiles.add('assets/fonts/'+file);
 for(const file of ['en/index.html','assets/services-poster-en.png','assets/business-card-en.png','assets/office-services-poster.png','assets/office-services-poster-en.png'])publicFiles.add(file);
 publicFiles.add('service-cards.css');
 for(const file of ['home-pixel.css','home-pixel.js'])publicFiles.add(file);

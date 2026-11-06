@@ -1,5 +1,7 @@
 # Fusion Studio 文件網站
 
+一般介面字型由 `docs.css` 匯入 `../assets/fonts/fonts.css` 提供俐方體 11 號；DeskTiles 也沿用此樣式。`--sans` 與介面標籤的 `--mono` 優先使用俐方體，程式碼使用獨立 `--code` 系統等寬字型。字型下載期間先顯示備援文字，不阻塞文件內容；詳見 [共用字型來源與載入流程](../assets/fonts/README.md)。原手冊及生成頁面不需要重建。
+
 此目錄提供可直接由 GitHub Pages 發布的靜態技術文件。操作手冊唯一主要維護來源為 `NicoaTheSix/MITREATTACK_SIMULATOR` 的 `manual/`；`zh/`、`en/`、`assets/`、`index.html`、搜尋索引及來源清單由根目錄 `build-fusion-docs.mjs` 產生，請勿人工修改生成內容。`docs.css`、`docs.js` 是網站介面，其運作流程見下方。
 
 ## 建置與來源

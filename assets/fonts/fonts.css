@@ -1,0 +1,8 @@
+/* Cubic 11 by ACh-K. Original font and license: OFL-Cubic-11.txt. */
+@font-face {
+  font-family: "Cubic 11";
+  src: url("./cubic-11.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}

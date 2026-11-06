@@ -1,5 +1,3 @@
-# Published source assets must retain exact bytes for provenance and downloads.
-fusion-studio/assets/source/** -text
-desktiles/assets/** -text
-desktiles/downloads/** -text
-desktiles/content/** -text
+# Keep third-party font assets and their license byte-for-byte.
+assets/fonts/cubic-11.woff2 binary
+assets/fonts/OFL-Cubic-11.txt -text
