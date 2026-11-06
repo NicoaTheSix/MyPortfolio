@@ -2,7 +2,7 @@
 
 批次：portfolio-blog-20261106；來源對話：01a180bd-dd2d-7dd0-980d-2a516ebfb8b8。
 來源指令：建立 /blog/ 作為文章主要版本；第一篇採用使用者指定 Medium 文章 8968e5dd7e76。
-起點 commit：c58845548a822125af51950953fc1a8bb3dfba8f；正式版本維持 v1.02。本批待使用者確認，未推送或部署。交付快照以包含 Dashboard-Batch: portfolio-blog-20261106 的 Git commit 查閱。
+起點 commit：c58845548a822125af51950953fc1a8bb3dfba8f；交付快照 c5af03495f852647073a127bac6bf3d1ed8c116f 已由使用者於 2026-11-06 以「驗收完畢 開始部署」確認，正式升至 v1.03 並沿用 GitHub Pages 流程發布。以下檢查與素材清單為交付快照的紀錄；實際部署結果以中央事件及公開內容比對為準。
 
 ## 已完成與驗證
 
@@ -11,7 +11,7 @@
 - node check-blog.mjs --url http://127.0.0.1:4197/MyPortfolio/blog/ 通過：11 個 HTTP 產物、來源阻擋、發布／重建／撤稿及危險 HTML 清理。
 - node check-site.mjs、node check-pixel-homepages.mjs、node sync-google-tag.mjs --check 通過：雙語錨點、38 個首頁資源、十六張動畫影格表、81 頁 GTM。此為程式碼檢查，不代表 GA4 實際收數已驗證。
 - 桌面 1280 px、手機 390／320 px 無水平溢出；中英文首頁文章導覽在手機可見。四張文章圖片載入，白色標誌可見；未發現瀏覽器 warning／error。
-- git diff --check 通過；本批未更動 VERSION、正式標籤或部署設定。
+- 交付快照的 git diff --check 通過；驗收後只增加 VERSION 與驗收／發布紀錄，建立 v1.03 正式標籤，部署設定保持既有值。
 
 ## 本機預覽及主要版本
 
@@ -60,3 +60,11 @@
 - C:\Users\nick5\Documents\ChatGPT\Portfolio 網站設置\.preview\blog-article-mobile.png （created，瀏覽器預覽截圖，SHA-256：0ba823f9703667ac2280c09f3d3b225497c8b67af5cb8ba4702993a71393aaf2）
 
 截圖保留於 .preview，依既有 Git 忽略規則不加入網站儲存庫。中央事件附本批指令、來源與快照；寫入事件不等於儀表板 UI 或雙向確認已接通。
+
+## 驗收後正式發布修改
+
+| 檔名 | 變更 | 用途 | 最終絕對路徑 |
+| --- | --- | --- | --- |
+| VERSION | modified | 正式版本 v1.03 | C:\Users\nick5\Documents\ChatGPT\Portfolio 網站設置\VERSION |
+| README.md | modified | 驗收與正式發布流程 | C:\Users\nick5\Documents\ChatGPT\Portfolio 網站設置\README.md |
+| blog/delivery-report.md | modified | 驗收與發布交付紀錄 | C:\Users\nick5\Documents\ChatGPT\Portfolio 網站設置\blog\delivery-report.md |
