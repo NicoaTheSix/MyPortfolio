@@ -17,8 +17,8 @@ const relative=(file,to)=>(path.posix.relative(path.posix.dirname(file),to)||'./
 const isDate=value=>typeof value==='string'&&/^\d{4}-\d{2}-\d{2}$/.test(value)&&new Date(value+'T00:00:00Z').toISOString().slice(0,10)===value;
 const contained=(base,target)=>target.startsWith(path.resolve(base)+path.sep);
 const text={
-  'zh-Hant':{name:'文章',label:'ARTICLES / FIELD NOTES',intro:'關於資安、程式與實作的筆記。',home:'回作品集',read:'閱讀文章',published:'發布',updated:'更新',minutes:'分鐘閱讀',original:'Medium 原文',notice:'本文原刊於 Medium；本站為後續更新的主要版本。',all:'所有文章',empty:'文章整理中，敬請期待。',rss:'訂閱 RSS',toc:'本文內容'},
-  en:{name:'Articles',label:'ARTICLES / FIELD NOTES',intro:'Notes on cybersecurity, code and things I build.',home:'Portfolio',read:'Read article',published:'Published',updated:'Updated',minutes:'min read',original:'Original on Medium',notice:'First published on Medium. This website is the primary version for future updates.',all:'All articles',empty:'New articles are on the way.',rss:'RSS feed',toc:'On this page'}
+  'zh-Hant':{name:'文章',label:'ARTICLES / FIELD NOTES',intro:'關於資安、程式與實作的筆記。',home:'回作品集',read:'閱讀文章',published:'發布',updated:'更新',minutes:'分鐘閱讀',original:'Medium 刊載版本',notice:'本文以本站為原文與主要更新版本。',all:'所有文章',empty:'文章整理中，敬請期待。',rss:'訂閱 RSS',toc:'本文內容'},
+  en:{name:'Articles',label:'ARTICLES / FIELD NOTES',intro:'Notes on cybersecurity, code and things I build.',home:'Portfolio',read:'Read article',published:'Published',updated:'Updated',minutes:'min read',original:'Also on Medium',notice:'This website hosts the original article and its ongoing updates.',all:'All articles',empty:'New articles are on the way.',rss:'RSS feed',toc:'On this page'}
 };
 
 function shell({file,title,description,lang,body,structured,alternate}) {

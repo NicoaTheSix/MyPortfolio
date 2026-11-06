@@ -32,6 +32,8 @@
 
 本站文章 head 中有絕對 HTTPS 的 self-canonical，分享網址、索引、RSS、僅限 blog 的 `sitemap.xml` 都使用同一個文章網址。原 Medium 連結保留在文末；後續內容以本站 Markdown 為主。
 
+使用者於 2026-11-06 指定本站為原文。文章頁標示「本文以本站為原文與主要更新版本」，外站連結標示為「Medium 刊載版本」。`source.json` 僅記錄首次取得內容的歷史，`sourceUrl` 用於保留 Medium 刊載連結，兩者都不決定主要網址。後續編輯以本站 Markdown 為準，不自動同步覆寫。
+
 這不會自動修改 Medium 的 canonical 或讓搜尋引擎立刻選本站；若保留全文同步刊載，Medium 端的 canonical 仍需由作者另行設定。Google 說明：https://developers.google.com/search/docs/crawling-indexing/consolidate-duplicate-urls 。此清單只包含 blog，沒有擅自接續先前尚未授權的全站 sitemap 工作。
 
 ## 建置與檢查
