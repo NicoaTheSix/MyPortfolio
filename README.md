@@ -1,16 +1,18 @@
 # Nicoa The Six 個人作品集網站
 
-## 網站俐方體（2026-11-06，待驗收）
+## 網站俐方體（2026-11-06，已核准發布）
 
 中英文首頁、Fusion Studio 與 DeskTiles 文件介面使用官方俐方體 11 號（Cubic 11）WOFF2；圖片內文字與程式碼字型保留。來源固定 commit、授權、大小／SHA-256 與完整載入流程見 [字型說明](assets/fonts/README.md)。`styles.css`、`fusion-studio/docs.css` 載入共用 `assets/fonts/fonts.css`；`home-pixel.css` 移除原 Silkscreen 遠端匯入，避免英文介面混用另一字型。
 
-執行前列出字型及樣式輸入／輸出的絕對路徑，再依序取得官方 WOFF2 與原授權、核對大小及來源 Git blob SHA-1、調整共用樣式、擴充本機字型白名單與 MIME。執行 `node check-site.mjs`、`node check-pixel-homepages.mjs`、`node --check serve.mjs`，並啟動 `node serve.mjs` 在瀏覽器確認字型載入與手機排版。此調整不需重新建置原始手冊或生成圖片；正式版本保持 `v1.01`，交付快照待使用者驗收。
+執行前列出字型及樣式輸入／輸出的絕對路徑，再依序取得官方 WOFF2 與原授權、核對大小及來源 Git blob SHA-1、調整共用樣式、擴充本機字型白名單與 MIME。執行 `node check-site.mjs`、`node check-pixel-homepages.mjs`、`node --check serve.mjs`，並啟動 `node serve.mjs` 在瀏覽器確認字型載入與手機排版。此調整不需重新建置原始手冊或生成圖片。使用者於 2026-11-06 表示「好那進行部署」，核准本批快照 `a05a0996444ffa8ac29ff502fcdb1d748420d6a9`；正式版本由 `v1.01` 增加一次為 `v1.02`。
+
+發布流程：核對工作目錄與核准快照一致、遠端 main 為本機歷史祖先，僅更新本 README、`VERSION` 與交付清單的版本登記；建立本機 `v1.02` 正式提交與標籤，推送 main 及本批正式標籤。等 GitHub Pages 工作完成後，比對正式網址的字型、授權、共用樣式及雙語頁面，確認正式畫面，再以同一批次與確認 ID 回報中央完成事件。既有未追蹤 AGENTS.md 不納入部署。發布結果與實際 Git SHA 保存在中央事件，避免把未完成的工作預先宣告成功。
 
 本次核對：官方 WOFF2 格式、400228 bytes 與來源 Git blob SHA-1 相符；七個字型／授權／樣式 HTTP 內容及 WOFF2 MIME 通過。瀏覽器確認 1280px 桌面與 390／320px 雙語首頁、Fusion 中文首頁、DeskTiles 英文指南使用 Cubic 11；程式碼保留系統等寬字型。390px 中文導覽原先略為溢出，已在 420px 以下隱藏「作品與文章」導覽入口，內容區仍保留完整作品。修正後窄螢幕無頁面水平溢出。畫面與逐檔用途見 [本批交付清單](font-change-report.md)。
 
 ## 正式版本與驗收登記
 
-目前正式版本記錄於同目錄 `VERSION`，為 `v1.01`。2026-11-05 使用者確認「前面待驗收都確認驗收」，將歷史盤點中的 16 項已交付成果合併為一批驗收。既有交付快照 `53143573cdacd7a0ebdc0a815f04ed52b86788e9` 為 `v1` 基準；本次僅增加一次 `0.01`，不按歷史任務數逐項升版。
+目前正式版本記錄於同目錄 `VERSION`，為 `v1.02`。2026-11-05 使用者確認「前面待驗收都確認驗收」，將歷史盤點中的 16 項已交付成果合併驗收為 `v1.01`。既有交付快照 `53143573cdacd7a0ebdc0a815f04ed52b86788e9` 為 `v1` 基準；每批僅增加一次 `0.01`，不按歷史任務數逐項升版。2026-11-06 俐方體批次經使用者核准部署，登記為 `v1.02`。
 
 批次：`portfolio-historical-acceptance-20261105`。確認 ID：`portfolio-acceptance-1793858526402-l4ew3b-confirmation`。此次驗收不包含聖誕節活動待補內容、Fusion 手冊自動同步、sitemap／聯絡意圖事件與 GA4 實際收數確認；不新增功能或重新部署。
 

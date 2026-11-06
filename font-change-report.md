@@ -1,6 +1,6 @@
 # 網站俐方體調整交付清單
 
-來源指令：「可以把網頁字體改成俐方體嗎」。批次 `portfolio-cubic-font-20261106`；日期 2026-11-06。此批是待驗收工作快照，正式版本維持 v1.01，尚未推送或部署。
+來源指令：「可以把網頁字體改成俐方體嗎」。批次 `portfolio-cubic-font-20261106`；日期 2026-11-06。原工作快照 `a05a0996444ffa8ac29ff502fcdb1d748420d6a9` 已由使用者「好那進行部署」核准，正式版本由 v1.01 升為 v1.02。正式推送、GitHub Pages 與公開檔案驗證的實際結果另記於本批中央事件。
 
 ## 結果與核對
 
@@ -26,12 +26,13 @@
 | 修改 | 文件共用字型與程式碼字型分開 | `C:\Users\nick5\Documents\ChatGPT\Portfolio 網站設置\fusion-studio\docs.css` |
 | 修改 | 字型 MIME 與本機公開白名單 | `C:\Users\nick5\Documents\ChatGPT\Portfolio 網站設置\serve.mjs` |
 | 修改 | 本批流程與檢查紀錄 | `C:\Users\nick5\Documents\ChatGPT\Portfolio 網站設置\README.md` |
+| 修改 | 使用者核准後的正式版本 v1.02 | `C:\Users\nick5\Documents\ChatGPT\Portfolio 網站設置\VERSION` |
 | 修改 | 文件共用字型運作說明 | `C:\Users\nick5\Documents\ChatGPT\Portfolio 網站設置\fusion-studio\README.md` |
 | 新增 | 本交付清單 | `C:\Users\nick5\Documents\ChatGPT\Portfolio 網站設置\font-change-report.md` |
 | 新增，預覽證據 | 桌面字型效果 | `C:\Users\nick5\Documents\ChatGPT\Portfolio 網站設置\.preview\cubic-11-home-desktop.png` |
 | 新增，預覽證據 | 修正後 390px 手機效果 | `C:\Users\nick5\Documents\ChatGPT\Portfolio 網站設置\.preview\cubic-11-home-mobile.png` |
-| 追加，中央回報 | 本輪開始與待驗收結果 | `D:\Dashboard_personalData\activity\projects\nicoa-myportfolio\events.jsonl` |
-| 修改，中央狀態 | 登記待確認批次與快照，版本維持不變 | `D:\Dashboard_personalData\activity\projects\nicoa-myportfolio\project.json` |
+| 追加，中央回報 | 保留原待驗收歷史，追加使用者批准及發布結果 | `D:\Dashboard_personalData\activity\projects\nicoa-myportfolio\events.jsonl` |
+| 修改，中央狀態 | 登記本批正式版本、提交與發布狀態 | `D:\Dashboard_personalData\activity\projects\nicoa-myportfolio\project.json` |
 
 字型與授權由官方固定 commit 的檔案取得。其餘樣式及說明依本輪指令修改；截圖來自 `http://127.0.0.1:4196/MyPortfolio/`。預覽證據保留在現有 `.preview` 分類，依既有 Git ignore 不納入網站程式碼提交；沒有移動舊素材，也不修改既有未追蹤的 AGENTS.md。
 
