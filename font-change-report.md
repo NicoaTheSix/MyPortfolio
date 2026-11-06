@@ -19,7 +19,7 @@
 | 新增 | 官方原字型，未改檔 | `C:\Users\nick5\Documents\ChatGPT\Portfolio 網站設置\assets\fonts\cubic-11.woff2` |
 | 新增 | 官方完整授權原文 | `C:\Users\nick5\Documents\ChatGPT\Portfolio 網站設置\assets\fonts\OFL-Cubic-11.txt` |
 | 新增 | 共用 @font-face 與 swap 設定 | `C:\Users\nick5\Documents\ChatGPT\Portfolio 網站設置\assets\fonts\fonts.css` |
-| 新增 | 禁止 Git 改寫官方字型／授權原始位元組 | `C:\Users\nick5\Documents\ChatGPT\Portfolio 網站設置\.gitattributes` |
+| 修改 | 保留原有素材規則並禁止 Git 改寫官方字型／授權原始位元組 | `C:\Users\nick5\Documents\ChatGPT\Portfolio 網站設置\.gitattributes` |
 | 新增 | 字型來源、雜湊與載入流程 | `C:\Users\nick5\Documents\ChatGPT\Portfolio 網站設置\assets\fonts\README.md` |
 | 修改 | 首頁共用字型匯入與文字字型堆疊 | `C:\Users\nick5\Documents\ChatGPT\Portfolio 網站設置\styles.css` |
 | 修改 | 移除 Silkscreen、統一首頁字型與手機導覽 | `C:\Users\nick5\Documents\ChatGPT\Portfolio 網站設置\home-pixel.css` |
