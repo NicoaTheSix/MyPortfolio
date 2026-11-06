@@ -9,3 +9,7 @@ html{scroll-padding-top:110px}body{background:#fff}.language-bar{background:#fff
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}.pixel-motion-ready .pixel-reveal{opacity:1;transform:none}}
 .language-bar-inner>span,.window-bar{font-family:var(--sans)}
 @media(max-width:420px){.site-header nav>a[href="#works"]{display:none}}
+.nav-blog{white-space:nowrap}
+.site-header nav>a.nav-blog{display:block}
+@media(max-width:520px){.site-header nav>a[href="#works"]{display:none}}
+@media(max-width:380px){.site-header nav>a[href="#services"]{display:none}}

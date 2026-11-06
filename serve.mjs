@@ -12,6 +12,7 @@ const types = { '.html':'text/html; charset=utf-8', '.css':'text/css; charset=ut
 const publicFiles = new Set(['index.html', 'styles.css', 'script.js', 'assets/portrait.png', 'assets/business-card.png', 'assets/services-poster.png', 'assets/favicon.svg', 'assets/social-linkedin.png', 'assets/social-github.png', 'assets/social-medium.png', 'assets/social-youtube.png']);
 types['.woff2']='font/woff2';
 for(const file of ['fonts.css','cubic-11.woff2','OFL-Cubic-11.txt'])publicFiles.add('assets/fonts/'+file);
+types['.xml']='application/xml; charset=utf-8';
 for(const file of ['en/index.html','assets/services-poster-en.png','assets/business-card-en.png','assets/office-services-poster.png','assets/office-services-poster-en.png'])publicFiles.add(file);
 publicFiles.add('service-cards.css');
 for(const file of ['home-pixel.css','home-pixel.js'])publicFiles.add(file);
@@ -40,6 +41,14 @@ try {
     const absolute=path.resolve(root,'desktiles',relative);
     if(!absolute.startsWith(path.join(root,'desktiles')+path.sep))throw new Error('DeskTiles 發布清單路徑無效');
     publicFiles.add('desktiles/'+relative);
+  }
+} catch(error) { if(error.code!=='ENOENT')throw error; }
+try {
+  const manifest=JSON.parse(await readFile(path.join(root,'blog/source-manifest.json'),'utf8'));
+  for(const relative of manifest.publicFiles) {
+    const absolute=path.resolve(root,'blog',relative);
+    if(!absolute.startsWith(path.join(root,'blog')+path.sep)||relative.startsWith('posts/'))throw new Error('Blog 發布清單路徑無效');
+    publicFiles.add('blog/'+relative);
   }
 } catch(error) { if(error.code!=='ENOENT')throw error; }
 console.log('[1/3] 靜態檔案白名單完成。');

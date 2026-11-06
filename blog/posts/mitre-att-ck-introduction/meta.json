@@ -1,0 +1,15 @@
+{
+  "title": "MITRE ATT&CK 是什麼？從零認識資安攻擊戰術、技術與實際案例｜資安專欄",
+  "description": "從日常生活中的資安攻擊談起，認識 MITRE ATT&CK、戰術、技術與程序，並以權限提升與 AppleSeed 為例說明。",
+  "lang": "zh-Hant",
+  "published": "2026-11-06",
+  "updated": "2026-11-06",
+  "tags": [
+    "資安",
+    "MITRE ATT&CK",
+    "TTP"
+  ],
+  "draft": false,
+  "cover": "../../assets/images/mitre-att-ck-introduction/cover.png",
+  "sourceUrl": "https://medium.com/@nick5901879/8968e5dd7e76"
+}

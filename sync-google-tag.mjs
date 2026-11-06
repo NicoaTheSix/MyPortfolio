@@ -12,6 +12,7 @@ const manifestFile=path.join(root,'fusion-studio/source-manifest.json');
 console.log('[0/4] 輸入設定（絕對路徑）：',path.join(root,'google-tag.mjs'));
 console.log('[0/4] 輸入頁面清單（絕對路徑）：',manifestFile);
 console.log('[0/4] 額外專案清單輸入（絕對路徑）：',path.join(root,'desktiles/source-manifest.json'));
+console.log('[0/4] 文章清單輸入（絕對路徑）：',path.join(root,'blog/source-manifest.json'));
 console.log('[0/4] 輸入文件產生器（絕對路徑）：',path.join(root,'build-fusion-docs.mjs'));
 console.log('[0/4] 輸出：',checkOnly||urlPosition>=0?'終端驗證結果，不修改檔案':'以下每頁的原路徑（插入 Google tag）');
 const normal=text=>text.replaceAll('\r\n','\n');
@@ -39,9 +40,13 @@ try {
     const desktiles=JSON.parse(await readFile(path.join(root,'desktiles/source-manifest.json'),'utf8'));
     files.push(...desktiles.generatedHtml.map(file=>'desktiles/'+file));
   } catch(error) {if(error.code!=='ENOENT')throw error;}
+  try {
+    const blog=JSON.parse(await readFile(path.join(root,'blog/source-manifest.json'),'utf8'));
+    files.push(...blog.generatedHtml.map(file=>'blog/'+file));
+  } catch(error) {if(error.code!=='ENOENT')throw error;}
   const documents=[];
   for(const file of files) {
-    assert(/^(?:index\.html|en\/index\.html|(?:fusion-studio|desktiles)\/(?:en\/|zh\/)?[a-z0-9-]+\.html)$/.test(file),'頁面路徑不符');
+    assert(/^(?:index\.html|en\/index\.html|(?:fusion-studio|desktiles)\/(?:en\/|zh\/)?[a-z0-9-]+\.html|blog\/(?:[a-z0-9-]+\/)?index\.html)$/.test(file),'頁面路徑不符');
     console.log('[0/4] 頁面輸入'+(checkOnly||base?'':'／輸出')+'（絕對路徑）：',path.join(root,file));
     documents.push({file,html:await readFile(path.join(root,file),'utf8')});
   }

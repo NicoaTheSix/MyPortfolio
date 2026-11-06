@@ -1,5 +1,13 @@
 # Nicoa The Six 個人作品集網站
 
+## Blog 文章主要版本（2026-11-06，待驗收）
+
+依使用者要求新增 `/blog/`，第一篇來源為指定的 Medium 文章，從公開 RSS 匯入 Markdown 並保留原圖片與來源雜湊。原文不擅自改寫；站內新增 canonical、雙語索引、RSS、blog 範圍 sitemap 與首頁入口。詳細編輯及匯入流程見 [Blog README](blog/README.md)。
+
+同目錄程式 `build-blog.mjs` 執行前列出文章輸入、所有生成檔與首頁的絕對輸入／輸出路徑，依五階段驗證資訊、清理並重算文章引用、產生公開頁與訂閱資料、更新雙語首頁入口、完成回報。`npm run build:blog` 產製；`npm run check:blog` 進行隔離發布／草稿及 HTML 安全檢查，所有階段顯示進度。`serve.mjs` 的白名單從 `blog/source-manifest.json` 取得公開產物；`sync-google-tag.mjs` 納入 blog，避免新增頁面漏裝 GTM。程式與說明不需要更新 Fusion／DeskTiles 的原始手冊。
+
+本批建立三頁（雙語索引及一篇繁中原文）、四張來源原圖與訂閱資料。檢查涵蓋原文與圖片雜湊、固定網址、草稿撤稿、安全 HTML、11 份本機 HTTP 產物，以及既有首頁與全站 81 頁 GTM。桌面與 390／320 px 手機版已檢查，首頁文章入口在窄螢幕仍可見。交付檔案與截圖絕對路徑見 [本批交付清單](blog/delivery-report.md)。目前正式版維持 v1.02，本批只保存本機快照，待使用者確認；尚未推送或部署。
+
 ## 網站俐方體（2026-11-06，已核准發布）
 
 中英文首頁、Fusion Studio 與 DeskTiles 文件介面使用官方俐方體 11 號（Cubic 11）WOFF2；圖片內文字與程式碼字型保留。來源固定 commit、授權、大小／SHA-256 與完整載入流程見 [字型說明](assets/fonts/README.md)。`styles.css`、`fusion-studio/docs.css` 載入共用 `assets/fonts/fonts.css`；`home-pixel.css` 移除原 Silkscreen 遠端匯入，避免英文介面混用另一字型。

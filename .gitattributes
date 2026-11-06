@@ -6,3 +6,5 @@ desktiles/content/** -text
 # Keep third-party font assets and their license byte-for-byte.
 assets/fonts/cubic-11.woff2 binary
 assets/fonts/OFL-Cubic-11.txt -text
+# Preserve the initial article import and its provenance hashes across checkouts.
+blog/posts/** -text

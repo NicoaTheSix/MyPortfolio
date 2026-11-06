@@ -1,0 +1,39 @@
+{
+  "sourceUrl": "https://medium.com/@nick5901879/8968e5dd7e76",
+  "feedUrl": "https://medium.com/feed/@nick5901879",
+  "postId": "8968e5dd7e76",
+  "title": "MITRE ATT&CK 是什麼？從零認識資安攻擊戰術、技術與實際案例｜資安專欄",
+  "publishedAt": "2026-11-06T03:58:30.000Z",
+  "importedAt": "2026-11-06T14:59:21.223Z",
+  "sourceHtmlSha256": "4a140a5b2c51de2b560995eb9bd0758c60dd261b514ed3c42795bcfccdf6ee94",
+  "paragraphs": 11,
+  "images": [
+    {
+      "path": "assets/images/mitre-att-ck-introduction/cover.png",
+      "sourceUrl": "https://cdn-images-1.medium.com/max/1024/1*ztBxVxCR8G-QUdooL4kVSA.png",
+      "bytes": 839188,
+      "sha256": "df062b72c95ef1cb0eb8e383b50b5910b3f695193866ab2c8643719979fb057d"
+    },
+    {
+      "path": "assets/images/mitre-att-ck-introduction/mitre-attack-white-logo.png",
+      "sourceUrl": "https://cdn-images-1.medium.com/max/1024/1*wRv71d92w3aLy4ViMDZH8g.png",
+      "bytes": 14667,
+      "sha256": "904b773c125d280c1978144bcdf30937d8050e73bd57bfd24f6f731c463807c7"
+    },
+    {
+      "path": "assets/images/mitre-att-ck-introduction/attack-logo.png",
+      "sourceUrl": "https://cdn-images-1.medium.com/max/796/1*8epIYX1PfgfnVfDYfZ5loQ.png",
+      "bytes": 6019,
+      "sha256": "788c3e1419bf08fafb27dd36fb7bd21df9f543ac8f12f0346d02cd7b426614fd"
+    },
+    {
+      "path": "assets/images/mitre-att-ck-introduction/enterprise-matrix.png",
+      "sourceUrl": "https://cdn-images-1.medium.com/max/1024/1*OI2G7a9ONgB82ekLVTVYdA.png",
+      "bytes": 422471,
+      "sha256": "6be7317b54a09d0b45ac37a0f7f258d5e298853d40f00e23340fa9671552a2e4"
+    }
+  ],
+  "notes": "作者指定的公開 RSS 全文匯入；不讀取付費牆、登入資料或其他文章。正文措辭與引用保留，追蹤像素移除，缺少 alt 的圖片補上替代文字。",
+  "bodyTextSha256": "3ed0ba990724893c30fcb76d37be0623df4fe536c2868ba2f57de2ee7843759d",
+  "importedMarkdownSha256": "814e87602b17947e8d6a5f57ad29a8a069e4ede86b80de9ff75630bac90ef9b7"
+}

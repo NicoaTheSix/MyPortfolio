@@ -4,6 +4,8 @@
   "type": "module",
   "engines": { "node": ">=20" },
   "scripts": {
+    "build:blog": "node build-blog.mjs",
+    "check:blog": "node check-blog.mjs",
     "build:desktiles": "node build-desktiles.mjs",
     "check:desktiles": "node check-desktiles.mjs",
     "sync:analytics": "node sync-google-tag.mjs",

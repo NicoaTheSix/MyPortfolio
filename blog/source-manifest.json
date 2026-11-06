@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "siteUrl": "https://nicoathesix.github.io/MyPortfolio/",
+  "generatedHtml": [
+    "mitre-att-ck-introduction/index.html",
+    "index.html",
+    "en/index.html"
+  ],
+  "publicFiles": [
+    "mitre-att-ck-introduction/index.html",
+    "index.html",
+    "en/index.html",
+    "sitemap.xml",
+    "feed.xml",
+    "blog.css",
+    "source-manifest.json",
+    "assets/images/mitre-att-ck-introduction/cover.png",
+    "assets/images/mitre-att-ck-introduction/mitre-attack-white-logo.png",
+    "assets/images/mitre-att-ck-introduction/attack-logo.png",
+    "assets/images/mitre-att-ck-introduction/enterprise-matrix.png"
+  ],
+  "posts": [
+    {
+      "slug": "mitre-att-ck-introduction",
+      "title": "MITRE ATT&CK 是什麼？從零認識資安攻擊戰術、技術與實際案例｜資安專欄",
+      "lang": "zh-Hant",
+      "published": "2026-11-06",
+      "updated": "2026-11-06",
+      "source": "blog/posts/mitre-att-ck-introduction/article.md",
+      "sha256": "814e87602b17947e8d6a5f57ad29a8a069e4ede86b80de9ff75630bac90ef9b7",
+      "url": "https://nicoathesix.github.io/MyPortfolio/blog/mitre-att-ck-introduction/"
+    }
+  ]
+}
