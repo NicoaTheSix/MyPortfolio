@@ -9,7 +9,7 @@
 
 node build-blog.mjs、node check-blog.mjs、node sync-google-tag.mjs --check 及 git diff --check 通過。文章11段與四圖雜湊一致，全站81頁追蹤模板通過；瀏覽器確認新文末文字與本站 canonical。
 
-正式版本維持 v1.03，待使用者驗收；未推送或部署。快照以 Dashboard-Batch: portfolio-blog-original-20261106 查閱。
+使用者以「好的 開始部署」核准快照 0db2c0a09df3fc28753e609ae1eb5657636aa510，正式版本由 v1.03 升至 v1.04。實際發布提交、Pages工作與公開驗證結果保留於中央事件；以下為交付及驗收後的檔案清單。
 
 | 檔案 | 變更 | 用途 | 最終絕對路徑 |
 | --- | --- | --- | --- |
@@ -21,3 +21,11 @@ node build-blog.mjs、node check-blog.mjs、node sync-google-tag.mjs --check 及
 | .preview/blog-original-version.png | created | 本機文末原文標示預覽截圖 | C:\Users\nick5\Documents\ChatGPT\Portfolio 網站設置\.preview\blog-original-version.png |
 
 截圖依既有規則保留於 .preview，不加入 Git。中央事件記錄檔案與快照，不宣稱儀表板 UI 或雙向確認已接通。
+
+## 驗收後發布檔案
+
+| 檔案 | 變更 | 用途 | 最終絕對路徑 |
+| --- | --- | --- | --- |
+| VERSION | modified | 正式版本 v1.04 | C:\Users\nick5\Documents\ChatGPT\Portfolio 網站設置\VERSION |
+| README.md | modified | 驗收與正式發布流程 | C:\Users\nick5\Documents\ChatGPT\Portfolio 網站設置\README.md |
+| blog/original-version-delivery.md | modified | 本批驗收發布紀錄 | C:\Users\nick5\Documents\ChatGPT\Portfolio 網站設置\blog\original-version-delivery.md |

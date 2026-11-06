@@ -1,10 +1,10 @@
 # Nicoa The Six 個人作品集網站
 
-## 本站原文標示（2026-11-06，待驗收）
+## 本站原文標示（2026-11-06，已確認發布）
 
 依「現在以這裡的網頁做為原文」調整 `build-blog.mjs` 的雙語文章頁說明：本站為原文與主要更新版本，Medium 連結改標為刊載版本。文章正文、四張來源圖片及歷史匯入紀錄不變；canonical 維持 `https://nicoathesix.github.io/MyPortfolio/blog/mitre-att-ck-introduction/`。Medium 平台的 canonical 未由此更改。
 
-流程仍為同目錄 `node build-blog.mjs`：執行前列出文章輸入及生成 HTML 的絕對路徑，五階段驗證資訊、整理內容、產生公開檔案、更新首頁、回報完成。使用 `node check-blog.mjs` 驗證正文與圖片雜湊、canonical、生成資料及草稿處理，`node sync-google-tag.mjs --check` 核對追蹤模板；本機瀏覽器確認文末標示。程式只重建既有文章頁，不編輯 Medium。正式版本暫維持 v1.03，本次保存待驗收快照。
+流程仍為同目錄 `node build-blog.mjs`：執行前列出文章輸入及生成 HTML 的絕對路徑，五階段驗證資訊、整理內容、產生公開檔案、更新首頁、回報完成。使用 `node check-blog.mjs` 驗證正文與圖片雜湊、canonical、生成資料及草稿處理，`node sync-google-tag.mjs --check` 核對追蹤模板；本機瀏覽器確認文末標示。程式只重建既有文章頁，不編輯 Medium。使用者以「好的 開始部署」核准快照 0db2c0a09df3fc28753e609ae1eb5657636aa510，正式版本由 v1.03 增加一次為 v1.04。發布流程沿用 main 根目錄 GitHub Pages，推送正式提交與 v1.04 標籤後，核對 Pages 工作結果、線上文章全文與文末標示及本站 canonical；實際 commit 與部署工作編號記錄於中央事件。
 
 ## Blog 文章主要版本（2026-11-06，已驗收發布）
 
