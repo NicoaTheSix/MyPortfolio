@@ -2,7 +2,7 @@
 
 批次：portfolio-portrait-controls-20261107；來源對話：01a180bd-dd2d-7dd0-980d-2a516ebfb8b8。
 來源指令：X 按下照片真的消失、縮放按下縮小、最小化按下收合。
-起點提交：a7346f5c041b7ed119bdb2d615ae188d72c92cd0；正式版本維持 v1.04。本批待使用者確認，未推送或部署。
+起點提交：a7346f5c041b7ed119bdb2d615ae188d72c92cd0；使用者以「開始部署」核准快照 369f9fcb846c504bced2188dd1fe96818876541b，正式版本由 v1.04 增加一次為 v1.05。實際發布提交、Pages工作與線上驗證結果保留於中央事件；以下為已核准交付及發布說明。
 
 ## 完成行為與驗證
 
@@ -30,3 +30,11 @@
 | .preview/portrait-window-small-mobile.png | created | 手機縮小照片效果 | C:\Users\nick5\Documents\ChatGPT\Portfolio 網站設置\.preview\portrait-window-small-mobile.png |
 
 截圖依既有規則保留於 .preview，不加入 Git；中央事件記錄三張圖片的大小與SHA-256。中央檔案回讀不代表儀表板UI與雙向確認已接通。
+
+## 驗收後發布檔案
+
+| 檔名 | 變更 | 用途 | 最終絕對路徑 |
+| --- | --- | --- | --- |
+| VERSION | modified | 正式版本 v1.05 | C:\Users\nick5\Documents\ChatGPT\Portfolio 網站設置\VERSION |
+| README.md | modified | 驗收與正式發布流程 | C:\Users\nick5\Documents\ChatGPT\Portfolio 網站設置\README.md |
+| portrait-window-delivery.md | modified | 本批驗收發布紀錄 | C:\Users\nick5\Documents\ChatGPT\Portfolio 網站設置\portrait-window-delivery.md |
