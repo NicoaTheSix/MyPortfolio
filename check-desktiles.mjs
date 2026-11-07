@@ -106,7 +106,8 @@ try {
     const file=lang==='zh'?'index.html':'en/index.html';
     const card=documents.get(file).document.querySelector('#project-desktiles');
     assert(card,`${file} 缺少作品卡`);
-    assert.equal(card.querySelectorAll('a[download]').length,1,'作品卡缺少 Windows ZIP 下載');
+    assert.equal(card.querySelectorAll('a[download]').length,2,'作品卡須提供 Windows 與 macOS ZIP 下載');
+    assert(card.querySelector('a[download][href*="DeskTiles-macOS-universal.zip"]'),'作品卡缺少 macOS ZIP');
     assert(card.textContent.includes('Linux'),'作品卡缺少平台限制');
     assert(index.some(entry=>entry.lang===lang&&entry.text.includes(lang==='zh'?'透明':'timer')),'搜尋未包含實際文件內容');
   }
