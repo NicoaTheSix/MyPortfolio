@@ -42,7 +42,13 @@
     "downloads/readme-en.md",
     "desktiles.css",
     "search-index.json",
-    "source-manifest.json"
+    "source-manifest.json",
+    "downloads/DeskTiles-macOS-universal.zip",
+    "downloads/SHA256SUMS-macOS.txt",
+    "downloads/guide-macos-zh.md",
+    "downloads/THIRD-PARTY-NOTICES-macOS.txt",
+    "downloads/example-macos.json",
+    "macos.html"
   ],
   "assets": [
     {
@@ -146,6 +152,36 @@
       "source": "website:content/readme-en.md",
       "sha256": "835fbe0d46bd310fff60bcaaee0607483b64a298f5844731d40690f63adeead6",
       "bytes": 17395
+    },
+    {
+      "path": "downloads/DeskTiles-macOS-universal.zip",
+      "source": "macOS:release/DeskTiles-macOS-universal.zip",
+      "sha256": "97a45205a10405c5996ac475d16ecc1c35b8eab9a88cb4de284a1795b715bfb2",
+      "bytes": 316360
+    },
+    {
+      "path": "downloads/SHA256SUMS-macOS.txt",
+      "source": "macOS:release/SHA256SUMS.txt",
+      "sha256": "fa567d806950418f50bbf2ad6a476ce04b147eb61298ade1f4187bf5d82f496f",
+      "bytes": 96
+    },
+    {
+      "path": "downloads/guide-macos-zh.md",
+      "source": "macOS:release/使用說明.md",
+      "sha256": "afdb706a963331c491bec027916e55863033684bf7c60fa29f37cacf604612b1",
+      "bytes": 4386
+    },
+    {
+      "path": "downloads/THIRD-PARTY-NOTICES-macOS.txt",
+      "source": "macOS:release/THIRD-PARTY-NOTICES.txt",
+      "sha256": "46a65cffd1ea955132d95a8dd921640714a8d6b537d2e4e482d31145ae95b603",
+      "bytes": 1076
+    },
+    {
+      "path": "downloads/example-macos.json",
+      "source": "macOS:release/範例配置.json",
+      "sha256": "67deeca7a478c8a185370b71151ee7f6633f7b8b1633636370ce697bd4ea23b6",
+      "bytes": 4290
     }
   ],
   "sourceValidation": {
@@ -157,5 +193,12 @@
       "en"
     ],
     "note": "Project-provided local validation; not rerun by the website publisher. Performance samples are not universal guarantees."
+  },
+  "macOSRelease": {
+    "publishedDate": "2026-11-07",
+    "platform": "macOS 12+ · Apple silicon / Intel",
+    "zipSha256": "97a45205a10405c5996ac475d16ecc1c35b8eab9a88cb4de284a1795b715bfb2",
+    "zipBytes": 316360,
+    "signing": "ad-hoc; no Developer ID or Apple notarization"
   }
 }
