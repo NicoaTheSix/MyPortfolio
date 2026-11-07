@@ -1,6 +1,6 @@
 # Nicoa'Lab 網站 Logo 替換交付
 
-狀態：實作及本機驗證完成，待使用者確認網站版面；尚未推送或部署。正式網站版本維持 v1.06。工作快照標記：snapshot/portfolio-nicoa-lab-logo-20261107/r01，實際 SHA 以中央結果事件與聊天交付為準。
+狀態：實作及本機驗證完成，待使用者確認網站版面；尚未推送或部署。正式網站版本維持 v1.06。工作快照標記：snapshot/portfolio-nicoa-lab-logo-20261107/r02，實際 SHA 以中央結果事件與聊天交付為準。
 
 來源：通用廣告部門對話 01a16809-bb0c-7363-8d90-79bd1aa35481，原始使用者訊息 01a1b647-4125-7a53-92df-43a0ec69c18a 已核對，指示將兩款 Logo 作為標準並交給 Portfolio 替換。品牌素材核准 nicoa-lab-logo-standard-confirmation-20261107-01；這不是網站成品驗收。原圖來自 D:\VIDEOS\designs\nicoa-lab-brand-icon\standards，版本 v1.01。
 

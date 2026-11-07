@@ -21,7 +21,7 @@ for(const file of ['index.html','en/index.html']){
   html=html.replace(/<a class="footer-brand"[\s\S]*?<\/a>/g,'');
   html=html.replace('<div class="container footer-inner">',`<div class="container footer-inner"><a class="footer-brand" href="#home" aria-label="Nicoa'Lab">${brandLogo(href,false)}</a>`);
   html=html.replace(/script\.js(?:\?v=[^"]*)?"/g,'script.js?v=20261107-brand"');
-  await writeFile(target,html);
+  await writeFile(target,html.replace(/^[ \t]+$/gm,''));
   console.log('[2/3] 首頁更新完成：',target);
 }
 await buildBlog({updateHome:false});
