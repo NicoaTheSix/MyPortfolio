@@ -1,4 +1,5 @@
 @import url('../fusion-studio/docs.css');
+.docs-brand img,.product-logo{image-rendering:auto}.product-heading{display:flex;align-items:center;gap:24px}.product-logo{flex:none;width:120px;height:120px}.platform-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}.platform-grid>article{min-width:0;border:1px solid var(--line);padding:22px}.platform-limits{border-left:3px solid #333;padding:12px 16px;margin-block:20px;background:#f2f2ef}.platform-limits p{margin-bottom:0}.hero-buttons{flex-wrap:wrap}.platform-note,.platform-grid{overflow-wrap:anywhere}@media(max-width:800px){.platform-grid{grid-template-columns:1fr}.product-heading{gap:16px}.product-logo{width:84px;height:84px}}
 .release-note { padding:20px; border:1px solid var(--line); background:var(--wash); }
 .desk-demo { display:block; width:100%; max-height:560px; background:#171817; }
 .product-hero h1>span { display:block; font-size:20px; letter-spacing:.5px; margin-top:7px; font-weight:600; }

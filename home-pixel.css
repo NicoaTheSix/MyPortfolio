@@ -10,6 +10,7 @@ html{scroll-padding-top:110px}body{background:#fff}.language-bar{background:#fff
 .language-bar-inner>span,.window-bar{font-family:var(--sans)}
 @media(max-width:420px){.site-header nav>a[href="#works"]{display:none}}
 .nav-blog{white-space:nowrap}
+.desktiles-cover .desktiles-logo{image-rendering:auto;width:min(100%,320px);height:auto;padding:24px}.desktiles-cover:has(.desktiles-logo){background:#fff}
 .site-header nav>a.nav-blog{display:block}
 @media(max-width:520px){.site-header nav>a[href="#works"]{display:none}}
 @media(max-width:380px){.site-header nav>a[href="#services"]{display:none}}
