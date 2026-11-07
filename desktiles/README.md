@@ -1,5 +1,17 @@
 # DeskTiles 網站發布與維護
 
+## DeskTiles 雙平台圓角圖示發布（2026-11-07）
+
+本節取代下方歷史版本的套件、功能及驗證數字。使用者於 DeskTile 專員對話選定 A 圓角圖示並授權更新、部署 Windows／Mac 與 Portfolio。本批整合遠端 ce98930 的 Mac 下載內容，保留既有 macos.html、Markdown、範例與授權下載網址。
+
+輸入根目錄 `D:\DeskTile`；輸出根目錄 `C:\Users\nick5\Documents\ChatGPT\Portfolio 網站設置\desktiles`。執行 `node build-desktiles.mjs --source D:\DeskTile`：先列出全部絕對輸入／輸出，再依五階段校驗指定 ZIP／EXE、複製 27 份來源、產生八頁雙語文件及舊 Mac 網址、搜尋索引與首頁卡片。`release.mjs` 固定來源版本、雜湊與大小；`publish-content.mjs` 維護雙語介紹；`content/readme-en.md` 與 `content/mac-en.md` 為網站英文文件。原始下載維持來源位元組，不執行 EXE、不重新打包 ZIP。舊 Python 上架入口改呼叫同一建置器，避免用歷史版型覆蓋新版。
+
+Logo 使用來源平滑 SVG／PNG，網站以 image-rendering:auto 顯示。同步更新中英文 Windows 控制畫面、鬧鐘與啟動同意圖。既有操作影片保留並註明介面可能不同。Windows：222 核心／192 整合；Mac：170 核心、Universal 2 與圖示簽章檢查，均為專案提供的結果。網站僅核對交付檔，不聲稱重新跑過應用程式測試。
+
+Windows 鬧鐘重啟啟用問題未修復；登入啟動預設關閉。Mac 中文介面、無 Windows 鬧鐘／語言切換／登入啟動，ad-hoc 簽章、未 Apple 公證，Intel 實機及多螢幕仍待驗證。Windows 匯出 v3、讀取 v1–v3；Mac 僅匯出與讀取 v1/v2，不能直接匯入 Windows v3，即使沒有鬧鐘亦同；Windows 可匯入 Mac v2。Logo 圓形不代表新增圓形格子。
+
+執行 `node check-desktiles.mjs --url http://127.0.0.1:4198/MyPortfolio/desktiles/`：顯示絕對輸入／報告路徑，分五階段檢查八頁、語言對應、唯一 ID、87 筆搜尋、29 份素材及兩平台 SHA256、舊網址相容、41 份 HTTP 檔案和影片 Range。瀏覽器另確認手機不溢出、搜尋和語言切換。發布後用公開網址重跑 HTTP 比對。`validation-report.json` 保存最近一次驗證；本批檔案清單見 `release-delivery.md`。
+
 ## GitHub 與星星提示（2026-11-02）
 
 中英文作品集 DeskTiles 卡片與專案介紹頁的下載入口下方，提供 `https://github.com/NicoaTheSix/DeskTile` 及邀請按 Star 的文字。連結另開分頁並設定 `noopener noreferrer`。執行根目錄 `node build-desktiles.mjs --source 'D:\DeskTile'` 時，先顯示來源與輸出的絕對路徑，再分階段複製素材、產生文件與搜尋索引、更新兩張首頁卡片；`githubSupport()` 共用文案確保重新建置後仍保留。執行 `node check-desktiles.mjs` 與 `node check-site.mjs` 驗證輸出與連結。

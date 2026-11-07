@@ -10,7 +10,7 @@
 - 「邊框與風格…」設定實色、像素、RGB 或呼吸燈；「大小與文字…」設定尺寸與 Mac 已安裝字體；「背景與透明度…」只改背景。
 - 右鍵圖形或使用選單列的 ▦ 可開啟控制面板、新增、選取全部、設定圖層、操作計時器、找回圖形與結束程式。
 - 關閉控制面板不會結束程式。雙擊圖形或使用 ▦ 可帶回面板；使用「儲存並結束桌面拼格」或 Command＋Q 結束。
-- 「配置 JSON…」可匯出包含圖片的單一配置，或覆蓋／合併匯入 Windows 和 Mac 的配置。匯入的計時器預設暫停。
+- 「配置 JSON…」可匯出包含圖片的 JSON v2，或覆蓋／合併匯入 v1／v2 配置。Windows 目前匯出 v3，Mac 尚不能直接匯入；Mac 匯出的 v2 可由 Windows 匯入。匯入的計時器預設暫停。
 - Windows 字體不一定安裝在 Mac；找不到的字體使用系統字體顯示。可在「大小與文字…」填入 `PingFang TC` 等已安裝字體名稱。
 
 ## 資料
@@ -56,3 +56,11 @@ C++ 核心與 JSON 格式直接沿用原版，介面以 Objective-C++／AppKit �
 參考提交：`4a7fc0aa41e05e48f01e389e3ee948a628022064`。
 
 `Sources/core.hpp`、`Sources/config.hpp`、`tests/tests.cpp`、Logo 和範例配置取自該提交，保留原始內容；Windows clone 位於相鄰的 `DeskTile_windows/`，未修改。JSON 相依檔案為 nlohmann/json，MIT 授權見 `Sources/third_party/nlohmann/LICENSE.MIT`。
+
+## 圓角 App 圖示建置與驗證
+
+使用已選定的黑白圓角四圖形設計。assets/DeskTiles-logo.png 為 1024px 透明外角母圖；對應 SVG 與 Windows 共用。build.sh 執行前列出絕對來源與輸出位置，依五階段顯示核心測試、標準／Retina iconset、Universal 2 編譯、完整 App 簽章及完成狀態。Info.plist 的 CFBundleIconFile 與控制面板／Dock 均載入 DeskTiles.icns，Finder 尚未啟動 App 時也有正確圖示。
+
+verify.sh 以四階段檢查核心、ICNS 解碼、Finder bundle 設定、arm64／x86_64 與完整簽章，再啟動 AppKit smoke-test 檢查圖示載入；package.sh 以三階段驗證簽章、封裝、更新 SHA256。每次 iconset 解碼與 AppKit 驗證都使用獨立暫存目錄，可重複執行。
+
+更新時先結束舊程式，完整解壓縮新版再開啟；若 Dock 保留舊捷徑，可移除捷徑後將新版 App 拖回。此更新仍採 ad-hoc 簽章，沒有宣稱 Apple 公證或新增 Intel 實機驗證。

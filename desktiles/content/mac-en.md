@@ -16,7 +16,7 @@ Closing the controller does not quit the application. Use Save and exit DeskTile
 
 ## Layouts and data
 
-Export JSON with embedded images for a portable backup. Import can replace or merge Windows and Mac layouts; imported timers start paused. Directly chosen images still refer to their original paths until exported.
+Export JSON v2 with embedded images for a portable backup. Mac reads v1/v2 only. Windows exports v3 and reads v1–v3; its v3 layouts cannot be imported into Mac, even without alarms. Windows can import Mac v2. Import can replace or merge supported layouts; imported timers start paused. Directly chosen images still refer to their original paths until exported.
 
 The default data directory is `~/Library/Application Support/DeskTiles/`. The app keeps a saved layout, backup and pre-import backups. A system file lock prevents two processes from writing to the same directory. Do not delete `session.lock` as a workaround. A corrupt layout is preserved rather than overwritten with an empty one.
 

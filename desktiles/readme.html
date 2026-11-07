@@ -6,17 +6,25 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-N43HBCRC');</script>
 <!-- End Google Tag Manager -->
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f6f5f0"><meta name="description" content="桌面拼格 DeskTiles：Windows 桌面文字、圖片與計時器小工具。三種形狀、自由拼排、JSON 備份。免安裝 ZIP、完整使用說明與專案 README。"><title>專案 README | DeskTiles · Nicoa The Six</title><link rel="icon" href="assets/DeskTiles.svg" type="image/svg+xml"><link rel="stylesheet" href="desktiles.css?v=2026-11-01"><link rel="alternate" hreflang="en" href="en/readme.html"><script defer src="../fusion-studio/docs.js" data-search-index="search-index.json?v=2026-11-01"></script></head><body data-project="DeskTiles Docs" data-language="zh" data-page="readme">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f6f5f0"><meta name="description" content="DeskTiles：Windows 與 macOS 原生桌面小工具，提供兩平台下載、使用說明、功能差異與SHA-256。"><title>專案 README | DeskTiles · Nicoa The Six</title><link rel="icon" href="assets/DeskTiles.svg?v=2026-11-07" type="image/svg+xml"><link rel="stylesheet" href="desktiles.css?v=2026-11-07"><link rel="alternate" hreflang="en" href="en/readme.html"><script defer src="../fusion-studio/docs.js" data-search-index="search-index.json?v=2026-11-07"></script></head><body data-project="DeskTiles Docs" data-language="zh" data-page="readme">
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N43HBCRC"
 height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Manager"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
-<a class="skip-link" href="#content">跳至內容</a><header class="docs-header"><a class="docs-brand" href="index.html"><img src="assets/DeskTiles-logo.png?v=2026-11-01" width="34" height="34" alt=""><span>DeskTiles<small>專案與文件</small></span></a><div class="header-actions"><button id="open-search" type="button" aria-haspopup="dialog"><span aria-hidden="true">⌕</span> 搜尋文件 <kbd>Ctrl K</kbd></button><a class="language-switch" href="en/readme.html" hreflang="en" lang="en">English</a><a class="portfolio-link" href="../index.html#project-desktiles">Nicoa The Six ↗</a></div></header><div class="mobile-toolbar"><button id="menu-button" type="button" aria-controls="docs-sidebar" aria-expanded="false">☰ 專案導覽</button><span>專案 README</span></div><div class="docs-layout"><aside id="docs-sidebar" class="docs-sidebar" aria-label="專案導覽"><div class="sidebar-label">NICOA THE SIX / DESKTOP TOOLS</div><nav><section class="nav-group"><h2>DeskTiles</h2><a href="index.html">桌面拼格 DeskTiles</a><a href="guide.html">使用說明</a><a href="readme.html" class="current" aria-current="page">專案 README</a></section><section class="nav-group"><h2>取得使用版</h2><a href="downloads/DeskTiles-Windows-x64.zip?v=2026-11-01" download>Windows x64 ZIP ↓</a><a data-macos-download href="downloads/DeskTiles-macOS-universal.zip?v=2026-11-07" download>macOS Universal ZIP ↓</a><a href="downloads/mixed-shapes.json?v=2026-11-01" download>範例配置 JSON ↓</a><a href="downloads/SHA256SUMS.txt?v=2026-11-01" download>SHA256SUMS.txt ↓</a></section></nav><div class="sidebar-bottom"><a href="../index.html#project-desktiles">回作品集 ↗</a></div></aside><main id="content" class="docs-main" tabindex="-1"><div class="breadcrumb"><a href="index.html">DeskTiles</a><span>/</span><span>專案 README</span></div><div class="page-actions"><a href="downloads/README.md?v=2026-11-01" download>下載 Markdown ↓</a><a href="downloads/DeskTiles-Windows-x64.zip?v=2026-11-01" download>Windows x64 ZIP ↓</a></div><details class="mobile-toc"><summary>本頁內容</summary><nav><a class="toc-level-2" href="#%E4%B8%80%E8%88%AC%E4%BD%BF%E7%94%A8%E8%80%85%E5%BE%9E%E9%80%99%E8%A3%A1%E9%96%8B%E5%A7%8B">一般使用者從這裡開始</a><a class="toc-level-2" href="#%E4%B8%AD%E8%8B%B1%E6%96%87%E6%93%8D%E4%BD%9C%E5%85%A5%E5%8F%A3">中英文操作入口</a><a class="toc-level-2" href="#%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C">常用操作</a><a class="toc-level-2" href="#%E5%8A%9F%E8%83%BD%E8%88%87%E7%AF%84%E5%9C%8D">功能與範圍</a><a class="toc-level-2" href="#%E8%B3%87%E6%96%99%E4%BD%8D%E7%BD%AE%E8%88%87%E5%95%9F%E5%8B%95%E5%95%8F%E9%A1%8C">資料位置與啟動問題</a><a class="toc-level-2" href="#%E5%9F%B7%E8%A1%8C%E6%B5%81%E7%A8%8B%E8%88%87%E9%80%B2%E5%BA%A6">執行流程與進度</a><a class="toc-level-2" href="#%E9%96%8B%E7%99%BC%E9%A9%97%E8%AD%89%E8%88%87%E6%89%93%E5%8C%85">開發、驗證與打包</a><a class="toc-level-2" href="#%E5%AF%A6%E9%9A%9B%E7%95%AB%E9%9D%A2%E8%88%87%E9%A1%AF%E7%A4%BA%E5%B1%A4%E7%9A%84%E9%81%8B%E4%BD%9C%E6%B5%81%E7%A8%8B">實際畫面與顯示層的運作流程</a><a class="toc-level-2" href="#%E5%B0%88%E6%A1%88%E6%AA%94%E6%A1%88">專案檔案</a><a class="toc-level-2" href="#%E6%8A%80%E8%A1%93%E4%BE%9D%E6%93%9A%E8%88%87%E5%BE%8C%E7%BA%8C%E5%B7%A5%E4%BD%9C">技術依據與後續工作</a><a class="toc-level-2" href="#git-%E4%B8%8A%E5%82%B3%E6%B5%81%E7%A8%8B">Git 上傳流程</a><a class="toc-level-2" href="#%E6%8B%96%E6%9B%B3%E8%88%87%E5%AD%97%E9%AB%94%E5%9B%9E%E6%AD%B8%E9%A9%97%E8%AD%89">拖曳與字體回歸驗證</a><a class="toc-level-2" href="#%E6%93%8D%E4%BD%9C%E7%A4%BA%E7%AF%84%E5%BD%B1%E7%89%87">操作示範影片</a><a class="toc-level-2" href="#%E4%B8%AD%E8%8B%B1%E6%96%87%E4%BB%8B%E9%9D%A2%E5%88%87%E6%8F%9B">中英文介面切換</a></nav></details><article class="prose"><h1>桌面拼格 DeskTiles</h1>
-<p>專案倉庫：<a rel="noopener noreferrer" target="_blank" href="https://github.com/NicoaTheSix/DeskTile">NicoaTheSix/DeskTile</a>。本機開發目錄為 <code>D:\DeskTile</code>；免安裝執行檔位於 <code>release/DeskTiles/DeskTiles.exe</code>。搬移不影響原本的使用者版面資料。</p>
-<p>可在 Windows 桌面拼放六角形、三角形與矩形，顯示文字、圖片或計時器。支援多選拖曳、吸附、置頂／桌面層、背景透明、像素／RGB／呼吸邊框及含圖片的 JSON 配置。</p>
+<a class="skip-link" href="#content">跳至內容</a><header class="docs-header"><a class="docs-brand" href="index.html"><img src="assets/DeskTiles-logo.png?v=2026-11-07" width="34" height="34" alt=""><span>DeskTiles<small>專案與文件</small></span></a><div class="header-actions"><button id="open-search" type="button" aria-haspopup="dialog"><span aria-hidden="true">⌕</span> 搜尋文件 <kbd>Ctrl K</kbd></button><a class="language-switch" href="en/readme.html" hreflang="en" lang="en">English</a><a class="portfolio-link" href="../index.html#project-desktiles">Nicoa The Six ↗</a></div></header><div class="mobile-toolbar"><button id="menu-button" type="button" aria-controls="docs-sidebar" aria-expanded="false">☰ 專案導覽</button><span>專案 README</span></div><div class="docs-layout"><aside id="docs-sidebar" class="docs-sidebar" aria-label="專案導覽"><div class="sidebar-label">NICOA THE SIX / DESKTOP TOOLS</div><nav><section class="nav-group"><h2>DeskTiles</h2><a href="index.html">桌面拼格 DeskTiles</a><a href="guide.html">使用說明</a><a href="readme.html" class="current" aria-current="page">專案 README</a><a href="mac.html">macOS 使用說明</a></section><section class="nav-group"><h2>取得使用版</h2><a href="downloads/DeskTiles-Windows-x64.zip?v=2026-11-07" download>Windows x64 ZIP ↓</a><a href="downloads/DeskTiles-macOS-universal.zip?v=2026-11-07" download>macOS Universal 2 ZIP ↓</a><a href="downloads/SHA256SUMS-macOS.txt?v=2026-11-07" download>macOS SHA256 ↓</a><a href="downloads/mixed-shapes.json?v=2026-11-07" download>範例配置 JSON ↓</a><a href="downloads/SHA256SUMS.txt?v=2026-11-07" download>SHA256SUMS.txt ↓</a></section></nav><div class="sidebar-bottom"><a href="../index.html#project-desktiles">回作品集 ↗</a></div></aside><main id="content" class="docs-main" tabindex="-1"><div class="breadcrumb"><a href="index.html">DeskTiles</a><span>/</span><span>專案 README</span></div><div class="page-actions"><a href="downloads/README.md?v=2026-11-07" download>下載 Markdown ↓</a><a href="downloads/DeskTiles-Windows-x64.zip?v=2026-11-07" download>Windows x64 ZIP ↓</a></div><details class="mobile-toc"><summary>本頁內容</summary><nav><a class="toc-level-2" href="#macos-%E7%89%88%E6%9C%AC">macOS 版本</a><a class="toc-level-2" href="#%E4%B8%80%E8%88%AC%E4%BD%BF%E7%94%A8%E8%80%85%E5%BE%9E%E9%80%99%E8%A3%A1%E9%96%8B%E5%A7%8B">一般使用者從這裡開始</a><a class="toc-level-2" href="#%E4%B8%AD%E8%8B%B1%E6%96%87%E6%93%8D%E4%BD%9C%E5%85%A5%E5%8F%A3">中英文操作入口</a><a class="toc-level-2" href="#%E9%AC%A7%E9%90%98%E8%A8%88%E6%99%82%E6%96%87%E5%AD%97%E8%88%87%E7%99%BB%E5%85%A5%E5%95%9F%E5%8B%95">鬧鐘、計時文字與登入啟動</a><a class="toc-level-3" href="#%E6%96%B0%E5%8A%9F%E8%83%BD%E7%A8%8B%E5%BC%8F%E6%B5%81%E7%A8%8B%E8%88%87%E9%A9%97%E8%AD%89">新功能程式流程與驗證</a><a class="toc-level-2" href="#%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C">常用操作</a><a class="toc-level-2" href="#%E5%8A%9F%E8%83%BD%E8%88%87%E7%AF%84%E5%9C%8D">功能與範圍</a><a class="toc-level-2" href="#%E8%B3%87%E6%96%99%E4%BD%8D%E7%BD%AE%E8%88%87%E5%95%9F%E5%8B%95%E5%95%8F%E9%A1%8C">資料位置與啟動問題</a><a class="toc-level-2" href="#%E5%9F%B7%E8%A1%8C%E6%B5%81%E7%A8%8B%E8%88%87%E9%80%B2%E5%BA%A6">執行流程與進度</a><a class="toc-level-2" href="#%E9%96%8B%E7%99%BC%E9%A9%97%E8%AD%89%E8%88%87%E6%89%93%E5%8C%85">開發、驗證與打包</a><a class="toc-level-2" href="#%E5%AF%A6%E9%9A%9B%E7%95%AB%E9%9D%A2%E8%88%87%E9%A1%AF%E7%A4%BA%E5%B1%A4%E7%9A%84%E9%81%8B%E4%BD%9C%E6%B5%81%E7%A8%8B">實際畫面與顯示層的運作流程</a><a class="toc-level-2" href="#%E5%B0%88%E6%A1%88%E6%AA%94%E6%A1%88">專案檔案</a><a class="toc-level-2" href="#%E6%8A%80%E8%A1%93%E4%BE%9D%E6%93%9A%E8%88%87%E5%BE%8C%E7%BA%8C%E5%B7%A5%E4%BD%9C">技術依據與後續工作</a><a class="toc-level-2" href="#git-%E4%B8%8A%E5%82%B3%E6%B5%81%E7%A8%8B">Git 上傳流程</a><a class="toc-level-2" href="#%E6%8B%96%E6%9B%B3%E8%88%87%E5%AD%97%E9%AB%94%E5%9B%9E%E6%AD%B8%E9%A9%97%E8%AD%89">拖曳與字體回歸驗證</a><a class="toc-level-2" href="#%E6%93%8D%E4%BD%9C%E7%A4%BA%E7%AF%84%E5%BD%B1%E7%89%87">操作示範影片</a><a class="toc-level-2" href="#%E4%B8%AD%E8%8B%B1%E6%96%87%E4%BB%8B%E9%9D%A2%E5%88%87%E6%8F%9B">中英文介面切換</a><a class="toc-level-2" href="#%E5%9C%93%E8%A7%92%E5%9C%96%E7%A4%BA%E6%9B%B4%E6%96%B0">圓角圖示更新</a></nav></details><article class="prose"><h1>桌面拼格 DeskTiles</h1>
+
+<p>可在 Windows 桌面拼放六角形、三角形與矩形，顯示文字、圖片、計時器或鬧鐘。支援多選拖曳、吸附、置頂／桌面層、背景透明、像素／RGB／呼吸邊框及含圖片的 JSON 配置。</p>
+<h2 id="macos-版本">macOS 版本</h2>
+<p>Mac 原生版位於 <a href="mac.html">DeskTile_mac</a>，使用 AppKit 與原有 C++ 核心。</p>
+<ul>
+<li><a href="downloads/DeskTiles-macOS-universal.zip?v=2026-11-07">下載 Mac 版（Apple silicon／Intel）</a></li>
+<li><a href="mac.html">Mac 使用說明與已知差異</a></li>
+</ul>
+<p>解壓後雙擊 <code>DeskTiles.app</code>；支援 macOS 12 以上。此版本採本機 ad-hoc 簽章，尚未經 Apple 公證。
+已通過 170 項核心檢查及本機 Apple silicon AppKit 整合測試；Intel、多螢幕與其他 macOS 版本仍待實機驗證。</p>
 <h2 id="一般使用者從這裡開始">一般使用者從這裡開始</h2>
 <ol>
-<li>取得 <a href="downloads/DeskTiles-Windows-x64.zip?v=2026-11-01">DeskTiles-Windows-x64.zip</a>，完整解壓縮。</li>
+<li>取得 <a href="downloads/DeskTiles-Windows-x64.zip?v=2026-11-07">DeskTiles-Windows-x64.zip</a>，完整解壓縮。</li>
 <li>進入解壓後的 <code>DeskTiles</code> 資料夾，雙擊 <code>DeskTiles.exe</code>。</li>
 <li>左側選形狀並新增；右側編輯內容後按套用。</li>
 </ol>
@@ -26,6 +34,25 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
 
 <h2 id="中英文操作入口">中英文操作入口</h2>
 <p>右上角選擇 <strong>語言 → English / 繁體中文</strong>，立即切換並記住偏好。右鍵與系統匣也提供 Language 選單；不會翻譯格子內容或清除尚未套用的編輯。英文說明見 <a href="en/guide.html">English user guide</a>。</p>
+<h2 id="鬧鐘計時文字與登入啟動">鬧鐘、計時文字與登入啟動</h2>
+<ul>
+<li>選取圖形後，內容類型選「鬧鐘」，輸入自訂文字，再開啟「鬧鐘設定…」。日期為 <code>YYYY-MM-DD</code>，時間為 24 小時 <code>HH:MM</code>；重複規則預設「單次」，可選「每天」或「指定星期」。按「套用鬧鐘與文字至選取格」後保存，也支援多選套用。單次啟用必須是未來的有效本地時間。</li>
+<li>計時器與鬧鐘的同一格會一起顯示時間數字和自訂文字；在控制視窗編輯「文字內容」後套用即可。空文字仍可使用計時／鬧鐘。</li>
+<li>到期使用系統提示音、系統匣通知和可關閉的非阻塞提醒視窗；通知保留文字並能在中英文間切換。系統音量或通知設定仍由 Windows 控制。</li>
+<li>使用 Windows 本地時間。App 必須執行中；休眠期間到期，喚醒後補提醒一次，避免重複鬧鐘連續補響。重新啟動時過期單次鬧鐘會停用，重複鬧鐘排到下個時段；不會補響關閉期間的事件。夏令時間不存在的時段略過該日，重複時段同一天只提醒一次。</li>
+<li>「Windows 登入後自動啟動（需同意）」<strong>預設關閉</strong>。只有使用者勾選並在顯示絕對程式／資料路徑的確認視窗選「是」，才會寫入目前使用者的 Windows 登入啟動設定；「否」為預設選項。取消勾選會移除本程式的啟動值。一般啟動、建置、打包、更新、語言切換及 JSON 匯入都不會啟用。此設定不包含在配置 JSON，測試不會替使用者開啟。</li>
+<li>登入啟動沿用確認時的絕對 EXE 與資料目錄，啟動後顯示格子與系統匣，控制視窗保持隱藏。搬動程式／資料路徑後，請先取消，再於新位置重新勾選與同意；不會自行更改已同意的命令。</li>
+</ul>
+<h3 id="新功能程式流程與驗證">新功能程式流程與驗證</h3>
+<ol>
+<li><code>alarm.hpp</code> 用本地日曆計算下次單次／每日／每週時段，跨夏令時間以日曆天計算，保存最後消耗的時段以避免重複。<code>core.hpp</code> 的 <code>HEXDESK 6</code> 可讀取 v1–v5，<code>config.hpp</code> 的 JSON v3 可讀取 v1–v2；鬧鐘設定、文字與圖片隨配置備份，執行中的時段快取不匯出。</li>
+<li><code>win32_features.hpp</code> 提供鬧鐘設定、提醒與登入啟動 UI；<code>win32.cpp</code> 只在有計時器或已啟用鬧鐘時使用共用 1 秒時脈。鬧鐘只比較已計算的時段，到期先保存消耗狀態，再提示；平時不重建文字快取。</li>
+<li><code>startup.hpp</code> 在沒有明確同意時拒絕啟用寫入。實際設定只操作 <code>HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run</code> 的 <code>DeskTiles</code> 值，不需要管理員權限。命令含引號及絕對路徑，遵守 Windows 260 字元命令上限；過長時回報失敗，不寫入不完整設定。<a rel="noopener noreferrer" target="_blank" href="https://learn.microsoft.com/en-us/windows/win32/setupapi/run-and-runonce-registry-keys">Windows Run 設定依據</a>。</li>
+<li><code>verify-features.ps1</code> 先列出 EXE、專用配置與結果的絕對路徑，再分階段執行鬧鐘、文字像素、提醒關閉及未同意保護測試。登錄檔讀寫只測試 <code>Software\DeskTiles\Test-程序編號</code> 並清理；前後比對真實登入值，確認未改動。執行：<code>./verify-features.ps1 -ExecutableName DeskTiles-update.exe</code>。</li>
+</ol>
+<p>另可用 <code>python -X utf8 verify-consent.py --executable 'D:\DeskTile\build\DeskTiles-update.exe'</code> 驗證一般啟動的確認視窗：檢查絕對路徑與預設「否」，測試只選「否」，並比對真實登入值未改動。接著建立未來鬧鐘、切英文、以 <code>--startup</code> 重新啟動，確認配置保留且控制面板隱藏；結果寫在 <code>build/consent-*</code>。此開發測試需 Python／Pillow；若使用者已有啟動值，測試會停止，保留該設定。</p>
+<p><img loading="lazy" src="assets/alarm.png?v=2026-11-07" alt="鬧鐘設定"></p>
+<p><img loading="lazy" src="assets/startup-consent.png?v=2026-11-07" alt="開機啟動同意畫面"></p>
 <h2 id="常用操作">常用操作</h2>
 <div class="table-scroll"><table>
 <thead>
@@ -72,8 +99,8 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
 </tr>
 </tbody></table></div>
 <p>關閉控制視窗只會隱藏面板，圖形仍在背景運作。再次雙擊圖形或重新執行程式可帶回控制視窗。換新版之前請先儲存並結束舊版。</p>
-<p><img loading="lazy" src="assets/control.png?v=2026-11-01" alt="控制視窗"></p>
-<p><img loading="lazy" src="assets/control-en.png?v=2026-11-01" alt="English interface"></p>
+<p><img loading="lazy" src="assets/control.png?v=2026-11-07" alt="控制視窗"></p>
+<p><img loading="lazy" src="assets/control-en.png?v=2026-11-07" alt="English interface"></p>
 <h2 id="功能與範圍">功能與範圍</h2>
 <ul>
 <li>六角形、正三角形、3:2 矩形，獨立無邊框視窗；圖形外可操作原桌面。</li>
@@ -82,7 +109,7 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
 <li>自訂尺寸、字體、字級、文字顏色；縮放造成碰撞時整批保留原設定。</li>
 <li>邊框實色、像素、RGB 彩虹與指定色呼吸燈；厚度 1～12 px，動畫週期 2～60 秒。</li>
 <li>背景顏色及 0～100% 透明度獨立套用。只影響背景；全透明區仍可選取和拖曳。</li>
-<li>控制介面 18 px、標題 32 px，黑白像素 2×2 Logo；內容字級另行設定。</li>
+<li>控制介面 18 px、標題 32 px，黑白圓角幾何 2×2 Logo；內容字級另行設定。</li>
 <li>JSON 含全版面與 Base64 圖片，支援覆蓋及合併；匯入格子的計時器預設暫停。</li>
 <li>最多 500 格；JSON 128 MiB，單張圖片 16 MiB，圖片總量 64 MiB，解析度上限 6400 萬像素。</li>
 </ul>
@@ -105,7 +132,7 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
 </ul>
 <h2 id="開發驗證與打包">開發、驗證與打包</h2>
 <p>開發需要 Windows x64、PowerShell、Visual Studio C++ 桌面開發工具與 Windows SDK。使用版不需要這些工具。</p>
-<div class="code-block"><div class="desk-code-label"><span>POWERSHELL</span><button class="copy-code" type="button">複製</button></div><pre><code class="language-powershell"># 建置與 179 項核心檢查；另輸出更新版，避免原 EXE 使用中
+<div class="code-block"><div class="desk-code-label"><span>POWERSHELL</span><button class="copy-code" type="button">複製</button></div><pre><code class="language-powershell"># 建置與 核心檢查（含鬧鐘與啟動同意保護）；另輸出更新版，避免原 EXE 使用中
 .\build.ps1 -OutputName DeskTiles-update.exe
 
 # Windows UI、損壞檔保護與獨占鎖測試
@@ -124,7 +151,7 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
 .\verify-package.ps1 -Composition
 </code></pre></div>
 <p>每個腳本都先列出絕對輸入／輸出路徑，再顯示階段進度。<code>run.ps1</code> 可啟動最新建置，也可指定 <code>-ExecutableName</code>、<code>-DataDir</code>。Windows 桌面層測試需在可存取一般桌面與 Explorer 的環境執行；應用程式本身不需管理員權限。</p>
-<p>最新結果集中於 <a href="downloads/validation.txt?v=2026-11-01">驗證摘要</a>。測試使用專用工作目錄，不使用或打包個人版面。</p>
+<p>最新結果集中於 <a href="downloads/validation.txt?v=2026-11-07">歷史驗證摘要（2026-11-03）</a>。測試使用專用工作目錄，不使用或打包個人版面。</p>
 <h2 id="實際畫面與顯示層的運作流程">實際畫面與顯示層的運作流程</h2>
 <ol>
 <li>啟動時先列出 <code>layout.hexdesk</code> 和 <code>session.log</code> 的絕對輸入／輸出路徑，再依五個階段載入配置、建立視窗和顯示控制面板。</li>
@@ -145,6 +172,14 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
 <tbody><tr>
 <td><code>release/</code></td>
 <td>可直接使用的資料夾、ZIP 與 SHA256</td>
+</tr>
+<tr>
+<td><code>alarm.hpp</code>、<code>startup.hpp</code></td>
+<td>本地鬧鐘排程、重複規則、啟動同意與命令引號規則</td>
+</tr>
+<tr>
+<td><code>win32_features.hpp</code></td>
+<td>鬧鐘設定、非阻塞提醒與使用者明確同意的 Windows 登入啟動</td>
 </tr>
 <tr>
 <td><code>core.hpp</code></td>
@@ -187,7 +222,7 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
 <td>最新開發執行檔及可重新產生的編譯／測試產物</td>
 </tr>
 </tbody></table></div>
-<p>內部格式為 <code>HEXDESK 5</code>，可讀取 v1～v4；JSON 為 <code>format: HexDesk</code>、version 2，可讀取 version 1。形狀值為 0 六角形／1 三角形／2 矩形。舊格式缺少形狀時還原為六角形。格子選取、控制項代碼等暫時狀態不寫入 JSON；字體以名稱保存，不打包字型檔案。</p>
+<p>內部格式為 <code>HEXDESK 6</code>，可讀取 v1～v5；JSON 為 <code>format: HexDesk</code>、version 3，可讀取 version 1～2。形狀值為 0 六角形／1 三角形／2 矩形。舊格式缺少形狀時還原為六角形。格子選取、控制項代碼等暫時狀態不寫入 JSON；字體以名稱保存，不打包字型檔案。</p>
 <h2 id="技術依據與後續工作">技術依據與後續工作</h2>
 <p>採 C++17、Win32、GDI+ 與 Windows 內建函式庫。透明顯示與六角形／三角形／矩形的互動區域分開，避免 alpha 0 區域點擊穿透。桌面層依賴 Explorer 宿主，屬相容性敏感部分。</p>
 <ul>
@@ -202,7 +237,7 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
 <h2 id="拖曳與字體回歸驗證">拖曳與字體回歸驗證</h2>
 <p>專用空資料目錄啟動 --interaction-test --data-dir 絕對路徑 → 顯示輸入／輸出位置 → 實際視窗訊息測試立即選取、快速放開、連按拖曳、Shift 與擷取中斷 → 檢查三形狀小尺寸／大字級的文字與計時器像素 → 還原測試版面 → 寫入 interaction-results.txt 後結束。此模式必須指定資料目錄，不能使用個人版面。</p>
 <h2 id="操作示範影片">操作示範影片</h2>
-<p><a href="assets/DeskTiles-fixes-demo.mp4?v=2026-11-01">觀看 30 秒操作示範</a>。</p>
+<p><a href="assets/DeskTiles-fixes-demo.mp4?v=2026-11-07">觀看 30 秒操作示範</a>。</p>
 <p>record-demo.py 是開發用錄製工具，需要 Python、Pillow 與 FFmpeg；一般使用者執行桌面拼格不需要這些工具。它先列出執行檔、專用示範版面與輸出影片的絕對路徑，再依序建立虛構資料 → 啟動獨立程式 → 重播真實 Win32 選取、拖曳與字體控制 → 僅擷取該程序視窗 → 合成 30 秒 H.264 MP4 → 比對保存位置及字體設定 → 結束自己建立的程序。每秒回報幀數進度，不擷取整個桌面；輸出為 docs/DeskTiles-fixes-demo.mp4，驗證摘要與影片同名 .txt，抽樣影格保存在 build/video-demo-*。</p>
 <p>字體繪製流程：解析指定字體與可用樣式 → 缺少時優先使用微軟正黑體 UI → 依形狀計算內容區域 → 量測多行文字 → 必要時有限次二分搜尋縮小顯示字級 → 只繪製完整行，過長時省略 → 快取靜態內容。此流程不修改保存的字體名稱或字級。</p>
 <p>快速檢查指令：<code>.\verify-interaction.ps1</code>。25 項拖曳／字體檢查亦納入完整 <code>verify.ps1</code>；Windows 整合總數由 123 增為 148。示範擷取使用 <code>--demo-capture --data-dir 絕對路徑</code>，只在明確啟用時輸出該專用目錄的圖形 PNG；一般啟動不啟用。</p>
@@ -210,6 +245,15 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
 <p>即時選取只重繪選取狀態改變的邊框，不重建文字與圖片快取，避免每次按下都重新量測全版面的文字。</p>
 <h2 id="中英文介面切換">中英文介面切換</h2>
 <p>實作流程：建立 localization.hpp 中英文詞條 → 接入主視窗、設定視窗、選單、圖形狀態與錯誤訊息 → 語言偏好獨立保存於資料目錄 ui-settings.json → 切換前擷取尚未套用的輸入 → 更新文字及選單選項 → 還原輸入、選取與焦點 → 重繪圖形 → 驗證切換與重新啟動後的偏好。所有設定與驗證階段都顯示進度及絕對輸入／輸出位置。</p>
-<p>語言驗證流程：專用資料目錄執行 --language-test → 實際切換全部視窗並驗證草稿與計時器 → 模擬偏好檔被鎖住時的保存失敗 → 結束後真正重新啟動確認英文 → 切回中文後再次重啟 → 損壞設定檔回復預設且保持原檔 → 選用 -FullEnglish 執行全部 Windows 功能。原生語言檢查 18 項納入完整整合測試，目前 179 項核心、166 項 Windows 整合檢查。語言切換後保留未套用狀態；只有明確按套用才更動格子設定。</p>
+<p>語言驗證流程：專用資料目錄執行 --language-test → 實際切換全部視窗並驗證草稿與計時器 → 模擬偏好檔被鎖住時的保存失敗 → 結束後真正重新啟動確認英文 → 切回中文後再次重啟 → 損壞設定檔回復預設且保持原檔 → 選用 -FullEnglish 執行全部 Windows 功能。原生語言檢查 18 項納入完整整合測試，目前 222 項核心、192 項 Windows 整合檢查。語言切換後保留未套用狀態；只有明確按套用才更動格子設定。</p>
 <p>Windows 系統視窗的語言偏好以 <a rel="noopener noreferrer" target="_blank" href="https://learn.microsoft.com/en-us/windows/win32/api/winnls/nf-winnls-setthreaduilanguage">SetThreadUILanguage</a> 設定；檔案與選色對話框可用翻譯取決於 Windows 內建語言資源。</p>
-</article><nav class="page-pagination" aria-label="文件導覽"><a href="guide.html"><small>01 / GUIDE</small>使用說明 ↗</a><a href="readme.html"><small>02 / PROJECT</small>專案 README ↗</a></nav><footer class="page-footer"><p>Nicoa The Six · DeskTiles 文件 · 2026-11-01</p><p>下載檔、中英文指南與截圖由專案提供；英文 README 為網站翻譯。</p><a href="../index.html#project-desktiles">回作品集 ↗</a></footer></main><aside class="page-toc" aria-label="本頁內容"><p>本頁內容</p><nav><a class="toc-level-2" href="#%E4%B8%80%E8%88%AC%E4%BD%BF%E7%94%A8%E8%80%85%E5%BE%9E%E9%80%99%E8%A3%A1%E9%96%8B%E5%A7%8B">一般使用者從這裡開始</a><a class="toc-level-2" href="#%E4%B8%AD%E8%8B%B1%E6%96%87%E6%93%8D%E4%BD%9C%E5%85%A5%E5%8F%A3">中英文操作入口</a><a class="toc-level-2" href="#%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C">常用操作</a><a class="toc-level-2" href="#%E5%8A%9F%E8%83%BD%E8%88%87%E7%AF%84%E5%9C%8D">功能與範圍</a><a class="toc-level-2" href="#%E8%B3%87%E6%96%99%E4%BD%8D%E7%BD%AE%E8%88%87%E5%95%9F%E5%8B%95%E5%95%8F%E9%A1%8C">資料位置與啟動問題</a><a class="toc-level-2" href="#%E5%9F%B7%E8%A1%8C%E6%B5%81%E7%A8%8B%E8%88%87%E9%80%B2%E5%BA%A6">執行流程與進度</a><a class="toc-level-2" href="#%E9%96%8B%E7%99%BC%E9%A9%97%E8%AD%89%E8%88%87%E6%89%93%E5%8C%85">開發、驗證與打包</a><a class="toc-level-2" href="#%E5%AF%A6%E9%9A%9B%E7%95%AB%E9%9D%A2%E8%88%87%E9%A1%AF%E7%A4%BA%E5%B1%A4%E7%9A%84%E9%81%8B%E4%BD%9C%E6%B5%81%E7%A8%8B">實際畫面與顯示層的運作流程</a><a class="toc-level-2" href="#%E5%B0%88%E6%A1%88%E6%AA%94%E6%A1%88">專案檔案</a><a class="toc-level-2" href="#%E6%8A%80%E8%A1%93%E4%BE%9D%E6%93%9A%E8%88%87%E5%BE%8C%E7%BA%8C%E5%B7%A5%E4%BD%9C">技術依據與後續工作</a><a class="toc-level-2" href="#git-%E4%B8%8A%E5%82%B3%E6%B5%81%E7%A8%8B">Git 上傳流程</a><a class="toc-level-2" href="#%E6%8B%96%E6%9B%B3%E8%88%87%E5%AD%97%E9%AB%94%E5%9B%9E%E6%AD%B8%E9%A9%97%E8%AD%89">拖曳與字體回歸驗證</a><a class="toc-level-2" href="#%E6%93%8D%E4%BD%9C%E7%A4%BA%E7%AF%84%E5%BD%B1%E7%89%87">操作示範影片</a><a class="toc-level-2" href="#%E4%B8%AD%E8%8B%B1%E6%96%87%E4%BB%8B%E9%9D%A2%E5%88%87%E6%8F%9B">中英文介面切換</a></nav></aside></div><dialog id="search-dialog" aria-labelledby="search-heading"><div class="search-heading"><h2 id="search-heading">搜尋文件</h2><button id="close-search" type="button" aria-label="關閉搜尋">×</button></div><label class="sr-only" for="docs-search">搜尋文件</label><input id="docs-search" type="search" placeholder="搜尋拖曳、透明度、JSON…" autocomplete="off"><p id="search-status" role="status">輸入文字搜尋目前語言的文件。</p><div id="search-results"></div></dialog><div id="toast" role="status" aria-live="polite"></div></body></html>
+<h2 id="圓角圖示更新">圓角圖示更新</h2>
+<p>本次採用 A 圓角幾何圖示，Windows 與 macOS 共用 assets/DeskTiles.svg 的四圖形設計，PNG 外角透明。詳細流程見 assets/README.md。</p>
+<p>Windows build.ps1 先列出絕對輸入／輸出位置，以向量抗鋸齒重建多尺寸 ICO，再編譯內嵌資源、執行核心及整合檢查，最後以 package.ps1 建立免安裝 ZIP。此次沿用本機已交付的中英文、鬧鐘與啟動同意功能，不因 GitHub 舊 Windows 基底而回退；不在本次新增其他功能。</p>
+<p>Mac build.sh 先列出絕對路徑並執行核心檢查，建立標準／Retina iconset 與 ICNS，編譯 Universal 2 App，複製圖示與 Info.plist 後重新 ad-hoc 簽章。verify.sh 檢查 ICNS 可解碼、Finder 圖示設定、雙架構、簽章與 AppKit 圖示載入，package.sh 驗證完整 App 再封裝。</p>
+<p>GitHub 的 macOS verified package 工作流程在圖示更新分支建置與驗證，再將通過的 ZIP、ICNS 與 SHA256 提交回相同分支；下載版只有在驗證通過後才整合至 main。workflow_dispatch 亦可手動重建。App 仍未申請 Apple 公證，Intel 硬體、多螢幕與各版本 macOS 的實機驗收限制沿用原版。</p>
+<p>Windows 已知限制：持久化鬧鐘重啟後的時脈啟用問題尚待獨立修正；本批不宣稱已修復該問題。圖示更新不更動使用者版面或自動啟動設定。
+本次部署版本為 v1.01；以 GitHub 原有 afe5098 作為 v1 基準，僅在選定圖示及使用者授權部署的範圍內更新。Windows 檔案資源與 Mac bundle 版本一併標示 1.01。Windows PowerShell 腳本使用 UTF-8 BOM 以支援內建 5.1。</p>
+<p>圖示回歸：powershell -NoProfile -ExecutionPolicy Bypass -File verify-icons.ps1 -ExecutablePath &lt;EXE絕對路徑&gt;。腳本先列出圖示、EXE與結果絕對位置，逐尺寸檢查九個ICO的解碼、透明角落及平滑邊緣，再比對打包EXE內嵌圖示的每一個位元組並實際呼叫Windows圖示載入；結果存於build/icon-verification.txt。</p>
+<p>平台配置限制（原始碼核對）：Windows匯出JSON v3並讀取v1–v3；Mac僅匯出/讀取v1–v2，尚不能直接匯入Windows新版v3，即使未使用鬧鐘亦然。Mac v2可由Windows匯入；本批不新增Mac v3支援。</p>
+</article><aside class="platform-limits"><strong>Windows 版已知限制</strong><p>持久化鬧鐘在重新啟動後仍有時脈啟用問題；本次圖示更新未修復此問題，勿依賴它作為重要事項的唯一提醒。登入啟動預設關閉，須由使用者明確同意。</p></aside><nav class="page-pagination" aria-label="文件導覽"><a href="guide.html"><small>01 / GUIDE</small>使用說明 ↗</a><a href="readme.html"><small>02 / PROJECT</small>專案 README ↗</a></nav><footer class="page-footer"><p>Nicoa The Six · DeskTiles 文件 · 2026-11-07</p><p>下載檔、中英文指南與截圖由專案提供；英文 README 為網站翻譯。</p><a href="../index.html#project-desktiles">回作品集 ↗</a></footer></main><aside class="page-toc" aria-label="本頁內容"><p>本頁內容</p><nav><a class="toc-level-2" href="#macos-%E7%89%88%E6%9C%AC">macOS 版本</a><a class="toc-level-2" href="#%E4%B8%80%E8%88%AC%E4%BD%BF%E7%94%A8%E8%80%85%E5%BE%9E%E9%80%99%E8%A3%A1%E9%96%8B%E5%A7%8B">一般使用者從這裡開始</a><a class="toc-level-2" href="#%E4%B8%AD%E8%8B%B1%E6%96%87%E6%93%8D%E4%BD%9C%E5%85%A5%E5%8F%A3">中英文操作入口</a><a class="toc-level-2" href="#%E9%AC%A7%E9%90%98%E8%A8%88%E6%99%82%E6%96%87%E5%AD%97%E8%88%87%E7%99%BB%E5%85%A5%E5%95%9F%E5%8B%95">鬧鐘、計時文字與登入啟動</a><a class="toc-level-3" href="#%E6%96%B0%E5%8A%9F%E8%83%BD%E7%A8%8B%E5%BC%8F%E6%B5%81%E7%A8%8B%E8%88%87%E9%A9%97%E8%AD%89">新功能程式流程與驗證</a><a class="toc-level-2" href="#%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C">常用操作</a><a class="toc-level-2" href="#%E5%8A%9F%E8%83%BD%E8%88%87%E7%AF%84%E5%9C%8D">功能與範圍</a><a class="toc-level-2" href="#%E8%B3%87%E6%96%99%E4%BD%8D%E7%BD%AE%E8%88%87%E5%95%9F%E5%8B%95%E5%95%8F%E9%A1%8C">資料位置與啟動問題</a><a class="toc-level-2" href="#%E5%9F%B7%E8%A1%8C%E6%B5%81%E7%A8%8B%E8%88%87%E9%80%B2%E5%BA%A6">執行流程與進度</a><a class="toc-level-2" href="#%E9%96%8B%E7%99%BC%E9%A9%97%E8%AD%89%E8%88%87%E6%89%93%E5%8C%85">開發、驗證與打包</a><a class="toc-level-2" href="#%E5%AF%A6%E9%9A%9B%E7%95%AB%E9%9D%A2%E8%88%87%E9%A1%AF%E7%A4%BA%E5%B1%A4%E7%9A%84%E9%81%8B%E4%BD%9C%E6%B5%81%E7%A8%8B">實際畫面與顯示層的運作流程</a><a class="toc-level-2" href="#%E5%B0%88%E6%A1%88%E6%AA%94%E6%A1%88">專案檔案</a><a class="toc-level-2" href="#%E6%8A%80%E8%A1%93%E4%BE%9D%E6%93%9A%E8%88%87%E5%BE%8C%E7%BA%8C%E5%B7%A5%E4%BD%9C">技術依據與後續工作</a><a class="toc-level-2" href="#git-%E4%B8%8A%E5%82%B3%E6%B5%81%E7%A8%8B">Git 上傳流程</a><a class="toc-level-2" href="#%E6%8B%96%E6%9B%B3%E8%88%87%E5%AD%97%E9%AB%94%E5%9B%9E%E6%AD%B8%E9%A9%97%E8%AD%89">拖曳與字體回歸驗證</a><a class="toc-level-2" href="#%E6%93%8D%E4%BD%9C%E7%A4%BA%E7%AF%84%E5%BD%B1%E7%89%87">操作示範影片</a><a class="toc-level-2" href="#%E4%B8%AD%E8%8B%B1%E6%96%87%E4%BB%8B%E9%9D%A2%E5%88%87%E6%8F%9B">中英文介面切換</a><a class="toc-level-2" href="#%E5%9C%93%E8%A7%92%E5%9C%96%E7%A4%BA%E6%9B%B4%E6%96%B0">圓角圖示更新</a></nav></aside></div><dialog id="search-dialog" aria-labelledby="search-heading"><div class="search-heading"><h2 id="search-heading">搜尋文件</h2><button id="close-search" type="button" aria-label="關閉搜尋">×</button></div><label class="sr-only" for="docs-search">搜尋文件</label><input id="docs-search" type="search" placeholder="搜尋拖曳、透明度、JSON…" autocomplete="off"><p id="search-status" role="status">輸入文字搜尋目前語言的文件。</p><div id="search-results"></div></dialog><div id="toast" role="status" aria-live="polite"></div></body></html>

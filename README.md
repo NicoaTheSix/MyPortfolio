@@ -1,3 +1,7 @@
+## DeskTiles v1.01 圖示與雙平台下載（網站 v1.06）
+
+本批整合既有遠端 Mac 下載更新，更新平滑圓角 Logo、兩平台 ZIP、雙語介紹與 Mac 指南，保留舊網址。使用者已授權本次更新與部署；網站正式版僅增加一次。建置與驗證流程、絕對輸入輸出、平台差異及已知限制見 [DeskTiles 維護說明](desktiles/README.md)，完整產出清單見 [發布交付](desktiles/release-delivery.md)。
+
 # Nicoa The Six 個人作品集網站
 
 ## 首頁肖像視窗控制（2026-11-07，已核准發布）

@@ -1,19 +1,14 @@
 # macOS release maintenance
 
-After running `npm run build:desktiles -- --source <Windows source>`, run:
+The single publisher now updates both Windows and macOS. Run from the website root:
 
-    python3 add-macos-download.py --source <DeskTile_mac source>
-    npm run check:desktiles
+```powershell
+node build-desktiles.mjs --source D:\DeskTile
+node check-desktiles.mjs
+```
 
-The macOS step verifies SHA256 before copying only the release ZIP, guide,
-example JSON and third-party notices. It adds both-language downloads and updates
-the source manifest. It is safe to rerun.
+`add-macos-download.py --source D:\DeskTile\DeskTile_mac` remains a compatibility entry point and calls the same publisher and checks. It no longer overwrites the current release with the former Mac-only page template. Both packages are pinned in `release.mjs`; the publisher checks exact hashes and sizes before copying. It logs absolute inputs/outputs, then reports validation, copying, page generation, indexing and homepage progress. It never executes application binaries.
 
-2026-11-07 handoff: the Desktile 專員 confirmed macOS checksum
-97a45205a10405c5996ac475d16ecc1c35b8eab9a88cb4de284a1795b715bfb2,
-macOS 12+, Universal 2, ad-hoc signing, no Developer ID or notarization.
-Intel hardware and multiple displays remain unverified.
+Current Mac archive: 425519 bytes; SHA-256 `9A4182F469863228F3B63F5899C2BA3FB269541632D4849C3447E7672EFA7032`. macOS 12+, Universal 2, ad-hoc signing, no Developer ID or Apple notarization. Intel hardware and multiple displays remain unverified. Windows exports v3 layouts; Mac reads/exports only v1/v2 and cannot import Windows v3. Windows can import Mac v2.
 
-The supplied Windows checkout has ZIP 77b33651… (170 core / 123 integration
-checks). The existing website contains the newer 8b506c95… release (179 / 166
-plus 64 screen checks). Preserve the existing website Windows release.
+The old `macos.html`, `guide-macos-zh.md`, example and notice download paths remain available. `macos.html` serves the current Chinese guide; `mac.html` and `en/mac.html` are the bilingual navigation targets. The former 97a45205… Mac archive and the older Windows archive are superseded, not republished.

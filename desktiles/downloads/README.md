@@ -2,7 +2,17 @@
 
 專案倉庫：[NicoaTheSix/DeskTile](https://github.com/NicoaTheSix/DeskTile)。本機開發目錄為 `D:\DeskTile`；免安裝執行檔位於 `release/DeskTiles/DeskTiles.exe`。搬移不影響原本的使用者版面資料。
 
-可在 Windows 桌面拼放六角形、三角形與矩形，顯示文字、圖片或計時器。支援多選拖曳、吸附、置頂／桌面層、背景透明、像素／RGB／呼吸邊框及含圖片的 JSON 配置。
+可在 Windows 桌面拼放六角形、三角形與矩形，顯示文字、圖片、計時器或鬧鐘。支援多選拖曳、吸附、置頂／桌面層、背景透明、像素／RGB／呼吸邊框及含圖片的 JSON 配置。
+
+## macOS 版本
+
+Mac 原生版位於 [DeskTile_mac](DeskTile_mac/README.md)，使用 AppKit 與原有 C++ 核心。
+
+- [下載 Mac 版（Apple silicon／Intel）](DeskTile_mac/release/DeskTiles-macOS-universal.zip)
+- [Mac 使用說明與已知差異](DeskTile_mac/README.md)
+
+解壓後雙擊 `DeskTiles.app`；支援 macOS 12 以上。此版本採本機 ad-hoc 簽章，尚未經 Apple 公證。
+已通過 170 項核心檢查及本機 Apple silicon AppKit 整合測試；Intel、多螢幕與其他 macOS 版本仍待實機驗證。
 
 ## 一般使用者從這裡開始
 
@@ -21,6 +31,28 @@ Portfolio 網站管理員的上架資料與素材來源見 [網站上架交接](
 ## 中英文操作入口
 
 右上角選擇 **語言 → English / 繁體中文**，立即切換並記住偏好。右鍵與系統匣也提供 Language 選單；不會翻譯格子內容或清除尚未套用的編輯。英文說明見 [English user guide](docs/UserGuide.en.md)。
+
+## 鬧鐘、計時文字與登入啟動
+
+- 選取圖形後，內容類型選「鬧鐘」，輸入自訂文字，再開啟「鬧鐘設定…」。日期為 `YYYY-MM-DD`，時間為 24 小時 `HH:MM`；重複規則預設「單次」，可選「每天」或「指定星期」。按「套用鬧鐘與文字至選取格」後保存，也支援多選套用。單次啟用必須是未來的有效本地時間。
+- 計時器與鬧鐘的同一格會一起顯示時間數字和自訂文字；在控制視窗編輯「文字內容」後套用即可。空文字仍可使用計時／鬧鐘。
+- 到期使用系統提示音、系統匣通知和可關閉的非阻塞提醒視窗；通知保留文字並能在中英文間切換。系統音量或通知設定仍由 Windows 控制。
+- 使用 Windows 本地時間。App 必須執行中；休眠期間到期，喚醒後補提醒一次，避免重複鬧鐘連續補響。重新啟動時過期單次鬧鐘會停用，重複鬧鐘排到下個時段；不會補響關閉期間的事件。夏令時間不存在的時段略過該日，重複時段同一天只提醒一次。
+- 「Windows 登入後自動啟動（需同意）」**預設關閉**。只有使用者勾選並在顯示絕對程式／資料路徑的確認視窗選「是」，才會寫入目前使用者的 Windows 登入啟動設定；「否」為預設選項。取消勾選會移除本程式的啟動值。一般啟動、建置、打包、更新、語言切換及 JSON 匯入都不會啟用。此設定不包含在配置 JSON，測試不會替使用者開啟。
+- 登入啟動沿用確認時的絕對 EXE 與資料目錄，啟動後顯示格子與系統匣，控制視窗保持隱藏。搬動程式／資料路徑後，請先取消，再於新位置重新勾選與同意；不會自行更改已同意的命令。
+
+### 新功能程式流程與驗證
+
+1. `alarm.hpp` 用本地日曆計算下次單次／每日／每週時段，跨夏令時間以日曆天計算，保存最後消耗的時段以避免重複。`core.hpp` 的 `HEXDESK 6` 可讀取 v1–v5，`config.hpp` 的 JSON v3 可讀取 v1–v2；鬧鐘設定、文字與圖片隨配置備份，執行中的時段快取不匯出。
+2. `win32_features.hpp` 提供鬧鐘設定、提醒與登入啟動 UI；`win32.cpp` 只在有計時器或已啟用鬧鐘時使用共用 1 秒時脈。鬧鐘只比較已計算的時段，到期先保存消耗狀態，再提示；平時不重建文字快取。
+3. `startup.hpp` 在沒有明確同意時拒絕啟用寫入。實際設定只操作 `HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run` 的 `DeskTiles` 值，不需要管理員權限。命令含引號及絕對路徑，遵守 Windows 260 字元命令上限；過長時回報失敗，不寫入不完整設定。[Windows Run 設定依據](https://learn.microsoft.com/en-us/windows/win32/setupapi/run-and-runonce-registry-keys)。
+4. `verify-features.ps1` 先列出 EXE、專用配置與結果的絕對路徑，再分階段執行鬧鐘、文字像素、提醒關閉及未同意保護測試。登錄檔讀寫只測試 `Software\DeskTiles\Test-程序編號` 並清理；前後比對真實登入值，確認未改動。執行：`./verify-features.ps1 -ExecutableName DeskTiles-update.exe`。
+
+另可用 `python -X utf8 verify-consent.py --executable 'D:\DeskTile\build\DeskTiles-update.exe'` 驗證一般啟動的確認視窗：檢查絕對路徑與預設「否」，測試只選「否」，並比對真實登入值未改動。接著建立未來鬧鐘、切英文、以 `--startup` 重新啟動，確認配置保留且控制面板隱藏；結果寫在 `build/consent-*`。此開發測試需 Python／Pillow；若使用者已有啟動值，測試會停止，保留該設定。
+
+![鬧鐘設定](docs/alarm.png)
+
+![開機啟動同意畫面](docs/startup-consent.png)
 
 ## 常用操作
 
@@ -50,7 +82,7 @@ Portfolio 網站管理員的上架資料與素材來源見 [網站上架交接](
 - 自訂尺寸、字體、字級、文字顏色；縮放造成碰撞時整批保留原設定。
 - 邊框實色、像素、RGB 彩虹與指定色呼吸燈；厚度 1～12 px，動畫週期 2～60 秒。
 - 背景顏色及 0～100% 透明度獨立套用。只影響背景；全透明區仍可選取和拖曳。
-- 控制介面 18 px、標題 32 px，黑白像素 2×2 Logo；內容字級另行設定。
+- 控制介面 18 px、標題 32 px，黑白圓角幾何 2×2 Logo；內容字級另行設定。
 - JSON 含全版面與 Base64 圖片，支援覆蓋及合併；匯入格子的計時器預設暫停。
 - 最多 500 格；JSON 128 MiB，單張圖片 16 MiB，圖片總量 64 MiB，解析度上限 6400 萬像素。
 
@@ -82,7 +114,7 @@ Portfolio 網站管理員的上架資料與素材來源見 [網站上架交接](
 開發需要 Windows x64、PowerShell、Visual Studio C++ 桌面開發工具與 Windows SDK。使用版不需要這些工具。
 
 ```powershell
-# 建置與 179 項核心檢查；另輸出更新版，避免原 EXE 使用中
+# 建置與 核心檢查（含鬧鐘與啟動同意保護）；另輸出更新版，避免原 EXE 使用中
 .\build.ps1 -OutputName DeskTiles-update.exe
 
 # Windows UI、損壞檔保護與獨占鎖測試
@@ -120,6 +152,8 @@ Portfolio 網站管理員的上架資料與素材來源見 [網站上架交接](
 | 位置 | 用途 |
 | --- | --- |
 | `release/` | 可直接使用的資料夾、ZIP 與 SHA256 |
+| `alarm.hpp`、`startup.hpp` | 本地鬧鐘排程、重複規則、啟動同意與命令引號規則 |
+| `win32_features.hpp` | 鬧鐘設定、非阻塞提醒與使用者明確同意的 Windows 登入啟動 |
 | `core.hpp` | 跨平台模型、形狀、選取、吸附、碰撞、計時及內部保存 |
 | `localization.hpp` | 繁體中文／英文詞條、語言代碼與核心錯誤翻譯 |
 | `config.hpp` | JSON、Base64 圖片、驗證與合併 |
@@ -131,7 +165,7 @@ Portfolio 網站管理員的上架資料與素材來源見 [網站上架交接](
 | `docs/` | 使用說明、最新截圖、範例配置與驗證摘要 |
 | `build/` | 最新開發執行檔及可重新產生的編譯／測試產物 |
 
-內部格式為 `HEXDESK 5`，可讀取 v1～v4；JSON 為 `format: HexDesk`、version 2，可讀取 version 1。形狀值為 0 六角形／1 三角形／2 矩形。舊格式缺少形狀時還原為六角形。格子選取、控制項代碼等暫時狀態不寫入 JSON；字體以名稱保存，不打包字型檔案。
+內部格式為 `HEXDESK 6`，可讀取 v1～v5；JSON 為 `format: HexDesk`、version 3，可讀取 version 1～2。形狀值為 0 六角形／1 三角形／2 矩形。舊格式缺少形狀時還原為六角形。格子選取、控制項代碼等暫時狀態不寫入 JSON；字體以名稱保存，不打包字型檔案。
 
 ## 技術依據與後續工作
 
@@ -169,6 +203,23 @@ record-demo.py 是開發用錄製工具，需要 Python、Pillow 與 FFmpeg；�
 
 實作流程：建立 localization.hpp 中英文詞條 → 接入主視窗、設定視窗、選單、圖形狀態與錯誤訊息 → 語言偏好獨立保存於資料目錄 ui-settings.json → 切換前擷取尚未套用的輸入 → 更新文字及選單選項 → 還原輸入、選取與焦點 → 重繪圖形 → 驗證切換與重新啟動後的偏好。所有設定與驗證階段都顯示進度及絕對輸入／輸出位置。
 
-語言驗證流程：專用資料目錄執行 --language-test → 實際切換全部視窗並驗證草稿與計時器 → 模擬偏好檔被鎖住時的保存失敗 → 結束後真正重新啟動確認英文 → 切回中文後再次重啟 → 損壞設定檔回復預設且保持原檔 → 選用 -FullEnglish 執行全部 Windows 功能。原生語言檢查 18 項納入完整整合測試，目前 179 項核心、166 項 Windows 整合檢查。語言切換後保留未套用狀態；只有明確按套用才更動格子設定。
+語言驗證流程：專用資料目錄執行 --language-test → 實際切換全部視窗並驗證草稿與計時器 → 模擬偏好檔被鎖住時的保存失敗 → 結束後真正重新啟動確認英文 → 切回中文後再次重啟 → 損壞設定檔回復預設且保持原檔 → 選用 -FullEnglish 執行全部 Windows 功能。原生語言檢查 18 項納入完整整合測試，目前 222 項核心、192 項 Windows 整合檢查。語言切換後保留未套用狀態；只有明確按套用才更動格子設定。
 
 Windows 系統視窗的語言偏好以 [SetThreadUILanguage](https://learn.microsoft.com/en-us/windows/win32/api/winnls/nf-winnls-setthreaduilanguage) 設定；檔案與選色對話框可用翻譯取決於 Windows 內建語言資源。
+
+## 圓角圖示更新
+
+本次採用 A 圓角幾何圖示，Windows 與 macOS 共用 assets/DeskTiles.svg 的四圖形設計，PNG 外角透明。詳細流程見 assets/README.md。
+
+Windows build.ps1 先列出絕對輸入／輸出位置，以向量抗鋸齒重建多尺寸 ICO，再編譯內嵌資源、執行核心及整合檢查，最後以 package.ps1 建立免安裝 ZIP。此次沿用本機已交付的中英文、鬧鐘與啟動同意功能，不因 GitHub 舊 Windows 基底而回退；不在本次新增其他功能。
+
+Mac build.sh 先列出絕對路徑並執行核心檢查，建立標準／Retina iconset 與 ICNS，編譯 Universal 2 App，複製圖示與 Info.plist 後重新 ad-hoc 簽章。verify.sh 檢查 ICNS 可解碼、Finder 圖示設定、雙架構、簽章與 AppKit 圖示載入，package.sh 驗證完整 App 再封裝。
+
+GitHub 的 macOS verified package 工作流程在圖示更新分支建置與驗證，再將通過的 ZIP、ICNS 與 SHA256 提交回相同分支；下載版只有在驗證通過後才整合至 main。workflow_dispatch 亦可手動重建。App 仍未申請 Apple 公證，Intel 硬體、多螢幕與各版本 macOS 的實機驗收限制沿用原版。
+
+Windows 已知限制：持久化鬧鐘重啟後的時脈啟用問題尚待獨立修正；本批不宣稱已修復該問題。圖示更新不更動使用者版面或自動啟動設定。
+本次部署版本為 v1.01；以 GitHub 原有 afe5098 作為 v1 基準，僅在選定圖示及使用者授權部署的範圍內更新。Windows 檔案資源與 Mac bundle 版本一併標示 1.01。Windows PowerShell 腳本使用 UTF-8 BOM 以支援內建 5.1。
+
+圖示回歸：powershell -NoProfile -ExecutionPolicy Bypass -File verify-icons.ps1 -ExecutablePath <EXE絕對路徑>。腳本先列出圖示、EXE與結果絕對位置，逐尺寸檢查九個ICO的解碼、透明角落及平滑邊緣，再比對打包EXE內嵌圖示的每一個位元組並實際呼叫Windows圖示載入；結果存於build/icon-verification.txt。
+
+平台配置限制（原始碼核對）：Windows匯出JSON v3並讀取v1–v3；Mac僅匯出/讀取v1–v2，尚不能直接匯入Windows新版v3，即使未使用鬧鐘亦然。Mac v2可由Windows匯入；本批不新增Mac v3支援。

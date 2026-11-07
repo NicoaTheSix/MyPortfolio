@@ -1,6 +1,6 @@
 # DeskTiles — User Guide
 
-DeskTiles is a native Windows desktop widget app. Arrange text, images and timers in hexagonal, triangular or rectangular tiles. Windows 10/11 x64 is supported; Linux is planned.
+DeskTiles is a native Windows desktop widget app. Arrange text, images, timers and alarms in hexagonal, triangular or rectangular tiles. Windows 10/11 x64 is supported; Linux is planned.
 
 ## Start
 
@@ -49,6 +49,32 @@ The included `範例配置.json` is a three-shape sample with an embedded image.
 Limits: 500 tiles, 128 MiB JSON, 16 MiB per image, 64 MiB of images in total and 64 million pixels per decoded image.
 
 Language is stored separately in `ui-settings.json` in the data folder. Importing a layout never changes it. Missing, unknown or corrupt preferences default to Traditional Chinese. Corrupt preferences are not overwritten at startup; an explicit language choice can replace them. If saving fails, the current language and pending edits stay intact.
+
+## Alarms and custom text
+
+1. Select one or more tiles, choose **Alarm**, and enter custom text such as “Team meeting”.
+2. Open **Alarm settings…**. Enter a date as `YYYY-MM-DD` and a 24-hour time as `HH:MM`.
+3. **Once** is the default. You can select **Daily** or **Selected weekdays**; weekly alarms need at least one selected day. The date applies only to one-time alarms.
+4. Check **Enable alarm** and select **Apply alarm and text to selection**. An enabled one-time alarm must use a valid future local time. Uncheck and apply to disable it.
+5. The tile displays its time, custom text, date or weekdays, and enabled state. Editing text in the controller and applying it preserves existing alarm schedules.
+
+**Timers also support custom text.** Enter the task name in the text field and apply; the same tile displays both text and timer digits. Empty text is allowed.
+
+Due alarms and completed countdowns use the system sound, a tray notification, and a nonmodal reminder window. The window retains the ten most recent reminders. Windows volume and notification settings still apply.
+
+The app must be running. Alarms follow Windows local time. After sleep, one reminder is shown for missed occurrences; restarting the app does not replay events missed while it was closed. Expired one-time alarms are disabled at startup, and recurring alarms are scheduled for their next occurrence. A nonexistent daylight-saving time is skipped for that date; a repeated local hour rings only once per date.
+
+Alarm settings and text are included in layout and JSON backups, including replace/merge imports. The new native v6 / JSON v3 formats read previous versions; old app versions cannot read newly saved formats.
+
+## Start at Windows sign-in
+
+**Off by default. The app never enables it automatically.**
+
+- Check **Start at Windows sign-in (requires consent)** at the bottom of the controller.
+- The confirmation displays absolute program and data paths. Only **Yes** enables registration. **No** is the default; declining or closing the dialog leaves it off.
+- Uncheck the option to remove DeskTiles' own startup entry.
+- Login launch restores tiles and the tray icon with the controller hidden. Open the controller from the tray or by double-clicking a tile.
+- This option is excluded from JSON. Imports, updates and ordinary launches cannot enable it. If you move the executable or data folder, uncheck it and opt in again from the new location to update the paths.
 
 ## Close, update and troubleshoot
 

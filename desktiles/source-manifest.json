@@ -1,20 +1,26 @@
 {
   "schemaVersion": 1,
   "project": "DeskTiles",
-  "publishedDate": "2026-11-01",
+  "publishedDate": "2026-11-07",
   "sourceRepository": "https://github.com/NicoaTheSix/DeskTile",
-  "platform": "Windows 10 / 11 x64",
-  "zipSha256": "8b506c952970ad54c37015f493739d7b0b87792868c28c6bfcb54545212724b9",
-  "zipBytes": 459907,
-  "releaseExeSha256": "3b27f00ac33c7df41efc86c5031c06f546e8dfc871bd26b26d5be9b4c8836106",
-  "releaseExeBytes": 1330688,
+  "platform": "Windows 10 / 11 x64; macOS 12+ Universal 2",
+  "macZipSha256": "9a4182f469863228f3b63f5899c2ba3fb269541632d4849c3447e7672efa7032",
+  "macZipBytes": 425519,
+  "sourceCommit": "2f5678e2e1d67701dbe639af5b1817a2e3f7d3ae",
+  "releaseCommit": "e3ddc9b95d34f0c8716697908ba749aa2d553e8f",
+  "zipSha256": "507c4b6dc30ca8d50418d4ee83a60847e0cbc3cdbb04b31cb328d4a9fc0fd79e",
+  "zipBytes": 504041,
+  "releaseExeSha256": "dc69fbb53ea3454954b0140983d48227f0f21a7aa7d857afe4002ff093a90606",
+  "releaseExeBytes": 1068032,
   "generatedHtml": [
     "index.html",
     "guide.html",
     "readme.html",
     "en/index.html",
     "en/guide.html",
-    "en/readme.html"
+    "en/readme.html",
+    "mac.html",
+    "en/mac.html"
   ],
   "publicFiles": [
     "index.html",
@@ -23,6 +29,9 @@
     "en/index.html",
     "en/guide.html",
     "en/readme.html",
+    "mac.html",
+    "en/mac.html",
+    "macos.html",
     "downloads/README.md",
     "downloads/guide-zh.md",
     "downloads/guide-en.md",
@@ -39,41 +48,47 @@
     "downloads/SHA256SUMS.txt",
     "downloads/mixed-shapes.json",
     "downloads/validation.txt",
-    "downloads/readme-en.md",
-    "desktiles.css",
-    "search-index.json",
-    "source-manifest.json",
-    "downloads/DeskTiles-macOS-universal.zip",
-    "downloads/SHA256SUMS-macOS.txt",
+    "downloads/icon-update-delivery.md",
+    "downloads/README-macOS.md",
     "downloads/guide-macos-zh.md",
     "downloads/THIRD-PARTY-NOTICES-macOS.txt",
     "downloads/example-macos.json",
-    "macos.html"
+    "downloads/DeskTiles-macOS-universal.zip",
+    "downloads/SHA256SUMS-macOS.txt",
+    "assets/alarm.png",
+    "assets/alarm-en.png",
+    "assets/startup-consent.png",
+    "assets/reminder.png",
+    "downloads/readme-en.md",
+    "downloads/mac-en.md",
+    "desktiles.css",
+    "search-index.json",
+    "source-manifest.json"
   ],
   "assets": [
     {
       "path": "downloads/README.md",
       "source": "README.md",
-      "sha256": "50cd4697f3fcf10c80557df8fd05924e76308ae9d2cb8a56634e4c0011ff16fc",
-      "bytes": 15331
+      "sha256": "a71423d4ea2cd5d925f9ae87ee96db88214509f07b4be66f5f3edd3aa40ace3e",
+      "bytes": 22229
     },
     {
       "path": "downloads/guide-zh.md",
       "source": "docs/使用說明.md",
-      "sha256": "19ea692f31f7ddddda8dc3b1473e9cd48506439e2bbb4442741dc59c73aceca0",
-      "bytes": 7110
+      "sha256": "f03095966813079ecaf7504d95ef5d85b27cb8a5b7f34c421262ae2cbf4d658a",
+      "bytes": 9487
     },
     {
       "path": "downloads/guide-en.md",
       "source": "docs/UserGuide.en.md",
-      "sha256": "e5518098e9c74a6bfaa3f04f419e2001131e31496b6936d81ad25f836d966a97",
-      "bytes": 5090
+      "sha256": "3f0200ae062368ed4db646ed01819d19d2041bed5aa085e17c1d3b443efbbd8e",
+      "bytes": 7658
     },
     {
       "path": "assets/control-en.png",
       "source": "docs/control-en.png",
-      "sha256": "290c68ba21c78fb4c277a930d9f138c76ffba42a1cfbe86df71e478a6b952aa5",
-      "bytes": 41508
+      "sha256": "60b442532dee7b4ddb88492b3baea8e968d691585a3d16c6998e7bca49963563",
+      "bytes": 47464
     },
     {
       "path": "assets/DeskTiles-fixes-demo.mp4",
@@ -90,8 +105,8 @@
     {
       "path": "assets/control.png",
       "source": "docs/control.png",
-      "sha256": "cfa801344574b9feed59ab08de81bcd22abb43f08805fd2a733ee5ca1d855958",
-      "bytes": 45143
+      "sha256": "8551e03714f777fdb2fac2596ff45408d913c021d23c69f1e09b6d15011f8033",
+      "bytes": 50195
     },
     {
       "path": "assets/border.png",
@@ -114,25 +129,25 @@
     {
       "path": "assets/DeskTiles.svg",
       "source": "assets/DeskTiles.svg",
-      "sha256": "2dfb5e028ed636414a23ba24a3ac4a89b4038ee43e07d156a90e4a5ef1df5064",
-      "bytes": 18106
+      "sha256": "b0d32d0bbead92edfc490dc1ff9dd71651e3cbdaa6a4117d02614ad1d07228cf",
+      "bytes": 1393
     },
     {
       "path": "assets/DeskTiles-logo.png",
       "source": "assets/DeskTiles-logo.png",
-      "sha256": "f59c4191a70309e2734938f22967adfe547a5980269c4457c206f4390a9a5da4",
-      "bytes": 5366
+      "sha256": "4f998f074f2b526aef186e37b8fc79d373f13181c563d2792c2dc28e29065ee9",
+      "bytes": 35111
     },
     {
       "path": "downloads/DeskTiles-Windows-x64.zip",
       "source": "release/DeskTiles-Windows-x64.zip",
-      "sha256": "8b506c952970ad54c37015f493739d7b0b87792868c28c6bfcb54545212724b9",
-      "bytes": 459907
+      "sha256": "507c4b6dc30ca8d50418d4ee83a60847e0cbc3cdbb04b31cb328d4a9fc0fd79e",
+      "bytes": 504041
     },
     {
       "path": "downloads/SHA256SUMS.txt",
       "source": "release/SHA256SUMS.txt",
-      "sha256": "5a0756bc0998f388dc8015a86bba20ec143f53522d798fe71e931e66a9db2f01",
+      "sha256": "ebe077a29c5950b87b3cdda60ea238ca46264cb96b84f934388631576e9cf0e1",
       "bytes": 184
     },
     {
@@ -144,61 +159,97 @@
     {
       "path": "downloads/validation.txt",
       "source": "docs/驗證摘要.txt",
-      "sha256": "428baf692c8e92590c822e556e99e5a9edbfe1671909579de1f42c85d1dfa0c2",
-      "bytes": 3781
+      "sha256": "8172f5b8a9321c39efa350d9793c79697822a507817f8095fe5ef833bb00fdd1",
+      "bytes": 4328
+    },
+    {
+      "path": "downloads/icon-update-delivery.md",
+      "source": "docs/icon-update-delivery.md",
+      "sha256": "0c186015066a4fc73844469eafd1cf92c31b61c62f7e4748b8c808b4b7ba3af7",
+      "bytes": 3608
+    },
+    {
+      "path": "downloads/README-macOS.md",
+      "source": "DeskTile_mac/README.md",
+      "sha256": "14e2b59a6dab5472eab6223eaee50762e41478e148dfddd5534c9c414e70568e",
+      "bytes": 5534
+    },
+    {
+      "path": "downloads/guide-macos-zh.md",
+      "source": "DeskTile_mac/README.md",
+      "sha256": "14e2b59a6dab5472eab6223eaee50762e41478e148dfddd5534c9c414e70568e",
+      "bytes": 5534
+    },
+    {
+      "path": "downloads/THIRD-PARTY-NOTICES-macOS.txt",
+      "source": "DeskTile_mac/release/THIRD-PARTY-NOTICES.txt",
+      "sha256": "b9715282b2f1db1359a919bb3a542dd4362fd9e38ae72d421367eb11abe62eec",
+      "bytes": 1097
+    },
+    {
+      "path": "downloads/example-macos.json",
+      "source": "DeskTile_mac/release/範例配置.json",
+      "sha256": "c3d5cd326efd0f850a6ba73573bc61ceb425335205724d2162e32cff075f3d87",
+      "bytes": 4404
+    },
+    {
+      "path": "downloads/DeskTiles-macOS-universal.zip",
+      "source": "DeskTile_mac/release/DeskTiles-macOS-universal.zip",
+      "sha256": "9a4182f469863228f3b63f5899c2ba3fb269541632d4849c3447e7672efa7032",
+      "bytes": 425519
+    },
+    {
+      "path": "downloads/SHA256SUMS-macOS.txt",
+      "source": "DeskTile_mac/release/SHA256SUMS.txt",
+      "sha256": "e1eef757227d1ef5d82fcc156b9e9269a604484b7bfb3ade93c060d3f88ae2ff",
+      "bytes": 97
+    },
+    {
+      "path": "assets/alarm.png",
+      "source": "docs/alarm.png",
+      "sha256": "df0e2974cbb042f5509de3ba9a6109386c018e9baf1c57e535a79f72a9858de8",
+      "bytes": 26543
+    },
+    {
+      "path": "assets/alarm-en.png",
+      "source": "docs/alarm-en.png",
+      "sha256": "0140715aeb14fc3380d4932cdc20b6ac7313b0d8d27d6e314b83c5c3a094bcc1",
+      "bytes": 22290
+    },
+    {
+      "path": "assets/startup-consent.png",
+      "source": "docs/startup-consent.png",
+      "sha256": "ba544e9506b359fca518d59ab7702657597c1ed28f82a9723ffab34e4839649a",
+      "bytes": 22160
+    },
+    {
+      "path": "assets/reminder.png",
+      "source": "docs/reminder.png",
+      "sha256": "14c4c1df19eea06edcb9578e60678643d7f9fcee67eb4ede8bccffdb1e0f4b78",
+      "bytes": 7400
     },
     {
       "path": "downloads/readme-en.md",
       "source": "website:content/readme-en.md",
-      "sha256": "835fbe0d46bd310fff60bcaaee0607483b64a298f5844731d40690f63adeead6",
-      "bytes": 17395
+      "sha256": "2d6ebb9a5478722176345f644c2848f598e967ed1a9eedf397b1166c6b071fab",
+      "bytes": 4731
     },
     {
-      "path": "downloads/DeskTiles-macOS-universal.zip",
-      "source": "macOS:release/DeskTiles-macOS-universal.zip",
-      "sha256": "97a45205a10405c5996ac475d16ecc1c35b8eab9a88cb4de284a1795b715bfb2",
-      "bytes": 316360
-    },
-    {
-      "path": "downloads/SHA256SUMS-macOS.txt",
-      "source": "macOS:release/SHA256SUMS.txt",
-      "sha256": "fa567d806950418f50bbf2ad6a476ce04b147eb61298ade1f4187bf5d82f496f",
-      "bytes": 96
-    },
-    {
-      "path": "downloads/guide-macos-zh.md",
-      "source": "macOS:release/使用說明.md",
-      "sha256": "afdb706a963331c491bec027916e55863033684bf7c60fa29f37cacf604612b1",
-      "bytes": 4386
-    },
-    {
-      "path": "downloads/THIRD-PARTY-NOTICES-macOS.txt",
-      "source": "macOS:release/THIRD-PARTY-NOTICES.txt",
-      "sha256": "46a65cffd1ea955132d95a8dd921640714a8d6b537d2e4e482d31145ae95b603",
-      "bytes": 1076
-    },
-    {
-      "path": "downloads/example-macos.json",
-      "source": "macOS:release/範例配置.json",
-      "sha256": "67deeca7a478c8a185370b71151ee7f6633f7b8b1633636370ce697bd4ea23b6",
-      "bytes": 4290
+      "path": "downloads/mac-en.md",
+      "source": "website:content/mac-en.md",
+      "sha256": "8434397cf4a8320968304e2934caab916537e0764ef5cd4a08cef60ef20af29a",
+      "bytes": 3409
     }
   ],
   "sourceValidation": {
-    "coreChecks": 179,
-    "windowsChecks": 166,
-    "actualScreenChecks": 64,
+    "coreChecks": 222,
+    "windowsChecks": 192,
+    "macCoreChecks": 170,
+    "macWorkflow": 42359672604,
     "languages": [
       "zh-Hant",
       "en"
     ],
     "note": "Project-provided local validation; not rerun by the website publisher. Performance samples are not universal guarantees."
-  },
-  "macOSRelease": {
-    "publishedDate": "2026-11-07",
-    "platform": "macOS 12+ · Apple silicon / Intel",
-    "zipSha256": "97a45205a10405c5996ac475d16ecc1c35b8eab9a88cb4de284a1795b715bfb2",
-    "zipBytes": 316360,
-    "signing": "ad-hoc; no Developer ID or Apple notarization"
   }
 }

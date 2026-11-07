@@ -1,13 +1,15 @@
 {
   "project": "DeskTiles",
   "passed": true,
-  "pages": 6,
-  "assets": 17,
-  "localReferences": 488,
-  "searchEntries": 70,
-  "zipBytes": 459907,
-  "zipSha256": "8b506c952970ad54c37015f493739d7b0b87792868c28c6bfcb54545212724b9",
-  "httpFiles": 26,
+  "pages": 8,
+  "assets": 29,
+  "localReferences": 629,
+  "searchEntries": 87,
+  "zipBytes": 504041,
+  "zipSha256": "507c4b6dc30ca8d50418d4ee83a60847e0cbc3cdbb04b31cb328d4a9fc0fd79e",
+  "macZipBytes": 425519,
+  "macZipSha256": "9a4182f469863228f3b63f5899c2ba3fb269541632d4849c3447e7672efa7032",
+  "httpFiles": 41,
   "httpVerified": true,
   "applicationTests": "Not rerun; project-provided validation only."
 }

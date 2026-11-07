@@ -5,6 +5,7 @@ import { createHash } from 'node:crypto';
 import assert from 'node:assert/strict';
 import { parseHTML } from 'linkedom';
 import { googleTag, googleTagBody } from './google-tag.mjs';
+import {release} from './desktiles/release.mjs';
 
 const root=path.dirname(fileURLToPath(import.meta.url));
 const site=path.join(root,'desktiles');
@@ -21,7 +22,7 @@ console.log('[0/5] 輸出驗證報告（絕對路徑）：',reportFile);
 if(base)console.log('[0/5] HTTP 輸入（絕對 URL）：',base.href);
 try {
   const manifest=JSON.parse(await readFile(manifestFile,'utf8'));
-  assert.equal(manifest.generatedHtml.length,6);
+  assert.equal(manifest.generatedHtml.length,8);
   const documents=new Map();
   for(const file of [...manifest.generatedHtml.map(file=>'desktiles/'+file),'index.html','en/index.html']) {
     const html=await readFile(path.join(root,file),'utf8');
@@ -31,7 +32,7 @@ try {
     assert(document.querySelector('h1')&&document.querySelector('main'),`${file} 缺少標題或主要內容`);
     documents.set(file,{html,document,ids:new Set(ids)});
   }
-  console.log('[1/5] 六個專案頁與兩種語言首頁的標題、主要內容及唯一 id 通過。');
+  console.log('[1/5] 八個專案頁與兩種語言首頁的標題、主要內容及唯一 id 通過。');
   let references=0;
   async function checkReference(from,reference) {
     if(/^(?:https?:|mailto:)/i.test(reference))return;
@@ -65,17 +66,27 @@ try {
   assert.equal(hash(zip).toUpperCase(),manifest.zipSha256.toUpperCase());
   const sums=await readFile(path.join(site,'downloads/SHA256SUMS.txt'),'utf8');
   assert.equal(sums.match(/([a-f0-9]{64})\s+DeskTiles-Windows-x64\.zip/i)?.[1].toLowerCase(),hash(zip));
-  assert.equal(hash(zip),'8b506c952970ad54c37015f493739d7b0b87792868c28c6bfcb54545212724b9','不是 2026-11-01 指定版');
-  assert.equal(zip.length,459907);
-  assert.equal(manifest.releaseExeSha256,'3b27f00ac33c7df41efc86c5031c06f546e8dfc871bd26b26d5be9b4c8836106');
-  assert.equal(manifest.sourceValidation.coreChecks,179);
-  assert.equal(manifest.sourceValidation.windowsChecks,166);
-  assert.equal(manifest.sourceValidation.actualScreenChecks,64);
+  assert.equal(hash(zip).toUpperCase(),release.zipSha256);
+  assert.equal(zip.length,release.zipBytes);
+  assert.equal(manifest.releaseExeSha256,release.exeSha256.toLowerCase());
+  assert.equal(manifest.sourceValidation.coreChecks,release.coreChecks);
+  assert.equal(manifest.sourceValidation.windowsChecks,release.windowsChecks);
+  assert.equal(manifest.sourceValidation.macCoreChecks,release.macCoreChecks);
+  const mac=await readFile(path.join(site,'downloads/DeskTiles-macOS-universal.zip'));
+  assert.equal(hash(mac).toUpperCase(),release.macSha256);assert.equal(mac.length,release.macBytes);
+  assert.equal(manifest.macZipSha256,hash(mac));
+  const macSums=await readFile(path.join(site,'downloads/SHA256SUMS-macOS.txt'),'utf8');
+  assert.equal(macSums.match(/([a-f0-9]{64})\s+DeskTiles-macOS-universal\.zip/i)?.[1].toLowerCase(),hash(mac));
+  assert.equal(await readFile(path.join(site,'macos.html'),'utf8'),await readFile(path.join(site,'mac.html'),'utf8'),'舊Mac網址應提供最新指南');
   assert.equal(manifest.assets.find(asset=>asset.path==='downloads/guide-en.md')?.source,'docs/UserGuide.en.md','應採用來源提供的英文指南');
   for(const lang of ['zh','en']) {
     const page=documents.get('desktiles/'+(lang==='en'?'en/':'')+'index.html').document;
     assert(page.querySelector('#release-update')?.textContent.includes(lang==='zh'?'既有配置不必刪除':'Keep your existing layout'),'缺少保留配置提醒');
     assert(page.querySelector('#release-update')?.textContent.includes(lang==='zh'?'儲存並結束桌面拼格':'Save and exit DeskTiles'),'缺少結束舊版提醒');
+    assert.equal(page.querySelectorAll('#release-update').length,1);
+    assert.equal(page.querySelectorAll('video').length,1);
+    assert(page.querySelector('#platforms').textContent.includes(lang==='zh'?'v3':'v3'),'缺少配置版本限制');
+    assert(page.querySelector('img.product-logo[src*="DeskTiles.svg"]'),'未使用平滑Logo');
     assert(page.querySelector('video[controls][playsinline] source[type="video/mp4"]'),'缺少示範影片');
     assert(!page.querySelector('video[autoplay]'),'影片不應自動播放');
   }
@@ -111,7 +122,7 @@ try {
     assert(card.textContent.includes('Linux'),'作品卡缺少平台限制');
     assert(index.some(entry=>entry.lang===lang&&entry.text.includes(lang==='zh'?'透明':'timer')),'搜尋未包含實際文件內容');
   }
-  console.log(`[3/5] 雙語導覽、${index.length} 筆搜尋、首頁作品入口、圖片替代文字與六頁 GTM 通過。`);
+  console.log(`[3/5] 雙語導覽、${index.length} 筆搜尋、首頁作品入口、圖片替代文字與八頁 GTM 通過。`);
   let httpFiles=0;
   if(base) {
     assert(['http:','https:'].includes(base.protocol)&&base.pathname.endsWith('/'));
@@ -137,6 +148,6 @@ try {
     assert.equal(hash(Buffer.from(await response.arrayBuffer())),hash(expected.subarray(0,1024)),'影片 Range 內容不同');
     console.log('[4/5] 影片 Range 與 MP4 MIME 核對通過。');
   } else console.log('[4/5] 未指定 --url，略過 HTTP 發布比對。');
-  await writeFile(reportFile,JSON.stringify({project:'DeskTiles',passed:true,pages:manifest.generatedHtml.length,assets:manifest.assets.length,localReferences:references,searchEntries:index.length,zipBytes:zip.length,zipSha256:hash(zip),httpFiles,httpVerified:Boolean(base),applicationTests:'Not rerun; project-provided validation only.'},null,2)+'\n');
+  await writeFile(reportFile,JSON.stringify({project:'DeskTiles',passed:true,pages:manifest.generatedHtml.length,assets:manifest.assets.length,localReferences:references,searchEntries:index.length,zipBytes:zip.length,zipSha256:hash(zip),macZipBytes:mac.length,macZipSha256:hash(mac),httpFiles,httpVerified:Boolean(base),applicationTests:'Not rerun; project-provided validation only.'},null,2)+'\n');
   console.log('[5/5] DeskTiles 發布檢查成功：',reportFile);
 } catch(error) {console.error('DeskTiles 檢查失敗：',error.message);process.exitCode=1;}

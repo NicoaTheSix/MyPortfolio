@@ -4,84 +4,105 @@
     "title": "桌面拼格 DeskTiles",
     "pageTitle": "桌面拼格 DeskTiles",
     "url": "index.html",
-    "text": "DeskTiles/桌面拼格 DeskTiles本頁內容2026-11-01 更新操作示範一張桌面，幾種可能。形狀自由拼排放入當下需要的內容外觀各有自己的節奏版面可以一起帶走解壓縮，就能開始。下載與文件已驗證的範圍與後續工作NICOA THE SIX / WINDOWS DESKTOP TOOL桌面拼格DeskTiles桌面上的一小格，留給重要的事。把想記住的文字、圖片與時間，放進可以自由拼排的小格子。選一個形狀，為桌面留一點自己的空間。下載 Windows x64 ZIP ↓閱讀使用說明 ↗GitHub 專案 ↗覺得 DeskTiles 好用，歡迎到 GitHub 幫我按顆星星（Star）！Windows 10 / 11 x64 · 免安裝 ZIP三種形狀，可以是提醒、圖片，也可以是時間。 2026-11-01 更新同一個 EXE 可即時切換繁體中文與 English，保留尚未套用的編輯，並記住語言偏好。修正一般啟動時圖形變黑或不可見、透明顯示，以及置頂與固定桌面模式切換。更新前，先在舊版系統匣選「儲存並結束桌面拼格」，再執行新版。只按控制視窗 X 不會退出程式；既有配置不必刪除。本頁下載為本機驗證完成的修正版；原始碼倉庫尚未包含全部近期修正，請直接下載這份 ZIP。查看 GitHub 專案倉庫 ↗操作示範開啟操作示範影片專案提供的 30 秒操作示範，使用虛構的示範配置。一張桌面，幾種可能。01 / FEATURES01形狀自由拼排六角形、朝上正三角形與 3:2 矩形。Shift 多選後一起拖曳，靠近其他格自動吸附。02放入當下需要的內容顯示文字、PNG／JPEG／BMP 圖片，或正向與倒數計時器。03外觀各有自己的節奏調整大小、字體、背景透明度，選擇實色、像素、RGB 或單色呼吸邊框。04版面可以一起帶走匯出含圖片的 JSON；匯入時可覆蓋或合併，搬移時不用逐一找回圖片。 解壓縮，就能開始。下載 Windows x64 ZIP，完整解壓縮。開啟 DeskTiles 資料夾，雙擊 DeskTiles.exe。選形狀並新增格子；編輯內容後按「套用至所有選取格」。適用 Windows 10／11 x64，不需要 Visual Studio、Python、.NET 或額外執行套件，也不需要管理員權限。關閉控制面板只會隱藏視窗；要結束程式，請從右鍵或系統匣選「儲存並結束桌面拼格」。 下載與文件DeskTiles-Windows-x64.zip免安裝使用版 · 449.1 KiB ↓閱讀使用說明新增、拖曳、外觀、備份與疑難排解 ↗專案 README功能範圍、資料格式與開發資訊 ↗範例配置 JSON三種形狀與內嵌圖片；可用合併匯入 ↓中文使用說明 Markdown · 專案 README Markdown下載完整性與授權資訊SHA-2568b506c952970ad54c37015f493739d7b0b87792868c28c6bfcb54545212724b9SHA256SUMS.txt ↓ZIP 保留完整第三方 MIT 授權聲明。下載內容為 Windows 使用版與文件。 已驗證的範圍與後續工作依專案提供的驗證摘要：179 項核心檢查、166 項 Windows 整合檢查通過（繁中與英文皆驗證），另完成解壓後一般啟動的 64 項實際螢幕檢查。不同 Windows 版本、DPI、多螢幕、Explorer 重啟、大量格子與長時間資源壓力仍需持續驗收。效能數字是本機短時間樣本，不是所有電腦的保證。Linux 版尚未開發。下載原始驗證摘要 ↓C++17 / "
+    "text": "DeskTiles/桌面拼格 DeskTiles本頁內容2026-11-07 · v1.01Windows 操作示範選擇適合的平台WindowsmacOS三種形狀，自由拼排文字、圖片與計時多選、拖曳與吸附調整外觀配置備份與搬移下載後開始使用下載與文件驗證範圍與限制NICOA THE SIX / WINDOWS & MACOS桌面拼格DeskTiles文字、圖片與時間，在桌面自由拼排。選擇六角形、三角形或矩形，放進當下需要的內容。Windows 與 macOS 各有原生版本，下載前請確認平台功能與限制。下載 Windows x64 ↓下載 macOS Universal 2 ↓GitHub 專案 ↗覺得 DeskTiles 好用，歡迎到 GitHub 幫我按顆星星（Star）！Windows 10 / 11 x64 · macOS 12+（Apple silicon / Intel） 2026-11-07 · v1.01Windows 與 macOS 套件改用平滑圓角四圖形 Logo；網站與控制面板圖片同步更新。新增 macOS 12+ Universal 2 下載，支援 Apple silicon 與 Intel 架構。更新前，先儲存並結束舊版，再完整解壓縮新版。Windows 系統匣選「儲存並結束桌面拼格」；只按控制視窗 X 不會退出。既有配置不必刪除。對應來源提交 ↗Windows 操作示範開啟示範影片此為既有 Windows 版的 30 秒示範，使用虛構配置；影片中的圖示及介面可能與新版不同。 選擇適合的平台Windows原生 C++17／Win32／GDI+。支援文字、圖片、計時器與鬧鐘，繁體中文／English 即時切換，以及需明確同意的登入啟動。Windows 使用說明 ↗Windows 版已知限制持久化鬧鐘在重新啟動後仍有時脈啟用問題；本次圖示更新未修復此問題，勿依賴它作為重要事項的唯一提醒。登入啟動預設關閉，須由使用者明確同意。macOS原生 AppKit 與 C++ 核心，支援文字、圖片、計時器、多選拖曳、吸附與 JSON 配置。介面為中文；尚未提供 Windows 版的鬧鐘、雙語切換或登入啟動功能。Universal 2 包含 Apple silicon 與 Intel 架構，但 Intel 實機、多螢幕及其他 macOS 版本仍待驗證。套件採 ad-hoc 簽章，尚未經 Apple 公證。配置相容性：Windows 匯出 v3 並讀取 v1–v3；Mac 僅匯出及讀取 v1/v2，尚不能直接匯入 Windows v3，即使沒有鬧鐘亦同。Mac v2 可由 Windows 匯入。Mac 使用說明與限制 ↗ 三種形狀，自由拼排文字、圖片與計時把備忘、照片與工作時間放進六角形、三角形或 3:2 矩形。多選、拖曳與吸附Shift 多選後整組移動，靠近其他格時吸附。調整外觀設定尺寸、字體、透明背景與實色、像素、RGB 或呼吸邊框。配置備份與搬移以含圖片的 JSON 匯出，支援覆蓋或合併匯入；Windows v3 目前無法直接匯入 Mac。Windows 版圖形示例。Logo 的四圖形設計不代表新增圓形格子。 下載後開始使用兩平台更新前都先結束舊程式，完整解壓縮新套件。Windows 開啟 DeskTiles／DeskTiles.exe；Mac 開啟 DeskTiles.app。關閉控制面板只會隱藏視窗；請從程式選單儲存並結束。Windows 使用說明 ↗ · macOS 使用說明 ↗ 下載與文件DeskTiles-Windows-x6"
   },
   {
     "lang": "zh",
-    "title": "2026-11-01 更新",
+    "title": "2026-11-07 · v1.01",
     "pageTitle": "桌面拼格 DeskTiles",
-    "url": "index.html#2026-11-01-%E6%9B%B4%E6%96%B0",
-    "text": "同一個 EXE 可即時切換繁體中文與 English，保留尚未套用的編輯，並記住語言偏好。修正一般啟動時圖形變黑或不可見、透明顯示，以及置頂與固定桌面模式切換。 更新前，先在舊版系統匣選「儲存並結束桌面拼格」，再執行新版。只按控制視窗 X 不會退出程式；既有配置不必刪除。 本頁下載為本機驗證完成的修正版；原始碼倉庫尚未包含全部近期修正，請直接下載這份 ZIP。 查看 GitHub 專案倉庫 ↗"
+    "url": "index.html#2026-11-07-v101",
+    "text": "Windows 與 macOS 套件改用平滑圓角四圖形 Logo；網站與控制面板圖片同步更新。新增 macOS 12+ Universal 2 下載，支援 Apple silicon 與 Intel 架構。 更新前，先儲存並結束舊版，再完整解壓縮新版。Windows 系統匣選「儲存並結束桌面拼格」；只按控制視窗 X 不會退出。既有配置不必刪除。 對應來源提交 ↗"
   },
   {
     "lang": "zh",
-    "title": "操作示範",
+    "title": "Windows 操作示範",
     "pageTitle": "桌面拼格 DeskTiles",
-    "url": "index.html#%E6%93%8D%E4%BD%9C%E7%A4%BA%E7%AF%84",
-    "text": "開啟操作示範影片 專案提供的 30 秒操作示範，使用虛構的示範配置。"
+    "url": "index.html#windows-%E6%93%8D%E4%BD%9C%E7%A4%BA%E7%AF%84",
+    "text": "開啟示範影片 此為既有 Windows 版的 30 秒示範，使用虛構配置；影片中的圖示及介面可能與新版不同。"
   },
   {
     "lang": "zh",
-    "title": "一張桌面，幾種可能。",
+    "title": "選擇適合的平台",
     "pageTitle": "桌面拼格 DeskTiles",
-    "url": "index.html#%E4%B8%80%E5%BC%B5%E6%A1%8C%E9%9D%A2%E5%B9%BE%E7%A8%AE%E5%8F%AF%E8%83%BD",
-    "text": "01 / FEATURES"
+    "url": "index.html#%E9%81%B8%E6%93%87%E9%81%A9%E5%90%88%E7%9A%84%E5%B9%B3%E5%8F%B0",
+    "text": "Windows原生 C++17／Win32／GDI+。支援文字、圖片、計時器與鬧鐘，繁體中文／English 即時切換，以及需明確同意的登入啟動。Windows 使用說明 ↗Windows 版已知限制持久化鬧鐘在重新啟動後仍有時脈啟用問題；本次圖示更新未修復此問題，勿依賴它作為重要事項的唯一提醒。登入啟動預設關閉，須由使用者明確同意。macOS原生 AppKit 與 C++ 核心，支援文字、圖片、計時器、多選拖曳、吸附與 JSON 配置。介面為中文；尚未提供 Windows 版的鬧鐘、雙語切換或登入啟動功能。Universal 2 包含 Apple silicon 與 Intel 架構，但 Intel 實機、多螢幕及其他 macOS 版本仍待驗證。套件採 ad-hoc 簽章，尚未經 Apple 公證。配置相容性：Windows 匯出 v3 並讀取 v1–v3；Mac 僅匯出及讀取 v1/v2，尚不能直接匯入 Windows v3，即使沒有鬧鐘亦同。Mac v2 可由 Windows 匯入。Mac 使用說明與限制 ↗"
   },
   {
     "lang": "zh",
-    "title": "形狀自由拼排",
+    "title": "Windows",
     "pageTitle": "桌面拼格 DeskTiles",
-    "url": "index.html#%E5%BD%A2%E7%8B%80%E8%87%AA%E7%94%B1%E6%8B%BC%E6%8E%92",
-    "text": "六角形、朝上正三角形與 3:2 矩形。Shift 多選後一起拖曳，靠近其他格自動吸附。"
+    "url": "index.html#windows",
+    "text": "原生 C++17／Win32／GDI+。支援文字、圖片、計時器與鬧鐘，繁體中文／English 即時切換，以及需明確同意的登入啟動。 Windows 使用說明 ↗ Windows 版已知限制持久化鬧鐘在重新啟動後仍有時脈啟用問題；本次圖示更新未修復此問題，勿依賴它作為重要事項的唯一提醒。登入啟動預設關閉，須由使用者明確同意。"
   },
   {
     "lang": "zh",
-    "title": "放入當下需要的內容",
+    "title": "macOS",
     "pageTitle": "桌面拼格 DeskTiles",
-    "url": "index.html#%E6%94%BE%E5%85%A5%E7%95%B6%E4%B8%8B%E9%9C%80%E8%A6%81%E7%9A%84%E5%85%A7%E5%AE%B9",
-    "text": "顯示文字、PNG／JPEG／BMP 圖片，或正向與倒數計時器。"
+    "url": "index.html#macos",
+    "text": "原生 AppKit 與 C++ 核心，支援文字、圖片、計時器、多選拖曳、吸附與 JSON 配置。介面為中文；尚未提供 Windows 版的鬧鐘、雙語切換或登入啟動功能。 Universal 2 包含 Apple silicon 與 Intel 架構，但 Intel 實機、多螢幕及其他 macOS 版本仍待驗證。套件採 ad-hoc 簽章，尚未經 Apple 公證。 配置相容性：Windows 匯出 v3 並讀取 v1–v3；Mac 僅匯出及讀取 v1/v2，尚不能直接匯入 Windows v3，即使沒有鬧鐘亦同。Mac v2 可由 Windows 匯入。 Mac 使用說明與限制 ↗"
   },
   {
     "lang": "zh",
-    "title": "外觀各有自己的節奏",
+    "title": "三種形狀，自由拼排",
     "pageTitle": "桌面拼格 DeskTiles",
-    "url": "index.html#%E5%A4%96%E8%A7%80%E5%90%84%E6%9C%89%E8%87%AA%E5%B7%B1%E7%9A%84%E7%AF%80%E5%A5%8F",
-    "text": "調整大小、字體、背景透明度，選擇實色、像素、RGB 或單色呼吸邊框。"
+    "url": "index.html#%E4%B8%89%E7%A8%AE%E5%BD%A2%E7%8B%80%E8%87%AA%E7%94%B1%E6%8B%BC%E6%8E%92",
+    "text": "文字、圖片與計時把備忘、照片與工作時間放進六角形、三角形或 3:2 矩形。多選、拖曳與吸附Shift 多選後整組移動，靠近其他格時吸附。調整外觀設定尺寸、字體、透明背景與實色、像素、RGB 或呼吸邊框。配置備份與搬移以含圖片的 JSON 匯出，支援覆蓋或合併匯入；Windows v3 目前無法直接匯入 Mac。 Windows 版圖形示例。Logo 的四圖形設計不代表新增圓形格子。"
   },
   {
     "lang": "zh",
-    "title": "版面可以一起帶走",
+    "title": "文字、圖片與計時",
     "pageTitle": "桌面拼格 DeskTiles",
-    "url": "index.html#%E7%89%88%E9%9D%A2%E5%8F%AF%E4%BB%A5%E4%B8%80%E8%B5%B7%E5%B8%B6%E8%B5%B0",
-    "text": "匯出含圖片的 JSON；匯入時可覆蓋或合併，搬移時不用逐一找回圖片。"
+    "url": "index.html#%E6%96%87%E5%AD%97%E5%9C%96%E7%89%87%E8%88%87%E8%A8%88%E6%99%82",
+    "text": "把備忘、照片與工作時間放進六角形、三角形或 3:2 矩形。"
   },
   {
     "lang": "zh",
-    "title": "解壓縮，就能開始。",
+    "title": "多選、拖曳與吸附",
     "pageTitle": "桌面拼格 DeskTiles",
-    "url": "index.html#%E8%A7%A3%E5%A3%93%E7%B8%AE%E5%B0%B1%E8%83%BD%E9%96%8B%E5%A7%8B",
-    "text": "下載 Windows x64 ZIP，完整解壓縮。開啟 DeskTiles 資料夾，雙擊 DeskTiles.exe。選形狀並新增格子；編輯內容後按「套用至所有選取格」。 適用 Windows 10／11 x64，不需要 Visual Studio、Python、.NET 或額外執行套件，也不需要管理員權限。關閉控制面板只會隱藏視窗；要結束程式，請從右鍵或系統匣選「儲存並結束桌面拼格」。"
+    "url": "index.html#%E5%A4%9A%E9%81%B8%E6%8B%96%E6%9B%B3%E8%88%87%E5%90%B8%E9%99%84",
+    "text": "Shift 多選後整組移動，靠近其他格時吸附。"
+  },
+  {
+    "lang": "zh",
+    "title": "調整外觀",
+    "pageTitle": "桌面拼格 DeskTiles",
+    "url": "index.html#%E8%AA%BF%E6%95%B4%E5%A4%96%E8%A7%80",
+    "text": "設定尺寸、字體、透明背景與實色、像素、RGB 或呼吸邊框。"
+  },
+  {
+    "lang": "zh",
+    "title": "配置備份與搬移",
+    "pageTitle": "桌面拼格 DeskTiles",
+    "url": "index.html#%E9%85%8D%E7%BD%AE%E5%82%99%E4%BB%BD%E8%88%87%E6%90%AC%E7%A7%BB",
+    "text": "以含圖片的 JSON 匯出，支援覆蓋或合併匯入；Windows v3 目前無法直接匯入 Mac。"
+  },
+  {
+    "lang": "zh",
+    "title": "下載後開始使用",
+    "pageTitle": "桌面拼格 DeskTiles",
+    "url": "index.html#%E4%B8%8B%E8%BC%89%E5%BE%8C%E9%96%8B%E5%A7%8B%E4%BD%BF%E7%94%A8",
+    "text": "兩平台更新前都先結束舊程式，完整解壓縮新套件。Windows 開啟 DeskTiles／DeskTiles.exe；Mac 開啟 DeskTiles.app。關閉控制面板只會隱藏視窗；請從程式選單儲存並結束。 Windows 使用說明 ↗ · macOS 使用說明 ↗"
   },
   {
     "lang": "zh",
     "title": "下載與文件",
     "pageTitle": "桌面拼格 DeskTiles",
     "url": "index.html#%E4%B8%8B%E8%BC%89%E8%88%87%E6%96%87%E4%BB%B6",
-    "text": "DeskTiles-Windows-x64.zip免安裝使用版 · 449.1 KiB ↓閱讀使用說明新增、拖曳、外觀、備份與疑難排解 ↗專案 README功能範圍、資料格式與開發資訊 ↗範例配置 JSON三種形狀與內嵌圖片；可用合併匯入 ↓ 中文使用說明 Markdown · 專案 README Markdown 下載完整性與授權資訊SHA-2568b506c952970ad54c37015f493739d7b0b87792868c28c6bfcb54545212724b9SHA256SUMS.txt ↓ZIP 保留完整第三方 MIT 授權聲明。下載內容為 Windows 使用版與文件。"
+    "text": "DeskTiles-Windows-x64.zipWindows 10 / 11 x64 · 492.2 KiB ↓DeskTiles-macOS-universal.zipmacOS 12+ · Universal 2 · 415.5 KiB ↓Windows SHA256SUMS.txtWindows 完整性校驗 ↓macOS SHA256SUMS.txtMac 完整性校驗 ↓ 套件 SHA-256Windows507C4B6DC30CA8D50418D4EE83A60847E0CBC3CDBB04B31CB328D4A9FC0FD79EmacOS9A4182F469863228F3B63F5899C2BA3FB269541632D4849C3447E7672EFA7032保留套件內的第三方 MIT 授權聲明；未另行宣稱整體專案授權。 Windows 中文 Markdown ↓ · Windows English Markdown ↓ · macOS 中文 Markdown ↓ · macOS English Markdown ↓ · macOS 第三方授權 ↓ · macOS 範例 JSON ↓ · 專案 README ↓"
   },
   {
     "lang": "zh",
-    "title": "已驗證的範圍與後續工作",
+    "title": "驗證範圍與限制",
     "pageTitle": "桌面拼格 DeskTiles",
-    "url": "index.html#%E5%B7%B2%E9%A9%97%E8%AD%89%E7%9A%84%E7%AF%84%E5%9C%8D%E8%88%87%E5%BE%8C%E7%BA%8C%E5%B7%A5%E4%BD%9C",
-    "text": "依專案提供的驗證摘要：179 項核心檢查、166 項 Windows 整合檢查通過（繁中與英文皆驗證），另完成解壓後一般啟動的 64 項實際螢幕檢查。 不同 Windows 版本、DPI、多螢幕、Explorer 重啟、大量格子與長時間資源壓力仍需持續驗收。效能數字是本機短時間樣本，不是所有電腦的保證。Linux 版尚未開發。 下載原始驗證摘要 ↓ C++17 / Win32 / GDI+ · 使用版免建置；原始碼專案需自行建置。"
+    "url": "index.html#%E9%A9%97%E8%AD%89%E7%AF%84%E5%9C%8D%E8%88%87%E9%99%90%E5%88%B6",
+    "text": "專案交付紀錄：Windows 222 項核心、192 項整合檢查；Mac 170 項核心、Universal 2 架構、圖示載入與簽章檢查。網站發布者核對套件與來源雜湊，沒有在此重新執行應用程式測試。 Windows 鬧鐘重啟問題與 Mac 未公證、Intel 實機及多螢幕限制仍保留。Linux 版尚未提供。 下載本次原始交付與驗證紀錄 ↓ Windows: C++17 / Win32 / GDI+ · macOS: Objective-C++ / AppKit / C++"
   },
   {
     "lang": "zh",
     "title": "使用說明",
     "pageTitle": "使用說明",
     "url": "guide.html",
-    "text": "DeskTiles/使用說明下載 Markdown ↓Windows x64 ZIP ↓本頁內容從這裡開始切換語言新增、選取與移動文字、圖片與計時器大小、字體與邊框保存、備份與換電腦關閉、結束與更新打不開時操作畫面桌面拼格 DeskTiles 使用說明 桌面拼格可在桌面擺放六角形、三角形、矩形，用來顯示文字、圖片或計時器。每格可獨立置頂或固定於桌面層，也能多選一起移動與修改外觀。 從這裡開始 下載 DeskTiles-Windows-x64.zip，完整解壓縮。 開啟解壓後的 DeskTiles 資料夾，雙擊 DeskTiles.exe。 第一次啟動會顯示三個示範格與內容控制視窗。 在控制視窗左側選擇格子，右側輸入內容，按「套用至所有選取格」。 使用版適用 Windows 10／11 x64，不需要安裝編譯器、Python、.NET 或額外執行套件，不需要管理員權限。Linux 版本尚未實作。只下載原始碼專案時需要自行建置；免安裝 ZIP 已包含建置完成的 EXE。 切換語言 控制視窗右上角的「語言 / Language」選單可選 繁體中文 或 English；圖形右鍵與系統匣選單也有語言入口。選擇後立即更新介面，不需要重開。 主視窗、設定視窗、選單、提示、圖形狀態與錯誤訊息皆支援英文。切換會保留尚未套用的內容、字體、數值、核取選項、文字選取與目前多選；正在運行的計時器不會被重設。格子自己的文字、圖片路徑與字體名稱維持原內容，不會自動翻譯。 偏好存於資料目錄的 ui-settings.json，下次啟動自動沿用；預設繁體中文。這份偏好不屬於 JSON 版面，匯入配置不會改變介面語言。設定檔損壞時會使用預設語言，保留原設定檔；若無法保存選擇，會顯示原因並保留目前語言。Windows 系統檔案與選色對話框的可用語言由系統資源決定。 英文操作說明見 UserGuide.en.md。 新增、選取與移動 左側形狀選單預設六角形，可選朝上正三角形或 3:2 矩形，再按「＋新增圖形」。右鍵與系統匣也可新增。 按下圖形時立即更新主選取與右側內容面板。Shift＋單擊加入或取消多選；取消主格後會改選仍在多選中的格子。直接單擊已選取的一格會改成單選，開始拖曳則保留原多選。 從任一選取格拖曳即可移動整組，保持彼此的相對位置。按住 Shift 也可整組拖曳；只有原地單擊才取消該格。快速連按後直接拖曳仍可移動，單純雙擊則在放開後開啟控制視窗。 靠近其他格會吸附；不同形狀優先對齊邊中點或角點，也能沿邊吸附。放開後若重疊會回到原位。 Esc 取消選取。雙擊圖形重新開啟控制視窗。 圖形右鍵可將選取格設成「顯示於最上層」或「固定於桌面層」。 文字、圖片與計時器 先選取圖形，再從右側內容類型選文字、圖片或計時器。 文字：支援中文、多行與置中顯示；輸入後按套用。 圖片：瀏覽 PNG、JPEG 或 BMP 後按套用，圖片依格子形狀等比例裁切。直接選取的圖片會引用來源路徑；要一起備份或搬到別台電腦，請匯出 JSON。 計時器：可選倒數或正向計時，倒數輸入總秒數後按套用，再按開始／暫停或重設。程式結束後保存已計時間，下次開啟維持暫停。 多選時按套用會改動所有選取格的內容。只想調外觀時，使用左側獨立的外觀設定按鈕。 大小、字體與邊框 「大小與文字…」可分別勾選套用大小、文字樣式。寬度 80～480 px，字級 8～96 px；字體清單列出本機已安裝且可繪製的字體，文字顏色可輸入色碼或選色。當文字或計時數字放不進圖形時，會縮小實際顯示字級（最低 8 px），原設定仍保留；內容過長時顯示省略符號"
+    "text": "DeskTiles/使用說明下載 Markdown ↓Windows x64 ZIP ↓本頁內容從這裡開始切換語言新增、選取與移動文字、圖片與計時器鬧鐘與自訂文字開機登入後自動啟動大小、字體與邊框保存、備份與換電腦關閉、結束與更新打不開時操作畫面桌面拼格 DeskTiles 使用說明 桌面拼格可在桌面擺放六角形、三角形、矩形，用來顯示文字、圖片、計時器或鬧鐘。每格可獨立置頂或固定於桌面層，也能多選一起移動與修改外觀。 從這裡開始 下載 DeskTiles-Windows-x64.zip，完整解壓縮。 開啟解壓後的 DeskTiles 資料夾，雙擊 DeskTiles.exe。 第一次啟動會顯示三個示範格與內容控制視窗。 在控制視窗左側選擇格子，右側輸入內容，按「套用至所有選取格」。 使用版適用 Windows 10／11 x64，不需要安裝編譯器、Python、.NET 或額外執行套件，不需要管理員權限。Linux 版本尚未實作。只下載原始碼專案時需要自行建置；免安裝 ZIP 已包含建置完成的 EXE。 切換語言 控制視窗右上角的「語言 / Language」選單可選 繁體中文 或 English；圖形右鍵與系統匣選單也有語言入口。選擇後立即更新介面，不需要重開。 主視窗、設定視窗、選單、提示、圖形狀態與錯誤訊息皆支援英文。切換會保留尚未套用的內容、字體、數值、核取選項、文字選取與目前多選；正在運行的計時器不會被重設。格子自己的文字、圖片路徑與字體名稱維持原內容，不會自動翻譯。 偏好存於資料目錄的 ui-settings.json，下次啟動自動沿用；預設繁體中文。這份偏好不屬於 JSON 版面，匯入配置不會改變介面語言。設定檔損壞時會使用預設語言，保留原設定檔；若無法保存選擇，會顯示原因並保留目前語言。Windows 系統檔案與選色對話框的可用語言由系統資源決定。 英文操作說明見 UserGuide.en.md。 新增、選取與移動 左側形狀選單預設六角形，可選朝上正三角形或 3:2 矩形，再按「＋新增圖形」。右鍵與系統匣也可新增。 按下圖形時立即更新主選取與右側內容面板。Shift＋單擊加入或取消多選；取消主格後會改選仍在多選中的格子。直接單擊已選取的一格會改成單選，開始拖曳則保留原多選。 從任一選取格拖曳即可移動整組，保持彼此的相對位置。按住 Shift 也可整組拖曳；只有原地單擊才取消該格。快速連按後直接拖曳仍可移動，單純雙擊則在放開後開啟控制視窗。 靠近其他格會吸附；不同形狀優先對齊邊中點或角點，也能沿邊吸附。放開後若重疊會回到原位。 Esc 取消選取。雙擊圖形重新開啟控制視窗。 圖形右鍵可將選取格設成「顯示於最上層」或「固定於桌面層」。 文字、圖片與計時器 先選取圖形，再從右側內容類型選文字、圖片、計時器或鬧鐘。 文字：支援中文、多行與置中顯示；輸入後按套用。 圖片：瀏覽 PNG、JPEG 或 BMP 後按套用，圖片依格子形狀等比例裁切。直接選取的圖片會引用來源路徑；要一起備份或搬到別台電腦，請匯出 JSON。 計時器：可選倒數或正向計時，倒數輸入總秒數後按套用，再按開始／暫停或重設。可在「文字內容」填入任務名稱，格子會同時顯示文字與時間。程式結束後保存已計時間，下次開啟維持暫停。 多選時按套用會改動所有選取格的內容。只想調外觀時，使用左側獨立的外觀設定按鈕。 鬧鐘與自訂文字 選取一個或多個圖形，內容類型選「鬧鐘」，填入「文字內容」，例如「下午開會」。 按「鬧鐘設定…」，日期填 YYYY-MM-DD，時間填 24 小時 HH:MM。 預設"
   },
   {
     "lang": "zh",
@@ -109,7 +130,21 @@
     "title": "文字、圖片與計時器",
     "pageTitle": "使用說明",
     "url": "guide.html#%E6%96%87%E5%AD%97%E5%9C%96%E7%89%87%E8%88%87%E8%A8%88%E6%99%82%E5%99%A8",
-    "text": "先選取圖形，再從右側內容類型選文字、圖片或計時器。 文字：支援中文、多行與置中顯示；輸入後按套用。 圖片：瀏覽 PNG、JPEG 或 BMP 後按套用，圖片依格子形狀等比例裁切。直接選取的圖片會引用來源路徑；要一起備份或搬到別台電腦，請匯出 JSON。 計時器：可選倒數或正向計時，倒數輸入總秒數後按套用，再按開始／暫停或重設。程式結束後保存已計時間，下次開啟維持暫停。 多選時按套用會改動所有選取格的內容。只想調外觀時，使用左側獨立的外觀設定按鈕。"
+    "text": "先選取圖形，再從右側內容類型選文字、圖片、計時器或鬧鐘。 文字：支援中文、多行與置中顯示；輸入後按套用。 圖片：瀏覽 PNG、JPEG 或 BMP 後按套用，圖片依格子形狀等比例裁切。直接選取的圖片會引用來源路徑；要一起備份或搬到別台電腦，請匯出 JSON。 計時器：可選倒數或正向計時，倒數輸入總秒數後按套用，再按開始／暫停或重設。可在「文字內容」填入任務名稱，格子會同時顯示文字與時間。程式結束後保存已計時間，下次開啟維持暫停。 多選時按套用會改動所有選取格的內容。只想調外觀時，使用左側獨立的外觀設定按鈕。"
+  },
+  {
+    "lang": "zh",
+    "title": "鬧鐘與自訂文字",
+    "pageTitle": "使用說明",
+    "url": "guide.html#%E9%AC%A7%E9%90%98%E8%88%87%E8%87%AA%E8%A8%82%E6%96%87%E5%AD%97",
+    "text": "選取一個或多個圖形，內容類型選「鬧鐘」，填入「文字內容」，例如「下午開會」。 按「鬧鐘設定…」，日期填 YYYY-MM-DD，時間填 24 小時 HH:MM。 預設「單次」；可改為「每天」或「指定星期」。指定星期至少勾一天。日期只用於單次模式。 勾選「啟用鬧鐘」，按「套用鬧鐘與文字至選取格」。單次啟用時間必須在未來。取消勾選後按套用即可停用。 同一格顯示時間、自訂文字，以及日期／星期與啟用狀態。只改文字時在控制視窗編輯後套用，保留原有鬧鐘時段。 到期時會有系統提示音、系統匣通知及可關閉的提醒視窗；多個提醒保留最近十筆。系統音量或通知是否開啟由 Windows 設定決定。提醒不會阻塞其他計時器。 程式必須在執行中，時間依 Windows 本地時鐘。睡眠期間到期，喚醒後補提醒一次；關閉期間不會響鈴。重新啟動時，過期單次鬧鐘會停用，重複鬧鐘排到下次時段，不會補響關閉期間的舊事件。夏令時間不存在的時刻略過當日，重複時刻當日只提醒一次。 鬧鐘與文字會保存到版面及含圖片的 JSON；匯入仍可選覆蓋或合併。新版讀取舊版配置，新保存的配置使用原生 v6／JSON v3，舊版本無法讀取新格式。"
+  },
+  {
+    "lang": "zh",
+    "title": "開機登入後自動啟動",
+    "pageTitle": "使用說明",
+    "url": "guide.html#%E9%96%8B%E6%A9%9F%E7%99%BB%E5%85%A5%E5%BE%8C%E8%87%AA%E5%8B%95%E5%95%9F%E5%8B%95",
+    "text": "此選項預設關閉，程式不會替你啟用。 在控制視窗下方勾選「Windows 登入後自動啟動（需同意）」。 確認視窗顯示實際程式與資料目錄的絕對路徑；只有選「是」才會啟用。「否」是預設選項，取消或關閉確認視窗都不會啟用。 取消勾選即可停用。只會移除 DeskTiles 自己的啟動設定。 登入啟動會載入原資料、顯示格子與系統匣，控制面板保持隱藏；點系統匣或雙擊格子可開啟面板。 此選項不包含在 JSON；匯入、更新或一般啟動都不會自行啟用。搬動 EXE 或資料目錄後，請於新位置取消勾選，再重新勾選並同意，以更新路徑。"
   },
   {
     "lang": "zh",
@@ -151,7 +186,14 @@
     "title": "專案 README",
     "pageTitle": "專案 README",
     "url": "readme.html",
-    "text": "DeskTiles/專案 README下載 Markdown ↓Windows x64 ZIP ↓本頁內容一般使用者從這裡開始中英文操作入口常用操作功能與範圍資料位置與啟動問題執行流程與進度開發、驗證與打包實際畫面與顯示層的運作流程專案檔案技術依據與後續工作Git 上傳流程拖曳與字體回歸驗證操作示範影片中英文介面切換桌面拼格 DeskTiles 專案倉庫：NicoaTheSix/DeskTile。本機開發目錄為 D:\\DeskTile；免安裝執行檔位於 release/DeskTiles/DeskTiles.exe。搬移不影響原本的使用者版面資料。 可在 Windows 桌面拼放六角形、三角形與矩形，顯示文字、圖片或計時器。支援多選拖曳、吸附、置頂／桌面層、背景透明、像素／RGB／呼吸邊框及含圖片的 JSON 配置。 一般使用者從這裡開始 取得 DeskTiles-Windows-x64.zip，完整解壓縮。 進入解壓後的 DeskTiles 資料夾，雙擊 DeskTiles.exe。 左側選形狀並新增；右側編輯內容後按套用。 免安裝 ZIP 解壓後即可執行。 適用 Windows 10／11 x64，不需要安裝 Visual Studio、Python、.NET 或其他額外執行套件，也不需要管理員權限。EXE 使用靜態 C++ 執行階段，Logo 已內嵌。 原始碼專案需要建置。 若只下載程式原始碼而沒有使用版 EXE，請依下方開發指令建置。Linux 版尚未開發，列於後續規劃。 本機已解壓的使用版位於 release/DeskTiles/DeskTiles.exe。完整步驟見 使用說明，套件提供 README.txt、使用說明、內嵌圖片的範例配置與第三方授權。 中英文操作入口 右上角選擇 語言 → English / 繁體中文，立即切換並記住偏好。右鍵與系統匣也提供 Language 選單；不會翻譯格子內容或清除尚未套用的編輯。英文說明見 English user guide。 常用操作 要做的事 操作 新增 左側選六角形（預設）、朝上正三角形或 3:2 矩形，再按「新增圖形」 多選／移動 Shift＋單擊多選，拖曳任一選取格移動整組；靠近其他格吸附 文字、圖片、計時器 選格後在右側選內容類型，設定後按套用 大小與字體 「大小與文字…」；寬度 80～480 px，字級 8～96 px 外觀 「邊框與風格…」「背景與透明度…」，可多選套用 顯示層 右鍵或控制視窗選置頂／固定桌面 備份與搬移 「配置 JSON…」匯出含圖片的配置；匯入可覆蓋或合併 找回圖形 系統匣選「找回全部圖形」 結束 先套用編輯，再從右鍵／系統匣選「儲存並結束桌面拼格」 關閉控制視窗只會隱藏面板，圖形仍在背景運作。再次雙擊圖形或重新執行程式可帶回控制視窗。換新版之前請先儲存並結束舊版。 功能與範圍 六角形、正三角形、3:2 矩形，獨立無邊框視窗；圖形外可操作原桌面。 文字、PNG／JPEG／BMP 圖片、正向／倒數計時器；多選可批次套用。 多選保持相對位置、混合形狀碰撞檢查與 22 px 範圍吸附；重疊放置回復原位。 自訂尺寸、字體、字級、文字顏色；縮放造成碰撞時整批保留原設定。 邊框實色、像素、RGB 彩虹與指定色呼吸燈；厚度 1～12 px，動畫週期 2～60 秒。 背景顏色及 0～100% 透明度獨立套用。只影響背景；全透明區仍可選取和拖曳。 控制介面 18 px、標題 32 px，黑白像素 2×2 Logo；內容字級另行設定。 JSON 含全版面與 Base64 圖片，"
+    "text": "DeskTiles/專案 README下載 Markdown ↓Windows x64 ZIP ↓本頁內容macOS 版本一般使用者從這裡開始中英文操作入口鬧鐘、計時文字與登入啟動新功能程式流程與驗證常用操作功能與範圍資料位置與啟動問題執行流程與進度開發、驗證與打包實際畫面與顯示層的運作流程專案檔案技術依據與後續工作Git 上傳流程拖曳與字體回歸驗證操作示範影片中英文介面切換圓角圖示更新桌面拼格 DeskTiles 可在 Windows 桌面拼放六角形、三角形與矩形，顯示文字、圖片、計時器或鬧鐘。支援多選拖曳、吸附、置頂／桌面層、背景透明、像素／RGB／呼吸邊框及含圖片的 JSON 配置。 macOS 版本 Mac 原生版位於 DeskTile_mac，使用 AppKit 與原有 C++ 核心。 下載 Mac 版（Apple silicon／Intel） Mac 使用說明與已知差異 解壓後雙擊 DeskTiles.app；支援 macOS 12 以上。此版本採本機 ad-hoc 簽章，尚未經 Apple 公證。 已通過 170 項核心檢查及本機 Apple silicon AppKit 整合測試；Intel、多螢幕與其他 macOS 版本仍待實機驗證。 一般使用者從這裡開始 取得 DeskTiles-Windows-x64.zip，完整解壓縮。 進入解壓後的 DeskTiles 資料夾，雙擊 DeskTiles.exe。 左側選形狀並新增；右側編輯內容後按套用。 免安裝 ZIP 解壓後即可執行。 適用 Windows 10／11 x64，不需要安裝 Visual Studio、Python、.NET 或其他額外執行套件，也不需要管理員權限。EXE 使用靜態 C++ 執行階段，Logo 已內嵌。 原始碼專案需要建置。 若只下載程式原始碼而沒有使用版 EXE，請依下方開發指令建置。Linux 版尚未開發，列於後續規劃。 本機已解壓的使用版位於 release/DeskTiles/DeskTiles.exe。完整步驟見 使用說明，套件提供 README.txt、使用說明、內嵌圖片的範例配置與第三方授權。 中英文操作入口 右上角選擇 語言 → English / 繁體中文，立即切換並記住偏好。右鍵與系統匣也提供 Language 選單；不會翻譯格子內容或清除尚未套用的編輯。英文說明見 English user guide。 鬧鐘、計時文字與登入啟動 選取圖形後，內容類型選「鬧鐘」，輸入自訂文字，再開啟「鬧鐘設定…」。日期為 YYYY-MM-DD，時間為 24 小時 HH:MM；重複規則預設「單次」，可選「每天」或「指定星期」。按「套用鬧鐘與文字至選取格」後保存，也支援多選套用。單次啟用必須是未來的有效本地時間。 計時器與鬧鐘的同一格會一起顯示時間數字和自訂文字；在控制視窗編輯「文字內容」後套用即可。空文字仍可使用計時／鬧鐘。 到期使用系統提示音、系統匣通知和可關閉的非阻塞提醒視窗；通知保留文字並能在中英文間切換。系統音量或通知設定仍由 Windows 控制。 使用 Windows 本地時間。App 必須執行中；休眠期間到期，喚醒後補提醒一次，避免重複鬧鐘連續補響。重新啟動時過期單次鬧鐘會停用，重複鬧鐘排到下個時段；不會補響關閉期間的事件。夏令時間不存在的時段略過該日，重複時段同一天只提醒一次。 「Windows 登入後自動啟動（需同意）」預設關閉。只有使用者勾選並在顯示絕對程式／資料路徑的確認視窗選「是」，才會寫入目前使用者的 Windows 登入啟動設"
+  },
+  {
+    "lang": "zh",
+    "title": "macOS 版本",
+    "pageTitle": "專案 README",
+    "url": "readme.html#macos-%E7%89%88%E6%9C%AC",
+    "text": "Mac 原生版位於 DeskTile_mac，使用 AppKit 與原有 C++ 核心。 下載 Mac 版（Apple silicon／Intel） Mac 使用說明與已知差異 解壓後雙擊 DeskTiles.app；支援 macOS 12 以上。此版本採本機 ad-hoc 簽章，尚未經 Apple 公證。 已通過 170 項核心檢查及本機 Apple silicon AppKit 整合測試；Intel、多螢幕與其他 macOS 版本仍待實機驗證。"
   },
   {
     "lang": "zh",
@@ -169,6 +211,20 @@
   },
   {
     "lang": "zh",
+    "title": "鬧鐘、計時文字與登入啟動",
+    "pageTitle": "專案 README",
+    "url": "readme.html#%E9%AC%A7%E9%90%98%E8%A8%88%E6%99%82%E6%96%87%E5%AD%97%E8%88%87%E7%99%BB%E5%85%A5%E5%95%9F%E5%8B%95",
+    "text": "選取圖形後，內容類型選「鬧鐘」，輸入自訂文字，再開啟「鬧鐘設定…」。日期為 YYYY-MM-DD，時間為 24 小時 HH:MM；重複規則預設「單次」，可選「每天」或「指定星期」。按「套用鬧鐘與文字至選取格」後保存，也支援多選套用。單次啟用必須是未來的有效本地時間。 計時器與鬧鐘的同一格會一起顯示時間數字和自訂文字；在控制視窗編輯「文字內容」後套用即可。空文字仍可使用計時／鬧鐘。 到期使用系統提示音、系統匣通知和可關閉的非阻塞提醒視窗；通知保留文字並能在中英文間切換。系統音量或通知設定仍由 Windows 控制。 使用 Windows 本地時間。App 必須執行中；休眠期間到期，喚醒後補提醒一次，避免重複鬧鐘連續補響。重新啟動時過期單次鬧鐘會停用，重複鬧鐘排到下個時段；不會補響關閉期間的事件。夏令時間不存在的時段略過該日，重複時段同一天只提醒一次。 「Windows 登入後自動啟動（需同意）」預設關閉。只有使用者勾選並在顯示絕對程式／資料路徑的確認視窗選「是」，才會寫入目前使用者的 Windows 登入啟動設定；「否」為預設選項。取消勾選會移除本程式的啟動值。一般啟動、建置、打包、更新、語言切換及 JSON 匯入都不會啟用。此設定不包含在配置 JSON，測試不會替使用者開啟。 登入啟動沿用確認時的絕對 EXE 與資料目錄，啟動後顯示格子與系統匣，控制視窗保持隱藏。搬動程式／資料路徑後，請先取消，再於新位置重新勾選與同意；不會自行更改已同意的命令。"
+  },
+  {
+    "lang": "zh",
+    "title": "新功能程式流程與驗證",
+    "pageTitle": "專案 README",
+    "url": "readme.html#%E6%96%B0%E5%8A%9F%E8%83%BD%E7%A8%8B%E5%BC%8F%E6%B5%81%E7%A8%8B%E8%88%87%E9%A9%97%E8%AD%89",
+    "text": "alarm.hpp 用本地日曆計算下次單次／每日／每週時段，跨夏令時間以日曆天計算，保存最後消耗的時段以避免重複。core.hpp 的 HEXDESK 6 可讀取 v1–v5，config.hpp 的 JSON v3 可讀取 v1–v2；鬧鐘設定、文字與圖片隨配置備份，執行中的時段快取不匯出。 win32_features.hpp 提供鬧鐘設定、提醒與登入啟動 UI；win32.cpp 只在有計時器或已啟用鬧鐘時使用共用 1 秒時脈。鬧鐘只比較已計算的時段，到期先保存消耗狀態，再提示；平時不重建文字快取。 startup.hpp 在沒有明確同意時拒絕啟用寫入。實際設定只操作 HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Run 的 DeskTiles 值，不需要管理員權限。命令含引號及絕對路徑，遵守 Windows 260 字元命令上限；過長時回報失敗，不寫入不完整設定。Windows Run 設定依據。 verify-features.ps1 先列出 EXE、專用配置與結果的絕對路徑，再分階段執行鬧鐘、文字像素、提醒關閉及未同意保護測試。登錄檔讀寫只測試 Software\\DeskTiles\\Test-程序編號 並清理；前後比對真實登入值，確認未改動。執行：./verify-features.ps1 -ExecutableName DeskTiles-update.exe。 另可用 python -X utf8 verify-consent.py --executable 'D:\\DeskTile\\build\\DeskTiles-update.exe' 驗證一般啟動的確認視窗：檢查絕對路徑與預設「否」，測試只選「否」，並比對真實登入值未改動。接著建立未來鬧鐘、切英文、以 --startup 重新啟動，確認配置保留且控制面板隱藏；結果寫在 build/consent-*。此開發測試需 Python／Pillow；若使用者已有啟動值，測試會停止，保留該設定。"
+  },
+  {
+    "lang": "zh",
     "title": "常用操作",
     "pageTitle": "專案 README",
     "url": "readme.html#%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C",
@@ -179,7 +235,7 @@
     "title": "功能與範圍",
     "pageTitle": "專案 README",
     "url": "readme.html#%E5%8A%9F%E8%83%BD%E8%88%87%E7%AF%84%E5%9C%8D",
-    "text": "六角形、正三角形、3:2 矩形，獨立無邊框視窗；圖形外可操作原桌面。 文字、PNG／JPEG／BMP 圖片、正向／倒數計時器；多選可批次套用。 多選保持相對位置、混合形狀碰撞檢查與 22 px 範圍吸附；重疊放置回復原位。 自訂尺寸、字體、字級、文字顏色；縮放造成碰撞時整批保留原設定。 邊框實色、像素、RGB 彩虹與指定色呼吸燈；厚度 1～12 px，動畫週期 2～60 秒。 背景顏色及 0～100% 透明度獨立套用。只影響背景；全透明區仍可選取和拖曳。 控制介面 18 px、標題 32 px，黑白像素 2×2 Logo；內容字級另行設定。 JSON 含全版面與 Base64 圖片，支援覆蓋及合併；匯入格子的計時器預設暫停。 最多 500 格；JSON 128 MiB，單張圖片 16 MiB，圖片總量 64 MiB，解析度上限 6400 萬像素。"
+    "text": "六角形、正三角形、3:2 矩形，獨立無邊框視窗；圖形外可操作原桌面。 文字、PNG／JPEG／BMP 圖片、正向／倒數計時器；多選可批次套用。 多選保持相對位置、混合形狀碰撞檢查與 22 px 範圍吸附；重疊放置回復原位。 自訂尺寸、字體、字級、文字顏色；縮放造成碰撞時整批保留原設定。 邊框實色、像素、RGB 彩虹與指定色呼吸燈；厚度 1～12 px，動畫週期 2～60 秒。 背景顏色及 0～100% 透明度獨立套用。只影響背景；全透明區仍可選取和拖曳。 控制介面 18 px、標題 32 px，黑白圓角幾何 2×2 Logo；內容字級另行設定。 JSON 含全版面與 Base64 圖片，支援覆蓋及合併；匯入格子的計時器預設暫停。 最多 500 格；JSON 128 MiB，單張圖片 16 MiB，圖片總量 64 MiB，解析度上限 6400 萬像素。"
   },
   {
     "lang": "zh",
@@ -200,7 +256,7 @@
     "title": "開發、驗證與打包",
     "pageTitle": "專案 README",
     "url": "readme.html#%E9%96%8B%E7%99%BC%E9%A9%97%E8%AD%89%E8%88%87%E6%89%93%E5%8C%85",
-    "text": "開發需要 Windows x64、PowerShell、Visual Studio C++ 桌面開發工具與 Windows SDK。使用版不需要這些工具。 POWERSHELL複製# 建置與 179 項核心檢查；另輸出更新版，避免原 EXE 使用中 .\\build.ps1 -OutputName DeskTiles-update.exe # Windows UI、損壞檔保護與獨占鎖測試 .\\verify.ps1 -ExecutableName DeskTiles-update.exe # 重複啟動應帶回隱藏視窗，原程序與版面維持不變 .\\verify-activation.ps1 -ExecutableName DeskTiles-update.exe # 語言切換、實際重新啟動、設定保護與英文完整功能 .\\verify-language.ps1 -FullEnglish # 複製執行檔與說明、建立 ZIP 和 SHA256 .\\package.ps1 # 從 ZIP 解壓並直接執行，另用一般啟動驗證真實螢幕合成與置頂 .\\verify-package.ps1 -Composition 每個腳本都先列出絕對輸入／輸出路徑，再顯示階段進度。run.ps1 可啟動最新建置，也可指定 -ExecutableName、-DataDir。Windows 桌面層測試需在可存取一般桌面與 Explorer 的環境執行；應用程式本身不需管理員權限。 最新結果集中於 驗證摘要。測試使用專用工作目錄，不使用或打包個人版面。"
+    "text": "開發需要 Windows x64、PowerShell、Visual Studio C++ 桌面開發工具與 Windows SDK。使用版不需要這些工具。 POWERSHELL複製# 建置與 核心檢查（含鬧鐘與啟動同意保護）；另輸出更新版，避免原 EXE 使用中 .\\build.ps1 -OutputName DeskTiles-update.exe # Windows UI、損壞檔保護與獨占鎖測試 .\\verify.ps1 -ExecutableName DeskTiles-update.exe # 重複啟動應帶回隱藏視窗，原程序與版面維持不變 .\\verify-activation.ps1 -ExecutableName DeskTiles-update.exe # 語言切換、實際重新啟動、設定保護與英文完整功能 .\\verify-language.ps1 -FullEnglish # 複製執行檔與說明、建立 ZIP 和 SHA256 .\\package.ps1 # 從 ZIP 解壓並直接執行，另用一般啟動驗證真實螢幕合成與置頂 .\\verify-package.ps1 -Composition 每個腳本都先列出絕對輸入／輸出路徑，再顯示階段進度。run.ps1 可啟動最新建置，也可指定 -ExecutableName、-DataDir。Windows 桌面層測試需在可存取一般桌面與 Explorer 的環境執行；應用程式本身不需管理員權限。 最新結果集中於 歷史驗證摘要（2026-11-03）。測試使用專用工作目錄，不使用或打包個人版面。"
   },
   {
     "lang": "zh",
@@ -214,7 +270,7 @@
     "title": "專案檔案",
     "pageTitle": "專案 README",
     "url": "readme.html#%E5%B0%88%E6%A1%88%E6%AA%94%E6%A1%88",
-    "text": "位置 用途 release/ 可直接使用的資料夾、ZIP 與 SHA256 core.hpp 跨平台模型、形狀、選取、吸附、碰撞、計時及內部保存 localization.hpp 繁體中文／英文詞條、語言代碼與核心錯誤翻譯 config.hpp JSON、Base64 圖片、驗證與合併 win32.cpp Windows 圖形／控制視窗、桌面層、圖示、系統匣及整合檢查 tests.cpp 核心檢查 DeskTiles.rc、HexDesk.manifest 內嵌圖示、一般使用者權限及 DPI 宣告 assets/ 黑白像素來源、Logo 輸出與產生腳本 third_party/nlohmann/ JSON 相依檔及 MIT 授權；不需建置時下載 docs/ 使用說明、最新截圖、範例配置與驗證摘要 build/ 最新開發執行檔及可重新產生的編譯／測試產物 內部格式為 HEXDESK 5，可讀取 v1～v4；JSON 為 format: HexDesk、version 2，可讀取 version 1。形狀值為 0 六角形／1 三角形／2 矩形。舊格式缺少形狀時還原為六角形。格子選取、控制項代碼等暫時狀態不寫入 JSON；字體以名稱保存，不打包字型檔案。"
+    "text": "位置 用途 release/ 可直接使用的資料夾、ZIP 與 SHA256 alarm.hpp、startup.hpp 本地鬧鐘排程、重複規則、啟動同意與命令引號規則 win32_features.hpp 鬧鐘設定、非阻塞提醒與使用者明確同意的 Windows 登入啟動 core.hpp 跨平台模型、形狀、選取、吸附、碰撞、計時及內部保存 localization.hpp 繁體中文／英文詞條、語言代碼與核心錯誤翻譯 config.hpp JSON、Base64 圖片、驗證與合併 win32.cpp Windows 圖形／控制視窗、桌面層、圖示、系統匣及整合檢查 tests.cpp 核心檢查 DeskTiles.rc、HexDesk.manifest 內嵌圖示、一般使用者權限及 DPI 宣告 assets/ 黑白像素來源、Logo 輸出與產生腳本 third_party/nlohmann/ JSON 相依檔及 MIT 授權；不需建置時下載 docs/ 使用說明、最新截圖、範例配置與驗證摘要 build/ 最新開發執行檔及可重新產生的編譯／測試產物 內部格式為 HEXDESK 6，可讀取 v1～v5；JSON 為 format: HexDesk、version 3，可讀取 version 1～2。形狀值為 0 六角形／1 三角形／2 矩形。舊格式缺少形狀時還原為六角形。格子選取、控制項代碼等暫時狀態不寫入 JSON；字體以名稱保存，不打包字型檔案。"
   },
   {
     "lang": "zh",
@@ -249,91 +305,119 @@
     "title": "中英文介面切換",
     "pageTitle": "專案 README",
     "url": "readme.html#%E4%B8%AD%E8%8B%B1%E6%96%87%E4%BB%8B%E9%9D%A2%E5%88%87%E6%8F%9B",
-    "text": "實作流程：建立 localization.hpp 中英文詞條 → 接入主視窗、設定視窗、選單、圖形狀態與錯誤訊息 → 語言偏好獨立保存於資料目錄 ui-settings.json → 切換前擷取尚未套用的輸入 → 更新文字及選單選項 → 還原輸入、選取與焦點 → 重繪圖形 → 驗證切換與重新啟動後的偏好。所有設定與驗證階段都顯示進度及絕對輸入／輸出位置。 語言驗證流程：專用資料目錄執行 --language-test → 實際切換全部視窗並驗證草稿與計時器 → 模擬偏好檔被鎖住時的保存失敗 → 結束後真正重新啟動確認英文 → 切回中文後再次重啟 → 損壞設定檔回復預設且保持原檔 → 選用 -FullEnglish 執行全部 Windows 功能。原生語言檢查 18 項納入完整整合測試，目前 179 項核心、166 項 Windows 整合檢查。語言切換後保留未套用狀態；只有明確按套用才更動格子設定。 Windows 系統視窗的語言偏好以 SetThreadUILanguage 設定；檔案與選色對話框可用翻譯取決於 Windows 內建語言資源。"
+    "text": "實作流程：建立 localization.hpp 中英文詞條 → 接入主視窗、設定視窗、選單、圖形狀態與錯誤訊息 → 語言偏好獨立保存於資料目錄 ui-settings.json → 切換前擷取尚未套用的輸入 → 更新文字及選單選項 → 還原輸入、選取與焦點 → 重繪圖形 → 驗證切換與重新啟動後的偏好。所有設定與驗證階段都顯示進度及絕對輸入／輸出位置。 語言驗證流程：專用資料目錄執行 --language-test → 實際切換全部視窗並驗證草稿與計時器 → 模擬偏好檔被鎖住時的保存失敗 → 結束後真正重新啟動確認英文 → 切回中文後再次重啟 → 損壞設定檔回復預設且保持原檔 → 選用 -FullEnglish 執行全部 Windows 功能。原生語言檢查 18 項納入完整整合測試，目前 222 項核心、192 項 Windows 整合檢查。語言切換後保留未套用狀態；只有明確按套用才更動格子設定。 Windows 系統視窗的語言偏好以 SetThreadUILanguage 設定；檔案與選色對話框可用翻譯取決於 Windows 內建語言資源。"
+  },
+  {
+    "lang": "zh",
+    "title": "圓角圖示更新",
+    "pageTitle": "專案 README",
+    "url": "readme.html#%E5%9C%93%E8%A7%92%E5%9C%96%E7%A4%BA%E6%9B%B4%E6%96%B0",
+    "text": "本次採用 A 圓角幾何圖示，Windows 與 macOS 共用 assets/DeskTiles.svg 的四圖形設計，PNG 外角透明。詳細流程見 assets/README.md。 Windows build.ps1 先列出絕對輸入／輸出位置，以向量抗鋸齒重建多尺寸 ICO，再編譯內嵌資源、執行核心及整合檢查，最後以 package.ps1 建立免安裝 ZIP。此次沿用本機已交付的中英文、鬧鐘與啟動同意功能，不因 GitHub 舊 Windows 基底而回退；不在本次新增其他功能。 Mac build.sh 先列出絕對路徑並執行核心檢查，建立標準／Retina iconset 與 ICNS，編譯 Universal 2 App，複製圖示與 Info.plist 後重新 ad-hoc 簽章。verify.sh 檢查 ICNS 可解碼、Finder 圖示設定、雙架構、簽章與 AppKit 圖示載入，package.sh 驗證完整 App 再封裝。 GitHub 的 macOS verified package 工作流程在圖示更新分支建置與驗證，再將通過的 ZIP、ICNS 與 SHA256 提交回相同分支；下載版只有在驗證通過後才整合至 main。workflow_dispatch 亦可手動重建。App 仍未申請 Apple 公證，Intel 硬體、多螢幕與各版本 macOS 的實機驗收限制沿用原版。 Windows 已知限制：持久化鬧鐘重啟後的時脈啟用問題尚待獨立修正；本批不宣稱已修復該問題。圖示更新不更動使用者版面或自動啟動設定。 本次部署版本為 v1.01；以 GitHub 原有 afe5098 作為 v1 基準，僅在選定圖示及使用者授權部署的範圍內更新。Windows 檔案資源與 Mac bundle 版本一併標示 1.01。Windows PowerShell 腳本使用 UTF-8 BOM 以支援內建 5.1。 圖示回歸：powershell -NoProfile -ExecutionPolicy Bypass -File verify-icons.ps1 -ExecutablePath <EXE絕對路徑>。腳本先列出圖示、EXE與結果絕對位置，逐尺寸檢查九個ICO的解碼、透明角落及平滑邊緣，再比對打包EXE內嵌圖示的每一個位元組並實際呼叫Windows圖示載入；結果存於build/icon-verification.txt。 平台配置限制（原始碼核對）：Windows匯出JSON v3並讀取v1–v3；Mac僅匯出/讀取v1–v2，尚不能直接匯入Windows新版v3，即使未使用鬧鐘亦然。Mac v2可由Windows匯入；本批不新增Mac v3支援。"
   },
   {
     "lang": "en",
     "title": "DeskTiles",
     "pageTitle": "DeskTiles",
     "url": "en/index.html",
-    "text": "DeskTiles/DeskTilesOn this page2026-11-01 updateSee it in actionA desktop with room for possibilities.Arrange your own shapesKeep useful content nearbyGive each tile its own styleTake the whole layout with youExtract it. Open it. Make it yours.Downloads and documentationValidation scope and next stepsNICOA THE SIX / WINDOWS DESKTOP TOOLDeskTilesMake room for what matters.Text, images and timers. Your desktop, arranged your way.Keep a note, a picture or a timer within reach. Pick a shape and make a small space of your own on the desktop.Download Windows x64 ZIP ↓Read the user guide ↗View on GitHub ↗Enjoying DeskTiles? Please consider giving the project a star on GitHub!Windows 10 / 11 x64 · Portable ZIPThree shapes. A reminder, a picture, a moment in time. 2026-11-01 updateSwitch between Traditional Chinese and English in the same executable. Pending edits are preserved and your preference is remembered.Fixes black or invisible tiles during ordinary startup, transparent rendering, and switching between always-on-top and desktop modes.Before updating, choose Save and exit DeskTiles from the old version’s tray menu, then open the new version. Closing the controller with X does not quit the app. Keep your existing layout.The download is the locally verified release. The repository does not yet contain every recent fix; use this ZIP for the updated app.View the project on GitHub ↗See it in actionOpen the demonstration videoA project-provided 30-second demonstration using a fiction"
+    "text": "DeskTiles/DeskTilesOn this page2026-11-07 · v1.01Windows demonstrationChoose your platformWindowsmacOSThree shapes, arranged your wayText, images and timersSelect, drag and snapStyle each tileBack up a layoutStart after downloadingDownloads and documentationValidation scope and limitationsNICOA THE SIX / WINDOWS & MACOSDeskTilesMake room for what matters.Notes, pictures and timers, arranged on your desktop.Choose a hexagon, triangle or rectangle and add the content you need. Windows and macOS have native builds with different feature sets.Download Windows x64 ↓Download macOS Universal 2 ↓View on GitHub ↗Enjoying DeskTiles? Please consider giving the project a star on GitHub!Windows 10 / 11 x64 · macOS 12+（Apple silicon / Intel） 2026-11-07 · v1.01Windows and macOS packages now use the smooth rounded four-shape logo. The website and controller screenshots use the same design.A native Universal 2 download is available for macOS 12+, with Apple silicon and Intel architectures.Before updating, save and exit the old app, then extract the complete new archive. On Windows, choose Save and exit DeskTiles from the tray; X only hides the controller. Keep your existing layout.Source release commit ↗Windows demonstrationOpen the demonstration videoThis existing 30-second Windows demo uses a fictional layout. Its icons and interface may differ from the current release. Choose your platformWindowsNative C++17 / Win32 / GDI+. Includes text, images, timers, alarms, Traditional Chinese / Engli"
   },
   {
     "lang": "en",
-    "title": "2026-11-01 update",
+    "title": "2026-11-07 · v1.01",
     "pageTitle": "DeskTiles",
-    "url": "en/index.html#2026-11-01-update",
-    "text": "Switch between Traditional Chinese and English in the same executable. Pending edits are preserved and your preference is remembered.Fixes black or invisible tiles during ordinary startup, transparent rendering, and switching between always-on-top and desktop modes. Before updating, choose Save and exit DeskTiles from the old version’s tray menu, then open the new version. Closing the controller with X does not quit the app. Keep your existing layout. The download is the locally verified release. The repository does not yet contain every recent fix; use this ZIP for the updated app. View the project on GitHub ↗"
+    "url": "en/index.html#2026-11-07-v101",
+    "text": "Windows and macOS packages now use the smooth rounded four-shape logo. The website and controller screenshots use the same design.A native Universal 2 download is available for macOS 12+, with Apple silicon and Intel architectures. Before updating, save and exit the old app, then extract the complete new archive. On Windows, choose Save and exit DeskTiles from the tray; X only hides the controller. Keep your existing layout. Source release commit ↗"
   },
   {
     "lang": "en",
-    "title": "See it in action",
+    "title": "Windows demonstration",
     "pageTitle": "DeskTiles",
-    "url": "en/index.html#see-it-in-action",
-    "text": "Open the demonstration video A project-provided 30-second demonstration using a fictional sample layout."
+    "url": "en/index.html#windows-demonstration",
+    "text": "Open the demonstration video This existing 30-second Windows demo uses a fictional layout. Its icons and interface may differ from the current release."
   },
   {
     "lang": "en",
-    "title": "A desktop with room for possibilities.",
+    "title": "Choose your platform",
     "pageTitle": "DeskTiles",
-    "url": "en/index.html#a-desktop-with-room-for-possibilities",
-    "text": "01 / FEATURES"
+    "url": "en/index.html#choose-your-platform",
+    "text": "WindowsNative C++17 / Win32 / GDI+. Includes text, images, timers, alarms, Traditional Chinese / English switching and optional sign-in launch with explicit consent.Windows user guide ↗Known Windows limitationPersisted alarms still have a clock-activation issue after restarting the app. This icon update does not fix it; do not rely on this build as the only reminder for important events. Start at sign-in remains off until you explicitly consent.macOSNative AppKit with the shared C++ core. Supports text, images, timers, group dragging, snapping and JSON layouts. The UI is Chinese; Windows alarms, language switching and sign-in launch are not available.Universal 2 includes Apple silicon and Intel code. Intel hardware, multiple monitors and other macOS versions still need testing. The app is ad-hoc signed and has not been notarized by Apple.Layout compatibility: Windows exports v3 and reads v1–v3. Mac exports and reads v1/v2 only; Windows v3 cannot be imported into Mac, even without alarms. Windows can import Mac v2.Mac guide and limitations ↗"
   },
   {
     "lang": "en",
-    "title": "Arrange your own shapes",
+    "title": "Windows",
     "pageTitle": "DeskTiles",
-    "url": "en/index.html#arrange-your-own-shapes",
-    "text": "Hexagons, upward triangles and 3:2 rectangles. Shift-select a group, drag it together and snap near other tiles."
+    "url": "en/index.html#windows",
+    "text": "Native C++17 / Win32 / GDI+. Includes text, images, timers, alarms, Traditional Chinese / English switching and optional sign-in launch with explicit consent. Windows user guide ↗ Known Windows limitationPersisted alarms still have a clock-activation issue after restarting the app. This icon update does not fix it; do not rely on this build as the only reminder for important events. Start at sign-in remains off until you explicitly consent."
   },
   {
     "lang": "en",
-    "title": "Keep useful content nearby",
+    "title": "macOS",
     "pageTitle": "DeskTiles",
-    "url": "en/index.html#keep-useful-content-nearby",
-    "text": "Display text, PNG / JPEG / BMP images, elapsed-time timers or countdowns."
+    "url": "en/index.html#macos",
+    "text": "Native AppKit with the shared C++ core. Supports text, images, timers, group dragging, snapping and JSON layouts. The UI is Chinese; Windows alarms, language switching and sign-in launch are not available. Universal 2 includes Apple silicon and Intel code. Intel hardware, multiple monitors and other macOS versions still need testing. The app is ad-hoc signed and has not been notarized by Apple. Layout compatibility: Windows exports v3 and reads v1–v3. Mac exports and reads v1/v2 only; Windows v3 cannot be imported into Mac, even without alarms. Windows can import Mac v2. Mac guide and limitations ↗"
   },
   {
     "lang": "en",
-    "title": "Give each tile its own style",
+    "title": "Three shapes, arranged your way",
     "pageTitle": "DeskTiles",
-    "url": "en/index.html#give-each-tile-its-own-style",
-    "text": "Adjust size, font and background transparency. Choose solid, pixel, RGB or single-color breathing borders."
+    "url": "en/index.html#three-shapes-arranged-your-way",
+    "text": "Text, images and timersKeep a note, a picture or a timer in a hexagon, triangle or 3:2 rectangle.Select, drag and snapShift-select several tiles, move them together and snap near other tiles.Style each tileAdjust size, font, transparent backgrounds and solid, pixel, RGB or breathing borders.Back up a layoutExport JSON with embedded images, then replace or merge on import. Mac cannot import Windows v3 layouts. Windows tile example. The four-shape logo does not add a circular tile type."
   },
   {
     "lang": "en",
-    "title": "Take the whole layout with you",
+    "title": "Text, images and timers",
     "pageTitle": "DeskTiles",
-    "url": "en/index.html#take-the-whole-layout-with-you",
-    "text": "Export JSON with embedded images. Replace or merge on import without finding every image again."
+    "url": "en/index.html#text-images-and-timers",
+    "text": "Keep a note, a picture or a timer in a hexagon, triangle or 3:2 rectangle."
   },
   {
     "lang": "en",
-    "title": "Extract it. Open it. Make it yours.",
+    "title": "Select, drag and snap",
     "pageTitle": "DeskTiles",
-    "url": "en/index.html#extract-it-open-it-make-it-yours",
-    "text": "Download the Windows x64 ZIP and extract the entire archive.Open the DeskTiles folder and double-click DeskTiles.exe.Choose a shape and add a tile. Edit content and apply it to your selection. For Windows 10 / 11 x64. No Visual Studio, Python, .NET, extra runtime packages or administrator permissions required. Closing the controller only hides it; choose Save and exit DeskTiles from a context menu or the tray to quit."
+    "url": "en/index.html#select-drag-and-snap",
+    "text": "Shift-select several tiles, move them together and snap near other tiles."
+  },
+  {
+    "lang": "en",
+    "title": "Style each tile",
+    "pageTitle": "DeskTiles",
+    "url": "en/index.html#style-each-tile",
+    "text": "Adjust size, font, transparent backgrounds and solid, pixel, RGB or breathing borders."
+  },
+  {
+    "lang": "en",
+    "title": "Back up a layout",
+    "pageTitle": "DeskTiles",
+    "url": "en/index.html#back-up-a-layout",
+    "text": "Export JSON with embedded images, then replace or merge on import. Mac cannot import Windows v3 layouts."
+  },
+  {
+    "lang": "en",
+    "title": "Start after downloading",
+    "pageTitle": "DeskTiles",
+    "url": "en/index.html#start-after-downloading",
+    "text": "Quit the previous app before updating and extract the full archive. Open DeskTiles/DeskTiles.exe on Windows or DeskTiles.app on Mac. Closing the controller hides it; use the app menu to save and exit. Windows guide ↗ · macOS guide ↗"
   },
   {
     "lang": "en",
     "title": "Downloads and documentation",
     "pageTitle": "DeskTiles",
     "url": "en/index.html#downloads-and-documentation",
-    "text": "DeskTiles-Windows-x64.zipPortable Windows build · 449.1 KiB ↓Read the user guideAdd, move, style, back up and troubleshoot ↗Project READMEScope, data formats and development notes ↗Example configuration JSONThree shapes and an embedded image; try merge import ↓ Original Chinese guide Markdown · Original project README Markdown · English guide Markdown · English README Markdown Download integrity and license noticesSHA-2568b506c952970ad54c37015f493739d7b0b87792868c28c6bfcb54545212724b9SHA256SUMS.txt ↓The original ZIP retains its third-party MIT license notices and includes the Windows build and documentation."
+    "text": "DeskTiles-Windows-x64.zipWindows 10 / 11 x64 · 492.2 KiB ↓DeskTiles-macOS-universal.zipmacOS 12+ · Universal 2 · 415.5 KiB ↓Windows SHA256SUMS.txtWindows integrity checks ↓macOS SHA256SUMS.txtMac integrity checks ↓ Package SHA-256Windows507C4B6DC30CA8D50418D4EE83A60847E0CBC3CDBB04B31CB328D4A9FC0FD79EmacOS9A4182F469863228F3B63F5899C2BA3FB269541632D4849C3447E7672EFA7032The archives retain their third-party MIT notices. No project-wide license is asserted here. Windows 中文 Markdown ↓ · Windows English Markdown ↓ · macOS 中文 Markdown ↓ · macOS English Markdown ↓ · macOS third-party notices ↓ · macOS example JSON ↓ · Project README ↓"
   },
   {
     "lang": "en",
-    "title": "Validation scope and next steps",
+    "title": "Validation scope and limitations",
     "pageTitle": "DeskTiles",
-    "url": "en/index.html#validation-scope-and-next-steps",
-    "text": "The project-provided validation summary reports 179 core checks and 166 Windows integration checks passed in both UI languages, plus 64 actual-screen checks of the extracted build during ordinary startup. Testing continues across Windows versions, DPI, multiple displays, Explorer restarts, large layouts and sustained workloads. Performance samples are short local observations, not guarantees for every computer. A Linux version has not been developed. Download the original validation summary ↓ C++17 / Win32 / GDI+ · The portable build is ready to run; source projects require a separate build."
+    "url": "en/index.html#validation-scope-and-limitations",
+    "text": "The project reports 222 Windows core checks and 192 integration checks, plus 170 Mac core checks, Universal 2, icon loading and signature checks. The website publisher verifies the supplied files and hashes; it does not rerun the application tests. The Windows alarm restart issue and Mac notarization, Intel hardware and multi-monitor limitations remain. Linux is not available. Download the original release and validation record ↓ Windows: C++17 / Win32 / GDI+ · macOS: Objective-C++ / AppKit / C++"
   },
   {
     "lang": "en",
     "title": "User guide",
     "pageTitle": "User guide",
     "url": "en/guide.html",
-    "text": "DeskTiles/User guideDownload Markdown ↓Windows x64 ZIP ↓On this pageStartTiles and selectionContentAppearanceSave, export and importClose, update and troubleshootApplication screenshotsDeskTiles — User Guide DeskTiles is a native Windows desktop widget app. Arrange text, images and timers in hexagonal, triangular or rectangular tiles. Windows 10/11 x64 is supported; Linux is planned. Start Extract the complete DeskTiles-Windows-x64.zip archive. Open the DeskTiles folder and run DeskTiles.exe. No installer, administrator rights, Python, .NET or separate C++ runtime is required. In the upper-right language selector, choose English. You can also use the Language submenu in a tile's context menu or the tray menu. The interface changes immediately. Your preference is remembered at the next launch. Switching preserves pending edits, selected tiles, font settings and running timers. It changes interface text only; your own tile content, paths and font names are never translated. Tiles and selection Choose Hexagon (default), Triangle or Rectangle (3:2) and click + Add tile. Click a tile to select it. Hold Shift and click to add or remove a tile from the selection. Drag a selected tile to move the entire selected group while preserving its relative positions. Shift-drag also works. Nearby tiles snap together; overlapping drops return to their original positions. Press Esc to clear selection. Double-click a tile to open the controller. Use Always on top or Pin to desktop to choose the "
+    "text": "DeskTiles/User guideDownload Markdown ↓Windows x64 ZIP ↓On this pageStartTiles and selectionContentAppearanceSave, export and importAlarms and custom textStart at Windows sign-inClose, update and troubleshootApplication screenshotsDeskTiles — User Guide DeskTiles is a native Windows desktop widget app. Arrange text, images, timers and alarms in hexagonal, triangular or rectangular tiles. Windows 10/11 x64 is supported; Linux is planned. Start Extract the complete DeskTiles-Windows-x64.zip archive. Open the DeskTiles folder and run DeskTiles.exe. No installer, administrator rights, Python, .NET or separate C++ runtime is required. In the upper-right language selector, choose English. You can also use the Language submenu in a tile's context menu or the tray menu. The interface changes immediately. Your preference is remembered at the next launch. Switching preserves pending edits, selected tiles, font settings and running timers. It changes interface text only; your own tile content, paths and font names are never translated. Tiles and selection Choose Hexagon (default), Triangle or Rectangle (3:2) and click + Add tile. Click a tile to select it. Hold Shift and click to add or remove a tile from the selection. Drag a selected tile to move the entire selected group while preserving its relative positions. Shift-drag also works. Nearby tiles snap together; overlapping drops return to their original positions. Press Esc to clear selection. Double-click a tile to open the controll"
   },
   {
     "lang": "en",
@@ -372,6 +456,20 @@
   },
   {
     "lang": "en",
+    "title": "Alarms and custom text",
+    "pageTitle": "User guide",
+    "url": "en/guide.html#alarms-and-custom-text",
+    "text": "Select one or more tiles, choose Alarm, and enter custom text such as “Team meeting”. Open Alarm settings…. Enter a date as YYYY-MM-DD and a 24-hour time as HH:MM. Once is the default. You can select Daily or Selected weekdays; weekly alarms need at least one selected day. The date applies only to one-time alarms. Check Enable alarm and select Apply alarm and text to selection. An enabled one-time alarm must use a valid future local time. Uncheck and apply to disable it. The tile displays its time, custom text, date or weekdays, and enabled state. Editing text in the controller and applying it preserves existing alarm schedules. Timers also support custom text. Enter the task name in the text field and apply; the same tile displays both text and timer digits. Empty text is allowed. Due alarms and completed countdowns use the system sound, a tray notification, and a nonmodal reminder window. The window retains the ten most recent reminders. Windows volume and notification settings still apply. The app must be running. Alarms follow Windows local time. After sleep, one reminder is shown for missed occurrences; restarting the app does not replay events missed while it was closed. Expired one-time alarms are disabled at startup, and recurring alarms are scheduled for their next occurrence. A nonexistent daylight-saving time is skipped for that date; a repeated local hour rings only once per date. Alarm settings and text are included in layout and JSON backups, including replace/merge imports. The new native v6 / JSON v3 formats read previous versions; old app versions cannot read newly saved formats."
+  },
+  {
+    "lang": "en",
+    "title": "Start at Windows sign-in",
+    "pageTitle": "User guide",
+    "url": "en/guide.html#start-at-windows-sign-in",
+    "text": "Off by default. The app never enables it automatically. Check Start at Windows sign-in (requires consent) at the bottom of the controller. The confirmation displays absolute program and data paths. Only Yes enables registration. No is the default; declining or closing the dialog leaves it off. Uncheck the option to remove DeskTiles' own startup entry. Login launch restores tiles and the tray icon with the controller hidden. Open the controller from the tray or by double-clicking a tile. This option is excluded from JSON. Imports, updates and ordinary launches cannot enable it. If you move the executable or data folder, uncheck it and opt in again from the new location to update the paths."
+  },
+  {
+    "lang": "en",
     "title": "Close, update and troubleshoot",
     "pageTitle": "User guide",
     "url": "en/guide.html#close-update-and-troubleshoot",
@@ -389,104 +487,125 @@
     "title": "Project README",
     "pageTitle": "Project README",
     "url": "en/readme.html",
-    "text": "DeskTiles/Project READMEDownload Markdown ↓Windows x64 ZIP ↓On this pageStart here as a userBilingual interfaceCommon actionsFeatures and scopeData location and startup issuesExecution flow and progressDevelopment, checks and packagingRendering and window layersProject filesTechnical basis and future workGit publishing flowDragging and font regression checksDemonstration videoLanguage switching implementation and verificationDeskTiles Project repository: NicoaTheSix/DeskTile. The portable build is available below. The website download is the verified local release; the repository does not yet contain all recent rendering fixes. An overall project license has not been specified; third-party notices remain in the ZIP. A native Windows desktop widget app for arranging text, images and timers in hexagonal, triangular or rectangular tiles. It supports group dragging, snapping, always-on-top or desktop layers, transparent backgrounds, pixel / RGB / breathing borders, and JSON configurations with embedded images. Start here as a user Download DeskTiles-Windows-x64.zip and extract the entire archive. Open the extracted DeskTiles folder and double-click DeskTiles.exe. Choose a shape on the left and add it. Edit content on the right and apply it. The portable ZIP runs after extraction. It supports Windows 10 / 11 x64, with no Visual Studio, Python, .NET, extra runtime installation or administrator permissions required. The EXE uses the static C++ runtime and contains an embedded logo. "
+    "text": "DeskTiles/Project READMEDownload Markdown ↓Windows x64 ZIP ↓On this pageDownload and updateWindows featuresMac features and differencesLayout compatibilityValidation for v1.01Source and noticesDeskTiles DeskTiles is a native desktop tile application for Windows and macOS. Choose a hexagon, triangle or 3:2 rectangle and add text, pictures or timers. Group dragging, snapping, transparent backgrounds, animated borders and JSON backups help arrange a desktop layout. The v1.01 release uses a smooth rounded four-shape logo on both platforms. The circle in the logo is not an additional tile type. The repository now includes the supplied Windows features and the native Mac implementation. Download and update Windows 10 / 11 x64: extract DeskTiles-Windows-x64.zip, then open DeskTiles/DeskTiles.exe. The portable build uses a static C++ runtime. macOS 12+: extract DeskTiles-macOS-universal.zip, then open DeskTiles.app. Universal 2 includes Apple silicon and Intel code. Save and exit the old app before extracting the complete update. X hides the controller; it does not quit the app. Keep your saved layout and the package's third-party notices. Linux is not available. The Mac package uses an ad-hoc signature. It has no Developer ID signature or Apple notarization. Intel hardware, multiple monitors, other macOS versions and long-running stress tests still need validation. Read the Mac guide and limitations before downloading. Windows features Select a shape and add a tile. Shift-click sele"
   },
   {
     "lang": "en",
-    "title": "Start here as a user",
+    "title": "Download and update",
     "pageTitle": "Project README",
-    "url": "en/readme.html#start-here-as-a-user",
-    "text": "Download DeskTiles-Windows-x64.zip and extract the entire archive. Open the extracted DeskTiles folder and double-click DeskTiles.exe. Choose a shape on the left and add it. Edit content on the right and apply it. The portable ZIP runs after extraction. It supports Windows 10 / 11 x64, with no Visual Studio, Python, .NET, extra runtime installation or administrator permissions required. The EXE uses the static C++ runtime and contains an embedded logo. The source project must be built. A source-only checkout does not include a ready-to-run user EXE unless it has been built separately. A Linux version has not been developed and remains future work. The source project's extracted user build is release/DeskTiles/DeskTiles.exe. See the user guide for full steps. The ZIP contains README.txt, the user guide, an example configuration with embedded image data and third-party license notices."
+    "url": "en/readme.html#download-and-update",
+    "text": "Windows 10 / 11 x64: extract DeskTiles-Windows-x64.zip, then open DeskTiles/DeskTiles.exe. The portable build uses a static C++ runtime. macOS 12+: extract DeskTiles-macOS-universal.zip, then open DeskTiles.app. Universal 2 includes Apple silicon and Intel code. Save and exit the old app before extracting the complete update. X hides the controller; it does not quit the app. Keep your saved layout and the package's third-party notices. Linux is not available. The Mac package uses an ad-hoc signature. It has no Developer ID signature or Apple notarization. Intel hardware, multiple monitors, other macOS versions and long-running stress tests still need validation. Read the Mac guide and limitations before downloading."
   },
   {
     "lang": "en",
-    "title": "Bilingual interface",
+    "title": "Windows features",
     "pageTitle": "Project README",
-    "url": "en/readme.html#bilingual-interface",
-    "text": "Choose Language → English / 繁體中文 in the controller, a tile's context menu or the tray menu. The interface updates immediately and remembers your preference. It preserves pending edits, selection and running timers; your own tile content is not translated. See the project-provided English user guide. Before updating, choose Save and exit DeskTiles from the old version's tray menu, then open the new EXE. Closing the controller with X only hides it. Keep your existing configuration."
+    "url": "en/readme.html#windows-features",
+    "text": "Select a shape and add a tile. Shift-click selects several tiles; drag one selected tile to move the group. Tiles snap near one another. Use text, PNG/JPEG/BMP images, count-up/countdown timers or alarms. Apply content to selected tiles. Adjust size, font, colors, background transparency and solid, pixel, RGB or breathing borders. Choose desktop or always-on-top layers. Switch between Traditional Chinese and English from the controller, tray or tile menu. The app saves the preference; your tile content is not translated. Start at sign-in is off by default and requires explicit consent. This update does not enable it automatically. A persisted alarm has a known clock-activation issue after restarting the app. This icon release does not fix that issue or claim the due-alarm regression passed. The English user guide and Chinese user guide provide the full Windows controls, alarm settings, startup consent, data handling and troubleshooting steps."
   },
   {
     "lang": "en",
-    "title": "Common actions",
+    "title": "Mac features and differences",
     "pageTitle": "Project README",
-    "url": "en/readme.html#common-actions",
-    "text": "Task Action Add tiles Select a hexagon (default), upward-pointing equilateral triangle or 3:2 rectangle; choose Add tile Select / move a group Shift + click to select multiple tiles; drag any selected tile to move the group and snap near other tiles Text, images, timers Select tiles, choose the content type on the right, configure it and apply Size and font Size and text; width 80–480 px, font size 8–96 px Appearance Borders and style / Background and transparency; can apply to multiple tiles Display layer Choose always-on-top or desktop layer from the context menu or controller Back up / move Export a configuration JSON with embedded images; replace or merge on import Recover missing tiles Recover all tiles from the tray menu Exit Apply edits, then choose Save and exit DeskTiles from a context menu or the tray Closing the controller only hides it; tiles continue running in the background. Double-click a tile or launch the program again to restore the controller. Save and exit the old version before updating."
+    "url": "en/readme.html#mac-features-and-differences",
+    "text": "Mac uses Objective-C++ / AppKit with the shared C++ core and native macOS controls. It supports three tile shapes, text, images, timers, multi-selection, dragging, snapping, appearance settings and JSON layouts. Its UI uses Chinese labels. Windows alarms, language switching and sign-in launch have not been ported. Mac sizes use logical points. Desktop layering uses native window levels. Mission Control, Stage Manager and Show Desktop behavior still require hardware testing. See the Mac guide for data directories, backups, file locking and validation limits."
   },
   {
     "lang": "en",
-    "title": "Features and scope",
+    "title": "Layout compatibility",
     "pageTitle": "Project README",
-    "url": "en/readme.html#features-and-scope",
-    "text": "Hexagons, equilateral triangles and 3:2 rectangles in independent borderless windows. Areas outside the shapes allow normal desktop interaction. Text, PNG / JPEG / BMP images, elapsed-time timers and countdowns. Multiple selected tiles can be updated together. Relative group positions, mixed-shape collision detection and snapping within 22 px. An overlapping drop restores the previous position. Custom sizes, installed fonts, font sizes and text colors. A resize that causes collisions retains the existing settings for the entire group. Solid, pixel, RGB rainbow and selected-color breathing borders. Border thickness 1–12 px and animation cycles 2–60 seconds. Separate background color and 0–100% transparency controls. Only the background is affected; fully transparent areas remain selectable and draggable. An 18 px controller UI, 32 px header and monochrome pixel 2×2 logo. Tile content font size is configured independently. JSON contains the full layout and Base64 image data. Imports can replace or merge; imported timers start paused. Limits: 500 tiles, 128 MiB JSON, 16 MiB per image, 64 MiB of image data in total and 64 million pixels per image."
+    "url": "en/readme.html#layout-compatibility",
+    "text": "Windows exports JSON v3 and reads v1–v3. Mac exports and reads v1/v2 only. Windows v3 layouts cannot currently be imported into Mac, even when they contain no alarms. Windows can import Mac v2 layouts. Import can replace or merge supported layouts; imported timers start paused. Export with embedded images when moving supported layouts between computers."
   },
   {
     "lang": "en",
-    "title": "Data location and startup issues",
+    "title": "Validation for v1.01",
     "pageTitle": "Project README",
-    "url": "en/readme.html#data-location-and-startup-issues",
-    "text": "The default data folder is %LOCALAPPDATA%\\HexDesk. Its previous name is retained to reuse existing layouts. You may run: POWERSHELLCopy.\\DeskTiles.exe --data-dir 'D:\\DeskTilesData' Startup displays the absolute layout and log paths and progress. The layout file is layout.hexdesk; the previous saved version is layout.backup. Imports create an additional import-before-*.hexdesk backup. Imported images are saved to assets using SHA-256 names. Directly selected external images continue to reference their original paths; export JSON to include them in a backup. Only one process may write to a given data directory. Repeated launch identifies the lock owner and restores that instance's controller, without resetting unapplied fields or terminating the older version. A genuine write failure displays the data location and Windows error code. A remaining session.lock file is normal; do not delete it to fix startup issues."
+    "url": "en/readme.html#validation-for-v101",
+    "text": "The project reports 222 Windows core checks, 192 integration checks, language/restart checks and icon decoding checks. The Mac icon-release workflow reports 170 core checks, AppKit integration, standard/Retina icon decoding, Finder configuration, arm64/x86_64 architectures and ad-hoc signing checks. The website publisher verifies supplied files and hashes without executing the application tests. The Windows alarm restart issue and the Mac validation and signing limits above remain. Historical validation summaries refer to their original packages, not the current download."
   },
   {
     "lang": "en",
-    "title": "Execution flow and progress",
+    "title": "Source and notices",
     "pageTitle": "Project README",
-    "url": "en/readme.html#execution-flow-and-progress",
-    "text": "Startup: Resolve the data folder → acquire the lock or restore the existing window → display absolute input / output paths → five initialization stages → load layout and icons → create tiles, controller and tray → wait for input. Add: Display output layout path → find adjacent free space, create a tile and save, with three progress stages. Drag: Select the primary tile immediately and update the panel → capture the mouse and record group positions → preview snapping after the movement threshold → read final coordinates on release → check collision and commit or restore → save. Shift-click deselection and double-click controller activation wait until release without movement; interrupted capture cancels the preview. Appearance / size / background: Display input / output locations → validate → apply checked fields and refresh caches → save. Settings dialogs show three-stage progress. Save: Write a temporary file → back up the previous version → atomically replace it. Corrupt layouts are not overwritten directly; timers reopen paused. JSON export: Display paths → collect layout and images → validate → atomically replace the destination after completing a temporary file. JSON import: Display paths → validate format, values, overlap and images → back up → save images and a candidate layout → recreate windows. Merge preserves existing IDs and timer states; imported tiles receive new IDs and may shift as a group. Animation and timing: Reuse caches for static content. Active animations share an approximately 12 FPS timer; timers use per-second events. Events are removed when not needed."
+    "url": "en/readme.html#source-and-notices",
+    "text": "Windows uses C++17 / Win32 / GDI+. Mac uses Objective-C++ / AppKit and C++. The archives retain their third-party MIT notices; no project-wide license is asserted here. Source repository · v1.01 release source · Mac validation workflow This English README is maintained by the website from the project's supplied documentation. The original Chinese README is available as a separate download."
+  },
+  {
+    "lang": "zh",
+    "title": "macOS 使用說明",
+    "pageTitle": "macOS 使用說明",
+    "url": "mac.html",
+    "text": "DeskTiles/macOS 使用說明下載 Markdown ↓macOS Universal 2 ZIP ↓本頁內容使用資料與 Windows 版的對應及差異開發與驗證圓角 App 圖示建置與驗證桌面拼格 DeskTiles — macOS 原生版 雙擊 release/DeskTiles.app 即可啟動。支援 macOS 12 以上；執行檔同時包含 Apple silicon 與 Intel 架構，不需要另外安裝執行環境。 使用 左側選六角形、三角形或 3:2 矩形，按「＋ 新增圖形」。 點擊選取，Shift＋點擊多選；拖曳任一選取格可移動整組。沿用 Windows 原版的 22 點吸附、混合形狀碰撞與重疊回復規則。 右側選文字、圖片或計時器，修改後按「套用至所有選取格」。圖片支援 PNG、JPEG、BMP，依形狀等比例裁切。 「邊框與風格…」設定實色、像素、RGB 或呼吸燈；「大小與文字…」設定尺寸與 Mac 已安裝字體；「背景與透明度…」只改背景。 右鍵圖形或使用選單列的 ▦ 可開啟控制面板、新增、選取全部、設定圖層、操作計時器、找回圖形與結束程式。 關閉控制面板不會結束程式。雙擊圖形或使用 ▦ 可帶回面板；使用「儲存並結束桌面拼格」或 Command＋Q 結束。 「配置 JSON…」可匯出包含圖片的 JSON v2，或覆蓋／合併匯入 v1／v2 配置。Windows 目前匯出 v3，Mac 尚不能直接匯入；Mac 匯出的 v2 可由 Windows 匯入。匯入的計時器預設暫停。 Windows 字體不一定安裝在 Mac；找不到的字體使用系統字體顯示。可在「大小與文字…」填入 PingFang TC 等已安裝字體名稱。 資料 預設存於 ~/Library/Application Support/DeskTiles/。layout.hexdesk 為版面，layout.backup 為上次保存備份；匯入前另存 import-before-*.hexdesk。內嵌圖片解出到 assets/，以 SHA256 命名。直接瀏覽的圖片仍引用來源路徑，搬移時請匯出 JSON。 同一資料目錄採用系統檔案鎖，重複啟動會帶回既有面板；請勿以刪除 session.lock 的方式處理。載入損壞版面時會保留原檔並結束，不會以空白配置覆寫。 指定獨立資料目錄： SHELL複製./release/DeskTiles.app/Contents/MacOS/DeskTiles --data-dir /tmp/my-desktile-data 與 Windows 版的對應及差異 C++ 核心與 JSON 格式直接沿用原版，介面以 Objective-C++／AppKit 重寫；沒有使用 Wine、網頁容器或模擬器。控制面板保留原版配置、中文標籤、配色與操作，但標題列、按鈕、選單和檔案對話框使用 macOS 原生樣式，並非逐像素相同。 尺寸以 macOS 邏輯點顯示，Retina 螢幕實際像素數較多。 「固定於桌面」採用桌面圖示下方的原生視窗層級；不使用 Windows Explorer 宿主機制。圖形會顯示於各桌面空間，macOS 的 Mission Control／Stage Manager／顯示桌面行為仍需實機驗收。 圖形外的透明角落以游標位置更新點擊穿透，更新頻率約 12 Hz；完全透明的圖形內部仍可拖曳。 計時結束以系統提示音提示；沒有額外申請通知權限。 預設用 PingFang TC；字體輸入及色碼欄位取代 Windows 的字體清單與選色對話框。 原始程"
+  },
+  {
+    "lang": "zh",
+    "title": "使用",
+    "pageTitle": "macOS 使用說明",
+    "url": "mac.html#%E4%BD%BF%E7%94%A8",
+    "text": "左側選六角形、三角形或 3:2 矩形，按「＋ 新增圖形」。 點擊選取，Shift＋點擊多選；拖曳任一選取格可移動整組。沿用 Windows 原版的 22 點吸附、混合形狀碰撞與重疊回復規則。 右側選文字、圖片或計時器，修改後按「套用至所有選取格」。圖片支援 PNG、JPEG、BMP，依形狀等比例裁切。 「邊框與風格…」設定實色、像素、RGB 或呼吸燈；「大小與文字…」設定尺寸與 Mac 已安裝字體；「背景與透明度…」只改背景。 右鍵圖形或使用選單列的 ▦ 可開啟控制面板、新增、選取全部、設定圖層、操作計時器、找回圖形與結束程式。 關閉控制面板不會結束程式。雙擊圖形或使用 ▦ 可帶回面板；使用「儲存並結束桌面拼格」或 Command＋Q 結束。 「配置 JSON…」可匯出包含圖片的 JSON v2，或覆蓋／合併匯入 v1／v2 配置。Windows 目前匯出 v3，Mac 尚不能直接匯入；Mac 匯出的 v2 可由 Windows 匯入。匯入的計時器預設暫停。 Windows 字體不一定安裝在 Mac；找不到的字體使用系統字體顯示。可在「大小與文字…」填入 PingFang TC 等已安裝字體名稱。"
+  },
+  {
+    "lang": "zh",
+    "title": "資料",
+    "pageTitle": "macOS 使用說明",
+    "url": "mac.html#%E8%B3%87%E6%96%99",
+    "text": "預設存於 ~/Library/Application Support/DeskTiles/。layout.hexdesk 為版面，layout.backup 為上次保存備份；匯入前另存 import-before-*.hexdesk。內嵌圖片解出到 assets/，以 SHA256 命名。直接瀏覽的圖片仍引用來源路徑，搬移時請匯出 JSON。 同一資料目錄採用系統檔案鎖，重複啟動會帶回既有面板；請勿以刪除 session.lock 的方式處理。載入損壞版面時會保留原檔並結束，不會以空白配置覆寫。 指定獨立資料目錄： SHELL複製./release/DeskTiles.app/Contents/MacOS/DeskTiles --data-dir /tmp/my-desktile-data"
+  },
+  {
+    "lang": "zh",
+    "title": "與 Windows 版的對應及差異",
+    "pageTitle": "macOS 使用說明",
+    "url": "mac.html#%E8%88%87-windows-%E7%89%88%E7%9A%84%E5%B0%8D%E6%87%89%E5%8F%8A%E5%B7%AE%E7%95%B0",
+    "text": "C++ 核心與 JSON 格式直接沿用原版，介面以 Objective-C++／AppKit 重寫；沒有使用 Wine、網頁容器或模擬器。控制面板保留原版配置、中文標籤、配色與操作，但標題列、按鈕、選單和檔案對話框使用 macOS 原生樣式，並非逐像素相同。 尺寸以 macOS 邏輯點顯示，Retina 螢幕實際像素數較多。 「固定於桌面」採用桌面圖示下方的原生視窗層級；不使用 Windows Explorer 宿主機制。圖形會顯示於各桌面空間，macOS 的 Mission Control／Stage Manager／顯示桌面行為仍需實機驗收。 圖形外的透明角落以游標位置更新點擊穿透，更新頻率約 12 Hz；完全透明的圖形內部仍可拖曳。 計時結束以系統提示音提示；沒有額外申請通知權限。 預設用 PingFang TC；字體輸入及色碼欄位取代 Windows 的字體清單與選色對話框。 原始程式的階段式進度視窗、日誌系統及 Windows 驗證腳本未移植；Mac 使用狀態列和原生錯誤提示。 已執行本機核心及 AppKit 整合測試。尚未對 Intel 實機、多螢幕、不同 macOS 版本、500 格長時間壓力與所有滑鼠操作逐項驗收。 此本機版本採 ad-hoc 簽章，尚未申請 Developer ID 簽章與 Apple 公證，適合在本機開發與試用。"
+  },
+  {
+    "lang": "zh",
+    "title": "開發與驗證",
+    "pageTitle": "macOS 使用說明",
+    "url": "mac.html#%E9%96%8B%E7%99%BC%E8%88%87%E9%A9%97%E8%AD%89",
+    "text": "需要 Xcode Command Line Tools 或 Xcode。 SHELL複製./build.sh ./verify.sh build.sh 執行原版 170 項核心檢查，再編譯 Universal 2 App 並簽章。 verify.sh 使用 build/verification.* 的獨立資料目錄，在圖形環境檢查 AppKit 視窗、三種形狀、外觀套用、計時、透明繪製、Windows 範例圖片解碼、JSON 往返／合併、桌面層和版面保存，並驗證簽章與兩種架構。測試產生的 view 快取 PNG 不等同螢幕截圖；原生 layer 的部份控制項不一定包含在快取中。 來源：https://github.com/NicoaTheSix/DeskTile 參考提交：4a7fc0aa41e05e48f01e389e3ee948a628022064。 Sources/core.hpp、Sources/config.hpp、tests/tests.cpp、Logo 和範例配置取自該提交，保留原始內容；Windows clone 位於相鄰的 DeskTile_windows/，未修改。JSON 相依檔案為 nlohmann/json，MIT 授權見 Sources/third_party/nlohmann/LICENSE.MIT。"
+  },
+  {
+    "lang": "zh",
+    "title": "圓角 App 圖示建置與驗證",
+    "pageTitle": "macOS 使用說明",
+    "url": "mac.html#%E5%9C%93%E8%A7%92-app-%E5%9C%96%E7%A4%BA%E5%BB%BA%E7%BD%AE%E8%88%87%E9%A9%97%E8%AD%89",
+    "text": "使用已選定的黑白圓角四圖形設計。assets/DeskTiles-logo.png 為 1024px 透明外角母圖；對應 SVG 與 Windows 共用。build.sh 執行前列出絕對來源與輸出位置，依五階段顯示核心測試、標準／Retina iconset、Universal 2 編譯、完整 App 簽章及完成狀態。Info.plist 的 CFBundleIconFile 與控制面板／Dock 均載入 DeskTiles.icns，Finder 尚未啟動 App 時也有正確圖示。 verify.sh 以四階段檢查核心、ICNS 解碼、Finder bundle 設定、arm64／x86_64 與完整簽章，再啟動 AppKit smoke-test 檢查圖示載入；package.sh 以三階段驗證簽章、封裝、更新 SHA256。每次 iconset 解碼與 AppKit 驗證都使用獨立暫存目錄，可重複執行。 更新時先結束舊程式，完整解壓縮新版再開啟；若 Dock 保留舊捷徑，可移除捷徑後將新版 App 拖回。此更新仍採 ad-hoc 簽章，沒有宣稱 Apple 公證或新增 Intel 實機驗證。"
   },
   {
     "lang": "en",
-    "title": "Development, checks and packaging",
-    "pageTitle": "Project README",
-    "url": "en/readme.html#development-checks-and-packaging",
-    "text": "Development requires Windows x64, PowerShell, Visual Studio C++ desktop development tools and the Windows SDK. The portable user build does not require these tools. POWERSHELLCopy# Build and run 179 core checks; use a separate output while the old EXE is running .\\build.ps1 -OutputName DeskTiles-update.exe # Windows UI, corrupt-file protection and exclusive-lock checks .\\verify.ps1 -ExecutableName DeskTiles-update.exe # Duplicate launch restores the hidden controller and preserves the existing layout .\\verify-activation.ps1 -ExecutableName DeskTiles-update.exe # Language switching, actual restarts, preference protection and full English integration .\\verify-language.ps1 -FullEnglish # Copy the executable and docs, then create the ZIP and SHA-256 checksums .\\package.ps1 # Extract the ZIP and verify real-screen composition and window layers during normal startup .\\verify-package.ps1 -Composition Each script prints absolute input / output paths before progress stages. run.ps1 can launch the newest build or accept -ExecutableName and -DataDir. Desktop-layer tests require access to a normal desktop and Explorer. The application itself does not need administrator permissions. See the validation summary. Tests use dedicated working directories and do not use or package personal layouts."
+    "title": "macOS guide",
+    "pageTitle": "macOS guide",
+    "url": "en/mac.html",
+    "text": "DeskTiles/macOS guideDownload Markdown ↓macOS Universal 2 ZIP ↓On this pageUsing tilesLayouts and dataDifferences from WindowsValidation and sourceDeskTiles for macOS DeskTiles is a native AppKit application for macOS 12 and later. The Universal 2 package includes Apple silicon and Intel code. Extract the complete archive and open DeskTiles.app. The app uses an ad-hoc signature. It has not been signed with Developer ID or notarized by Apple. Intel hardware, multiple monitors, other macOS versions and long-running stress tests still need validation. Using tiles Choose a hexagon, triangle or 3:2 rectangle, then add a tile. Click to select, Shift-click to select several tiles, and drag a selected tile to move the group. Nearby tiles snap together. Add text, a PNG/JPEG/BMP image, or a count-up/countdown timer. Edit the fields and apply them to the selected tiles. Change border style, background transparency, size and installed font. Windows fonts may not be installed on your Mac; unavailable fonts fall back to the system font. Use a tile's context menu or the menu-bar icon to reopen the controller, change layers, find tiles or quit. Closing the controller does not quit the application. Use Save and exit DeskTiles, or Command-Q, to save and exit. Quit the old version before updating, then extract the complete new package. If the Dock retains an old icon, remove that shortcut and add the new app again. Layouts and data Export JSON v2 with embedded images for a portable backup. Mac "
   },
   {
     "lang": "en",
-    "title": "Rendering and window layers",
-    "pageTitle": "Project README",
-    "url": "en/readme.html#rendering-and-window-layers",
-    "text": "Startup displays the absolute layout and log paths, then loads configuration, creates windows and opens the controller in five stages. Each polygon uses a normal borderless input host with a DWM full-client transparent frame. The host is painted with zero alpha; a layered child presents text, images and borders through UpdateLayeredWindow. Polygon hit testing remains active even in transparent areas. The host no longer uses WS_EX_NOREDIRECTIONBITMAP, which suppressed visible composition during ordinary startup. Desktop mode keeps independent top-level composition and uses Explorer as the owner, below normal windows; it no longer reparents the host as an Explorer child. Always-on-top mode clears the owner and explicitly sets HWND_TOPMOST. Coordinates remain screen coordinates, and desktop clicks do not activate the window. Content caches and the shared animation timer are retained. The transparent frame is reset after DWM composition changes; existing data and layout formats remain compatible. verify-composition.ps1 calls verify-composition.py to launch saved on-top and desktop layouts normally. It checks actual screen pixels, backgrounds, borders, text, images, foreground-window coverage, transparent hit testing and dragging. Memory exports or PrintWindow are not treated as proof of visible output. Developer command: ./verify-composition.ps1 -ExecutablePath 'D:\\DeskTile\\release\\DeskTiles\\DeskTiles.exe'. These checks require an interactive Windows desktop, Python and Pillow 12.3 or newer; the portable app does not. The script logs absolute paths and progress, temporarily shows the desktop and restores windows in finally, and operates only on dedicated fixtures. Results go to build/composition-*. Concurrent foreground activity can interfere with pixel checks. The project reports 179 core checks, 166 Windows integration checks in each UI language, and 64 actual-screen checks of the extracted EXE during normal startup. Language regression covers 18 checks, actual preference restarts, corrupt preferences and failed saves. These are project-provided results; website publication verifies file integrity and does not rerun the desktop suite. Other Windows versions, Explorer restarts, DPI, multiple monitors and sustained workloads still need compatibility testing. Linux remains planned."
+    "title": "Using tiles",
+    "pageTitle": "macOS guide",
+    "url": "en/mac.html#using-tiles",
+    "text": "Choose a hexagon, triangle or 3:2 rectangle, then add a tile. Click to select, Shift-click to select several tiles, and drag a selected tile to move the group. Nearby tiles snap together. Add text, a PNG/JPEG/BMP image, or a count-up/countdown timer. Edit the fields and apply them to the selected tiles. Change border style, background transparency, size and installed font. Windows fonts may not be installed on your Mac; unavailable fonts fall back to the system font. Use a tile's context menu or the menu-bar icon to reopen the controller, change layers, find tiles or quit. Closing the controller does not quit the application. Use Save and exit DeskTiles, or Command-Q, to save and exit. Quit the old version before updating, then extract the complete new package. If the Dock retains an old icon, remove that shortcut and add the new app again."
   },
   {
     "lang": "en",
-    "title": "Project files",
-    "pageTitle": "Project README",
-    "url": "en/readme.html#project-files",
-    "text": "Location Purpose release/ Ready-to-run folder, ZIP and SHA-256 checksums core.hpp Cross-platform model, shapes, selection, snapping, collision detection, timers and internal persistence localization.hpp Traditional Chinese / English strings, language codes and core error translations config.hpp JSON, Base64 images, validation and merging win32.cpp Windows tiles, controller, desktop layer, icons, tray and integration checks tests.cpp Core checks DeskTiles.rc, HexDesk.manifest Embedded icons, standard-user permissions and DPI declarations assets/ Monochrome pixel sources, logo outputs and asset scripts third_party/nlohmann/ JSON dependency and MIT license; no build-time download required docs/ User guide, current screenshots, example configuration and validation summary build/ Development executables and reproducible build / test artifacts The internal format is HEXDESK 5, with v1–v4 read support. JSON uses format: HexDesk, version 2 and can read version 1. Shape values are 0 for hexagons, 1 for triangles and 2 for rectangles; old formats without a shape field default to hexagons. Selection, control identifiers and other transient state are not saved to JSON. Fonts are stored by name; font files are not packaged."
+    "title": "Layouts and data",
+    "pageTitle": "macOS guide",
+    "url": "en/mac.html#layouts-and-data",
+    "text": "Export JSON v2 with embedded images for a portable backup. Mac reads v1/v2 only. Windows exports v3 and reads v1–v3; its v3 layouts cannot be imported into Mac, even without alarms. Windows can import Mac v2. Import can replace or merge supported layouts; imported timers start paused. Directly chosen images still refer to their original paths until exported. The default data directory is ~/Library/Application Support/DeskTiles/. The app keeps a saved layout, backup and pre-import backups. A system file lock prevents two processes from writing to the same directory. Do not delete session.lock as a workaround. A corrupt layout is preserved rather than overwritten with an empty one. An independent directory can be selected at launch: SHELLCopy./DeskTiles.app/Contents/MacOS/DeskTiles --data-dir /tmp/my-desktile-data"
   },
   {
     "lang": "en",
-    "title": "Technical basis and future work",
-    "pageTitle": "Project README",
-    "url": "en/readme.html#technical-basis-and-future-work",
-    "text": "Built with C++17, Win32, GDI+ and Windows system libraries. Transparency and the interactive shape region are managed separately so alpha-zero areas do not become click-through. The desktop layer depends on an Explorer host and is sensitive to compatibility differences. Duplicate launch uses Restart Manager only to identify the lock holder, then restores its controller. It does not shut down or restart other programs. Layered-window rendering follows UpdateLayeredWindow and extended window styles. JSON uses nlohmann/json v3.12.0. Its license is included in the portable package. A Linux display backend and packaging are future work. The Windows EXE is not a native Linux application. Further testing is needed across Windows versions, DPI / multiple displays, Explorer restarts, large layouts and long-running workloads. Existing performance numbers are short local samples, not a guarantee for every environment."
+    "title": "Differences from Windows",
+    "pageTitle": "macOS guide",
+    "url": "en/mac.html#differences-from-windows",
+    "text": "The Mac UI uses Chinese labels and native macOS title bars, buttons, menus and file dialogs. Windows alarms, Chinese/English switching and sign-in launch are not available in this Mac release. Dimensions use macOS logical points. The desktop layer uses native macOS window levels rather than Windows Explorer. Mission Control, Stage Manager and Show Desktop behavior still require hardware testing. Transparent corners update pointer passthrough at about 12 Hz; transparent tile interiors remain draggable. Completed timers use the system sound without requesting extra notification permission."
   },
   {
     "lang": "en",
-    "title": "Git publishing flow",
-    "pageTitle": "Project README",
-    "url": "en/readme.html#git-publishing-flow",
-    "text": "Inspect changes and remotes → exclude personal layouts, logs and temporary files → validate scripts and release SHA-256 → commit source, documentation and release files → push to origin/main → compare local and remote commits. build/, Data/ and *.user are ignored. Personal data remains outside the project in LocalAppData."
-  },
-  {
-    "lang": "en",
-    "title": "Dragging and font regression checks",
-    "pageTitle": "Project README",
-    "url": "en/readme.html#dragging-and-font-regression-checks",
-    "text": "Launch --interaction-test --data-dir with an absolute path to a dedicated empty test folder → log paths and progress → exercise immediate selection, quick release, repeated clicks followed by dragging, Shift and lost capture → verify text and timer pixels for three shapes at small sizes and large requested fonts → restore the test layout → write interaction-results.txt and exit. This mode must use a dedicated data folder, never a personal layout. Font rendering resolves the requested font and styles, falls back to Microsoft JhengHei UI when needed, computes the shape's content region and measures multiline text. A bounded binary search reduces the displayed size if needed; only complete lines are drawn and long content receives an ellipsis. Static output is cached. Saved font names and sizes are not changed. If the requested font lacks Chinese glyphs, the whole content run uses a font covering those characters so measurement and drawing remain consistent; supported English content keeps the selected font. Selection changes redraw only affected borders without rebuilding text or image caches. The 25 dragging/font checks are part of full Windows verification. The current total, including 18 language checks, is 166 Windows integration checks."
-  },
-  {
-    "lang": "en",
-    "title": "Demonstration video",
-    "pageTitle": "Project README",
-    "url": "en/readme.html#demonstration-video",
-    "text": "Watch the 30-second demonstration. record-demo.py is a development recording tool requiring Python, Pillow and FFmpeg; the app does not require them. It logs absolute executable, dedicated fixture and output paths, creates fictional data, launches a separate instance, replays actual Win32 selection, dragging and font controls, captures only that process's windows, encodes a 30-second H.264 MP4, validates saved positions and fonts, and exits its own instance. Frame progress is reported every second. The output is docs/DeskTiles-fixes-demo.mp4; its validation summary shares the filename with a .txt extension, and sample frames are stored in build/video-demo-*. --demo-capture --data-dir is explicitly enabled only for dedicated demonstration data; normal startup does not export tile PNGs."
-  },
-  {
-    "lang": "en",
-    "title": "Language switching implementation and verification",
-    "pageTitle": "Project README",
-    "url": "en/readme.html#language-switching-implementation-and-verification",
-    "text": "Build the Chinese/English strings in localization.hpp → connect the controller, dialogs, menus, tile state and errors → save the preference separately as ui-settings.json → capture pending edits → change labels and menu choices → restore values, selection and focus → redraw tiles → verify switching and preference persistence after an actual restart. Stages log progress and absolute paths. Language tests run --language-test with dedicated data, switch every window while preserving drafts and timers, simulate a locked preference file, restart into English, switch back and restart into Chinese, and check corrupt-file recovery without overwriting it. -FullEnglish runs all Windows functionality in English. Settings change only when Apply is explicitly pressed. The app sets Windows UI language preferences with SetThreadUILanguage; system file and color dialogs depend on the language resources installed in Windows."
+    "title": "Validation and source",
+    "pageTitle": "macOS guide",
+    "url": "en/mac.html#validation-and-source",
+    "text": "The project reports 170 core checks and AppKit integration checks on Apple silicon. The icon release also verifies standard/Retina icon decoding, Finder configuration, both executable architectures and the ad-hoc signature. The website publisher checks the supplied package and its SHA-256; it does not rerun Mac application tests. Source repository · macOS icon-release checks The original Chinese Mac README is available as a separate download. This English page is a website translation."
   }
 ]
