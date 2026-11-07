@@ -1,0 +1,17 @@
+/* Approved raster artwork: keep its full canvas, proportions and original colors. */
+.brand-logo{display:block;flex-shrink:0;width:180px}
+.brand-logo img{display:block;width:100%;height:auto;max-width:100%;image-rendering:auto}
+.site-header .brand{display:inline-flex;min-width:0;flex-shrink:0;gap:0}
+.hero #wordmark{display:block;width:100%;max-width:500px;height:auto;image-rendering:auto}
+.site-footer .footer-inner{flex-wrap:wrap;gap:18px}
+.footer-brand{display:inline-flex;flex-shrink:0}
+.footer-brand .brand-logo{width:144px}
+.blog-brand{flex-shrink:0}
+.blog-brand .brand-logo{width:180px}
+.blog-footer{align-items:center;flex-wrap:wrap}
+.blog-footer .brand-logo{width:144px}
+@media(max-width:720px){
+  .site-header .brand-logo,.blog-header .brand-logo{width:48px}
+  .site-header .header-inner{gap:12px}
+  .hero #wordmark{max-width:500px}
+}

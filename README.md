@@ -1,3 +1,19 @@
+## Nicoa'Lab 標準 Logo 網站替換（2026-11-07，待網站驗收）
+
+本批替換雙語首頁品牌入口、主視覺、頁尾，以及文章區品牌外框與 favicon。使用通用廣告部門已核准的黑框單字母與橫式原圖；個人介紹、作品、產品 Logo、服務海報和影片保持原內容。網站正式版仍為 v1.06，這次尚未部署。交付與核對見 [Logo 交付清單](brand-logo-delivery.md)，素材來源見 [品牌素材 README](assets/brand/README.md)。
+
+程式與流程（先列出絕對輸入／輸出，再顯示階段進度）：
+
+```powershell
+& 'C:\Users\nick5\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' build-brand-assets.py --source 'D:\VIDEOS\designs\nicoa-lab-brand-icon\standards'
+node sync-brand.mjs
+node check-site.mjs
+node check-pixel-homepages.mjs
+node check-blog.mjs
+node sync-google-tag.mjs --check
+```
+
+`build-brand-assets.py` 四階段核對兩份固定 SHA／尺寸、保存原始 PNG、LANCZOS 等比縮小並保存 lossless WebP／PNG、寫入逐檔清單；不裁切、改色或重繪。輸入為 `D:\VIDEOS\designs\nicoa-lab-brand-icon\standards\nicoa-lab-{symbol,wordmark}.png`，輸出為 `C:\Users\nick5\Documents\ChatGPT\Portfolio 網站設置\assets\brand`。`sync-brand.mjs` 三階段更新兩份首頁與三頁文章外框；`brand.mjs` 提供共用標記，`brand.css` 控制頁首／主視覺／頁尾比例與手機單字母來源。`serve.mjs` 白名單加入品牌清單及 WebP MIME。此流程不會自行推送或升版。
 ## DeskTiles v1.01 圖示與雙平台下載（網站 v1.06）
 
 本批整合既有遠端 Mac 下載更新，更新平滑圓角 Logo、兩平台 ZIP、雙語介紹與 Mac 指南，保留舊網址。使用者已授權本次更新與部署；網站正式版僅增加一次。建置與驗證流程、絕對輸入輸出、平台差異及已知限制見 [DeskTiles 維護說明](desktiles/README.md)，完整產出清單見 [發布交付](desktiles/release-delivery.md)。

@@ -1,0 +1,120 @@
+{
+  "brand": "Nicoa'Lab",
+  "sourceVersion": "v1.01",
+  "confirmation_id": "nicoa-lab-logo-standard-confirmation-20261107-01",
+  "method": "Proportional LANCZOS downsampling only; no crop, redraw, recolor or transparency edit.",
+  "assets": [
+    {
+      "path": "assets/brand/source/nicoa-lab-symbol.png",
+      "role": "symbol",
+      "source": "D:\\VIDEOS\\designs\\nicoa-lab-brand-icon\\standards\\nicoa-lab-symbol.png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 1433266,
+      "sha256": "79a19ca983aa4a02462b271d17a96dd0371809761f2ee3a098b7f43ce5ea1c90",
+      "original": true
+    },
+    {
+      "path": "assets/brand/source/nicoa-lab-wordmark.png",
+      "role": "wordmark",
+      "source": "D:\\VIDEOS\\designs\\nicoa-lab-brand-icon\\standards\\nicoa-lab-wordmark.png",
+      "width": 2172,
+      "height": 724,
+      "bytes": 1052786,
+      "sha256": "66b9272baf203eaf1e35a07d5fd3010b05714dbc3049c6e5f6bf32c4d49505b0",
+      "original": true
+    },
+    {
+      "path": "assets/brand/nicoa-lab-symbol-128.webp",
+      "role": "symbol",
+      "source": "D:\\VIDEOS\\designs\\nicoa-lab-brand-icon\\standards\\nicoa-lab-symbol.png",
+      "width": 128,
+      "height": 128,
+      "bytes": 6206,
+      "sha256": "d25e5e7145651a65229973014500b7c202317359713cc9893c8a9e3414f44e6d",
+      "original": false
+    },
+    {
+      "path": "assets/brand/nicoa-lab-symbol-256.webp",
+      "role": "symbol",
+      "source": "D:\\VIDEOS\\designs\\nicoa-lab-brand-icon\\standards\\nicoa-lab-symbol.png",
+      "width": 256,
+      "height": 256,
+      "bytes": 30060,
+      "sha256": "eb99ecc86f29c05cbd1e9d0ffa653270c098ac71438df7d6276e890f8670a216",
+      "original": false
+    },
+    {
+      "path": "assets/brand/nicoa-lab-wordmark-360.webp",
+      "role": "wordmark",
+      "source": "D:\\VIDEOS\\designs\\nicoa-lab-brand-icon\\standards\\nicoa-lab-wordmark.png",
+      "width": 360,
+      "height": 120,
+      "bytes": 24318,
+      "sha256": "0c0491f732f1dd4abb33d2c1f5f57b6d908da2cb7ae7797b3dec0e2fd3b25021",
+      "original": false
+    },
+    {
+      "path": "assets/brand/nicoa-lab-wordmark-720.webp",
+      "role": "wordmark",
+      "source": "D:\\VIDEOS\\designs\\nicoa-lab-brand-icon\\standards\\nicoa-lab-wordmark.png",
+      "width": 720,
+      "height": 240,
+      "bytes": 91660,
+      "sha256": "759c780fe540c4c2458fd4d193e4db98e7340ef62d6fd2107bc78adbda1d0ff5",
+      "original": false
+    },
+    {
+      "path": "assets/brand/nicoa-lab-wordmark-1440.webp",
+      "role": "wordmark",
+      "source": "D:\\VIDEOS\\designs\\nicoa-lab-brand-icon\\standards\\nicoa-lab-wordmark.png",
+      "width": 1440,
+      "height": 480,
+      "bytes": 317190,
+      "sha256": "70acfcb17ad950879e30a7103aa8a0ae2c969b4287a4db2c8d88cec614792682",
+      "original": false
+    },
+    {
+      "path": "assets/brand/nicoa-lab-symbol-32.png",
+      "role": "symbol",
+      "source": "D:\\VIDEOS\\designs\\nicoa-lab-brand-icon\\standards\\nicoa-lab-symbol.png",
+      "width": 32,
+      "height": 32,
+      "bytes": 918,
+      "sha256": "dfb0497d97d002709ae4e0575cdb99e543a9f270c36e55dbba16d85f25d8581f",
+      "original": false
+    },
+    {
+      "path": "assets/brand/nicoa-lab-symbol-64.png",
+      "role": "symbol",
+      "source": "D:\\VIDEOS\\designs\\nicoa-lab-brand-icon\\standards\\nicoa-lab-symbol.png",
+      "width": 64,
+      "height": 64,
+      "bytes": 2637,
+      "sha256": "2dd5ab0ff84f068941d5c4edfaedcfd6908a43b34b0979d1001983c581410caa",
+      "original": false
+    },
+    {
+      "path": "assets/brand/nicoa-lab-symbol-180.png",
+      "role": "symbol",
+      "source": "D:\\VIDEOS\\designs\\nicoa-lab-brand-icon\\standards\\nicoa-lab-symbol.png",
+      "width": 180,
+      "height": 180,
+      "bytes": 16321,
+      "sha256": "7bd5d0fe1035183b2353025e53e8497d56cee60b7d777eadfc138b8d8e6d2630",
+      "original": false
+    }
+  ],
+  "publicFiles": [
+    "assets/brand/source/nicoa-lab-symbol.png",
+    "assets/brand/source/nicoa-lab-wordmark.png",
+    "assets/brand/nicoa-lab-symbol-128.webp",
+    "assets/brand/nicoa-lab-symbol-256.webp",
+    "assets/brand/nicoa-lab-wordmark-360.webp",
+    "assets/brand/nicoa-lab-wordmark-720.webp",
+    "assets/brand/nicoa-lab-wordmark-1440.webp",
+    "assets/brand/nicoa-lab-symbol-32.png",
+    "assets/brand/nicoa-lab-symbol-64.png",
+    "assets/brand/nicoa-lab-symbol-180.png"
+  ]
+}
