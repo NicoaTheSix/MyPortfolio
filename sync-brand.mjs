@@ -16,7 +16,7 @@ for(const file of ['index.html','en/index.html']){
   html=html.replace('</head>',brandHead(href)+'</head>');
   assert(/<a class="brand"[^>]*>[\s\S]*?<\/a>/.test(html),'缺少品牌入口');
   html=html.replace(/<a class="brand"[^>]*>[\s\S]*?<\/a>/,`<a class="brand" href="#home" aria-label="Nicoa'Lab ${file.startsWith('en/')?'home':'首頁'}">${brandLogo(href)}</a>`);
-  const hero=`<h1 id="hero-heading"><img id="wordmark" src="${href('assets/brand/nicoa-lab-wordmark-720.webp')}" srcset="${href('assets/brand/nicoa-lab-wordmark-720.webp')} 720w, ${href('assets/brand/nicoa-lab-wordmark-1440.webp')} 1440w" sizes="(max-width:720px) 100vw, 50vw" alt="Nicoa'Lab" width="1440" height="480" fetchpriority="high"></h1>`;
+  const hero=`<h1 id="hero-heading"><img id="wordmark" src="${href('assets/brand/nicoa-lab-wordmark-transparent-720.webp')}" srcset="${href('assets/brand/nicoa-lab-wordmark-transparent-720.webp')} 720w, ${href('assets/brand/nicoa-lab-wordmark-transparent-1440.webp')} 1440w" sizes="(max-width:720px) 100vw, 50vw" alt="Nicoa'Lab" width="1440" height="480" fetchpriority="high"></h1>`;
   html=html.replace(/<h1 id="hero-heading">[\s\S]*?<\/h1>/,hero);
   html=html.replace(/<a class="footer-brand"[\s\S]*?<\/a>/g,'');
   html=html.replace('<div class="container footer-inner">',`<div class="container footer-inner"><a class="footer-brand" href="#home" aria-label="Nicoa'Lab">${brandLogo(href,false)}</a>`);

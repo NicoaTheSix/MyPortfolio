@@ -1,3 +1,11 @@
+# 現行品牌來源：v1.02 外圍透明版
+
+標準來源位於 `D:\VIDEOS\designs\nicoa-lab-brand-icon\standards`。已核對使用者核准 `nicoa-lab-logo-outside-alpha-confirmation-20261108-01`。目前工作區使用兩張 `nicoa-lab-{symbol,wordmark}-transparent.png` 的原圖副本及等比衍生檔；`source-manifest.json` 記錄 SHA、路徑與尺寸。使用獨立透明版檔名，讓瀏覽器直接請求新檔。
+
+`build-brand-assets.py` 不移除或重建底圖，只對既有 RGBA 圖進行等比 LANCZOS 縮小。重新解碼後驗證四角 alpha 為 0，中心 alpha 至少 250（核准原圖中央為 254），保留框內底色。所有當前尺寸與用途沿用歷史版下方表格，檔名加入 `-transparent-`。流程與命令見根目錄 README。
+
+以下為 v1.01 白底版歷史說明；不再用作現行品牌引用。
+
 # Nicoa'Lab 網站品牌素材
 
 使用者在通用廣告部門對話 01a16809-bb0c-7363-8d90-79bd1aa35481 明確核准單字母與橫式字標，並指示 Portfolio 換用此組。品牌素材版本 v1.01；來源確認 nicoa-lab-logo-standard-confirmation-20261107-01。此核准不代表網站排版已驗收或已部署。
