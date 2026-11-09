@@ -35,7 +35,7 @@ try {
     console.log('[0/4] 額外公開輸入 URL：',base.href);
   }
   const manifest=JSON.parse(await readFile(manifestFile,'utf8'));
-  const files=['index.html','en/index.html',...manifest.generatedHtml.map(file=>'fusion-studio/'+file)];
+  const files=['index.html','en/index.html','resume/index.html','resume/en/index.html',...manifest.generatedHtml.map(file=>'fusion-studio/'+file)];
   try {
     const desktiles=JSON.parse(await readFile(path.join(root,'desktiles/source-manifest.json'),'utf8'));
     files.push(...desktiles.generatedHtml.map(file=>'desktiles/'+file));
@@ -46,7 +46,7 @@ try {
   } catch(error) {if(error.code!=='ENOENT')throw error;}
   const documents=[];
   for(const file of files) {
-    assert(/^(?:index\.html|en\/index\.html|(?:fusion-studio|desktiles)\/(?:en\/|zh\/)?[a-z0-9-]+\.html|blog\/(?:[a-z0-9-]+\/)?index\.html)$/.test(file),'頁面路徑不符');
+    assert(/^(?:(?:en\/)?index\.html|(?:fusion-studio|desktiles)\/(?:en\/|zh\/)?[a-z0-9-]+\.html|blog\/(?:[a-z0-9-]+\/)?index\.html|resume\/(?:en\/)?index\.html)$/.test(file),'頁面路徑不符');
     console.log('[0/4] 頁面輸入'+(checkOnly||base?'':'／輸出')+'（絕對路徑）：',path.join(root,file));
     documents.push({file,html:await readFile(path.join(root,file),'utf8')});
   }

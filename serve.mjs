@@ -17,6 +17,7 @@ types['.xml']='application/xml; charset=utf-8';
 for(const file of ['en/index.html','assets/services-poster-en.png','assets/business-card-en.png','assets/office-services-poster.png','assets/office-services-poster-en.png'])publicFiles.add(file);
 publicFiles.add('service-cards.css');
 for(const file of ['home-pixel.css','home-pixel.js'])publicFiles.add(file);
+for(const file of ['resume/index.html','resume/en/index.html','resume/resume.css'])publicFiles.add(file);
 for (const file of ['pixel-prototype.html', 'pixel-prototype.css', 'pixel-prototype.js']) publicFiles.add(file);
 for (const file of ['pixel-automation.css', 'pixel-automation.js', ...['sprite.png','still.png','manifest.json'].map(suffix => `assets/automation-pixel-${suffix}`), 'assets/automation-pixel.gif']) publicFiles.add(file);
 for (const file of ['pixel-scenes.css','pixel-scenes.js','assets/gui-pixel-states.png','assets/api-pixel-sprite.png','assets/docs-pixel-sprite.png','assets/development-pixel.gif','assets/development-pixel-still.png','assets/development-pixel-manifest.json']) publicFiles.add(file);
