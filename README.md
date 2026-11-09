@@ -1,5 +1,7 @@
 ## 黑白像素工作室（本機預覽）
 
+首頁上方的語言列與主導覽共用一個置頂視窗。首屏的介紹、肖像和工作室共用黑色點陣背景。pixel-studio.css 先建立背景與視窗陰影，再於桌面尺寸加上不同相位的上下浮動；滑鼠移入或鍵盤焦點進入視窗時暫停該視窗。手機及減少動態模式保留陰影和層次，桌面亦可用原有的「暫停動畫」停止浮動。首屏由 index.html 與 en/index.html 共用相同結構。
+
 中英文首頁的「進入像素工作室」連到 #studio。桌面版往下捲動時，點陣背景和像素電腦以不同速度移動，電腦同步放大；往回捲時效果反向。手機改用靜態場景和單欄視窗。系統減少動態或頁尾「暫停動畫」會停用此轉場。
 
 雙語文案及連結由 index.html、en/index.html 維護。作品、文章與履歷視窗使用原生 details，預設展開，可按標題列或以 Enter／Space 獨立收合。共用像素電腦圖放在 assets/pixel-studio-desk.svg，構圖、分層和響應式版面由本目錄 pixel-studio.css 控制。home-pixel.js 先列出輸入頁面、前端、樣式、SVG 與 #studio 輸出 DOM 的絕對 URL，再分兩階段確認視窗與捲動效果；轉場與原有閱讀進度共用每幀更新。
@@ -21,6 +23,7 @@ node sync-google-tag.mjs --check
 ~~~
 
 本機預覽截圖放在同目錄的 .preview 資料夾，檔名為 pixel-studio-desktop.jpg、pixel-studio-windows.jpg 與 pixel-studio-mobile.jpg。
+首屏浮動修訂的桌面與手機截圖分別為 pixel-studio-floating-home-desktop.jpg 與 pixel-studio-floating-home-mobile.jpg。
 
 ## 雙語履歷頁（2026-11-09，v1.09）
 
