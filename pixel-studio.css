@@ -36,6 +36,7 @@ body:has(.studio-toolbar) {
   opacity: .6;
   pointer-events: none;
 }
+.studio-fixed-backdrop.is-muted { opacity: .12; }
 .studio-page :is(.about-section, .contact-section) { background: rgb(17 17 17 / .94); }
 
 .home-float-stage {
@@ -133,6 +134,17 @@ body:has(.studio-toolbar) {
 }
 #services .service-card:not(.is-window-closed) {
   box-shadow: 7px 7px 0 #d6d6d6, 11px 13px 0 #f1f1f1;
+}
+#services .service-card .retro-caption { white-space: normal; overflow-wrap: anywhere; }
+#services .service-card .poster-utility { align-items: center; flex-wrap: wrap; }
+#services .service-card .poster-utility .poster-switch {
+  position: static;
+  flex-shrink: 0;
+  box-shadow: none;
+}
+#services .service-card.is-window-small { align-self: start; }
+#services .service-card.is-window-small :is(.poster-utility, .service-card-content, .poster-title, .poster-title-colour) {
+  display: none;
 }
 @media (min-width: 721px) and (prefers-reduced-motion: no-preference) {
   :is(.home-float-stage .hero-copy, .home-float-stage .portrait-window, .studio-window, .studio-piece--keyboard, .studio-piece--mouse, .studio-piece--mug, .studio-piece--notebook) {

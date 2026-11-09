@@ -18,6 +18,7 @@
   console.info('[復古視窗 1/3] 已找到視窗：', panels.length);
   for (const panel of panels) {
     const name = panel.dataset.windowTitle;
+    const poster = panel.querySelector('.poster-frame');
     const caption = panel.querySelector(':scope > .retro-caption') || document.createElement('span');
     caption.className = 'retro-caption';
     caption.textContent = panel.id === 'portrait-window' ? 'about_nicoa.png' : name;
@@ -61,7 +62,10 @@
     const updateWindow = () => {
       body.hidden = minimized || !reopen.hidden;
       panel.classList.toggle('is-window-minimized', minimized);
-      panel.classList.toggle('is-window-small', small);
+      if (panel.classList.contains('is-window-small') !== small) {
+        panel.classList.toggle('is-window-small', small);
+        poster?.dispatchEvent(new Event('poster-compact-change'));
+      }
       minimize.setAttribute('aria-expanded', String(!minimized));
       minimize.textContent = minimized ? '+' : '−';
       zoom.setAttribute('aria-pressed', String(small));
@@ -118,6 +122,8 @@
   console.info('[正式像素 2/3] 像素階梯進場與重播完成。');
   const progress=document.querySelector('#reading-progress');
   const studio=document.querySelector('.studio-stage');
+  const studioRoom = document.querySelector('.studio-room');
+  const backdrop = document.querySelector('.studio-fixed-backdrop');
   const studioWide=matchMedia('(min-width: 721px)');
   if(studio){
     console.info('[像素工作室 0/2] 輸入絕對 URL：',location.href,
@@ -128,6 +134,10 @@
   let queued=false, lastStudioDepth;
   const draw=()=>{
     const range=document.documentElement.scrollHeight-innerHeight;
+    if (backdrop && studioRoom) {
+      const lightContentBehindTerminal = studioRoom.getBoundingClientRect().bottom < backdrop.getBoundingClientRect().top;
+      backdrop.classList.toggle('is-muted', lightContentBehindTerminal);
+    }
     if(studio&&studioWide.matches&&!paused&&!preference.matches){
       const top=studio.getBoundingClientRect().top;
       const depth=Math.min(1,Math.max(0,(.9-top/innerHeight)/1.12));

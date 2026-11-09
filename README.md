@@ -1,5 +1,7 @@
 ## 黑白像素工作室（本機預覽）
 
+服務視窗的方框鈕可縮小和還原。正常大小保留動畫、標題懸停／點選變色和卡片文字。縮小時兩支海報程式會停止播放並只顯示原圖，樣式同時收起操作列和下方內容。還原後回到該海報先前選擇的原圖或動畫，播放設定及影格會保留。海報的顯示切換位於圖下，避免英文按鈕和標題感應區重疊。背景終端機進入淺色內容區時調低不透明度，位置依然固定。
+
 雙語首頁各有一組固定的背景終端機和電腦桌，從首屏到其他區塊都留在同一個螢幕位置。assets/pixel-studio-desk.svg 提供終端機、電腦桌、鍵盤、滑鼠、馬克杯與筆記本的個別檢視範圍。pixel-studio.css 先安排後方的固定圖層，再將肖像和小物留在正常捲動的首屏。每張服務卡和頁尾四個社群圖示以不同時序浮動，並遵循「暫停動畫」與系統減少動態設定。社群連結以平台圖示呈現，連結名稱保留給輔助技術。
 
 首頁上方的語言列與主導覽共用一個置頂視窗。首屏的介紹、肖像和工作室共用黑色點陣背景。pixel-studio.css 先建立背景與視窗陰影，再於桌面尺寸加上不同相位的上下浮動；滑鼠移入或鍵盤焦點進入視窗時暫停該視窗。手機及減少動態模式保留陰影和層次，桌面亦可用原有的「暫停動畫」停止浮動。首屏由 index.html 與 en/index.html 共用相同結構。
@@ -28,6 +30,7 @@ node sync-google-tag.mjs --check
 首屏浮動修訂的桌面與手機截圖分別為 pixel-studio-floating-home-desktop.jpg 與 pixel-studio-floating-home-mobile.jpg。
 分層桌面、工作室電腦桌和服務卡的驗收截圖分別為 pixel-studio-layered-home.jpg、pixel-studio-layered-desk.jpg 與 pixel-studio-layered-services.jpg。
 復古視窗與社群圖示的驗收截圖分別為 pixel-studio-retro-windows.jpg 與 pixel-studio-social-icons.jpg。
+英文服務卡正常大小與縮小狀態的對照截圖為 pixel-studio-service-zoom.jpg。
 
 ## 雙語履歷頁（2026-11-09，v1.09）
 

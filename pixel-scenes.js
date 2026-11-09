@@ -15,13 +15,17 @@
   const counter = document.querySelector('#pixel-frame');
   const preference = matchMedia('(prefers-reduced-motion: reduce)');
   const poster = document.querySelector('#development-poster-frame');
+  const serviceCard = poster.closest('.service-card');
   const original = document.querySelector('#poster-original');
   const animated = document.querySelector('#poster-animated');
   const controls = document.querySelector('#scene-controls');
   const title = document.querySelector('#poster-title');
+  const utility = serviceCard?.querySelector('.poster-utility');
+  if (utility) utility.prepend(original.closest('.poster-switch'));
   title.addEventListener('click',() => title.setAttribute('aria-pressed',String(title.getAttribute('aria-pressed')!=='true')));
   const CROP = {x:8,y:28,width:240,height:122};
-  let view = 'original';
+  let view = 'animated';
+  let animationReady = false;
   let frame = preference.matches ? 20 : 0;
   let paused = false;
   let visible = true;
@@ -33,8 +37,8 @@
   };
   const setView = next => {
     view = next;
-    const isOriginal = view === 'original';
-    poster.dataset.view = view;
+    const isOriginal = !animationReady || view === 'original' || serviceCard?.classList.contains('is-window-small') === true;
+    poster.dataset.view = isOriginal ? 'original' : 'animated';
     gallery.hidden = isOriginal;
     original.setAttribute('aria-pressed',String(isOriginal));
     animated.setAttribute('aria-pressed',String(!isOriginal));
@@ -44,7 +48,8 @@
     console.info('[四格像素 狀態] 海報模式：',isOriginal ? '原圖' : '動畫');
   };
   original.addEventListener('click',() => setView('original'));
-  setView('original');
+  poster.addEventListener('poster-compact-change', () => setView(view));
+  setView(view);
   const loadImage = source => new Promise((resolve,reject) => {
     const image = new Image();
     image.addEventListener('load',() => resolve(image),{once:true});
@@ -124,7 +129,8 @@
     });
     animated.disabled = false;
     animated.addEventListener('click',() => {setView('animated');fit();draw();});
-    setView('animated');
+    animationReady = true;
+    setView(view);
     play.disabled = step.disabled = seek.disabled = false;
     fit(); draw(); updatePlay();
     controls.closest('[data-animation-tools]')?.removeAttribute('hidden');
@@ -140,7 +146,7 @@
     seek.addEventListener('input',() => {paused=true;frame=Number(seek.value);draw();updatePlay();});
     console.info('[四格像素 4/5] 原圖構圖、粉黃標題、模式切換、暫停及全站偏好連動完成。');
     setInterval(() => {
-      if (view==='animated' && !paused && !stoppedGlobally() && visible && !document.hidden) {frame=(frame+1)%24;draw();}
+      if (poster.dataset.view==='animated' && !paused && !stoppedGlobally() && visible && !document.hidden) {frame=(frame+1)%24;draw();}
     },125);
     console.info('[四格像素 5/5] 每秒八格循環就緒；GUI 反白獨立回應操作。');
   };
