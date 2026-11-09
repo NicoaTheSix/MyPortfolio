@@ -46,10 +46,35 @@
     const logo=document.querySelector('.hero h1');logo.style.animation='none';void logo.offsetWidth;logo.style.animation='';
   });
   console.info('[正式像素 2/3] 像素階梯進場與重播完成。');
-  const progress=document.querySelector('#reading-progress');let queued=false;
-  const draw=()=>{const range=document.documentElement.scrollHeight-innerHeight;progress.style.width=`${range>0?Math.min(100,Math.max(0,100*scrollY/range)):0}%`;queued=false;};
+  const progress=document.querySelector('#reading-progress');
+  const studio=document.querySelector('.studio-stage');
+  const studioWide=matchMedia('(min-width: 721px)');
+  if(studio){
+    console.info('[像素工作室 0/2] 輸入絕對 URL：',location.href,
+      ...['home-pixel.js','pixel-studio.css','assets/pixel-studio-desk.svg'].map(file=>new URL(file,base).href));
+    console.info('[像素工作室 0/2] 輸出絕對 URL：',new URL('#studio',location.href).href,'場景 CSS 變數與視窗 DOM。');
+    console.info('[像素工作室 1/2] 桌面場景與原生收合視窗就緒。');
+  }
+  let queued=false, lastStudioDepth;
+  const draw=()=>{
+    const range=document.documentElement.scrollHeight-innerHeight;
+    if(studio&&studioWide.matches&&!paused&&!preference.matches){
+      const top=studio.getBoundingClientRect().top;
+      const depth=Math.min(1,Math.max(0,(.9-top/innerHeight)/1.12));
+      if(depth!==lastStudioDepth){
+        studio.style.setProperty('--studio-sky-offset',Math.round(52*depth)+'px');
+        studio.style.setProperty('--studio-desk-offset',Math.round(44-56*depth)+'px');
+        studio.style.setProperty('--studio-desk-scale',(.82+.27*depth).toFixed(3));
+        lastStudioDepth=depth;
+      }
+    }
+    progress.style.width=(range>0?Math.min(100,Math.max(0,100*scrollY/range)):0)+'%';
+    queued=false;
+  };
   const schedule=()=>{if(!queued){queued=true;requestAnimationFrame(draw);}};
   addEventListener('scroll',schedule,{passive:true});addEventListener('resize',schedule);addEventListener('load',schedule);
+  toggle.addEventListener('click',schedule);preference.addEventListener('change',schedule);
   if('ResizeObserver'in window)new ResizeObserver(schedule).observe(document.body);
   draw();console.info('[正式像素 3/3] 閱讀進度與正式首頁動畫就緒。');
+  if(studio)console.info('[像素工作室 2/2] 捲動轉場、手機靜態場景與減少動態設定就緒。');
 })();

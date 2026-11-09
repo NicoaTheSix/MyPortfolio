@@ -1,3 +1,27 @@
+## 黑白像素工作室（本機預覽）
+
+中英文首頁的「進入像素工作室」連到 #studio。桌面版往下捲動時，點陣背景和像素電腦以不同速度移動，電腦同步放大；往回捲時效果反向。手機改用靜態場景和單欄視窗。系統減少動態或頁尾「暫停動畫」會停用此轉場。
+
+雙語文案及連結由 index.html、en/index.html 維護。作品、文章與履歷視窗使用原生 details，預設展開，可按標題列或以 Enter／Space 獨立收合。共用像素電腦圖放在 assets/pixel-studio-desk.svg，構圖、分層和響應式版面由本目錄 pixel-studio.css 控制。home-pixel.js 先列出輸入頁面、前端、樣式、SVG 與 #studio 輸出 DOM 的絕對 URL，再分兩階段確認視窗與捲動效果；轉場與原有閱讀進度共用每幀更新。
+
+從本目錄執行以下命令，依序啟動預覽及檢查。serve.mjs 會先列出絕對輸入目錄及本機輸出 URL，再回報預覽進度。
+
+~~~powershell
+$env:PORT = '4202'
+node serve.mjs
+~~~
+
+另開終端執行以下檢查。開啟 http://127.0.0.1:4202/MyPortfolio/ 或 http://127.0.0.1:4202/MyPortfolio/en/，從首屏向下捲動，確認轉場、視窗收合、雙語連結及手機單欄。
+
+~~~powershell
+node --check home-pixel.js
+node check-site.mjs
+node check-pixel-homepages.mjs --url http://127.0.0.1:4202/MyPortfolio/
+node sync-google-tag.mjs --check
+~~~
+
+本機預覽截圖放在同目錄的 .preview 資料夾，檔名為 pixel-studio-desktop.jpg、pixel-studio-windows.jpg 與 pixel-studio-mobile.jpg。
+
 ## 雙語履歷頁（2026-11-09，v1.09）
 
 首頁新增履歷入口，連到中文 /resume/ 或英文 /resume/en/。公開版依使用者的履歷整理學歷、研究、專案、技術與求職方向。維持 Nicoa The Six 的公開名稱，原始 PDF 與私密欄位不進網站。使用者確認部署後，本批正式版本由 v1.08 升為 v1.09。
