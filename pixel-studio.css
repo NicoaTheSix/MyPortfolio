@@ -92,9 +92,13 @@ body:has(.studio-toolbar) {
 .home-float-stage .hero-copy h1 { margin-top: 0; }
 .home-float-stage .hero-actions { flex-wrap: wrap; }
 .home-float-stage .skill-strip { flex-wrap: wrap; row-gap: 8px; }
-.home-float-stage .hero-art { isolation: isolate; color: #fff; padding-top: 0; }
+.home-float-stage .hero-art {
+  aspect-ratio: 560 / 465;
+  isolation: isolate;
+  color: #fff;
+  padding-top: 0;
+}
 .home-float-stage .hero-art::after { display: none; }
-.home-float-stage .hero-art > .studio-workstation { z-index: 0; pointer-events: none; }
 .home-float-stage .portrait-window {
   position: absolute;
   z-index: 3;
@@ -110,8 +114,9 @@ body:has(.studio-toolbar) {
   left: 2%;
   margin: 0;
 }
-.home-float-stage .hero-art .spark-one { right: 3%; top: 3%; }
-.home-float-stage .hero-art .spark-two { right: 2%; bottom: 14%; }
+.studio-fixed-backdrop .art-spark { color: #fff; }
+.studio-fixed-backdrop .spark-one { right: 3%; top: 3%; }
+.studio-fixed-backdrop .spark-two { right: 2%; bottom: 14%; }
 
 @keyframes studio-float {
   0%, 100% { translate: 0 0; }
@@ -232,14 +237,12 @@ body:has(.studio-toolbar) {
   height: auto;
   pointer-events: none;
 }
-.studio-piece--terminal { z-index: 0; top: 7%; left: 34%; width: 57%; aspect-ratio: 320 / 240; }
+.studio-piece--terminal { z-index: 0; top: 12%; left: 38%; width: 57%; aspect-ratio: 320 / 240; }
 .studio-piece--desk { z-index: 1; top: 53%; left: 0; width: 100%; aspect-ratio: 560 / 214; }
-.studio-piece--keyboard { z-index: 2; top: 53%; left: 33%; width: 38%; aspect-ratio: 232 / 50; }
-.studio-piece--mouse { z-index: 2; top: 54%; left: 75%; width: 8%; aspect-ratio: 42 / 40; }
-.studio-piece--mug { z-index: 2; top: 43%; left: 12%; width: 10%; aspect-ratio: 52 / 63; }
-.studio-piece--notebook { z-index: 2; top: 51%; left: 85%; width: 11%; aspect-ratio: 56 / 42; }
-.studio-fixed-backdrop .studio-piece--terminal { left: 38%; width: 57%; top: 12%; }
-.hero-art .studio-piece--mug { top: 43%; left: 62%; }
+.studio-piece--keyboard { z-index: 2; top: 55%; left: 49%; width: 32%; aspect-ratio: 232 / 50; }
+.studio-piece--mouse { z-index: 2; top: 56%; left: 84%; width: 8%; aspect-ratio: 42 / 40; }
+.studio-piece--mug { z-index: 2; top: 43%; left: 28%; width: 10%; aspect-ratio: 52 / 63; }
+.studio-piece--notebook { z-index: 2; top: 53%; left: 17%; width: 11%; aspect-ratio: 56 / 42; }
 
 .studio-desktop { padding-block: 0 clamp(38px, 6vw, 76px); }
 .studio-desktop-header {
