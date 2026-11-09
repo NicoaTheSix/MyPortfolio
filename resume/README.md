@@ -10,4 +10,4 @@
 
 預覽用 `$env:PORT='4202'; node serve.mjs`，開啟 `http://127.0.0.1:4202/MyPortfolio/resume/`。執行 `node check-site.mjs`、`node check-pixel-homepages.mjs` 和 `node sync-google-tag.mjs --check`。本批也比對本機 HTTP 內容與站內錨點，並以桌面及 320px 手機視窗檢查語言切換與首頁入口。
 
-目前為本機驗收版本；未推送正式網站。交付檔案及預覽見根目錄 `resume-delivery.md`。
+此履歷隨網站 v1.09 發布。交付檔案及預覽見根目錄 `resume-delivery.md`。

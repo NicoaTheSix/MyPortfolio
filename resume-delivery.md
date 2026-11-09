@@ -1,8 +1,8 @@
 # 履歷頁交付
 
-本批為雙語履歷及兩個首頁入口。正式 v1.08 維持不變，尚未部署。工作快照標記：snapshot/portfolio-resume-20261109/r01。
+本批為雙語履歷及兩個首頁入口。使用者已確認部署，發布版本由 v1.08 升為 v1.09。正式網址為 https://nicoathesix.github.io/MyPortfolio/resume/，實際部署及核對見中央活動紀錄。工作快照標記：snapshot/portfolio-resume-20261109/r01。
 
-中文預覽：http://127.0.0.1:4202/MyPortfolio/resume/  
+中文預覽：http://127.0.0.1:4202/MyPortfolio/resume/
 英文預覽：http://127.0.0.1:4202/MyPortfolio/resume/en/
 
 已核對三頁來源內容。公開版沿用 Nicoa The Six，保留學歷、CICS 2025 研究發表、TTP Selection Studio、技能與求職方向。私人電話、住址、健康資料、原始 PDF 及其附件未納入網站。履歷的「聯絡我」指向既有公開聯絡區。
@@ -25,3 +25,4 @@
 | [resume-delivery.md](<C:\Users\nick5\Documents\ChatGPT\Portfolio 網站設置\resume-delivery.md>) | 新增：交付紀錄 |
 | [.preview/resume-desktop-20261109.png](<C:\Users\nick5\Documents\ChatGPT\Portfolio 網站設置\.preview\resume-desktop-20261109.png>) | 新增：中文桌面預覽 |
 | [.preview/resume-mobile-20261109.png](<C:\Users\nick5\Documents\ChatGPT\Portfolio 網站設置\.preview\resume-mobile-20261109.png>) | 新增：英文手機預覽 |
+| [VERSION](<C:\Users\nick5\Documents\ChatGPT\Portfolio 網站設置\VERSION>) | 修改：正式網站版本 |
