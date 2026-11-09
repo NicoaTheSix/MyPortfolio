@@ -1,5 +1,7 @@
 ## 黑白像素工作室（本機預覽）
 
+右側首屏與下方工作室共用六個 SVG 圖層。assets/pixel-studio-desk.svg 依序提供終端機、完整桌板與桌腳及抽屜、鍵盤、滑鼠、馬克杯、筆記本的各自檢視範圍，雙語首頁以獨立圖片引用。pixel-studio.css 先設定後方終端機、桌子、前方小物及肖像的固定疊放順序，再套用不同相位的浮動與背景粒子。每張服務卡有自己的浮動時序；手機縮小服務卡的位移，使用原有的「暫停動畫」或系統減少動態時保留靜態構圖。
+
 首頁上方的語言列與主導覽共用一個置頂視窗。首屏的介紹、肖像和工作室共用黑色點陣背景。pixel-studio.css 先建立背景與視窗陰影，再於桌面尺寸加上不同相位的上下浮動；滑鼠移入或鍵盤焦點進入視窗時暫停該視窗。手機及減少動態模式保留陰影和層次，桌面亦可用原有的「暫停動畫」停止浮動。首屏由 index.html 與 en/index.html 共用相同結構。
 
 中英文首頁的「進入像素工作室」連到 #studio。桌面版往下捲動時，點陣背景和像素電腦以不同速度移動，電腦同步放大；往回捲時效果反向。手機改用靜態場景和單欄視窗。系統減少動態或頁尾「暫停動畫」會停用此轉場。
@@ -24,6 +26,7 @@ node sync-google-tag.mjs --check
 
 本機預覽截圖放在同目錄的 .preview 資料夾，檔名為 pixel-studio-desktop.jpg、pixel-studio-windows.jpg 與 pixel-studio-mobile.jpg。
 首屏浮動修訂的桌面與手機截圖分別為 pixel-studio-floating-home-desktop.jpg 與 pixel-studio-floating-home-mobile.jpg。
+分層桌面、工作室電腦桌和服務卡的驗收截圖分別為 pixel-studio-layered-home.jpg、pixel-studio-layered-desk.jpg 與 pixel-studio-layered-services.jpg。
 
 ## 雙語履歷頁（2026-11-09，v1.09）
 

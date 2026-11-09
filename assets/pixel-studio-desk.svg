@@ -1,4 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 360" shape-rendering="crispEdges">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 214" shape-rendering="crispEdges">
+  <view id="desk" viewBox="0 0 560 214"/>
+  <view id="terminal" viewBox="0 240 320 240"/>
+  <view id="keyboard" viewBox="0 500 232 50"/>
+  <view id="mouse" viewBox="240 500 42 40"/>
+  <view id="mug" viewBox="300 500 52 63"/>
+  <view id="notebook" viewBox="370 500 56 42"/>
   <defs>
     <pattern id="dots" width="6" height="6" patternUnits="userSpaceOnUse">
       <path fill="#777" d="M0 0h2v2H0zM3 3h2v2H3z"/>
@@ -7,20 +13,26 @@
       <path fill="#363636" d="M0 5h4v1H0z"/>
     </pattern>
   </defs>
-  <!-- Floor, wall details, and the desk sit behind the terminal. -->
-  <g fill="none" stroke="#454545">
-    <path d="M14 307h532M2 323h556M0 343h560M0 359h560"/>
-    <path d="M202 289 64 360m184-71-49 71m113-71 49 71m-3-71 138 71"/>
-    <path stroke-dasharray="3 5" d="M58 37h444M58 261h444M58 37v224m444-224v224"/>
+  <!-- Worktable with a deep top, legs, support rail and drawer pedestal. -->
+  <g>
+    <path fill="none" stroke="#454545" d="M18 179h524M6 196h548M0 212h560M110 156 55 214m160-58-24 58m155-58 24 58m81-58 57 58"/>
+    <path fill="#5c5c5c" stroke="#bbb" stroke-width="2" d="M104 48h19v119h-19zm362 0h19v119h-19z"/>
+    <path fill="#626262" stroke="#aaa" stroke-width="2" d="M84 136h393v11H84z"/>
+    <path fill="#888" stroke="#111" stroke-width="4" d="M66 48h26v137H66zm390 0h24v138h-24z"/>
+    <path fill="#d6d6d6" d="M69 53h8v129h-8zm391 0h6v130h-6z"/>
+    <path fill="#777" stroke="#111" stroke-width="3" d="M350 47h113v128l-14 11H350z"/>
+    <path fill="#cfcfcf" stroke="#111" stroke-width="3" d="M341 49h107v130H341z"/>
+    <path fill="#eee" stroke="#494949" stroke-width="2" d="M349 62h90v29h-90zm0 35h90v29h-90zm0 35h90v36h-90z"/>
+    <path fill="#111" d="M384 70h21v4h-21zm0 35h21v4h-21zm0 35h21v4h-21z"/>
+    <path fill="url(#dots)" d="M342 170h105v8H342z"/>
+    <path fill="#999" stroke="#111" stroke-width="4" d="M66 8h428l43 29v20H23V37z"/>
+    <path fill="#e4e4e4" stroke="#111" stroke-width="3" d="M67 8h426l44 29H23z"/>
+    <path fill="url(#dots)" d="M27 42h506v12H27z"/>
+    <path fill="#f1f1f1" d="M25 38h510v4H25z"/>
+    <path fill="#c6c6c6" d="M66 13h424l11 7H56z"/>
   </g>
-  <g fill="#9f9f9f">
-    <path d="M48 45h6v-6h4v6h6v4h-6v6h-4v-6h-6zM492 87h7v-7h4v7h7v4h-7v7h-4v-7h-7zM99 120h4v-4h4v4h4v4h-4v4h-4v-4h-4z"/>
-    <path d="M469 50h4v4h-4zM85 196h4v4h-4zM520 151h4v4h-4zM461 190h4v4h-4z"/>
-  </g>
-  <path fill="#101010" stroke="#a9a9a9" stroke-width="2" d="M57 276h446v6h15v19H42v-19h15z"/>
-  <path fill="url(#dots)" d="M43 292h474v8H43z"/>
-  <path fill="#dedede" d="M43 285h474v3H43z"/>
-  <!-- CRT casing and recessed phosphor display. -->
+  <!-- Terminal and computer case share the rear layer. -->
+  <g transform="translate(-104 192)">
   <path fill="#777" stroke="#111" stroke-width="4" d="M147 59h239v5h13v7h11v13h7v123h-8v14h-12v8H149v-7h-14V69h12z"/>
   <path fill="url(#dots)" d="M389 70h10v10h10v127h-8v14h-14z"/>
   <path fill="#eee" stroke="#111" stroke-width="4" d="M131 54h246v7h11v13h7v132h-7v11h-12v7H131v-7h-12v-12h-7V74h7V62h12z"/>
@@ -34,25 +46,31 @@
   </g>
   <path fill="#aaa" d="M152 172h18v3h-18zM174 172h8v3h-8z"/>
   <path fill="#111" d="M342 209h16v5h-16zM367 209h8v5h-8z"/>
-  <!-- Computer base, keyboard and mouse. -->
   <path fill="#999" stroke="#111" stroke-width="4" d="M137 224h245l22 15v28H118v-29z"/>
   <path fill="#ddd" stroke="#111" stroke-width="4" d="M127 228h252l11 13v28H113v-28z"/>
   <path fill="url(#dots)" d="M119 257h267v8H119z"/>
   <path fill="#111" d="M128 245h13v10h-13zM149 245h7v5h-7zM165 245h7v5h-7zM297 244h73v10h-73z"/>
   <path fill="#ddd" d="M302 247h62v3h-62z"/>
+  </g>
+  <g transform="translate(-140 225)">
   <path fill="#aaa" stroke="#111" stroke-width="3" d="M168 281h174l24 27v11H145v-11z"/>
   <path fill="#111" d="M169 287h172l15 19H154z"/>
   <path fill="none" stroke="#eee" stroke-width="3" stroke-dasharray="7 4" d="M169 291h172m-176 6h181m-186 6h188"/>
   <path fill="#eee" d="M221 301h60v4h-60z"/>
-  <path fill="none" stroke="#bcbcbc" stroke-width="2" d="M390 268h12v10h15v9"/>
+  </g>
+  <g transform="translate(-164 220)">
   <path fill="#ddd" stroke="#111" stroke-width="3" d="M415 283h17v5h5v17h-5v5h-17v-5h-5v-17h5z"/>
   <path stroke="#111" stroke-width="2" d="M424 283v10m-13 1h25"/>
-  <!-- A small mug and notebook. -->
+  </g>
+  <g transform="translate(237 286)">
   <path fill="#ddd" stroke="#111" stroke-width="3" d="M68 237h32v8h8v17h-8v9H68z"/>
   <path fill="#111" d="M100 250h4v8h-4zM72 240h24v3H72z"/>
   <path fill="url(#dots)" d="M70 257h27v12H70z"/>
   <path fill="none" stroke="#aaa" stroke-width="2" d="M78 232v-5h4v-6m8 11v-5h4v-6"/>
+  </g>
+  <g transform="translate(-79 243)">
   <path fill="#999" stroke="#111" stroke-width="3" d="M459 258h27v5h5v18h-38v-18h6z"/>
   <path fill="#eee" d="M458 266h28v9h-28z"/>
   <path fill="#111" d="M462 268h19v2h-19zm0 4h13v2h-13z"/>
+  </g>
 </svg>
