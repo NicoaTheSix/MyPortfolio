@@ -31,6 +31,7 @@ body:has(.studio-toolbar)::before {
 
 .studio-page { position: relative; isolation: isolate; }
 .studio-fixed-backdrop {
+  --studio-scene-opacity: .53;
   position: fixed;
   z-index: -2;
   inset: 0;
@@ -44,9 +45,10 @@ body:has(.studio-toolbar)::before {
   right: max(0px, calc((100vw - 1280px) / 2));
   width: min(100%, 1350px);
   height: calc(var(--studio-desk-width) * .8);
-  opacity: .53;
+  opacity: var(--studio-scene-opacity);
 }
-.studio-space-model :is(img, canvas) {
+.studio-space-model img,
+.studio-space-canvas {
   position: absolute;
   inset: 0;
   display: block;
@@ -54,9 +56,12 @@ body:has(.studio-toolbar)::before {
   height: 100%;
 }
 .studio-space-model img { inset-inline-start: auto; width: var(--studio-desk-width); }
-.studio-space-model canvas,
-.studio-fixed-backdrop[data-renderer="webgl"] .studio-space-model img { visibility: hidden; }
-.studio-fixed-backdrop[data-renderer="webgl"] canvas { visibility: visible; }
+.studio-space-canvas { visibility: hidden; opacity: var(--studio-scene-opacity); }
+.studio-fixed-backdrop[data-renderer="webgl"] .studio-space-canvas { visibility: visible; }
+.studio-fixed-backdrop[data-renderer="webgl"] :is(.studio-space-model img, .studio-space-particles) {
+  visibility: hidden;
+  animation: none;
+}
 .studio-space-caption {
   position: absolute;
   color: #a3a3a3;
@@ -112,7 +117,7 @@ body:has(.studio-toolbar)::before {
 .studio-space-particles {
   position: absolute;
   z-index: -1;
-  inset: -70px;
+  inset: 0;
   background:
     radial-gradient(circle at 13% 28%, #fff 0 1px, transparent 2px),
     radial-gradient(circle at 34% 74%, #aaa 0 1px, transparent 2px),
@@ -122,7 +127,6 @@ body:has(.studio-toolbar)::before {
   background-size: 353px 251px, 467px 319px, 523px 419px, 617px 283px, 433px 337px;
   opacity: .43;
   pointer-events: none;
-  transform: translateY(var(--space-particle-shift, 0px));
 }
 .home-float-stage .hero {
   grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
@@ -183,8 +187,8 @@ body:has(.studio-toolbar)::before {
   50% { translate: 0 var(--studio-lift, -10px); }
 }
 @keyframes studio-particles {
-  0%, 100% { translate: 0 0; opacity: .35; }
-  50% { translate: 16px -24px; opacity: .62; }
+  0%, 100% { opacity: .25; }
+  50% { opacity: .62; }
 }
 @media (prefers-reduced-motion: no-preference) {
   .studio-space-particles { animation: studio-particles 18s ease-in-out infinite; }
@@ -435,12 +439,12 @@ body:has(.studio-toolbar)::before {
   .home-float-stage .hero-art { width: 100%; max-width: 430px; }
   .home-float-stage .portrait-window { min-width: 132px; box-shadow: 5px 5px 0 #666; }
   #services .service-card { --studio-lift: -4px; }
+  .studio-fixed-backdrop { --studio-scene-opacity: .36; }
   .studio-space-model {
     --studio-desk-width: min(94vw, 520px);
     width: var(--studio-desk-width);
     right: 2vw;
     top: 28vh;
-    opacity: .36;
   }
   .studio-space-caption { opacity: .22; }
   .studio-space-caption:nth-of-type(3) { left: 63%; }
