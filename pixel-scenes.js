@@ -4,9 +4,9 @@
   const base = new URL('.', document.currentScript.src);
   const en = document.documentElement.lang === 'en';
   const t = (zh, english) => en ? english : zh;
-  const manifestURL = new URL('assets/development-pixel-manifest.json', base);
+  const assetBase = new URL('assets/', base);
   console.info('[四格像素 0/5] 輸入頁面（絕對 URL）：', location.href);
-  for (const file of ['pixel-scenes.js','pixel-scenes.css','assets/development-pixel-manifest.json',`assets/service-development-${en?'en':'zh'}.png`,'assets/gui-pixel-states.png','assets/automation-pixel-sprite.png','assets/api-pixel-sprite.png','assets/docs-pixel-sprite.png']) console.info('[四格像素 0/5] 輸入檔案（絕對 URL）：', new URL(file,base).href);
+  for (const file of ['pixel-scenes.js','pixel-scenes.css','poster-animation-data.js','poster-image-ready.js',`assets/service-development-${en?'en':'zh'}.png`,'assets/gui-pixel-states.png','assets/automation-pixel-sprite.png','assets/api-pixel-sprite.png','assets/docs-pixel-sprite.png']) console.info('[四格像素 0/5] 輸入檔案（絕對 URL）：', new URL(file,base).href);
   console.info('[四格像素 0/5] 輸出：',new URL('#development-poster-frame',location.href).href,'的四個 Canvas 與七個互動區域；不寫入檔案，不連線至真實 API。');
   const gallery = document.querySelector('#pixel-gallery');
   const play = document.querySelector('#pixel-play');
@@ -57,18 +57,15 @@
     image.src = source;
   });
   const start = async () => {
-    const {waitForPosterImage}=await import(new URL('poster-image-ready.js',base));
+    const manifest = structuredClone(globalThis.pixelPosterData.development);
     const baseReady=waitForPosterImage(poster,en);
-    const response = await fetch(manifestURL);
-    if (!response.ok) throw new Error(`素材規格載入失敗：${response.status}`);
-    const manifest = await response.json();
     if(en){
       const labels=['Name field','Tool menu','Run button','Reset button','First sidebar item','Second sidebar item','Third sidebar item'];
       manifest.fields.forEach((field,index)=>field.label=labels[index]);
     }
     console.info('[四格像素 1/5] 四格規格與七個欄位位置載入完成。');
     const scenes = await Promise.all(manifest.scenes.map(async config => {
-      const source = new URL(config.sprite,manifestURL);
+      const source = new URL(config.sprite,assetBase);
       const sprite = await loadImage(source.href);
       const card = document.querySelector(`[data-scene="${config.id}"]`);
       const canvas = card.querySelector('canvas');

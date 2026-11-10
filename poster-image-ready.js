@@ -1,6 +1,7 @@
 /* Keep the original poster visible as one unit with its animation overlays. */
-export function waitForPosterImage(poster,english=false){
-  console.info('[海報底圖 0/2] 程式輸入絕對 URL：',import.meta.url);
+const posterImageReadyURL = document.currentScript.src;
+function waitForPosterImage(poster,english=false){
+  console.info('[海報底圖 0/2] 程式輸入絕對 URL：',posterImageReadyURL);
   const image=poster.querySelector('.poster-base');
   const source=image.src;
   console.info('[海報底圖 0/2] 輸入絕對 URL：',source);

@@ -4,9 +4,9 @@
   const base=new URL('.',document.currentScript.src);
   const en=document.documentElement.lang==='en';
   const t=(zh,english)=>en?english:zh;
-  const manifestURL = new URL('assets/service-animation-manifest.json',base);
+  const assetBase = new URL('assets/',base);
   console.info('[服務動畫 0/3] 輸入頁面（絕對 URL）：',location.href);
-  for (const path of ['pixel-service-posters.js','pixel-scenes.css','assets/service-animation-manifest.json']) console.info('[服務動畫 0/3] 輸入檔案（絕對 URL）：',new URL(path,base).href);
+  for (const path of ['pixel-service-posters.js','pixel-scenes.css','poster-animation-data.js','poster-image-ready.js']) console.info('[服務動畫 0/3] 輸入檔案（絕對 URL）：',new URL(path,base).href);
   for (const id of ['scratch','translation','office']) console.info('[服務動畫 0/3] 輸出：',new URL(`#${document.querySelector(`[data-service-poster="${id}"]`).id}`,location.href).href,'的四個 Canvas、標題漸層與顯示模式；不寫入檔案。');
   const preference=matchMedia('(prefers-reduced-motion: reduce)');
   const globalPause=() => preference.matches || document.body.classList.contains('motion-paused');
@@ -20,9 +20,9 @@
   const mount=async(config,waitForPosterImage)=>{
     const root=document.querySelector(`[data-service-poster="${config.id}"]`);
     const poster=root.querySelector('.poster-frame');
-    const imageURL=new URL(config.source,manifestURL).href;
+    const imageURL=new URL(config.source,assetBase).href;
     console.info(`[${config.title} 0/4] 輸入原圖：`,imageURL);
-    config.scenes.forEach(scene=>console.info(`[${config.title} 0/4] 輸入影格表：`,new URL(scene.sprite,manifestURL).href));
+    config.scenes.forEach(scene=>console.info(`[${config.title} 0/4] 輸入影格表：`,new URL(scene.sprite,assetBase).href));
     const baseReady=waitForPosterImage(poster,en);
     const prefix=`service-${config.id}`;
     const [tx,ty,tw,th]=config.titleRect;
@@ -51,7 +51,7 @@
     const label=document.createElement('label');label.append(t('影格 ','Frame '));
     const seek=document.createElement('input');seek.type='range';seek.min='0';seek.max='23';seek.step='1';seek.value='0';seek.disabled=true;seek.setAttribute('aria-label',`${config.title}${t('動畫影格',' animation frame')}`);label.append(seek);
     const counter=document.createElement('output');counter.className='pixel-type';counter.textContent='01 / 24';
-    const download=document.createElement('a');download.textContent=t('下載動畫示意 GIF ↓','Download GIF ↓');download.href=new URL(config.gif,manifestURL).href;download.download=`Nicoa-${config.id}-animation.gif`;
+    const download=document.createElement('a');download.textContent=t('下載動畫示意 GIF ↓','Download GIF ↓');download.href=new URL(config.gif,assetBase).href;download.download=`Nicoa-${config.id}-animation.gif`;
     const outlet=root.querySelector('[data-animation-controls]')||root;
     controls.append(play,step,label,counter,download);outlet.append(controls);
     const note=document.createElement('p');note.className='scene-footnote';note.textContent=t('每一格都有獨立動畫。標題可懸停或點選變色；原圖／動畫切換與播放控制各自獨立。','Each panel is animated. Hover or tap the title for color. Display and playback controls are independent for each poster.');outlet.append(note);
@@ -74,7 +74,7 @@
     poster.addEventListener('poster-compact-change',()=>setView(model.view));
     console.info(`[${config.title} 1/4] 專屬漸層、原圖／動畫切換與原位版面完成。`);
     model.scenes=await Promise.all(config.scenes.map(async scene=>{
-      const sprite=await imageFrom(new URL(scene.sprite,manifestURL).href);
+      const sprite=await imageFrom(new URL(scene.sprite,assetBase).href);
       const card=document.createElement('article');card.className='scene-card';card.dataset.serviceScene=scene.id;
       const [x,y,w,h]=scene.rect;Object.assign(card.style,{left:`${100*x/1536}%`,top:`${100*y/1024}%`,width:`${100*w/1536}%`,height:`${100*h/1024}%`});
       const surface=document.createElement('div');surface.className='scene-surface';
@@ -117,16 +117,14 @@
     console.info(`[${config.title} 4/4] 四格動畫就緒。`);
   };
   const start=async()=>{
-    const {waitForPosterImage}=await import(new URL('poster-image-ready.js',base));
-    const response=await fetch(manifestURL);if(!response.ok)throw new Error(`規格載入失敗：${response.status}`);
-    const manifest=await response.json();
+    const services=structuredClone(globalThis.pixelPosterData.services);
     if(en){
       const localized={
         scratch:{title:'Scratch tutoring',titleRect:[237,90,1074,177],names:['One-to-one lessons','Game projects','Animation','Logic and debugging']},
         translation:{title:'English–Chinese translation',titleRect:[128,108,1280,196],names:['Software UI','Technical documents','Articles','Localization'],rects:[[76,450,648,200],[817,449,629,203],[76,752,652,203],[809,756,642,199]]},
         office:{title:'Office automation',titleRect:[96,80,1340,232],names:['Table conversion','Formulas and calculations','Image to text','Batch processing'],rects:[[62,410,672,204],[804,410,673,204],[56,720,680,190],[793,718,680,190]]}
       };
-      manifest.services.forEach(config=>{const local=localized[config.id];config.title=local.title;config.titleRect=local.titleRect;config.source=`service-${config.id}-en.png`;config.scenes.forEach((scene,index)=>{scene.title=local.names[index];if(local.rects)scene.rect=local.rects[index];});});
+      services.forEach(config=>{const local=localized[config.id];config.title=local.title;config.titleRect=local.titleRect;config.source=`service-${config.id}-en.png`;config.scenes.forEach((scene,index)=>{scene.title=local.names[index];if(local.rects)scene.rect=local.rects[index];});});
     }
     console.info('[服務動畫 1/3] 三項服務、十二個場景規格完成。');
     // Start the shared clock before waiting for every poster, so one slow image
@@ -134,12 +132,12 @@
     setInterval(()=>{if(document.hidden||globalPause())return;models.forEach(model=>{
       if(model.poster.dataset.view==='animated'&&!model.paused&&model.visible){model.frame=(model.frame+1)%24;model.draw();}
     });},125);
-    const results=await Promise.allSettled(manifest.services.map(config=>mount(config,waitForPosterImage)));
+    const results=await Promise.allSettled(services.map(config=>mount(config,waitForPosterImage)));
     results.forEach((result,index)=>{if(result.status==='rejected'){
-      const root=document.querySelector(`[data-service-poster="${manifest.services[index].id}"]`);
+      const root=document.querySelector(`[data-service-poster="${services[index].id}"]`);
       root.querySelector('.scene-grid')?.setAttribute('hidden','');root.querySelector('.poster-frame').dataset.view='original';
       root.querySelector('.scene-controls')?.classList.add('is-original');
-      console.warn('[服務動畫] 保留原圖：',manifest.services[index].title,result.reason.message);
+      console.warn('[服務動畫] 保留原圖：',services[index].title,result.reason.message);
     }});
     console.info(`[服務動畫 2/3] ${models.length}/3 海報載入完成。`);
     console.info('[服務動畫 3/3] 播放時鐘就緒；離開畫面、原圖模式及背景分頁不前進影格。');

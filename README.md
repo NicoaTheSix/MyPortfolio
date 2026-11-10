@@ -1,5 +1,9 @@
 ## 黑白像素工作室（本機預覽）
 
+繁中與英文首頁將自我介紹放進首屏視窗，合作流程緊接在首屏下方。聯絡區置中排列社群圖示，信箱和寫信入口放在圖示下方。
+
+四張服務海報從一般腳本讀取動畫資料，並用圖片元素載入影格表。直接開啟本機 HTML 時，播放流程不需要讀取 JSON 或載入 JavaScript 模組。更新兩份動畫 JSON 後，執行 node sync-poster-animation-data.mjs。程式先列出輸入與輸出絕對路徑，再依序讀取規格、產生腳本與寫入 poster-animation-data.js。執行 node sync-poster-animation-data.mjs --check 可以核對產出。
+
 服務視窗的方框鈕可縮小和還原。正常大小保留動畫、標題懸停／點選變色和卡片文字。縮小時兩支海報程式會停止播放並只顯示原圖，樣式同時收起操作列和下方內容。還原後回到該海報先前選擇的原圖或動畫，播放設定及影格會保留。海報的顯示切換位於圖下，避免英文按鈕和標題感應區重疊。背景終端機進入淺色內容區時調低不透明度，位置依然固定。
 
 雙語首頁的終端機、電腦桌、鍵盤、滑鼠、馬克杯、筆記本與星星共用固定背景圖層，從首屏到其他區塊都以同一個螢幕位置為基準。assets/pixel-studio-desk.svg 提供六個桌面物件的個別檢視範圍，pixel-studio.css 控制背景層、桌面物件浮動及肖像的前景版面。每張服務卡和頁尾四個社群圖示以不同時序浮動，並遵循「暫停動畫」與系統減少動態設定。社群連結以平台圖示呈現，連結名稱保留給輔助技術。
@@ -13,16 +17,17 @@
 從本目錄執行以下命令，依序啟動預覽及檢查。serve.mjs 會先列出絕對輸入目錄及本機輸出 URL，再回報預覽進度。
 
 ~~~powershell
-$env:PORT = '4202'
+$env:PORT = '4203'
 node serve.mjs
 ~~~
 
-另開終端執行以下檢查。開啟 http://127.0.0.1:4202/MyPortfolio/ 或 http://127.0.0.1:4202/MyPortfolio/en/，從首屏向下捲動，確認轉場、視窗收合、雙語連結及手機單欄。
+另開終端執行以下檢查。開啟 http://127.0.0.1:4203/MyPortfolio/ 或 http://127.0.0.1:4203/MyPortfolio/en/，從首屏向下捲動，確認轉場、視窗收合、雙語連結及手機單欄。
 
 ~~~powershell
 node --check home-pixel.js
 node check-site.mjs
-node check-pixel-homepages.mjs --url http://127.0.0.1:4202/MyPortfolio/
+node sync-poster-animation-data.mjs --check
+node check-pixel-homepages.mjs --url http://127.0.0.1:4203/MyPortfolio/
 node sync-google-tag.mjs --check
 ~~~
 
