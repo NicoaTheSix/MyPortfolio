@@ -121,38 +121,14 @@
   });
   console.info('[正式像素 2/3] 像素階梯進場與重播完成。');
   const progress=document.querySelector('#reading-progress');
-  const studio=document.querySelector('.studio-stage');
-  const studioRoom = document.querySelector('.studio-room');
-  const backdrop = document.querySelector('.studio-fixed-backdrop');
-  const studioWide=matchMedia('(min-width: 721px)');
-  if(studio){
-    console.info('[像素工作室 0/2] 輸入絕對 URL：',location.href,
-      ...['home-pixel.js','pixel-studio.css','assets/pixel-studio-desk.svg'].map(file=>new URL(file,base).href));
-    console.info('[像素工作室 0/2] 輸出絕對 URL：',new URL('#studio',location.href).href,'場景 CSS 變數與視窗 DOM。');
-    console.info('[像素工作室 1/2] 背景終端機與前景視窗就緒。');
-  }
-  let queued=false, lastStudioDepth;
+  let queued=false;
   const draw=()=>{
     const range=document.documentElement.scrollHeight-innerHeight;
-    if (backdrop && studioRoom) {
-      const lightContentBehindTerminal = studioRoom.getBoundingClientRect().bottom < backdrop.getBoundingClientRect().top;
-      backdrop.classList.toggle('is-muted', lightContentBehindTerminal);
-    }
-    if(studio&&studioWide.matches&&!paused&&!preference.matches){
-      const top=studio.getBoundingClientRect().top;
-      const depth=Math.min(1,Math.max(0,(.9-top/innerHeight)/1.12));
-      if(depth!==lastStudioDepth){
-        studio.style.setProperty('--studio-sky-offset',Math.round(52*depth)+'px');
-        lastStudioDepth=depth;
-      }
-    }
     progress.style.width=(range>0?Math.min(100,Math.max(0,100*scrollY/range)):0)+'%';
     queued=false;
   };
   const schedule=()=>{if(!queued){queued=true;requestAnimationFrame(draw);}};
   addEventListener('scroll',schedule,{passive:true});addEventListener('resize',schedule);addEventListener('load',schedule);
-  toggle.addEventListener('click',schedule);preference.addEventListener('change',schedule);
   if('ResizeObserver'in window)new ResizeObserver(schedule).observe(document.body);
   draw();console.info('[正式像素 3/3] 閱讀進度與正式首頁動畫就緒。');
-  if(studio)console.info('[像素工作室 2/2] 捲動轉場、手機靜態場景與減少動態設定就緒。');
 })();
