@@ -2,7 +2,7 @@
 
 DeskTiles is a native desktop tile application for Windows and macOS. Choose a hexagon, triangle or 3:2 rectangle and add text, pictures or timers. Group dragging, snapping, transparent backgrounds, animated borders and JSON backups help arrange a desktop layout.
 
-The v1.01 release uses a smooth rounded four-shape logo on both platforms. The circle in the logo is not an additional tile type. The repository now includes the supplied Windows features and the native Mac implementation.
+The v1.02 release adds a thin dark-gray outline to the smooth rounded four-shape logo on both platforms. The outer corners remain transparent. The circle in the logo is not an additional tile type. The repository now includes the supplied Windows features and the native Mac implementation.
 
 ## Download and update
 
@@ -22,7 +22,7 @@ The Mac package uses an ad-hoc signature. It has no Developer ID signature or Ap
 - Start at sign-in is off by default and requires explicit consent. This update does not enable it automatically.
 - A persisted alarm has a known clock-activation issue after restarting the app. This icon release does not fix that issue or claim the due-alarm regression passed.
 
-![English Windows controller with the current logo](docs/control-en.png)
+![English Windows controller in an earlier release](docs/control-en.png)
 
 The [English user guide](docs/UserGuide.en.md) and [Chinese user guide](docs/使用說明.md) provide the full Windows controls, alarm settings, startup consent, data handling and troubleshooting steps.
 
@@ -36,7 +36,7 @@ Mac sizes use logical points. Desktop layering uses native window levels. Missio
 
 Windows exports JSON v3 and reads v1–v3. Mac exports and reads v1/v2 only. Windows v3 layouts cannot currently be imported into Mac, even when they contain no alarms. Windows can import Mac v2 layouts. Import can replace or merge supported layouts; imported timers start paused. Export with embedded images when moving supported layouts between computers.
 
-## Validation for v1.01
+## Validation for v1.02
 
 The project reports 222 Windows core checks, 192 integration checks, language/restart checks and icon decoding checks. The Mac icon-release workflow reports 170 core checks, AppKit integration, standard/Retina icon decoding, Finder configuration, arm64/x86_64 architectures and ad-hoc signing checks. The website publisher verifies supplied files and hashes without executing the application tests.
 
@@ -46,6 +46,6 @@ The Windows alarm restart issue and the Mac validation and signing limits above 
 
 Windows uses C++17 / Win32 / GDI+. Mac uses Objective-C++ / AppKit and C++. The archives retain their third-party MIT notices; no project-wide license is asserted here.
 
-[Source repository](https://github.com/NicoaTheSix/DeskTile) · [v1.01 release source](https://github.com/NicoaTheSix/DeskTile/commit/e3ddc9b95d34f0c8716697908ba749aa2d553e8f) · [Mac validation workflow](https://github.com/NicoaTheSix/DeskTile/actions/runs/42359672604)
+[Source repository](https://github.com/NicoaTheSix/DeskTile) · [v1.02 release source](https://github.com/NicoaTheSix/DeskTile/commit/5b522ef14a789503b4ab3f55ede080f8ab3f1028) · [Mac validation workflow](https://github.com/NicoaTheSix/DeskTile/actions/runs/42757989847)
 
 This English README is maintained by the website from the project's supplied documentation. The original Chinese README is available as a separate download.

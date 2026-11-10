@@ -26,6 +26,10 @@ node sync-google-tag.mjs --check
 ```
 
 `build-brand-assets.py` 四階段核對兩份固定 SHA／尺寸、保存原始 PNG、LANCZOS 等比縮小並保存 lossless WebP／PNG、寫入逐檔清單；不裁切、改色或重繪。輸入為 `D:\VIDEOS\designs\nicoa-lab-brand-icon\standards\nicoa-lab-{symbol,wordmark}.png`，輸出為 `C:\Users\nick5\Documents\ChatGPT\Portfolio 網站設置\assets\brand`。`sync-brand.mjs` 三階段更新兩份首頁與三頁文章外框；`brand.mjs` 提供共用標記，`brand.css` 控制頁首／主視覺／頁尾比例與手機單字母來源。`serve.mjs` 白名單加入品牌清單及 WebP MIME。此流程不會自行推送或升版。
+## DeskTiles v1.02 細邊圖示與雙平台下載
+
+同步中英文 DeskTiles 專區與首頁作品卡。沿用同目錄的 `build-desktiles.mjs` 及 `check-desktiles.mjs`，按 [DeskTiles 維護說明](desktiles/README.md) 驗證本機和公開檔案。
+
 ## DeskTiles v1.01 圖示與雙平台下載（網站 v1.06）
 
 本批整合既有遠端 Mac 下載更新，更新平滑圓角 Logo、兩平台 ZIP、雙語介紹與 Mac 指南，保留舊網址。使用者已授權本次更新與部署；網站正式版僅增加一次。建置與驗證流程、絕對輸入輸出、平台差異及已知限制見 [DeskTiles 維護說明](desktiles/README.md)，完整產出清單見 [發布交付](desktiles/release-delivery.md)。

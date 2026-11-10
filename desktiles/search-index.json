@@ -4,21 +4,21 @@
     "title": "桌面拼格 DeskTiles",
     "pageTitle": "桌面拼格 DeskTiles",
     "url": "index.html",
-    "text": "DeskTiles/桌面拼格 DeskTiles本頁內容2026-11-07 · v1.01Windows 操作示範選擇適合的平台WindowsmacOS三種形狀，自由拼排文字、圖片與計時多選、拖曳與吸附調整外觀配置備份與搬移下載後開始使用下載與文件驗證範圍與限制NICOA THE SIX / WINDOWS & MACOS桌面拼格DeskTiles文字、圖片與時間，在桌面自由拼排。選擇六角形、三角形或矩形，放進當下需要的內容。Windows 與 macOS 各有原生版本，下載前請確認平台功能與限制。下載 Windows x64 ↓下載 macOS Universal 2 ↓GitHub 專案 ↗覺得 DeskTiles 好用，歡迎到 GitHub 幫我按顆星星（Star）！Windows 10 / 11 x64 · macOS 12+（Apple silicon / Intel） 2026-11-07 · v1.01Windows 與 macOS 套件改用平滑圓角四圖形 Logo；網站與控制面板圖片同步更新。新增 macOS 12+ Universal 2 下載，支援 Apple silicon 與 Intel 架構。更新前，先儲存並結束舊版，再完整解壓縮新版。Windows 系統匣選「儲存並結束桌面拼格」；只按控制視窗 X 不會退出。既有配置不必刪除。對應來源提交 ↗Windows 操作示範開啟示範影片此為既有 Windows 版的 30 秒示範，使用虛構配置；影片中的圖示及介面可能與新版不同。 選擇適合的平台Windows原生 C++17／Win32／GDI+。支援文字、圖片、計時器與鬧鐘，繁體中文／English 即時切換，以及需明確同意的登入啟動。Windows 使用說明 ↗Windows 版已知限制持久化鬧鐘在重新啟動後仍有時脈啟用問題；本次圖示更新未修復此問題，勿依賴它作為重要事項的唯一提醒。登入啟動預設關閉，須由使用者明確同意。macOS原生 AppKit 與 C++ 核心，支援文字、圖片、計時器、多選拖曳、吸附與 JSON 配置。介面為中文；尚未提供 Windows 版的鬧鐘、雙語切換或登入啟動功能。Universal 2 包含 Apple silicon 與 Intel 架構，但 Intel 實機、多螢幕及其他 macOS 版本仍待驗證。套件採 ad-hoc 簽章，尚未經 Apple 公證。配置相容性：Windows 匯出 v3 並讀取 v1–v3；Mac 僅匯出及讀取 v1/v2，尚不能直接匯入 Windows v3，即使沒有鬧鐘亦同。Mac v2 可由 Windows 匯入。Mac 使用說明與限制 ↗ 三種形狀，自由拼排文字、圖片與計時把備忘、照片與工作時間放進六角形、三角形或 3:2 矩形。多選、拖曳與吸附Shift 多選後整組移動，靠近其他格時吸附。調整外觀設定尺寸、字體、透明背景與實色、像素、RGB 或呼吸邊框。配置備份與搬移以含圖片的 JSON 匯出，支援覆蓋或合併匯入；Windows v3 目前無法直接匯入 Mac。Windows 版圖形示例。Logo 的四圖形設計不代表新增圓形格子。 下載後開始使用兩平台更新前都先結束舊程式，完整解壓縮新套件。Windows 開啟 DeskTiles／DeskTiles.exe；Mac 開啟 DeskTiles.app。關閉控制面板只會隱藏視窗；請從程式選單儲存並結束。Windows 使用說明 ↗ · macOS 使用說明 ↗ 下載與文件DeskTiles-Windows-x6"
+    "text": "DeskTiles/桌面拼格 DeskTiles本頁內容2026-11-10 · v1.02Windows 操作示範選擇適合的平台WindowsmacOS三種形狀，自由拼排文字、圖片與計時多選、拖曳與吸附調整外觀配置備份與搬移下載後開始使用下載與文件驗證範圍與限制NICOA THE SIX / WINDOWS & MACOS桌面拼格DeskTiles文字、圖片與時間，在桌面自由拼排。選擇六角形、三角形或矩形，放進當下需要的內容。Windows 與 macOS 各有原生版本，下載前請確認平台功能與限制。下載 Windows x64 ↓下載 macOS Universal 2 ↓GitHub 專案 ↗覺得 DeskTiles 好用，歡迎到 GitHub 幫我按顆星星（Star）！Windows 10 / 11 x64 · macOS 12+（Apple silicon / Intel） 2026-11-10 · v1.02Windows 與 macOS 套件及網站 Logo 換上深灰細外圈，四個圖形與透明外角保留。macOS 12+ Universal 2 套件包含 Apple silicon 與 Intel 架構。更新前，先儲存並結束舊版，再完整解壓縮新版。Windows 系統匣選「儲存並結束桌面拼格」；只按控制視窗 X 不會退出。既有配置不必刪除。對應來源提交 ↗Windows 操作示範開啟示範影片此為既有 Windows 版的 30 秒示範，使用虛構配置。影片及操作截圖的圖示可能與新版不同。 選擇適合的平台Windows原生 C++17／Win32／GDI+。支援文字、圖片、計時器與鬧鐘，繁體中文／English 即時切換，以及需明確同意的登入啟動。Windows 使用說明 ↗Windows 版已知限制持久化鬧鐘在重新啟動後仍有時脈啟用問題；本次圖示更新未修復此問題，勿依賴它作為重要事項的唯一提醒。登入啟動預設關閉，須由使用者明確同意。macOS原生 AppKit 與 C++ 核心，支援文字、圖片、計時器、多選拖曳、吸附與 JSON 配置。介面為中文；尚未提供 Windows 版的鬧鐘、雙語切換或登入啟動功能。Universal 2 包含 Apple silicon 與 Intel 架構，但 Intel 實機、多螢幕及其他 macOS 版本仍待驗證。套件採 ad-hoc 簽章，尚未經 Apple 公證。配置相容性：Windows 匯出 v3 並讀取 v1–v3；Mac 僅匯出及讀取 v1/v2，尚不能直接匯入 Windows v3，即使沒有鬧鐘亦同。Mac v2 可由 Windows 匯入。Mac 使用說明與限制 ↗ 三種形狀，自由拼排文字、圖片與計時把備忘、照片與工作時間放進六角形、三角形或 3:2 矩形。多選、拖曳與吸附Shift 多選後整組移動，靠近其他格時吸附。調整外觀設定尺寸、字體、透明背景與實色、像素、RGB 或呼吸邊框。配置備份與搬移以含圖片的 JSON 匯出，支援覆蓋或合併匯入；Windows v3 目前無法直接匯入 Mac。Windows 版圖形示例。Logo 的四圖形設計不代表新增圓形格子。 下載後開始使用兩平台更新前都先結束舊程式，完整解壓縮新套件。Windows 開啟 DeskTiles／DeskTiles.exe；Mac 開啟 DeskTiles.app。關閉控制面板只會隱藏視窗；請從程式選單儲存並結束。Windows 使用說明 ↗ · macOS 使用說明 ↗ 下載與文件DeskTiles-Windows-x64.z"
   },
   {
     "lang": "zh",
-    "title": "2026-11-07 · v1.01",
+    "title": "2026-11-10 · v1.02",
     "pageTitle": "桌面拼格 DeskTiles",
-    "url": "index.html#2026-11-07-v101",
-    "text": "Windows 與 macOS 套件改用平滑圓角四圖形 Logo；網站與控制面板圖片同步更新。新增 macOS 12+ Universal 2 下載，支援 Apple silicon 與 Intel 架構。 更新前，先儲存並結束舊版，再完整解壓縮新版。Windows 系統匣選「儲存並結束桌面拼格」；只按控制視窗 X 不會退出。既有配置不必刪除。 對應來源提交 ↗"
+    "url": "index.html#2026-11-10-v102",
+    "text": "Windows 與 macOS 套件及網站 Logo 換上深灰細外圈，四個圖形與透明外角保留。macOS 12+ Universal 2 套件包含 Apple silicon 與 Intel 架構。 更新前，先儲存並結束舊版，再完整解壓縮新版。Windows 系統匣選「儲存並結束桌面拼格」；只按控制視窗 X 不會退出。既有配置不必刪除。 對應來源提交 ↗"
   },
   {
     "lang": "zh",
     "title": "Windows 操作示範",
     "pageTitle": "桌面拼格 DeskTiles",
     "url": "index.html#windows-%E6%93%8D%E4%BD%9C%E7%A4%BA%E7%AF%84",
-    "text": "開啟示範影片 此為既有 Windows 版的 30 秒示範，使用虛構配置；影片中的圖示及介面可能與新版不同。"
+    "text": "開啟示範影片 此為既有 Windows 版的 30 秒示範，使用虛構配置。影片及操作截圖的圖示可能與新版不同。"
   },
   {
     "lang": "zh",
@@ -88,14 +88,14 @@
     "title": "下載與文件",
     "pageTitle": "桌面拼格 DeskTiles",
     "url": "index.html#%E4%B8%8B%E8%BC%89%E8%88%87%E6%96%87%E4%BB%B6",
-    "text": "DeskTiles-Windows-x64.zipWindows 10 / 11 x64 · 492.2 KiB ↓DeskTiles-macOS-universal.zipmacOS 12+ · Universal 2 · 415.5 KiB ↓Windows SHA256SUMS.txtWindows 完整性校驗 ↓macOS SHA256SUMS.txtMac 完整性校驗 ↓ 套件 SHA-256Windows507C4B6DC30CA8D50418D4EE83A60847E0CBC3CDBB04B31CB328D4A9FC0FD79EmacOS9A4182F469863228F3B63F5899C2BA3FB269541632D4849C3447E7672EFA7032保留套件內的第三方 MIT 授權聲明；未另行宣稱整體專案授權。 Windows 中文 Markdown ↓ · Windows English Markdown ↓ · macOS 中文 Markdown ↓ · macOS English Markdown ↓ · macOS 第三方授權 ↓ · macOS 範例 JSON ↓ · 專案 README ↓"
+    "text": "DeskTiles-Windows-x64.zipWindows 10 / 11 x64 · 495.8 KiB ↓DeskTiles-macOS-universal.zipmacOS 12+ · Universal 2 · 441.3 KiB ↓Windows SHA256SUMS.txtWindows 完整性校驗 ↓macOS SHA256SUMS.txtMac 完整性校驗 ↓ 套件 SHA-256Windows21D38075F51E3F8A678C8594A3F7379BF4DED3776D4F0CE63524E4A343A2B2C0macOSA864E6AFA4B2B765A0294D54EA907F68989A677811AF0F80EC62537A355C0FC8保留套件內的第三方 MIT 授權聲明；未另行宣稱整體專案授權。 Windows 中文 Markdown ↓ · Windows English Markdown ↓ · macOS 中文 Markdown ↓ · macOS English Markdown ↓ · macOS 第三方授權 ↓ · macOS 範例 JSON ↓ · 專案 README ↓"
   },
   {
     "lang": "zh",
     "title": "驗證範圍與限制",
     "pageTitle": "桌面拼格 DeskTiles",
     "url": "index.html#%E9%A9%97%E8%AD%89%E7%AF%84%E5%9C%8D%E8%88%87%E9%99%90%E5%88%B6",
-    "text": "專案交付紀錄：Windows 222 項核心、192 項整合檢查；Mac 170 項核心、Universal 2 架構、圖示載入與簽章檢查。網站發布者核對套件與來源雜湊，沒有在此重新執行應用程式測試。 Windows 鬧鐘重啟問題與 Mac 未公證、Intel 實機及多螢幕限制仍保留。Linux 版尚未提供。 下載本次原始交付與驗證紀錄 ↓ Windows: C++17 / Win32 / GDI+ · macOS: Objective-C++ / AppKit / C++"
+    "text": "專案交付紀錄：Windows 222 項核心、192 項整合檢查；Mac 170 項核心、Universal 2 架構、圖示載入與簽章檢查。網站發布者核對套件與來源雜湊，沒有在此重新執行應用程式測試。 Windows 鬧鐘重啟問題與 Mac 未公證、Intel 實機及多螢幕限制仍保留。Linux 版尚未提供。 GitHub 發行紀錄 ↗ · Mac 驗證紀錄 ↗ Windows: C++17 / Win32 / GDI+ · macOS: Objective-C++ / AppKit / C++"
   },
   {
     "lang": "zh",
@@ -312,28 +312,28 @@
     "title": "圓角圖示更新",
     "pageTitle": "專案 README",
     "url": "readme.html#%E5%9C%93%E8%A7%92%E5%9C%96%E7%A4%BA%E6%9B%B4%E6%96%B0",
-    "text": "本次採用 A 圓角幾何圖示，Windows 與 macOS 共用 assets/DeskTiles.svg 的四圖形設計，PNG 外角透明。詳細流程見 assets/README.md。 Windows build.ps1 先列出絕對輸入／輸出位置，以向量抗鋸齒重建多尺寸 ICO，再編譯內嵌資源、執行核心及整合檢查，最後以 package.ps1 建立免安裝 ZIP。此次沿用本機已交付的中英文、鬧鐘與啟動同意功能，不因 GitHub 舊 Windows 基底而回退；不在本次新增其他功能。 Mac build.sh 先列出絕對路徑並執行核心檢查，建立標準／Retina iconset 與 ICNS，編譯 Universal 2 App，複製圖示與 Info.plist 後重新 ad-hoc 簽章。verify.sh 檢查 ICNS 可解碼、Finder 圖示設定、雙架構、簽章與 AppKit 圖示載入，package.sh 驗證完整 App 再封裝。 GitHub 的 macOS verified package 工作流程在圖示更新分支建置與驗證，再將通過的 ZIP、ICNS 與 SHA256 提交回相同分支；下載版只有在驗證通過後才整合至 main。workflow_dispatch 亦可手動重建。App 仍未申請 Apple 公證，Intel 硬體、多螢幕與各版本 macOS 的實機驗收限制沿用原版。 Windows 已知限制：持久化鬧鐘重啟後的時脈啟用問題尚待獨立修正；本批不宣稱已修復該問題。圖示更新不更動使用者版面或自動啟動設定。 本次部署版本為 v1.01；以 GitHub 原有 afe5098 作為 v1 基準，僅在選定圖示及使用者授權部署的範圍內更新。Windows 檔案資源與 Mac bundle 版本一併標示 1.01。Windows PowerShell 腳本使用 UTF-8 BOM 以支援內建 5.1。 圖示回歸：powershell -NoProfile -ExecutionPolicy Bypass -File verify-icons.ps1 -ExecutablePath <EXE絕對路徑>。腳本先列出圖示、EXE與結果絕對位置，逐尺寸檢查九個ICO的解碼、透明角落及平滑邊緣，再比對打包EXE內嵌圖示的每一個位元組並實際呼叫Windows圖示載入；結果存於build/icon-verification.txt。 平台配置限制（原始碼核對）：Windows匯出JSON v3並讀取v1–v3；Mac僅匯出/讀取v1–v2，尚不能直接匯入Windows新版v3，即使未使用鬧鐘亦然。Mac v2可由Windows匯入；本批不新增Mac v3支援。"
+    "text": "本次採用 A 圓角幾何圖示，Windows 與 macOS 共用 assets/DeskTiles.svg 的四圖形設計，PNG 外角透明。詳細流程見 assets/README.md。 Windows build.ps1 先列出絕對輸入／輸出位置，以向量抗鋸齒重建多尺寸 ICO，再編譯內嵌資源、執行核心及整合檢查，最後以 package.ps1 建立免安裝 ZIP。此次沿用本機已交付的中英文、鬧鐘與啟動同意功能，不因 GitHub 舊 Windows 基底而回退；不在本次新增其他功能。 Mac build.sh 先列出絕對路徑並執行核心檢查，建立標準／Retina iconset 與 ICNS，編譯 Universal 2 App，複製圖示與 Info.plist 後重新 ad-hoc 簽章。verify.sh 檢查 ICNS 可解碼、Finder 圖示設定、雙架構、簽章與 AppKit 圖示載入，package.sh 驗證完整 App 再封裝。 GitHub 的 macOS verified package 工作流程在圖示更新分支建置與驗證，再將通過的 ZIP、ICNS 與 SHA256 提交回相同分支；下載版只有在驗證通過後才整合至 main。workflow_dispatch 亦可手動重建。App 仍未申請 Apple 公證，Intel 硬體、多螢幕與各版本 macOS 的實機驗收限制沿用原版。 Windows 已知限制：持久化鬧鐘重啟後的時脈啟用問題尚待獨立修正；本批不宣稱已修復該問題。圖示更新不更動使用者版面或自動啟動設定。 目前部署版本為 v1.02。白色 Logo 底板以 20/1024 的深灰細圈區隔淺色背景；四圖形與透明外角維持原樣。Windows 檔案資源與 Mac bundle 版本一併標示 1.02。Windows PowerShell 腳本使用 UTF-8 BOM 以支援內建 5.1。 圖示回歸：powershell -NoProfile -ExecutionPolicy Bypass -File verify-icons.ps1 -ExecutablePath <EXE絕對路徑>。腳本先列出圖示、EXE與結果絕對位置，逐尺寸檢查九個ICO的解碼、透明角落及平滑邊緣，再比對打包EXE內嵌圖示的每一個位元組並實際呼叫Windows圖示載入；結果存於build/icon-verification.txt。 平台配置限制（原始碼核對）：Windows匯出JSON v3並讀取v1–v3；Mac僅匯出/讀取v1–v2，尚不能直接匯入Windows新版v3，即使未使用鬧鐘亦然。Mac v2可由Windows匯入；本批不新增Mac v3支援。"
   },
   {
     "lang": "en",
     "title": "DeskTiles",
     "pageTitle": "DeskTiles",
     "url": "en/index.html",
-    "text": "DeskTiles/DeskTilesOn this page2026-11-07 · v1.01Windows demonstrationChoose your platformWindowsmacOSThree shapes, arranged your wayText, images and timersSelect, drag and snapStyle each tileBack up a layoutStart after downloadingDownloads and documentationValidation scope and limitationsNICOA THE SIX / WINDOWS & MACOSDeskTilesMake room for what matters.Notes, pictures and timers, arranged on your desktop.Choose a hexagon, triangle or rectangle and add the content you need. Windows and macOS have native builds with different feature sets.Download Windows x64 ↓Download macOS Universal 2 ↓View on GitHub ↗Enjoying DeskTiles? Please consider giving the project a star on GitHub!Windows 10 / 11 x64 · macOS 12+（Apple silicon / Intel） 2026-11-07 · v1.01Windows and macOS packages now use the smooth rounded four-shape logo. The website and controller screenshots use the same design.A native Universal 2 download is available for macOS 12+, with Apple silicon and Intel architectures.Before updating, save and exit the old app, then extract the complete new archive. On Windows, choose Save and exit DeskTiles from the tray; X only hides the controller. Keep your existing layout.Source release commit ↗Windows demonstrationOpen the demonstration videoThis existing 30-second Windows demo uses a fictional layout. Its icons and interface may differ from the current release. Choose your platformWindowsNative C++17 / Win32 / GDI+. Includes text, images, timers, alarms, Traditional Chinese / Engli"
+    "text": "DeskTiles/DeskTilesOn this page2026-11-10 · v1.02Windows demonstrationChoose your platformWindowsmacOSThree shapes, arranged your wayText, images and timersSelect, drag and snapStyle each tileBack up a layoutStart after downloadingDownloads and documentationValidation scope and limitationsNICOA THE SIX / WINDOWS & MACOSDeskTilesMake room for what matters.Notes, pictures and timers, arranged on your desktop.Choose a hexagon, triangle or rectangle and add the content you need. Windows and macOS have native builds with different feature sets.Download Windows x64 ↓Download macOS Universal 2 ↓View on GitHub ↗Enjoying DeskTiles? Please consider giving the project a star on GitHub!Windows 10 / 11 x64 · macOS 12+（Apple silicon / Intel） 2026-11-10 · v1.02The Windows and macOS packages and the website logo now use a thin dark-gray outline around the four shapes. The outer corners remain transparent.A native Universal 2 download is available for macOS 12+, with Apple silicon and Intel architectures.Before updating, save and exit the old app, then extract the complete new archive. On Windows, choose Save and exit DeskTiles from the tray; X only hides the controller. Keep your existing layout.Source release commit ↗Windows demonstrationOpen the demonstration videoThis 30-second Windows demo uses a fictional layout. The video and screenshots may show an earlier icon. Choose your platformWindowsNative C++17 / Win32 / GDI+. Includes text, images, timers, alarms, Traditional Chinese / English"
   },
   {
     "lang": "en",
-    "title": "2026-11-07 · v1.01",
+    "title": "2026-11-10 · v1.02",
     "pageTitle": "DeskTiles",
-    "url": "en/index.html#2026-11-07-v101",
-    "text": "Windows and macOS packages now use the smooth rounded four-shape logo. The website and controller screenshots use the same design.A native Universal 2 download is available for macOS 12+, with Apple silicon and Intel architectures. Before updating, save and exit the old app, then extract the complete new archive. On Windows, choose Save and exit DeskTiles from the tray; X only hides the controller. Keep your existing layout. Source release commit ↗"
+    "url": "en/index.html#2026-11-10-v102",
+    "text": "The Windows and macOS packages and the website logo now use a thin dark-gray outline around the four shapes. The outer corners remain transparent.A native Universal 2 download is available for macOS 12+, with Apple silicon and Intel architectures. Before updating, save and exit the old app, then extract the complete new archive. On Windows, choose Save and exit DeskTiles from the tray; X only hides the controller. Keep your existing layout. Source release commit ↗"
   },
   {
     "lang": "en",
     "title": "Windows demonstration",
     "pageTitle": "DeskTiles",
     "url": "en/index.html#windows-demonstration",
-    "text": "Open the demonstration video This existing 30-second Windows demo uses a fictional layout. Its icons and interface may differ from the current release."
+    "text": "Open the demonstration video This 30-second Windows demo uses a fictional layout. The video and screenshots may show an earlier icon."
   },
   {
     "lang": "en",
@@ -403,14 +403,14 @@
     "title": "Downloads and documentation",
     "pageTitle": "DeskTiles",
     "url": "en/index.html#downloads-and-documentation",
-    "text": "DeskTiles-Windows-x64.zipWindows 10 / 11 x64 · 492.2 KiB ↓DeskTiles-macOS-universal.zipmacOS 12+ · Universal 2 · 415.5 KiB ↓Windows SHA256SUMS.txtWindows integrity checks ↓macOS SHA256SUMS.txtMac integrity checks ↓ Package SHA-256Windows507C4B6DC30CA8D50418D4EE83A60847E0CBC3CDBB04B31CB328D4A9FC0FD79EmacOS9A4182F469863228F3B63F5899C2BA3FB269541632D4849C3447E7672EFA7032The archives retain their third-party MIT notices. No project-wide license is asserted here. Windows 中文 Markdown ↓ · Windows English Markdown ↓ · macOS 中文 Markdown ↓ · macOS English Markdown ↓ · macOS third-party notices ↓ · macOS example JSON ↓ · Project README ↓"
+    "text": "DeskTiles-Windows-x64.zipWindows 10 / 11 x64 · 495.8 KiB ↓DeskTiles-macOS-universal.zipmacOS 12+ · Universal 2 · 441.3 KiB ↓Windows SHA256SUMS.txtWindows integrity checks ↓macOS SHA256SUMS.txtMac integrity checks ↓ Package SHA-256Windows21D38075F51E3F8A678C8594A3F7379BF4DED3776D4F0CE63524E4A343A2B2C0macOSA864E6AFA4B2B765A0294D54EA907F68989A677811AF0F80EC62537A355C0FC8The archives retain their third-party MIT notices. No project-wide license is asserted here. Windows 中文 Markdown ↓ · Windows English Markdown ↓ · macOS 中文 Markdown ↓ · macOS English Markdown ↓ · macOS third-party notices ↓ · macOS example JSON ↓ · Project README ↓"
   },
   {
     "lang": "en",
     "title": "Validation scope and limitations",
     "pageTitle": "DeskTiles",
     "url": "en/index.html#validation-scope-and-limitations",
-    "text": "The project reports 222 Windows core checks and 192 integration checks, plus 170 Mac core checks, Universal 2, icon loading and signature checks. The website publisher verifies the supplied files and hashes; it does not rerun the application tests. The Windows alarm restart issue and Mac notarization, Intel hardware and multi-monitor limitations remain. Linux is not available. Download the original release and validation record ↓ Windows: C++17 / Win32 / GDI+ · macOS: Objective-C++ / AppKit / C++"
+    "text": "The project reports 222 Windows core checks and 192 integration checks, plus 170 Mac core checks, Universal 2, icon loading and signature checks. The website publisher verifies the supplied files and hashes; it does not rerun the application tests. The Windows alarm restart issue and Mac notarization, Intel hardware and multi-monitor limitations remain. Linux is not available. GitHub release notes ↗ · Mac validation workflow ↗ Windows: C++17 / Win32 / GDI+ · macOS: Objective-C++ / AppKit / C++"
   },
   {
     "lang": "en",
@@ -487,7 +487,7 @@
     "title": "Project README",
     "pageTitle": "Project README",
     "url": "en/readme.html",
-    "text": "DeskTiles/Project READMEDownload Markdown ↓Windows x64 ZIP ↓On this pageDownload and updateWindows featuresMac features and differencesLayout compatibilityValidation for v1.01Source and noticesDeskTiles DeskTiles is a native desktop tile application for Windows and macOS. Choose a hexagon, triangle or 3:2 rectangle and add text, pictures or timers. Group dragging, snapping, transparent backgrounds, animated borders and JSON backups help arrange a desktop layout. The v1.01 release uses a smooth rounded four-shape logo on both platforms. The circle in the logo is not an additional tile type. The repository now includes the supplied Windows features and the native Mac implementation. Download and update Windows 10 / 11 x64: extract DeskTiles-Windows-x64.zip, then open DeskTiles/DeskTiles.exe. The portable build uses a static C++ runtime. macOS 12+: extract DeskTiles-macOS-universal.zip, then open DeskTiles.app. Universal 2 includes Apple silicon and Intel code. Save and exit the old app before extracting the complete update. X hides the controller; it does not quit the app. Keep your saved layout and the package's third-party notices. Linux is not available. The Mac package uses an ad-hoc signature. It has no Developer ID signature or Apple notarization. Intel hardware, multiple monitors, other macOS versions and long-running stress tests still need validation. Read the Mac guide and limitations before downloading. Windows features Select a shape and add a tile. Shift-click sele"
+    "text": "DeskTiles/Project READMEDownload Markdown ↓Windows x64 ZIP ↓On this pageDownload and updateWindows featuresMac features and differencesLayout compatibilityValidation for v1.02Source and noticesDeskTiles DeskTiles is a native desktop tile application for Windows and macOS. Choose a hexagon, triangle or 3:2 rectangle and add text, pictures or timers. Group dragging, snapping, transparent backgrounds, animated borders and JSON backups help arrange a desktop layout. The v1.02 release adds a thin dark-gray outline to the smooth rounded four-shape logo on both platforms. The outer corners remain transparent. The circle in the logo is not an additional tile type. The repository now includes the supplied Windows features and the native Mac implementation. Download and update Windows 10 / 11 x64: extract DeskTiles-Windows-x64.zip, then open DeskTiles/DeskTiles.exe. The portable build uses a static C++ runtime. macOS 12+: extract DeskTiles-macOS-universal.zip, then open DeskTiles.app. Universal 2 includes Apple silicon and Intel code. Save and exit the old app before extracting the complete update. X hides the controller; it does not quit the app. Keep your saved layout and the package's third-party notices. Linux is not available. The Mac package uses an ad-hoc signature. It has no Developer ID signature or Apple notarization. Intel hardware, multiple monitors, other macOS versions and long-running stress tests still need validation. Read the Mac guide and limitations before downloadi"
   },
   {
     "lang": "en",
@@ -519,9 +519,9 @@
   },
   {
     "lang": "en",
-    "title": "Validation for v1.01",
+    "title": "Validation for v1.02",
     "pageTitle": "Project README",
-    "url": "en/readme.html#validation-for-v101",
+    "url": "en/readme.html#validation-for-v102",
     "text": "The project reports 222 Windows core checks, 192 integration checks, language/restart checks and icon decoding checks. The Mac icon-release workflow reports 170 core checks, AppKit integration, standard/Retina icon decoding, Finder configuration, arm64/x86_64 architectures and ad-hoc signing checks. The website publisher verifies supplied files and hashes without executing the application tests. The Windows alarm restart issue and the Mac validation and signing limits above remain. Historical validation summaries refer to their original packages, not the current download."
   },
   {
@@ -529,7 +529,7 @@
     "title": "Source and notices",
     "pageTitle": "Project README",
     "url": "en/readme.html#source-and-notices",
-    "text": "Windows uses C++17 / Win32 / GDI+. Mac uses Objective-C++ / AppKit and C++. The archives retain their third-party MIT notices; no project-wide license is asserted here. Source repository · v1.01 release source · Mac validation workflow This English README is maintained by the website from the project's supplied documentation. The original Chinese README is available as a separate download."
+    "text": "Windows uses C++17 / Win32 / GDI+. Mac uses Objective-C++ / AppKit and C++. The archives retain their third-party MIT notices; no project-wide license is asserted here. Source repository · v1.02 release source · Mac validation workflow This English README is maintained by the website from the project's supplied documentation. The original Chinese README is available as a separate download."
   },
   {
     "lang": "zh",

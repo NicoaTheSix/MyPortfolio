@@ -1,5 +1,11 @@
 # DeskTiles 網站發布與維護
 
+## DeskTiles v1.02 細邊圖示與雙平台下載（2026-11-10）
+
+從 DeskTiles 正式發行 v1.02 取得共用 SVG／PNG、Windows x64 與 macOS Universal 2 ZIP。Logo 外圈為 #404040，厚度為 1024 尺寸下的 20 單位。兩平台檔案的大小、SHA-256 及來源提交見 release.mjs 與 source-manifest.json。
+
+從網站根目錄執行 `node build-desktiles.mjs --source 'D:\DeskTile'`。程式先列出絕對輸入與輸出，逐階段校驗、複製公開素材、生成中英文文件與搜尋索引，再更新兩個首頁的 DeskTiles 卡片。執行 `node check-desktiles.mjs` 核對本機產物，部署後加上 `--url https://nicoathesix.github.io/MyPortfolio/desktiles/` 比對公開頁面與原始 ZIP 的雜湊。
+
 ## DeskTiles 雙平台圓角圖示發布（2026-11-07）
 
 本節取代下方歷史版本的套件、功能及驗證數字。使用者於 DeskTile 專員對話選定 A 圓角圖示並授權更新、部署 Windows／Mac 與 Portfolio。本批整合遠端 ce98930 的 Mac 下載內容，保留既有 macos.html、Markdown、範例與授權下載網址。

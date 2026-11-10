@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "project": "DeskTiles",
-  "publishedDate": "2026-11-07",
+  "publishedDate": "2026-11-10",
   "sourceRepository": "https://github.com/NicoaTheSix/DeskTile",
   "platform": "Windows 10 / 11 x64; macOS 12+ Universal 2",
-  "macZipSha256": "9a4182f469863228f3b63f5899c2ba3fb269541632d4849c3447e7672efa7032",
-  "macZipBytes": 425519,
-  "sourceCommit": "2f5678e2e1d67701dbe639af5b1817a2e3f7d3ae",
-  "releaseCommit": "e3ddc9b95d34f0c8716697908ba749aa2d553e8f",
-  "zipSha256": "507c4b6dc30ca8d50418d4ee83a60847e0cbc3cdbb04b31cb328d4a9fc0fd79e",
-  "zipBytes": 504041,
-  "releaseExeSha256": "dc69fbb53ea3454954b0140983d48227f0f21a7aa7d857afe4002ff093a90606",
-  "releaseExeBytes": 1068032,
+  "macZipSha256": "a864e6afa4b2b765a0294d54ea907f68989a677811af0f80ec62537a355c0fc8",
+  "macZipBytes": 451920,
+  "sourceCommit": "5b522ef14a789503b4ab3f55ede080f8ab3f1028",
+  "releaseCommit": "5b522ef14a789503b4ab3f55ede080f8ab3f1028",
+  "zipSha256": "21d38075f51e3f8a678c8594a3f7379bf4ded3776d4f0ce63524e4a343a2b2c0",
+  "zipBytes": 507652,
+  "releaseExeSha256": "ad59539ee39c45ae1be5c2777666f18a79de05ce51332e6d09893efb64dde7d8",
+  "releaseExeBytes": 1072128,
   "generatedHtml": [
     "index.html",
     "guide.html",
@@ -69,8 +69,8 @@
     {
       "path": "downloads/README.md",
       "source": "README.md",
-      "sha256": "a71423d4ea2cd5d925f9ae87ee96db88214509f07b4be66f5f3edd3aa40ace3e",
-      "bytes": 22229
+      "sha256": "0bea872feea52bd355922e9425c8f6945eba9b8bcea3fb3b110de52904509fa9",
+      "bytes": 22228
     },
     {
       "path": "downloads/guide-zh.md",
@@ -129,25 +129,25 @@
     {
       "path": "assets/DeskTiles.svg",
       "source": "assets/DeskTiles.svg",
-      "sha256": "b0d32d0bbead92edfc490dc1ff9dd71651e3cbdaa6a4117d02614ad1d07228cf",
-      "bytes": 1393
+      "sha256": "44a2201701ed8b34ce7d240b8104a18c8b0c3b93826438ea72f5fd752a889831",
+      "bytes": 1600
     },
     {
       "path": "assets/DeskTiles-logo.png",
       "source": "assets/DeskTiles-logo.png",
-      "sha256": "4f998f074f2b526aef186e37b8fc79d373f13181c563d2792c2dc28e29065ee9",
-      "bytes": 35111
+      "sha256": "53e44db4ad89a8873b13497b474d710c5fdd6e9f4af567f5c07fd3d4d704ab3c",
+      "bytes": 44899
     },
     {
       "path": "downloads/DeskTiles-Windows-x64.zip",
       "source": "release/DeskTiles-Windows-x64.zip",
-      "sha256": "507c4b6dc30ca8d50418d4ee83a60847e0cbc3cdbb04b31cb328d4a9fc0fd79e",
-      "bytes": 504041
+      "sha256": "21d38075f51e3f8a678c8594a3f7379bf4ded3776d4f0ce63524e4a343a2b2c0",
+      "bytes": 507652
     },
     {
       "path": "downloads/SHA256SUMS.txt",
       "source": "release/SHA256SUMS.txt",
-      "sha256": "ebe077a29c5950b87b3cdda60ea238ca46264cb96b84f934388631576e9cf0e1",
+      "sha256": "e49b26490fc34d056f4cfe1d8893b142e8858d3e4e32a76559538c60ba8dd2dc",
       "bytes": 184
     },
     {
@@ -195,13 +195,13 @@
     {
       "path": "downloads/DeskTiles-macOS-universal.zip",
       "source": "DeskTile_mac/release/DeskTiles-macOS-universal.zip",
-      "sha256": "9a4182f469863228f3b63f5899c2ba3fb269541632d4849c3447e7672efa7032",
-      "bytes": 425519
+      "sha256": "a864e6afa4b2b765a0294d54ea907f68989a677811af0f80ec62537a355c0fc8",
+      "bytes": 451920
     },
     {
       "path": "downloads/SHA256SUMS-macOS.txt",
       "source": "DeskTile_mac/release/SHA256SUMS.txt",
-      "sha256": "e1eef757227d1ef5d82fcc156b9e9269a604484b7bfb3ade93c060d3f88ae2ff",
+      "sha256": "1e2b1ae27efefd59b3a6e34a5e948f3f583762c0e7371efeef38f704a349b3cb",
       "bytes": 97
     },
     {
@@ -231,8 +231,8 @@
     {
       "path": "downloads/readme-en.md",
       "source": "website:content/readme-en.md",
-      "sha256": "2d6ebb9a5478722176345f644c2848f598e967ed1a9eedf397b1166c6b071fab",
-      "bytes": 4731
+      "sha256": "a5eb87628fe5e90cefe12daaaf7e10bb4669f47d1d9862ab60ce0cf0d519d220",
+      "bytes": 4799
     },
     {
       "path": "downloads/mac-en.md",
@@ -245,7 +245,7 @@
     "coreChecks": 222,
     "windowsChecks": 192,
     "macCoreChecks": 170,
-    "macWorkflow": 42359672604,
+    "macWorkflow": 42757989847,
     "languages": [
       "zh-Hant",
       "en"
