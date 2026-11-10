@@ -4,9 +4,9 @@
   const base = new URL('.', document.currentScript.src);
   const en = document.documentElement.lang === 'en';
   const t = (zh, english) => en ? english : zh;
-  const manifestURL = new URL('assets/development-pixel-manifest.json', base);
+  const assetBase = new URL('assets/', base);
   console.info('[四格像素 0/5] 輸入頁面（絕對 URL）：', location.href);
-  for (const file of ['pixel-scenes.js','pixel-scenes.css','assets/development-pixel-manifest.json',`assets/service-development-${en?'en':'zh'}.png`,'assets/gui-pixel-states.png','assets/automation-pixel-sprite.png','assets/api-pixel-sprite.png','assets/docs-pixel-sprite.png']) console.info('[四格像素 0/5] 輸入檔案（絕對 URL）：', new URL(file,base).href);
+  for (const file of ['pixel-scenes.js','pixel-scenes.css','poster-animation-data.js','poster-image-ready.js',`assets/service-development-${en?'en':'zh'}.png`,'assets/gui-pixel-states.png','assets/automation-pixel-sprite.png','assets/api-pixel-sprite.png','assets/docs-pixel-sprite.png']) console.info('[四格像素 0/5] 輸入檔案（絕對 URL）：', new URL(file,base).href);
   console.info('[四格像素 0/5] 輸出：',new URL('#development-poster-frame',location.href).href,'的四個 Canvas 與七個互動區域；不寫入檔案，不連線至真實 API。');
   const gallery = document.querySelector('#pixel-gallery');
   const play = document.querySelector('#pixel-play');
@@ -15,13 +15,17 @@
   const counter = document.querySelector('#pixel-frame');
   const preference = matchMedia('(prefers-reduced-motion: reduce)');
   const poster = document.querySelector('#development-poster-frame');
+  const serviceCard = poster.closest('.service-card');
   const original = document.querySelector('#poster-original');
   const animated = document.querySelector('#poster-animated');
   const controls = document.querySelector('#scene-controls');
   const title = document.querySelector('#poster-title');
+  const utility = serviceCard?.querySelector('.poster-utility');
+  if (utility) utility.prepend(original.closest('.poster-switch'));
   title.addEventListener('click',() => title.setAttribute('aria-pressed',String(title.getAttribute('aria-pressed')!=='true')));
   const CROP = {x:8,y:28,width:240,height:122};
-  let view = 'original';
+  let view = 'animated';
+  let animationReady = false;
   let frame = preference.matches ? 20 : 0;
   let paused = false;
   let visible = true;
@@ -33,8 +37,8 @@
   };
   const setView = next => {
     view = next;
-    const isOriginal = view === 'original';
-    poster.dataset.view = view;
+    const isOriginal = !animationReady || view === 'original' || serviceCard?.classList.contains('is-window-small') === true;
+    poster.dataset.view = isOriginal ? 'original' : 'animated';
     gallery.hidden = isOriginal;
     original.setAttribute('aria-pressed',String(isOriginal));
     animated.setAttribute('aria-pressed',String(!isOriginal));
@@ -44,7 +48,8 @@
     console.info('[四格像素 狀態] 海報模式：',isOriginal ? '原圖' : '動畫');
   };
   original.addEventListener('click',() => setView('original'));
-  setView('original');
+  poster.addEventListener('poster-compact-change', () => setView(view));
+  setView(view);
   const loadImage = source => new Promise((resolve,reject) => {
     const image = new Image();
     image.addEventListener('load',() => resolve(image),{once:true});
@@ -52,18 +57,15 @@
     image.src = source;
   });
   const start = async () => {
-    const {waitForPosterImage}=await import(new URL('poster-image-ready.js',base));
+    const manifest = structuredClone(globalThis.pixelPosterData.development);
     const baseReady=waitForPosterImage(poster,en);
-    const response = await fetch(manifestURL);
-    if (!response.ok) throw new Error(`素材規格載入失敗：${response.status}`);
-    const manifest = await response.json();
     if(en){
       const labels=['Name field','Tool menu','Run button','Reset button','First sidebar item','Second sidebar item','Third sidebar item'];
       manifest.fields.forEach((field,index)=>field.label=labels[index]);
     }
     console.info('[四格像素 1/5] 四格規格與七個欄位位置載入完成。');
     const scenes = await Promise.all(manifest.scenes.map(async config => {
-      const source = new URL(config.sprite,manifestURL);
+      const source = new URL(config.sprite,assetBase);
       const sprite = await loadImage(source.href);
       const card = document.querySelector(`[data-scene="${config.id}"]`);
       const canvas = card.querySelector('canvas');
@@ -124,7 +126,8 @@
     });
     animated.disabled = false;
     animated.addEventListener('click',() => {setView('animated');fit();draw();});
-    setView('animated');
+    animationReady = true;
+    setView(view);
     play.disabled = step.disabled = seek.disabled = false;
     fit(); draw(); updatePlay();
     controls.closest('[data-animation-tools]')?.removeAttribute('hidden');
@@ -140,7 +143,7 @@
     seek.addEventListener('input',() => {paused=true;frame=Number(seek.value);draw();updatePlay();});
     console.info('[四格像素 4/5] 原圖構圖、粉黃標題、模式切換、暫停及全站偏好連動完成。');
     setInterval(() => {
-      if (view==='animated' && !paused && !stoppedGlobally() && visible && !document.hidden) {frame=(frame+1)%24;draw();}
+      if (poster.dataset.view==='animated' && !paused && !stoppedGlobally() && visible && !document.hidden) {frame=(frame+1)%24;draw();}
     },125);
     console.info('[四格像素 5/5] 每秒八格循環就緒；GUI 反白獨立回應操作。');
   };

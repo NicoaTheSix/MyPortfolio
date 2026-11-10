@@ -2,7 +2,9 @@
   "name": "nicoa-myportfolio",
   "private": true,
   "type": "module",
-  "engines": { "node": ">=20" },
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "build:blog": "node build-blog.mjs",
     "check:blog": "node check-blog.mjs",
@@ -12,11 +14,14 @@
     "check:analytics": "node sync-google-tag.mjs --check",
     "build:docs": "node build-fusion-docs.mjs",
     "check:docs": "node check-fusion-docs.mjs",
+    "build:studio": "node build-studio-space.mjs",
     "preview": "node serve.mjs"
   },
   "devDependencies": {
+    "esbuild": "0.25.12",
     "linkedom": "0.18.14",
     "marked": "18.1.2",
-    "sanitize-html": "2.18.1"
+    "sanitize-html": "2.18.1",
+    "three": "0.180.0"
   }
 }

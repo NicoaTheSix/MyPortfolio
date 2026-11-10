@@ -7,8 +7,8 @@ import {parseHTML} from 'linkedom';
 
 const root=path.dirname(fileURLToPath(import.meta.url));
 const pages=['index.html','en/index.html'];
-const scripts=['home-pixel.js','pixel-scenes.js','pixel-service-posters.js'];
-const sources=[...pages,...scripts,'poster-image-ready.js','home-pixel.css','pixel-scenes.css','assets/development-pixel-manifest.json','assets/service-animation-manifest.json'];
+const scripts=['home-pixel.js','poster-animation-data.js','poster-image-ready.js','pixel-scenes.js','pixel-service-posters.js'];
+const sources=[...pages,...scripts,'home-pixel.css','pixel-scenes.css','assets/development-pixel-manifest.json','assets/service-animation-manifest.json'];
 for(const file of sources)console.log('[0/4] 輸入絕對路徑：',path.join(root,file));
 console.log('[0/4] 輸出：終端驗證結果，不寫入檔案。');
 const at=process.argv.indexOf('--url'),url=at>=0?new URL(process.argv[at+1]):null;
@@ -50,7 +50,7 @@ try{
     }
     references.add(`assets/${config.gif}`);
   }
-  console.log('[2/4] 三支前端語法、十六張 1-bit 影格表及七個 GUI 互動區規格通過。');
+  console.log('[2/4] 前端語法、十六張 1-bit 影格表及七個 GUI 互動區規格通過。');
   for(const file of references)assert((await stat(path.join(root,file))).isFile());
   console.log(`[3/4] ${references.size} 個首頁與動態載入資源檔案存在。`);
   if(url){

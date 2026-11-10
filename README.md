@@ -1,3 +1,46 @@
+## 黑白像素工作室（本機預覽）
+
+雙語首頁從首屏到頁尾共用固定的黑色點陣背景。pixel-studio.css 設定點陣、備用粒子與前後層級。區塊文字使用淺色，視窗與海報沿用各自的面板底色。
+
+繁中與英文首頁將自我介紹放進首屏視窗，合作流程緊接在首屏下方。聯絡區置中排列社群圖示，信箱和寫信入口放在圖示下方。
+
+四張服務海報從一般腳本讀取動畫資料，並用圖片元素載入影格表。直接開啟本機 HTML 時，播放流程不需要讀取 JSON 或載入 JavaScript 模組。更新兩份動畫 JSON 後，執行 node sync-poster-animation-data.mjs。程式先列出輸入與輸出絕對路徑，再依序讀取規格、產生腳本與寫入 poster-animation-data.js。執行 node sync-poster-animation-data.mjs --check 可以核對產出。
+
+服務視窗的方框鈕可縮小和還原。正常大小保留動畫、標題懸停／點選變色和卡片文字。縮小時兩支海報程式會停止播放並只顯示原圖，樣式同時收起操作列和下方內容。還原後回到該海報先前選擇的原圖或動畫，播放設定及影格會保留。海報的顯示切換位於圖下，避免英文按鈕和標題感應區重疊。
+
+雙語首頁的固定背景把終端機、電腦桌及桌面小物放在前景視窗後方。桌子左側放抽屜，終端機位於右側。寬版畫面有六本浮空書。左側三本共用原本的打開書、薄冊和厚精裝書幾何，各自設定尺寸、角度及路徑。全螢幕畫布保留原來的桌面鏡頭位置，窄版畫面顯示桌面附近的三本。捲動時書本、星星和 2D 文字按不同幅度飄移。2D 光點分佈在 3D 場景的固定座標，即使停止捲動也各自按不同頻率閃爍。畫面更新約每秒 30 次，捲動和尺寸變動時立即排程。暫停動畫、系統減少動態與分頁隱藏都會停止閃爍計時。
+
+更新 [3D 場景](assets/3d/studio-desk/README.md) 後，執行 `npm ci` 和 `npm run build:studio`。build-studio-space.mjs 先列出 studio-space.mjs、GLB 及生成腳本的絕對路徑，再以 Three.js 載入模型並打包到 studio-space.js。HTML 使用一般 defer 腳本，模型與程式一起載入，因此直接開啟本機 HTML 也可執行。瀏覽器先列出網頁、腳本、備用圖片與背景輸出的絕對 URL，接著掛載粒子與文字、讀取模型、初始化捲動。WebGL 2 不可用時，頁面顯示透明渲染圖作為備用背景。
+
+首頁上方的語言列與主導覽共用一個置頂視窗。首屏的介紹、肖像和工作室共用黑色點陣背景。pixel-studio.css 先建立背景與視窗陰影，再於桌面尺寸加上不同相位的上下浮動；滑鼠移入或鍵盤焦點進入視窗時暫停該視窗。手機及減少動態模式保留陰影和層次，桌面亦可用原有的「暫停動畫」停止浮動。首屏由 index.html 與 en/index.html 共用相同結構。
+
+中英文首頁的「進入像素工作室」連到 #studio。前景內容隨頁面捲動，手機採單欄視窗。
+
+雙語文案及連結由 index.html、en/index.html 維護。home-pixel.js 先列出輸入頁面、前端、樣式與各視窗輸出 DOM 的絕對 URL，再依序建立標題列、接上按鈕並設定鍵盤焦點。導覽、介紹、肖像、三個工作室視窗及四張服務卡各自有最小化、縮小／還原、關閉三顆原生按鈕。最小化只留標題列，關閉後可在原位置重開。停用 JavaScript 時仍顯示各區內容。
+
+從本目錄執行以下命令，依序啟動預覽及檢查。serve.mjs 會先列出絕對輸入目錄及本機輸出 URL，再回報預覽進度。
+
+~~~powershell
+$env:PORT = '4203'
+node serve.mjs
+~~~
+
+另開終端執行以下檢查。開啟 http://127.0.0.1:4203/MyPortfolio/ 或 http://127.0.0.1:4203/MyPortfolio/en/，從首屏向下捲動，確認轉場、視窗收合、雙語連結及手機單欄。
+
+~~~powershell
+node --check home-pixel.js
+node check-site.mjs
+node sync-poster-animation-data.mjs --check
+node check-pixel-homepages.mjs --url http://127.0.0.1:4203/MyPortfolio/
+node sync-google-tag.mjs --check
+~~~
+
+本機預覽截圖放在同目錄的 .preview 資料夾，檔名為 pixel-studio-desktop.jpg、pixel-studio-windows.jpg 與 pixel-studio-mobile.jpg。
+首屏浮動修訂的桌面與手機截圖分別為 pixel-studio-floating-home-desktop.jpg 與 pixel-studio-floating-home-mobile.jpg。
+分層桌面、工作室電腦桌和服務卡的驗收截圖分別為 pixel-studio-layered-home.jpg、pixel-studio-layered-desk.jpg 與 pixel-studio-layered-services.jpg。
+復古視窗與社群圖示的驗收截圖分別為 pixel-studio-retro-windows.jpg 與 pixel-studio-social-icons.jpg。
+英文服務卡正常大小與縮小狀態的對照截圖為 pixel-studio-service-zoom.jpg。
+
 ## 雙語履歷頁（2026-11-09，v1.09）
 
 首頁新增履歷入口，連到中文 /resume/ 或英文 /resume/en/。公開版依使用者的履歷整理學歷、研究、專案、技術與求職方向。維持 Nicoa The Six 的公開名稱，原始 PDF 與私密欄位不進網站。使用者確認部署後，本批正式版本由 v1.08 升為 v1.09。

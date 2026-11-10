@@ -13,7 +13,6 @@
 @media(max-width:720px) {
   #services .service-grid { grid-template-columns:minmax(0,1fr); gap:20px; }
   .service-card-content { padding:20px; }
-  .service-card-content > :not(.tags) { display:none; }
   .service-card-content .tags { flex-direction:row; flex-wrap:wrap; margin:0; }
   #services .service-card h3 { font-size:23px; }
   .service-card-content .tags { font-size:10px; }
