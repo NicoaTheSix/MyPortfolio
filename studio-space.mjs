@@ -40,7 +40,9 @@ if (backdrop) {
     const floating = [
       { object: findProp('07'), rate: 1.14, lift: .17, yaw: .43 },
       { object: findProp('08'), rate: -1.47, lift: .12, yaw: -.58 },
-      { object: findProp('09'), rate: .86, lift: .29, yaw: .69 }
+      { object: findProp('09'), rate: .86, lift: .29, yaw: .69 },
+      { object: findProp('10'), rate: -1.33, lift: .10, yaw: -.46 },
+      { object: findProp('11'), rate: 1.62, lift: .12, yaw: .52 }
     ];
     if (!camera?.isOrthographicCamera || floating.some(prop => !prop.object)) {
       throw new Error('The studio model is missing its camera or floating props.');
@@ -53,7 +55,7 @@ if (backdrop) {
       if (object.name.startsWith('Environment')) object.visible = false;
     }
     scene.add(new HemisphereLight(0xffffff, 0x333333, .85));
-    console.info('[3D 2/3] Loaded desk, two stars and floating book as separate models.');
+    console.info('[3D 2/3] Loaded the desk, two stars and three independent floating books.');
 
     const renderer = new WebGLRenderer({ canvas, alpha: true, antialias: true });
     const heightRange = camera.top - camera.bottom;
