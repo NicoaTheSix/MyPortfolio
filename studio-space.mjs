@@ -47,6 +47,19 @@ if (backdrop) {
     if (!camera?.isOrthographicCamera || floating.some(prop => !prop.object)) {
       throw new Error('The studio model is missing its camera or floating props.');
     }
+    const leftBooks = [
+      { source: '09', name: 'Left open book', anchor: [.29, .26], scale: .85, tilt: -.41, rate: -1.04, lift: .13, yaw: -.48 },
+      { source: '10', name: 'Left thin booklet', anchor: [.78, .49], scale: 1.23, tilt: .38, rate: 1.67, lift: .12, yaw: .57 },
+      { source: '11', name: 'Left thick hardcover', anchor: [.43, .74], scale: .95, tilt: -.27, rate: .72, lift: .15, yaw: -.44 }
+    ].map(({ source, name, scale, tilt, ...motion }) => {
+      const object = findProp(source).clone();
+      object.name = name;
+      object.scale.multiplyScalar(scale);
+      object.rotateZ(tilt);
+      scene.add(object);
+      return { object, ...motion };
+    });
+    floating.push(...leftBooks);
     for (const prop of floating) {
       prop.rest = prop.object.position.clone();
       prop.rotation = prop.object.rotation.clone();
@@ -55,10 +68,12 @@ if (backdrop) {
       if (object.name.startsWith('Environment')) object.visible = false;
     }
     scene.add(new HemisphereLight(0xffffff, 0x333333, .85));
-    console.info('[3D 2/3] Loaded the desk, two stars and three independent floating books.');
+    console.info('[3D 2/3] Loaded the desk, two stars and six independently positioned books.');
 
     const renderer = new WebGLRenderer({ canvas, alpha: true, antialias: true });
     const heightRange = camera.top - camera.bottom;
+    const deskLeft = camera.left;
+    const bookDistance = camera.position.length();
     let lastWidth = 0;
     let lastHeight = 0;
     let lastRatio = 0;
@@ -73,9 +88,15 @@ if (backdrop) {
         lastRatio = ratio;
         renderer.setPixelRatio(ratio);
         renderer.setSize(width, height, false);
-        camera.right = heightRange * width / height / 2;
-        camera.left = -camera.right;
+        // Widen the frame on the left without shifting the original desk composition.
+        camera.left = camera.right - heightRange * width / height;
         camera.updateProjectionMatrix();
+        const leftRoom = deskLeft - camera.left;
+        for (const { object, rest, anchor: [x, y] } of leftBooks) {
+          object.visible = leftRoom > .65;
+          rest.set(camera.left + leftRoom * x, camera.top - heightRange * y, -bookDistance);
+          camera.localToWorld(rest);
+        }
       }
       for (const { object, rest, rotation, rate, lift, yaw } of floating) {
         object.position.set(

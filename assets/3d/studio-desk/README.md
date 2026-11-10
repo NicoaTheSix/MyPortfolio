@@ -9,3 +9,5 @@
 3. 從交付鏡頭渲染 [nicoa-pixel-desk.png](./nicoa-pixel-desk.png)，並匯出 [nicoa-pixel-desk.glb](./nicoa-pixel-desk.glb)。透明鏡頭圖用於 WebGL 不可用的情況，環境則由網頁繪製。
 
 在 GLB 的場景樹中選取 `01 Desk` 至 `11 Thick hardcover` 可分別移動或調整各物件。首頁的 2D 文字、粒子、星星與書本在視窗後方隨捲動飄移。重新匯出 GLB 後，在網站根目錄執行 `npm run build:studio` 更新雙語首頁共用的腳本。
+
+寬版首頁從 GLB 共用三種書本的幾何與材質，在桌子左側各建立一個獨立物件。新增的三本書由首頁程式定位與動畫控制。Higgsfield 場景和透明備用圖顯示桌面附近的三本。
