@@ -16,3 +16,7 @@
 - 網頁位於 `C:\Users\nick5\Documents\ChatGPT\Portfolio 網站設置\demos\pixel-pets\index.html`。同目錄有 `pets.js`、`site.js` 與 `styles.css`。
 - 共用字型來自 `C:\Users\nick5\Documents\ChatGPT\Portfolio 網站設置\assets\fonts\cubic-11.woff2`。
 - 角色和背景輸出到頁面的 Canvas。購物車只寫入目前瀏覽器，沒有產出獨立圖片或訂單檔案。
+
+## 英文進階版
+
+英文頁位於 `C:\Users\nick5\Documents\ChatGPT\Portfolio 網站設置\demos\pixel-pets\advanced\en\index.html`。中英文共用本目錄下的 `pets.js` 與 `site.js`，依 HTML 的 `lang` 顯示角色名、分類、動作和購物車訊息。角色 ID、價格與購物車的本機儲存鍵共用，切換語言後仍可看到原本加入的角色。瀏覽器控制台顯示實際輸入資源、輸出區塊與四個執行階段。

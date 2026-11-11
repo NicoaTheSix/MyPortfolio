@@ -2,6 +2,8 @@
 
 從專案根目錄執行 `npm run preview`，在 <http://127.0.0.1:4173/MyPortfolio/#website-demos> 開啟中英文作品集。原有 URL 保留，各站新增 `advanced/`。四個頁面的頁尾可下載 512 × 512 的品牌底色版和透明 PNG。
 
+英文作品集的進階版入口連到各站 `advanced/en/`。兩種語言共用圖像、Logo、樣式和互動。頁首可切換語言，原版功能的連結會標示語言。英文林達頁換算住宅案例面積為平方公尺，杉溪鄉筆記與林達諮詢表單沿用繁中原版。
+
 | 網站 | 進階互動 | Uberdesigner 參考 |
 | --- | --- | --- |
 | [林達](../lin-da/advanced/index.html) | 紙本看房誌，以目錄、按鈕或方向鍵翻閱三個虛構住宅案例 | [Lamplit](https://uberdesigner.ai/t/lamplit) 的目錄與翻頁 |
@@ -25,3 +27,5 @@ ImageGen 原圖位於 `C:\Users\nick5\.codex\generated_images\01a1c3be-7542-73b0
 啟動預覽時，伺服器先列出絕對輸入與輸出 URL，再顯示白名單及啟動進度。頁面控制台依序列出 `[進階示範 0/3]` 的輸入與輸出、辨識元件、綁定操作與就緒狀態。系統開啟減少動態效果時，仍可切換頁面、操作圖鑑和查看機身。
 
 驗證從 `node check-site.mjs` 和 `node --check demos/advanced/advanced.js` 開始。接著從作品集開啟進階版，確認既有 URL、標誌下載、翻頁、捲動場景、試玩與購物車、照片切換和放大，以及手機寬度。
+
+英文版輸入為上述四個品牌輸出目錄內的 `index.html`，各自的英文輸出為同目錄的 `en\index.html`。檢查時先列出路徑，再核對中英文對應網址、連結、資源和互動。公開部署紀錄為 [GitHub Pages 作業 42981180661](https://github.com/NicoaTheSix/MyPortfolio/actions/runs/42981180661)，部署內容是實作英文版之前的快照 `28458a5`。

@@ -1,10 +1,36 @@
+const petShopInEnglish = document.documentElement.lang === "en";
+const englishPetNames = {
+  bolt: "Bolt Bean",
+  meter: "Grid Scout",
+  windup: "Clockwork Chime",
+  orbit: "Orbit One",
+  moss: "Moss Cap",
+  frog: "Bubble Frog",
+  fox: "Redtail Puff",
+  gill: "Pink Gill",
+  saucer: "Float Bean",
+  blob: "Moon Jelly",
+  mars: "Mars Courier",
+  eye: "Nebula Eye",
+  toast: "Bouncy Toast",
+  tape: "Cassette Kid",
+  plant: "Slow Sprout",
+  cup: "Puff Cup",
+};
+const englishPetCategories = {
+  all: "All pets", robot: "Robots", creature: "Critters", alien: "Aliens", object: "Objects",
+};
+const englishPetMoves = {
+  walk: "Walk", hungry: "Hungry", jump: "Jump", sleep: "Sleep", poop: "Poop",
+};
+
 const petCategories = [
   { id: "all", label: "全部", color: "#e1edb2" },
   { id: "robot", label: "機器人", color: "#d6e3f7" },
   { id: "creature", label: "小生物", color: "#e5ecc5" },
   { id: "alien", label: "外星人", color: "#e9daf4" },
   { id: "object", label: "實體", color: "#f5e2c2" },
-];
+].map((category) => petShopInEnglish ? { ...category, label: englishPetCategories[category.id] } : category);
 
 // One character per pixel. Dots are transparent and a–c use each pet's own palette.
 const petCatalog = [
@@ -41,7 +67,7 @@ const petCatalog = [
   ["cup", "茶杯噗噗", "object", 115, ["#8bbdd7", "#4d7f9e", "#cf9e69"],
     "...x..x..... ..x..x...... .xxxxxxxx... .xaccccaxxx. .xaaaaaaxcx. .xaexaeaxcx. .xapaaaaxxx. ..xbbbbx.... ...xxxx..... ..xx..xx...."],
 ].map(([id, name, category, price, colors, pattern]) => ({
-  id, name, category, price, colors, rows: pattern.split(" "),
+  id, name: petShopInEnglish ? englishPetNames[id] : name, category, price, colors, rows: pattern.split(" "),
 }));
 
 const petMoves = [
@@ -50,7 +76,7 @@ const petMoves = [
   { id: "jump", label: "跳躍" },
   { id: "sleep", label: "睡覺" },
   { id: "poop", label: "便便" },
-];
+].map((move) => petShopInEnglish ? { ...move, label: englishPetMoves[move.id] } : move);
 
 function paintPixels(context, rows, palette, left, top) {
   rows.forEach((row, y) => [...row].forEach((pixel, x) => {
@@ -114,7 +140,7 @@ function makePetCanvas(pet, decorative = false) {
   if (decorative) canvas.setAttribute("aria-hidden", "true");
   else {
     canvas.setAttribute("role", "img");
-    canvas.setAttribute("aria-label", `${pet.name}的像素角色`);
+    canvas.setAttribute("aria-label", petShopInEnglish ? `Pixel art of ${pet.name}` : `${pet.name}的像素角色`);
   }
   drawPet(canvas, pet);
   return canvas;

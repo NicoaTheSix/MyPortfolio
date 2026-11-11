@@ -1,8 +1,9 @@
 const shopUrl = new URL(document.URL);
 const shopAsset = (path) => new URL(path, shopUrl).href;
+const shopSource = (path) => new URL(path, document.currentScript.src).href;
 console.info("[電子雞 0/4] 輸入（絕對 URL）", [
-  shopUrl.href, shopAsset("styles.css"), shopAsset("pets.js"), shopAsset("site.js"),
-  shopAsset("../../assets/fonts/cubic-11.woff2"),
+  shopUrl.href, shopSource("styles.css"), shopSource("pets.js"), shopSource("site.js"),
+  shopSource("../../assets/fonts/cubic-11.woff2"),
 ].join("\n"));
 console.info("[電子雞 0/4] 輸出", shopAsset("#catalog"), shopAsset("#cart"), "瀏覽器購物車，不輸出檔案。");
 
@@ -13,7 +14,39 @@ const petTemplate = document.querySelector("#pet-window");
 const shopStatus = document.querySelector("#shop-status");
 const products = new Map(petCatalog.map((pet) => [pet.id, pet]));
 const categories = new Map(petCategories.map((category) => [category.id, category]));
-const formatPrice = (amount) => `NT$${amount.toLocaleString("zh-TW")}`;
+const formatPrice = (amount) => `NT$${amount.toLocaleString(petShopInEnglish ? "en" : "zh-TW")}`;
+const englishPetCount = (count) => `${count} ${Number(count) === 1 ? "pet" : "pets"}`;
+const shopCopy = petShopInEnglish ? {
+  auto: "Auto-play",
+  idle: "Idle",
+  add: (name) => `Add ${name} to cart`,
+  count: englishPetCount,
+  filtered: (category, count) => `${category}: ${count}.`,
+  move: (label) => `Pet move: ${label}.`,
+  pause: "Background animation paused.",
+  resume: "Background animation resumed.",
+  quantity: (name, change) => `${change > 0 ? "Add" : "Remove"} one ${name}`,
+  limit: (name) => `You have reached the quantity limit for ${name}.`,
+  added: (name) => `${name} added to your cart.`,
+  changed: (name, quantity) => `${name}: ${quantity} in your cart.`,
+  receipt: (count) => `Demo checkout complete. You selected ${englishPetCount(count)}.`,
+  completed: "Demo checkout complete.",
+} : {
+  auto: "自動輪播",
+  idle: "待機",
+  add: (name) => `將${name}加入購物車`,
+  count: (count) => `${count} 隻角色`,
+  filtered: (category, count) => `${category}：${count}。`,
+  move: (label) => `寵物動作：${label}。`,
+  pause: "背景動畫已暫停。",
+  resume: "背景動畫已繼續。",
+  quantity: (name, change) => `${change > 0 ? "增加" : "減少"}一隻${name}`,
+  limit: (name) => `${name}已達單品數量上限。`,
+  added: (name) => `${name}已加入購物車。`,
+  changed: (name, quantity) => `${name}：${quantity} 隻。`,
+  receipt: (count) => `模擬結帳完成。你選了 ${count} 隻電子雞寵物。`,
+  completed: "模擬結帳完成。",
+};
 
 console.info("[電子雞 1/4] 建立十六隻角色與商品分類");
 let activeCategory = "all";
@@ -21,7 +54,7 @@ let selectedMotion = "auto";
 let motionStarted = performance.now();
 const motionControls = document.querySelector(".motion-buttons");
 const motionPreference = matchMedia("(prefers-reduced-motion: reduce)");
-const motionOptions = [{ id: "auto", label: "自動輪播" }, ...petMoves];
+const motionOptions = [{ id: "auto", label: shopCopy.auto }, ...petMoves];
 const ticksPerMove = 18;
 const frameInterval = 125;
 const productPreviews = new Map();
@@ -41,7 +74,7 @@ function renderPreview(canvas, frame) {
     ? petMoves[Math.floor(timeline / ticksPerMove) % petMoves.length]
     : moveFor.get(selectedMotion);
   const resting = automatic && reduced;
-  const label = resting ? "待機" : move.label;
+  const label = resting ? shopCopy.idle : move.label;
   if (status.textContent !== label) status.textContent = label;
   drawPet(canvas, pet, resting ? "idle" : move.id, reduced ? 4 : automatic ? timeline % ticksPerMove : frame);
 }
@@ -79,7 +112,7 @@ function displayProducts() {
     fragment.querySelector(".price").textContent = formatPrice(pet.price);
     const add = fragment.querySelector(".add-pet");
     add.dataset.petId = pet.id;
-    add.setAttribute("aria-label", `將${pet.name}加入購物車`);
+    add.setAttribute("aria-label", shopCopy.add(pet.name));
     return fragment;
   }));
   const frame = elapsedMotionFrame();
@@ -87,7 +120,7 @@ function displayProducts() {
     renderPreview(canvas, frame);
     previewObserver.observe(canvas);
   }
-  resultCount.textContent = `${visible.length} 隻角色`;
+  resultCount.textContent = shopCopy.count(visible.length);
 }
 
 for (const category of petCategories) {
@@ -107,7 +140,7 @@ filters.addEventListener("click", (event) => {
     filter.setAttribute("aria-pressed", String(filter === button));
   }
   displayProducts();
-  shopStatus.textContent = `${button.textContent}：${resultCount.textContent}。`;
+  shopStatus.textContent = shopCopy.filtered(button.textContent, resultCount.textContent);
 });
 for (const move of motionOptions) {
   const button = document.createElement("button");
@@ -127,7 +160,7 @@ motionControls.addEventListener("click", (event) => {
     control.setAttribute("aria-pressed", String(control === button));
   }
   for (const canvas of productPreviews.keys()) renderPreview(canvas, 0);
-  shopStatus.textContent = `寵物動作：${button.textContent}。`;
+  shopStatus.textContent = shopCopy.move(button.textContent);
 });
 motionPreference.addEventListener("change", () => {
   const frame = elapsedMotionFrame();
@@ -162,7 +195,7 @@ setInterval(() => {
 document.querySelector("#toggle-runners").addEventListener("click", (event) => {
   const paused = document.body.classList.toggle("runners-paused");
   event.currentTarget.setAttribute("aria-pressed", String(paused));
-  shopStatus.textContent = paused ? "背景動畫已暫停。" : "背景動畫已繼續。";
+  shopStatus.textContent = paused ? shopCopy.pause : shopCopy.resume;
 });
 
 console.info("[電子雞 3/4] 讀取本機購物車");
@@ -191,7 +224,7 @@ function quantityButton(pet, change) {
   button.textContent = change > 0 ? "＋" : "−";
   button.dataset.petId = pet.id;
   button.dataset.change = String(change);
-  button.setAttribute("aria-label", `${change > 0 ? "增加" : "減少"}一隻${pet.name}`);
+  button.setAttribute("aria-label", shopCopy.quantity(pet.name, change));
   button.disabled = change > 0 && basket.get(pet.id) === 99;
   return button;
 }
@@ -242,11 +275,11 @@ grid.addEventListener("click", (event) => {
   if (!button) return;
   const pet = products.get(button.dataset.petId);
   if (basket.get(pet.id) === 99) {
-    shopStatus.textContent = `${pet.name}已達單品數量上限。`;
+    shopStatus.textContent = shopCopy.limit(pet.name);
     return;
   }
   changeQuantity(pet.id, 1);
-  shopStatus.textContent = `${pet.name}已加入購物車。`;
+  shopStatus.textContent = shopCopy.added(pet.name);
 });
 
 cartItems.addEventListener("click", (event) => {
@@ -257,7 +290,7 @@ cartItems.addEventListener("click", (event) => {
   const replacement = cartItems.querySelector(`[data-pet-id="${petId}"][data-change="${change}"]`);
   if (replacement && !replacement.disabled) replacement.focus();
   else (cartItems.querySelector("button:not(:disabled)") ?? cart.querySelector(".close-cart")).focus();
-  cartStatus.textContent = `${products.get(petId).name}：${basket.get(petId) ?? 0} 隻。`;
+  cartStatus.textContent = shopCopy.changed(products.get(petId).name, basket.get(petId) ?? 0);
 });
 
 document.querySelector("#open-cart").addEventListener("click", () => {
@@ -268,8 +301,8 @@ checkout.addEventListener("click", () => {
   const count = cartCount.textContent;
   basket.clear();
   persistCart();
-  cartStatus.textContent = `模擬結帳完成。你選了 ${count} 隻電子雞寵物。`;
-  shopStatus.textContent = "模擬結帳完成。";
+  cartStatus.textContent = shopCopy.receipt(count);
+  shopStatus.textContent = shopCopy.completed;
   cart.querySelector(".close-cart").focus();
 });
 displayCart();

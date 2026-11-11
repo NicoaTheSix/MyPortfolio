@@ -147,11 +147,21 @@
     const picker = device.querySelector('#device-pet');
     const moves = device.querySelector('.device-moves');
     const canvas = device.querySelector('[data-device-screen]');
-    const descriptions = {
+    const english = document.documentElement.lang === 'en';
+    const descriptions = english ? {
+      case: 'The shell protects the screen and circuitry and gives the device its round shape.',
+      screen: 'The LCD shows your chosen pet and all five of its moves.',
+      buttons: 'The buttons send commands to your pet.',
+      circuit: 'The circuit board reads the buttons and updates the pixels on the screen.',
+      expanded: 'All four layers are expanded.',
+      assembled: 'The device is assembled.',
+    } : {
       case: '外殼包住螢幕和電路，保留電子雞的圓形輪廓。',
       screen: 'LCD 顯示你選的角色，也能試玩牠的五種動作。',
       buttons: '按鍵是給寵物下指令的入口。',
       circuit: '電路板接收按鍵訊號，更新螢幕上的像素。',
+      expanded: '四層機身已展開。',
+      assembled: '機身已組合。',
     };
     let spread;
     let pet = petCatalog[0];
@@ -176,7 +186,7 @@
       spread = name === 'all' && currentSpread > .55 ? .08 : 1;
       setSpread(spread);
       markPart(name);
-      note.textContent = descriptions[name] ?? (spread > .5 ? '四層機身已展開。' : '機身已組合。');
+      note.textContent = descriptions[name] ?? (spread > .5 ? descriptions.expanded : descriptions.assembled);
     });
 
     picker.replaceChildren(...petCatalog.map((item) => new Option(item.name, item.id)));

@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explore a virtual pet device and shop for 16 pixel pets in the Beep Pets demo store.">
+  <title>Beep Pets | Device Lab</title>
+  <link rel="alternate" hreflang="zh-Hant" href="../">
+  <link rel="alternate" hreflang="en" href="./">
+  <link rel="stylesheet" href="../../../../assets/fonts/fonts.css">
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="icon" href="../logo-transparent.png">
+  <link rel="stylesheet" href="../../../advanced/advanced.css">
+  <script src="../../pets.js" defer></script>
+  <script src="../../site.js" defer></script>
+  <script src="../../../advanced/advanced.js" defer></script>
+</head>
+<body id="top" class="pet-edition">
+  <a class="skip-link" href="#catalog">Skip to the shop</a>
+  <div class="runner-layer" aria-hidden="true"></div>
+  <header class="desktop-bar">
+    <div class="shell desktop-inner">
+      <a class="brand" href="#top"><img src="../logo.png" alt="" width="44" height="44"> Beep Pets</a>
+      <div class="desktop-actions">
+        <a href="../" lang="zh-Hant" hreflang="zh-Hant">繁體中文</a><a href="../../" hreflang="zh-Hant">Original</a><a href="../../../../en/#website-demos">Portfolio</a>
+        <button class="bevel desktop-cart" id="open-cart" type="button">Cart <span id="cart-count">0</span></button>
+      </div>
+    </div>
+  </header>
+  <main class="shell">
+    <section class="pet-experiment" aria-labelledby="hero-title" data-device>
+      <div class="pet-console">
+        <div class="pet-console-copy">
+          <p class="kicker">BEEP PETS / DEVICE LAB</p>
+          <h1 id="hero-title">Powering<br>on.</h1>
+          <p>Open the shell to see the LCD, buttons and circuit board. Pick a pet and try its five moves.</p>
+          <a class="edition-button" href="#catalog">Browse the pet shop ↓</a>
+        </div>
+        <div class="device-demo">
+          <div class="device-stage" aria-hidden="true">
+            <div class="device-layer circuit" data-layer="circuit"><span>BP 01</span><i></i><i></i></div>
+            <div class="device-layer switches" data-layer="buttons"><i></i><i></i><i></i></div>
+            <div class="device-layer screen" data-layer="screen"><canvas width="20" height="20" data-device-screen></canvas></div>
+            <div class="device-layer case" data-layer="case"><i></i><i></i></div>
+          </div>
+          <div class="device-controls" role="group" aria-label="Device parts" hidden>
+            <button type="button" data-part="all" aria-pressed="true">Assemble / expand</button>
+            <button type="button" data-part="case" aria-pressed="false">Shell</button>
+            <button type="button" data-part="screen" aria-pressed="false">Screen</button>
+            <button type="button" data-part="buttons" aria-pressed="false">Buttons</button>
+            <button type="button" data-part="circuit" aria-pressed="false">Circuit board</button>
+          </div>
+          <p class="device-note" data-part-note aria-live="polite">Scroll or select a part to see the device open up.</p>
+        </div>
+      </div>
+      <div class="pet-test" hidden>
+        <div><h2>Try a pet on the device</h2><label for="device-pet">Choose a pet</label> <select id="device-pet"></select></div>
+        <div class="device-moves" role="group" aria-label="Test moves"></div>
+      </div>
+    </section>
+    <div class="hero-sprites" hidden aria-hidden="true"></div>
+    <section class="catalog" id="catalog" aria-labelledby="catalog-title">
+      <div class="catalog-heading"><h2 id="catalog-title">Pet catalog</h2><p id="result-count">16 pets</p></div>
+      <div class="filters" role="group" aria-label="Pet categories"></div>
+      <div class="motion-chooser"><span id="motion-label">Pet moves</span><div class="motion-buttons" role="group" aria-labelledby="motion-label"></div></div>
+      <div class="pet-grid" id="pet-grid"></div>
+      <noscript><p>Enable JavaScript to view the pets and use the cart.</p></noscript>
+    </section>
+  </main>
+  <footer class="taskbar">
+    <div class="shell taskbar-inner">
+      <button class="bevel" id="toggle-runners" type="button" aria-pressed="false">Pause background</button>
+      <p id="shop-status" role="status">Demo shop ready</p>
+      <div class="pet-downloads"><a href="../logo.png" download="pixel-pets-logo.png">Download logo</a><a href="../logo-transparent.png" download="pixel-pets-logo-transparent.png">Download transparent PNG</a><a href="#top">Back to desktop ↑</a></div>
+    </div>
+  </footer>
+  <template id="pet-window">
+    <article class="pet-window">
+      <div class="titlebar"><span class="window-icon" aria-hidden="true"></span><h3></h3><span class="window-mark" aria-hidden="true">▣</span></div>
+      <div class="pet-screen"><span class="pet-action" aria-hidden="true"></span></div>
+      <div class="window-meta"><span class="category-tag"></span><strong class="price"></strong></div>
+      <button class="bevel add-pet" type="button">＋ Add to cart</button>
+    </article>
+  </template>
+  <dialog id="cart" aria-labelledby="cart-title">
+    <div class="titlebar">
+      <h2 id="cart-title">Shopping cart</h2>
+      <form method="dialog"><button class="bevel close-cart" aria-label="Close cart">×</button></form>
+    </div>
+    <div class="cart-body">
+      <p id="empty-cart">Your cart is empty.</p>
+      <ul id="cart-items"></ul>
+      <div class="cart-summary"><strong>Total</strong><strong id="cart-total">NT$0</strong></div>
+      <button class="bevel checkout" id="checkout" type="button" disabled>Demo checkout</button>
+      <p id="cart-status" role="status"></p>
+    </div>
+  </dialog>
+</body>
+</html>

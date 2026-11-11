@@ -31,7 +31,7 @@ for (const file of ['index.html', 'styles.css', 'site.js', ...['cafe-interior', 
   publicFiles.add('demos/reptile-cafe/' + file);
 }
 for (const demo of ['lin-da', 'town-memory', 'pixel-pets', 'reptile-cafe']) {
-  for (const file of ['index.html', 'logo.png', 'logo-transparent.png']) {
+  for (const file of ['index.html', 'en/index.html', 'logo.png', 'logo-transparent.png']) {
     publicFiles.add(`demos/${demo}/advanced/${file}`);
   }
 }
