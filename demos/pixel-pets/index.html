@@ -40,6 +40,10 @@
         <p id="result-count">16 隻角色</p>
       </div>
       <div class="filters" role="group" aria-label="商品分類"></div>
+      <div class="motion-chooser">
+        <span id="motion-label">寵物動作</span>
+        <div class="motion-buttons" role="group" aria-labelledby="motion-label"></div>
+      </div>
       <div class="pet-grid" id="pet-grid"></div>
       <noscript><p>啟用 JavaScript 後即可查看角色與操作購物車。</p></noscript>
     </section>
@@ -56,7 +60,7 @@
   <template id="pet-window">
     <article class="pet-window">
       <div class="titlebar"><span class="window-icon" aria-hidden="true"></span><h3></h3><span class="window-mark" aria-hidden="true">▣</span></div>
-      <div class="pet-screen"></div>
+      <div class="pet-screen"><span class="pet-action" aria-hidden="true"></span></div>
       <div class="window-meta">
         <span class="category-tag"></span>
         <strong class="price"></strong>

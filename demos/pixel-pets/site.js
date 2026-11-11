@@ -17,8 +17,50 @@ const formatPrice = (amount) => `NT$${amount.toLocaleString("zh-TW")}`;
 
 console.info("[電子雞 1/4] 建立十六隻角色與商品分類");
 let activeCategory = "all";
+let selectedMotion = "auto";
+let motionStarted = performance.now();
+const motionControls = document.querySelector(".motion-buttons");
+const motionPreference = matchMedia("(prefers-reduced-motion: reduce)");
+const motionOptions = [{ id: "auto", label: "自動輪播" }, ...petMoves];
+const ticksPerMove = 18;
+const frameInterval = 125;
+const productPreviews = new Map();
+const visiblePreviews = new Set();
+const moveFor = new Map(petMoves.map((move) => [move.id, move]));
+
+function elapsedMotionFrame() {
+  return Math.floor((performance.now() - motionStarted) / frameInterval);
+}
+
+function renderPreview(canvas, frame) {
+  const { pet, status, offset } = productPreviews.get(canvas);
+  const timeline = frame + offset;
+  const automatic = selectedMotion === "auto";
+  const reduced = motionPreference.matches;
+  const move = automatic
+    ? petMoves[Math.floor(timeline / ticksPerMove) % petMoves.length]
+    : moveFor.get(selectedMotion);
+  const resting = automatic && reduced;
+  const label = resting ? "待機" : move.label;
+  if (status.textContent !== label) status.textContent = label;
+  drawPet(canvas, pet, resting ? "idle" : move.id, reduced ? 4 : automatic ? timeline % ticksPerMove : frame);
+}
+
+const previewObserver = new IntersectionObserver((entries) => {
+  const frame = elapsedMotionFrame();
+  for (const { target, isIntersecting } of entries) {
+    if (!productPreviews.has(target)) continue;
+    if (isIntersecting) {
+      visiblePreviews.add(target);
+      renderPreview(target, frame);
+    } else visiblePreviews.delete(target);
+  }
+});
 
 function displayProducts() {
+  previewObserver.disconnect();
+  productPreviews.clear();
+  visiblePreviews.clear();
   const visible = activeCategory === "all"
     ? petCatalog
     : petCatalog.filter((pet) => pet.category === activeCategory);
@@ -27,7 +69,11 @@ function displayProducts() {
     const category = categories.get(pet.category);
     const screen = fragment.querySelector(".pet-screen");
     screen.style.setProperty("--screen", category.color);
-    screen.append(makePetCanvas(pet));
+    const canvas = makePetCanvas(pet);
+    screen.append(canvas);
+    productPreviews.set(canvas, {
+      pet, status: screen.querySelector(".pet-action"), offset: (petCatalog.indexOf(pet) % 4) * 3,
+    });
     fragment.querySelector("h3").textContent = pet.name;
     fragment.querySelector(".category-tag").textContent = category.label;
     fragment.querySelector(".price").textContent = formatPrice(pet.price);
@@ -36,6 +82,11 @@ function displayProducts() {
     add.setAttribute("aria-label", `將${pet.name}加入購物車`);
     return fragment;
   }));
+  const frame = elapsedMotionFrame();
+  for (const canvas of productPreviews.keys()) {
+    renderPreview(canvas, frame);
+    previewObserver.observe(canvas);
+  }
   resultCount.textContent = `${visible.length} 隻角色`;
 }
 
@@ -58,22 +109,56 @@ filters.addEventListener("click", (event) => {
   displayProducts();
   shopStatus.textContent = `${button.textContent}：${resultCount.textContent}。`;
 });
+for (const move of motionOptions) {
+  const button = document.createElement("button");
+  button.className = "bevel motion-button";
+  button.type = "button";
+  button.dataset.motion = move.id;
+  button.textContent = move.label;
+  button.setAttribute("aria-pressed", String(move.id === selectedMotion));
+  motionControls.append(button);
+}
+motionControls.addEventListener("click", (event) => {
+  const button = event.target.closest("button[data-motion]");
+  if (!button) return;
+  selectedMotion = button.dataset.motion;
+  motionStarted = performance.now();
+  for (const control of motionControls.querySelectorAll("button")) {
+    control.setAttribute("aria-pressed", String(control === button));
+  }
+  for (const canvas of productPreviews.keys()) renderPreview(canvas, 0);
+  shopStatus.textContent = `寵物動作：${button.textContent}。`;
+});
+motionPreference.addEventListener("change", () => {
+  const frame = elapsedMotionFrame();
+  for (const canvas of productPreviews.keys()) renderPreview(canvas, frame);
+});
 displayProducts();
 
-console.info("[電子雞 2/4] 啟動背景角色");
+console.info("[電子雞 2/4] 啟動五種寵物動作與背景角色");
 const runners = document.querySelector(".runner-layer");
 const heroSprites = document.querySelector(".hero-sprites");
 for (const id of ["bolt", "moss", "saucer"]) heroSprites.append(makePetCanvas(products.get(id), true));
-petCatalog.forEach((pet, index) => {
+const runnerSprites = petCatalog.map((pet, index) => {
   const runner = document.createElement("div");
   runner.className = "runner";
   const seconds = 16 + (index * 7 % 13);
   runner.style.setProperty("--lane", `${9 + index * 5.3}%`);
   runner.style.setProperty("--duration", `${seconds}s`);
   runner.style.setProperty("--delay", `-${(index * 7.3 + 3) % seconds}s`);
-  runner.append(makePetCanvas(pet, true));
+  const canvas = makePetCanvas(pet, true);
+  runner.append(canvas);
   runners.append(runner);
+  return { canvas, pet };
 });
+setInterval(() => {
+  if (document.hidden || motionPreference.matches) return;
+  const frame = elapsedMotionFrame();
+  for (const canvas of visiblePreviews) renderPreview(canvas, frame);
+  if (!document.body.classList.contains("runners-paused")) {
+    runnerSprites.forEach(({ canvas, pet }, index) => drawPet(canvas, pet, "walk", frame + index));
+  }
+}, frameInterval);
 document.querySelector("#toggle-runners").addEventListener("click", (event) => {
   const paused = document.body.classList.toggle("runners-paused");
   event.currentTarget.setAttribute("aria-pressed", String(paused));

@@ -44,27 +44,78 @@ const petCatalog = [
   id, name, category, price, colors, rows: pattern.split(" "),
 }));
 
+const petMoves = [
+  { id: "walk", label: "走路" },
+  { id: "hungry", label: "飢餓" },
+  { id: "jump", label: "跳躍" },
+  { id: "sleep", label: "睡覺" },
+  { id: "poop", label: "便便" },
+];
+
+function paintPixels(context, rows, palette, left, top) {
+  rows.forEach((row, y) => [...row].forEach((pixel, x) => {
+    if (!palette[pixel]) return;
+    context.fillStyle = palette[pixel];
+    context.fillRect(left + x, top + y, 1, 1);
+  }));
+}
+
+function drawPet(canvas, pet, motion = "idle", frame = 0) {
+  const context = canvas.getContext("2d");
+  const phase = frame % 8;
+  const foot = frame % 2;
+  const width = pet.rows[0].length;
+  const left = Math.floor((canvas.width - width) / 2);
+  const top = canvas.height - pet.rows.length - 3;
+  const ink = {
+    x: "#28324b", e: "#263044", w: "#fff8e3", p: "#f29898",
+    a: pet.colors[0], b: pet.colors[1], c: pet.colors[2],
+  };
+  const lift = motion === "jump" ? [0, 2, 4, 5, 5, 4, 2, 0][phase] : 0;
+  const travel = motion === "walk" ? [-2, -1, 0, 1, 2, 1, 0, -1][phase] : motion === "poop" ? -2 : 0;
+  const rest = motion === "sleep" ? 1 : 0;
+  const bob = motion === "walk" || motion === "hungry" ? foot : 0;
+  const base = canvas.height - 2;
+  context.clearRect(0, 0, canvas.width, canvas.height);
+  context.fillStyle = "#28324b42";
+  context.fillRect(left + travel + 2 + Math.floor(lift / 2), base, width - 4 - lift, 1);
+
+  pet.rows.forEach((row, y) => [...row].forEach((pixel, x) => {
+    if (!ink[pixel]) return;
+    const stride = motion === "walk" && y === pet.rows.length - 1 && (x < width / 2) === Boolean(foot) ? -1 : 0;
+    const isEye = pixel === "e" && motion === "sleep";
+    context.fillStyle = isEye ? ink.b : ink[pixel];
+    context.fillRect(left + travel + x, top + y - lift + rest - bob + stride, 1, 1);
+    if (isEye) {
+      context.fillStyle = ink.e;
+      context.fillRect(left + travel + x, top + y + rest + 1, 1, 1);
+    }
+  }));
+
+  if (motion === "hungry") {
+    paintPixels(context, [".y.y.", "..y..", "xxxxx", ".ooo.", "..o.."], {
+      y: "#a65348", x: "#59445b", o: "#eaa958",
+    }, 15, 1 + foot);
+  } else if (motion === "sleep") {
+    const z = { z: "#414780" };
+    paintPixels(context, ["zzz", ".z.", "zzz"], z, 15, 3 - foot);
+    if (phase >= 3) paintPixels(context, ["zz", ".z"], z, 18, 0);
+  } else if (motion === "poop" && phase >= 2) {
+    paintPixels(context, ["..x..", ".xbb.", ".bab.", "xbbbx", ".xxx."], {
+      x: "#553b42", a: "#d89b65", b: "#9c624f",
+    }, 14, 14);
+  }
+}
+
 function makePetCanvas(pet, decorative = false) {
   const canvas = document.createElement("canvas");
-  canvas.width = 16;
-  canvas.height = 16;
+  canvas.width = 20;
+  canvas.height = 20;
   if (decorative) canvas.setAttribute("aria-hidden", "true");
   else {
     canvas.setAttribute("role", "img");
     canvas.setAttribute("aria-label", `${pet.name}的像素角色`);
   }
-  const ink = {
-    x: "#28324b", e: "#263044", w: "#fff8e3", p: "#f29898",
-    a: pet.colors[0], b: pet.colors[1], c: pet.colors[2],
-  };
-  const context = canvas.getContext("2d");
-  const width = Math.max(...pet.rows.map((row) => row.length));
-  const left = Math.floor((canvas.width - width) / 2);
-  const top = canvas.height - pet.rows.length - 2;
-  pet.rows.forEach((row, y) => [...row].forEach((pixel, x) => {
-    if (!ink[pixel]) return;
-    context.fillStyle = ink[pixel];
-    context.fillRect(left + x, top + y, 1, 1);
-  }));
+  drawPet(canvas, pet);
   return canvas;
 }
