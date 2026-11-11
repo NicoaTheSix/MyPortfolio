@@ -1,3 +1,11 @@
+## A＋B 首頁本機預覽
+
+互動桌面用既有的黑白桌景圖作為前景。CRT、書本和資料夾分別開啟作品、文章和履歷視窗。桌面版將連結對齊圖像物件，手機版將同一組連結排成三個可點按的圖示。讀取中英文首頁後，script.js 先在主控台列出頁面、腳本和 DOM 輸出的絕對 URL，再依階段掛接視窗和聯絡操作。關閉視窗可用 X 或 Esc。無視窗支援時，連結直接前往對應頁面。
+
+精選作品緊接首屏，DeskTiles 內嵌既有 Windows 操作影片，並保留文件和下載入口。四張示範卡沿用各站素材和雙語連結。兩個首頁維護版面內容，pixel-studio.css 共用桌面與手機排版，原本固定在後方的 3D 場景仍由 studio-space.js 載入。
+
+在網站根目錄以 PowerShell 執行 `$env:PORT='4213'; node serve.mjs`，程式列出絕對目錄和預覽 URL。打開 http://127.0.0.1:4213/MyPortfolio/ 或 http://127.0.0.1:4213/MyPortfolio/en/。另開終端依序執行 `node check-site.mjs` 與 `node check-pixel-homepages.mjs --url http://127.0.0.1:4213/MyPortfolio/`。此批次先交付本機預覽。
+
 ## 林達房地產個人網站示範
 
 在專案根目錄執行 `npm run preview`，可開啟[第一版靜態頁](http://127.0.0.1:4173/MyPortfolio/demos/lin-da/)與[三鏡頭動畫版](http://127.0.0.1:4173/MyPortfolio/demos/lin-da/motion.html)，也可直接在瀏覽器開啟對應的 HTML。預覽伺服器以白名單提供兩個版本的網頁、樣式、腳本和生成照。素材位置、頁面流程與互動進度見 [示範網站說明](demos/lin-da/README.md)。

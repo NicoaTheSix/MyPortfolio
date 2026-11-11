@@ -2,7 +2,7 @@
 (() => {
   'use strict';
   const english = document.documentElement.lang === 'en';
-  console.info('[Nicoa 0/3] 輸入：', new URL('./index.html', location.href).href);
+  console.info('[Nicoa 0/3] 輸入：', location.href, document.currentScript.src);
   console.info('[Nicoa 0/3] 輸出：目前瀏覽器頁面 DOM；不寫入檔案。');
   document.querySelector('#year').textContent = String(new Date().getFullYear());
   document.querySelectorAll('[data-language-switch]').forEach(link => {
@@ -13,17 +13,25 @@
     });
   });
   console.info('[Nicoa 1/3] 品牌字樣與年份完成。');
-  document.querySelectorAll('[data-open-dialog]').forEach(button => {
-    button.addEventListener('click', () => document.getElementById(button.dataset.openDialog).showModal());
+  document.querySelectorAll('[data-open-dialog]').forEach(trigger => {
+    const dialog = document.getElementById(trigger.dataset.openDialog);
+    if (typeof dialog?.showModal !== 'function') return;
+    trigger.setAttribute('aria-haspopup', 'dialog');
+    trigger.addEventListener('click', event => {
+      if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+      event.preventDefault();
+      dialog.showModal();
+    });
   });
   document.querySelectorAll('dialog').forEach(dialog => {
     dialog.querySelector('[data-close-dialog]').addEventListener('click', () => dialog.close());
     dialog.addEventListener('click', event => {
+      if (event.target.closest('a[href^="#"]')) dialog.close();
       const box = dialog.getBoundingClientRect();
       if (event.target === dialog && (event.clientX < box.left || event.clientX > box.right || event.clientY < box.top || event.clientY > box.bottom)) dialog.close();
     });
   });
-  console.info('[Nicoa 2/3] 圖片預覽互動完成。');
+  console.info('[Nicoa 2/3] 桌面視窗與圖片預覽互動完成。');
   document.querySelector('#copy-email').addEventListener('click', async () => {
     const status = document.querySelector('#copy-status');
     try {

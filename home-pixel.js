@@ -121,10 +121,13 @@
   });
   console.info('[正式像素 2/3] 像素階梯進場與重播完成。');
   const progress=document.querySelector('#reading-progress');
+  const desktop=document.querySelector('.interactive-desk');
+  const studioPage=desktop?.closest('.studio-page');
   let queued=false;
   const draw=()=>{
     const range=document.documentElement.scrollHeight-innerHeight;
     progress.style.width=(range>0?Math.min(100,Math.max(0,100*scrollY/range)):0)+'%';
+    studioPage?.classList.toggle('desktop-in-view', desktop.getBoundingClientRect().bottom > innerHeight * .3);
     queued=false;
   };
   const schedule=()=>{if(!queued){queued=true;requestAnimationFrame(draw);}};
