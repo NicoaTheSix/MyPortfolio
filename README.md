@@ -1,6 +1,6 @@
 ## 林達房地產個人網站示範
 
-在專案根目錄執行 `npm run preview`，開啟 <http://127.0.0.1:4173/MyPortfolio/demos/lin-da/>，也可直接用瀏覽器開啟 `demos/lin-da/index.html`。預覽伺服器以白名單提供網頁、樣式、腳本及五張生成照。素材位置、頁面流程與互動進度見 [示範網站說明](demos/lin-da/README.md)。
+在專案根目錄執行 `npm run preview`，可開啟[第一版靜態頁](http://127.0.0.1:4173/MyPortfolio/demos/lin-da/)與[黑白街景動畫版](http://127.0.0.1:4173/MyPortfolio/demos/lin-da/motion.html)，也可直接在瀏覽器開啟對應的 HTML。預覽伺服器以白名單提供兩個版本的網頁、樣式、腳本和生成照。素材位置、頁面流程與互動進度見 [示範網站說明](demos/lin-da/README.md)。
 
 ## 黑白像素工作室（本機預覽）
 

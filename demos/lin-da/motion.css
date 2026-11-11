@@ -1,0 +1,71 @@
+.hero.hero--motion { display: block; padding: 0; }
+
+.hero-frame {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  place-items: center;
+  min-height: clamp(410px, 43vw, 650px);
+  padding: 54px 24px 66px;
+  overflow: hidden;
+  background: #252525;
+  color: #fffdf8;
+}
+.hero-image { position: absolute; z-index: -1; inset: 0; overflow: hidden; }
+.hero-image img { height: 100%; object-fit: cover; object-position: 50% 52%; animation: hero-zoom 4.5s cubic-bezier(.19, .64, .27, 1) both; }
+.hero-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, #0808080d 8%, #08080878 48%, #0808088c 70%, #08080899 100%);
+}
+.hero-image figcaption { position: absolute; z-index: 1; bottom: 17px; right: clamp(17px, 3vw, 44px); font-size: .75rem; }
+.hero-title-mask { width: min(100%, 1100px); overflow: hidden; text-align: center; }
+.hero h1 {
+  margin: 0;
+  font: 900 clamp(2.8rem, 8vw, 7.8rem)/1.17 var(--sans);
+  letter-spacing: -.065em;
+  text-shadow: 0 2px 24px #0008;
+}
+.hero h1 span {
+  display: inline-block;
+  white-space: nowrap;
+  animation: hero-title-in .85s cubic-bezier(.2, .72, .22, 1) .15s both;
+}
+.hero h1 span + span { animation-delay: .29s; }
+.hero-replay {
+  position: absolute;
+  bottom: 12px;
+  left: clamp(17px, 3vw, 44px);
+  min-height: 36px;
+  padding: 4px 10px;
+  border: 1px solid #fff9;
+  background: #17171770;
+  color: inherit;
+  font-size: .78rem;
+}
+.hero-replay:hover { background: #171717; }
+.hero-replay span { margin-right: 4px; }
+.hero-copy { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 18px 28px; padding-block: clamp(26px, 4vw, 49px); }
+.hero-intro { max-width: 36em; margin-top: 8px; }
+.hero-actions { margin-top: 0; }
+
+@keyframes hero-zoom {
+  from { transform: scale(1); }
+  to { transform: scale(1.095); }
+}
+
+@keyframes hero-title-in {
+  from { transform: translateY(80%); clip-path: inset(0 0 100% 0); }
+  to { transform: translateY(0); clip-path: inset(0); }
+}
+
+@media (max-width: 670px) {
+  .hero-frame { min-height: clamp(330px, 95vw, 465px); }
+  .hero h1 { font-size: clamp(2.55rem, 9.2vw, 4rem); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-image img, .hero h1 span { animation: none; }
+  .hero-replay { display: none; }
+}
