@@ -12,6 +12,10 @@
 
 中英文首頁的 `#website-demos` 新增嗶嗶電子雞商店。執行 `npm run preview` 後可從作品集進入，或直接瀏覽 <http://127.0.0.1:4173/MyPortfolio/demos/pixel-pets/>。預覽伺服器只提供頁面、樣式和兩個瀏覽器腳本，開啟時先列出專案的絕對輸入位置和預覽網址。角色繪製、背景動畫、分類與模擬結帳流程見[商店說明](demos/pixel-pets/README.md)。
 
+## 棲光爬蟲咖啡店家示範
+
+中英文首頁的 `#website-demos` 區塊連到棲光爬蟲咖啡。執行 `npm run preview` 後開啟 <http://127.0.0.1:4173/MyPortfolio/demos/reptile-cafe/>，可瀏覽六種爬蟲、互動須知、菜單、週六飼主聚會及虛構交通停車資訊。素材、絕對路徑、進度與核對方式見[咖啡廳說明](demos/reptile-cafe/README.md)。
+
 ## 黑白像素工作室（本機預覽）
 
 雙語首頁從首屏到頁尾共用固定的黑色點陣背景。pixel-studio.css 設定點陣、備用粒子與前後層級。區塊文字使用淺色，視窗與海報沿用各自的面板底色。

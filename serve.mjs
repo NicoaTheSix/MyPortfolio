@@ -27,6 +27,9 @@ for (const file of ['index.html', 'styles.css', 'site.js', ...['town-valley', 'k
 for (const file of ['index.html', 'styles.css', 'pets.js', 'site.js']) {
   publicFiles.add('demos/pixel-pets/' + file);
 }
+for (const file of ['index.html', 'styles.css', 'site.js', ...['cafe-interior', 'vivarium', 'gargoyle-gecko', 'crested-gecko', 'leopard-gecko', 'giant-gecko', 'ball-python', 'red-tail-boa'].map(name => `assets/images/${name}.webp`)]) {
+  publicFiles.add('demos/reptile-cafe/' + file);
+}
 for (const file of ['pixel-prototype.html', 'pixel-prototype.css', 'pixel-prototype.js']) publicFiles.add(file);
 for (const file of ['pixel-automation.css', 'pixel-automation.js', ...['sprite.png','still.png','manifest.json'].map(suffix => `assets/automation-pixel-${suffix}`), 'assets/automation-pixel.gif']) publicFiles.add(file);
 for (const file of ['pixel-scenes.css','pixel-scenes.js','assets/gui-pixel-states.png','assets/api-pixel-sprite.png','assets/docs-pixel-sprite.png','assets/development-pixel.gif','assets/development-pixel-still.png','assets/development-pixel-manifest.json']) publicFiles.add(file);

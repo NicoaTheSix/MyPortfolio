@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="棲光爬蟲咖啡：有六種爬蟲、獨立生態缸、咖啡甜點和週六飼主聚會的虛構店家示範。">
+  <meta name="theme-color" content="#1c2a21">
+  <title>棲光爬蟲咖啡｜Perch &amp; Pour</title>
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./site.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">跳至內容</a>
+  <header class="top">
+    <div class="top-inner wrap">
+      <a class="brand" href="#main" aria-label="棲光爬蟲咖啡，回到頁首">
+        <svg viewBox="0 0 48 48" width="40" height="40" aria-hidden="true"><circle cx="24" cy="24" r="21"/><path d="M12 32c8-1 13-10 20-18m-14 13c-1-6 3-12 12-15 1 7-3 14-12 15m8-9c4-2 8-1 10 0-2 5-6 8-12 7"/></svg>
+        <span>棲光爬蟲咖啡<small>PERCH &amp; POUR</small></span>
+      </a>
+      <nav aria-label="站內導覽">
+        <a href="#residents">爬蟲住民</a><a href="#house">店內體驗</a><a href="#visit">到店資訊</a>
+      </nav>
+      <a class="portfolio" href="../../#website-demos">回作品集 ↗</a>
+    </div>
+  </header>
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <img src="./assets/images/cafe-interior.webp" alt="木質咖啡廳內有一整排暖光玻璃生態缸" fetchpriority="high">
+      <div class="wrap hero-body">
+        <p class="eyebrow"><span>●</span> PERCH &amp; POUR · REPTILE CAFÉ</p>
+        <h1 id="hero-title">喝一口咖啡，<br>看看牠們的日常。</h1>
+        <p>吧台有咖啡和甜點，玻璃後有守宮與蛇。<br class="desktop-break">找個位子坐下，或去看看今天誰醒著。</p>
+        <a class="button primary" href="#residents">認識爬蟲住民 <span aria-hidden="true">↓</span></a>
+      </div>
+      <div class="hero-note wrap"><span>虛構店家示範 · AI 生成情境照</span></div>
+    </section>
+
+    <div class="quick">
+      <div class="wrap quick-grid">
+        <div><span>營業時間</span><strong>12:00–20:00</strong><small>每週二公休</small></div>
+        <div><span>每人低消</span><strong>NT$180</strong><small>飲品、甜點可合計</small></div>
+        <div><span>店內座位</span><strong>靠牆席有插座</strong><small>到店可向店員詢問</small></div>
+        <div><span>每週六</span><strong>爬蟲飼主聚會</strong><small>15:00–17:00</small></div>
+      </div>
+    </div>
+
+    <section class="section wrap" id="residents" aria-labelledby="residents-title">
+      <div class="section-head">
+        <div><p class="eyebrow"><span>01</span> THE RESIDENTS</p><h2 id="residents-title">認識爬蟲住民</h2></div>
+        <p>四種守宮、兩種蛇，各住在獨立的生態缸。<br class="desktop-break">照片是 AI 生成的物種情境示意。</p>
+      </div>
+      <div class="filter" hidden>
+        <div class="filter-options" role="group" aria-label="篩選爬蟲">
+          <button type="button" data-filter="all" aria-pressed="true">全部</button>
+          <button type="button" data-filter="gecko" aria-pressed="false">守宮</button>
+          <button type="button" data-filter="snake" aria-pressed="false">蛇類</button>
+        </div>
+        <output aria-live="polite" id="resident-count">顯示 6 種</output>
+      </div>
+      <div class="residents-grid">
+        <article class="resident" data-kind="gecko">
+          <img src="./assets/images/gargoyle-gecko.webp" alt="蓋勾亞守宮趴在樹皮上" loading="lazy" width="1200" height="800">
+          <div class="resident-body"><p>01 · GARGOYLE GECKO</p><h3>蓋勾亞守宮</h3><p class="description">頭頂有小突起，身上的紋路像樹皮。</p></div>
+        </article>
+        <article class="resident" data-kind="gecko">
+          <img src="./assets/images/crested-gecko.webp" alt="睫角守宮抬起頭，眼睛上方有一排細小突起" loading="lazy" width="1200" height="800">
+          <div class="resident-body"><p>02 · CRESTED GECKO</p><h3>睫角守宮</h3><p class="description">眼睛上方的細小突起，遠看像一排睫毛。</p></div>
+        </article>
+        <article class="resident" data-kind="gecko">
+          <img src="./assets/images/leopard-gecko.webp" alt="黃底黑點的豹紋守宮站在石面上" loading="lazy" width="1200" height="800">
+          <div class="resident-body"><p>03 · LEOPARD GECKO</p><h3>豹紋守宮</h3><p class="description">黃底黑點、尾巴圓厚，還會眨眼。</p></div>
+        </article>
+        <article class="resident" data-kind="gecko">
+          <img src="./assets/images/giant-gecko.webp" alt="巨人守宮伏在一截木頭裡" loading="lazy" width="1200" height="800">
+          <div class="resident-body"><p>04 · NEW CALEDONIAN GIANT GECKO</p><h3>巨人守宮</h3><p class="description">頭寬、腳趾厚，伏在樹皮上時不容易發現。</p></div>
+        </article>
+        <article class="resident" data-kind="snake">
+          <img src="./assets/images/ball-python.webp" alt="球蟒把身體盤成一圈，頭擱在身上" loading="lazy" width="1200" height="800">
+          <div class="resident-body"><p>05 · BALL PYTHON</p><h3>球蟒</h3><p class="description">身上有深淺相間的花紋，緊張時會蜷成一團。</p></div>
+        </article>
+        <article class="resident" data-kind="snake">
+          <img src="./assets/images/red-tail-boa.webp" alt="紅尾蚺沿著樹枝盤伏，尾部帶有紅棕色斑紋" loading="lazy" width="1200" height="800">
+          <div class="resident-body"><p>06 · RED-TAILED BOA</p><h3>紅尾蚺</h3><p class="description">留意靠近尾端的紅棕色花紋。僅開放隔缸觀察。</p></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="habitat" aria-labelledby="habitat-title">
+      <div class="wrap habitat-grid">
+        <figure><img src="./assets/images/vivarium.webp" alt="有樹皮、苔蘚和蕨類的獨立玻璃生態缸" loading="lazy" width="1200" height="800"><figcaption>店內生態缸 · AI 生成情境照</figcaption></figure>
+        <div class="habitat-copy">
+          <p class="eyebrow"><span>02</span> OBSERVATION ROOM</p>
+          <h2 id="habitat-title">想互動，<br>請先告訴店員。</h2>
+          <p>平時可以隔著玻璃觀察。店員會視動物當天的狀態，決定是否開放互動，並全程在旁引導。</p>
+          <ul>
+            <li>請勿敲玻璃、開缸、餵食或使用閃光燈。</li>
+            <li>餐飲請留在座位區。離開觀察區後、用餐前，請用肥皂和流動清水洗手。</li>
+            <li>未滿 5 歲的孩子請隔缸觀察，並由大人陪同。</li>
+          </ul>
+          <a class="guidance" href="https://www.cdc.gov/healthy-pets/about/reptiles-and-amphibians.html">閱讀爬蟲接觸衛生指引（CDC） ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section wrap" id="house" aria-labelledby="house-title">
+      <div class="section-head"><div><p class="eyebrow"><span>03</span> AROUND THE CAFÉ</p><h2 id="house-title">咖啡、書架與小舖</h2></div><p>點份甜點，坐著翻一本爬蟲圖鑑。<br>想找用品，也可以到櫃台看看。</p></div>
+      <div class="house-grid">
+        <article class="panel menu">
+          <p class="eyebrow">DRINKS &amp; DESSERTS</p><h3>今日吧台</h3>
+          <dl><div><dt>棲光拿鐵</dt><dd>NT$170</dd></div><div><dt>黑糖燕麥奶茶</dt><dd>NT$160</dd></div><div><dt>焦糖布丁</dt><dd>NT$120</dd></div><div><dt>檸檬磅蛋糕</dt><dd>NT$130</dd></div></dl>
+          <p>每人低消 NT$180，可合計飲品與甜點。靠牆座位提供插座。</p>
+        </article>
+        <article class="panel shop">
+          <p class="eyebrow">SUPPLIES &amp; BOOKS</p><h3>爬蟲周邊與書架</h3>
+          <ul class="tags"><li>防水貼紙</li><li>爬蟲水盆</li><li>樹皮</li><li>赤玉土</li><li>墊材</li></ul>
+          <p>周邊可在櫃台選購，尺寸及存貨請詢問店員。書架上的爬蟲圖鑑、照護書和棲地攝影集可在店內翻閱。</p>
+        </article>
+      </div>
+      <article class="meetup">
+        <div class="meetup-time"><span>EVERY SATURDAY</span><strong>週六</strong><span>15:00–17:00</span></div>
+        <div><h3>爬蟲飼主聚會</h3><p>聊聊生態缸布置、照護紀錄，也可以帶照片來分享。想參加，到店告訴店員即可。請讓自家的爬蟲留在家休息。</p></div>
+      </article>
+    </section>
+
+    <section class="visit" id="visit" aria-labelledby="visit-title">
+      <div class="wrap visit-grid">
+        <div><p class="eyebrow"><span>04</span> FIND US</p><h2 id="visit-title">來棲光坐坐</h2><p class="fiction">這是作品集的虛構店家。地址、站名、停車場、步行時間與價格均為示範資料。</p></div>
+        <dl class="visit-details">
+          <div><dt>示範地址</dt><dd>青蘚市木影區木影路 18 巷 6 號 1 樓</dd></div>
+          <div><dt>營業時間</dt><dd>週三至週一 12:00–20:00；每週二公休</dd></div>
+          <div><dt>大眾運輸</dt><dd>捷運青蘚站 2 號出口，步行約 8 分鐘。<br>公車木影路口站，步行約 3 分鐘。</dd></div>
+          <div><dt>停車資訊</dt><dd>店門口沒有專用車位。開車可停木影停車場，步行約 4 分鐘。</dd></div>
+        </dl>
+      </div>
+    </section>
+  </main>
+  <footer class="wrap footer"><p><strong>棲光爬蟲咖啡</strong> · PERCH &amp; POUR<br><span>虛構網站示範。全站照片為 AI 生成。</span></p><a href="../../#website-demos">返回作品集 ↗</a></footer>
+</body>
+</html>
