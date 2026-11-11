@@ -1,27 +1,28 @@
 # 林達｜房地產個人網站示範
 
-林達的繁體中文房仲網站提供第一版靜態頁與黑白街景動畫版。林達與住宅案例均為虛構，照片皆由 ImageGen 生成。表單在當前頁面示範驗證與送出。
+林達的繁體中文房仲網站提供第一版靜態頁與三鏡頭動畫版。林達與住宅案例均為虛構，照片皆由 ImageGen 生成。表單在當前頁面示範驗證與送出。
 
 ## 開啟與操作
 
-直接在瀏覽器開啟同目錄的 `index.html` 或 `motion.html`。也可在作品集根目錄執行 `npm run preview`，再開啟[第一版靜態頁](http://127.0.0.1:4173/MyPortfolio/demos/lin-da/)或[黑白街景動畫版](http://127.0.0.1:4173/MyPortfolio/demos/lin-da/motion.html)。網站使用相對路徑且無建置依賴。
+直接在瀏覽器開啟同目錄的 `index.html` 或 `motion.html`。也可在作品集根目錄執行 `npm run preview`，再開啟[第一版靜態頁](http://127.0.0.1:4173/MyPortfolio/demos/lin-da/)或[三鏡頭動畫版](http://127.0.0.1:4173/MyPortfolio/demos/lin-da/motion.html)。網站使用相對路徑且無建置依賴。
 
-1. 兩個頁面皆包含住宅案例、全身肖像、服務流程與諮詢區。動畫版載入 `motion.css` 和 `motion.js`，首次開啟時播一次片頭，也可手動重播。系統設定減少動態效果時，直接顯示靜態片頭。
-2. `site.js` 和 `motion.js` 在開發者工具的 Console 各自列出輸入檔案與頁面更新目標的絕對 URL，再回報住宅篩選、諮詢表單與動畫重播的初始化進度。預覽程式也會先顯示專案輸入的絕對路徑與本機預覽 URL。
+1. 兩個頁面皆包含住宅案例、全身肖像、服務流程與諮詢區。動畫版載入 `motion.css` 和 `motion.js`。三張片頭照解碼後自動播放一次，共 9.6 秒。播放鍵可暫停、接續與重播，點選鏡頭可直接定格查看。系統設定減少動態效果時，三個鏡頭可逐一手動查看。
+2. `site.js` 和 `motion.js` 在開發者工具的 Console 各自列出輸入檔案與頁面更新目標的絕對 URL，再回報住宅篩選、諮詢表單和片頭的初始化及鏡頭進度。預覽程式也會先顯示專案輸入的絕對路徑與本機預覽 URL。
 3. 案例展開使用瀏覽器原生的 `details` 元素。
 4. 選擇住宅類型會更新卡片與可讀的結果數量。從案例開啟諮詢會預選主題，並在需求欄為空時帶入案例名稱。提交時檢查必填欄位，清空表單並在本頁顯示結果。表單不發送網路請求，也不將欄位寫入瀏覽器儲存空間。
 
 ## 輸入與輸出位置
 
 - 簡介來源為 `C:\Users\nick5\Documents\ChatGPT\Portfolio 網站設置\demos\lin-da\profile.md`。
-- 生成照歸檔於 `C:\Users\nick5\Documents\ChatGPT\Portfolio 網站設置\demos\lin-da\assets\images`。兩版共用人物照與三張案例照。靜態版首圖為 `hero-residence.png`，動畫版首圖為 `taiwan-street-hero.png`。
+- 生成照歸檔於 `C:\Users\nick5\Documents\ChatGPT\Portfolio 網站設置\demos\lin-da\assets\images`。兩版共用人物照與三張案例照。靜態版首圖為 `hero-residence.png`。動畫版依序載入 `taiwan-street-hero.png`、`taiwan-entry.png`、`taiwan-living-room.png`。
 - 靜態版入口為 `C:\Users\nick5\Documents\ChatGPT\Portfolio 網站設置\demos\lin-da\index.html`。動畫版入口為 `C:\Users\nick5\Documents\ChatGPT\Portfolio 網站設置\demos\lin-da\motion.html`，樣式與腳本同目錄。互動在瀏覽器內輸出。
 
-## Motion Prompt 選項組合
+## Motion Prompt 運鏡、轉場與調色
 
-- [#005 Mask reveal](https://showheyohtaki.github.io/motion-prompt/#005) 與 [#002 Stagger](https://showheyohtaki.github.io/motion-prompt/#002) 用在標題。前後兩段文字各用 0.85 秒由下往上揭露，第二段晚 0.14 秒開始。
-- [#028 Zoom in](https://showheyohtaki.github.io/motion-prompt/#028) 用在街景。以 CSS 在 4.5 秒內放大約 9.5% 並緩停。
-- [#115 Black and white](https://showheyohtaki.github.io/motion-prompt/#115) 與 [#118 Film grain](https://showheyohtaki.github.io/motion-prompt/#118) 用於 AI 街景的高反差黑白與細顆粒質感。
+- 冷藍街區 3 秒。畫面從巷道仰移，交代臺灣住宅街廓的尺度。以瀏覽器平移與縮放生成照來模擬鏡頭仰移。[#026 Tilt](https://showheyohtaki.github.io/motion-prompt/#026)
+- 灰綠門廳 3 秒。從街區直接切到騎樓，再由左向右掃到鐵門與樓梯。[#025 Pan](https://showheyohtaki.github.io/motion-prompt/#025)
+- 暖琥珀客廳 3.6 秒。門廳以 0.68 秒疊化進客廳，再緩慢拉近窗邊。最後兩段標題各用 0.7 秒揭露，第二段晚 0.14 秒出現。[#044 Cross dissolve](https://showheyohtaki.github.io/motion-prompt/#044)、[#028 Zoom in](https://showheyohtaki.github.io/motion-prompt/#028)、[#005 Mask reveal](https://showheyohtaki.github.io/motion-prompt/#005)、[#002 Stagger](https://showheyohtaki.github.io/motion-prompt/#002)
+- 三張生成照保留細顆粒，網站分別套用冷藍、灰綠與暖琥珀濾鏡，讓色溫隨故事由戶外轉入室內。[#118 Film grain](https://showheyohtaki.github.io/motion-prompt/#118)
 
 ## 影像設定
 
@@ -32,6 +33,14 @@
 使用者附圖 `C:\Users\nick5\AppData\Local\Temp\codex-clipboard-dec9fd8c-7136-4a24-a788-04d553ef7ba2.png` 提供仰角、黑白反差與寬幅構圖參考。ImageGen 以此生成虛構臺灣街景，標題和動畫由網頁呈現。
 
 > Create an original photorealistic 2:1 wide cinematic black-and-white architecture photograph for the title frame of an independent real-estate portfolio demo. Reference attachment is for dramatic upward camera perspective, deep monochrome contrast and widescreen framing ONLY; disregard all typography and architecture from that image. Depict an entirely imaginary modern Taiwanese urban residential street from a low street-level camera tilted up between buildings, 20 mm lens, strong converging lines and a narrow wedge of bright overcast sky. On left foreground a dark mid-rise mixed-use Taiwan apartment building with tiny dark square ceramic facade tiles, deeply shaded concrete arcade columns, projecting aluminum balconies and orderly split-AC compressor boxes. On right a pale ceramic-tile Taiwanese apartment facade with recessed balconies and typical metal window grilles, staggered massing, visual contrast. In distance a plain taller residential block with concrete sunshades. A few discreet pipes and a little foliage visible at lower edge. Natural strong light on right side, shadows on left, authentic contemporary urban fabric, editorial fine-grain monochrome photography with crisp real architectural texture, strong depth, medium-dark lower-middle portion so overlaid title can read. Full bleed. Invent every structure, no famous silhouettes or recognisable location, no logos, no readable signs, no people, no lettering, no graphics, no watermark, no typography.
+
+**`taiwan-entry.png`**
+
+> Second shot in a Taiwanese apartment homecoming film. Eye-level documentary wide angle from within the shaded entrance arcade of an ordinary 1990s Taiwanese walk-up apartment. At left show a dark tiled square column and part of an anonymous street beyond, composition then leads rightward to a half-open typical steel-and-glass security gate and a modest shared terrazzo stairwell beyond. Off-white tiny square wall tiles, brushed tubular steel handrail, old tiled threshold and a small unbranded plant pot. One slanted band of reflected street daylight cuts across the stairs, tactile, quiet and ordinary. Preserve visible architectural detail around middle of image even with narrow center crop. Wide 2:1 panoramic horizontal still, photorealistic fine-grain black-and-white film photography. Cohesive with a previous high-contrast grayscale still of a fictional narrow Taiwanese residential lane and small square tile facades. Original imaginary architecture, no landmark, no recognizable real property or company, no text, signs, logos, readable numbers, plates, people, watermark or graphics.
+
+**`taiwan-living-room.png`**
+
+> Final shot in a Taiwanese apartment homecoming film. Eye-level cinematic wide angle just inside a modest imagined 1990s Taiwanese apartment living room with a compact fabric sofa and simple dark wooden low table left, discreet split-unit AC, pale 60 cm square glossy ceramic floor tiles with grout lines, sliding aluminum window at center right and a modest balcony outside. Light through a gauzy curtain falls across the tiled floor, neighboring generic ceramic-tile apartments soft through the windows, practical furniture and a small plant. Quiet feeling of coming home, noticeably brighter and gentler midtones than the street scene, strong window light without white clipping. Visually important window in central 50 percent for mobile crop. Wide 2:1 panoramic horizontal still, photorealistic fine-grain black-and-white film photography. Cohesive with a previous high-contrast grayscale still of a fictional narrow Taiwanese residential lane and small square tile facades. Original imaginary architecture, no landmark, no recognizable real property or company, no text, signs, logos, readable numbers, plates, people, watermark or graphics.
 
 **`hero-residence.png`（靜態版主圖）**
 

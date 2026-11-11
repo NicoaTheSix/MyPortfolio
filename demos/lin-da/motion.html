@@ -30,14 +30,31 @@
   <main id="main">
     <section class="hero hero--motion" aria-labelledby="hero-title">
       <div class="hero-frame">
-        <figure class="hero-image">
-          <img src="assets/images/taiwan-street-hero.png" alt="從街道仰望虛構的臺灣住宅街廓，可見磁磚外牆、陽台和冷氣室外機" width="1774" height="887" fetchpriority="high">
-          <figcaption>虛構街景・AI 生成影像</figcaption>
-        </figure>
-        <div class="hero-title-mask">
-          <h1 id="hero-title"><span>找到適合</span><span>你的家。</span></h1>
+        <div class="story-images">
+          <figure class="story-shot" data-layer="current">
+            <img src="assets/images/taiwan-street-hero.png" alt="從巷道仰望磁磚外牆、陽台和冷氣室外機" width="1774" height="887" fetchpriority="high">
+          </figure>
+          <figure class="story-shot" aria-hidden="true">
+            <img src="assets/images/taiwan-entry.png" alt="從騎樓望向半開的鐵門與公寓樓梯" width="1774" height="887">
+          </figure>
+          <figure class="story-shot" aria-hidden="true">
+            <img src="assets/images/taiwan-living-room.png" alt="窗光落在磁磚地板上，旁邊是客廳沙發與茶几" width="1774" height="887">
+          </figure>
         </div>
-        <button class="hero-replay" type="button" hidden><span aria-hidden="true">↻</span> 重播動畫</button>
+        <div class="story-headline">
+          <p class="story-title" data-title="0" aria-hidden="true">先看街區。</p>
+          <p class="story-title" data-title="1" aria-hidden="true">走進日常。</p>
+          <h1 class="story-title" id="hero-title" data-title="2"><span>找到適合</span><span>你的家。</span></h1>
+        </div>
+        <p class="story-credit">虛構場景・AI 生成影像</p>
+      </div>
+      <div class="story-controls" role="group" aria-label="片頭播放控制" hidden>
+        <button class="story-play" type="button">播放片頭</button>
+        <div class="story-chapters" role="group" aria-label="選擇鏡頭">
+          <button type="button" aria-current="step">街區</button>
+          <button type="button">門廳</button>
+          <button type="button">屋內</button>
+        </div>
       </div>
       <div class="hero-copy shell">
         <div>
