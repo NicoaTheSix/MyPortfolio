@@ -18,9 +18,9 @@
 .story-shot[data-layer="outgoing"] { display: block; }
 .story-shot[data-layer="current"] { display: block; z-index: 1; }
 .story-shot img { height: 100%; object-fit: cover; }
-.story-shot:nth-child(1) img { filter: sepia(.65) saturate(1.25) hue-rotate(164deg); }
-.story-shot:nth-child(2) img { object-position: 56% 50%; filter: sepia(.55) saturate(.93) hue-rotate(40deg); }
-.story-shot:nth-child(3) img { filter: sepia(.68) saturate(1.35); }
+.story-shot:nth-child(1) img { filter: grayscale(1); }
+.story-shot:nth-child(2) img { object-position: 56% 50%; filter: saturate(.76) brightness(.9); }
+.story-shot:nth-child(3) img { filter: saturate(1.12) brightness(1.07); }
 .story-shot[data-layer="outgoing"] img { transform: translateX(-4%) scale(1.14); }
 .story-images::after {
   content: "";

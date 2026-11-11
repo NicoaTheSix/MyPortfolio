@@ -14,15 +14,14 @@
 ## 輸入與輸出位置
 
 - 簡介來源為 `C:\Users\nick5\Documents\ChatGPT\Portfolio 網站設置\demos\lin-da\profile.md`。
-- 生成照歸檔於 `C:\Users\nick5\Documents\ChatGPT\Portfolio 網站設置\demos\lin-da\assets\images`。兩版共用人物照與三張案例照。靜態版首圖為 `hero-residence.png`。動畫版依序載入 `taiwan-street-hero.png`、`taiwan-entry.png`、`taiwan-living-room.png`。
+- 生成照歸檔於 `C:\Users\nick5\Documents\ChatGPT\Portfolio 網站設置\demos\lin-da\assets\images`。兩版共用人物照與三張案例照。靜態版首圖為 `hero-residence.png`。動畫版依序載入 `taiwan-street-hero.png`、`taiwan-entry-color.png`、`taiwan-living-room-color.png`。
 - 靜態版入口為 `C:\Users\nick5\Documents\ChatGPT\Portfolio 網站設置\demos\lin-da\index.html`。動畫版入口為 `C:\Users\nick5\Documents\ChatGPT\Portfolio 網站設置\demos\lin-da\motion.html`，樣式與腳本同目錄。互動在瀏覽器內輸出。
 
 ## Motion Prompt 運鏡、轉場與調色
 
-- 冷藍街區 3 秒。畫面從巷道仰移，交代臺灣住宅街廓的尺度。以瀏覽器平移與縮放生成照來模擬鏡頭仰移。[#026 Tilt](https://showheyohtaki.github.io/motion-prompt/#026)
-- 灰綠門廳 3 秒。從街區直接切到騎樓，再由左向右掃到鐵門與樓梯。[#025 Pan](https://showheyohtaki.github.io/motion-prompt/#025)
-- 暖琥珀客廳 3.6 秒。門廳以 0.68 秒疊化進客廳，再緩慢拉近窗邊。最後兩段標題各用 0.7 秒揭露，第二段晚 0.14 秒出現。[#044 Cross dissolve](https://showheyohtaki.github.io/motion-prompt/#044)、[#028 Zoom in](https://showheyohtaki.github.io/motion-prompt/#028)、[#005 Mask reveal](https://showheyohtaki.github.io/motion-prompt/#005)、[#002 Stagger](https://showheyohtaki.github.io/motion-prompt/#002)
-- 三張生成照保留細顆粒，網站分別套用冷藍、灰綠與暖琥珀濾鏡，讓色溫隨故事由戶外轉入室內。[#118 Film grain](https://showheyohtaki.github.io/motion-prompt/#118)
+- 黑白街區 3 秒。畫面從巷道仰移，交代臺灣住宅街廓的尺度。以瀏覽器平移與縮放生成照來模擬鏡頭仰移。[#026 Tilt](https://showheyohtaki.github.io/motion-prompt/#026)
+- 低飽和、偏暗的彩色門廳 3 秒。從街區直接切到騎樓，再由左向右掃到鐵門與樓梯。CSS 飽和度為 76%，亮度為 90%。[#025 Pan](https://showheyohtaki.github.io/motion-prompt/#025)
+- 飽和度較高、較明亮的彩色客廳 3.6 秒。門廳以 0.68 秒疊化進客廳，再緩慢拉近窗邊。CSS 飽和度為 112%，亮度為 107%。最後兩段標題各用 0.7 秒揭露，第二段晚 0.14 秒出現。[#044 Cross dissolve](https://showheyohtaki.github.io/motion-prompt/#044)、[#028 Zoom in](https://showheyohtaki.github.io/motion-prompt/#028)、[#005 Mask reveal](https://showheyohtaki.github.io/motion-prompt/#005)、[#002 Stagger](https://showheyohtaki.github.io/motion-prompt/#002)
 
 ## 影像設定
 
@@ -34,11 +33,23 @@
 
 > Create an original photorealistic 2:1 wide cinematic black-and-white architecture photograph for the title frame of an independent real-estate portfolio demo. Reference attachment is for dramatic upward camera perspective, deep monochrome contrast and widescreen framing ONLY; disregard all typography and architecture from that image. Depict an entirely imaginary modern Taiwanese urban residential street from a low street-level camera tilted up between buildings, 20 mm lens, strong converging lines and a narrow wedge of bright overcast sky. On left foreground a dark mid-rise mixed-use Taiwan apartment building with tiny dark square ceramic facade tiles, deeply shaded concrete arcade columns, projecting aluminum balconies and orderly split-AC compressor boxes. On right a pale ceramic-tile Taiwanese apartment facade with recessed balconies and typical metal window grilles, staggered massing, visual contrast. In distance a plain taller residential block with concrete sunshades. A few discreet pipes and a little foliage visible at lower edge. Natural strong light on right side, shadows on left, authentic contemporary urban fabric, editorial fine-grain monochrome photography with crisp real architectural texture, strong depth, medium-dark lower-middle portion so overlaid title can read. Full bleed. Invent every structure, no famous silhouettes or recognisable location, no logos, no readable signs, no people, no lettering, no graphics, no watermark, no typography.
 
-**`taiwan-entry.png`**
+**`taiwan-entry-color.png`**
+
+使用前一版的 `taiwan-entry.png` 作為 ImageGen 上色底圖。
+
+> Colorize this fictional Taiwanese apartment entrance as a natural full-color photograph. Restore light cream and faint blush pink mosaic on the building wall, deep muted moss-green tiles on the arcade column, subdued dark forest-green painted steel door frame and brushed silver hardware, pale gray terrazzo with small muted warm stone fragments, fresh green leaves and a reddish-brown clay pot. Keep the outside softly cool with ordinary daylight and the shaded entrance gently muted, retaining the reflected sunlight on the stairs. This is a colorization/edit of the supplied fictional photograph. Preserve the exact camera position, panoramic 2:1 composition, architecture, object placement, perspective, lighting direction, shadows, and film grain. Return one photographic image. Reconstruct natural distinct local colors per material, with neutral highlights and multiple clearly identifiable hues. Do not apply any overall sepia wash, single-color tint, or vintage color cast. No additions, no new lettering, no logos, no text, no watermark.
+
+**`taiwan-living-room-color.png`**
+
+使用前一版的 `taiwan-living-room.png` 作為 ImageGen 上色底圖。
+
+> Colorize this fictional Taiwanese apartment living room as a natural full-color photograph. Make the fabric sofa slate blue, with subtle brick and cream threads in the plaid cushion; use medium brown wood for the tea table, fresh varied green foliage in the window plants, a pale ivory tile floor, white lace curtains and warm but neutral daylight. Restore quiet light blue and cream building tiles outside. Keep distinct true-to-life blues, greens, warm browns and neutral whites, with a bright inviting afternoon interior. Preserve window highlight detail. This is a colorization/edit of the supplied fictional photograph. Preserve the exact camera position, panoramic 2:1 composition, architecture, object placement, perspective, lighting direction, shadows, and film grain. Return one photographic image. Reconstruct natural distinct local colors per material, with neutral highlights and multiple clearly identifiable hues. Do not apply any overall sepia wash, single-color tint, or vintage color cast. No additions, no new lettering, no logos, no text, no watermark.
+
+**`taiwan-entry.png`（前一版底圖）**
 
 > Second shot in a Taiwanese apartment homecoming film. Eye-level documentary wide angle from within the shaded entrance arcade of an ordinary 1990s Taiwanese walk-up apartment. At left show a dark tiled square column and part of an anonymous street beyond, composition then leads rightward to a half-open typical steel-and-glass security gate and a modest shared terrazzo stairwell beyond. Off-white tiny square wall tiles, brushed tubular steel handrail, old tiled threshold and a small unbranded plant pot. One slanted band of reflected street daylight cuts across the stairs, tactile, quiet and ordinary. Preserve visible architectural detail around middle of image even with narrow center crop. Wide 2:1 panoramic horizontal still, photorealistic fine-grain black-and-white film photography. Cohesive with a previous high-contrast grayscale still of a fictional narrow Taiwanese residential lane and small square tile facades. Original imaginary architecture, no landmark, no recognizable real property or company, no text, signs, logos, readable numbers, plates, people, watermark or graphics.
 
-**`taiwan-living-room.png`**
+**`taiwan-living-room.png`（前一版底圖）**
 
 > Final shot in a Taiwanese apartment homecoming film. Eye-level cinematic wide angle just inside a modest imagined 1990s Taiwanese apartment living room with a compact fabric sofa and simple dark wooden low table left, discreet split-unit AC, pale 60 cm square glossy ceramic floor tiles with grout lines, sliding aluminum window at center right and a modest balcony outside. Light through a gauzy curtain falls across the tiled floor, neighboring generic ceramic-tile apartments soft through the windows, practical furniture and a small plant. Quiet feeling of coming home, noticeably brighter and gentler midtones than the street scene, strong window light without white clipping. Visually important window in central 50 percent for mobile crop. Wide 2:1 panoramic horizontal still, photorealistic fine-grain black-and-white film photography. Cohesive with a previous high-contrast grayscale still of a fictional narrow Taiwanese residential lane and small square tile facades. Original imaginary architecture, no landmark, no recognizable real property or company, no text, signs, logos, readable numbers, plates, people, watermark or graphics.
 
