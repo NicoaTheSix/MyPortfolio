@@ -8,6 +8,10 @@
 
 中英文首頁的 `#website-demos` 區塊也連到杉溪鄉地方記憶誌。執行 `npm run preview` 後，從作品集入口開啟，或直接瀏覽 <http://127.0.0.1:4173/MyPortfolio/demos/town-memory/>。`serve.mjs` 以白名單提供網頁、樣式、腳本和六張彩色生成照。捲動運鏡、筆記操作、輸入輸出、資料來源和生成提示詞見 [地方記憶誌說明](demos/town-memory/README.md)。
 
+## 嗶嗶電子雞電商示範
+
+中英文首頁的 `#website-demos` 新增嗶嗶電子雞商店。執行 `npm run preview` 後可從作品集進入，或直接瀏覽 <http://127.0.0.1:4173/MyPortfolio/demos/pixel-pets/>。預覽伺服器只提供頁面、樣式和兩個瀏覽器腳本，開啟時先列出專案的絕對輸入位置和預覽網址。角色繪製、背景動畫、分類與模擬結帳流程見[商店說明](demos/pixel-pets/README.md)。
+
 ## 黑白像素工作室（本機預覽）
 
 雙語首頁從首屏到頁尾共用固定的黑色點陣背景。pixel-studio.css 設定點陣、備用粒子與前後層級。區塊文字使用淺色，視窗與海報沿用各自的面板底色。

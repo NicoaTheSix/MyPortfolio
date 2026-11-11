@@ -24,6 +24,9 @@ for (const file of ['index.html', 'styles.css', 'site.js', 'motion.html', 'motio
 for (const file of ['index.html', 'styles.css', 'site.js', ...['town-valley', 'koji-ceramics', 'forest-trail', 'daylight-creek', 'firefly-creek', 'ceramic-festival'].map(name => `assets/images/${name}.png`)]) {
   publicFiles.add('demos/town-memory/' + file);
 }
+for (const file of ['index.html', 'styles.css', 'pets.js', 'site.js']) {
+  publicFiles.add('demos/pixel-pets/' + file);
+}
 for (const file of ['pixel-prototype.html', 'pixel-prototype.css', 'pixel-prototype.js']) publicFiles.add(file);
 for (const file of ['pixel-automation.css', 'pixel-automation.js', ...['sprite.png','still.png','manifest.json'].map(suffix => `assets/automation-pixel-${suffix}`), 'assets/automation-pixel.gif']) publicFiles.add(file);
 for (const file of ['pixel-scenes.css','pixel-scenes.js','assets/gui-pixel-states.png','assets/api-pixel-sprite.png','assets/docs-pixel-sprite.png','assets/development-pixel.gif','assets/development-pixel-still.png','assets/development-pixel-manifest.json']) publicFiles.add(file);

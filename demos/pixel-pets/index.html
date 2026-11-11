@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="嗶嗶電子雞示範商店。挑選機器人、小生物、外星人或實體角色。">
+  <title>嗶嗶電子雞｜像素寵物商店</title>
+  <link rel="stylesheet" href="../../assets/fonts/fonts.css">
+  <link rel="stylesheet" href="styles.css">
+  <script src="pets.js" defer></script>
+  <script src="site.js" defer></script>
+</head>
+<body id="top">
+  <a class="skip-link" href="#catalog">跳到商品</a>
+  <div class="runner-layer" aria-hidden="true"></div>
+
+  <header class="desktop-bar">
+    <div class="shell desktop-inner">
+      <a class="brand" href="#top"><span class="app-icon" aria-hidden="true"></span> 嗶嗶電子雞</a>
+      <div class="desktop-actions">
+        <a href="../../index.html#website-demos">返回作品集</a>
+        <button class="bevel desktop-cart" id="open-cart" type="button">購物車 <span id="cart-count">0</span></button>
+      </div>
+    </div>
+  </header>
+
+  <main class="shell">
+    <section class="hero" aria-labelledby="hero-title">
+      <div>
+        <p class="hero-label">BEEP PETS <span>／</span> 示範商店</p>
+        <h1 id="hero-title">嗶嗶電子雞</h1>
+        <p>挑一隻像素寵物，帶回你的桌面。</p>
+      </div>
+      <div class="hero-sprites" aria-hidden="true"></div>
+    </section>
+
+    <section class="catalog" id="catalog" aria-labelledby="catalog-title">
+      <div class="catalog-heading">
+        <h2 id="catalog-title">寵物圖鑑</h2>
+        <p id="result-count">16 隻角色</p>
+      </div>
+      <div class="filters" role="group" aria-label="商品分類"></div>
+      <div class="pet-grid" id="pet-grid"></div>
+      <noscript><p>啟用 JavaScript 後即可查看角色與操作購物車。</p></noscript>
+    </section>
+  </main>
+
+  <footer class="taskbar">
+    <div class="shell taskbar-inner">
+      <button class="bevel" id="toggle-runners" type="button" aria-pressed="false">暫停背景</button>
+      <p id="shop-status" role="status">示範商店就緒</p>
+      <a href="#top">回到桌面 ↑</a>
+    </div>
+  </footer>
+
+  <template id="pet-window">
+    <article class="pet-window">
+      <div class="titlebar"><span class="window-icon" aria-hidden="true"></span><h3></h3><span class="window-mark" aria-hidden="true">▣</span></div>
+      <div class="pet-screen"></div>
+      <div class="window-meta">
+        <span class="category-tag"></span>
+        <strong class="price"></strong>
+      </div>
+      <button class="bevel add-pet" type="button">＋ 加入購物車</button>
+    </article>
+  </template>
+
+  <dialog id="cart" aria-labelledby="cart-title">
+    <div class="titlebar">
+      <h2 id="cart-title">購物車</h2>
+      <form method="dialog"><button class="bevel close-cart" aria-label="關閉購物車">×</button></form>
+    </div>
+    <div class="cart-body">
+      <p id="empty-cart">購物車目前是空的。</p>
+      <ul id="cart-items"></ul>
+      <div class="cart-summary"><strong>合計</strong><strong id="cart-total">NT$0</strong></div>
+      <button class="bevel checkout" id="checkout" type="button" disabled>模擬結帳</button>
+      <p id="cart-status" role="status"></p>
+    </div>
+  </dialog>
+</body>
+</html>
