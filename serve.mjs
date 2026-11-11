@@ -18,6 +18,9 @@ for(const file of ['en/index.html','assets/services-poster-en.png','assets/busin
 publicFiles.add('service-cards.css');
 for(const file of ['home-pixel.css','home-pixel.js','pixel-studio.css','studio-space.js','assets/pixel-studio-desk.svg','assets/3d/studio-desk/nicoa-pixel-desk.png'])publicFiles.add(file);
 for(const file of ['resume/index.html','resume/en/index.html','resume/resume.css'])publicFiles.add(file);
+for (const file of ['index.html', 'styles.css', 'site.js', ...['lin-da-full-body', 'hero-residence', 'woodland-home', 'daylight-flat', 'courtyard-house'].map(name => `assets/images/${name}.png`)]) {
+  publicFiles.add('demos/lin-da/' + file);
+}
 for (const file of ['pixel-prototype.html', 'pixel-prototype.css', 'pixel-prototype.js']) publicFiles.add(file);
 for (const file of ['pixel-automation.css', 'pixel-automation.js', ...['sprite.png','still.png','manifest.json'].map(suffix => `assets/automation-pixel-${suffix}`), 'assets/automation-pixel.gif']) publicFiles.add(file);
 for (const file of ['pixel-scenes.css','pixel-scenes.js','assets/gui-pixel-states.png','assets/api-pixel-sprite.png','assets/docs-pixel-sprite.png','assets/development-pixel.gif','assets/development-pixel-still.png','assets/development-pixel-manifest.json']) publicFiles.add(file);
