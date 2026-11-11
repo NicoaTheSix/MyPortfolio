@@ -9,7 +9,10 @@ console.info("[杉溪鄉 0/4] 輸入（絕對 URL）", [
 console.info("[杉溪鄉 0/4] 輸出", pageAsset("#chapters"), pageAsset("#notebook"), "瀏覽器本機筆記，手動匯出杉溪鄉-地方記憶.json。");
 
 console.info("[杉溪鄉 1/4] 初始化捲動運鏡");
-const cameraFrames = [...document.querySelectorAll("[data-camera]")];
+const cameraFrames = [...document.querySelectorAll("[data-camera]")].map((frame) => ({
+  frame,
+  track: frame.closest(".chapter") ?? frame,
+}));
 const cameraPreference = matchMedia("(prefers-reduced-motion: reduce)");
 const daylight = document.querySelector(".daylight-photo");
 const fireflyPhoto = document.querySelector(".firefly-photo");
@@ -28,15 +31,16 @@ function updateCameraFrames() {
   cameraFrameRequest = 0;
   if (cameraPreference.matches) return;
   const viewport = document.documentElement.clientHeight;
-  const progress = cameraFrames.map((frame) => {
-    const { top, height } = frame.getBoundingClientRect();
-    const position = frame.dataset.camera === "tilt"
-      ? -top / height
-      : (viewport * .91 - top) / (viewport * .71 + height * .13);
+  const progress = cameraFrames.map(({ frame, track }) => {
+    // Measure the article, since the photo can temporarily stay in place.
+    const { top, height } = track.getBoundingClientRect();
+    const start = viewport * .66;
+    const travelPastTop = Math.min(viewport * .32, frame.offsetHeight * .74);
+    const position = track === frame ? -top / height : (start - top) / (start + travelPastTop);
     const bounded = Math.min(1, Math.max(0, position));
     return (bounded * bounded * (3 - 2 * bounded)).toFixed(4);
   });
-  cameraFrames.forEach((frame, index) => {
+  cameraFrames.forEach(({ frame }, index) => {
     if (frame.style.getPropertyValue("--camera-progress") !== progress[index]) {
       frame.style.setProperty("--camera-progress", progress[index]);
     }

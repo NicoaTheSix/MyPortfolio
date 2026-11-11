@@ -138,21 +138,30 @@ h2 { font: 700 clamp(2.05rem, 4.2vw, 3.8rem)/1.22 var(--serif); letter-spacing: 
 
 @media (prefers-reduced-motion: no-preference) {
   .camera-ready [data-camera="tilt"] .hero-photo {
-    transform: translateY(calc(var(--camera-progress, 0) * 8% - 4%)) scale(1.13);
+    transform: translateY(calc(var(--camera-progress, 0) * 14% - 7%)) scale(1.19);
   }
   .camera-ready [data-camera="focus"] img {
-    filter: blur(calc((1 - var(--camera-progress, 1)) * 3.2px));
-    transform: scale(1.035);
+    filter: blur(calc((1 - var(--camera-progress, 1)) * 5px));
+    transform: scale(calc(1.035 + var(--camera-progress, 0) * .075));
   }
   .camera-ready [data-camera="zoom"] img {
-    transform: scale(calc(1.015 + var(--camera-progress, 0) * .16));
+    transform: scale(calc(1.015 + var(--camera-progress, 0) * .24));
     transform-origin: 50% 42%;
   }
   .camera-ready [data-camera="dissolve"][data-day-ready] .daylight-photo { visibility: visible; }
   .camera-ready [data-camera="dissolve"][data-day-ready] .firefly-photo {
-    opacity: var(--camera-progress, 1);
+    opacity: clamp(0, calc((var(--camera-progress, 1) - .18) / .82), 1);
   }
   .camera-ready [data-camera="pan"] img {
-    transform: translateX(calc(5% - var(--camera-progress, 0) * 10%)) scale(1.17);
+    transform: translateX(calc(8% - var(--camera-progress, 0) * 16%)) scale(1.21);
+  }
+}
+
+@media (min-width: 920px) and (prefers-reduced-motion: no-preference) {
+  .camera-ready .chapter { min-height: clamp(455px, 78svh, 675px); }
+  .camera-ready .chapter-photo {
+    position: sticky;
+    align-self: start;
+    top: clamp(24px, 12vh, 120px);
   }
 }
