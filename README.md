@@ -4,6 +4,10 @@
 
 中英文首頁的 `#website-demos` 區塊提供兩個版本的入口。更新入口時，核對根目錄 `index.html` 與 `en/index.html` 相對於 `/MyPortfolio/` 的連結，執行 `node check-site.mjs`，再從兩個首頁開啟示範頁。驗證程式與本機預覽會先列出絕對輸入路徑及輸出位置，再回報各階段進度。公開版沿用 GitHub Pages 的 `main` 根目錄，部署完成後從公開首頁核對入口及兩個目標頁。
 
+## 杉溪鄉地方發展與記憶示範
+
+中英文首頁的 `#website-demos` 區塊也連到杉溪鄉地方記憶誌。執行 `npm run preview` 後，從作品集入口開啟，或直接瀏覽 <http://127.0.0.1:4173/MyPortfolio/demos/town-memory/>。`serve.mjs` 以白名單提供網頁、樣式、腳本和六張彩色生成照。捲動運鏡、筆記操作、輸入輸出、資料來源和生成提示詞見 [地方記憶誌說明](demos/town-memory/README.md)。
+
 ## 黑白像素工作室（本機預覽）
 
 雙語首頁從首屏到頁尾共用固定的黑色點陣背景。pixel-studio.css 設定點陣、備用粒子與前後層級。區塊文字使用淺色，視窗與海報沿用各自的面板底色。

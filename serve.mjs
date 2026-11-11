@@ -21,6 +21,9 @@ for(const file of ['resume/index.html','resume/en/index.html','resume/resume.css
 for (const file of ['index.html', 'styles.css', 'site.js', 'motion.html', 'motion.css', 'motion.js', ...['lin-da-full-body', 'hero-residence', 'taiwan-street-hero', 'taiwan-entry-color', 'taiwan-living-room-color', 'woodland-home', 'daylight-flat', 'courtyard-house'].map(name => `assets/images/${name}.png`)]) {
   publicFiles.add('demos/lin-da/' + file);
 }
+for (const file of ['index.html', 'styles.css', 'site.js', ...['town-valley', 'koji-ceramics', 'forest-trail', 'daylight-creek', 'firefly-creek', 'ceramic-festival'].map(name => `assets/images/${name}.png`)]) {
+  publicFiles.add('demos/town-memory/' + file);
+}
 for (const file of ['pixel-prototype.html', 'pixel-prototype.css', 'pixel-prototype.js']) publicFiles.add(file);
 for (const file of ['pixel-automation.css', 'pixel-automation.js', ...['sprite.png','still.png','manifest.json'].map(suffix => `assets/automation-pixel-${suffix}`), 'assets/automation-pixel.gif']) publicFiles.add(file);
 for (const file of ['pixel-scenes.css','pixel-scenes.js','assets/gui-pixel-states.png','assets/api-pixel-sprite.png','assets/docs-pixel-sprite.png','assets/development-pixel.gif','assets/development-pixel-still.png','assets/development-pixel-manifest.json']) publicFiles.add(file);
