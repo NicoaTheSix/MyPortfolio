@@ -1,5 +1,11 @@
 # DeskTiles 網站發布與維護
 
+## Windows v1.03 多套配置與命令列（2026-11-11）
+
+來源為 DeskTile Windows v1.03（提交 0f3e07943e40d4b03d5d6e75447ab5084b87ce9c）。Windows ZIP 完整複製，內含 DeskTiles.exe 和 desktiles-cli.exe。Mac 沿用 v1.02 下載與指南。Windows 中英文指南採用發行來源，英文 README 由網站維護。
+
+在網站根目錄執行 `node build-desktiles.mjs --source D:\DeskTile`。建置器先列出絕對輸入／輸出，再依序核對兩平台 ZIP、Windows GUI／CLI EXE、複製正式來源、轉換中英文文件、重建搜尋索引與雜湊清單，最後就地更新兩張首頁作品卡。執行 `node check-desktiles.mjs` 驗證本機產物，發布後加 `--url https://nicoathesix.github.io/MyPortfolio/desktiles/` 逐檔核對公開下載與文件。檢查結果輸出至 validation-report.json。
+
 ## DeskTiles v1.02 細邊圖示與雙平台下載（2026-11-10）
 
 從 DeskTiles 正式發行 v1.02 取得共用 SVG／PNG、Windows x64 與 macOS Universal 2 ZIP。Logo 外圈為 #404040，厚度為 1024 尺寸下的 20 單位。兩平台檔案的大小、SHA-256 及來源提交見 release.mjs 與 source-manifest.json。

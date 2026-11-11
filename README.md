@@ -229,6 +229,8 @@ node sync-google-tag.mjs --check
 
 ## DeskTiles 桌面拼格專案
 
+2026-11-11 同步 Windows v1.03 下載、多套桌面配置與 CMD／PowerShell 指令說明。Mac 維持 v1.02。執行 `node build-desktiles.mjs --source D:\DeskTile` 時會先列出絕對輸入與輸出，再核對套件、複製正式來源、重建中英文說明與搜尋索引，並就地更新首頁作品卡。詳細步驟見 [DeskTiles 維護說明](desktiles/README.md)。
+
 新增 `/MyPortfolio/desktiles/` 與 `/MyPortfolio/desktiles/en/`，提供專案介紹、中英文使用說明、專案 README、原始 Markdown、含圖片的範例 JSON 與 Windows x64 免安裝 ZIP。根目錄中英文首頁提供專案卡與桌面導覽入口。倉庫已確認為 `https://github.com/NicoaTheSix/DeskTile`；整體專案授權未指定，不宣稱開源授權。
 
 2026-11-01 修正版：採用本機 `D:\DeskTile\release\DeskTiles-Windows-x64.zip`（459907 bytes），SHA-256 `8B506C952970AD54C37015F493739D7B0B87792868C28C6BFCB54545212724B9`。新版支援繁中／English 即時切換、偏好保存，修正一般啟動黑色／不可見圖形、透明顯示與置頂／桌面模式。首頁作品卡、雙語介紹與文件已同步，保留現有首頁動畫 class。頁面提醒先從舊版系統匣儲存並結束，不能只按 X；既有配置不需刪除。下載以驗證完成的本機 release 為準，不從尚未包含全部修正的遠端重建。

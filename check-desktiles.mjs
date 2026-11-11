@@ -71,6 +71,11 @@ try {
   assert.equal(manifest.releaseExeSha256,release.exeSha256.toLowerCase());
   assert.equal(manifest.sourceValidation.coreChecks,release.coreChecks);
   assert.equal(manifest.sourceValidation.windowsChecks,release.windowsChecks);
+  assert.equal(manifest.sourceValidation.layoutCliChecks,release.layoutCliChecks);
+  assert.equal(manifest.windowsVersion,release.version);
+  assert.equal(manifest.macVersion,release.macVersion);
+  assert.equal(manifest.releaseCliSha256,release.cliSha256.toLowerCase());
+  assert.equal(sums.match(/([a-f0-9]{64})\s+DeskTiles\/desktiles-cli\.exe/i)?.[1].toUpperCase(),release.cliSha256);
   assert.equal(manifest.sourceValidation.macCoreChecks,release.macCoreChecks);
   const mac=await readFile(path.join(site,'downloads/DeskTiles-macOS-universal.zip'));
   assert.equal(hash(mac).toUpperCase(),release.macSha256);assert.equal(mac.length,release.macBytes);
@@ -84,6 +89,10 @@ try {
     assert(page.querySelector('#release-update')?.textContent.includes(lang==='zh'?'既有配置不必刪除':'Keep your existing layout'),'缺少保留配置提醒');
     assert(page.querySelector('#release-update')?.textContent.includes(lang==='zh'?'儲存並結束桌面拼格':'Save and exit DeskTiles'),'缺少結束舊版提醒');
     assert.equal(page.querySelectorAll('#release-update').length,1);
+    assert(page.querySelector('#release-update h2').textContent.includes('Windows v'+release.version));
+    const guide=documents.get(lang==='zh'?'desktiles/guide.html':'desktiles/en/guide.html').document;
+    assert(guide.querySelector('main').textContent.includes('desktiles-cli.exe --help'),'指南缺少 CLI 啟動說明');
+    assert(guide.querySelector('main').textContent.includes('--layout'),'指南缺少指定配置說明');
     assert.equal(page.querySelectorAll('video').length,1);
     assert(page.querySelector('#platforms').textContent.includes(lang==='zh'?'v3':'v3'),'缺少配置版本限制');
     assert(page.querySelector('img.product-logo[src*="DeskTiles.svg"]'),'未使用平滑Logo');

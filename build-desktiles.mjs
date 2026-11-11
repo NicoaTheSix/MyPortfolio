@@ -42,7 +42,9 @@ for(const [from,to] of copies)console.log('[0/5] 複製輸入／輸出（絕對�
 for(const file of ['release.mjs','publish-content.mjs','content/mac-en.md'])console.log('[0/5] 輸入（絕對路徑）：',path.join(output,file));
 console.log('[0/5] 輸出（絕對路徑）：',path.join(output,'downloads/mac-en.md'));
 console.log('[0/5] 英文 README 翻譯輸入／下載輸出（絕對路徑）：',path.join(output,'content/readme-en.md'),'→',path.join(output,'downloads/readme-en.md'));
-console.log('[0/5] EXE 校驗輸入（絕對路徑，不執行、不另行發布）：',source&&path.join(source,'release/DeskTiles/DeskTiles.exe'));
+for(const exe of ['DeskTiles.exe','desktiles-cli.exe']) {
+  console.log('[0/5] EXE 校驗輸入（絕對路徑，不執行、不另行發布）：',source&&path.join(source,'release/DeskTiles',exe));
+}
 for(const file of [...generatedHtml,'macos.html','search-index.json','source-manifest.json'])console.log('[0/5] 輸出（絕對路徑）：',path.join(output,file));
 for(const file of ['index.html','en/index.html'])console.log('[0/5] 首頁輸入／輸出（絕對路徑）：',path.join(root,file));
 
@@ -61,6 +63,13 @@ function renderMarkdown(markdown,page) {
   const {document}=parseHTML('<html><body><article class="prose">'+safe+'</article></body></html>');
   const article=document.querySelector('article');
   for(const paragraph of article.querySelectorAll('p'))if(paragraph.textContent.startsWith('專案已整理至')||paragraph.textContent.startsWith('專案倉庫：'))paragraph.remove();
+  if(page.lang==='zh'&&page.key==='readme') {
+    for(const paragraph of article.querySelectorAll('p')) {
+      if(paragraph.textContent.startsWith('Windows 已知限制：持久化鬧鐘重啟後的時脈啟用問題')) {
+        paragraph.firstChild.data=paragraph.firstChild.data.replace('Windows 已知限制','歷史紀錄（Windows v1.02 圖示更新）');
+      }
+    }
+  }
   const mapping={'DeskTile_mac/README.md':fileFor(page.lang,'mac'),'DeskTile_mac/release/DeskTiles-macOS-universal.zip':macZip,'release/DeskTiles-Windows-x64.zip':zipFile,'docs/使用說明.md':fileFor(page.lang,'guide'),'docs/UserGuide.en.md':fileFor('en','guide'),'UserGuide.en.md':fileFor('en','guide'),'docs/control.png':'assets/control.png','docs/control-en.png':'assets/control-en.png','docs/驗證摘要.txt':'downloads/validation.txt','docs/DeskTiles-fixes-demo.mp4':'assets/DeskTiles-fixes-demo.mp4'};
   for(const name of ['alarm','alarm-en','startup-consent','reminder'])mapping['docs/'+name+'.png']='assets/'+name+'.png';
   for(const link of [...article.querySelectorAll('a[href]')]) {
@@ -73,7 +82,8 @@ function renderMarkdown(markdown,page) {
   for(const table of [...article.querySelectorAll('table')]) {const wrap=document.createElement('div');wrap.className='table-scroll';table.replaceWith(wrap);wrap.append(table);}
   for(const pre of [...article.querySelectorAll('pre')]) {
     const wrap=document.createElement('div');wrap.className='code-block';
-    const bar=document.createElement('div');bar.className='desk-code-label';bar.innerHTML='<span>'+(page.key==='mac'?'SHELL':'POWERSHELL')+'</span><button class="copy-code" type="button">'+texts[page.lang].copy+'</button>';
+    const shell=page.key==='mac'?'SHELL':pre.textContent.trimStart().startsWith('desktiles-cli.exe ')?'CMD':'POWERSHELL';
+    const bar=document.createElement('div');bar.className='desk-code-label';bar.innerHTML='<span>'+shell+'</span><button class="copy-code" type="button">'+texts[page.lang].copy+'</button>';
     pre.replaceWith(wrap);wrap.append(bar,pre);
   }
   return article.outerHTML+(page.key==='mac'?'':platformNotice(page.lang))+(page.key==='guide'?'<section class="prose">'+gallery(page.lang)+'</section>':'');
@@ -110,6 +120,9 @@ try {
   const exe=await readFile(path.join(source,'release/DeskTiles/DeskTiles.exe'));
   assert.equal(hash(exe).toUpperCase(),release.exeSha256,'EXE 與指定修正版不符');
   assert.equal(exe.length,release.exeBytes,'EXE 大小不符');
+  const cli=await readFile(path.join(source,'release/DeskTiles/desktiles-cli.exe'));
+  assert.equal(hash(cli).toUpperCase(),release.cliSha256,'CLI EXE 雜湊不符');
+  assert.equal(cli.length,release.cliBytes,'CLI EXE 大小不符');
   const macBytes=await readFile(path.join(source,'DeskTile_mac/release/DeskTiles-macOS-universal.zip'));
   const macSums=await readFile(path.join(source,'DeskTile_mac/release/SHA256SUMS.txt'),'utf8');
   assert.equal(hash(macBytes).toUpperCase(),release.macSha256,'Mac ZIP不符');assert.equal(macBytes.length,release.macBytes,'Mac ZIP大小不符');
@@ -145,16 +158,20 @@ try {
   await copyFile(path.join(output,'mac.html'),path.join(output,'macos.html'));
   const publicFiles=[...generatedHtml,'macos.html',...assets.map(asset=>asset.path),'desktiles.css','search-index.json','source-manifest.json'];
   await writeFile(path.join(output,'search-index.json'),JSON.stringify(search,null,2)+'\n');
-  await writeFile(path.join(output,'source-manifest.json'),JSON.stringify({schemaVersion:1,project:'DeskTiles',publishedDate:date,sourceRepository:repository,platform:'Windows 10 / 11 x64; macOS 12+ Universal 2',macZipSha256:release.macSha256.toLowerCase(),macZipBytes:release.macBytes,sourceCommit:release.sourceCommit,releaseCommit:release.commit,zipSha256:zipSha,zipBytes:zipSize,releaseExeSha256:release.exeSha256.toLowerCase(),releaseExeBytes:release.exeBytes,generatedHtml,publicFiles,assets,sourceValidation:{coreChecks:release.coreChecks,windowsChecks:release.windowsChecks,macCoreChecks:release.macCoreChecks,macWorkflow:release.macWorkflow,languages:['zh-Hant','en'],note:'Project-provided local validation; not rerun by the website publisher. Performance samples are not universal guarantees.'}},null,2)+'\n');
+  await writeFile(path.join(output,'source-manifest.json'),JSON.stringify({schemaVersion:1,project:'DeskTiles',publishedDate:date,sourceRepository:repository,platform:'Windows 10 / 11 x64; macOS 12+ Universal 2',windowsVersion:release.version,macVersion:release.macVersion,macZipSha256:release.macSha256.toLowerCase(),macZipBytes:release.macBytes,sourceCommit:release.sourceCommit,releaseCommit:release.commit,zipSha256:zipSha,zipBytes:zipSize,releaseExeSha256:release.exeSha256.toLowerCase(),releaseExeBytes:release.exeBytes,releaseCliSha256:release.cliSha256.toLowerCase(),releaseCliBytes:release.cliBytes,generatedHtml,publicFiles,assets,sourceValidation:{coreChecks:release.coreChecks,windowsChecks:release.windowsChecks,layoutCliChecks:release.layoutCliChecks,macCoreChecks:release.macCoreChecks,macWorkflow:release.macWorkflow,languages:['zh-Hant','en'],note:'Project-provided local validation; not rerun by the website publisher. Performance samples are not universal guarantees.'}},null,2)+'\n');
   console.log(`[4/5] 八頁文件、${search.length} 筆雙語搜尋索引與來源雜湊清單完成。`);
   for(const lang of ['zh','en']) {
     const page=lang==='zh'?'index.html':'en/index.html',prefix=lang==='zh'?'./':'../';
     const input=path.join(root,page);let html=await readFile(input,'utf8');
     const cardClasses=parseHTML(html).document.querySelector('#project-desktiles')?.className||'work-card desktiles-project';
     const supportedCard=homepageCard(lang,prefix,escape(cardClasses));
-    html=html.replace(/\s*<article\b[^>]*\bid="project-desktiles"[^>]*>[\s\S]*?<\/article>/,'');
-    assert(html.includes('<div class="work-grid">'),'找不到首頁作品區');
-    html=html.replace('<div class="work-grid">','<div class="work-grid">\n        '+supportedCard);
+    const existingCard=/<article\b[^>]*\bid="project-desktiles"[^>]*>[\s\S]*?<\/article>/;
+    if(existingCard.test(html)) {
+      html=html.replace(existingCard,()=>supportedCard);
+    } else {
+      assert(html.includes('<div class="work-grid">'),'找不到首頁作品區');
+      html=html.replace('<div class="work-grid">','<div class="work-grid">\n        '+supportedCard);
+    }
     html=html.replace(/<a class="nav-desktiles"[^>]*>DeskTiles<\/a>/,'');
     const fusionLink=`<a href="${prefix}fusion-studio/${lang==='en'?'en/':''}">Fusion Studio</a>`;
     assert(html.includes(fusionLink),'找不到既有文件導覽入口');

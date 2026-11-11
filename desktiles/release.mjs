@@ -1,4 +1,4 @@
-// Values supplied by the DeskTile v1.01 deployment handoff; never rebuild packages here.
-export const date='2026-11-10';
-export const release={version:'1.02',commit:'5b522ef14a789503b4ab3f55ede080f8ab3f1028',sourceCommit:'5b522ef14a789503b4ab3f55ede080f8ab3f1028',zipSha256:'21D38075F51E3F8A678C8594A3F7379BF4DED3776D4F0CE63524E4A343A2B2C0',zipBytes:507652,exeSha256:'AD59539EE39C45AE1BE5C2777666F18A79DE05CE51332E6D09893EFB64DDE7D8',exeBytes:1072128,coreChecks:222,windowsChecks:192,macSha256:'A864E6AFA4B2B765A0294D54EA907F68989A677811AF0F80EC62537A355C0FC8',macBytes:451920,macCoreChecks:170,macWorkflow:42757989847};
+// Values supplied by the DeskTile Windows v1.03 deployment handoff; never rebuild packages here.
+export const date='2026-11-11';
+export const release={version:'1.03',macVersion:'1.02',commit:'0f3e07943e40d4b03d5d6e75447ab5084b87ce9c',sourceCommit:'0f3e07943e40d4b03d5d6e75447ab5084b87ce9c',zipSha256:'9255FB07A58113F6305FED56D4AAE0C4DB113D28F53042233A7DE6CD0F90EE06',zipBytes:706148,exeSha256:'10AD65DE1A5520CBE47246854D22630A4D7BCF54DCF5E7A8186D9E0A9ABD0A1F',exeBytes:1168896,cliSha256:'9BD42011702F177EE42DD33D78AAB6CDF88ACAAAF717A22B178CFD72C3AC9536',cliBytes:322048,layoutCliChecks:38,coreChecks:222,windowsChecks:192,macSha256:'A864E6AFA4B2B765A0294D54EA907F68989A677811AF0F80EC62537A355C0FC8',macBytes:451920,macCoreChecks:170,macWorkflow:42757989847};
 export const macZip='downloads/DeskTiles-macOS-universal.zip';
