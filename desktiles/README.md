@@ -1,5 +1,11 @@
 # DeskTiles 網站發布與維護
 
+## 專案頁 YouTube 短片（2026-11-12）
+
+中英文專案頁共用 `publish-content.mjs` 的 YouTube 短片區塊。建置器讀取共用版型並列出絕對輸入和輸出路徑，依序生成頁面、章節目錄和搜尋索引。`desktiles.css` 以 9:16 排版，YouTube 播放器在接近畫面時載入，訪客也可開啟原影片連結。
+
+在網站根目錄執行 `node build-desktiles.mjs --source D:\DeskTile` 更新產物，再執行 `node check-desktiles.mjs` 核對頁面及站內資源。播放驗證從專案頁的 `#shorts` 開始，分別以桌面和手機寬度操作播放器。
+
 ## Windows v1.03 多套配置與命令列（2026-11-11）
 
 來源為 DeskTile Windows v1.03（提交 0f3e07943e40d4b03d5d6e75447ab5084b87ce9c）。Windows ZIP 完整複製，內含 DeskTiles.exe 和 desktiles-cli.exe。Mac 沿用 v1.02 下載與指南。Windows 中英文指南採用發行來源，英文 README 由網站維護。
