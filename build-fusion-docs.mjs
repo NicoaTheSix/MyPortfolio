@@ -7,11 +7,13 @@ import { Marked } from 'marked';
 import sanitizeHtml from 'sanitize-html';
 import { parseHTML } from 'linkedom';
 import { googleTag, googleTagBody } from './google-tag.mjs';
+import {applySeoHead} from './seo-head.mjs';
 
 const root = path.dirname(fileURLToPath(import.meta.url));
 const sourceArg = process.argv.indexOf('--source');
 const source = sourceArg >= 0 && process.argv[sourceArg + 1] ? path.resolve(process.argv[sourceArg + 1]) : null;
 const output = path.join(root, 'fusion-studio');
+console.log('[0/6] SEO 版型輸入（絕對路徑）：',path.join(root,'seo-head.mjs'));
 console.log('[0/6] 輸入專案（絕對路徑）：', source || '缺少 --source');
 console.log('[0/6] 輸入手冊（絕對路徑）：', source && path.join(source, 'manual'));
 console.log('[0/6] 輸出網站／清單（絕對路徑）：', output, path.join(output, 'source-manifest.json'));
@@ -278,7 +280,7 @@ try {
     await writeFile(path.join(output,page.file),shell(page,`<article class="prose">${page.html}</article>${pager}`,stems.length));
     outputs.push(page.file);
   }
-  for(const lang of ['zh','en']) {const {page,body}=homepage(lang,stems.length);await writeFile(path.join(output,page.file),shell(page,body,stems.length));outputs.push(page.file);}
+  for(const lang of ['zh','en']) {const {page,body}=homepage(lang,stems.length);await writeFile(path.join(output,page.file),applySeoHead(shell(page,body,stems.length),'fusion-studio/'+page.file));outputs.push(page.file);}
   console.log(`[4/6] 已轉換 ${pages.length+2} 頁，保留中英對應、章節、範例及桌面操作提示。`);
   const search=[];
   for(const page of pages.filter(p=>!['project-readme','positioning','guide-index','in-app-index','car-provenance'].includes(p.key))) {

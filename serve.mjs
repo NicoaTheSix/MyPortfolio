@@ -14,6 +14,7 @@ const publicFiles = new Set(['brand.css','index.html', 'styles.css', 'script.js'
 types['.woff2']='font/woff2';
 for(const file of ['fonts.css','cubic-11.woff2','OFL-Cubic-11.txt'])publicFiles.add('assets/fonts/'+file);
 types['.xml']='application/xml; charset=utf-8';
+publicFiles.add('sitemap.xml');
 for(const file of ['en/index.html','assets/services-poster-en.png','assets/business-card-en.png','assets/office-services-poster.png','assets/office-services-poster-en.png'])publicFiles.add(file);
 publicFiles.add('service-cards.css');
 for(const file of ['home-pixel.css','home-pixel.js','pixel-studio.css','studio-space.js','assets/pixel-studio-desk.svg','assets/3d/studio-desk/nicoa-pixel-desk.png'])publicFiles.add(file);

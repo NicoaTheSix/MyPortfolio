@@ -3,10 +3,11 @@ import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {brandHead, brandLogo} from './brand.mjs';
 import {googleTag, googleTagBody} from './google-tag.mjs';
+import {applySeoHead} from './seo-head.mjs';
 
 const root = path.dirname(fileURLToPath(import.meta.url));
 const targets = ['resume/index.html', 'resume/en/index.html'];
-for (const input of ['build-resume.mjs', 'brand.mjs', 'google-tag.mjs']) {
+for (const input of ['build-resume.mjs', 'brand.mjs', 'google-tag.mjs', 'seo-head.mjs']) {
   console.log('[0/3] 絕對輸入路徑：', path.join(root, input));
 }
 for (const target of targets) console.log('[0/3] 絕對輸出路徑：', path.join(root, target));
@@ -117,7 +118,7 @@ console.log('[1/3] 套用雙語公開履歷內容與共用品牌。');
 for (const [i, target] of targets.entries()) {
   const output = path.join(root, target);
   await mkdir(path.dirname(output), {recursive:true});
-  await writeFile(output, render(i === 1));
+  await writeFile(output, applySeoHead(render(i === 1), targets[i]));
   console.log(`[2/3] 已產生 ${i + 1}/${targets.length}：${output}`);
 }
 console.log('[3/3] 履歷頁已產生；未改動原始 PDF 或正式版本。');

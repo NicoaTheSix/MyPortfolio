@@ -7,6 +7,7 @@ import {Marked} from 'marked';
 import sanitizeHtml from 'sanitize-html';
 import {parseHTML} from 'linkedom';
 import {googleTag,googleTagBody} from './google-tag.mjs';
+import {applySeoHead} from './seo-head.mjs';
 import {date,release,macZip} from './desktiles/release.mjs';
 import {overview as renderOverview,platformNotice,homepageCard} from './desktiles/publish-content.mjs';
 
@@ -36,6 +37,7 @@ const fileFor=(lang,key)=>(lang==='en'?'en/':'')+(key==='index'?'index':key)+'.h
 const pages=generatedHtml.map(file=>({file,lang:file.startsWith('en/')?'en':'zh',key:path.posix.basename(file,'.html')}));
 const zipFile='downloads/DeskTiles-Windows-x64.zip';
 const texts={zh:{docs:'專案與文件',search:'搜尋文件',language:'English',back:'回作品集',menu:'專案導覽',toc:'本頁內容',skip:'跳至內容',copy:'複製',download:'下載 Windows x64 ZIP',guide:'閱讀使用說明',markdown:'下載 Markdown',original:'原始文件',note:'Windows 10 / 11 x64 · 免安裝 ZIP',footer:'Nicoa The Six · DeskTiles 文件',searchHint:'輸入文字搜尋目前語言的文件。'},en:{docs:'PROJECT & DOCS',search:'Search docs',language:'繁體中文',back:'Portfolio',menu:'Project navigation',toc:'On this page',skip:'Skip to content',copy:'Copy',download:'Download Windows x64 ZIP',guide:'Read the user guide',markdown:'Download Markdown',original:'Source document',note:'Windows 10 / 11 x64 · Portable ZIP',footer:'Nicoa The Six · DeskTiles documentation',searchHint:'Search the documentation in the current language.'}};
+console.log('[0/5] SEO 版型輸入（絕對路徑）：',path.join(root,'seo-head.mjs'));
 console.log('[0/5] 來源目錄（絕對路徑）：',source||'缺少 --source');
 console.log('[0/5] 網站輸出目錄（絕對路徑）：',output);
 for(const [from,to] of copies)console.log('[0/5] 複製輸入／輸出（絕對路徑）：',source&&path.join(source,from),'→',path.join(output,to));
@@ -147,7 +149,7 @@ try {
     const content=page.key==='index'?overview(page).replace('<p class="platform-note">',githubSupport(page.lang)+'<p class="platform-note">'):renderMarkdown(await readFile(input,'utf8'),page);
     const updated=content;
     const decorated=decorate(updated),html=template(page,decorated.content,decorated.headings).replace('下載檔與原始中文文件由專案提供；英文為網站翻譯。','下載檔、中英文指南與截圖由專案提供；英文 README 為網站翻譯。').replace('Downloads and original Chinese documents are supplied by the project; English documents are website translations.','Downloads, bilingual user guides and screenshots are supplied by the project; the English README is a website translation.');
-    const destination=path.join(output,page.file);await mkdir(path.dirname(destination),{recursive:true});await writeFile(destination,html);
+    const destination=path.join(output,page.file);await mkdir(path.dirname(destination),{recursive:true});await writeFile(destination,applySeoHead(html,'desktiles/'+page.file));
     const {document}=parseHTML(html),main=document.querySelector('main');
     search.push({lang:page.lang,title:titles[page.lang][page.key],pageTitle:titles[page.lang][page.key],url:page.file,text:main.textContent.replace(/\s+/g,' ').slice(0,1500)});
     for(const heading of main.querySelectorAll('h2[id],h3[id]')) {

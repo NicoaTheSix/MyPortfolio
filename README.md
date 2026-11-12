@@ -1,3 +1,9 @@
+## 搜尋引擎設定
+
+在網站根目錄執行 `npm run seo`。程式先列出設定、公開頁面清單、圖片與輸出檔的絕對路徑，再檢查公開頁面、整理 sitemap URL 與雙語對應，最後寫入 `sitemap.xml` 和主要頁面的 SEO 中繼資料。用 `npm run check:seo` 檢查檔案是否需要更新。新增或移除公開頁面後重跑此流程。履歷、DeskTiles 和 Fusion Studio 的建置器會沿用共用 SEO 版型。
+
+整站 sitemap 納入首頁、履歷、示範網站、文章與公開專案文件。公開中文與英文首頁各指向自己的 canonical，並互相標示語言版本。履歷使用 ProfilePage 結構化資料，DeskTiles 使用 SoftwareApplication。發布後在 Google Search Console 的 `https://nicoathesix.github.io/MyPortfolio/` 資源提交 `sitemap.xml`。GitHub Pages 專案位於 `/MyPortfolio/` 子目錄，爬蟲讀取的 robots.txt 位於網域根目錄。
+
 ## A＋B 首頁本機預覽
 
 互動桌面用既有的黑白桌景圖作為前景。CRT、書本和資料夾分別開啟作品、文章和履歷視窗。桌面版將連結對齊圖像物件，手機版將同一組連結排成三個可點按的圖示。讀取中英文首頁後，script.js 先在主控台列出頁面、腳本和 DOM 輸出的絕對 URL，再依階段掛接視窗和聯絡操作。關閉視窗可用 X 或 Esc。無視窗支援時，連結直接前往對應頁面。
