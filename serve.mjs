@@ -1,6 +1,6 @@
 import http from 'node:http';
 import { createReadStream } from 'node:fs';
-import { readFile, stat } from 'node:fs/promises';
+import { readFile, readdir, stat } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -11,6 +11,9 @@ console.log(`[0/3] 輸出：本機預覽 http://127.0.0.1:${port}/MyPortfolio/�
 const types = { '.html':'text/html; charset=utf-8', '.css':'text/css; charset=utf-8', '.js':'text/javascript; charset=utf-8', '.png':'image/png', '.gif':'image/gif', '.svg':'image/svg+xml', '.json':'application/json; charset=utf-8', '.mp4':'video/mp4', '.csv':'text/csv; charset=utf-8', '.xlsx':'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', '.srt':'text/plain; charset=utf-8', '.txt':'text/plain; charset=utf-8', '.md':'text/markdown; charset=utf-8', '.zip':'application/zip' };
 types['.webp']='image/webp';
 const publicFiles = new Set(['brand.css','index.html', 'styles.css', 'script.js', 'assets/portrait.png', 'assets/business-card.png', 'assets/services-poster.png', 'assets/favicon.svg', 'assets/social-linkedin.png', 'assets/social-github.png', 'assets/social-medium.png', 'assets/social-youtube.png']);
+for (const file of await readdir(path.join(root, 'assets/home-images'))) {
+  if (/^[a-z0-9-]+-\d+\.webp$/.test(file)) publicFiles.add(`assets/home-images/${file}`);
+}
 types['.woff2']='font/woff2';
 for(const file of ['fonts.css','cubic-11.woff2','OFL-Cubic-11.txt'])publicFiles.add('assets/fonts/'+file);
 types['.xml']='application/xml; charset=utf-8';

@@ -1,3 +1,9 @@
+## 首頁響應式圖片
+
+安裝支援 WebP 的 ImageMagick 後，在網站根目錄執行 `node build-home-images.mjs`。程式列出來源 PNG、WebP 及雙語 HTML 的絕對路徑，逐批產生不同寬度的 WebP，再更新兩個首頁的 `picture` 和 `srcset`。像素插畫、海報與名片採用無損 WebP。示範網站縮圖使用有損 WebP。服務海報的標題變色共用瀏覽器選中的圖片，服務圖下載和社群分享仍使用原圖。
+
+以 `npm run preview` 啟動本機網站，再用手機和桌面寬度開啟兩種語言的首頁。開啟服務放大視窗可檢查大圖，瀏覽器的 Network 面板會列出實際載入的 WebP 尺寸。執行 `node check-site.mjs` 核對站內引用。
+
 ## 搜尋引擎設定
 
 DeskTiles 發行檔與指南的絕對路徑、建置進度及正式站驗證步驟請見 [DeskTiles 維護說明](desktiles/README.md)。

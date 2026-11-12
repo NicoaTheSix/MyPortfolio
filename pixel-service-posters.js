@@ -20,8 +20,6 @@
   const mount=async(config,waitForPosterImage)=>{
     const root=document.querySelector(`[data-service-poster="${config.id}"]`);
     const poster=root.querySelector('.poster-frame');
-    const imageURL=new URL(config.source,assetBase).href;
-    console.info(`[${config.title} 0/4] 輸入原圖：`,imageURL);
     config.scenes.forEach(scene=>console.info(`[${config.title} 0/4] 輸入影格表：`,new URL(scene.sprite,assetBase).href));
     const baseReady=waitForPosterImage(poster,en);
     const prefix=`service-${config.id}`;
@@ -32,7 +30,7 @@
     Object.assign(title.style,{left:`${100*tx/1536}%`,top:`${100*ty/1024}%`,width:`${100*tw/1536}%`,height:`${100*th/1024}%`});
     const svg=document.createElementNS('http://www.w3.org/2000/svg','svg');
     svg.classList.add('poster-title-colour');svg.setAttribute('viewBox','0 0 1536 1024');svg.setAttribute('aria-hidden','true');
-    svg.innerHTML=`<defs><linearGradient id="${prefix}-gradient" x1="0" y1="${ty}" x2="0" y2="${ty+th}" gradientUnits="userSpaceOnUse"><stop stop-color="${config.gradient[0]}"/><stop offset="1" stop-color="${config.gradient[1]}"/></linearGradient><filter id="${prefix}-invert" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="-1 0 0 0 1  0 -1 0 0 1  0 0 -1 0 1  0 0 0 1 0"/></filter><mask id="${prefix}-mask" x="0" y="0" width="1536" height="1024" maskUnits="userSpaceOnUse" style="mask-type:luminance"><image href="${imageURL}" width="1536" height="1024" filter="url(#${prefix}-invert)"/></mask></defs><rect x="${tx}" y="${ty}" width="${tw}" height="${th}" fill="url(#${prefix}-gradient)" mask="url(#${prefix}-mask)"/>`;
+    svg.innerHTML=`<defs><linearGradient id="${prefix}-gradient" x1="0" y1="${ty}" x2="0" y2="${ty+th}" gradientUnits="userSpaceOnUse"><stop stop-color="${config.gradient[0]}"/><stop offset="1" stop-color="${config.gradient[1]}"/></linearGradient><filter id="${prefix}-invert" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="-1 0 0 0 1  0 -1 0 0 1  0 0 -1 0 1  0 0 0 1 0"/></filter><mask id="${prefix}-mask" x="0" y="0" width="1536" height="1024" maskUnits="userSpaceOnUse" style="mask-type:luminance"><image width="1536" height="1024" filter="url(#${prefix}-invert)"/></mask></defs><rect x="${tx}" y="${ty}" width="${tw}" height="${th}" fill="url(#${prefix}-gradient)" mask="url(#${prefix}-mask)"/>`;
     poster.append(title,svg);
     title.addEventListener('click',()=>title.setAttribute('aria-pressed',String(title.getAttribute('aria-pressed')!=='true')));
     const mode=document.createElement('div');mode.className='poster-switch';mode.setAttribute('role','group');mode.setAttribute('aria-label',`${config.title}${t('海報顯示模式',' poster display')}`);
