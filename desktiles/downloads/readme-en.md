@@ -1,56 +1,132 @@
 # DeskTiles
 
-DeskTiles is a native desktop tile application for Windows and macOS. Choose a hexagon, triangle or 3:2 rectangle and add text, pictures or timers. Group dragging, snapping, transparent backgrounds, animated borders and JSON backups help arrange a desktop layout.
+**English** · [繁體中文](README.zh-TW.md)
 
-Windows v1.03 adds named desktop layouts and command-line controls. The macOS package remains at v1.02. Both use the same thin-outline logo introduced in v1.02.
+DeskTiles puts notes, images, and timers into draggable hexagons, triangles, and rectangles on your desktop. Arrange tiles with snapping, keep them on the desktop or above other windows, and customize their borders, backgrounds, and typography.
 
-## Download and update
+## Downloads
 
-- Windows 10 / 11 x64: extract [DeskTiles-Windows-x64.zip](release/DeskTiles-Windows-x64.zip), then open `DeskTiles/DeskTiles.exe`. The portable build uses a static C++ runtime.
-- macOS 12+: extract [DeskTiles-macOS-universal.zip](DeskTile_mac/release/DeskTiles-macOS-universal.zip), then open `DeskTiles.app`. Universal 2 includes Apple silicon and Intel code.
+| Platform | Version | Download |
+| --- | --- | --- |
+| Windows 10 / 11 x64 | v1.05 | [Portable ZIP](https://raw.githubusercontent.com/NicoaTheSix/DeskTile/v1.05/release/DeskTiles-Windows-x64.zip) · [DeskTiles.exe only](https://raw.githubusercontent.com/NicoaTheSix/DeskTile/v1.05/release/DeskTiles/DeskTiles.exe) |
+| macOS 12+ (Apple silicon / Intel) | v1.02 | [Universal 2 ZIP](https://raw.githubusercontent.com/NicoaTheSix/DeskTile/v1.02/DeskTile_mac/release/DeskTiles-macOS-universal.zip) |
 
-Save and exit the old app before extracting the complete update. X hides the controller; it does not quit the app. Keep your saved layout and the package's third-party notices. Linux is not available.
+**Windows:** Extract the complete ZIP and open `DeskTiles.exe`. Use the ZIP if you want `desktiles-cli.exe`, the guides, and the example layout. The portable app needs no installer, administrator rights, or separate runtime. To update, choose **Save and exit DeskTiles** from the tray before opening the replacement. Closing the control panel keeps the app running.
 
-The Mac package uses an ad-hoc signature. It has no Developer ID signature or Apple notarization. Intel hardware, multiple monitors, other macOS versions and long-running stress tests still need validation. Read the [Mac guide and limitations](DeskTile_mac/README.md) before downloading.
+**macOS:** Extract the ZIP and open `DeskTiles.app`. The build is ad-hoc signed and has not been notarized by Apple. See the [macOS guide and platform limitations](DeskTile_mac/README.md). The Mac build does not have Windows alarms, named desktop layouts, or the Windows CLI.
 
-## Windows features
+[Windows user guide](docs/UserGuide.en.md) · [繁中使用說明](docs/使用說明.md) · [Project page and demo](https://nicoathesix.github.io/MyPortfolio/desktiles/)
 
-- Select a shape and add a tile. Shift-click selects several tiles; drag one selected tile to move the group. Tiles snap near one another.
-- Use text, PNG/JPEG/BMP images, count-up/countdown timers or alarms. Apply content to selected tiles.
-- Adjust size, font, colors, background transparency and solid, pixel, RGB or breathing borders. Choose desktop or always-on-top layers.
-- Switch between Traditional Chinese and English from the controller, tray or tile menu. The app saves the preference; your tile content is not translated.
-- Start at sign-in is off by default and requires explicit consent. This update does not enable it automatically.
+## Using DeskTiles on Windows
 
-## Named layouts and CLI on Windows
+| To… | Do this |
+| --- | --- |
+| Add a tile | Choose a shape in the control panel and select **Add tile**. |
+| Move a group | Shift-click to select multiple tiles, then drag one of them. Tiles snap near neighboring edges and keep their relative positions. |
+| Change content | Select a tile, choose text, image, timer, or alarm, then apply the changes. |
+| Change appearance | Use the size and text, border, or background controls. Style changes can apply to a selection. |
+| Change the display layer | Use the tile menu or control panel to choose desktop or always-on-top. |
+| Back up a layout | Use the JSON menu to export the current layout with embedded images. Import can replace or merge the current layout. |
+| Find missing tiles | Use the tray command to move them back to the primary display. |
 
-Right-click the tray icon and choose **Desktop layouts** to save a named copy, create a blank layout, rename it or switch layouts. Timers and alarms in other layouts continue running, and reminders identify their layout. A saved copy starts with its timers paused and alarms disabled.
+Switch between English and Traditional Chinese using the **Language** menu. Your choice is saved. Double-click a tile or open DeskTiles from the tray to bring the control panel back.
 
-Start DeskTiles.exe in the extracted folder. Run `desktiles-cli.exe --help` in CMD or `.\desktiles-cli.exe --help` in PowerShell. The `tile` commands list, add, update, delete, hide and show tiles. For example, `desktiles-cli.exe tile list --layout "Work"` lists the tiles in Work while keeping the current layout on screen.
+![DeskTiles control panel in English](docs/control-en.png)
 
-![English Windows controller in an earlier release](docs/control-en.png)
+### Named desktop layouts
 
-The [English user guide](docs/UserGuide.en.md) and [Chinese user guide](docs/使用說明.md) provide the full Windows controls, alarm settings, startup consent, data handling and troubleshooting steps.
+Right-click the tray icon and open **Desktop layouts** to save a copy, create an empty layout, rename the current layout, or switch to a saved layout. The checked layout is visible and is restored the next time DeskTiles starts.
 
-## Mac features and differences
+Switching changes which tiles appear. Timers and alarms in other layouts keep running while DeskTiles is open, and reminders include the layout name. A saved copy pauses its timers and disables its alarms so it does not create a second set of reminders.
 
-Mac uses Objective-C++ / AppKit with the shared C++ core and native macOS controls. It supports three tile shapes, text, images, timers, multi-selection, dragging, snapping, appearance settings and JSON layouts. Its UI uses Chinese labels. Windows alarms, language switching and sign-in launch have not been ported.
+### Command line
 
-Mac sizes use logical points. Desktop layering uses native window levels. Mission Control, Stage Manager and Show Desktop behavior still require hardware testing. See the [Mac guide](DeskTile_mac/README.md) for data directories, backups, file locking and validation limits.
+Start `DeskTiles.exe` first. Run the examples below in PowerShell from the extracted folder. In CMD, omit the `.\` prefix.
 
-## Layout compatibility
+```powershell
+.\desktiles-cli.exe layout list
+.\desktiles-cli.exe layout create "Work" --empty
+.\desktiles-cli.exe layout switch "Work"
+.\desktiles-cli.exe tile add --shape hexagon --text "Today's tasks"
+.\desktiles-cli.exe tile list
+.\desktiles-cli.exe tile update --id 1 --text "Done"
+.\desktiles-cli.exe tile hide --id 1
+.\desktiles-cli.exe tile show --id 1
+.\desktiles-cli.exe tile delete --id 1
+```
 
-Windows exports JSON v3 and reads v1–v3. Mac exports and reads v1/v2 only. Windows v3 layouts cannot currently be imported into Mac, even when they contain no alarms. Windows can import Mac v2 layouts. Import can replace or merge supported layouts; imported timers start paused. Export with embedded images when moving supported layouts between computers.
+Use the ID returned by `tile add` or shown by `tile list`; IDs belong to a layout. Use `tile get --id ID` for the tile's content and schedule, or add `--layout NAME` to target another layout without switching. `layout create NAME` saves a copy unless you pass `--empty`. To delete a layout, first switch away from it, then use `layout delete NAME --yes`.
 
-## Validation
+`--help` lists the available options. Place `--json` before the command to get a single JSON line. Successful results go to stdout; errors go to stderr. Exit codes are `0` (success), `2` (command or save error), `3` (no matching instance), and `4` (no reply). If the app was started with `--data-dir`, pass the same path before the CLI command.
 
-The project reports 222 Windows core checks, 192 checks of the extracted package and 38 layout and CLI checks for v1.03. A background-layout alarm fired on schedule after the app restarted. The Mac icon-release workflow reports 170 core checks, AppKit integration, standard/Retina icon decoding, Finder configuration, arm64/x86_64 architectures and ad-hoc signing checks. The website publisher verifies supplied files and hashes without executing the application tests.
+### Alarms and startup
 
-The Mac hardware and signing limits above still apply. Historical validation summaries describe the packages tested at the time.
+Select **Alarm** as a tile's content type, enter optional text, and open its alarm settings. Dates use `YYYY-MM-DD`; times use 24-hour `HH:MM`. Alarms can run once, daily, or on selected weekdays. The app uses local time and must be running to deliver reminders. A restart re-arms future alarms; it does not replay reminders missed while the app was closed. Timers keep their saved elapsed time and are paused after a restart.
 
-## Source and notices
+**Start at Windows sign-in** is off by default. DeskTiles only enables it after you opt in and confirm the executable and data paths. Disable it and opt in again if you move either path.
 
-Windows uses C++17 / Win32 / GDI+. Mac uses Objective-C++ / AppKit and C++. The archives retain their third-party MIT notices; no project-wide license is asserted here.
+## Data and compatibility
 
-[Source repository](https://github.com/NicoaTheSix/DeskTile) · [Windows v1.03 release source](https://github.com/NicoaTheSix/DeskTile/commit/0f3e07943e40d4b03d5d6e75447ab5084b87ce9c) · [Mac validation workflow](https://github.com/NicoaTheSix/DeskTile/actions/runs/42757989847)
+Windows stores data in `%LOCALAPPDATA%\HexDesk` by default. You can use a separate folder for testing or to keep a second independent instance:
 
-This English README is maintained by the website from the project's supplied documentation. The original Chinese README is available as a separate download.
+```powershell
+.\DeskTiles.exe --data-dir 'D:\DeskTilesData'
+.\desktiles-cli.exe --data-dir 'D:\DeskTilesData' --json layout list
+```
+
+- The first named-layout save or CLI write creates `layouts.hexdesk.json` and preserves the original `layout.hexdesk`. After that, `layouts.hexdesk.json` is authoritative. `layouts.backup.json` holds the previous saved version. Up to 32 layouts and 500 tiles per layout are supported.
+- DeskTiles logs its input and output paths in `session.log`. Only one instance can write to a data folder. Launching the app again for that folder brings the existing window back; `session.lock` is normal and does not need to be deleted.
+- Imported images are saved under `assets/`; images chosen from elsewhere retain their original path. Export JSON if you want to back up a layout with its images. JSON export and import apply to the active layout.
+- Windows exports JSON v3 and reads v1–v3. The current Mac build reads v1/v2 and exports v2, so its exports can be imported into Windows, but Windows v3 exports cannot be imported into the current Mac build.
+
+## Build and verify
+
+The source build requires Windows x64, PowerShell, Visual Studio with the C++ desktop workload, and the Windows SDK. The portable ZIP does not require these tools.
+
+```powershell
+# Build the GUI and CLI and run the core tests.
+.\build.ps1 -OutputName DeskTiles-update.exe
+
+# Test named layouts, native shell commands, and background reminders.
+.\verify-layouts-cli.ps1
+
+# Package the app and CLI, then test the unpacked ZIP.
+.\package.ps1 -ExecutableName DeskTiles-update.exe
+.\verify-package.ps1
+```
+
+The build and verification scripts print absolute input/output paths and stage progress. Tests use isolated data directories. Optional checks include `verify-language.ps1`, `verify-activation.ps1`, `verify-interaction.ps1`, `verify-features.ps1`, `verify-icons.ps1`, and `verify-package.ps1 -Composition`. Desktop composition tests require an interactive Windows desktop with Explorer; the optional Python-based tests also require their documented dependencies.
+
+Windows v1.05 passed 228 core checks, 192 checks on the unpacked Windows package, and 38 named-layout/CLI integration checks, including a background alarm after restart.
+
+| Path | Purpose |
+| --- | --- |
+| `core.hpp`, `config.hpp`, `alarm.hpp` | Tile model, geometry, saved data, JSON interchange, and alarm schedules. |
+| `layouts.hpp`, `win32_layouts.hpp` | Named-layout storage, tray commands, and switching. |
+| `desktiles_cli.cpp`, `win32_cli_transport.hpp`, `win32_layout_commands.hpp` | Windows console client and commands handled by the running app. |
+| `win32.cpp`, `win32_features.hpp`, `localization.hpp`, `startup.hpp` | Windows UI, display layers, notifications, language, and startup. |
+| `release/`, `docs/`, `assets/` | Windows downloads and checksums, guides, and shared logo assets. |
+| `DeskTile_mac/` | Native AppKit implementation and Mac package. |
+
+The Windows app uses C++17, Win32, and GDI+. Tile input regions remain interactive even with a transparent background; the desktop layer depends on Explorer. JSON uses the bundled [nlohmann/json v3.12.0](https://github.com/nlohmann/json/releases/tag/v3.12.0). A Linux build is not currently available.
+
+## Sage desktop layout (Windows)
+
+![Sage layout rendered by DeskTiles for Windows](docs/sage-layout-preview.png)
+
+In the tray, choose **Desktop layouts → Create from Sage preset…** and enter a name. The app extracts its embedded photo into the data folder, creates a separate layout and switches to it. The previous layout and its active timers remain available. The preset contains an editable hexagonal note, a replaceable triangular photo and a paused 25-minute rectangular countdown. The app uses your existing desktop wallpaper.
+
+Right-click a photo and choose **Adjust photo crop…** to drag its framing and set 100–400% zoom. Replacing a photo resets the framing. In **Tile size and text style…**, enable sizing to set a rectangle's width (80–480 px) and height (40–480 px). A blank height uses the original 3:2 ratio. **Hide tile ID and status labels** applies to the selected tiles. Start or pause the countdown from the tile menu or control window.
+
+The renderer clips an aspect-fill image to the tile outline after applying the saved focus and zoom. Custom rectangles use the same dimensions for drawing, hit-testing, collisions and snap. JSON exports include the photo and presentation settings. Layouts using these settings require this Windows build.
+
+Run `./verify-sage.ps1` after building. It prints the input and output paths and verifies layout creation, editing, persistence and countdown switching with isolated test data.
+
+The bundled `assets/sage-gecko.jpg` is a JPEG export of a photo generated with the built-in image generation tool. The Portfolio mockup served as the visual reference.
+
+<details>
+<summary>Photo generation prompt</summary>
+
+Create a photorealistic landscape photograph for a DeskTile demo, using the attached product mockup only as subject, palette and framing reference. A golden-orange leopard gecko with spotted markings facing the camera, its head just below the frame center at x=50%, y=60%, both front legs visible below the head on dark slate. Warm directional light, softly blurred charcoal background, realistic natural details. Keep the animal in the center half of the frame with extra margins, so it will be visible when the application masks the image into a triangle. Deliver only the complete rectangular photograph, without any text, graphics, border, triangle or UI.
+
+</details>

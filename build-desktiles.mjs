@@ -20,9 +20,9 @@ const hash=data=>createHash('sha256').update(data).digest('hex');
 const escape=value=>String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const relative=(from,to)=>(path.posix.relative(path.posix.dirname(from),to)||'./')+(/\.(?:zip|png|svg|ico|css|mp4|md|txt|json)$/.test(to)?'?v='+date:'');
 const copies=[
-  ['README.md','downloads/README.md'],['docs/使用說明.md','downloads/guide-zh.md'],
+  ['README.zh-TW.md','downloads/README.md'],['README.md','downloads/readme-en.md'],['docs/使用說明.md','downloads/guide-zh.md'],
   ['docs/UserGuide.en.md','downloads/guide-en.md'],['docs/control-en.png','assets/control-en.png'],
-  ['docs/DeskTiles-fixes-demo.mp4','assets/DeskTiles-fixes-demo.mp4'],
+  ['docs/sage-layout-preview.png','assets/sage-layout-preview.png'],
   ...['shapes','control','border','background','typography'].map(name=>['docs/'+name+'.png','assets/'+name+'.png']),
   ['assets/DeskTiles.svg','assets/DeskTiles.svg'],['assets/DeskTiles-logo.png','assets/DeskTiles-logo.png'],
   ['release/DeskTiles-Windows-x64.zip','downloads/DeskTiles-Windows-x64.zip'],
@@ -41,9 +41,8 @@ console.log('[0/5] SEO 版型輸入（絕對路徑）：',path.join(root,'seo-he
 console.log('[0/5] 來源目錄（絕對路徑）：',source||'缺少 --source');
 console.log('[0/5] 網站輸出目錄（絕對路徑）：',output);
 for(const [from,to] of copies)console.log('[0/5] 複製輸入／輸出（絕對路徑）：',source&&path.join(source,from),'→',path.join(output,to));
-for(const file of ['release.mjs','publish-content.mjs','content/mac-en.md'])console.log('[0/5] 輸入（絕對路徑）：',path.join(output,file));
+for(const file of ['release.mjs','publish-content.mjs','content/mac-en.md','assets/DeskTiles-fixes-demo.mp4'])console.log('[0/5] 輸入（絕對路徑）：',path.join(output,file));
 console.log('[0/5] 輸出（絕對路徑）：',path.join(output,'downloads/mac-en.md'));
-console.log('[0/5] 英文 README 翻譯輸入／下載輸出（絕對路徑）：',path.join(output,'content/readme-en.md'),'→',path.join(output,'downloads/readme-en.md'));
 for(const exe of ['DeskTiles.exe','desktiles-cli.exe']) {
   console.log('[0/5] EXE 校驗輸入（絕對路徑，不執行、不另行發布）：',source&&path.join(source,'release/DeskTiles',exe));
 }
@@ -74,6 +73,10 @@ function renderMarkdown(markdown,page) {
   }
   const mapping={'DeskTile_mac/README.md':fileFor(page.lang,'mac'),'DeskTile_mac/release/DeskTiles-macOS-universal.zip':macZip,'release/DeskTiles-Windows-x64.zip':zipFile,'docs/使用說明.md':fileFor(page.lang,'guide'),'docs/UserGuide.en.md':fileFor('en','guide'),'UserGuide.en.md':fileFor('en','guide'),'docs/control.png':'assets/control.png','docs/control-en.png':'assets/control-en.png','docs/驗證摘要.txt':'downloads/validation.txt','docs/DeskTiles-fixes-demo.mp4':'assets/DeskTiles-fixes-demo.mp4'};
   for(const name of ['alarm','alarm-en','startup-consent','reminder'])mapping['docs/'+name+'.png']='assets/'+name+'.png';
+  mapping['docs/sage-layout-preview.png']='assets/sage-layout-preview.png';
+  mapping['README.md']=fileFor('en','readme');
+  mapping['README.zh-TW.md']=fileFor('zh','readme');
+  mapping['docs/使用說明.md']=fileFor('zh','guide');
   for(const link of [...article.querySelectorAll('a[href]')]) {
     const href=decodeURI(link.getAttribute('href'));
     if(href==='docs/網站上架交接.md') {link.closest('p').remove();continue;}
@@ -139,16 +142,20 @@ try {
     assets.push({path:to,source:from,sha256:hash(bytes),bytes:bytes.length});
     console.log(`[2/5] 已複製 ${index+1}/${copies.length}：${to}`);
   }
-  for(const key of ['readme','mac']) {
-    const input=path.join(output,'content',key+'-en.md'),to='downloads/'+key+'-en.md',bytes=await readFile(input);
-    await copyFile(input,path.join(output,to));assets.push({path:to,source:'website:content/'+key+'-en.md',sha256:hash(bytes),bytes:bytes.length});
-  }
+  const macGuide=await readFile(path.join(output,'content/mac-en.md'));
+  await writeFile(path.join(output,'downloads/mac-en.md'),macGuide);
+  assets.push({path:'downloads/mac-en.md',source:'website:content/mac-en.md',sha256:hash(macGuide),bytes:macGuide.length});
+  const videoPath='assets/DeskTiles-fixes-demo.mp4';
+  const video=await readFile(path.join(output,videoPath));
+  assets.push({path:videoPath,source:'website:'+videoPath,sha256:hash(video),bytes:video.length});
   const search=[];
   for(const page of pages) {
     const input=page.key==='mac'?path.join(output,'downloads',page.lang==='zh'?'README-macOS.md':'mac-en.md'):page.key==='index'?null:path.join(output,'downloads',page.key==='guide'?(page.lang==='zh'?'guide-zh.md':'guide-en.md'):(page.lang==='zh'?'README.md':'readme-en.md'));
     const content=page.key==='index'?overview(page).replace('<p class="platform-note">',githubSupport(page.lang)+'<p class="platform-note">'):renderMarkdown(await readFile(input,'utf8'),page);
     const updated=content;
-    const decorated=decorate(updated),html=template(page,decorated.content,decorated.headings).replace('下載檔與原始中文文件由專案提供；英文為網站翻譯。','下載檔、中英文指南與截圖由專案提供；英文 README 為網站翻譯。').replace('Downloads and original Chinese documents are supplied by the project; English documents are website translations.','Downloads, bilingual user guides and screenshots are supplied by the project; the English README is a website translation.');
+    const decorated=decorate(updated),html=template(page,decorated.content,decorated.headings)
+      .replace('下載檔與原始中文文件由專案提供；英文為網站翻譯。','下載檔、Windows 雙語文件與截圖由專案提供。')
+      .replace('Downloads and original Chinese documents are supplied by the project; English documents are website translations.',page.key==='mac'?'The English macOS guide is a website translation.':'Downloads, bilingual Windows documentation and screenshots come from the project.');
     const destination=path.join(output,page.file);await mkdir(path.dirname(destination),{recursive:true});await writeFile(destination,applySeoHead(html,'desktiles/'+page.file));
     const {document}=parseHTML(html),main=document.querySelector('main');
     search.push({lang:page.lang,title:titles[page.lang][page.key],pageTitle:titles[page.lang][page.key],url:page.file,text:main.textContent.replace(/\s+/g,' ').slice(0,1500)});

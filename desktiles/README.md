@@ -1,5 +1,11 @@
 # DeskTiles 網站發布與維護
 
+## Windows v1.05 鼠尾草綠樣板（2026-11-12）
+
+從 Portfolio 根目錄執行 `node build-desktiles.mjs --source 'D:\DeskTile\build\sage-v1.05'`。建置器先列出各輸入與輸出的絕對路徑，再依序核對 Windows ZIP、執行檔及 Mac ZIP 雜湊，複製來源指南、README 和實際渲染圖，最後產生雙語頁面、搜尋索引、來源清單與首頁 DeskTiles 作品卡。既有示範影片直接從網站的 `desktiles/assets/DeskTiles-fixes-demo.mp4` 納入來源清單。
+
+執行 `node check-desktiles.mjs` 核對本機檔案。部署後使用 `node check-desktiles.mjs --url https://nicoathesix.github.io/MyPortfolio/desktiles/` 比對公開頁面、套件、指南、預覽圖與影片。Windows 發行來源為 `1019b8c7ed17920a2d6fa1cdfa9ca4acf7e069de`，Mac 下載版本為 v1.02。
+
 ## 專案頁 YouTube 短片（2026-11-12）
 
 中英文專案頁共用 `publish-content.mjs` 的 YouTube 短片區塊。建置器讀取共用版型並列出絕對輸入和輸出路徑，依序生成頁面、章節目錄和搜尋索引。`desktiles.css` 以 9:16 排版，YouTube 播放器在接近畫面時載入，訪客也可開啟原影片連結。

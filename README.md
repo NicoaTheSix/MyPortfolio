@@ -1,5 +1,7 @@
 ## 搜尋引擎設定
 
+DeskTiles 發行檔與指南的絕對路徑、建置進度及正式站驗證步驟請見 [DeskTiles 維護說明](desktiles/README.md)。
+
 在網站根目錄執行 `npm run seo`。程式先列出設定、公開頁面清單、圖片與輸出檔的絕對路徑，再檢查公開頁面、整理 sitemap URL 與雙語對應，最後寫入 `sitemap.xml` 和主要頁面的 SEO 中繼資料。用 `npm run check:seo` 檢查檔案是否需要更新。新增或移除公開頁面後重跑此流程。履歷、DeskTiles 和 Fusion Studio 的建置器會沿用共用 SEO 版型。
 
 整站 sitemap 納入首頁、履歷、示範網站、文章與公開專案文件。公開中文與英文首頁各指向自己的 canonical，並互相標示語言版本。履歷使用 ProfilePage 結構化資料，DeskTiles 使用 SoftwareApplication。發布後在 Google Search Console 的 `https://nicoathesix.github.io/MyPortfolio/` 資源提交 `sitemap.xml`。GitHub Pages 專案位於 `/MyPortfolio/` 子目錄，爬蟲讀取的 robots.txt 位於網域根目錄。
