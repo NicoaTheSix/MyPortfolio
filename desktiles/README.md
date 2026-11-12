@@ -1,5 +1,11 @@
 # DeskTiles 網站發布與維護
 
+## Windows v1.06 黑白磁磚（2026-11-12）
+
+在網站根目錄執行 `node build-desktiles.mjs --source 'D:\DeskTile\build\ceramic-v1.06'`。建置器列出各輸入、輸出絕對路徑和各階段進度，核對套件與執行檔雜湊後，再產生中英文頁面及首頁 DeskTiles 作品卡。Windows ZIP、校驗清單、指南下載與搜尋索引使用 Windows 版本作為快取參數，支援同一天發布多個版本。
+
+執行 `node check-desktiles.mjs` 核對本機產物。部署後加上 `--url https://nicoathesix.github.io/MyPortfolio/desktiles/` 核對正式站檔案，再從兩種語言頁面的 Windows 下載連結下載 ZIP 並驗證 SHA-256。
+
 ## Windows v1.05 鼠尾草綠樣板（2026-11-12）
 
 從 Portfolio 根目錄執行 `node build-desktiles.mjs --source 'D:\DeskTile\build\sage-v1.05'`。建置器先列出各輸入與輸出的絕對路徑，再依序核對 Windows ZIP、執行檔及 Mac ZIP 雜湊，複製來源指南、README 和實際渲染圖，最後產生雙語頁面、搜尋索引、來源清單與首頁 DeskTiles 作品卡。既有示範影片直接從網站的 `desktiles/assets/DeskTiles-fixes-demo.mp4` 納入來源清單。

@@ -4,17 +4,17 @@
   "publishedDate": "2026-11-12",
   "sourceRepository": "https://github.com/NicoaTheSix/DeskTile",
   "platform": "Windows 10 / 11 x64; macOS 12+ Universal 2",
-  "windowsVersion": "1.05",
+  "windowsVersion": "1.06",
   "macVersion": "1.02",
   "macZipSha256": "a864e6afa4b2b765a0294d54ea907f68989a677811af0f80ec62537a355c0fc8",
   "macZipBytes": 451920,
-  "sourceCommit": "1019b8c7ed17920a2d6fa1cdfa9ca4acf7e069de",
-  "releaseCommit": "1019b8c7ed17920a2d6fa1cdfa9ca4acf7e069de",
-  "zipSha256": "1f1c6b22bc1d44caeb512f0b468954874d5b02bed61a45dfec4cd223728af182",
-  "zipBytes": 915324,
-  "releaseExeSha256": "f01df6a155d359388d0b83af4df459015f885e7a84c1ce637c2ea0280fc977ba",
-  "releaseExeBytes": 1397248,
-  "releaseCliSha256": "49d06152f63c70eddeae7fe5618340566a2a74ecc939419c66487c09be31c3ac",
+  "sourceCommit": "9f607d4d46d6173b85002a07ac22b1a0c2b76dc7",
+  "releaseCommit": "9f607d4d46d6173b85002a07ac22b1a0c2b76dc7",
+  "zipSha256": "33a4b3fda786cb6cba79154202968a5b2a46d281c48780b47c099407b7ebceca",
+  "zipBytes": 919285,
+  "releaseExeSha256": "7ffffe50b9e9d92369ece3a5083871bc294253a85b48ffc12bf7ed10854ab129",
+  "releaseExeBytes": 1405440,
+  "releaseCliSha256": "ae230f17d873a3f28603e51d6ca270665aa35666ec62f052e6b369fc34e25f78",
   "releaseCliBytes": 322048,
   "generatedHtml": [
     "index.html",
@@ -74,26 +74,26 @@
     {
       "path": "downloads/README.md",
       "source": "README.zh-TW.md",
-      "sha256": "eb4a14f15da1ab2aea78221c00bc6b474ac900f048cd65d9baf5da5253841f3c",
-      "bytes": 27370
+      "sha256": "e3f35295b68301170e48a09725cf9ee3709934d2f67c860028a6bf184a683a4f",
+      "bytes": 28139
     },
     {
       "path": "downloads/readme-en.md",
       "source": "README.md",
-      "sha256": "f930b53e5e0c2c6c8ccd3b2c12ebb6899458ac7e8ebf26925a6161404a9935ab",
-      "bytes": 10885
+      "sha256": "9a2f78acfaa46562c3bff62c54273bf735921d772492f94026c6e350b2d591bb",
+      "bytes": 11877
     },
     {
       "path": "downloads/guide-zh.md",
       "source": "docs/使用說明.md",
-      "sha256": "fdb89eabc54e25e9bb378f6740b3c7d663369a5a84838a3b863f625698a9f683",
-      "bytes": 11175
+      "sha256": "46feb2158cbf5182b13e757c2a2ffa102e8300fc7d30bf7329dee2140b5278c6",
+      "bytes": 11485
     },
     {
       "path": "downloads/guide-en.md",
       "source": "docs/UserGuide.en.md",
-      "sha256": "e169b9ff89bd3b3523f22f93f748a90a0c7578dd7147a81a5680d2d90fc68760",
-      "bytes": 9350
+      "sha256": "eeccd0e1d78acdd74d743416fbec9035dcbfb8fdd6b777db888ba030596dce8e",
+      "bytes": 9733
     },
     {
       "path": "assets/control-en.png",
@@ -152,13 +152,13 @@
     {
       "path": "downloads/DeskTiles-Windows-x64.zip",
       "source": "release/DeskTiles-Windows-x64.zip",
-      "sha256": "1f1c6b22bc1d44caeb512f0b468954874d5b02bed61a45dfec4cd223728af182",
-      "bytes": 915324
+      "sha256": "33a4b3fda786cb6cba79154202968a5b2a46d281c48780b47c099407b7ebceca",
+      "bytes": 919285
     },
     {
       "path": "downloads/SHA256SUMS.txt",
       "source": "release/SHA256SUMS.txt",
-      "sha256": "c20d9ecf7faa446c5a68a140ff235d20421ebc24372c27c88c8910daae7a9df6",
+      "sha256": "bfb56a777ae43159371f5b8fa43326ebb2d9dfb6e924117f0bec3c30d543559e",
       "bytes": 279
     },
     {
@@ -253,7 +253,7 @@
     }
   ],
   "sourceValidation": {
-    "coreChecks": 228,
+    "coreChecks": 235,
     "windowsChecks": 192,
     "layoutCliChecks": 38,
     "macCoreChecks": 170,

@@ -1,13 +1,19 @@
-// Values from the Windows v1.05 handoff and the existing macOS v1.02 release.
+// Values from the Windows v1.06 handoff and the existing macOS v1.02 release.
 export const date='2026-11-12';
-const windowsCommit='1019b8c7ed17920a2d6fa1cdfa9ca4acf7e069de';
+const windowsCommit='9f607d4d46d6173b85002a07ac22b1a0c2b76dc7';
 export const release={
-  version:'1.05',macVersion:'1.02',commit:windowsCommit,sourceCommit:windowsCommit,
-  zipSha256:'1F1C6B22BC1D44CAEB512F0B468954874D5B02BED61A45DFEC4CD223728AF182',zipBytes:915324,
-  exeSha256:'F01DF6A155D359388D0B83AF4DF459015F885E7A84C1CE637C2EA0280FC977BA',exeBytes:1397248,
-  cliSha256:'49D06152F63C70EDDEAE7FE5618340566A2A74ECC939419C66487C09BE31C3AC',cliBytes:322048,
-  layoutCliChecks:38,coreChecks:228,windowsChecks:192,
+  version:'1.06',macVersion:'1.02',commit:windowsCommit,sourceCommit:windowsCommit,
+  zipSha256:'33A4B3FDA786CB6CBA79154202968A5B2A46D281C48780B47C099407B7EBCECA',zipBytes:919285,
+  exeSha256:'7FFFFE50B9E9D92369ECE3A5083871BC294253A85B48FFC12BF7ED10854AB129',exeBytes:1405440,
+  cliSha256:'AE230F17D873A3F28603E51D6CA270665AA35666EC62F052E6B369FC34E25F78',cliBytes:322048,
+  layoutCliChecks:38,coreChecks:235,windowsChecks:192,
   macSha256:'A864E6AFA4B2B765A0294D54EA907F68989A677811AF0F80EC62537A355C0FC8',macBytes:451920,
   macCoreChecks:170,macWorkflow:42757989847,
 };
 export const macZip='downloads/DeskTiles-macOS-universal.zip';
+export const windowsZip='downloads/DeskTiles-Windows-x64.zip';
+const versionedFiles=new Set([
+  windowsZip,'downloads/SHA256SUMS.txt','downloads/guide-zh.md','downloads/guide-en.md',
+  'downloads/README.md','downloads/readme-en.md','search-index.json',
+]);
+export const cacheVersion=file=>versionedFiles.has(file)?'windows-v'+release.version:date;

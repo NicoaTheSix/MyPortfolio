@@ -8,7 +8,7 @@ import sanitizeHtml from 'sanitize-html';
 import {parseHTML} from 'linkedom';
 import {googleTag,googleTagBody} from './google-tag.mjs';
 import {applySeoHead} from './seo-head.mjs';
-import {date,release,macZip} from './desktiles/release.mjs';
+import {date,release,macZip,windowsZip,cacheVersion} from './desktiles/release.mjs';
 import {overview as renderOverview,platformNotice,homepageCard} from './desktiles/publish-content.mjs';
 
 const root=path.dirname(fileURLToPath(import.meta.url));
@@ -18,7 +18,7 @@ const output=path.join(root,'desktiles');
 const repository='https://github.com/NicoaTheSix/DeskTile';
 const hash=data=>createHash('sha256').update(data).digest('hex');
 const escape=value=>String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const relative=(from,to)=>(path.posix.relative(path.posix.dirname(from),to)||'./')+(/\.(?:zip|png|svg|ico|css|mp4|md|txt|json)$/.test(to)?'?v='+date:'');
+const relative=(from,to)=>(path.posix.relative(path.posix.dirname(from),to)||'./')+(/\.(?:zip|png|svg|ico|css|mp4|md|txt|json)$/.test(to)?'?v='+cacheVersion(to):'');
 const copies=[
   ['README.zh-TW.md','downloads/README.md'],['README.md','downloads/readme-en.md'],['docs/使用說明.md','downloads/guide-zh.md'],
   ['docs/UserGuide.en.md','downloads/guide-en.md'],['docs/control-en.png','assets/control-en.png'],
@@ -35,7 +35,7 @@ const generatedHtml=['index.html','guide.html','readme.html','en/index.html','en
 const titles={zh:{index:'桌面拼格 DeskTiles',guide:'使用說明',readme:'專案 README',mac:'macOS 使用說明'},en:{index:'DeskTiles',guide:'User guide',readme:'Project README',mac:'macOS guide'}};
 const fileFor=(lang,key)=>(lang==='en'?'en/':'')+(key==='index'?'index':key)+'.html';
 const pages=generatedHtml.map(file=>({file,lang:file.startsWith('en/')?'en':'zh',key:path.posix.basename(file,'.html')}));
-const zipFile='downloads/DeskTiles-Windows-x64.zip';
+const zipFile=windowsZip;
 const texts={zh:{docs:'專案與文件',search:'搜尋文件',language:'English',back:'回作品集',menu:'專案導覽',toc:'本頁內容',skip:'跳至內容',copy:'複製',download:'下載 Windows x64 ZIP',guide:'閱讀使用說明',markdown:'下載 Markdown',original:'原始文件',note:'Windows 10 / 11 x64 · 免安裝 ZIP',footer:'Nicoa The Six · DeskTiles 文件',searchHint:'輸入文字搜尋目前語言的文件。'},en:{docs:'PROJECT & DOCS',search:'Search docs',language:'繁體中文',back:'Portfolio',menu:'Project navigation',toc:'On this page',skip:'Skip to content',copy:'Copy',download:'Download Windows x64 ZIP',guide:'Read the user guide',markdown:'Download Markdown',original:'Source document',note:'Windows 10 / 11 x64 · Portable ZIP',footer:'Nicoa The Six · DeskTiles documentation',searchHint:'Search the documentation in the current language.'}};
 console.log('[0/5] SEO 版型輸入（絕對路徑）：',path.join(root,'seo-head.mjs'));
 console.log('[0/5] 來源目錄（絕對路徑）：',source||'缺少 --source');
