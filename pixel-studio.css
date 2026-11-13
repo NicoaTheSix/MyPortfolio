@@ -728,3 +728,104 @@ body:has(.studio-toolbar)::before {
   .showcase-feature, .showcase-grid { grid-template-columns: minmax(0, 1fr); }
   .showcase-video { border-inline-end: 0; border-bottom: 1px solid #777; }
 }
+
+/* The service example uses real tables so the comparison stays readable and selectable. */
+.home-float-stage .hero-actions .hero-work-link {
+  background: #fff;
+  color: #111;
+}
+
+.excel-case {
+  margin-bottom: clamp(36px, 5vw, 64px);
+  padding: clamp(16px, 3vw, 36px);
+  border: 2px solid #aaa;
+  box-shadow: 6px 6px 0 #3d3d3d;
+  background: #191919;
+  color: #fff;
+}
+
+.excel-case .eyebrow { color: #ccc; }
+.excel-case h3 {
+  margin-block: 6px 10px;
+  font-size: clamp(1.2rem, 2.2vw, 1.9rem);
+  line-height: 1.4;
+}
+
+.excel-case > p:not(.eyebrow) {
+  max-width: 68ch;
+  color: #e1e1e1;
+}
+
+.excel-case-comparison {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(16px, 2.5vw, 30px);
+  margin-block: 20px;
+}
+
+.excel-case figure {
+  margin: 0;
+  min-width: 0;
+  border: 2px solid #777;
+  background: #fff;
+  color: #111;
+}
+
+.excel-case figcaption {
+  padding: 8px 12px;
+  border-bottom: 2px solid #777;
+  background: #2a2a2a;
+  color: #fff;
+  font-weight: 700;
+}
+
+.excel-case-sheet { padding: 12px; }
+
+.excel-case-scan .excel-case-sheet {
+  background: radial-gradient(#bbb 0.6px, transparent 0.8px) #eee;
+  background-size: 5px 5px;
+}
+
+.excel-case-scan table {
+  transform: rotate(-1deg);
+  background: #f7f7f7;
+}
+
+.excel-case table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: clamp(.75rem, 1.1vw, .94rem);
+  line-height: 1.5;
+}
+
+.excel-case caption {
+  padding-bottom: 5px;
+  font-weight: 700;
+}
+
+.excel-case :is(th, td) {
+  border: 1px solid #777;
+  padding: 6px clamp(4px, 1vw, 12px);
+  text-align: start;
+}
+
+.excel-case th { background: #ddd; }
+
+.excel-case-unclear {
+  text-decoration: underline dashed;
+  text-underline-offset: 3px;
+}
+
+.excel-case-review { font-weight: 700; }
+
+.excel-case-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 22px;
+  margin-top: 16px;
+}
+
+@media (max-width: 720px) {
+  .excel-case-comparison { grid-template-columns: minmax(0, 1fr); }
+}
