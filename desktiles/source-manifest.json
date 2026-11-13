@@ -65,8 +65,11 @@
     "assets/startup-consent.png",
     "assets/reminder.png",
     "downloads/mac-en.md",
+    "assets/product-tile-preview.webp",
     "assets/DeskTiles-fixes-demo.mp4",
     "desktiles.css",
+    "landing.css",
+    "landing.js",
     "search-index.json",
     "source-manifest.json"
   ],
@@ -244,6 +247,12 @@
       "source": "website:content/mac-en.md",
       "sha256": "8434397cf4a8320968304e2934caab916537e0764ef5cd4a08cef60ef20af29a",
       "bytes": 3409
+    },
+    {
+      "path": "assets/product-tile-preview.webp",
+      "source": "website:assets/product-tile-preview.webp",
+      "sha256": "33b55260240093182536d8e5c54cc2798166023ced165785fd8d8bf8ede5c9fb",
+      "bytes": 38596
     },
     {
       "path": "assets/DeskTiles-fixes-demo.mp4",

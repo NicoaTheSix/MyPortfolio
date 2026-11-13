@@ -4,7 +4,42 @@
     "title": "桌面拼格 DeskTiles",
     "pageTitle": "桌面拼格 DeskTiles",
     "url": "index.html",
-    "text": "DeskTiles/桌面拼格 DeskTiles本頁內容鼠尾草綠樣板DeskTile 短片2026-11-12 · Windows v1.06Windows 操作示範選擇適合的平台WindowsmacOS三種形狀，自由拼排文字、圖片與計時多選、拖曳與吸附調整外觀配置備份與搬移下載後開始使用下載與文件驗證範圍與限制NICOA THE SIX / WINDOWS & MACOS桌面拼格DeskTiles文字、圖片與時間，在桌面自由拼排。選擇六角形、三角形或矩形，放進當下需要的內容。Windows 與 macOS 各有原生版本，下載前請確認平台功能與限制。下載 Windows x64 ↓下載 macOS Universal 2 ↓GitHub 專案 ↗覺得 DeskTiles 好用，歡迎到 GitHub 幫我按顆星星（Star）！Windows v1.06 · 10 / 11 x64 · macOS v1.02 · 12+ (Apple silicon / Intel) 鼠尾草綠樣板 在 Windows 系統匣開啟「桌面配置」，選擇「從鼠尾草綠樣板建立…」。雙擊六角形筆記即可編輯文字。三角形照片可更換圖片，也可拖曳或縮放裁切。25 分鐘倒數預設為暫停。 DeskTiles Windows v1.05 實際渲染畫面 閱讀樣板操作說明 ↗ DeskTile 短片 在 YouTube 觀看 ↗ 2026-11-12 · Windows v1.06新建方塊預設為黑底、白字及 6 px 白色稜角邊框。可調整邊框顏色與 1～12 px 厚度，也可一次套用到多個選取的方塊。已儲存的方塊保留原有樣式。從系統匣的「桌面配置」保存、建立空白配置、改名與切換。背景配置的計時器與鬧鐘會繼續運作，提醒會標示配置名稱。Windows ZIP 同時包含 DeskTiles.exe 與 desktiles-cli.exe。先啟動主程式，再用 CMD 或 PowerShell 管理配置和方塊。更新前，先儲存並結束舊版，再完整解壓縮新版。Windows 系統匣選「儲存並結束桌面拼格」；只按控制視窗 X 不會退出。既有配置不必刪除。對應來源提交 ↗Windows 操作示範開啟示範影片此為既有 Windows 版的 30 秒示範，使用虛構配置。影片與截圖為先前的操作畫面。 選擇適合的平台Windows原生 C++17／Win32／GDI+。支援文字、圖片、計時器與鬧鐘，繁體中文／English 即時切換，以及需明確同意的登入啟動。Windows 使用說明 ↗Windows 計時與啟動程式執行時，其他桌面配置的計時器與鬧鐘也會繼續運作。程式完全關閉期間不會提醒。登入啟動預設關閉，須由使用者明確同意。macOS原生 AppKit 與 C++ 核心，支援文字、圖片、計時器、多選拖曳、吸附與 JSON 配置。介面為中文；尚未提供 Windows 版的鬧鐘、雙語切換或登入啟動功能。Universal 2 包含 Apple silicon 與 Intel 架構，但 Intel 實機、多螢幕及其他 macOS 版本仍待驗證。套件採 ad-hoc 簽章，尚未經 Apple 公證。配置相容性：Windows 匯出 v3 並讀取 v1–v3；Mac 僅匯出及讀取 v1/v2，尚不能直接匯入 Windows v3，即使沒有鬧鐘亦同。Mac v2 可由 Windows 匯入。Mac 使用說明與限制 ↗ 三種形狀，自由拼排文字、圖片與計時把備忘、照片與工作時間放進六角形、三角形或矩形。多選、拖曳與吸附Shift 多選"
+    "text": "DeskTiles/桌面拼格 DeskTiles本頁內容把待辦、倒數和照片，放在桌面上。每天會用到的三件事隨手記下待辦讓倒數留在眼前把照片放上桌面鼠尾草綠樣板30 秒看 DeskTiles選擇適合的平台WindowsmacOS三種形狀，自由拼排文字、圖片與計時多選、拖曳與吸附調整外觀配置備份與搬移使用說明下載與文件2026-11-12 · Windows v1.06Windows 操作示範驗證範圍與限制 功能 短片 下載 使用說明 DeskTiles桌面拼格 把待辦、倒數和照片，放在桌面上。 用六角形、三角形和矩形拼出自己的桌面配置。把要做的事和想留在眼前的東西，放在順手的位置。 下載 DeskTiles ↓ 觀看 30 秒短片 ▷ GitHub 專案 ↗覺得 DeskTiles 好用，歡迎到 GitHub 幫我按顆星星（Star）！Windows v1.06 · macOS v1.02 今日待辦整理工作筆記 專注倒數00:24:58 每天會用到的三件事 隨手記下待辦把今天的重點固定在桌面，切換工作時也能隨時確認。 00:25讓倒數留在眼前開始一段專注時間，從桌面就能看見還剩多久。 把照片放上桌面選一張照片或參考圖，調整尺寸、邊框和透明度。 鼠尾草綠樣板 在 Windows 系統匣開啟「桌面配置」，選擇「從鼠尾草綠樣板建立…」。雙擊六角形筆記即可編輯文字。三角形照片可更換圖片，也可拖曳或縮放裁切。25 分鐘倒數預設為暫停。 DeskTiles Windows v1.05 實際渲染畫面 閱讀樣板操作說明 ↗ 30 秒看 DeskTiles 看看筆記、圖片和計時器如何擺在同一個桌面。 在 YouTube 觀看 ↗ 選擇適合的平台Windows原生 C++17／Win32／GDI+。支援文字、圖片、計時器與鬧鐘，繁體中文／English 即時切換，以及需明確同意的登入啟動。Windows 使用說明 ↗Windows 計時與啟動程式執行時，其他桌面配置的計時器與鬧鐘也會繼續運作。程式完全關閉期間不會提醒。登入啟動預設關閉，須由使用者明確同意。macOS原生 AppKit 與 C++ 核心，支援文字、圖片、計時器、多選拖曳、吸附與 JSON 配置。介面為中文；尚未提供 Windows 版的鬧鐘、雙語切換或登入啟動功能。Universal 2 包含 Apple silicon 與 Intel 架構，但 Intel 實機、多螢幕及其他 macOS 版本仍待驗證。套件採 ad-hoc 簽章，尚未經 Apple 公證。配置相容性：Windows 匯出 v3 並讀取 v1–v3；Mac 僅匯出及讀取 v1/v2，尚不能直接匯入 Windows v3，即使沒有鬧鐘亦同。Mac v2 可由 Windows 匯入。Mac 使用說明與限制 ↗ 三種形狀，自由拼排文字、圖片與計時把備忘、照片與工作時間放進六角形、三角形或 矩形。多選、拖曳與吸附Shift 多選後整組移動，靠近其他格時吸附。調整外觀設定尺寸、字體、透明背景與實色、像素、RGB 或呼吸邊框。配置備份與搬移以含圖片的 JSON 匯出，支援覆蓋或合併匯入；Windows v3 目前無法直接匯入 Mac。DeskTiles 方塊配置示意。 使用說明兩平台更新前都先結束舊程式，完整解壓縮新套件。Windows 開啟 DeskTiles／DeskTiles.exe；Mac 開啟 DeskTiles.app。關閉控制面板只會隱藏視窗；請從程式選單儲存並結束。Windows 使用說明 ↗ · macOS 使用說明 ↗ 下載與文"
+  },
+  {
+    "lang": "zh",
+    "title": "把待辦、倒數和照片，放在桌面上。",
+    "pageTitle": "桌面拼格 DeskTiles",
+    "url": "index.html#%E6%8A%8A%E5%BE%85%E8%BE%A6%E5%80%92%E6%95%B8%E5%92%8C%E7%85%A7%E7%89%87%E6%94%BE%E5%9C%A8%E6%A1%8C%E9%9D%A2%E4%B8%8A",
+    "text": "用六角形、三角形和矩形拼出自己的桌面配置。把要做的事和想留在眼前的東西，放在順手的位置。 下載 DeskTiles ↓ 觀看 30 秒短片 ▷ GitHub 專案 ↗覺得 DeskTiles 好用，歡迎到 GitHub 幫我按顆星星（Star）！ Windows v1.06 · macOS v1.02"
+  },
+  {
+    "lang": "zh",
+    "title": "每天會用到的三件事",
+    "pageTitle": "桌面拼格 DeskTiles",
+    "url": "index.html#%E6%AF%8F%E5%A4%A9%E6%9C%83%E7%94%A8%E5%88%B0%E7%9A%84%E4%B8%89%E4%BB%B6%E4%BA%8B",
+    "text": "隨手記下待辦把今天的重點固定在桌面，切換工作時也能隨時確認。 00:25讓倒數留在眼前開始一段專注時間，從桌面就能看見還剩多久。 把照片放上桌面選一張照片或參考圖，調整尺寸、邊框和透明度。"
+  },
+  {
+    "lang": "zh",
+    "title": "隨手記下待辦",
+    "pageTitle": "桌面拼格 DeskTiles",
+    "url": "index.html#%E9%9A%A8%E6%89%8B%E8%A8%98%E4%B8%8B%E5%BE%85%E8%BE%A6",
+    "text": "把今天的重點固定在桌面，切換工作時也能隨時確認。"
+  },
+  {
+    "lang": "zh",
+    "title": "讓倒數留在眼前",
+    "pageTitle": "桌面拼格 DeskTiles",
+    "url": "index.html#%E8%AE%93%E5%80%92%E6%95%B8%E7%95%99%E5%9C%A8%E7%9C%BC%E5%89%8D",
+    "text": "開始一段專注時間，從桌面就能看見還剩多久。"
+  },
+  {
+    "lang": "zh",
+    "title": "把照片放上桌面",
+    "pageTitle": "桌面拼格 DeskTiles",
+    "url": "index.html#%E6%8A%8A%E7%85%A7%E7%89%87%E6%94%BE%E4%B8%8A%E6%A1%8C%E9%9D%A2",
+    "text": "選一張照片或參考圖，調整尺寸、邊框和透明度。"
   },
   {
     "lang": "zh",
@@ -15,24 +50,10 @@
   },
   {
     "lang": "zh",
-    "title": "DeskTile 短片",
+    "title": "30 秒看 DeskTiles",
     "pageTitle": "桌面拼格 DeskTiles",
     "url": "index.html#desktile-%E7%9F%AD%E7%89%87",
-    "text": "在 YouTube 觀看 ↗"
-  },
-  {
-    "lang": "zh",
-    "title": "2026-11-12 · Windows v1.06",
-    "pageTitle": "桌面拼格 DeskTiles",
-    "url": "index.html#2026-11-12-windows-v106",
-    "text": "新建方塊預設為黑底、白字及 6 px 白色稜角邊框。可調整邊框顏色與 1～12 px 厚度，也可一次套用到多個選取的方塊。已儲存的方塊保留原有樣式。從系統匣的「桌面配置」保存、建立空白配置、改名與切換。背景配置的計時器與鬧鐘會繼續運作，提醒會標示配置名稱。Windows ZIP 同時包含 DeskTiles.exe 與 desktiles-cli.exe。先啟動主程式，再用 CMD 或 PowerShell 管理配置和方塊。 更新前，先儲存並結束舊版，再完整解壓縮新版。Windows 系統匣選「儲存並結束桌面拼格」；只按控制視窗 X 不會退出。既有配置不必刪除。 對應來源提交 ↗"
-  },
-  {
-    "lang": "zh",
-    "title": "Windows 操作示範",
-    "pageTitle": "桌面拼格 DeskTiles",
-    "url": "index.html#windows-%E6%93%8D%E4%BD%9C%E7%A4%BA%E7%AF%84",
-    "text": "開啟示範影片 此為既有 Windows 版的 30 秒示範，使用虛構配置。影片與截圖為先前的操作畫面。"
+    "text": "看看筆記、圖片和計時器如何擺在同一個桌面。 在 YouTube 觀看 ↗"
   },
   {
     "lang": "zh",
@@ -60,14 +81,14 @@
     "title": "三種形狀，自由拼排",
     "pageTitle": "桌面拼格 DeskTiles",
     "url": "index.html#%E4%B8%89%E7%A8%AE%E5%BD%A2%E7%8B%80%E8%87%AA%E7%94%B1%E6%8B%BC%E6%8E%92",
-    "text": "文字、圖片與計時把備忘、照片與工作時間放進六角形、三角形或矩形。多選、拖曳與吸附Shift 多選後整組移動，靠近其他格時吸附。調整外觀設定尺寸、字體、透明背景與實色、像素、RGB 或呼吸邊框。配置備份與搬移以含圖片的 JSON 匯出，支援覆蓋或合併匯入；Windows v3 目前無法直接匯入 Mac。"
+    "text": "文字、圖片與計時把備忘、照片與工作時間放進六角形、三角形或 矩形。多選、拖曳與吸附Shift 多選後整組移動，靠近其他格時吸附。調整外觀設定尺寸、字體、透明背景與實色、像素、RGB 或呼吸邊框。配置備份與搬移以含圖片的 JSON 匯出，支援覆蓋或合併匯入；Windows v3 目前無法直接匯入 Mac。 DeskTiles 方塊配置示意。"
   },
   {
     "lang": "zh",
     "title": "文字、圖片與計時",
     "pageTitle": "桌面拼格 DeskTiles",
     "url": "index.html#%E6%96%87%E5%AD%97%E5%9C%96%E7%89%87%E8%88%87%E8%A8%88%E6%99%82",
-    "text": "把備忘、照片與工作時間放進六角形、三角形或矩形。"
+    "text": "把備忘、照片與工作時間放進六角形、三角形或 矩形。"
   },
   {
     "lang": "zh",
@@ -92,7 +113,7 @@
   },
   {
     "lang": "zh",
-    "title": "下載後開始使用",
+    "title": "使用說明",
     "pageTitle": "桌面拼格 DeskTiles",
     "url": "index.html#%E4%B8%8B%E8%BC%89%E5%BE%8C%E9%96%8B%E5%A7%8B%E4%BD%BF%E7%94%A8",
     "text": "兩平台更新前都先結束舊程式，完整解壓縮新套件。Windows 開啟 DeskTiles／DeskTiles.exe；Mac 開啟 DeskTiles.app。關閉控制面板只會隱藏視窗；請從程式選單儲存並結束。 Windows 使用說明 ↗ · macOS 使用說明 ↗"
@@ -103,6 +124,20 @@
     "pageTitle": "桌面拼格 DeskTiles",
     "url": "index.html#%E4%B8%8B%E8%BC%89%E8%88%87%E6%96%87%E4%BB%B6",
     "text": "DeskTiles-Windows-x64.zipv1.06 · Windows 10 / 11 x64 · 897.7 KiB ↓DeskTiles-macOS-universal.zipv1.02 · macOS 12+ · Universal 2 · 441.3 KiB ↓Windows SHA256SUMS.txtWindows 完整性校驗 ↓macOS SHA256SUMS.txtMac 完整性校驗 ↓ 套件 SHA-256Windows33A4B3FDA786CB6CBA79154202968A5B2A46D281C48780B47C099407B7EBCECAmacOSA864E6AFA4B2B765A0294D54EA907F68989A677811AF0F80EC62537A355C0FC8保留套件內的第三方 MIT 授權聲明；未另行宣稱整體專案授權。 Windows 中文 Markdown ↓ · Windows English Markdown ↓ · macOS 中文 Markdown ↓ · macOS English Markdown ↓ · macOS 第三方授權 ↓ · macOS 範例 JSON ↓ · 專案 README ↓"
+  },
+  {
+    "lang": "zh",
+    "title": "2026-11-12 · Windows v1.06",
+    "pageTitle": "桌面拼格 DeskTiles",
+    "url": "index.html#2026-11-12-windows-v106",
+    "text": "新建方塊預設為黑底、白字及 6 px 白色稜角邊框。可調整邊框顏色與 1～12 px 厚度，也可一次套用到多個選取的方塊。已儲存的方塊保留原有樣式。從系統匣的「桌面配置」保存、建立空白配置、改名與切換。背景配置的計時器與鬧鐘會繼續運作，提醒會標示配置名稱。Windows ZIP 同時包含 DeskTiles.exe 與 desktiles-cli.exe。先啟動主程式，再用 CMD 或 PowerShell 管理配置和方塊。 更新前，先儲存並結束舊版，再完整解壓縮新版。Windows 系統匣選「儲存並結束桌面拼格」；只按控制視窗 X 不會退出。既有配置不必刪除。 對應來源提交 ↗"
+  },
+  {
+    "lang": "zh",
+    "title": "Windows 操作示範",
+    "pageTitle": "桌面拼格 DeskTiles",
+    "url": "index.html#windows-%E6%93%8D%E4%BD%9C%E7%A4%BA%E7%AF%84",
+    "text": "開啟示範影片 此為既有 Windows 版的 30 秒示範，使用虛構配置。影片與截圖為先前的操作畫面。"
   },
   {
     "lang": "zh",
@@ -382,7 +417,42 @@
     "title": "DeskTiles",
     "pageTitle": "DeskTiles",
     "url": "en/index.html",
-    "text": "DeskTiles/DeskTilesOn this pageSage presetDeskTile Short2026-11-12 · Windows v1.06Windows demonstrationChoose your platformWindowsmacOSThree shapes, arranged your wayText, images and timersSelect, drag and snapStyle each tileBack up a layoutStart after downloadingDownloads and documentationValidation scope and limitationsNICOA THE SIX / WINDOWS & MACOSDeskTilesMake room for what matters.Notes, pictures and timers, arranged on your desktop.Choose a hexagon, triangle or rectangle and add the content you need. Windows and macOS have native builds with different feature sets.Download Windows x64 ↓Download macOS Universal 2 ↓View on GitHub ↗Enjoying DeskTiles? Please consider giving the project a star on GitHub!Windows v1.06 · 10 / 11 x64 · macOS v1.02 · 12+ (Apple silicon / Intel) Sage preset On Windows, open Desktop layouts in the tray and choose Create from Sage preset. Double-click the hexagonal note to edit it. Replace the triangular photo or drag and zoom to adjust the crop. The 25-minute countdown starts paused. Actual rendering from DeskTiles for Windows v1.05 Read the preset instructions ↗ DeskTile Short Watch on YouTube ↗ 2026-11-12 · Windows v1.06New tiles use a black background, white text and a 6 px white beveled border. Set the border color and width from 1 to 12 px, and apply the settings to multiple selected tiles. Existing tiles retain their saved styles.Save, create, rename and switch named layouts from the tray. Timers and alarms keep running in background layou"
+    "text": "DeskTiles/DeskTilesOn this pageNotes, timers and photos.Right on your desktop.Three things worth keeping in viewKeep a note in sightSee the time remainingMake room for a photoSage presetDeskTiles in 30 secondsChoose your platformWindowsmacOSThree shapes, arranged your wayText, images and timersSelect, drag and snapStyle each tileBack up a layoutUser guidesDownloads and documentation2026-11-12 · Windows v1.06Windows demonstrationValidation scope and limitations Features Film Download User guide DeskTiles Notes, timers and photos.Right on your desktop. Arrange notes, timers and images in hexagons, triangles and rectangles. Keep what matters where you can see it. Download DeskTiles ↓ Watch the 30-second film ▷ View on GitHub ↗Enjoying DeskTiles? Please consider giving the project a star on GitHub!Windows v1.06 · macOS v1.02 TODAYReview project notes FOCUS TIMER00:24:58 Three things worth keeping in view Keep a note in sightPin a reminder to your desktop so it stays handy as you switch tasks. 00:25See the time remainingStart a focus session and glance at your desktop to see how much time is left. Make room for a photoKeep a favorite photo or reference image nearby and adjust its size, border and transparency. Sage preset On Windows, open Desktop layouts in the tray and choose Create from Sage preset. Double-click the hexagonal note to edit it. Replace the triangular photo or drag and zoom to adjust the crop. The 25-minute countdown starts paused. Actual rendering from DeskTiles f"
+  },
+  {
+    "lang": "en",
+    "title": "Notes, timers and photos.Right on your desktop.",
+    "pageTitle": "DeskTiles",
+    "url": "en/index.html#notes-timers-and-photosright-on-your-desktop",
+    "text": "Arrange notes, timers and images in hexagons, triangles and rectangles. Keep what matters where you can see it. Download DeskTiles ↓ Watch the 30-second film ▷ View on GitHub ↗Enjoying DeskTiles? Please consider giving the project a star on GitHub! Windows v1.06 · macOS v1.02"
+  },
+  {
+    "lang": "en",
+    "title": "Three things worth keeping in view",
+    "pageTitle": "DeskTiles",
+    "url": "en/index.html#three-things-worth-keeping-in-view",
+    "text": "Keep a note in sightPin a reminder to your desktop so it stays handy as you switch tasks. 00:25See the time remainingStart a focus session and glance at your desktop to see how much time is left. Make room for a photoKeep a favorite photo or reference image nearby and adjust its size, border and transparency."
+  },
+  {
+    "lang": "en",
+    "title": "Keep a note in sight",
+    "pageTitle": "DeskTiles",
+    "url": "en/index.html#keep-a-note-in-sight",
+    "text": "Pin a reminder to your desktop so it stays handy as you switch tasks."
+  },
+  {
+    "lang": "en",
+    "title": "See the time remaining",
+    "pageTitle": "DeskTiles",
+    "url": "en/index.html#see-the-time-remaining",
+    "text": "Start a focus session and glance at your desktop to see how much time is left."
+  },
+  {
+    "lang": "en",
+    "title": "Make room for a photo",
+    "pageTitle": "DeskTiles",
+    "url": "en/index.html#make-room-for-a-photo",
+    "text": "Keep a favorite photo or reference image nearby and adjust its size, border and transparency."
   },
   {
     "lang": "en",
@@ -393,24 +463,10 @@
   },
   {
     "lang": "en",
-    "title": "DeskTile Short",
+    "title": "DeskTiles in 30 seconds",
     "pageTitle": "DeskTiles",
     "url": "en/index.html#desktile-short",
-    "text": "Watch on YouTube ↗"
-  },
-  {
-    "lang": "en",
-    "title": "2026-11-12 · Windows v1.06",
-    "pageTitle": "DeskTiles",
-    "url": "en/index.html#2026-11-12-windows-v106",
-    "text": "New tiles use a black background, white text and a 6 px white beveled border. Set the border color and width from 1 to 12 px, and apply the settings to multiple selected tiles. Existing tiles retain their saved styles.Save, create, rename and switch named layouts from the tray. Timers and alarms keep running in background layouts, and each reminder identifies its layout.The Windows ZIP includes DeskTiles.exe and desktiles-cli.exe. Start the app before managing layouts and tiles from CMD or PowerShell. Before updating, save and exit the old app, then extract the complete new archive. On Windows, choose Save and exit DeskTiles from the tray; X only hides the controller. Keep your existing layout. Source release commit ↗"
-  },
-  {
-    "lang": "en",
-    "title": "Windows demonstration",
-    "pageTitle": "DeskTiles",
-    "url": "en/index.html#windows-demonstration",
-    "text": "Open the demonstration video This 30-second Windows demo uses a fictional layout. The video and screenshots show an earlier interface."
+    "text": "See notes, images and timers together on one desktop. Watch on YouTube ↗"
   },
   {
     "lang": "en",
@@ -438,7 +494,7 @@
     "title": "Three shapes, arranged your way",
     "pageTitle": "DeskTiles",
     "url": "en/index.html#three-shapes-arranged-your-way",
-    "text": "Text, images and timersKeep a note, a picture or a timer in a hexagon, triangle or rectangle.Select, drag and snapShift-select several tiles, move them together and snap near other tiles.Style each tileAdjust size, font, transparent backgrounds and solid, pixel, RGB or breathing borders.Back up a layoutExport JSON with embedded images, then replace or merge on import. Mac cannot import Windows v3 layouts."
+    "text": "Text, images and timersKeep a note, a picture or a timer in a hexagon, triangle or rectangle.Select, drag and snapShift-select several tiles, move them together and snap near other tiles.Style each tileAdjust size, font, transparent backgrounds and solid, pixel, RGB or breathing borders.Back up a layoutExport JSON with embedded images, then replace or merge on import. Mac cannot import Windows v3 layouts. Illustrated DeskTiles layout."
   },
   {
     "lang": "en",
@@ -470,7 +526,7 @@
   },
   {
     "lang": "en",
-    "title": "Start after downloading",
+    "title": "User guides",
     "pageTitle": "DeskTiles",
     "url": "en/index.html#start-after-downloading",
     "text": "Quit the previous app before updating and extract the full archive. Open DeskTiles/DeskTiles.exe on Windows or DeskTiles.app on Mac. Closing the controller hides it; use the app menu to save and exit. Windows guide ↗ · macOS guide ↗"
@@ -481,6 +537,20 @@
     "pageTitle": "DeskTiles",
     "url": "en/index.html#downloads-and-documentation",
     "text": "DeskTiles-Windows-x64.zipv1.06 · Windows 10 / 11 x64 · 897.7 KiB ↓DeskTiles-macOS-universal.zipv1.02 · macOS 12+ · Universal 2 · 441.3 KiB ↓Windows SHA256SUMS.txtWindows integrity checks ↓macOS SHA256SUMS.txtMac integrity checks ↓ Package SHA-256Windows33A4B3FDA786CB6CBA79154202968A5B2A46D281C48780B47C099407B7EBCECAmacOSA864E6AFA4B2B765A0294D54EA907F68989A677811AF0F80EC62537A355C0FC8The archives retain their third-party MIT notices. No project-wide license is asserted here. Windows 中文 Markdown ↓ · Windows English Markdown ↓ · macOS 中文 Markdown ↓ · macOS English Markdown ↓ · macOS third-party notices ↓ · macOS example JSON ↓ · Project README ↓"
+  },
+  {
+    "lang": "en",
+    "title": "2026-11-12 · Windows v1.06",
+    "pageTitle": "DeskTiles",
+    "url": "en/index.html#2026-11-12-windows-v106",
+    "text": "New tiles use a black background, white text and a 6 px white beveled border. Set the border color and width from 1 to 12 px, and apply the settings to multiple selected tiles. Existing tiles retain their saved styles.Save, create, rename and switch named layouts from the tray. Timers and alarms keep running in background layouts, and each reminder identifies its layout.The Windows ZIP includes DeskTiles.exe and desktiles-cli.exe. Start the app before managing layouts and tiles from CMD or PowerShell. Before updating, save and exit the old app, then extract the complete new archive. On Windows, choose Save and exit DeskTiles from the tray; X only hides the controller. Keep your existing layout. Source release commit ↗"
+  },
+  {
+    "lang": "en",
+    "title": "Windows demonstration",
+    "pageTitle": "DeskTiles",
+    "url": "en/index.html#windows-demonstration",
+    "text": "Open the demonstration video This 30-second Windows demo uses a fictional layout. The video and screenshots show an earlier interface."
   },
   {
     "lang": "en",
