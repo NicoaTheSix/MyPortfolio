@@ -4,6 +4,8 @@
 
 以 `npm run preview` 啟動本機網站，再用手機和桌面寬度開啟兩種語言的首頁。開啟服務放大視窗可檢查大圖，瀏覽器的 Network 面板會列出實際載入的 WebP 尺寸。執行 `node check-site.mjs` 核對站內引用。
 
+首頁「示範網站」的封面與標誌以原始色彩呈現。更新封面樣式時，同步更新中英文首頁的 CSS 版本參數。
+
 ## 搜尋引擎設定
 
 DeskTiles 發行檔與指南的絕對路徑、建置進度及正式站驗證步驟請見 [DeskTiles 維護說明](desktiles/README.md)。

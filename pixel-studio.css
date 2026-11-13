@@ -639,7 +639,6 @@ body:has(.studio-toolbar)::before {
   overflow: hidden;
   background: #1d1d1d;
   border-bottom: 1px solid #777;
-  filter: grayscale(1);
 }
 .home-responsive-image { display: contents; }
 .showcase-cover > img:first-child,
