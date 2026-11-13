@@ -1,3 +1,9 @@
+## 首頁電子雞動畫
+
+中英文首頁先載入 `demos/pixel-pets/pets.js` 的角色與繪圖，再由 `home-pixel-pet.js` 列出輸入與輸出的絕對網址、繪製螺絲豆、啟動隨機播放。卡片進入畫面後，每兩秒在走路、飢餓、跳躍、睡覺和便便之間隨機切換，同一動作不連續出現。全站暫停和系統減少動態效果設定也適用。
+
+執行 `npm run preview`，開啟中英文首頁的 `#website-demos` 檢查電子雞。
+
 ## 首頁響應式圖片
 
 安裝支援 WebP 的 ImageMagick 後，在網站根目錄執行 `node build-home-images.mjs`。程式列出來源 PNG、WebP 及雙語 HTML 的絕對路徑，逐批產生不同寬度的 WebP，再更新兩個首頁的 `picture` 和 `srcset`。像素插畫、海報與名片採用無損 WebP。示範網站縮圖使用有損 WebP。服務海報的標題變色共用瀏覽器選中的圖片，服務圖下載和社群分享仍使用原圖。

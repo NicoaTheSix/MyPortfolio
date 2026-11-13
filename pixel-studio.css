@@ -652,10 +652,20 @@ body:has(.studio-toolbar)::before {
   background: #171717eb;
   border: 1px solid #888;
 }
+.showcase-cover--pixel-pets {
+  background: radial-gradient(circle, #494949 1px, transparent 1.5px) 0 0 / 16px 16px, #1d1d1d;
+}
 .showcase-cover--pixel-pets > img:first-child {
   object-fit: contain;
   padding: 12px;
-  background: radial-gradient(circle, #494949 1px, transparent 1.5px) 0 0 / 16px 16px;
+}
+.showcase-cover--pixel-pets > canvas {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  height: 94%;
+  width: auto;
+  image-rendering: pixelated;
 }
 
 @media (max-width: 720px) {

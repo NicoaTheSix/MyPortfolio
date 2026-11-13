@@ -20,6 +20,7 @@ types['.xml']='application/xml; charset=utf-8';
 publicFiles.add('sitemap.xml');
 for(const file of ['en/index.html','assets/services-poster-en.png','assets/business-card-en.png','assets/office-services-poster.png','assets/office-services-poster-en.png'])publicFiles.add(file);
 publicFiles.add('service-cards.css');
+publicFiles.add('home-pixel-pet.js');
 for(const file of ['home-pixel.css','home-pixel.js','pixel-studio.css','studio-space.js','assets/pixel-studio-desk.svg','assets/3d/studio-desk/nicoa-pixel-desk.png'])publicFiles.add(file);
 for(const file of ['resume/index.html','resume/en/index.html','resume/resume.css'])publicFiles.add(file);
 for (const file of ['index.html', 'styles.css', 'site.js', 'motion.html', 'motion.css', 'motion.js', ...['lin-da-full-body', 'hero-residence', 'taiwan-street-hero', 'taiwan-entry-color', 'taiwan-living-room-color', 'woodland-home', 'daylight-flat', 'courtyard-house'].map(name => `assets/images/${name}.png`)]) {
