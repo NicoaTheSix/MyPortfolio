@@ -42,6 +42,10 @@ for (const demo of ['lin-da', 'town-memory', 'pixel-pets', 'reptile-cafe']) {
 for (const file of ['advanced.css', 'advanced.js']) {
   publicFiles.add(`demos/advanced/${file}`);
 }
+for (const file of ['index.html', 'en/index.html', 'style.css', 'site.js', 'assets/logo.png', 'assets/logo-transparent.png',
+  ...['kitchen', 'bathroom', 'laundry', 'advisor'].map(name => `assets/${name}.webp`)]) {
+  publicFiles.add(`demos/dayfold/${file}`);
+}
 for (const file of ['pixel-prototype.html', 'pixel-prototype.css', 'pixel-prototype.js']) publicFiles.add(file);
 for (const file of ['pixel-automation.css', 'pixel-automation.js', ...['sprite.png','still.png','manifest.json'].map(suffix => `assets/automation-pixel-${suffix}`), 'assets/automation-pixel.gif']) publicFiles.add(file);
 for (const file of ['pixel-scenes.css','pixel-scenes.js','assets/gui-pixel-states.png','assets/api-pixel-sprite.png','assets/docs-pixel-sprite.png','assets/development-pixel.gif','assets/development-pixel-still.png','assets/development-pixel-manifest.json']) publicFiles.add(file);

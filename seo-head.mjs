@@ -3,6 +3,12 @@ const profileId = new URL('#nicoa-the-six', site).href;
 
 const pageGroups = [
   {
+    folder: 'demos/dayfold/',
+    image: 'demos/dayfold/assets/kitchen.webp',
+    titles: ['折日生活｜租屋選品顧問', 'Dayfold Living | Small-space home essentials'],
+    descriptions: ['跟著虛構顧問周禾安逛廚房、浴室和洗衣陽台，按空間和預算挑選租屋用品。', 'Explore a small apartment, build a homeware shortlist and preview a consultation with a fictional advisor.'],
+  },
+  {
     folder: '',
     image: 'assets/portrait.png',
     titles: ['Nicoa The Six｜作品集與個人工作室', 'Nicoa The Six | Portfolio and independent studio'],

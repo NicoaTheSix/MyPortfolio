@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>折日生活｜租屋選品顧問</title>
+  <link rel="icon" href="./assets/logo-transparent.png">
+  <link rel="stylesheet" href="./style.css">
+  <script src="./site.js" type="module"></script>
+  <!-- portfolio-seo:start -->
+  <meta name="description" content="跟著虛構顧問周禾安逛廚房、浴室和洗衣陽台，按空間和預算挑選租屋用品。">
+  <link rel="canonical" href="https://nicoathesix.github.io/MyPortfolio/demos/dayfold/">
+  <link rel="alternate" hreflang="zh-Hant" href="https://nicoathesix.github.io/MyPortfolio/demos/dayfold/">
+  <link rel="alternate" hreflang="en" href="https://nicoathesix.github.io/MyPortfolio/demos/dayfold/en/">
+  <link rel="alternate" hreflang="x-default" href="https://nicoathesix.github.io/MyPortfolio/demos/dayfold/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Nicoa’Lab">
+  <meta property="og:title" content="折日生活｜租屋選品顧問">
+  <meta property="og:description" content="跟著虛構顧問周禾安逛廚房、浴室和洗衣陽台，按空間和預算挑選租屋用品。">
+  <meta property="og:url" content="https://nicoathesix.github.io/MyPortfolio/demos/dayfold/">
+  <meta property="og:image" content="https://nicoathesix.github.io/MyPortfolio/demos/dayfold/assets/kitchen.webp">
+  <!-- portfolio-seo:end -->
+</head>
+<body>
+  <a class="skip" href="#main">跳到主要內容</a>
+  <header class="mast frame">
+    <a class="brand" href="#main"><img src="./assets/logo-transparent.png" width="46" height="46" alt=""><span>折日生活</span></a>
+    <nav aria-label="主要導覽">
+      <a href="#rooms">逛空間</a><a href="#advisor">選品顧問</a><a href="#partner">直銷合作</a>
+      <a href="en/" hreflang="en" lang="en">English</a>
+    </nav>
+  </header>
+  <main id="main">
+    <section class="hero frame">
+      <div class="hero-copy">
+        <h1>小家，也能<br>放得剛剛好。</h1>
+        <p>給租屋和小家庭的生活選品。跟著周禾安逛一圈，按空間和預算找到每天用得上的東西。</p>
+        <a class="action" href="#rooms">開始逛空間 <span aria-hidden="true">↘</span></a>
+        <span class="demo">虛構品牌 · 作品集示範</span>
+      </div>
+      <img class="hero-photo" src="./assets/kitchen.webp" width="1440" height="960" fetchpriority="high" alt="小廚房窗邊的黃色瀝水架與摺好的棉布">
+    </section>
+    <section class="rooms frame" id="rooms" aria-labelledby="rooms-title">
+      <div class="section-intro"><h2 id="rooms-title">從你想整理的空間開始</h2><p>選空間、點照片上的用品，再設定整份選品清單的預算。</p></div>
+      <div id="showroom"></div>
+      <noscript><p>請啟用 JavaScript 來操作選品工具。示範有廚房、浴室和洗衣陽台三個空間。</p></noscript>
+    </section>
+    <section class="advisor" id="advisor" aria-labelledby="advisor-title">
+      <div class="frame advisor-layout">
+        <img src="./assets/advisor.webp" width="900" height="1125" loading="lazy" alt="虛構選品顧問周禾安在廚房摺棉布">
+        <div>
+          <p class="eyebrow">你的選品顧問</p>
+          <h2 id="advisor-title">周禾安</h2>
+          <p>以前是租屋交接管家。禾安會先問你每天怎麼使用空間、哪裡不能打孔，再從手邊已有的東西和需要添購的用品一起想。</p>
+          <details><summary>看使用與照護建議</summary><p>布品首次使用前先清洗，洗後完全晾乾。置物軌安裝前先確認表面材質和承重，掛袋裝入濕衣後也應定期取下晾乾。</p></details>
+          <form id="consult" hidden>
+            <label for="slot">模擬選擇體驗時段</label>
+            <div class="consult-row"><select id="slot" required><option value="">選擇時段</option><option>週三 19:00</option><option>週六 14:00</option></select><button class="action">預覽預約</button></div>
+            <output id="booking" aria-live="polite"></output>
+          </form>
+        </div>
+      </div>
+    </section>
+    <section class="partner frame" id="partner" aria-labelledby="partner-title">
+      <div><p class="eyebrow">虛構公司｜折日生活</p><h2 id="partner-title">了解直銷合作</h2></div>
+      <div><p>此區示範多層次傳銷資訊的呈現方式。選購商品與使用選品服務無須加入。</p>
+      <details><summary>工作內容、費用與退出</summary>
+        <p>工作情境包含學習商品用法、示範和處理售後。簽約前應確認費用、契約、退貨和退出條件。此作品集情境沒有開放報名、招募或付款。</p>
+      </details></div>
+    </section>
+  </main>
+  <footer class="frame footer"><p>折日生活 · 人物、公司與商品均為虛構，影像由 AI 生成。</p><div><a href="./assets/logo-transparent.png" download="dayfold-logo-transparent.png">下載透明 Logo</a><a href="./assets/logo.png" download="dayfold-logo.png">下載底色版</a><a href="../../#website-demos">回作品集 ↗</a></div></footer>
+</body>
+</html>

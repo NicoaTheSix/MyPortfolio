@@ -22,6 +22,10 @@ DeskTiles 發行檔與指南的絕對路徑、建置進度及正式站驗證步�
 
 在網站根目錄以 PowerShell 執行 `$env:PORT='4213'; node serve.mjs`，程式列出絕對目錄和預覽 URL。打開 http://127.0.0.1:4213/MyPortfolio/ 或 http://127.0.0.1:4213/MyPortfolio/en/。另開終端依序執行 `node check-site.mjs` 與 `node check-pixel-homepages.mjs --url http://127.0.0.1:4213/MyPortfolio/`。此批次先交付本機預覽。
 
+## 折日生活直銷顧問示範
+
+中英文作品集的示範網站新增折日生活。此雙語示範包括三個可點選的居家空間、六項虛構商品、預算清單、顧問介紹與獨立的直銷合作說明。來源、絕對路徑、Logo 與操作流程見[折日生活說明](demos/dayfold/README.md)。
+
 ## 林達房地產個人網站示範
 
 在專案根目錄執行 `npm run preview`，可開啟[第一版靜態頁](http://127.0.0.1:4173/MyPortfolio/demos/lin-da/)與[三鏡頭動畫版](http://127.0.0.1:4173/MyPortfolio/demos/lin-da/motion.html)，也可直接在瀏覽器開啟對應的 HTML。預覽伺服器以白名單提供兩個版本的網頁、樣式、腳本和生成照。素材位置、頁面流程與互動進度見 [示範網站說明](demos/lin-da/README.md)。

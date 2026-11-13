@@ -16,6 +16,18 @@
     <loc>https://nicoathesix.github.io/MyPortfolio/blog/mitre-att-ck-introduction/</loc>
   </url>
   <url>
+    <loc>https://nicoathesix.github.io/MyPortfolio/demos/dayfold/en/</loc>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://nicoathesix.github.io/MyPortfolio/demos/dayfold/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://nicoathesix.github.io/MyPortfolio/demos/dayfold/en/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nicoathesix.github.io/MyPortfolio/demos/dayfold/" />
+  </url>
+  <url>
+    <loc>https://nicoathesix.github.io/MyPortfolio/demos/dayfold/</loc>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://nicoathesix.github.io/MyPortfolio/demos/dayfold/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://nicoathesix.github.io/MyPortfolio/demos/dayfold/en/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nicoathesix.github.io/MyPortfolio/demos/dayfold/" />
+  </url>
+  <url>
     <loc>https://nicoathesix.github.io/MyPortfolio/demos/lin-da/advanced/en/</loc>
   </url>
   <url>
