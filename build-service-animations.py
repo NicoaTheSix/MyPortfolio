@@ -9,6 +9,7 @@ from PIL import Image, ImageDraw, ImageFont
 sys.stdout.reconfigure(encoding="utf-8",line_buffering=True)
 ROOT=Path(__file__).resolve().parent
 OUT=ROOT/"assets"
+WEBSITE_LETTERING=ROOT/"service-images"/"website-lettering-source.png"
 W,H,N=240,122,24
 FONT={
  "A":"0e 11 11 1f 11 11 11","B":"1e 11 11 1e 11 11 1e","C":"0f 10 10 10 10 10 0f",
@@ -338,7 +339,7 @@ def website_maintenance(d, f):
  website_ground(d,15,110,214)
 
 
-def website_poster(frames, labels, font_path, language):
+def website_poster(frames, labels, font_path, language, lettering, title_rect):
  # Work in whole pixels. The layout and sprite rectangles share a 4× scale.
  poster=Image.new("1",(384,256),1)
  draw=ImageDraw.Draw(poster)
@@ -351,7 +352,7 @@ def website_poster(frames, labels, font_path, language):
    for col in range(3-row):
     draw.point((x+dx*(3+4*col),y+dy*(3+4*row)),fill=0)
 
- title, subtitle, panels=labels
+ subtitle, panels=labels
  label_font=ImageFont.truetype(font_path,11)
  brand_font=ImageFont.truetype(font_path,15)
  draw.text((192,16),"Nicoa",font=brand_font,fill=0,anchor="mm")
@@ -386,34 +387,23 @@ def website_poster(frames, labels, font_path, language):
      draw.point((x0+col*4 if x0==x+7 else x0-col*4,y+18+row*4),fill=0)
   poster.paste(scene[0].resize((94,48),Image.Resampling.NEAREST),(x+42,y+4))
 
- if language=="en":
-  # Reuse the same block-letter alphabet as the pixel animation previews.
-  for line,y,scale,advance in zip(title,(25,57),(4,3),(24,16)):
-   left=(384-((len(line)-1)*advance+5*scale))//2
-   for i,char in enumerate(line):
-    text(draw,left+i*advance,y,char,scale=scale)
-    text(draw,left+i*advance,y+1,char,scale=scale)
-    if scale==4:
-     text(draw,left+i*advance+1,y,char,scale=scale)
-  return poster.resize((1536,1024),Image.Resampling.NEAREST)
-
- poster=poster.resize((768,512),Image.Resampling.NEAREST)
- title_font=ImageFont.truetype(font_path,66)
- title_lines=[]
- for line in title:
-  left,top,right,bottom=title_font.getbbox(line)
-  artwork=Image.new("1",(right-left+5,bottom-top+2),1)
-  title_draw=ImageDraw.Draw(artwork)
-  for offset in (0,2,4):
-   title_draw.text((offset-left,-top),line,font=title_font,fill=0)
-  title_draw.text((2-left,1-top),line,font=title_font,fill=0)
-  title_lines.append(artwork)
- scale=min(1,624/max(line.width for line in title_lines),52/max(line.height for line in title_lines))
- for line,center in zip(title_lines,(75,134)):
-  width,height=round(line.width*scale),round(line.height*scale)
-  line_image=line.resize((width,height),Image.Resampling.NEAREST)
-  poster.paste(line_image,((768-width)//2,center-height//2))
- return poster.resize((1536,1024),Image.Resampling.NEAREST)
+ poster=poster.resize((1536,1024),Image.Resampling.NEAREST)
+ # Separate the two lettered titles, harden the ink, and fit without stretching.
+ with Image.open(lettering) as sheet:
+  middle=sheet.height//2
+  region=(0,0,sheet.width,middle) if language=="zh" else (0,middle,sheet.width,sheet.height)
+  artwork=sheet.crop(region).convert("L")
+ ink=artwork.point(lambda value:255 if value<128 else 0)
+ bounds=ink.getbbox()
+ if not bounds:
+  raise ValueError(f"No lettering found for {language}")
+ artwork=artwork.crop(bounds)
+ x,y,w,h=title_rect
+ scale=min((w-12)/artwork.width,(h-8)/artwork.height)
+ width,height=round(artwork.width*scale),round(artwork.height*scale)
+ title=artwork.resize((width,height),Image.Resampling.LANCZOS).point(lambda value:0 if value<150 else 255,"1")
+ poster.paste(title,(x+(w-width)//2,y+(h-height)//2))
+ return poster
 
 
 SERVICES=[
@@ -448,6 +438,7 @@ manifest=OUT/"service-animation-manifest.json"
 if not args.website_font.is_file():
  parser.error("--website-font must point to a font that supports Traditional Chinese.")
 print(f"[0/5] Input font: {args.website_font.resolve()}")
+print(f"[0/5] Input lettering: {WEBSITE_LETTERING.resolve()}")
 if args.website_only:
  print(f"[0/5] Input existing manifest: {manifest.resolve()}")
 for lang in ("zh","en"):
@@ -485,10 +476,10 @@ for service in selected:
   print(f'[2/5] {scene_count}/{total_scenes} ({scene_count*100//total_scenes}%) {service["id"]}/{scene["id"]}: 24 two-color frames.')
  if service["id"]=="website":
   for lang,labels in {
-   "zh": (("個人品牌官網","建置與維護"),"設計 / 遷移 / 維護",("官網建置","網站遷移","品牌形象重構","網站維護")),
-   "en": (("BRAND WEBSITE","DESIGN & MAINTENANCE"),"DESIGN / MIGRATE / MAINTAIN",("Website design","Website migration","Brand redesign","Maintenance")),
+   "zh": ("設計 / 遷移 / 維護",("官網建置","網站遷移","品牌形象重構","網站維護")),
+   "en": ("DESIGN / MIGRATE / MAINTAIN",("Website design","Website migration","Brand redesign","Maintenance")),
   }.items():
-   website_poster(all_frames,labels,args.website_font,lang).save(OUT/f"service-website-{lang}.png")
+   website_poster(all_frames,labels,args.website_font,lang,WEBSITE_LETTERING,service["titleRect"]).save(OUT/f"service-website-{lang}.png")
  previews=[]
  for f in range(N):
   image=Image.new("1",(496,292),1);draw=ImageDraw.Draw(image)
