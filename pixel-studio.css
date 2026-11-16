@@ -504,10 +504,6 @@ body:has(.studio-toolbar)::before {
   .studio-page .work-description { max-width: 68ch; }
 }
 
-@media (min-width: 1920px) {
-  #services .service-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-}
-
 /* The homepage desk uses the existing render as its own illustrated navigation. */
 .home-float-stage .hero { align-items: start; padding-block: clamp(30px, 4vw, 55px) clamp(24px, 4vw, 56px); }
 .studio-page.desktop-in-view .studio-fixed-backdrop { --studio-scene-opacity: 0; }
@@ -736,31 +732,17 @@ body:has(.studio-toolbar)::before {
 }
 
 .excel-case {
-  margin-bottom: clamp(36px, 5vw, 64px);
-  padding: clamp(16px, 3vw, 36px);
   border: 2px solid #aaa;
-  box-shadow: 6px 6px 0 #3d3d3d;
   background: #191919;
   color: #fff;
 }
 
 .excel-case .eyebrow { color: #ccc; }
-.excel-case h3 {
-  margin-block: 6px 10px;
-  font-size: clamp(1.2rem, 2.2vw, 1.9rem);
-  line-height: 1.4;
-}
-
-.excel-case > p:not(.eyebrow) {
-  max-width: 68ch;
-  color: #e1e1e1;
-}
-
 .excel-case-comparison {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: clamp(16px, 2.5vw, 30px);
-  margin-block: 20px;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 12px;
+  margin-block: 14px;
 }
 
 .excel-case figure {
@@ -779,7 +761,7 @@ body:has(.studio-toolbar)::before {
   font-weight: 700;
 }
 
-.excel-case-sheet { padding: 12px; }
+.excel-case-sheet { padding: 8px; }
 
 .excel-case-scan .excel-case-sheet {
   background: radial-gradient(#bbb 0.6px, transparent 0.8px) #eee;
@@ -805,7 +787,7 @@ body:has(.studio-toolbar)::before {
 
 .excel-case :is(th, td) {
   border: 1px solid #777;
-  padding: 6px clamp(4px, 1vw, 12px);
+  padding: 6px 4px;
   text-align: start;
 }
 
@@ -826,29 +808,130 @@ body:has(.studio-toolbar)::before {
   margin-top: 16px;
 }
 
-@media (max-width: 720px) {
-  .excel-case-comparison { grid-template-columns: minmax(0, 1fr); }
+.service-row-hint {
+  margin-block-end: 4px;
+  color: #ccc;
+  font-size: .875rem;
 }
 
-.website-service-plan {
+#services .service-grid.service-row {
+  grid-template-columns: none;
+  grid-auto-flow: column;
+  grid-auto-columns: min(clamp(19rem, 30vw, 23rem), 82vw);
+  align-items: start;
+  gap: 24px;
+  overflow-x: auto;
+  padding: 14px 16px 22px 2px;
+  scroll-padding-inline: 2px 16px;
+  scroll-snap-type: x proximity;
+  overscroll-behavior-inline: contain;
+  scrollbar-color: #aaa #292929;
+}
+
+.service-row:focus-visible {
+  outline: 2px dashed #ddd;
+  outline-offset: 3px;
+}
+
+.service-row > .service-card { scroll-snap-align: start; }
+
+#services .service-card .excel-case {
+  margin: 0 12px 14px;
+  box-shadow: 3px 3px 0 #b7b7b7;
+}
+
+.excel-case summary {
   display: flex;
-  flex-wrap: wrap;
+  gap: 8px;
   justify-content: space-between;
   align-items: center;
-  gap: 16px 24px;
-  margin-bottom: 28px;
-  padding: clamp(16px, 3vw, 28px);
-  border: 2px solid #aaa;
-  background: #191919;
-  color: #fff;
-  box-shadow: 6px 6px 0 #3d3d3d;
+  min-height: 44px;
+  padding: 9px 12px;
+  list-style: none;
+  cursor: pointer;
+  font-weight: 700;
 }
 
-.website-service-plan h3 {
-  margin-bottom: 6px;
-  font-size: clamp(1.1rem, 2vw, 1.55rem);
-  line-height: 1.4;
+.excel-case summary::-webkit-details-marker { display: none; }
+.excel-case summary:focus-visible { outline-offset: -4px; }
+.excel-case summary::after { content: "＋" / ""; }
+.excel-case[open] summary::after { content: "−" / ""; }
+
+.excel-case .excel-case-body {
+  padding: 12px;
+  border-top: 1px solid #aaa;
+  font-size: .875rem;
+  overflow-wrap: anywhere;
 }
 
-.website-service-plan p { color: #e1e1e1; }
-.website-service-plan .button { gap: 12px; }
+#services .service-card.is-window-small .excel-case { display: none; }
+
+.website-card-art {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  border-bottom: 2px solid #111;
+  background: radial-gradient(#aaa 1px, transparent 1px) #eee;
+  background-size: 8px 8px;
+}
+
+.website-card-browser {
+  display: grid;
+  gap: 8%;
+  grid-template-rows: 16% 30% 1fr;
+  padding: 5%;
+  width: 73%;
+  height: 72%;
+  border: 3px solid #111;
+  box-shadow: 6px 6px 0 #aaa;
+  background: #fff;
+}
+
+.website-card-toolbar {
+  display: grid;
+  grid-template-columns: repeat(3, 6px);
+  gap: 4px;
+  align-content: start;
+  border-bottom: 2px solid #111;
+}
+
+.website-card-toolbar i {
+  width: 6px;
+  height: 6px;
+  background: #111;
+}
+
+.website-card-banner {
+  background: repeating-linear-gradient(90deg, #222 0 6px, #444 6px 12px);
+}
+
+.website-card-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 8%;
+}
+
+.website-card-layout span {
+  border: 2px solid #111;
+  background: repeating-linear-gradient(#fff 0 5px, #bbb 5px 7px);
+}
+
+.website-card-layout span:first-child { background: #aaa; }
+
+#services .website-service-plan :is(h3, .retro-caption) { transition: color .2s; }
+#services .website-service-plan:is(:hover, :focus-within) h3 { color: #8b2768; }
+#services .website-service-plan:is(:hover, :focus-within) .retro-caption { color: #ff9cd6; }
+#services .website-service-plan .work-links { overflow-wrap: anywhere; }
+#services .website-service-plan .work-links a { min-height: 44px; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .website-service-plan .website-card-banner { animation: website-scan 3s steps(8) infinite; }
+  .motion-paused .website-service-plan .website-card-banner,
+  .website-service-plan.is-window-small .website-card-banner { animation: none; }
+}
+
+@keyframes website-scan {
+  from { background-position-x: 0; }
+  to { background-position-x: 24px; }
+}

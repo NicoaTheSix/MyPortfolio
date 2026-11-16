@@ -1,3 +1,9 @@
+## 首頁服務小卡與 Excel 案例
+
+中英文首頁用同一個可橫向捲動的服務列顯示五張卡片。觸控拖曳、觸控板與鍵盤皆可使用。官網小卡沿用復古視窗控制，CSS 繪製網站預覽並處理標題變色、動畫暫停及減少動態效果。Excel 案例放在文書卡片底部，以原生 details / summary 收合。
+
+執行 `node check-site.mjs` 驗證雙語錨點與資源。設定 `$env:PORT='4246'` 並執行 `node serve.mjs`。程式會印出輸入目錄的絕對路徑、輸出網址及啟動進度。在兩種語言的服務區檢查橫向滑動、官網卡片、方案下載與案例的展開／收合。
+
 ## 個人品牌官網服務方案下載
 
 中英文首頁從「服務」區的 `#website-service-plan` 指向同一份繁體中文 PDF。公開檔案位於 `assets/downloads/personal-brand-website-service-plan.pdf`。更新時只替換已核准公開的通用 PDF。
