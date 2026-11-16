@@ -24,7 +24,7 @@ FONT={
  "3":"1e 01 01 0e 01 01 1e","4":"02 06 0a 12 1f 02 02","5":"1f 10 10 1e 01 01 1e",
  "6":"0e 10 10 1e 11 11 0e","7":"1f 01 02 04 08 08 08","8":"0e 11 11 0e 11 11 0e",
  "9":"0e 11 11 0f 01 01 0e","/":"01 01 02 04 08 10 10","+":"00 04 04 1f 04 04 00",
- "=":"00 00 1f 00 1f 00 00","!":"04 04 04 04 04 00 04",".":"00 00 00 00 00 0c 0c",
+ "&":"0c 12 14 08 15 12 0d","=":"00 00 1f 00 1f 00 00","!":"04 04 04 04 04 00 04",".":"00 00 00 00 00 0c 0c",
  "<":"02 04 08 10 08 04 02",">":"08 04 02 01 02 04 08","-":"00 00 00 1f 00 00 00",
 }
 
@@ -260,109 +260,156 @@ def batch(d,f):
   else:d.line((x+5,y+19,x+16,y+19),fill=0,width=2)
 
 
+def website_ground(d, x, y, width):
+ for row in range(4):
+  for col in range(0,width,4):
+   d.point((x+col+2*(row%2),y+row*2),fill=0)
+
+
 def website_build(d, f):
- window(d,27,12,186,97)
- for i,(x,y,w,h) in enumerate([(42,32,154,20),(42,61,48,32),(100,61,96,32)]):
-  d.rectangle((x,y,x+w,y+h),outline=0,width=2)
-  fill_width=max(0,min(w-5,(f-i*5)*13))
-  if fill_width:
-   d.rectangle((x+3,y+3,x+fill_width,y+h-3),fill=0)
- if f>=18:
-  check(d,182,43,1)
+ window(d,20,10,175,93)
+ window(d,181,46,38,58)
+ d.rectangle((27,27,188,48),outline=0,width=2)
+ d.rectangle((27,56,79,91),outline=0,width=2)
+ for index,y in enumerate((59,69,79)):
+  if f>=index*4:
+   d.line((89,y,161-index*10,y),fill=0,width=3)
+ d.rectangle((89,88,118,94),fill=0)
+ progress=min(152,7*f+4)
+ d.rectangle((31,31,31+progress,43),fill=0)
+ if f>=16:
+  d.rectangle((187,61,213,72),fill=0)
+  d.line((187,79,213,79),fill=0,width=2)
+  d.line((187,85,208,85),fill=0,width=2)
+ website_ground(d,17,109,205)
 
 
 def website_migration(d, f):
- window(d,9,35,78,67)
- window(d,152,35,78,67)
- sheet(d,29,54,33,36)
- for x in range(98,150,9):
-  d.point((x,73),fill=0)
- arrow(d,99,73)
- sheet(d,81+min(f,17)*5,19,29,42)
+ window(d,8,28,75,74)
+ window(d,155,28,75,74)
+ for y in (50,68,86):
+  d.rectangle((15,y,75,y+10),outline=0,width=2)
+  d.rectangle((21,y+3,28,y+6),fill=0)
+  d.line((52,y+5,69,y+5),fill=0,width=2)
+  d.rectangle((162,y,222,y+10),outline=0,width=2)
+  if f>=(y-50)//3:
+   d.line((172,y+5,215,y+5),fill=0,width=2)
+ arrow(d,104,80)
+ sheet(d,87+min(f,19)*3,16,27,37)
  if f>=18:
-  check(d,179,75)
+  check(d,181,63)
+ website_ground(d,8,110,224)
 
 
 def website_redesign(d, f):
- window(d,12,18,95,86)
- window(d,131,18,95,86)
- for x in (12,131):
-  d.rectangle((x+9,38,x+85,63),outline=0,width=2)
-  for y in (74,84,94):
-   d.line((x+9,y,x+66,y),fill=0,width=2)
+ window(d,12,18,91,83)
+ window(d,136,18,91,83)
+ d.rectangle((21,36,93,62),outline=0,width=2)
+ d.rectangle((145,36,217,62),outline=0,width=2)
+ d.rectangle((24,38,55,60),fill=0)
+ d.line((60,44,88,44),fill=0,width=2)
+ d.line((60,51,81,51),fill=0,width=2)
+ for x in (21,145):
+  for y in (70,79,88):
+   d.line((x,y,x+51-(y%3)*4,y),fill=0,width=2)
  phase=f//4
- d.rectangle((22,41,59,59),fill=0)
  if phase%2:
-  d.polygon([(146,60),(166,40),(187,60)],fill=0)
+  d.polygon([(149,57),(166,40),(183,57)],fill=0)
  else:
-  d.ellipse((145,39,167,62),fill=0)
- d.line((120,45-phase,120,57+phase),fill=0,width=2)
- d.line((114-phase,51,126+phase,51),fill=0,width=2)
+  d.ellipse((149,39,169,59),fill=0)
+ for index in range(3):
+  left=186+8*index
+  d.rectangle((left,43,left+5,54),fill=0 if index==phase%3 else 1,outline=0)
+ d.line((120,44-phase,120,58+phase),fill=0,width=2)
+ d.line((113-phase,51,127+phase,51),fill=0,width=2)
+ website_ground(d,9,108,222)
 
 
 def website_maintenance(d, f):
- window(d,78,15,144,89)
- gear(d,47,60,30,f)
- for i,y in enumerate((45,65,85)):
-  d.rectangle((92,y-6,108,y+8),outline=0,width=2)
-  d.line((123,y,200-i*12,y),fill=0,width=3)
-  if f>i*5:
-   check(d,92,y-3)
+ window(d,85,13,141,91)
+ gear(d,49,59,29,f)
+ d.ellipse((40,50,58,68),fill=1,outline=0,width=2)
+ for index,y in enumerate((39,60,82)):
+  d.rectangle((97,y-6,114,y+9),outline=0,width=2)
+  d.line((128,y,210-index*11,y),fill=0,width=3)
+  d.line((128,y+6,180-index*8,y+6),fill=0)
+  if f>index*5:
+   check(d,98,y-1)
+ website_ground(d,15,110,214)
 
 
-def website_poster(frames, labels, font_path):
- # Draw ornaments and panels on a 384 × 256 pixel grid.
+def website_poster(frames, labels, font_path, language):
+ # Work in whole pixels. The layout and sprite rectangles share a 4× scale.
  poster=Image.new("1",(384,256),1)
  draw=ImageDraw.Draw(poster)
  draw.rectangle((2,2,381,253),outline=0,width=3)
  draw.rectangle((7,7,376,248),outline=0)
- for x,y,dx,dy in ((8,8,1,1),(375,8,-1,1),(8,247,1,-1),(375,247,-1,-1)):
-  draw.line([(x,y+12*dy),(x+12*dx,y)],fill=0,width=2)
-  for col,row in ((2,2),(2,6),(6,2),(10,2),(2,10)):
-   px,py=x+dx*col,y+dy*row
-   draw.rectangle((px-1,py-1,px+1,py+1),fill=0)
+ for x,y,dx,dy in ((9,9,1,1),(374,9,-1,1),(9,246,1,-1),(374,246,-1,-1)):
+  draw.line([(x,y+11*dy),(x+4*dx,y+11*dy),(x+4*dx,y+6*dy),
+   (x+8*dx,y+6*dy),(x+8*dx,y),(x+13*dx,y)],fill=0,width=2)
+  for row in range(3):
+   for col in range(3-row):
+    draw.point((x+dx*(3+4*col),y+dy*(3+4*row)),fill=0)
 
  title, subtitle, panels=labels
  label_font=ImageFont.truetype(font_path,11)
- brand_font=ImageFont.truetype(font_path,16)
- draw.text((192,17),"Nicoa",font=brand_font,fill=0,anchor="mm",stroke_width=1)
- for start,end in ((90,161),(223,294)):
-  draw.line((start,18,end,18),fill=0,width=2)
- for x,y in ((26,48),(38,58),(346,58),(358,48)):
-  draw.line((x-3,y,x+3,y),fill=0,width=1)
-  draw.line((x,y-3,x,y+3),fill=0,width=1)
- draw.rectangle((33,69,350,83),fill=0)
- for start in (24,351):
-  for row in range(5):
-   for col in range(3):
+ brand_font=ImageFont.truetype(font_path,15)
+ draw.text((192,16),"Nicoa",font=brand_font,fill=0,anchor="mm")
+ draw.text((193,16),"Nicoa",font=brand_font,fill=0,anchor="mm")
+ for x1,x2 in ((86,160),(224,298)):
+  draw.line((x1,16,x2,16),fill=0,width=2)
+ for x,y in ((19,37),(19,58),(365,58),(365,37)):
+  draw.line((x-3,y,x+3,y),fill=0,width=2)
+  draw.line((x,y-3,x,y+3),fill=0,width=2)
+ for x,dx in ((11,1),(372,-1)):
+  for row in range(6):
+   for col in range(row):
+    draw.point((x+2*col*dx,56+row*4),fill=0)
+ draw.rectangle((37,84,346,97),fill=0)
+ for x in (23,347):
+  for row in range(4):
+   for col in range(4):
     if (row+col)%2==0:
-     x,y=start+col*3,69+row*3
-     draw.rectangle((x,y,x+2,y+2),fill=0)
- draw.text((192,76),subtitle,font=label_font,fill=1,anchor="mm")
+     px,py=x+col*4,83+row*4
+     draw.rectangle((px,py,px+3,py+3),fill=0)
+ draw.text((192,91),subtitle,font=label_font,fill=1,anchor="mm")
 
  for i,scene in enumerate(frames):
-  x,y=12+i%2*182,88+i//2*78
-  draw.rectangle((x,y,x+177,y+74),outline=0,width=2)
-  draw.rectangle((x+3,y+3,x+174,y+71),outline=0)
-  poster.paste(scene[0].resize((100,51),Image.Resampling.NEAREST),(x+39,y+5))
-  draw.rectangle((x+3,y+56,x+174,y+71),fill=0)
-  draw.text((x+89,y+64),panels[i],font=label_font,fill=1,anchor="mm")
-  for spot in (x+4,x+172):
-   draw.rectangle((spot,y+4,spot+1,y+5),fill=0)
+  x,y=11+i%2*182,101+i//2*73
+  draw.line([(x+3,y),(x+174,y),(x+177,y+3),(x+177,y+66),
+   (x+174,y+69),(x+3,y+69),(x,y+66),(x,y+3),(x+3,y)],fill=0,width=2)
+  draw.rectangle((x+3,y+54,x+174,y+67),fill=0)
+  draw.text((x+89,y+61),panels[i],font=label_font,fill=1,anchor="mm")
+  for x0 in (x+7,x+170):
+   for row in range(8):
+    for col in range(4):
+     draw.point((x0+col*4 if x0==x+7 else x0-col*4,y+18+row*4),fill=0)
+  poster.paste(scene[0].resize((94,48),Image.Resampling.NEAREST),(x+42,y+4))
 
- # Use one scale for both title lines and both axes, preserving the pixel font proportions.
+ if language=="en":
+  # Reuse the same block-letter alphabet as the pixel animation previews.
+  for line,y,scale,advance in zip(title,(25,57),(4,3),(24,16)):
+   left=(384-((len(line)-1)*advance+5*scale))//2
+   for i,char in enumerate(line):
+    text(draw,left+i*advance,y,char,scale=scale)
+    text(draw,left+i*advance,y+1,char,scale=scale)
+    if scale==4:
+     text(draw,left+i*advance+1,y,char,scale=scale)
+  return poster.resize((1536,1024),Image.Resampling.NEAREST)
+
  poster=poster.resize((768,512),Image.Resampling.NEAREST)
  title_font=ImageFont.truetype(font_path,66)
  title_lines=[]
  for line in title:
   left,top,right,bottom=title_font.getbbox(line)
-  artwork=Image.new("1",(right-left+4,bottom-top),1)
+  artwork=Image.new("1",(right-left+5,bottom-top+2),1)
   title_draw=ImageDraw.Draw(artwork)
   for offset in (0,2,4):
    title_draw.text((offset-left,-top),line,font=title_font,fill=0)
+  title_draw.text((2-left,1-top),line,font=title_font,fill=0)
   title_lines.append(artwork)
- scale=min(1,576/max(line.width for line in title_lines),37/max(line.height for line in title_lines))
- for line,center in zip(title_lines,(70,112)):
+ scale=min(1,624/max(line.width for line in title_lines),52/max(line.height for line in title_lines))
+ for line,center in zip(title_lines,(75,134)):
   width,height=round(line.width*scale),round(line.height*scale)
   line_image=line.resize((width,height),Image.Resampling.NEAREST)
   poster.paste(line_image,((768-width)//2,center-height//2))
@@ -385,11 +432,11 @@ SERVICES=[
   {"id":"formula","title":"公式計算","draw":formula,"rect":[810,414,658,195]},
   {"id":"ocr","title":"圖片轉文字","draw":ocr,"rect":[61,720,674,188]},
   {"id":"batch","title":"批次處理","draw":batch,"rect":[794,720,682,188]}]},
- {"id":"website","title":"個人品牌官網建置與維護","source":"service-website-zh.png","gradient":["#ff6db3","#d29dff"],"titleRect":[184,100,1168,164],"scenes":[
-  {"id":"build","title":"官網建置","draw":website_build,"rect":[68,372,672,204]},
-  {"id":"migration","title":"網站遷移","draw":website_migration,"rect":[796,372,672,204]},
-  {"id":"redesign","title":"品牌形象重構","draw":website_redesign,"rect":[68,684,672,204]},
-  {"id":"maintenance","title":"網站維護","draw":website_maintenance,"rect":[796,684,672,204]}]},
+ {"id":"website","title":"個人品牌官網建置與維護","source":"service-website-zh.png","gradient":["#ff6db3","#d29dff"],"titleRect":[96,96,1344,228],"scenes":[
+  {"id":"build","title":"官網建置","draw":website_build,"rect":[152,420,384,192]},
+  {"id":"migration","title":"網站遷移","draw":website_migration,"rect":[880,420,384,192]},
+  {"id":"redesign","title":"品牌形象重構","draw":website_redesign,"rect":[152,712,384,192]},
+  {"id":"maintenance","title":"網站維護","draw":website_maintenance,"rect":[880,712,384,192]}]},
 ]
 
 parser=argparse.ArgumentParser()
@@ -439,9 +486,9 @@ for service in selected:
  if service["id"]=="website":
   for lang,labels in {
    "zh": (("個人品牌官網","建置與維護"),"設計 / 遷移 / 維護",("官網建置","網站遷移","品牌形象重構","網站維護")),
-   "en": (("Personal Brand Website","Design & Maintenance"),"DESIGN / MIGRATE / MAINTAIN",("Website design","Website migration","Brand redesign","Maintenance")),
+   "en": (("BRAND WEBSITE","DESIGN & MAINTENANCE"),"DESIGN / MIGRATE / MAINTAIN",("Website design","Website migration","Brand redesign","Maintenance")),
   }.items():
-   website_poster(all_frames,labels,args.website_font).save(OUT/f"service-website-{lang}.png")
+   website_poster(all_frames,labels,args.website_font,lang).save(OUT/f"service-website-{lang}.png")
  previews=[]
  for f in range(N):
   image=Image.new("1",(496,292),1);draw=ImageDraw.Draw(image)

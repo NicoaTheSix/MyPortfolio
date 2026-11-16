@@ -312,10 +312,10 @@ globalThis.pixelPosterData = {
         "#d29dff"
       ],
       "titleRect": [
-        184,
-        100,
-        1168,
-        164
+        96,
+        96,
+        1344,
+        228
       ],
       "width": 240,
       "height": 122,
@@ -327,10 +327,10 @@ globalThis.pixelPosterData = {
           "id": "build",
           "title": "官網建置",
           "rect": [
-            68,
-            372,
-            672,
-            204
+            152,
+            420,
+            384,
+            192
           ],
           "sprite": "website-build-pixel.png"
         },
@@ -338,10 +338,10 @@ globalThis.pixelPosterData = {
           "id": "migration",
           "title": "網站遷移",
           "rect": [
-            796,
-            372,
-            672,
-            204
+            880,
+            420,
+            384,
+            192
           ],
           "sprite": "website-migration-pixel.png"
         },
@@ -349,10 +349,10 @@ globalThis.pixelPosterData = {
           "id": "redesign",
           "title": "品牌形象重構",
           "rect": [
-            68,
-            684,
-            672,
-            204
+            152,
+            712,
+            384,
+            192
           ],
           "sprite": "website-redesign-pixel.png"
         },
@@ -360,10 +360,10 @@ globalThis.pixelPosterData = {
           "id": "maintenance",
           "title": "網站維護",
           "rect": [
-            796,
-            684,
-            672,
-            204
+            880,
+            712,
+            384,
+            192
           ],
           "sprite": "website-maintenance-pixel.png"
         }
