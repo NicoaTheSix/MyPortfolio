@@ -818,7 +818,7 @@ body:has(.studio-toolbar)::before {
   grid-template-columns: none;
   grid-auto-flow: column;
   grid-auto-columns: min(clamp(19rem, 30vw, 23rem), 82vw);
-  align-items: start;
+  align-items: stretch;
   gap: 24px;
   overflow-x: auto;
   padding: 14px 16px 22px 2px;
@@ -866,72 +866,5 @@ body:has(.studio-toolbar)::before {
 
 #services .service-card.is-window-small .excel-case { display: none; }
 
-.website-card-art {
-  display: grid;
-  place-items: center;
-  aspect-ratio: 3 / 2;
-  overflow: hidden;
-  border-bottom: 2px solid #111;
-  background: radial-gradient(#aaa 1px, transparent 1px) #eee;
-  background-size: 8px 8px;
-}
-
-.website-card-browser {
-  display: grid;
-  gap: 8%;
-  grid-template-rows: 16% 30% 1fr;
-  padding: 5%;
-  width: 73%;
-  height: 72%;
-  border: 3px solid #111;
-  box-shadow: 6px 6px 0 #aaa;
-  background: #fff;
-}
-
-.website-card-toolbar {
-  display: grid;
-  grid-template-columns: repeat(3, 6px);
-  gap: 4px;
-  align-content: start;
-  border-bottom: 2px solid #111;
-}
-
-.website-card-toolbar i {
-  width: 6px;
-  height: 6px;
-  background: #111;
-}
-
-.website-card-banner {
-  background: repeating-linear-gradient(90deg, #222 0 6px, #444 6px 12px);
-}
-
-.website-card-layout {
-  display: grid;
-  grid-template-columns: 1fr 1.5fr;
-  gap: 8%;
-}
-
-.website-card-layout span {
-  border: 2px solid #111;
-  background: repeating-linear-gradient(#fff 0 5px, #bbb 5px 7px);
-}
-
-.website-card-layout span:first-child { background: #aaa; }
-
-#services .website-service-plan :is(h3, .retro-caption) { transition: color .2s; }
-#services .website-service-plan:is(:hover, :focus-within) h3 { color: #8b2768; }
-#services .website-service-plan:is(:hover, :focus-within) .retro-caption { color: #ff9cd6; }
 #services .website-service-plan .work-links { overflow-wrap: anywhere; }
 #services .website-service-plan .work-links a { min-height: 44px; }
-
-@media (prefers-reduced-motion: no-preference) {
-  .website-service-plan .website-card-banner { animation: website-scan 3s steps(8) infinite; }
-  .motion-paused .website-service-plan .website-card-banner,
-  .website-service-plan.is-window-small .website-card-banner { animation: none; }
-}
-
-@keyframes website-scan {
-  from { background-position-x: 0; }
-  to { background-position-x: 24px; }
-}

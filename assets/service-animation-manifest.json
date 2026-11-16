@@ -197,6 +197,72 @@
           "sprite": "office-batch-pixel.png"
         }
       ]
+    },
+    {
+      "id": "website",
+      "title": "個人品牌官網建置與維護",
+      "source": "service-website-zh.png",
+      "gradient": [
+        "#ff6db3",
+        "#d29dff"
+      ],
+      "titleRect": [
+        48,
+        60,
+        1440,
+        204
+      ],
+      "width": 240,
+      "height": 122,
+      "frames": 24,
+      "fps": 8,
+      "gif": "website-animation-preview.gif",
+      "scenes": [
+        {
+          "id": "build",
+          "title": "官網建置",
+          "rect": [
+            60,
+            320,
+            680,
+            216
+          ],
+          "sprite": "website-build-pixel.png"
+        },
+        {
+          "id": "migration",
+          "title": "網站遷移",
+          "rect": [
+            788,
+            320,
+            680,
+            216
+          ],
+          "sprite": "website-migration-pixel.png"
+        },
+        {
+          "id": "redesign",
+          "title": "品牌形象重構",
+          "rect": [
+            60,
+            652,
+            680,
+            216
+          ],
+          "sprite": "website-redesign-pixel.png"
+        },
+        {
+          "id": "maintenance",
+          "title": "網站維護",
+          "rect": [
+            788,
+            652,
+            680,
+            216
+          ],
+          "sprite": "website-maintenance-pixel.png"
+        }
+      ]
     }
   ]
 }

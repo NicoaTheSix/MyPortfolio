@@ -1,4 +1,4 @@
-/* Three additional service posters share one renderer; each has independent state. */
+/* Additional service posters share one renderer; each has independent state. */
 (() => {
   'use strict';
   const base=new URL('.',document.currentScript.src);
@@ -7,7 +7,7 @@
   const assetBase = new URL('assets/',base);
   console.info('[服務動畫 0/3] 輸入頁面（絕對 URL）：',location.href);
   for (const path of ['pixel-service-posters.js','pixel-scenes.css','poster-animation-data.js','poster-image-ready.js']) console.info('[服務動畫 0/3] 輸入檔案（絕對 URL）：',new URL(path,base).href);
-  for (const id of ['scratch','translation','office']) console.info('[服務動畫 0/3] 輸出：',new URL(`#${document.querySelector(`[data-service-poster="${id}"]`).id}`,location.href).href,'的四個 Canvas、標題漸層與顯示模式；不寫入檔案。');
+  for (const id of ['scratch','translation','office','website']) console.info('[服務動畫 0/3] 輸出：',new URL(`#${document.querySelector(`[data-service-poster="${id}"]`).id}`,location.href).href,'的四個 Canvas、標題漸層與顯示模式；不寫入檔案。');
   const preference=matchMedia('(prefers-reduced-motion: reduce)');
   const globalPause=() => preference.matches || document.body.classList.contains('motion-paused');
   const models=[];
@@ -120,11 +120,12 @@
       const localized={
         scratch:{title:'Scratch tutoring',titleRect:[237,90,1074,177],names:['One-to-one lessons','Game projects','Animation','Logic and debugging']},
         translation:{title:'English–Chinese translation',titleRect:[128,108,1280,196],names:['Software UI','Technical documents','Articles','Localization'],rects:[[76,450,648,200],[817,449,629,203],[76,752,652,203],[809,756,642,199]]},
-        office:{title:'Office automation',titleRect:[96,80,1340,232],names:['Table conversion','Formulas and calculations','Image to text','Batch processing'],rects:[[62,410,672,204],[804,410,673,204],[56,720,680,190],[793,718,680,190]]}
+        office:{title:'Office automation',titleRect:[96,80,1340,232],names:['Table conversion','Formulas and calculations','Image to text','Batch processing'],rects:[[62,410,672,204],[804,410,673,204],[56,720,680,190],[793,718,680,190]]},
+        website:{title:'Personal brand website design & maintenance',titleRect:[48,56,1440,220],names:['Website design','Website migration','Brand redesign','Maintenance']}
       };
       services.forEach(config=>{const local=localized[config.id];config.title=local.title;config.titleRect=local.titleRect;config.source=`service-${config.id}-en.png`;config.scenes.forEach((scene,index)=>{scene.title=local.names[index];if(local.rects)scene.rect=local.rects[index];});});
     }
-    console.info('[服務動畫 1/3] 三項服務、十二個場景規格完成。');
+    console.info(`[服務動畫 1/3] ${services.length} 項服務場景規格完成。`);
     // Start the shared clock before waiting for every poster, so one slow image
     // cannot hold back posters that have already loaded.
     setInterval(()=>{if(document.hidden||globalPause())return;models.forEach(model=>{
@@ -137,8 +138,8 @@
       root.querySelector('.scene-controls')?.classList.add('is-original');
       console.warn('[服務動畫] 保留原圖：',services[index].title,result.reason.message);
     }});
-    console.info(`[服務動畫 2/3] ${models.length}/3 海報載入完成。`);
+    console.info(`[服務動畫 2/3] ${models.length}/${services.length} 海報載入完成。`);
     console.info('[服務動畫 3/3] 播放時鐘就緒；離開畫面、原圖模式及背景分頁不前進影格。');
   };
-  start().catch(error=>console.warn('[服務動畫] 保留三張原圖：',error.message));
+  start().catch(error=>console.warn('[服務動畫] 保留原圖：',error.message));
 })();

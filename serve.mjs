@@ -56,11 +56,11 @@ publicFiles.add('pixel-service-posters.js');
 publicFiles.add('poster-image-ready.js');
 publicFiles.add('poster-animation-data.js');
 publicFiles.add('assets/service-animation-manifest.json');
-for (const [service,scenes] of Object.entries({scratch:['teaching','game','animation','debug'],translation:['software','technical','articles','terminology'],office:['convert','formula','ocr','batch']})) {
+for (const [service,scenes] of Object.entries({scratch:['teaching','game','animation','debug'],translation:['software','technical','articles','terminology'],office:['convert','formula','ocr','batch'],website:['build','migration','redesign','maintenance']})) {
   for(const scene of scenes) publicFiles.add(`assets/${service}-${scene}-pixel.png`);
   for(const ext of ['gif','png']) publicFiles.add(`assets/${service}-animation-preview.${ext}`);
 }
-for(const language of ['zh','en'])for(const service of ['development','scratch','translation','office'])publicFiles.add(`assets/service-${service}-${language}.png`);
+for(const language of ['zh','en'])for(const service of ['development','scratch','translation','office','website'])publicFiles.add(`assets/service-${service}-${language}.png`);
 try {
   const manifest=JSON.parse(await readFile(path.join(root,'fusion-studio','source-manifest.json'),'utf8'));
   for(const relative of [...manifest.generatedHtml,...manifest.assets.map(asset=>asset.path),'docs.css','docs.js','search-index.json','source-manifest.json','build-report.json','validation-report.json']) {

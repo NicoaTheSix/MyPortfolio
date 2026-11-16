@@ -1,9 +1,10 @@
-"""Draw twelve original monochrome service animations on integer pixel grids."""
+"""Draw original monochrome service animations on integer pixel grids."""
 from pathlib import Path
+import argparse
 import json
 import math
 import sys
-from PIL import Image, ImageDraw
+from PIL import Image, ImageDraw, ImageFont
 
 sys.stdout.reconfigure(encoding="utf-8",line_buffering=True)
 ROOT=Path(__file__).resolve().parent
@@ -258,6 +259,77 @@ def batch(d,f):
   if f>=[7,13,19][index]:check(d,x+4,y+18)
   else:d.line((x+5,y+19,x+16,y+19),fill=0,width=2)
 
+
+def website_build(d, f):
+ window(d,27,12,186,97)
+ for i,(x,y,w,h) in enumerate([(42,32,154,20),(42,61,48,32),(100,61,96,32)]):
+  d.rectangle((x,y,x+w,y+h),outline=0,width=2)
+  fill_width=max(0,min(w-5,(f-i*5)*13))
+  if fill_width:
+   d.rectangle((x+3,y+3,x+fill_width,y+h-3),fill=0)
+ if f>=18:
+  check(d,182,43,1)
+
+
+def website_migration(d, f):
+ window(d,9,35,78,67)
+ window(d,152,35,78,67)
+ sheet(d,29,54,33,36)
+ for x in range(98,150,9):
+  d.point((x,73),fill=0)
+ arrow(d,99,73)
+ sheet(d,81+min(f,17)*5,19,29,42)
+ if f>=18:
+  check(d,179,75)
+
+
+def website_redesign(d, f):
+ window(d,12,18,95,86)
+ window(d,131,18,95,86)
+ for x in (12,131):
+  d.rectangle((x+9,38,x+85,63),outline=0,width=2)
+  for y in (74,84,94):
+   d.line((x+9,y,x+66,y),fill=0,width=2)
+ phase=f//4
+ d.rectangle((22,41,59,59),fill=0)
+ if phase%2:
+  d.polygon([(146,60),(166,40),(187,60)],fill=0)
+ else:
+  d.ellipse((145,39,167,62),fill=0)
+ d.line((120,45-phase,120,57+phase),fill=0,width=2)
+ d.line((114-phase,51,126+phase,51),fill=0,width=2)
+
+
+def website_maintenance(d, f):
+ window(d,78,15,144,89)
+ gear(d,47,60,30,f)
+ for i,y in enumerate((45,65,85)):
+  d.rectangle((92,y-6,108,y+8),outline=0,width=2)
+  d.line((123,y,200-i*12,y),fill=0,width=3)
+  if f>i*5:
+   check(d,92,y-3)
+
+
+def website_poster(frames, labels, font_path):
+ # The source canvas uses whole pixels before scaling to the shared 1536 × 1024 format.
+ poster=Image.new("1",(384,256),1)
+ draw=ImageDraw.Draw(poster)
+ draw.rectangle((2,2,381,253),outline=0,width=3)
+ draw.rectangle((8,8,375,247),outline=0)
+ title, panels=labels
+ font=ImageFont.truetype(font_path, 31 if len(title)==1 else 22)
+ for i,line in enumerate(title):
+  draw.text((192,39 if len(title)==1 else 27+i*22),line,font=font,fill=0,anchor="mm")
+ caption_font=ImageFont.truetype(font_path,12)
+ for i,scene in enumerate(frames):
+  x,y=12+i%2*182,77+i//2*83
+  draw.rectangle((x,y,x+176,y+78),outline=0,width=2)
+  poster.paste(scene[0].resize((106,54),Image.Resampling.NEAREST),(x+35,y+3))
+  draw.rectangle((x+2,y+59,x+174,y+76),fill=0)
+  draw.text((x+88,y+68),panels[i],font=caption_font,fill=1,anchor="mm")
+ return poster.resize((1536,1024),Image.Resampling.NEAREST)
+
+
 SERVICES=[
  {"id":"scratch","title":"Scratch 教學","source":"service-scratch-zh.png","gradient":["#ff7a18","#ff4b83"],"titleRect":[228,88,1086,172],"scenes":[
   {"id":"teaching","title":"一對一教學","draw":teaching,"rect":[54,503,690,201]},
@@ -274,20 +346,42 @@ SERVICES=[
   {"id":"formula","title":"公式計算","draw":formula,"rect":[810,414,658,195]},
   {"id":"ocr","title":"圖片轉文字","draw":ocr,"rect":[61,720,674,188]},
   {"id":"batch","title":"批次處理","draw":batch,"rect":[794,720,682,188]}]},
+ {"id":"website","title":"個人品牌官網建置與維護","source":"service-website-zh.png","gradient":["#ff6db3","#d29dff"],"titleRect":[48,60,1440,204],"scenes":[
+  {"id":"build","title":"官網建置","draw":website_build,"rect":[60,320,680,216]},
+  {"id":"migration","title":"網站遷移","draw":website_migration,"rect":[788,320,680,216]},
+  {"id":"redesign","title":"品牌形象重構","draw":website_redesign,"rect":[60,652,680,216]},
+  {"id":"maintenance","title":"網站維護","draw":website_maintenance,"rect":[788,652,680,216]}]},
 ]
 
+parser=argparse.ArgumentParser()
+parser.add_argument("--website-only",action="store_true",help="Rebuild the website card and keep the other manifest entries.")
+parser.add_argument("--website-font",type=Path,default=Path("C:/Windows/Fonts/msjhbd.ttc"))
+args=parser.parse_args()
+selected=[service for service in SERVICES if not args.website_only or service["id"]=="website"]
+manifest=OUT/"service-animation-manifest.json"
+if not args.website_font.is_file():
+ parser.error("--website-font must point to a font that supports Traditional Chinese.")
+print(f"[0/5] Input font: {args.website_font.resolve()}")
+if args.website_only:
+ print(f"[0/5] Input existing manifest: {manifest.resolve()}")
+for lang in ("zh","en"):
+ print(f'[0/5] Output: {(OUT/f"service-website-{lang}.png").resolve()}')
+total_scenes=sum(len(service["scenes"]) for service in selected)
+
 print(f"[0/5] Input drawing program: {Path(__file__).resolve()}")
-for service in SERVICES:
+for service in selected:
  for scene in service["scenes"]:
   scene["sprite"]=f'{service["id"]}-{scene["id"]}-pixel.png'
   print(f'[0/5] Output: {(OUT/scene["sprite"]).resolve()}')
  for suffix in ["gif","png"]:print(f'[0/5] Output: {(OUT/(service["id"]+"-animation-preview."+suffix)).resolve()}')
 print(f'[0/5] Output: {(OUT/"service-animation-manifest.json").resolve()}')
-print("[1/5] Drawing primitives and twelve distinct scenes ready.")
+print("[1/5] Drawing primitives and scene definitions ready.")
 OUT.mkdir(exist_ok=True)
 all_services=[]
+if args.website_only:
+ all_services=[service for service in json.loads(manifest.read_text(encoding="utf-8"))["services"] if service["id"]!="website"]
 scene_count=0
-for service in SERVICES:
+for service in selected:
  all_frames=[]
  for scene in service["scenes"]:
   frames=[]
@@ -302,7 +396,13 @@ for service in SERVICES:
   strip.save(OUT/scene["sprite"])
   assert (OUT/scene["sprite"]).read_bytes()[24]==1
   all_frames.append(frames);scene_count+=1
-  print(f'[2/5] {scene_count}/12 ({scene_count*100//12}%) {service["id"]}/{scene["id"]}: 24 two-color frames.')
+  print(f'[2/5] {scene_count}/{total_scenes} ({scene_count*100//total_scenes}%) {service["id"]}/{scene["id"]}: 24 two-color frames.')
+ if service["id"]=="website":
+  for lang,labels in {
+   "zh": (("個人品牌官網建置與維護",),("官網建置","網站遷移","品牌形象重構","網站維護")),
+   "en": (("Personal Brand Website","Design & Maintenance"),("Website design","Website migration","Brand redesign","Maintenance")),
+  }.items():
+   website_poster(all_frames,labels,args.website_font).save(OUT/f"service-website-{lang}.png")
  previews=[]
  for f in range(N):
   image=Image.new("1",(496,292),1);draw=ImageDraw.Draw(image)
@@ -323,6 +423,6 @@ for service in SERVICES:
   assert duration==3000
  all_services.append({**{k:v for k,v in service.items() if k!="scenes"},"width":W,"height":H,"frames":N,"fps":8,"gif":gif_name,"scenes":[{k:v for k,v in scene.items() if k!="draw"} for scene in service["scenes"]]})
  print(f'[3/5] {service["id"]}: GIF and preview exported; 3000ms loop verified.')
-print("[4/5] All twelve PNG strips verified as 1-bit; all 288 frames contain black/white only and every scene changes.")
+print("[4/5] Generated PNG strips verified as 1-bit; every scene changes.")
 (OUT/"service-animation-manifest.json").write_text(json.dumps({"services":all_services},ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
-print("[5/5] Manifest written. Original service posters have not been read or modified.")
+print("[5/5] Manifest written.")
