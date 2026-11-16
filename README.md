@@ -6,7 +6,7 @@
 
 ### 重製官網服務海報與四格動畫
 
-執行 `python build-service-animations.py --website-only`，再執行 `node sync-poster-animation-data.mjs`。前者輸出雙語黑白海報、四組影格 PNG、GIF 和預覽 PNG，驗證每格有 24 個黑白影格，再更新動畫清單。官網海報預設使用專案內的俐方體 11 號 WOFF2，在單色像素網格上將雙語主標加粗。執行環境需有支援 WOFF2 的 FreeType，也可用 `--website-font` 指定支援繁體中文的字型路徑。兩個指令都會先列出檔案絕對路徑與進度。
+執行 `python build-service-animations.py --website-only`，再執行 `node sync-poster-animation-data.mjs`。前者輸出雙語黑白海報、四組影格 PNG、GIF 和預覽 PNG，驗證每格有 24 個黑白影格，再更新動畫清單。官網海報預設使用專案內的俐方體 11 號 WOFF2，以整數像素繪製階梯邊框、Nicoa 頁首、雙行像素粗體標題與 2×2 動畫版位。四格與標題的座標存於動畫清單。執行環境需有支援 WOFF2 的 FreeType，也可用 `--website-font` 指定支援繁體中文的字型路徑。兩個指令都會先列出檔案絕對路徑與進度。
 
 ## 個人品牌官網服務方案下載
 

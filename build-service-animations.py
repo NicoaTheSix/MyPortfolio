@@ -311,27 +311,57 @@ def website_maintenance(d, f):
 
 
 def website_poster(frames, labels, font_path):
- # The source canvas uses whole pixels before scaling to the shared 1536 × 1024 format.
+ # Draw ornaments and panels on a 384 × 256 pixel grid.
  poster=Image.new("1",(384,256),1)
  draw=ImageDraw.Draw(poster)
  draw.rectangle((2,2,381,253),outline=0,width=3)
- draw.rectangle((8,8,375,247),outline=0)
- title, panels=labels
- caption_font=ImageFont.truetype(font_path,11)
+ draw.rectangle((7,7,376,248),outline=0)
+ for x,y,dx,dy in ((8,8,1,1),(375,8,-1,1),(8,247,1,-1),(375,247,-1,-1)):
+  draw.line([(x,y+12*dy),(x+12*dx,y)],fill=0,width=2)
+  for col,row in ((2,2),(2,6),(6,2),(10,2),(2,10)):
+   px,py=x+dx*col,y+dy*row
+   draw.rectangle((px-1,py-1,px+1,py+1),fill=0)
+
+ title, subtitle, panels=labels
+ label_font=ImageFont.truetype(font_path,11)
+ brand_font=ImageFont.truetype(font_path,16)
+ draw.text((192,17),"Nicoa",font=brand_font,fill=0,anchor="mm",stroke_width=1)
+ for start,end in ((90,161),(223,294)):
+  draw.line((start,18,end,18),fill=0,width=2)
+ for x,y in ((26,48),(38,58),(346,58),(358,48)):
+  draw.line((x-3,y,x+3,y),fill=0,width=1)
+  draw.line((x,y-3,x,y+3),fill=0,width=1)
+ draw.rectangle((33,69,350,83),fill=0)
+ for start in (24,351):
+  for row in range(5):
+   for col in range(3):
+    if (row+col)%2==0:
+     x,y=start+col*3,69+row*3
+     draw.rectangle((x,y,x+2,y+2),fill=0)
+ draw.text((192,76),subtitle,font=label_font,fill=1,anchor="mm")
+
  for i,scene in enumerate(frames):
-  x,y=12+i%2*182,77+i//2*83
-  draw.rectangle((x,y,x+176,y+78),outline=0,width=2)
-  poster.paste(scene[0].resize((106,54),Image.Resampling.NEAREST),(x+35,y+3))
-  draw.rectangle((x+2,y+59,x+174,y+76),fill=0)
-  draw.text((x+88,y+68),panels[i],font=caption_font,fill=1,anchor="mm")
- # Draw the title at twice the base resolution. A horizontal offset thickens stems without filling narrow glyph counters.
+  x,y=12+i%2*182,88+i//2*78
+  draw.rectangle((x,y,x+177,y+74),outline=0,width=2)
+  draw.rectangle((x+3,y+3,x+174,y+71),outline=0)
+  poster.paste(scene[0].resize((100,51),Image.Resampling.NEAREST),(x+39,y+5))
+  draw.rectangle((x+3,y+56,x+174,y+71),fill=0)
+  draw.text((x+89,y+64),panels[i],font=label_font,fill=1,anchor="mm")
+  for spot in (x+4,x+172):
+   draw.rectangle((spot,y+4,spot+1,y+5),fill=0)
+
+ # Fit each title line independently while preserving hard pixel edges and counters.
  poster=poster.resize((768,512),Image.Resampling.NEAREST)
- draw=ImageDraw.Draw(poster)
- title_font=ImageFont.truetype(font_path,44)
- for i,line in enumerate(title):
-  y=78 if len(title)==1 else 52+i*48
-  for x in (383,385):
-   draw.text((x,y),line,font=title_font,fill=0,anchor="mm")
+ title_font=ImageFont.truetype(font_path,66)
+ for line,center,target_height in zip(title,(71,111),(39,33)):
+  left,top,right,bottom=title_font.getbbox(line)
+  artwork=Image.new("1",(right-left+4,bottom-top),1)
+  title_draw=ImageDraw.Draw(artwork)
+  for offset in (0,2,4):
+   title_draw.text((offset-left,-top),line,font=title_font,fill=0)
+  width=min(576,artwork.width)
+  line_image=artwork.resize((width,target_height),Image.Resampling.NEAREST)
+  poster.paste(line_image,((768-width)//2,center-target_height//2))
  return poster.resize((1536,1024),Image.Resampling.NEAREST)
 
 
@@ -351,11 +381,11 @@ SERVICES=[
   {"id":"formula","title":"公式計算","draw":formula,"rect":[810,414,658,195]},
   {"id":"ocr","title":"圖片轉文字","draw":ocr,"rect":[61,720,674,188]},
   {"id":"batch","title":"批次處理","draw":batch,"rect":[794,720,682,188]}]},
- {"id":"website","title":"個人品牌官網建置與維護","source":"service-website-zh.png","gradient":["#ff6db3","#d29dff"],"titleRect":[48,60,1440,204],"scenes":[
-  {"id":"build","title":"官網建置","draw":website_build,"rect":[60,320,680,216]},
-  {"id":"migration","title":"網站遷移","draw":website_migration,"rect":[788,320,680,216]},
-  {"id":"redesign","title":"品牌形象重構","draw":website_redesign,"rect":[60,652,680,216]},
-  {"id":"maintenance","title":"網站維護","draw":website_maintenance,"rect":[788,652,680,216]}]},
+ {"id":"website","title":"個人品牌官網建置與維護","source":"service-website-zh.png","gradient":["#ff6db3","#d29dff"],"titleRect":[184,100,1168,164],"scenes":[
+  {"id":"build","title":"官網建置","draw":website_build,"rect":[68,372,672,204]},
+  {"id":"migration","title":"網站遷移","draw":website_migration,"rect":[796,372,672,204]},
+  {"id":"redesign","title":"品牌形象重構","draw":website_redesign,"rect":[68,684,672,204]},
+  {"id":"maintenance","title":"網站維護","draw":website_maintenance,"rect":[796,684,672,204]}]},
 ]
 
 parser=argparse.ArgumentParser()
@@ -404,8 +434,8 @@ for service in selected:
   print(f'[2/5] {scene_count}/{total_scenes} ({scene_count*100//total_scenes}%) {service["id"]}/{scene["id"]}: 24 two-color frames.')
  if service["id"]=="website":
   for lang,labels in {
-   "zh": (("個人品牌官網建置與維護",),("官網建置","網站遷移","品牌形象重構","網站維護")),
-   "en": (("Personal Brand Website","Design & Maintenance"),("Website design","Website migration","Brand redesign","Maintenance")),
+   "zh": (("個人品牌官網","建置與維護"),"設計 / 遷移 / 維護",("官網建置","網站遷移","品牌形象重構","網站維護")),
+   "en": (("Personal Brand Website","Design & Maintenance"),"DESIGN / MIGRATE / MAINTAIN",("Website design","Website migration","Brand redesign","Maintenance")),
   }.items():
    website_poster(all_frames,labels,args.website_font).save(OUT/f"service-website-{lang}.png")
  previews=[]
