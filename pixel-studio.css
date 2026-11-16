@@ -866,5 +866,13 @@ body:has(.studio-toolbar)::before {
 
 #services .service-card.is-window-small .excel-case { display: none; }
 
+#services .website-service-plan h3 {
+  font-family: "Cubic 11", var(--sans);
+  font-size: clamp(1.375rem, 2vw, 1.625rem);
+  font-weight: 900;
+  line-height: 1.4;
+  -webkit-text-stroke: .4px currentColor;
+}
+
 #services .website-service-plan .work-links { overflow-wrap: anywhere; }
 #services .website-service-plan .work-links a { min-height: 44px; }

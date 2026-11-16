@@ -317,16 +317,21 @@ def website_poster(frames, labels, font_path):
  draw.rectangle((2,2,381,253),outline=0,width=3)
  draw.rectangle((8,8,375,247),outline=0)
  title, panels=labels
- font=ImageFont.truetype(font_path, 31 if len(title)==1 else 22)
- for i,line in enumerate(title):
-  draw.text((192,39 if len(title)==1 else 27+i*22),line,font=font,fill=0,anchor="mm")
- caption_font=ImageFont.truetype(font_path,12)
+ caption_font=ImageFont.truetype(font_path,11)
  for i,scene in enumerate(frames):
   x,y=12+i%2*182,77+i//2*83
   draw.rectangle((x,y,x+176,y+78),outline=0,width=2)
   poster.paste(scene[0].resize((106,54),Image.Resampling.NEAREST),(x+35,y+3))
   draw.rectangle((x+2,y+59,x+174,y+76),fill=0)
   draw.text((x+88,y+68),panels[i],font=caption_font,fill=1,anchor="mm")
+ # Draw the title at twice the base resolution. A horizontal offset thickens stems without filling narrow glyph counters.
+ poster=poster.resize((768,512),Image.Resampling.NEAREST)
+ draw=ImageDraw.Draw(poster)
+ title_font=ImageFont.truetype(font_path,44)
+ for i,line in enumerate(title):
+  y=78 if len(title)==1 else 52+i*48
+  for x in (383,385):
+   draw.text((x,y),line,font=title_font,fill=0,anchor="mm")
  return poster.resize((1536,1024),Image.Resampling.NEAREST)
 
 
@@ -355,7 +360,7 @@ SERVICES=[
 
 parser=argparse.ArgumentParser()
 parser.add_argument("--website-only",action="store_true",help="Rebuild the website card and keep the other manifest entries.")
-parser.add_argument("--website-font",type=Path,default=Path("C:/Windows/Fonts/msjhbd.ttc"))
+parser.add_argument("--website-font",type=Path,default=OUT/"fonts"/"cubic-11.woff2")
 args=parser.parse_args()
 selected=[service for service in SERVICES if not args.website_only or service["id"]=="website"]
 manifest=OUT/"service-animation-manifest.json"
