@@ -621,12 +621,9 @@ body:has(.studio-toolbar)::before {
 .showcase-demos { padding-top: clamp(30px, 5vw, 62px); }
 .showcase-demos .section-heading h3 { font-size: clamp(1.35rem, 2.7vw, 1.85rem); }
 .showcase-grid .work-body h4 { margin: 0 0 8px; font-size: clamp(1.1rem, 2vw, 1.4rem); line-height: 1.4; }
-.showcase-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: clamp(16px, 2vw, 28px);
-}
 .showcase-grid .work-card { display: flex; flex-direction: column; min-width: 0; }
+.showcase-grid .work-card.is-window-small { align-self: start; }
+.showcase-grid .work-card.is-window-small .work-body { display: none; }
 .showcase-grid .work-body { display: flex; flex: 1; flex-direction: column; }
 .showcase-grid .work-links { margin-top: auto; padding-top: 12px; }
 .showcase-cover {
@@ -721,7 +718,7 @@ body:has(.studio-toolbar)::before {
     clip-path: polygon(0 0, 43% 7%, 43% 79%, 50% 87%, 57% 79%, 57% 7%, 100% 0, 100% 83%, 55% 88%, 50% 100%, 45% 88%, 0 83%);
   }
   .studio-stage:has(.studio-portrait) { grid-template-columns: minmax(0, 1fr); gap: 20px; }
-  .showcase-feature, .showcase-grid { grid-template-columns: minmax(0, 1fr); }
+  .showcase-feature { grid-template-columns: minmax(0, 1fr); }
   .showcase-video { border-inline-end: 0; border-bottom: 1px solid #777; }
 }
 
@@ -814,7 +811,9 @@ body:has(.studio-toolbar)::before {
   font-size: .875rem;
 }
 
-#services .service-grid.service-row {
+#services .service-grid.service-row,
+.showcase-grid {
+  display: grid;
   grid-template-columns: none;
   grid-auto-flow: column;
   grid-auto-columns: min(clamp(19rem, 30vw, 23rem), 82vw);
@@ -828,12 +827,13 @@ body:has(.studio-toolbar)::before {
   scrollbar-color: #aaa #292929;
 }
 
-.service-row:focus-visible {
+:is(.service-row, .showcase-grid):focus-visible {
   outline: 2px dashed #ddd;
   outline-offset: 3px;
 }
 
-.service-row > .service-card { scroll-snap-align: start; }
+.service-row > .service-card,
+.showcase-grid > .work-card { scroll-snap-align: start; }
 
 #services .service-card .excel-case {
   margin: 0 12px 14px;
@@ -876,3 +876,4 @@ body:has(.studio-toolbar)::before {
 
 #services .website-service-plan .work-links { overflow-wrap: anywhere; }
 #services .website-service-plan .work-links a { min-height: 44px; }
+#services .website-service-plan .work-links .button { gap: 12px; }

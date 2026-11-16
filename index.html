@@ -16,7 +16,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <link rel="stylesheet" href="./styles.css?v=20261031-desktiles">
   <link rel="stylesheet" href="./service-cards.css?v=20261110-service-zoom">
   <script src="./script.js?v=20261111-desktop" defer></script>
-  <link rel="stylesheet" href="./pixel-studio.css?v=20261116-website-bold">
+  <link rel="stylesheet" href="./pixel-studio.css?v=20261116-demo-windows">
   <script defer src="./demos/pixel-pets/pets.js"></script>
   <script defer src="./home-pixel-pet.js"></script>
 <link href="./pixel-scenes.css?v=20261031-poster-ready" rel="stylesheet"><link href="./home-pixel.css?v=20261109-resume" rel="stylesheet"><script defer src="./home-pixel.js?v=20261111-desktop"></script><script defer src="./poster-animation-data.js?v=20261116-website-series"></script><script defer src="./poster-image-ready.js?v=20261112-responsive-images"></script><script defer src="./pixel-scenes.js?v=20261110-layout"></script><script defer src="./pixel-service-posters.js?v=20261116-website-poster"></script><link rel="icon" href="./assets/brand/nicoa-lab-symbol-transparent-32.png" type="image/png" sizes="32x32"><link rel="icon" href="./assets/brand/nicoa-lab-symbol-transparent-64.png" type="image/png" sizes="64x64"><link rel="apple-touch-icon" href="./assets/brand/nicoa-lab-symbol-transparent-180.png" sizes="180x180"><link rel="stylesheet" href="./brand.css?v=20261107-logo">  <script defer src="./studio-space.js?v=20261110-twinkle"></script>
@@ -101,9 +101,10 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
       </div>
       <section class="showcase-demos" id="website-demos" aria-labelledby="website-demos-heading">
         <div class="section-heading"><h3 id="website-demos-heading">示範網站</h3></div>
-        <div class="showcase-grid">
-          <article class="work-card">
-            <div class="showcase-cover showcase-cover--lin-da" aria-hidden="true"><picture class="home-responsive-image"><source type="image/webp" srcset="./assets/home-images/taiwan-street-hero-480.webp 480w, ./assets/home-images/taiwan-street-hero-960.webp 960w, ./assets/home-images/taiwan-street-hero-1440.webp 1440w" sizes="(max-width: 720px) calc(100vw - 40px), (min-width: 1440px) min(42vw, 1440px), min(48vw, 584px)"><img src="./demos/lin-da/assets/images/taiwan-street-hero.png" alt="臺灣街區的房仲網站主視覺" loading="lazy"></picture><img class="showcase-mark" src="./demos/lin-da/advanced/logo-transparent.png" alt="林達房仲示範標誌" loading="lazy"></div>
+        <p class="service-row-hint" id="website-demos-hint">向左或向右滑動，查看所有示範網站</p>
+        <div class="showcase-grid" role="region" aria-label="示範網站" aria-describedby="website-demos-hint" tabindex="0">
+          <article class="work-card" id="demo-lin-da" data-window-title="林達房仲">
+            <div class="showcase-cover showcase-cover--lin-da" aria-hidden="true"><picture class="home-responsive-image"><source type="image/webp" srcset="./assets/home-images/taiwan-street-hero-480.webp 480w, ./assets/home-images/taiwan-street-hero-960.webp 960w, ./assets/home-images/taiwan-street-hero-1440.webp 1440w" sizes="min(clamp(304px, 30vw, 368px), 82vw)"><img src="./demos/lin-da/assets/images/taiwan-street-hero.png" alt="臺灣街區的房仲網站主視覺" loading="lazy"></picture><img class="showcase-mark" src="./demos/lin-da/advanced/logo-transparent.png" alt="林達房仲示範標誌" loading="lazy"></div>
             <div class="work-body">
               <h4>林達｜房仲個人網站</h4>
               <p class="work-description">以虛構的臺灣房仲為主角，展示住宅案例篩選與諮詢表單。動畫版加入從街區、門廳到客廳的三鏡頭片頭。</p>
@@ -114,8 +115,8 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
               </div>
             </div>
           </article>
-          <article class="work-card">
-            <div class="showcase-cover showcase-cover--town-memory" aria-hidden="true"><picture class="home-responsive-image"><source type="image/webp" srcset="./assets/home-images/town-valley-480.webp 480w, ./assets/home-images/town-valley-960.webp 960w, ./assets/home-images/town-valley-1440.webp 1440w" sizes="(max-width: 720px) calc(100vw - 40px), (min-width: 1440px) min(42vw, 1440px), min(48vw, 584px)"><img src="./demos/town-memory/assets/images/town-valley.png" alt="杉溪鄉山谷與溪流" loading="lazy"></picture><img class="showcase-mark" src="./demos/town-memory/advanced/logo-transparent.png" alt="杉溪鄉地方記憶誌標誌" loading="lazy"></div>
+          <article class="work-card" id="demo-town-memory" data-window-title="杉溪鄉">
+            <div class="showcase-cover showcase-cover--town-memory" aria-hidden="true"><picture class="home-responsive-image"><source type="image/webp" srcset="./assets/home-images/town-valley-480.webp 480w, ./assets/home-images/town-valley-960.webp 960w, ./assets/home-images/town-valley-1440.webp 1440w" sizes="min(clamp(304px, 30vw, 368px), 82vw)"><img src="./demos/town-memory/assets/images/town-valley.png" alt="杉溪鄉山谷與溪流" loading="lazy"></picture><img class="showcase-mark" src="./demos/town-memory/advanced/logo-transparent.png" alt="杉溪鄉地方記憶誌標誌" loading="lazy"></div>
             <div class="work-body">
               <h4>杉溪鄉｜地方記憶誌</h4>
               <p class="work-description">以虛構的臺灣山腳聚落示範地方發展紀錄。沿著交趾陶、登山步道、螢火蟲與交趾陶陶藝節四章閱讀，也可留下自己的記憶筆記。</p>
@@ -125,7 +126,7 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
               </div>
             </div>
           </article>
-          <article class="work-card">
+          <article class="work-card" id="demo-pixel-pets" data-window-title="嗶嗶電子雞">
             <div class="showcase-cover showcase-cover--pixel-pets" aria-hidden="true"><img src="./demos/pixel-pets/advanced/logo-transparent.png" alt="嗶嗶電子雞像素寵物店標誌" width="512" height="512" loading="lazy"></div>
             <div class="work-body">
               <h4>嗶嗶電子雞｜像素寵物商店</h4>
@@ -136,8 +137,8 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
               </div>
             </div>
           </article>
-          <article class="work-card">
-            <div class="showcase-cover showcase-cover--reptile-cafe" aria-hidden="true"><picture class="home-responsive-image"><source type="image/webp" srcset="./assets/home-images/cafe-interior-480.webp 480w, ./assets/home-images/cafe-interior-960.webp 960w, ./assets/home-images/cafe-interior-1440.webp 1440w" sizes="(max-width: 720px) calc(100vw - 40px), (min-width: 1440px) min(42vw, 1440px), min(48vw, 584px)"><img src="./demos/reptile-cafe/assets/images/cafe-interior.webp" alt="棲光爬蟲咖啡室內場景" loading="lazy"></picture><img class="showcase-mark" src="./demos/reptile-cafe/advanced/logo-transparent.png" alt="棲光爬蟲咖啡標誌" loading="lazy"></div>
+          <article class="work-card" id="demo-reptile-cafe" data-window-title="棲光爬蟲咖啡">
+            <div class="showcase-cover showcase-cover--reptile-cafe" aria-hidden="true"><picture class="home-responsive-image"><source type="image/webp" srcset="./assets/home-images/cafe-interior-480.webp 480w, ./assets/home-images/cafe-interior-960.webp 960w, ./assets/home-images/cafe-interior-1440.webp 1440w" sizes="min(clamp(304px, 30vw, 368px), 82vw)"><img src="./demos/reptile-cafe/assets/images/cafe-interior.webp" alt="棲光爬蟲咖啡室內場景" loading="lazy"></picture><img class="showcase-mark" src="./demos/reptile-cafe/advanced/logo-transparent.png" alt="棲光爬蟲咖啡標誌" loading="lazy"></div>
             <div class="work-body">
               <h4>棲光爬蟲咖啡｜店家網站</h4>
               <p class="work-description">從六種爬蟲和生態缸的生成照片，認識這家虛構咖啡廳的甜點、店內規則、交通與週六飼主聚會。</p>
@@ -147,7 +148,7 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
               </div>
             </div>
           </article>
-          <article class="work-card">
+          <article class="work-card" id="demo-dayfold" data-window-title="折日生活">
             <div class="showcase-cover" aria-hidden="true"><img src="./demos/dayfold/assets/kitchen.webp" alt="折日生活廚房" loading="lazy"><img class="showcase-mark" src="./demos/dayfold/assets/logo-transparent.png" alt="折日生活標誌" loading="lazy"></div>
             <div class="work-body">
               <h4>折日生活｜直銷顧問示範</h4>
@@ -292,7 +293,7 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
             <h3 id="website-service-plan-title">個人品牌官網建置與維護</h3>
             <p>從新建官網到既有網站改版，協助搬遷內容、重整品牌視覺與版面，並提供上線後維護。</p>
             <div class="tags"><span>官網建置與維護</span><span>網站遷移</span><span>品牌形象重構</span></div>
-            <div class="work-links"><a class="text-link" href="./assets/downloads/personal-brand-website-service-plan.pdf" download>下載服務方案（PDF） <span aria-hidden="true">↓</span></a></div>
+            <div class="work-links"><a class="button button-dark" href="mailto:nick5901879@gmail.com?subject=%E5%80%8B%E4%BA%BA%E5%93%81%E7%89%8C%E5%AE%98%E7%B6%B2%E9%9C%80%E6%B1%82%E8%A9%A2%E5%95%8F&amp;body=%E4%BD%A0%E5%A5%BD%20Nicoa%EF%BC%8C%E6%88%91%E6%83%B3%E8%A9%A2%E5%95%8F%E7%B6%B2%E7%AB%99%E6%9C%8D%E5%8B%99%E3%80%82%0D%0A%0D%0A%E9%9C%80%E8%A6%81%E7%9A%84%E6%9C%8D%E5%8B%99%EF%BC%88%E6%96%B0%E5%BB%BA%E3%80%81%E6%90%AC%E9%81%B7%E3%80%81%E6%94%B9%E7%89%88%E6%88%96%E7%B6%AD%E8%AD%B7%EF%BC%89%EF%BC%9A%0D%0A%0D%0A%E6%83%B3%E9%81%94%E6%88%90%E7%9A%84%E7%9B%AE%E6%A8%99%E8%88%87%E9%9C%80%E8%A6%81%E7%9A%84%E5%8A%9F%E8%83%BD%EF%BC%9A%0D%0A%0D%0A%E7%8F%BE%E6%9C%89%E7%B6%B2%E7%AB%99%E6%88%96%E5%8F%83%E8%80%83%E7%B6%B2%E5%9D%80%EF%BC%9A%0D%0A%0D%0A%E9%A0%90%E8%A8%88%E4%B8%8A%E7%B7%9A%E6%97%A5%E6%9C%9F%EF%BC%9A%0D%0A%0D%0A%E9%A0%90%E7%AE%97%E7%AF%84%E5%9C%8D%EF%BC%88%E9%81%B8%E5%A1%AB%EF%BC%89%EF%BC%9A">詢問網站需求 <span aria-hidden="true">↗</span></a><a class="text-link" href="./assets/downloads/personal-brand-website-service-plan.pdf" download>下載服務方案（PDF） <span aria-hidden="true">↓</span></a></div>
           </div>
         </article>
       </div>
