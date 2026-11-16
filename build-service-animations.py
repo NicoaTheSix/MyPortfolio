@@ -350,18 +350,22 @@ def website_poster(frames, labels, font_path):
   for spot in (x+4,x+172):
    draw.rectangle((spot,y+4,spot+1,y+5),fill=0)
 
- # Fit each title line independently while preserving hard pixel edges and counters.
+ # Use one scale for both title lines and both axes, preserving the pixel font proportions.
  poster=poster.resize((768,512),Image.Resampling.NEAREST)
  title_font=ImageFont.truetype(font_path,66)
- for line,center,target_height in zip(title,(71,111),(39,33)):
+ title_lines=[]
+ for line in title:
   left,top,right,bottom=title_font.getbbox(line)
   artwork=Image.new("1",(right-left+4,bottom-top),1)
   title_draw=ImageDraw.Draw(artwork)
   for offset in (0,2,4):
    title_draw.text((offset-left,-top),line,font=title_font,fill=0)
-  width=min(576,artwork.width)
-  line_image=artwork.resize((width,target_height),Image.Resampling.NEAREST)
-  poster.paste(line_image,((768-width)//2,center-target_height//2))
+  title_lines.append(artwork)
+ scale=min(1,576/max(line.width for line in title_lines),37/max(line.height for line in title_lines))
+ for line,center in zip(title_lines,(70,112)):
+  width,height=round(line.width*scale),round(line.height*scale)
+  line_image=line.resize((width,height),Image.Resampling.NEAREST)
+  poster.paste(line_image,((768-width)//2,center-height//2))
  return poster.resize((1536,1024),Image.Resampling.NEAREST)
 
 
