@@ -1,3 +1,9 @@
+## 個人品牌官網服務方案下載
+
+中英文首頁從「服務」區的 `#website-service-plan` 指向同一份繁體中文 PDF。公開檔案位於 `assets/downloads/personal-brand-website-service-plan.pdf`。更新時只替換已核准公開的通用 PDF。
+
+執行 `node check-site.mjs` 確認頁面錨點與相對路徑，再用 `npm run preview` 開啟雙語服務區。預覽程式列出來源目錄的絕對路徑、輸出網址與啟動進度。點選下載後，核對 PDF 可開啟，並以 `Get-FileHash -Algorithm SHA256` 比對來源和下載檔案。
+
 ## 雙語接案入口與 Excel 範例
 
 中英文首頁的自我介紹旁有「看服務與範例」，前往 `#services` 的 Excel 資料整理與文書自動化區塊。案例用同一組模擬出貨資料呈現掃描原表和整理後的 Excel 欄位。無法辨識的數量在輸出中保留空白，狀態列標記待確認。
