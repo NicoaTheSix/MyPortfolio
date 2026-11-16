@@ -16,10 +16,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <link rel="stylesheet" href="./styles.css?v=20261031-desktiles">
   <link rel="stylesheet" href="./service-cards.css?v=20261110-service-zoom">
   <script src="./script.js?v=20261111-desktop" defer></script>
-  <link rel="stylesheet" href="./pixel-studio.css?v=20261116-demo-windows">
+  <link rel="stylesheet" href="./pixel-studio.css?v=20261116-row-arrows">
   <script defer src="./demos/pixel-pets/pets.js"></script>
   <script defer src="./home-pixel-pet.js"></script>
-<link href="./pixel-scenes.css?v=20261031-poster-ready" rel="stylesheet"><link href="./home-pixel.css?v=20261109-resume" rel="stylesheet"><script defer src="./home-pixel.js?v=20261111-desktop"></script><script defer src="./poster-animation-data.js?v=20261116-website-series"></script><script defer src="./poster-image-ready.js?v=20261112-responsive-images"></script><script defer src="./pixel-scenes.js?v=20261110-layout"></script><script defer src="./pixel-service-posters.js?v=20261116-website-poster"></script><link rel="icon" href="./assets/brand/nicoa-lab-symbol-transparent-32.png" type="image/png" sizes="32x32"><link rel="icon" href="./assets/brand/nicoa-lab-symbol-transparent-64.png" type="image/png" sizes="64x64"><link rel="apple-touch-icon" href="./assets/brand/nicoa-lab-symbol-transparent-180.png" sizes="180x180"><link rel="stylesheet" href="./brand.css?v=20261107-logo">  <script defer src="./studio-space.js?v=20261110-twinkle"></script>
+<link href="./pixel-scenes.css?v=20261031-poster-ready" rel="stylesheet"><link href="./home-pixel.css?v=20261109-resume" rel="stylesheet"><script defer src="./home-pixel.js?v=20261116-row-arrows"></script><script defer src="./poster-animation-data.js?v=20261116-website-series"></script><script defer src="./poster-image-ready.js?v=20261112-responsive-images"></script><script defer src="./pixel-scenes.js?v=20261110-layout"></script><script defer src="./pixel-service-posters.js?v=20261116-website-poster"></script><link rel="icon" href="./assets/brand/nicoa-lab-symbol-transparent-32.png" type="image/png" sizes="32x32"><link rel="icon" href="./assets/brand/nicoa-lab-symbol-transparent-64.png" type="image/png" sizes="64x64"><link rel="apple-touch-icon" href="./assets/brand/nicoa-lab-symbol-transparent-180.png" sizes="180x180"><link rel="stylesheet" href="./brand.css?v=20261107-logo">  <script defer src="./studio-space.js?v=20261110-twinkle"></script>
   <!-- portfolio-seo:start -->
   <meta name="description" content="瀏覽 Nicoa The Six 的程式作品、網站示範與文章，了解程式開發、Scratch 教學、中英文翻譯和文書資料整理服務。">
   <link rel="canonical" href="https://nicoathesix.github.io/MyPortfolio/">
@@ -101,8 +101,14 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
       </div>
       <section class="showcase-demos" id="website-demos" aria-labelledby="website-demos-heading">
         <div class="section-heading"><h3 id="website-demos-heading">示範網站</h3></div>
-        <p class="service-row-hint" id="website-demos-hint">向左或向右滑動，查看所有示範網站</p>
-        <div class="showcase-grid" role="region" aria-label="示範網站" aria-describedby="website-demos-hint" tabindex="0">
+        <div class="card-row-toolbar">
+          <p class="service-row-hint" id="website-demos-hint">向左或向右滑動，查看所有示範網站</p>
+          <div class="card-row-controls" data-row-controls role="group" aria-label="示範網站切換" hidden>
+            <button type="button" data-row-step="previous" aria-controls="website-demo-list" aria-label="上一個示範網站">←</button>
+            <button type="button" data-row-step="next" aria-controls="website-demo-list" aria-label="下一個示範網站">→</button>
+          </div>
+        </div>
+        <div class="showcase-grid" id="website-demo-list" role="region" aria-label="示範網站" aria-describedby="website-demos-hint" tabindex="0">
           <article class="work-card" id="demo-lin-da" data-window-title="林達房仲">
             <div class="showcase-cover showcase-cover--lin-da" aria-hidden="true"><picture class="home-responsive-image"><source type="image/webp" srcset="./assets/home-images/taiwan-street-hero-480.webp 480w, ./assets/home-images/taiwan-street-hero-960.webp 960w, ./assets/home-images/taiwan-street-hero-1440.webp 1440w" sizes="min(clamp(304px, 30vw, 368px), 82vw)"><img src="./demos/lin-da/assets/images/taiwan-street-hero.png" alt="臺灣街區的房仲網站主視覺" loading="lazy"></picture><img class="showcase-mark" src="./demos/lin-da/advanced/logo-transparent.png" alt="林達房仲示範標誌" loading="lazy"></div>
             <div class="work-body">
@@ -215,7 +221,13 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
     <div class="ticker" aria-hidden="true"><div class="container ticker-inner"><span>CODE WITH CURIOSITY</span><b>✦</b><span>WRITE WITH CLARITY</span><b>✦</b><span>LEARN BY MAKING</span><b>✦</b><span>把想法變成作品</span></div></div>
     <section class="section container" id="services" aria-labelledby="services-heading">
       <div class="section-heading"><div><p class="eyebrow">01 / WHAT I DO</p><h2 id="services-heading">Excel 資料整理與文書自動化</h2></div><p>單次轉檔、資料輸入與報表整理都可委託。固定要做的表格工作，也能討論如何自動化。</p></div>
-      <p class="service-row-hint" id="service-row-hint">向左或向右滑動，查看所有服務</p>
+      <div class="card-row-toolbar">
+        <p class="service-row-hint" id="service-row-hint">向左或向右滑動，查看所有服務</p>
+        <div class="card-row-controls" data-row-controls role="group" aria-label="服務小卡切換" hidden>
+          <button type="button" data-row-step="previous" aria-controls="service-list" aria-label="上一張服務小卡">←</button>
+          <button type="button" data-row-step="next" aria-controls="service-list" aria-label="下一張服務小卡">→</button>
+        </div>
+      </div>
       <div class="service-grid service-row" id="service-list" role="region" aria-label="服務項目" aria-describedby="service-row-hint" tabindex="0">
         <article id="service-development" data-window-title="程式開發" class="service-card pixel-reveal"><div class="poster-frame" id="development-poster-frame" data-view="original">
       <picture class="home-responsive-image"><source type="image/webp" srcset="./assets/home-images/service-development-zh-480.webp 480w, ./assets/home-images/service-development-zh-768.webp 768w, ./assets/home-images/service-development-zh-1152.webp 1152w, ./assets/home-images/service-development-zh-1536.webp 1536w" sizes="min(clamp(304px, 30vw, 368px), 82vw)"><img loading="lazy" id="scenes-fallback" class="poster-base" src="./assets/service-development-zh.png" width="1536" height="1024" alt="程式開發海報：圖形化介面、自動化工具、API 串接與技術文件"></picture>

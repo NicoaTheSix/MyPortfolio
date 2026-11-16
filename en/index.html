@@ -16,10 +16,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <link rel="stylesheet" href="../styles.css?v=20261031-desktiles">
   <link rel="stylesheet" href="../service-cards.css?v=20261110-service-zoom">
   <script src="../script.js?v=20261111-desktop" defer></script>
-  <link rel="stylesheet" href="../pixel-studio.css?v=20261116-demo-windows">
+  <link rel="stylesheet" href="../pixel-studio.css?v=20261116-row-arrows">
   <script defer src="../demos/pixel-pets/pets.js"></script>
   <script defer src="../home-pixel-pet.js"></script>
-<link href="../pixel-scenes.css?v=20261031-poster-ready" rel="stylesheet"><link href="../home-pixel.css?v=20261109-resume" rel="stylesheet"><script defer src="../home-pixel.js?v=20261111-desktop"></script><script defer src="../poster-animation-data.js?v=20261116-website-series"></script><script defer src="../poster-image-ready.js?v=20261112-responsive-images"></script><script defer src="../pixel-scenes.js?v=20261110-layout"></script><script defer src="../pixel-service-posters.js?v=20261116-website-poster"></script><link rel="icon" href="../assets/brand/nicoa-lab-symbol-transparent-32.png" type="image/png" sizes="32x32"><link rel="icon" href="../assets/brand/nicoa-lab-symbol-transparent-64.png" type="image/png" sizes="64x64"><link rel="apple-touch-icon" href="../assets/brand/nicoa-lab-symbol-transparent-180.png" sizes="180x180"><link rel="stylesheet" href="../brand.css?v=20261107-logo">  <script defer src="../studio-space.js?v=20261110-twinkle"></script>
+<link href="../pixel-scenes.css?v=20261031-poster-ready" rel="stylesheet"><link href="../home-pixel.css?v=20261109-resume" rel="stylesheet"><script defer src="../home-pixel.js?v=20261116-row-arrows"></script><script defer src="../poster-animation-data.js?v=20261116-website-series"></script><script defer src="../poster-image-ready.js?v=20261112-responsive-images"></script><script defer src="../pixel-scenes.js?v=20261110-layout"></script><script defer src="../pixel-service-posters.js?v=20261116-website-poster"></script><link rel="icon" href="../assets/brand/nicoa-lab-symbol-transparent-32.png" type="image/png" sizes="32x32"><link rel="icon" href="../assets/brand/nicoa-lab-symbol-transparent-64.png" type="image/png" sizes="64x64"><link rel="apple-touch-icon" href="../assets/brand/nicoa-lab-symbol-transparent-180.png" sizes="180x180"><link rel="stylesheet" href="../brand.css?v=20261107-logo">  <script defer src="../studio-space.js?v=20261110-twinkle"></script>
   <!-- portfolio-seo:start -->
   <meta name="description" content="Explore software, website demos and articles by Nicoa The Six, and find development, Scratch tutoring, translation and document services.">
   <link rel="canonical" href="https://nicoathesix.github.io/MyPortfolio/en/">
@@ -99,8 +99,14 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
       </div>
       <section class="showcase-demos" id="website-demos" aria-labelledby="website-demos-heading">
         <div class="section-heading"><h3 id="website-demos-heading">Website demos</h3></div>
-        <p class="service-row-hint" id="website-demos-hint">Scroll left or right to browse all website demos</p>
-        <div class="showcase-grid" role="region" aria-label="Website demos" aria-describedby="website-demos-hint" tabindex="0">
+        <div class="card-row-toolbar">
+          <p class="service-row-hint" id="website-demos-hint">Scroll left or right to browse all website demos</p>
+          <div class="card-row-controls" data-row-controls role="group" aria-label="Website demo navigation" hidden>
+            <button type="button" data-row-step="previous" aria-controls="website-demo-list" aria-label="Previous website demo">←</button>
+            <button type="button" data-row-step="next" aria-controls="website-demo-list" aria-label="Next website demo">→</button>
+          </div>
+        </div>
+        <div class="showcase-grid" id="website-demo-list" role="region" aria-label="Website demos" aria-describedby="website-demos-hint" tabindex="0">
           <article class="work-card" id="demo-lin-da" data-window-title="Lin Da">
             <div class="showcase-cover showcase-cover--lin-da" aria-hidden="true"><picture class="home-responsive-image"><source type="image/webp" srcset="../assets/home-images/taiwan-street-hero-480.webp 480w, ../assets/home-images/taiwan-street-hero-960.webp 960w, ../assets/home-images/taiwan-street-hero-1440.webp 1440w" sizes="min(clamp(304px, 30vw, 368px), 82vw)"><img src="../demos/lin-da/assets/images/taiwan-street-hero.png" alt="Taiwanese street in the real estate demo" loading="lazy"></picture><img class="showcase-mark" src="../demos/lin-da/advanced/logo-transparent.png" alt="Lin Da real estate demo logo" loading="lazy"></div>
             <div class="work-body">
@@ -204,7 +210,13 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
     <div class="ticker" aria-hidden="true"><div class="container ticker-inner"><span>CODE WITH CURIOSITY</span><b>✦</b><span>WRITE WITH CLARITY</span><b>✦</b><span>LEARN BY MAKING</span><b>✦</b><span>TURN IDEAS INTO WORK</span></div></div>
     <section class="section container" id="services" aria-labelledby="services-heading">
       <div class="section-heading"><div><p class="eyebrow">01 / WHAT I DO</p><h2 id="services-heading">Excel Data Cleanup & Office Automation</h2></div><p>Get help converting files, entering data, or organizing reports. If you repeat the same spreadsheet task regularly, we can discuss automating it.</p></div>
-      <p class="service-row-hint" id="service-row-hint">Scroll left or right to browse all services</p>
+      <div class="card-row-toolbar">
+        <p class="service-row-hint" id="service-row-hint">Scroll left or right to browse all services</p>
+        <div class="card-row-controls" data-row-controls role="group" aria-label="Service card navigation" hidden>
+          <button type="button" data-row-step="previous" aria-controls="service-list" aria-label="Previous service card">←</button>
+          <button type="button" data-row-step="next" aria-controls="service-list" aria-label="Next service card">→</button>
+        </div>
+      </div>
       <div class="service-grid service-row" id="service-list" role="region" aria-label="Services" aria-describedby="service-row-hint" tabindex="0">
         <article id="service-development" data-window-title="Software development" class="service-card pixel-reveal"><div class="poster-frame" id="development-poster-frame" data-view="original">
       <picture class="home-responsive-image"><source type="image/webp" srcset="../assets/home-images/service-development-en-480.webp 480w, ../assets/home-images/service-development-en-768.webp 768w, ../assets/home-images/service-development-en-1152.webp 1152w, ../assets/home-images/service-development-en-1536.webp 1536w" sizes="min(clamp(304px, 30vw, 368px), 82vw)"><img loading="lazy" id="scenes-fallback" class="poster-base" src="../assets/service-development-en.png" width="1536" height="1024" alt="Software development: C++, Java, Python, GUI applications, automation, API integration and technical documentation"></picture>

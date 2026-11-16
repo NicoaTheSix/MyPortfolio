@@ -103,6 +103,48 @@
   }
   console.info('[復古視窗 2/3] 已接上個別最小化、縮放、關閉與重開。');
   console.info('[復古視窗 3/3] 鍵盤焦點與雙語控制就緒。');
+
+  const rowControls = document.querySelectorAll('[data-row-controls]');
+  console.info('[橫列導覽 0/2] 輸入絕對 URL：',location.href,document.currentScript.src);
+  for (const controls of rowControls) {
+    const previous = controls.querySelector('[data-row-step="previous"]');
+    const next = controls.querySelector('[data-row-step="next"]');
+    const row = document.getElementById(previous.getAttribute('aria-controls'));
+    const maxScroll = () => row.scrollWidth - row.clientWidth;
+    const atStart = () => row.scrollLeft <= 1;
+    const atEnd = () => row.scrollLeft >= maxScroll() - 1;
+    console.info('[橫列導覽 0/2] 輸出絕對 URL：',new URL('#'+row.id,location.href).href,'的按鈕狀態與捲動位置。');
+
+    const sync = () => {
+      controls.hidden = maxScroll() <= 1;
+      previous.setAttribute('aria-disabled',String(atStart()));
+      next.setAttribute('aria-disabled',String(atEnd()));
+    };
+    const step = forward => {
+      if (forward ? atEnd() : atStart()) return;
+      const scrollLeft = row.scrollLeft;
+      const padding = Number.parseFloat(getComputedStyle(row).scrollPaddingLeft) || 0;
+      const start = row.getBoundingClientRect().left + row.clientLeft + padding;
+      const limit = maxScroll();
+      const stops = Array.from(row.children, card =>
+        Math.min(limit, Math.max(0, card.getBoundingClientRect().left + scrollLeft - start))
+      );
+      stops.push(limit);
+      if (!forward) stops.reverse();
+      const destination = stops.find(stop => forward ? stop > scrollLeft + 1 : stop < scrollLeft - 1);
+      row.scrollTo({left:destination ?? (forward ? limit : 0),behavior:'instant'});
+      sync();
+    };
+    previous.addEventListener('click',()=>step(false));
+    next.addEventListener('click',()=>step(true));
+    row.addEventListener('scroll',sync,{passive:true});
+    if ('ResizeObserver' in window) new ResizeObserver(sync).observe(row);
+    else window.addEventListener('resize',sync);
+    sync();
+  }
+  console.info('[橫列導覽 1/2] 控制按鈕、卡片位置與首尾狀態已接上。');
+  console.info('[橫列導覽 2/2] 桌面箭頭與原生捲動已就緒。');
+
   const preference=matchMedia('(prefers-reduced-motion: reduce)'),toggle=document.querySelector('#motion-toggle');
   let paused=preference.matches;
   const update=()=>{document.body.classList.toggle('motion-paused',paused);toggle.setAttribute('aria-pressed',String(paused));toggle.textContent=en?(paused?'Resume animations':'Pause animations'):(paused?'啟用動畫':'暫停動畫');};

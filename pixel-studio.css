@@ -877,3 +877,43 @@ body:has(.studio-toolbar)::before {
 #services .website-service-plan .work-links { overflow-wrap: anywhere; }
 #services .website-service-plan .work-links a { min-height: 44px; }
 #services .website-service-plan .work-links .button { gap: 12px; }
+
+.card-row-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.card-row-controls {
+  display: flex;
+  flex: none;
+  gap: 6px;
+}
+
+.card-row-controls[hidden] { display: none; }
+
+.card-row-controls button {
+  display: grid;
+  place-items: center;
+  inline-size: 42px;
+  block-size: 38px;
+  padding: 0;
+  border: 2px outset #dedede;
+  background: #dedede;
+  color: #111;
+  font: 700 20px/1 var(--mono);
+}
+
+.card-row-controls button:not([aria-disabled="true"]):hover { background: #fff; }
+.card-row-controls button:not([aria-disabled="true"]):active { border-style: inset; }
+.card-row-controls button[aria-disabled="true"] {
+  color: #595959;
+  border-color: #777;
+  background: #aaa;
+  cursor: default;
+}
+
+@media (max-width: 720px), (hover: none) and (pointer: coarse) {
+  .card-row-controls { display: none; }
+}
