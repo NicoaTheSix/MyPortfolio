@@ -34,16 +34,23 @@
         <img src="../assets/poster-magenta.webp"
           srcset="../assets/poster-magenta-640.webp 640w, ../assets/poster-magenta.webp 1024w"
           sizes="(max-width: 720px) 100vw, min(100vw, 67svh)"
-          width="1024" height="1536" fetchpriority="high" alt="A high rear view of the Nicoa’Lab poster character on rocky ground, with magenta haze and a long diagonal shadow.">
-        <div class="mist" aria-hidden="true"></div>
+          width="1024" height="1536" fetchpriority="high" alt="The Nicoa’Lab magenta poster, looking down on a character facing away on rocky ground with a long diagonal shadow.">
+        <div class="poster-layers" aria-hidden="true">
+          <img class="poster-floor" data-src="../assets/floor.webp" alt="">
+          <img class="poster-character" data-src="../assets/character.webp" alt="">
+          <img class="poster-wordmark" data-src="../assets/wordmark.webp" alt="">
+        </div>
+        <canvas class="mist" width="128" height="112" aria-hidden="true"></canvas>
       </figure>
     </div>
     <footer class="exhibit-controls" hidden>
       <div class="mode-controls" role="group" aria-label="Display mode">
         <button type="button" data-show-mode="still" aria-pressed="true">Still</button>
         <button type="button" data-show-mode="mist" aria-pressed="false">Moving fog</button>
+        <button type="button" data-show-mode="layers" aria-pressed="false">Layered fog</button>
       </div>
       <button type="button" data-fullscreen data-enter-label="Full screen" data-exit-label="Exit full screen">Full screen</button>
+      <p class="exhibit-status" role="status" data-layer-error="The layers could not load. The still poster is shown." hidden></p>
     </footer>
   </main>
 </body>

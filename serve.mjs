@@ -49,7 +49,8 @@ for (const file of ['index.html', 'en/index.html', 'style.css', 'site.js', 'asse
   ...['kitchen', 'bathroom', 'laundry', 'advisor'].map(name => `assets/${name}.webp`)]) {
   publicFiles.add(`demos/dayfold/${file}`);
 }
-for (const file of ['index.html','en/index.html','style.css','site.js','assets/poster-magenta.webp','assets/poster-magenta-640.webp']) {
+for (const file of ['index.html', 'en/index.html', 'style.css', 'site.js', 'fog.js',
+  ...['poster-magenta', 'poster-magenta-640', 'floor', 'character', 'wordmark'].map(asset => `assets/${asset}.webp`)]) {
   publicFiles.add('demos/visual-design/' + file);
 }
 for (const file of ['pixel-prototype.html', 'pixel-prototype.css', 'pixel-prototype.js']) publicFiles.add(file);

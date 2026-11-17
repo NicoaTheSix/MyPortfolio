@@ -34,16 +34,23 @@
         <img src="./assets/poster-magenta.webp"
           srcset="./assets/poster-magenta-640.webp 640w, ./assets/poster-magenta.webp 1024w"
           sizes="(max-width: 720px) 100vw, min(100vw, 67svh)"
-          width="1024" height="1536" fetchpriority="high" alt="紫紅霧中的岩地，角色從右後方俯視，長影延伸到右下。">
-        <div class="mist" aria-hidden="true"></div>
+          width="1024" height="1536" fetchpriority="high" alt="Nicoa’Lab 紫紅海報，從角色後上方俯視岩地，長影落向右下。">
+        <div class="poster-layers" aria-hidden="true">
+          <img class="poster-floor" data-src="./assets/floor.webp" alt="">
+          <img class="poster-character" data-src="./assets/character.webp" alt="">
+          <img class="poster-wordmark" data-src="./assets/wordmark.webp" alt="">
+        </div>
+        <canvas class="mist" width="128" height="112" aria-hidden="true"></canvas>
       </figure>
     </div>
     <footer class="exhibit-controls" hidden>
       <div class="mode-controls" role="group" aria-label="展示模式">
         <button type="button" data-show-mode="still" aria-pressed="true">靜態</button>
         <button type="button" data-show-mode="mist" aria-pressed="false">動態霧氣</button>
+        <button type="button" data-show-mode="layers" aria-pressed="false">分層霧氣</button>
       </div>
       <button type="button" data-fullscreen data-enter-label="全螢幕" data-exit-label="離開全螢幕">全螢幕</button>
+      <p class="exhibit-status" role="status" data-layer-error="分層素材載入失敗，已回到靜態海報。" hidden></p>
     </footer>
   </main>
 </body>
