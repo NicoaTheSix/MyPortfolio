@@ -6,8 +6,8 @@
   <meta name="theme-color" content="#120b11">
   <title>網頁視覺設計展示 | Nicoa'Lab</title>
   <link rel="icon" href="./../../assets/brand/nicoa-lab-symbol-transparent-32.png">
-  <link rel="stylesheet" href="./style.css?v=layered-light-r1">
-  <script type="module" src="./site.js?v=layered-light-r1"></script>
+  <link rel="stylesheet" href="./style.css?v=layered-light-r2">
+  <script type="module" src="./site.js?v=layered-light-r2"></script>
   <!-- portfolio-seo:start -->
   <meta name="description" content="全螢幕呈現 Nicoa’Lab 紫紅海報，可切換靜態與流動霧氣。">
   <link rel="canonical" href="https://nicoathesix.github.io/MyPortfolio/demos/visual-design/">
@@ -59,6 +59,7 @@
       <button type="button" data-fullscreen data-enter-label="全螢幕" data-exit-label="離開全螢幕">全螢幕</button>
       <label class="light-controls" hidden>打光
         <select data-light-preset>
+          <option value="original" disabled hidden>原版海報</option>
           <option value="mask">分區遮罩</option>
           <option value="sweep">貼地掃光</option>
           <option value="normal">法線打光</option>
@@ -67,7 +68,7 @@
         </select>
       </label>
       <p id="layered-light-guide" class="layered-light-guide" hidden>移動滑鼠或拖曳角色區域來移燈，也可用方向鍵。</p>
-      <p class="exhibit-status" role="status" data-layer-error="分層素材載入失敗，已回到靜態海報。" hidden></p>
+      <p class="exhibit-status" role="status" data-mist-light-error="角色圖層載入失敗，已回到原版動態霧氣。" data-layer-error="分層素材載入失敗，已回到靜態海報。" hidden></p>
     </footer>
   </main>
 </body>

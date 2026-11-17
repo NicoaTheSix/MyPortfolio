@@ -6,8 +6,8 @@
   <meta name="theme-color" content="#120b11">
   <title>Web Visual Design Showcase | Nicoa'Lab</title>
   <link rel="icon" href="../../../assets/brand/nicoa-lab-symbol-transparent-32.png">
-  <link rel="stylesheet" href="../style.css?v=layered-light-r1">
-  <script type="module" src="../site.js?v=layered-light-r1"></script>
+  <link rel="stylesheet" href="../style.css?v=layered-light-r2">
+  <script type="module" src="../site.js?v=layered-light-r2"></script>
   <!-- portfolio-seo:start -->
   <meta name="description" content="View the Nicoa’Lab magenta poster full screen and switch between a still image and moving fog.">
   <link rel="canonical" href="https://nicoathesix.github.io/MyPortfolio/demos/visual-design/en/">
@@ -59,6 +59,7 @@
       <button type="button" data-fullscreen data-enter-label="Full screen" data-exit-label="Exit full screen">Full screen</button>
       <label class="light-controls" hidden>Lighting
         <select data-light-preset>
+          <option value="original" disabled hidden>Original poster</option>
           <option value="mask">Painted mask</option>
           <option value="sweep">Ground sweep</option>
           <option value="normal">Normal-map light</option>
@@ -67,7 +68,7 @@
         </select>
       </label>
       <p id="layered-light-guide" class="layered-light-guide" hidden>Move the mouse or drag over the character to move the light. Arrow keys also work.</p>
-      <p class="exhibit-status" role="status" data-layer-error="The layers could not load. The still poster is shown." hidden></p>
+      <p class="exhibit-status" role="status" data-mist-light-error="The character layers could not load. The original moving fog is shown." data-layer-error="The layers could not load. The still poster is shown." hidden></p>
     </footer>
   </main>
 </body>

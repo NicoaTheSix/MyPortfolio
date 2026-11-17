@@ -22,8 +22,13 @@ const alternateLanguage = new URL(languageLink.href);
 const params = new URL(location.href).searchParams;
 const classicFog = params.get('fog') === 'classic';
 const loadRenderer = () => import('./poster-fog.js?v=1');
+const lightingOptions = {
+  mist: ['original', 'layered'],
+  layers: ['mask', 'sweep', 'normal', 'layered', 'off']
+};
+const selectedLighting = { mist: 'original', layers: 'mask' };
 let layerLoad;
-let requestedMode;
+let modeRequest = 0;
 let drawNormalLight;
 let drawLayeredLight;
 let lightX = .31;
@@ -71,7 +76,13 @@ function setMode(mode) {
   exhibit.dataset.mode = mode;
   fog.setActive(mode === 'mist' || mode === 'layers');
   foregroundFog.setActive(mode === 'layers');
-  lightingControls.hidden = mode !== 'layers';
+  const choices = lightingOptions[mode] ?? [];
+  lightingControls.hidden = choices.length === 0;
+  for (const option of lightingSelect.options) {
+    option.disabled = !choices.includes(option.value);
+    option.hidden = option.disabled;
+  }
+  if (choices.length) lightingSelect.value = selectedLighting[mode];
   updateLighting();
   for (const button of modeButtons) {
     button.setAttribute('aria-pressed', String(button.dataset.showMode === mode));
@@ -80,17 +91,16 @@ function setMode(mode) {
 
 function updateLighting() {
   const mode = exhibit.dataset.mode;
-  const lighting = lightingSelect.value;
+  const lighting = selectedLighting[mode] ?? '';
   exhibit.dataset.lighting = lighting;
-  lightGuide.hidden = mode !== 'layers' || lighting !== 'layered';
+  lightGuide.hidden = lighting !== 'layered';
   alternateLanguage.search = '';
   if (mode !== 'still') {
     alternateLanguage.searchParams.set('mode', mode);
     if (classicFog) alternateLanguage.searchParams.set('fog', 'classic');
-    if (mode === 'layers' && lighting !== 'mask') alternateLanguage.searchParams.set('lighting', lighting);
+    if (lighting !== lightingOptions[mode][0]) alternateLanguage.searchParams.set('lighting', lighting);
   }
   languageLink.href = alternateLanguage.href;
-  if (mode !== 'layers') return;
   if (lighting === 'normal') {
     drawNormalLight ??= createNormalLight(normalCanvas, character);
     drawNormalLight?.();
@@ -148,35 +158,49 @@ lightSurface.addEventListener('keydown', event => {
   event.preventDefault();
   setLightPoint(lightX + offset[0], lightY + offset[1]);
 });
-lightingSelect.addEventListener('change', updateLighting);
+lightingSelect.addEventListener('change', () => {
+  const mode = exhibit.dataset.mode;
+  if (!lightingOptions[mode]?.includes(lightingSelect.value)) return;
+  selectedLighting[mode] = lightingSelect.value;
+  showMode(mode);
+});
+
+function prepareLayers() {
+  layerLoad ??= Promise.all(layerImages.map(image => {
+    image.src = image.dataset.src;
+    return image.decode();
+  })).catch(error => {
+    layerLoad = undefined;
+    throw error;
+  });
+  return layerLoad;
+}
 
 async function showMode(mode) {
-  requestedMode = mode;
+  const request = ++modeRequest;
   status.hidden = true;
   if (mode === 'still') {
     setMode('still');
     return;
   }
-  const backMist = fog.prepare();
-  if (mode === 'mist') {
-    await backMist;
-    if (requestedMode === mode) setMode(mode);
-    return;
-  }
-  const frontMist = foregroundFog.prepare();
-
-  layerLoad ??= Promise.all(layerImages.map(image => {
-    image.src = image.dataset.src;
-    return image.decode();
-  }));
+  const ready = [fog.prepare()];
+  if (mode === 'layers') ready.push(foregroundFog.prepare());
+  if (mode === 'layers' || selectedLighting[mode] === 'layered') ready.push(prepareLayers());
   try {
-    await Promise.all([layerLoad, backMist, frontMist]);
-    if (requestedMode === 'layers') setMode('layers');
+    await Promise.all(ready);
+    if (request === modeRequest) setMode(mode);
   } catch {
-    layerLoad = undefined;
-    if (requestedMode !== 'layers') return;
-    setMode('still');
-    status.textContent = status.dataset.layerError;
+    if (request !== modeRequest) return;
+    if (mode === 'mist') {
+      selectedLighting.mist = 'original';
+      await fog.prepare();
+      if (request !== modeRequest) return;
+      setMode('mist');
+      status.textContent = status.dataset.mistLightError;
+    } else {
+      setMode('still');
+      status.textContent = status.dataset.layerError;
+    }
     status.hidden = false;
   }
 }
@@ -190,8 +214,9 @@ for (const button of modeButtons) {
   button.addEventListener('click', () => showMode(button.dataset.showMode));
 }
 const lighting = params.get('lighting');
-lightingSelect.value = ['off', 'mask', 'sweep', 'normal', 'layered'].includes(lighting) ? lighting : 'mask';
 const initialMode = params.get('mode');
+const lightingMode = initialMode === 'mist' ? 'mist' : 'layers';
+if (lightingOptions[lightingMode].includes(lighting)) selectedLighting[lightingMode] = lighting;
 showMode(['mist', 'layers'].includes(initialMode) ? initialMode : 'still');
 console.info('[視覺展示 1/3] 靜態、霧氣與分層控制就緒。');
 
