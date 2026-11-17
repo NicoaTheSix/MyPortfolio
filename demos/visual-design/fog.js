@@ -27,12 +27,15 @@ function fogDensity(x, y, time) {
     + noise(alongWind * 4 + 3, acrossWind * 4 + 19) * .14;
 }
 
-export function createFog(canvas) {
+export function createFog(canvas, { foreground = false } = {}) {
   const context = canvas.getContext('2d');
   if (!context) return null;
 
   const { width, height } = canvas;
   const frame = context.createImageData(width, height);
+  const layer = foreground
+    ? { peakAlpha: 72, phase: 14, speed: 1.45, depth: 4.1, leadingFade: .28, trailingFade: .36 }
+    : { peakAlpha: 120, phase: 0, speed: 1, depth: 8.5, leadingFade: .15, trailingFade: .55 };
   const motion = matchMedia('(prefers-reduced-motion: reduce)');
   let active = false;
   let scheduled = 0;
@@ -46,15 +49,16 @@ export function createFog(canvas) {
   }
 
   function draw() {
+    const time = layer.phase + elapsed * layer.speed;
     for (let row = 0; row < height; row++) {
       const v = row / (height - 1);
-      const fadeIn = smooth(Math.min(v / .15, 1));
-      const fadeOut = smooth(Math.min((1 - v) / .55, 1));
+      const fadeIn = smooth(Math.min(v / layer.leadingFade, 1));
+      const fadeOut = smooth(Math.min((1 - v) / layer.trailingFade, 1));
       for (let column = 0; column < width; column++) {
         const u = column / (width - 1);
-        const density = fogDensity(u * 3.1, v * 8.5, elapsed);
+        const density = fogDensity(u * 3.1, v * layer.depth, time);
         const opacity = smooth(Math.max(0, Math.min(1, (density - .33) / .52)));
-        frame.data[(row * width + column) * 4 + 3] = 120 * opacity * fadeIn * fadeOut;
+        frame.data[(row * width + column) * 4 + 3] = layer.peakAlpha * opacity * fadeIn * fadeOut;
       }
     }
     context.putImageData(frame, 0, 0);
