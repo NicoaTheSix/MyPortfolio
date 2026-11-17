@@ -18,6 +18,8 @@
 
 動態霧氣可在原版海報與分層打光間切換（`?mode=mist&lighting=layered`）。選取分層打光才會下載去背角色、地板與字標，沿用同一份遮罩和移燈操作。動態霧是一層跨過角色的霧；分層霧使用角色後方與腳邊前方兩層。字標在兩種模式都位於最上方。切換模式會記住各自的打光選項，中英文入口保留目前選項。動態霧的圖層載入失敗時，回到原版動態霧並顯示提示。
 
+「原海報打光」（`lighting=original-lit`）使用 v1.29 中已帶紫紅輪廓光與指示燈的透明角色 WebP。位元組原樣複製到 `assets/character-original-lit.webp`，未進行去光或重新編碼。角色以獨立圖層顯示，字標和霧氣維持各模式原有順序。「2.5D 原海報打光」（`lighting=layered-lit`）使用同一張去背圖為底，在四個打光區域以 Screen 疊加移動光，遮影只降低新增光層。兩個選項皆可在動態霧和分層霧選取，可用 `?mode=mist&lighting=layered-lit` 或 `?mode=layers&lighting=layered-lit` 直達。
+
 霧效參考多層雜訊生成雲和取樣座標扭曲的公開範例。 [The Book of Shaders](https://thebookofshaders.com/13/) [JayKay Cooperations 的互動示範](https://jaykaycooperations.com/domainWarping/)
 
 以原紫紅海報為 ImageGen 的輸入，保留原機位、角色、岩地與紫紅邊光，清除畫面內所有霧氣，另輸出只含岩地、只含透明角色、只含透明像素字標的 PNG。原圖歸檔在 `.preview/visual-design-assets/`。ImageMagick 轉成網站使用的 WebP，地板與角色保留共同畫布，字標裁成獨立的橫幅。轉檔前列出來源及輸出絕對路徑，轉檔後以 `magick identify` 核對尺寸與透明通道。

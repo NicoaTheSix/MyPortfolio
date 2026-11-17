@@ -1,12 +1,12 @@
 import { createFog } from './fog.js?v=poster-fog-r1';
 import { createNormalLight } from './normal-light.js';
-import { createLayeredLight } from './layered-light.js?v=1';
+import { createLayeredLight } from './layered-light.js?v=2';
 
 const exhibit = document.querySelector('.exhibit');
 const controls = document.querySelector('.exhibit-controls');
 const fullscreenButton = document.querySelector('[data-fullscreen]');
 const modeButtons = [...document.querySelectorAll('[data-show-mode]')];
-const layerImages = [...exhibit.querySelectorAll('[data-src]')];
+const sharedLayers = [...exhibit.querySelectorAll('.poster-floor, .poster-wordmark')];
 const status = exhibit.querySelector('.exhibit-status');
 const poster = exhibit.querySelector('.poster');
 const lightingSelect = exhibit.querySelector('[data-light-preset]');
@@ -16,6 +16,7 @@ const layeredCanvas = exhibit.querySelector('.character-layered-light');
 const lightSurface = exhibit.querySelector('.layered-light-surface');
 const lightGuide = exhibit.querySelector('.layered-light-guide');
 const character = exhibit.querySelector('.poster-character img');
+const originalCharacter = exhibit.querySelector('.poster-character-original');
 const motion = matchMedia('(prefers-reduced-motion: reduce)');
 const languageLink = exhibit.querySelector('[data-exhibit-language]');
 const alternateLanguage = new URL(languageLink.href);
@@ -23,21 +24,23 @@ const params = new URL(location.href).searchParams;
 const classicFog = params.get('fog') === 'classic';
 const loadRenderer = () => import('./poster-fog.js?v=1');
 const lightingOptions = {
-  mist: ['original', 'layered'],
-  layers: ['mask', 'sweep', 'normal', 'layered', 'off']
+  mist: ['original', 'original-lit', 'layered-lit', 'layered'],
+  layers: ['mask', 'sweep', 'normal', 'layered', 'original-lit', 'layered-lit', 'off']
 };
 const selectedLighting = { mist: 'original', layers: 'mask' };
-let layerLoad;
+const imageLoads = new Map();
+const usesOriginalPlate = lighting => lighting === 'original-lit' || lighting === 'layered-lit';
+const usesPosterLayers = (mode, lighting) => mode === 'layers' || (mode === 'mist' && lighting !== 'original');
 let modeRequest = 0;
 let drawNormalLight;
-let drawLayeredLight;
+const layeredDraws = new Map();
 let lightX = .31;
 let lightY = .39;
 let dragPointer = null;
 let lightFrame = 0;
 
 console.info('[視覺展示 0/3] 輸入絕對 URL', location.href, import.meta.url, exhibit.querySelector('img').src,
-  ...layerImages.map(image => new URL(image.dataset.src, location.href).href));
+  ...[...sharedLayers, character, originalCharacter].map(image => new URL(image.dataset.src, location.href).href));
 console.info('[視覺展示 0/3] 輸出絕對 URL', location.href, '只更新展示模式與全螢幕狀態。');
 const fog = posterFog(exhibit.querySelector('.mist'));
 const foregroundFog = posterFog(exhibit.querySelector('.mist-foreground'), true);
@@ -92,8 +95,12 @@ function setMode(mode) {
 function updateLighting() {
   const mode = exhibit.dataset.mode;
   const lighting = selectedLighting[mode] ?? '';
+  const interactive = lighting === 'layered' || lighting === 'layered-lit';
   exhibit.dataset.lighting = lighting;
-  lightGuide.hidden = lighting !== 'layered';
+  exhibit.dataset.posterLayers = String(usesPosterLayers(mode, lighting));
+  exhibit.dataset.characterPlate = usesOriginalPlate(lighting) ? 'original' : 'neutral';
+  exhibit.dataset.interactiveLight = String(interactive);
+  lightGuide.hidden = !interactive;
   alternateLanguage.search = '';
   if (mode !== 'still') {
     alternateLanguage.searchParams.set('mode', mode);
@@ -104,9 +111,13 @@ function updateLighting() {
   if (lighting === 'normal') {
     drawNormalLight ??= createNormalLight(normalCanvas, character);
     drawNormalLight?.();
-  } else if (lighting === 'layered') {
-    drawLayeredLight ??= createLayeredLight(layeredCanvas, character);
-    drawLayeredLight?.(lightX, lightY);
+  } else if (interactive) {
+    if (!layeredDraws.has(lighting)) {
+      const preserveOriginal = usesOriginalPlate(lighting);
+      const image = preserveOriginal ? originalCharacter : character;
+      layeredDraws.set(lighting, createLayeredLight(layeredCanvas, image, { preserveOriginal }));
+    }
+    layeredDraws.get(lighting)?.(lightX, lightY);
   }
 }
 
@@ -129,7 +140,7 @@ function setLightPoint(x, y) {
   lightY = Math.max(0, Math.min(1, y));
   cancelAnimationFrame(lightFrame);
   lightFrame = requestAnimationFrame(() => {
-    if (!lightGuide.hidden) drawLayeredLight?.(lightX, lightY);
+    if (!lightGuide.hidden) layeredDraws.get(exhibit.dataset.lighting)?.(lightX, lightY);
   });
 }
 
@@ -165,15 +176,18 @@ lightingSelect.addEventListener('change', () => {
   showMode(mode);
 });
 
-function prepareLayers() {
-  layerLoad ??= Promise.all(layerImages.map(image => {
-    image.src = image.dataset.src;
-    return image.decode();
-  })).catch(error => {
-    layerLoad = undefined;
-    throw error;
-  });
-  return layerLoad;
+function prepareLayers(lighting) {
+  const activeCharacter = usesOriginalPlate(lighting) ? originalCharacter : character;
+  return Promise.all([...sharedLayers, activeCharacter].map(image => {
+    if (!imageLoads.has(image)) {
+      image.src = image.dataset.src;
+      imageLoads.set(image, image.decode().catch(error => {
+        imageLoads.delete(image);
+        throw error;
+      }));
+    }
+    return imageLoads.get(image);
+  }));
 }
 
 async function showMode(mode) {
@@ -185,7 +199,8 @@ async function showMode(mode) {
   }
   const ready = [fog.prepare()];
   if (mode === 'layers') ready.push(foregroundFog.prepare());
-  if (mode === 'layers' || selectedLighting[mode] === 'layered') ready.push(prepareLayers());
+  const lighting = selectedLighting[mode];
+  if (usesPosterLayers(mode, lighting)) ready.push(prepareLayers(lighting));
   try {
     await Promise.all(ready);
     if (request === modeRequest) setMode(mode);

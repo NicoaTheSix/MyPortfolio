@@ -53,7 +53,7 @@ function maskedShade(part, column, row, shiftX, shiftY) {
   return total / (255 * 3);
 }
 
-export function createLayeredLight(canvas, image) {
+export function createLayeredLight(canvas, image, { preserveOriginal = false } = {}) {
   console.info('[分層打光 0/3] Input:', image.currentSrc, 'Output:', location.href, canvas.className);
   const { x, y, width, height } = crop;
   canvas.width = width;
@@ -152,10 +152,18 @@ export function createLayeredLight(canvas, image) {
         shade += weight * (.88 + .27 * light * diffuse - .23 * shadow);
         tint += weight * (97 * diffuse ** 1.5 + 120 * specular) * light * detail;
       }
-      output.data[offset] = (source[offset] * shade + tint * red) / alpha;
-      output.data[offset + 1] = (source[offset + 1] * shade + tint * green) / alpha;
-      output.data[offset + 2] = (source[offset + 2] * shade + tint * blue) / alpha;
-      output.data[offset + 3] = source[offset + 3] * alpha;
+      if (preserveOriginal) {
+        // The screen-blended pass only contributes light over the original cutout.
+        output.data[offset] = 255 * red;
+        output.data[offset + 1] = 255 * green;
+        output.data[offset + 2] = 255 * blue;
+        output.data[offset + 3] = source[offset + 3] * clamp(tint / 255);
+      } else {
+        output.data[offset] = (source[offset] * shade + tint * red) / alpha;
+        output.data[offset + 1] = (source[offset + 1] * shade + tint * green) / alpha;
+        output.data[offset + 2] = (source[offset + 2] * shade + tint * blue) / alpha;
+        output.data[offset + 3] = source[offset + 3] * alpha;
+      }
     }
     context.putImageData(output, 0, 0);
     if (!drawn) {

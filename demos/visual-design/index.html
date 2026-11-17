@@ -6,8 +6,8 @@
   <meta name="theme-color" content="#120b11">
   <title>網頁視覺設計展示 | Nicoa'Lab</title>
   <link rel="icon" href="./../../assets/brand/nicoa-lab-symbol-transparent-32.png">
-  <link rel="stylesheet" href="./style.css?v=layered-light-r2">
-  <script type="module" src="./site.js?v=layered-light-r2"></script>
+  <link rel="stylesheet" href="./style.css?v=layered-light-r3">
+  <script type="module" src="./site.js?v=layered-light-r3"></script>
   <!-- portfolio-seo:start -->
   <meta name="description" content="全螢幕呈現 Nicoa’Lab 紫紅海報，可切換靜態與流動霧氣。">
   <link rel="canonical" href="https://nicoathesix.github.io/MyPortfolio/demos/visual-design/">
@@ -39,6 +39,7 @@
           <img class="poster-floor" data-src="./assets/floor.webp" alt="">
           <div class="poster-character">
             <img data-src="./assets/character.webp?v=unlit" alt="">
+            <img class="poster-character-original" data-src="./assets/character-original-lit.webp" alt="">
           </div>
           <canvas class="character-normal-light" width="256" height="384"></canvas>
           <canvas class="character-layered-light"></canvas>
@@ -64,6 +65,8 @@
           <option value="sweep">貼地掃光</option>
           <option value="normal">法線打光</option>
           <option value="layered">分層打光</option>
+          <option value="original-lit">原海報打光</option>
+          <option value="layered-lit">2.5D 原海報打光</option>
           <option value="off">關燈</option>
         </select>
       </label>
