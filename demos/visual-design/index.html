@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#120b11">
+  <title>網頁視覺設計展示 | Nicoa'Lab</title>
+  <link rel="icon" href="./../../assets/brand/nicoa-lab-symbol-transparent-32.png">
+  <link rel="stylesheet" href="./style.css">
+  <script type="module" src="./site.js"></script>
+  <!-- portfolio-seo:start -->
+  <meta name="description" content="全螢幕呈現 Nicoa’Lab 紫紅海報，可切換靜態與流動霧氣。">
+  <link rel="canonical" href="https://nicoathesix.github.io/MyPortfolio/demos/visual-design/">
+  <link rel="alternate" hreflang="zh-Hant" href="https://nicoathesix.github.io/MyPortfolio/demos/visual-design/">
+  <link rel="alternate" hreflang="en" href="https://nicoathesix.github.io/MyPortfolio/demos/visual-design/en/">
+  <link rel="alternate" hreflang="x-default" href="https://nicoathesix.github.io/MyPortfolio/demos/visual-design/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Nicoa’Lab">
+  <meta property="og:title" content="網頁視覺設計展示 | Nicoa'Lab">
+  <meta property="og:description" content="全螢幕呈現 Nicoa’Lab 紫紅海報，可切換靜態與流動霧氣。">
+  <meta property="og:url" content="https://nicoathesix.github.io/MyPortfolio/demos/visual-design/">
+  <meta property="og:image" content="https://nicoathesix.github.io/MyPortfolio/demos/visual-design/assets/poster-magenta.webp">
+  <!-- portfolio-seo:end -->
+</head>
+<body>
+  <main class="exhibit" data-mode="still">
+    <header class="exhibit-header">
+      <a href="../../#website-demos">← 示範網站</a>
+      <h1>網頁視覺設計展示</h1>
+      <a href="./en/" lang="en" hreflang="en">English</a>
+    </header>
+    <div class="stage">
+      <figure class="poster">
+        <img src="./assets/poster-magenta.webp"
+          srcset="./assets/poster-magenta-640.webp 640w, ./assets/poster-magenta.webp 1024w"
+          sizes="(max-width: 720px) 100vw, min(100vw, 67svh)"
+          width="1024" height="1536" fetchpriority="high" alt="紫紅霧中的岩地，角色從右後方俯視，長影延伸到右下。">
+        <div class="mist" aria-hidden="true"></div>
+      </figure>
+    </div>
+    <footer class="exhibit-controls" hidden>
+      <div class="mode-controls" role="group" aria-label="展示模式">
+        <button type="button" data-show-mode="still" aria-pressed="true">靜態</button>
+        <button type="button" data-show-mode="mist" aria-pressed="false">動態霧氣</button>
+      </div>
+      <button type="button" data-fullscreen data-enter-label="全螢幕" data-exit-label="離開全螢幕">全螢幕</button>
+    </footer>
+  </main>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#120b11">
+  <title>Web Visual Design Showcase | Nicoa'Lab</title>
+  <link rel="icon" href="../../../assets/brand/nicoa-lab-symbol-transparent-32.png">
+  <link rel="stylesheet" href="../style.css">
+  <script type="module" src="../site.js"></script>
+  <!-- portfolio-seo:start -->
+  <meta name="description" content="View the Nicoa’Lab magenta poster full screen and switch between a still image and moving fog.">
+  <link rel="canonical" href="https://nicoathesix.github.io/MyPortfolio/demos/visual-design/en/">
+  <link rel="alternate" hreflang="zh-Hant" href="https://nicoathesix.github.io/MyPortfolio/demos/visual-design/">
+  <link rel="alternate" hreflang="en" href="https://nicoathesix.github.io/MyPortfolio/demos/visual-design/en/">
+  <link rel="alternate" hreflang="x-default" href="https://nicoathesix.github.io/MyPortfolio/demos/visual-design/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Nicoa’Lab">
+  <meta property="og:title" content="Web Visual Design Showcase | Nicoa'Lab">
+  <meta property="og:description" content="View the Nicoa’Lab magenta poster full screen and switch between a still image and moving fog.">
+  <meta property="og:url" content="https://nicoathesix.github.io/MyPortfolio/demos/visual-design/en/">
+  <meta property="og:image" content="https://nicoathesix.github.io/MyPortfolio/demos/visual-design/assets/poster-magenta.webp">
+  <!-- portfolio-seo:end -->
+</head>
+<body>
+  <main class="exhibit" data-mode="still">
+    <header class="exhibit-header">
+      <a href="../../../en/#website-demos">← Website demos</a>
+      <h1>Web Visual Design Showcase</h1>
+      <a href="../" lang="zh-Hant" hreflang="zh-Hant">繁體中文</a>
+    </header>
+    <div class="stage">
+      <figure class="poster">
+        <img src="../assets/poster-magenta.webp"
+          srcset="../assets/poster-magenta-640.webp 640w, ../assets/poster-magenta.webp 1024w"
+          sizes="(max-width: 720px) 100vw, min(100vw, 67svh)"
+          width="1024" height="1536" fetchpriority="high" alt="A high rear view of the Nicoa’Lab poster character on rocky ground, with magenta haze and a long diagonal shadow.">
+        <div class="mist" aria-hidden="true"></div>
+      </figure>
+    </div>
+    <footer class="exhibit-controls" hidden>
+      <div class="mode-controls" role="group" aria-label="Display mode">
+        <button type="button" data-show-mode="still" aria-pressed="true">Still</button>
+        <button type="button" data-show-mode="mist" aria-pressed="false">Moving fog</button>
+      </div>
+      <button type="button" data-fullscreen data-enter-label="Full screen" data-exit-label="Exit full screen">Full screen</button>
+    </footer>
+  </main>
+</body>
+</html>

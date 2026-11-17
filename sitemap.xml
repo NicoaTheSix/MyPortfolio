@@ -67,6 +67,18 @@
     <loc>https://nicoathesix.github.io/MyPortfolio/demos/town-memory/</loc>
   </url>
   <url>
+    <loc>https://nicoathesix.github.io/MyPortfolio/demos/visual-design/en/</loc>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://nicoathesix.github.io/MyPortfolio/demos/visual-design/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://nicoathesix.github.io/MyPortfolio/demos/visual-design/en/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nicoathesix.github.io/MyPortfolio/demos/visual-design/" />
+  </url>
+  <url>
+    <loc>https://nicoathesix.github.io/MyPortfolio/demos/visual-design/</loc>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://nicoathesix.github.io/MyPortfolio/demos/visual-design/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://nicoathesix.github.io/MyPortfolio/demos/visual-design/en/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nicoathesix.github.io/MyPortfolio/demos/visual-design/" />
+  </url>
+  <url>
     <loc>https://nicoathesix.github.io/MyPortfolio/desktiles/en/guide.html</loc>
   </url>
   <url>

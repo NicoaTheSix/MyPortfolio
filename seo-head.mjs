@@ -3,6 +3,18 @@ const profileId = new URL('#nicoa-the-six', site).href;
 
 const pageGroups = [
   {
+    "folder": "demos/visual-design/",
+    "image": "demos/visual-design/assets/poster-magenta.webp",
+    "titles": [
+      "網頁視覺設計展示 | Nicoa'Lab",
+      "Web Visual Design Showcase | Nicoa'Lab"
+    ],
+    "descriptions": [
+      "全螢幕呈現 Nicoa’Lab 紫紅海報，可切換靜態與流動霧氣。",
+      "View the Nicoa’Lab magenta poster full screen and switch between a still image and moving fog."
+    ]
+  },
+  {
     folder: 'demos/dayfold/',
     image: 'demos/dayfold/assets/kitchen.webp',
     titles: ['折日生活｜租屋選品顧問', 'Dayfold Living | Small-space home essentials'],
