@@ -6,8 +6,8 @@
   <meta name="theme-color" content="#120b11">
   <title>Web Visual Design Showcase | Nicoa'Lab</title>
   <link rel="icon" href="../../../assets/brand/nicoa-lab-symbol-transparent-32.png">
-  <link rel="stylesheet" href="../style.css?v=poster-fog-r1">
-  <script type="module" src="../site.js?v=poster-fog-r1"></script>
+  <link rel="stylesheet" href="../style.css?v=layered-light-r1">
+  <script type="module" src="../site.js?v=layered-light-r1"></script>
   <!-- portfolio-seo:start -->
   <meta name="description" content="View the Nicoa’Lab magenta poster full screen and switch between a still image and moving fog.">
   <link rel="canonical" href="https://nicoathesix.github.io/MyPortfolio/demos/visual-design/en/">
@@ -41,11 +41,13 @@
             <img data-src="../assets/character.webp?v=unlit" alt="">
           </div>
           <canvas class="character-normal-light" width="256" height="384"></canvas>
+          <canvas class="character-layered-light"></canvas>
           <img class="poster-wordmark" data-src="../assets/wordmark.webp" alt="">
         </div>
         <canvas class="mist" width="128" height="112" aria-hidden="true"></canvas>
         <canvas class="mist mist-foreground" width="128" height="40" aria-hidden="true"></canvas>
         <div class="ground-sweep" aria-hidden="true"></div>
+        <div class="layered-light-surface" tabindex="0" role="group" aria-label="Move the light" aria-describedby="layered-light-guide"></div>
       </figure>
     </div>
     <footer class="exhibit-controls" hidden>
@@ -60,9 +62,11 @@
           <option value="mask">Painted mask</option>
           <option value="sweep">Ground sweep</option>
           <option value="normal">Normal-map light</option>
+          <option value="layered">Layered lighting</option>
           <option value="off">Lights off</option>
         </select>
       </label>
+      <p id="layered-light-guide" class="layered-light-guide" hidden>Move the mouse or drag over the character to move the light. Arrow keys also work.</p>
       <p class="exhibit-status" role="status" data-layer-error="The layers could not load. The still poster is shown." hidden></p>
     </footer>
   </main>

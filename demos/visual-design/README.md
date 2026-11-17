@@ -12,12 +12,14 @@
 
 `site.js` 先印出頁面、圖檔和腳本的絕對 URL，接著掛接模式、全螢幕與備援按鈕。瀏覽器無法進入原生全螢幕時會填滿目前視窗，按離開全螢幕或 Esc 返回。`three-fog.mjs` 使用 Three.js ShaderMaterial 將多層雜訊移至 GPU。分層模式的前景霧落在海報高度 69% 至 91%，保持字標疊在最上方。海報霧繪圖寬度上限為 448 像素，並限制更新頻率。靜態模式和背景分頁暫停更新，系統偏好減少動態效果時只繪製一幀。WebGL 無法使用時改用 `fog.js` 的 Canvas 2D 霧。
 
+分層打光（`?mode=layers&lighting=layered`）使用同一張去背角色圖。程式依原圖畫出四張獨立遮罩，分別對應肩背、近側手臂、頭盔及立領，並以圖像透明度裁邊。各層使用不同深度、曲面法線、高光強度及高光範圍。移燈時從頭盔、立領、近側手臂的遮罩取樣，在立領或肩背上投出柔和偏移陰影。角色圖保持固定，瀏覽器即時重算上半身區域。近景霧與字標在打光層上方。
+
+在分層霧選「分層打光」後可用滑鼠移燈，手機在角色區域拖曳，其他區域可正常捲動。用 Tab 聚焦角色區後支援方向鍵與 Home。程式列出角色圖和畫布的絕對 URL，並依序回報遮罩、材質及首幀。此功能無需重新建置霧氣套件。預覽可用 `$env:PORT='4295'` 後執行 `node serve.mjs`。
+
 霧效參考多層雜訊生成雲和取樣座標扭曲的公開範例。 [The Book of Shaders](https://thebookofshaders.com/13/) [JayKay Cooperations 的互動示範](https://jaykaycooperations.com/domainWarping/)
 
 以原紫紅海報為 ImageGen 的輸入，保留原機位、角色、岩地與紫紅邊光，清除畫面內所有霧氣，另輸出只含岩地、只含透明角色、只含透明像素字標的 PNG。原圖歸檔在 `.preview/visual-design-assets/`。ImageMagick 轉成網站使用的 WebP，地板與角色保留共同畫布，字標裁成獨立的橫幅。轉檔前列出來源及輸出絕對路徑，轉檔後以 `magick identify` 核對尺寸與透明通道。
 
 站點根目錄設定 `$env:PORT='4262'` 後執行 `node serve.mjs`。在雙語首頁檢查示範卡，在展示頁檢查三種模式、全螢幕及手機比例。執行 `node check-site.mjs` 與 `node sync-seo.mjs --check` 驗證站點。
-
-**互動 3D**（`?mode=3d`）以 Three.js 即時繪製 Tripo P2 角色與岩地，沿用紫紅主光、冷紫補光、陰影和遠景霧。畫布可拖曳、以方向鍵環繞，或用滾輪和雙指縮放。按「重設視角」或 Home 回到初始鏡位。透明字標固定於畫布上方。模式只在選取時載入程式和 GLB，離開時停止繪製，載入或 WebGL 失敗時回到靜態海報。
 
 使用 `node demos/visual-design/build-poster-fog.mjs` 打包 Three.js 海報霧。指令先列出 `three-fog.mjs` 與 `poster-fog.js` 的絕對路徑，再顯示打包與輸出進度。加上 `&fog=classic` 可比較 Canvas 2D 霧，中英文切換會保留霧氣模式。正式站提供靜態、動態霧氣、分層霧氣與分層打光。
