@@ -72,7 +72,40 @@ button { font: inherit; }
 .poster-dice:active { cursor: grabbing; }
 .poster-dice:focus-visible { outline: 2px solid #ff94c7; outline-offset: -3px; }
 [data-mode="dice"] .poster-dice { display: block; }
-.dice-controls { display: flex; gap: 8px; flex-wrap: wrap; }
+.dice-controls { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; justify-content: center; flex: 1 0 100%; min-width: 0; }
+.trail-panel {
+  flex: 1 0 100%;
+  max-width: 800px;
+  min-width: 0;
+  padding: 10px 14px;
+  border: 1px solid #cbd3e0;
+  border-radius: 12px;
+  background: linear-gradient(125deg, #f6fbff, #f7f4fb);
+}
+.trail-panel summary { cursor: pointer; font-size: .9rem; }
+.trail-panel summary span { margin-inline-start: 12px; color: #647188; font-size: .75rem; }
+.trail-settings { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px 18px; margin-top: 12px; }
+.trail-settings label { display: flex; flex-direction: column; gap: 6px; min-width: 0; font-size: .85rem; }
+.trail-settings select {
+  width: 100%;
+  min-height: 40px;
+  padding: 5px 8px;
+  border: 1px solid #bfcbdc;
+  border-radius: 6px;
+  background: #fff;
+  color: #293047;
+  color-scheme: light;
+  font: inherit;
+}
+.trail-range > span { display: flex; justify-content: space-between; gap: 8px; }
+.trail-range output { color: #4b688c; font-variant-numeric: tabular-nums; }
+.trail-range input { width: 100%; min-width: 0; height: 24px; margin: 0; accent-color: #789fcb; cursor: pointer; }
+.trail-range small { color: #647188; font-size: .72rem; }
+@media (max-width: 720px) {
+  .trail-settings { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .trail-panel { padding: 10px 12px; }
+}
+@media (max-width: 350px) { .trail-settings { grid-template-columns: minmax(0, 1fr); } }
 .dice-guide {
   flex: 1 0 100%;
   margin: 0;

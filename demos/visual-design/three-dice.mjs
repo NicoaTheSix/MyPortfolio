@@ -224,5 +224,13 @@ export async function createDiceScene(canvas, { onUnavailable }) {
       canvas.dataset.glassEnabled = String(value);
       sync();
     },
+    setGlassOptions(options) {
+      glass.setOptions(options);
+      canvas.dataset.glassEffect = options.effect;
+      canvas.dataset.glassWidth = String(options.width);
+      canvas.dataset.glassTransparency = String(options.transparency);
+      canvas.dataset.glassTone = options.tone;
+      sync();
+    },
   };
 }

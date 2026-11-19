@@ -6,8 +6,8 @@
   <meta name="theme-color" content="#120b11">
   <title>網頁視覺設計展示 | Nicoa'Lab</title>
   <link rel="icon" href="./../../assets/brand/nicoa-lab-symbol-transparent-32.png">
-  <link rel="stylesheet" href="./style.css?v=liquid-r1">
-  <script type="module" src="./site.js?v=liquid-r1"></script>
+  <link rel="stylesheet" href="./style.css?v=liquid-controls-r1">
+  <script type="module" src="./site.js?v=liquid-controls-r1"></script>
   <!-- portfolio-seo:start -->
   <meta name="description" content="全螢幕呈現 Nicoa’Lab 紫紅海報，可切換靜態與流動霧氣。">
   <link rel="canonical" href="https://nicoathesix.github.io/MyPortfolio/demos/visual-design/">
@@ -75,7 +75,37 @@
       <p id="layered-light-guide" class="layered-light-guide" hidden>移動滑鼠或拖曳角色區域來移燈，也可用方向鍵。</p>
       <div class="dice-controls" role="group" aria-label="骰子控制" hidden>
         <button type="button" data-pause-dice data-pause-label="暫停骰子" data-resume-label="繼續骰子" aria-pressed="false">暫停骰子</button>
-        <button type="button" data-glass-toggle data-on-label="玻璃液體：開" data-off-label="玻璃液體：關" aria-pressed="true">玻璃液體：開</button>
+        <button type="button" data-glass-toggle data-on-label="軌跡特效：開" data-off-label="軌跡特效：關" aria-pressed="true">軌跡特效：開</button>
+        <details class="trail-panel" open>
+          <summary>軌跡外觀<span>即時調整</span></summary>
+          <div class="trail-settings">
+            <label>軌跡效果
+              <select data-trail-effect>
+                <option value="glass">玻璃液體</option>
+                <option value="ribbon">玻璃絲帶</option>
+                <option value="ripples">水面漣漪</option>
+                <option value="glow">柔光彗尾</option>
+              </select>
+            </label>
+            <label>色調
+              <select data-trail-tone>
+                <option value="blue">淡粉藍</option>
+                <option value="pink">櫻花粉</option>
+                <option value="mint">薄荷綠</option>
+                <option value="lavender">薰衣草紫</option>
+                <option value="gold">香檳金</option>
+              </select>
+            </label>
+            <label class="trail-range"><span>軌跡粗細<output for="trail-width" data-trail-width-output>100%</output></span>
+              <input id="trail-width" data-trail-width type="range" min="40" max="220" value="100" step="5" aria-label="軌跡粗細">
+              <small>纖細 → 寬厚</small>
+            </label>
+            <label class="trail-range"><span>透明度<output for="trail-transparency" data-trail-transparency-output>60%</output></span>
+              <input id="trail-transparency" data-trail-transparency type="range" min="0" max="100" value="60" step="1" aria-label="軌跡透明度">
+              <small>100% 完全透明</small>
+            </label>
+          </div>
+        </details>
       </div>
       <div class="dice-legend" aria-label="骰子種類">
         <span><i class="jelly-swatch" aria-hidden="true"></i>紅色果凍</span>

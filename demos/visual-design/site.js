@@ -20,6 +20,12 @@ const diceControls = exhibit.querySelector('.dice-controls');
 const diceGuide = exhibit.querySelector('.dice-guide');
 const pauseDice = exhibit.querySelector('[data-pause-dice]');
 const glassToggle = exhibit.querySelector('[data-glass-toggle]');
+const trailEffect = exhibit.querySelector('[data-trail-effect]');
+const trailTone = exhibit.querySelector('[data-trail-tone]');
+const trailWidth = exhibit.querySelector('[data-trail-width]');
+const trailTransparency = exhibit.querySelector('[data-trail-transparency]');
+const widthOutput = exhibit.querySelector('[data-trail-width-output]');
+const transparencyOutput = exhibit.querySelector('[data-trail-transparency-output]');
 
 let diceScene;
 let diceRequest;
@@ -31,6 +37,18 @@ const languageLink = exhibit.querySelector('[data-exhibit-language]');
 const alternateLanguage = new URL(languageLink.href);
 const params = new URL(location.href).searchParams;
 let glassEnabled = params.get('glass') !== 'off';
+const trailDefaults = { effect: 'glass', tone: 'blue', width: 100, transparency: 60 };
+function numberParam(name, fallback, min, max, step = 1) {
+  const raw = params.get(name);
+  const value = raw?.trim() ? Number(raw) : NaN;
+  return Number.isFinite(value) ? Math.max(min, Math.min(max, Math.round(value / step) * step)) : fallback;
+}
+const trailOptions = {
+  effect: [...trailEffect.options].some(option => option.value === params.get('trail')) ? params.get('trail') : trailDefaults.effect,
+  tone: [...trailTone.options].some(option => option.value === params.get('tone')) ? params.get('tone') : trailDefaults.tone,
+  width: numberParam('width', trailDefaults.width, 40, 220, 5),
+  transparency: numberParam('transparency', trailDefaults.transparency, 0, 100),
+};
 const classicFog = params.get('fog') === 'classic';
 const loadRenderer = () => import('./poster-fog.js?v=1');
 const lightingOptions = {
@@ -117,7 +135,7 @@ function updateLighting() {
   alternateLanguage.search = '';
   if (mode === 'dice') {
     alternateLanguage.searchParams.set('mode', 'dice');
-    if (!glassEnabled) alternateLanguage.searchParams.set('glass', 'off');
+    writeTrailParams(alternateLanguage);
   } else if (mode !== 'still') {
     alternateLanguage.searchParams.set('mode', mode);
     if (classicFog) alternateLanguage.searchParams.set('fog', 'classic');
@@ -215,7 +233,7 @@ async function showMode(mode) {
   }
   if (mode === 'dice') {
     try {
-      diceRequest ??= import('./poster-dice.js?v=liquid-r1').then(module => module.createDiceScene(diceCanvas, {
+      diceRequest ??= import('./poster-dice.js?v=liquid-controls-r1').then(module => module.createDiceScene(diceCanvas, {
 
         onUnavailable() {
           ++modeRequest;
@@ -226,6 +244,7 @@ async function showMode(mode) {
       })).then(scene => {
         diceScene = scene;
         diceScene.setGlassEnabled(glassEnabled);
+        diceScene.setGlassOptions(trailOptions);
       }).catch(error => {
         diceRequest = null;
         throw error;
@@ -315,12 +334,47 @@ function syncGlassToggle() {
   glassToggle.setAttribute('aria-pressed', String(glassEnabled));
   glassToggle.textContent = glassEnabled ? glassToggle.dataset.onLabel : glassToggle.dataset.offLabel;
 }
+function writeTrailParams(url) {
+  url.searchParams.delete('glass');
+  if (!glassEnabled) url.searchParams.set('glass', 'off');
+  for (const [key, param] of [['effect', 'trail'], ['tone', 'tone'], ['width', 'width'], ['transparency', 'transparency']]) {
+    url.searchParams.delete(param);
+    if (trailOptions[key] !== trailDefaults[key]) url.searchParams.set(param, String(trailOptions[key]));
+  }
+}
+function saveTrailParams() {
+  const url = new URL(location.href);
+  url.searchParams.set('mode', 'dice');
+  writeTrailParams(url);
+  history.replaceState(null, '', url);
+  updateLighting();
+}
+function syncTrailControls() {
+  trailEffect.value = trailOptions.effect;
+  trailTone.value = trailOptions.tone;
+  trailWidth.value = String(trailOptions.width);
+  trailTransparency.value = String(trailOptions.transparency);
+  widthOutput.value = `${trailOptions.width}%`;
+  transparencyOutput.value = `${trailOptions.transparency}%`;
+}
+function updateTrailOptions() {
+  Object.assign(trailOptions, {
+    effect: trailEffect.value, tone: trailTone.value,
+    width: Number(trailWidth.value), transparency: Number(trailTransparency.value),
+  });
+  diceScene?.setGlassOptions(trailOptions);
+  syncTrailControls();
+  saveTrailParams();
+}
+for (const select of [trailEffect, trailTone]) select.addEventListener('change', updateTrailOptions);
+for (const slider of [trailWidth, trailTransparency]) slider.addEventListener('input', updateTrailOptions);
 glassToggle.addEventListener('click', () => {
   glassEnabled = !glassEnabled;
   diceScene?.setGlassEnabled(glassEnabled);
   syncGlassToggle();
-  updateLighting();
+  saveTrailParams();
 });
 syncGlassToggle();
+syncTrailControls();
 
 console.info('[視覺展示 3/3] 展示控制已顯示。');

@@ -6,8 +6,8 @@
   <meta name="theme-color" content="#120b11">
   <title>Web Visual Design Showcase | Nicoa'Lab</title>
   <link rel="icon" href="../../../assets/brand/nicoa-lab-symbol-transparent-32.png">
-  <link rel="stylesheet" href="../style.css?v=liquid-r1">
-  <script type="module" src="../site.js?v=liquid-r1"></script>
+  <link rel="stylesheet" href="../style.css?v=liquid-controls-r1">
+  <script type="module" src="../site.js?v=liquid-controls-r1"></script>
   <!-- portfolio-seo:start -->
   <meta name="description" content="View the Nicoa’Lab magenta poster full screen and switch between a still image and moving fog.">
   <link rel="canonical" href="https://nicoathesix.github.io/MyPortfolio/demos/visual-design/en/">
@@ -75,7 +75,37 @@
       <p id="layered-light-guide" class="layered-light-guide" hidden>Move the mouse or drag over the character to move the light. Arrow keys also work.</p>
       <div class="dice-controls" role="group" aria-label="Dice controls" hidden>
         <button type="button" data-pause-dice data-pause-label="Pause dice" data-resume-label="Resume dice" aria-pressed="false">Pause dice</button>
-        <button type="button" data-glass-toggle data-on-label="Liquid glass: on" data-off-label="Liquid glass: off" aria-pressed="true">Liquid glass: on</button>
+        <button type="button" data-glass-toggle data-on-label="Trail effects: on" data-off-label="Trail effects: off" aria-pressed="true">Trail effects: on</button>
+        <details class="trail-panel" open>
+          <summary>Trail appearance<span>Live controls</span></summary>
+          <div class="trail-settings">
+            <label>Trail effect
+              <select data-trail-effect>
+                <option value="glass">Liquid glass</option>
+                <option value="ribbon">Glass ribbon</option>
+                <option value="ripples">Water ripples</option>
+                <option value="glow">Soft comet glow</option>
+              </select>
+            </label>
+            <label>Tone
+              <select data-trail-tone>
+                <option value="blue">Powder blue</option>
+                <option value="pink">Cherry blossom</option>
+                <option value="mint">Mint</option>
+                <option value="lavender">Lavender</option>
+                <option value="gold">Champagne</option>
+              </select>
+            </label>
+            <label class="trail-range"><span>Trail width<output for="trail-width" data-trail-width-output>100%</output></span>
+              <input id="trail-width" data-trail-width type="range" min="40" max="220" value="100" step="5" aria-label="Trail width">
+              <small>Fine → broad</small>
+            </label>
+            <label class="trail-range"><span>Transparency<output for="trail-transparency" data-trail-transparency-output>60%</output></span>
+              <input id="trail-transparency" data-trail-transparency type="range" min="0" max="100" value="60" step="1" aria-label="Trail transparency">
+              <small>100% fully transparent</small>
+            </label>
+          </div>
+        </details>
       </div>
       <div class="dice-legend" aria-label="Dice types">
         <span><i class="jelly-swatch" aria-hidden="true"></i>Red jelly</span>
