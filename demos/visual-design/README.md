@@ -1,18 +1,20 @@
 # 網頁視覺設計展示
 
-## 互動球體
+## 圓角場景與慣性骰子
 
-在展示頁選「互動球體」，或直接開啟 `?mode=spheres`。中英文作品集的示範卡也各有入口。角色沿用原有透明海報圖作為 2.5D 遮擋層，球體是 132 顆真正的 Three.js 3D 球體，使用環境反射、紫紅主光與紫色補光。
+選「互動骰子」或開啟 `?mode=dice`。舊的 `?mode=spheres` 入口會開啟骰子模式。場景為空白的淺灰正方形，四角圓滑，裡面有 96 顆帶一至六點的圓角 3D 骰子，紅色、白色和黑色各 32 顆。中英文入口同步更新。
 
-移動滑鼠會推開球體，球體彼此碰撞並逐漸回到角色周圍。手機在海報上拖曳，海報以外保留捲動。Tab 聚焦畫面後可用方向鍵推球，Home 或「重置球體」復位。提供暫停和繼續，切換模式後保留暫停狀態。系統偏好減少動態時顯示固定球體，背景分頁及離開畫面時停止更新。WebGL 或角色圖載入失敗時回到靜態海報並顯示提示。
+鼠標滑過會沿移動方向快速推動附近骰子，移動路徑的線段偵測避免快速掃動漏掉物件。骰子與骰子、四周邊界和圓角都會碰撞，保留旋轉慣性後逐漸減速。滑鼠停止後，骰子留在新的位置。手機在場景內拖曳，Tab 聚焦後可用方向鍵推動。提供暫停與繼續控制。背景分頁和畫面外停止更新，系統減少動態時顯示固定畫面。
 
-此批在 `C:\Users\nick5\Documents\ChatGPT\Portfolio 網站設置\.preview\visual-spheres\` 中製作。執行前由建置程式列出輸入 `demos\visual-design\three-spheres.mjs`、`sphere-physics.mjs` 與輸出 `poster-spheres.js` 的絕對路徑，再回報打包與寫入進度。瀏覽器列出角色來源的絕對 URL，接著回報實例、控制和顯示就緒。
+此批位於 `C:\Users\nick5\Documents\ChatGPT\Portfolio 網站設置\.preview\visual-spheres\`。輸入為此目錄內的 `demos\visual-design\three-dice.mjs` 與 `dice-physics.mjs`，輸出為同目錄的 `poster-dice.js`。執行 `node demos/visual-design/build-dice.mjs` 前列出所有絕對路徑，再回報打包與寫入進度。
 
-執行 `node demos/visual-design/build-spheres.mjs` 建置靜態託管用套件，再設定 `$env:PORT='4307'` 並執行 `node serve.mjs`，開啟 <http://127.0.0.1:4307/MyPortfolio/demos/visual-design/?mode=spheres>。輸出不需外部 CDN。樣式和展示控制由同目錄的 `style.css`、`site.js` 提供，模式切換沿用既有非同步請求序號，防止素材載入後切回錯誤模式。
+物理使用 cannon-es 0.20.0，零重力、立方體剛體、1/120 秒固定步長。線性與角速度阻尼讓骰子自然減速，低速時進入休眠。紅底白點使用透射材質及點數遮罩，碰撞速度會觸發壓縮與鼓起，接著由阻尼彈簧回彈。紅骰以較柔順的立方體碰撞代理計算接觸，變形套在渲染幾何上。白底黑點與黑底白點保持固定形狀的剛體。圓角邊界由四段直牆、四段弧形複合牆與前後兩面構成。Three.js RoundedBoxGeometry 提供圓角外觀，六面的點數由畫布材質繪製，對面點數相加為七。
 
-物理模擬以 1/90 秒固定步長運算，限制補算時間和速度，用鼠標前後位置的線段偵測快速掃過，避免穿過小球。碰撞採等質量衝量及重疊修正，彈簧力拉回初始分布。驗證涵蓋快速掃動、長時間位置有限、邊界、復位、語言切換、原有霧效模式與手機版面。
+在工作目錄設定 `$env:PORT='4307'` 再執行 `node serve.mjs`，開啟 <http://127.0.0.1:4307/MyPortfolio/demos/visual-design/?mode=dice>。瀏覽器先列出輸入與輸出 URL，接著回報材質、碰撞邊界、控制與顯示就緒。
 
-互動方向參考 [Lusion 首屏](https://lusion.co/) 的密集 3D 物件和直接操控感。
+驗證包含 96 顆骰子的碰撞、快速掃動、圓角約束、20 秒模擬、速度逐漸下降、停止後仍偏離原位、中英文控制、手機正方形比例與模式切換。之前的角色與球體實作保存在 Git 快照 `snapshot/portfolio-visual-spheres/r01`。
+
+互動方向參考 [Lusion 首屏](https://lusion.co/) 的密集 3D 物件與直接操控感。
 
 `/MyPortfolio/demos/visual-design/` 是繁中版，`/MyPortfolio/demos/visual-design/en/` 是英文版。桌面置中展示完整海報，手機保留原圖 2:3。
 

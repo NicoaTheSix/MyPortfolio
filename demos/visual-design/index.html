@@ -6,8 +6,8 @@
   <meta name="theme-color" content="#120b11">
   <title>網頁視覺設計展示 | Nicoa'Lab</title>
   <link rel="icon" href="./../../assets/brand/nicoa-lab-symbol-transparent-32.png">
-  <link rel="stylesheet" href="./style.css?v=spheres-r1">
-  <script type="module" src="./site.js?v=spheres-r1"></script>
+  <link rel="stylesheet" href="./style.css?v=dice-r4">
+  <script type="module" src="./site.js?v=dice-r4"></script>
   <!-- portfolio-seo:start -->
   <meta name="description" content="全螢幕呈現 Nicoa’Lab 紫紅海報，可切換靜態與流動霧氣。">
   <link rel="canonical" href="https://nicoathesix.github.io/MyPortfolio/demos/visual-design/">
@@ -49,7 +49,7 @@
         <canvas class="mist mist-foreground" width="128" height="40" aria-hidden="true"></canvas>
         <div class="ground-sweep" aria-hidden="true"></div>
         <div class="layered-light-surface" tabindex="0" role="group" aria-label="移動光源" aria-describedby="layered-light-guide"></div>
-        <canvas class="poster-spheres" tabindex="0" role="group" aria-label="互動球體，移動滑鼠或拖曳來撥動" aria-describedby="sphere-guide"></canvas>
+        <canvas class="poster-dice" tabindex="0" role="group" aria-label="互動骰子，移動滑鼠或拖曳來撥動" aria-describedby="dice-guide"></canvas>
       </figure>
     </div>
     <footer class="exhibit-controls" hidden>
@@ -57,7 +57,7 @@
         <button type="button" data-show-mode="still" aria-pressed="true">靜態</button>
         <button type="button" data-show-mode="mist" aria-pressed="false">動態霧氣</button>
         <button type="button" data-show-mode="layers" aria-pressed="false">分層霧氣</button>
-        <button type="button" data-show-mode="spheres" aria-pressed="false">互動球體</button>
+        <button type="button" data-show-mode="dice" aria-pressed="false">互動骰子</button>
       </div>
       <button type="button" data-fullscreen data-enter-label="全螢幕" data-exit-label="離開全螢幕">全螢幕</button>
       <label class="light-controls" hidden>打光
@@ -73,12 +73,17 @@
         </select>
       </label>
       <p id="layered-light-guide" class="layered-light-guide" hidden>移動滑鼠或拖曳角色區域來移燈，也可用方向鍵。</p>
-      <div class="sphere-controls" role="group" aria-label="球體控制" hidden>
-        <button type="button" data-pause-spheres data-pause-label="暫停球體" data-resume-label="繼續球體" aria-pressed="false">暫停球體</button>
-        <button type="button" data-reset-spheres>重置球體</button>
+      <div class="dice-controls" role="group" aria-label="骰子控制" hidden>
+        <button type="button" data-pause-dice data-pause-label="暫停骰子" data-resume-label="繼續骰子" aria-pressed="false">暫停骰子</button>
+
       </div>
-      <p id="sphere-guide" class="sphere-guide" hidden>移動滑鼠或拖曳撥動球體。聚焦畫面後也可用方向鍵，Home 重置。</p>
-      <p class="exhibit-status" role="status" data-mist-light-error="角色圖層載入失敗，已回到原版動態霧氣。" data-layer-error="分層素材載入失敗，已回到靜態海報。" data-sphere-error="3D 球體暫時無法載入，已顯示靜態海報。" hidden></p>
+      <div class="dice-legend" aria-label="骰子種類">
+        <span><i class="jelly-swatch" aria-hidden="true"></i>紅色果凍</span>
+        <span><i class="white-swatch" aria-hidden="true"></i>白色剛體</span>
+        <span><i class="black-swatch" aria-hidden="true"></i>黑色剛體</span>
+      </div>
+      <p id="dice-guide" class="dice-guide" hidden>滑過或拖曳來撥動骰子，骰子會碰撞並慢慢減速。也可聚焦畫面後用方向鍵。</p>
+      <p class="exhibit-status" role="status" data-mist-light-error="角色圖層載入失敗，已回到原版動態霧氣。" data-layer-error="分層素材載入失敗，已回到靜態海報。" data-dice-error="3D 骰子暫時無法載入，已顯示靜態海報。" hidden></p>
     </footer>
   </main>
 </body>

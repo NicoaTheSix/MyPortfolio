@@ -15,14 +15,14 @@ const normalCanvas = exhibit.querySelector('.character-normal-light');
 const layeredCanvas = exhibit.querySelector('.character-layered-light');
 const lightSurface = exhibit.querySelector('.layered-light-surface');
 const lightGuide = exhibit.querySelector('.layered-light-guide');
-const sphereCanvas = exhibit.querySelector('.poster-spheres');
-const sphereControls = exhibit.querySelector('.sphere-controls');
-const sphereGuide = exhibit.querySelector('.sphere-guide');
-const pauseSpheres = exhibit.querySelector('[data-pause-spheres]');
-const resetSpheres = exhibit.querySelector('[data-reset-spheres]');
-let sphereScene;
-let sphereRequest;
-let spheresPaused = false;
+const diceCanvas = exhibit.querySelector('.poster-dice');
+const diceControls = exhibit.querySelector('.dice-controls');
+const diceGuide = exhibit.querySelector('.dice-guide');
+const pauseDice = exhibit.querySelector('[data-pause-dice]');
+
+let diceScene;
+let diceRequest;
+let dicePaused = false;
 const character = exhibit.querySelector('.poster-character img');
 const originalCharacter = exhibit.querySelector('.poster-character-original');
 const motion = matchMedia('(prefers-reduced-motion: reduce)');
@@ -87,9 +87,9 @@ function setMode(mode) {
   exhibit.dataset.mode = mode;
   fog.setActive(mode === 'mist' || mode === 'layers');
   foregroundFog.setActive(mode === 'layers');
-  sphereScene?.setActive(mode === 'spheres');
-  sphereControls.hidden = mode !== 'spheres';
-  sphereGuide.hidden = mode !== 'spheres';
+  diceScene?.setActive(mode === 'dice');
+  diceControls.hidden = mode !== 'dice';
+  diceGuide.hidden = mode !== 'dice';
   const choices = lightingOptions[mode] ?? [];
   lightingControls.hidden = choices.length === 0;
   for (const option of lightingSelect.options) {
@@ -113,8 +113,8 @@ function updateLighting() {
   exhibit.dataset.interactiveLight = String(interactive);
   lightGuide.hidden = !interactive;
   alternateLanguage.search = '';
-  if (mode === 'spheres') {
-    alternateLanguage.searchParams.set('mode', 'spheres');
+  if (mode === 'dice') {
+    alternateLanguage.searchParams.set('mode', 'dice');
   } else if (mode !== 'still') {
     alternateLanguage.searchParams.set('mode', mode);
     if (classicFog) alternateLanguage.searchParams.set('fog', 'classic');
@@ -210,28 +210,28 @@ async function showMode(mode) {
     setMode('still');
     return;
   }
-  if (mode === 'spheres') {
+  if (mode === 'dice') {
     try {
-      sphereRequest ??= import('./poster-spheres.js?v=1').then(module => module.createSphereScene(sphereCanvas, {
-        characterUrl: new URL(originalCharacter.dataset.src, location.href).href,
+      diceRequest ??= import('./poster-dice.js?v=4').then(module => module.createDiceScene(diceCanvas, {
+
         onUnavailable() {
           ++modeRequest;
           setMode('still');
-          status.textContent = status.dataset.sphereError;
+          status.textContent = status.dataset.diceError;
           status.hidden = false;
         },
-      })).then(scene => { sphereScene = scene; }).catch(error => {
-        sphereRequest = null;
+      })).then(scene => { diceScene = scene; }).catch(error => {
+        diceRequest = null;
         throw error;
       });
-      await sphereRequest;
+      await diceRequest;
       if (request !== modeRequest) return;
-      setMode('spheres');
-      console.info('[球體 3/3] Interactive sphere mode visible.');
+      setMode('dice');
+      console.info('[骰子 3/3] Interactive dice mode visible.');
     } catch {
       if (request !== modeRequest) return;
       setMode('still');
-      status.textContent = status.dataset.sphereError;
+      status.textContent = status.dataset.diceError;
       status.hidden = false;
     }
     return;
@@ -268,10 +268,10 @@ for (const button of modeButtons) {
   button.addEventListener('click', () => showMode(button.dataset.showMode));
 }
 const lighting = params.get('lighting');
-const initialMode = params.get('mode');
+const initialMode = params.get('mode') === 'spheres' ? 'dice' : params.get('mode');
 const lightingMode = initialMode === 'mist' ? 'mist' : 'layers';
 if (lightingOptions[lightingMode].includes(lighting)) selectedLighting[lightingMode] = lighting;
-showMode(['mist', 'layers', 'spheres'].includes(initialMode) ? initialMode : 'still');
+showMode(['mist', 'layers', 'dice'].includes(initialMode) ? initialMode : 'still');
 console.info('[視覺展示 1/3] 靜態、霧氣與分層控制就緒。');
 
 fullscreenButton.addEventListener('click', async () => {
@@ -298,11 +298,11 @@ document.addEventListener('keydown', event => {
 });
 console.info('[視覺展示 2/3] 全螢幕與備援控制就緒。');
 controls.hidden = false;
-pauseSpheres.addEventListener('click', () => {
-  spheresPaused = !spheresPaused;
-  sphereScene?.setPaused(spheresPaused);
-  pauseSpheres.setAttribute('aria-pressed', String(spheresPaused));
-  pauseSpheres.textContent = spheresPaused ? pauseSpheres.dataset.resumeLabel : pauseSpheres.dataset.pauseLabel;
+pauseDice.addEventListener('click', () => {
+  dicePaused = !dicePaused;
+  diceScene?.setPaused(dicePaused);
+  pauseDice.setAttribute('aria-pressed', String(dicePaused));
+  pauseDice.textContent = dicePaused ? pauseDice.dataset.resumeLabel : pauseDice.dataset.pauseLabel;
 });
-resetSpheres.addEventListener('click', () => sphereScene?.reset());
+
 console.info('[視覺展示 3/3] 展示控制已顯示。');
