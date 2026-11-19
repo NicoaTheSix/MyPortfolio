@@ -15,6 +15,14 @@ const normalCanvas = exhibit.querySelector('.character-normal-light');
 const layeredCanvas = exhibit.querySelector('.character-layered-light');
 const lightSurface = exhibit.querySelector('.layered-light-surface');
 const lightGuide = exhibit.querySelector('.layered-light-guide');
+const sphereCanvas = exhibit.querySelector('.poster-spheres');
+const sphereControls = exhibit.querySelector('.sphere-controls');
+const sphereGuide = exhibit.querySelector('.sphere-guide');
+const pauseSpheres = exhibit.querySelector('[data-pause-spheres]');
+const resetSpheres = exhibit.querySelector('[data-reset-spheres]');
+let sphereScene;
+let sphereRequest;
+let spheresPaused = false;
 const character = exhibit.querySelector('.poster-character img');
 const originalCharacter = exhibit.querySelector('.poster-character-original');
 const motion = matchMedia('(prefers-reduced-motion: reduce)');
@@ -79,6 +87,9 @@ function setMode(mode) {
   exhibit.dataset.mode = mode;
   fog.setActive(mode === 'mist' || mode === 'layers');
   foregroundFog.setActive(mode === 'layers');
+  sphereScene?.setActive(mode === 'spheres');
+  sphereControls.hidden = mode !== 'spheres';
+  sphereGuide.hidden = mode !== 'spheres';
   const choices = lightingOptions[mode] ?? [];
   lightingControls.hidden = choices.length === 0;
   for (const option of lightingSelect.options) {
@@ -102,7 +113,9 @@ function updateLighting() {
   exhibit.dataset.interactiveLight = String(interactive);
   lightGuide.hidden = !interactive;
   alternateLanguage.search = '';
-  if (mode !== 'still') {
+  if (mode === 'spheres') {
+    alternateLanguage.searchParams.set('mode', 'spheres');
+  } else if (mode !== 'still') {
     alternateLanguage.searchParams.set('mode', mode);
     if (classicFog) alternateLanguage.searchParams.set('fog', 'classic');
     if (lighting !== lightingOptions[mode][0]) alternateLanguage.searchParams.set('lighting', lighting);
@@ -197,6 +210,32 @@ async function showMode(mode) {
     setMode('still');
     return;
   }
+  if (mode === 'spheres') {
+    try {
+      sphereRequest ??= import('./poster-spheres.js?v=1').then(module => module.createSphereScene(sphereCanvas, {
+        characterUrl: new URL(originalCharacter.dataset.src, location.href).href,
+        onUnavailable() {
+          ++modeRequest;
+          setMode('still');
+          status.textContent = status.dataset.sphereError;
+          status.hidden = false;
+        },
+      })).then(scene => { sphereScene = scene; }).catch(error => {
+        sphereRequest = null;
+        throw error;
+      });
+      await sphereRequest;
+      if (request !== modeRequest) return;
+      setMode('spheres');
+      console.info('[球體 3/3] Interactive sphere mode visible.');
+    } catch {
+      if (request !== modeRequest) return;
+      setMode('still');
+      status.textContent = status.dataset.sphereError;
+      status.hidden = false;
+    }
+    return;
+  }
   const ready = [fog.prepare()];
   if (mode === 'layers') ready.push(foregroundFog.prepare());
   const lighting = selectedLighting[mode];
@@ -232,7 +271,7 @@ const lighting = params.get('lighting');
 const initialMode = params.get('mode');
 const lightingMode = initialMode === 'mist' ? 'mist' : 'layers';
 if (lightingOptions[lightingMode].includes(lighting)) selectedLighting[lightingMode] = lighting;
-showMode(['mist', 'layers'].includes(initialMode) ? initialMode : 'still');
+showMode(['mist', 'layers', 'spheres'].includes(initialMode) ? initialMode : 'still');
 console.info('[視覺展示 1/3] 靜態、霧氣與分層控制就緒。');
 
 fullscreenButton.addEventListener('click', async () => {
@@ -259,4 +298,11 @@ document.addEventListener('keydown', event => {
 });
 console.info('[視覺展示 2/3] 全螢幕與備援控制就緒。');
 controls.hidden = false;
+pauseSpheres.addEventListener('click', () => {
+  spheresPaused = !spheresPaused;
+  sphereScene?.setPaused(spheresPaused);
+  pauseSpheres.setAttribute('aria-pressed', String(spheresPaused));
+  pauseSpheres.textContent = spheresPaused ? pauseSpheres.dataset.resumeLabel : pauseSpheres.dataset.pauseLabel;
+});
+resetSpheres.addEventListener('click', () => sphereScene?.reset());
 console.info('[視覺展示 3/3] 展示控制已顯示。');

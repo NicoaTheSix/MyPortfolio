@@ -1,5 +1,19 @@
 # 網頁視覺設計展示
 
+## 互動球體
+
+在展示頁選「互動球體」，或直接開啟 `?mode=spheres`。中英文作品集的示範卡也各有入口。角色沿用原有透明海報圖作為 2.5D 遮擋層，球體是 132 顆真正的 Three.js 3D 球體，使用環境反射、紫紅主光與紫色補光。
+
+移動滑鼠會推開球體，球體彼此碰撞並逐漸回到角色周圍。手機在海報上拖曳，海報以外保留捲動。Tab 聚焦畫面後可用方向鍵推球，Home 或「重置球體」復位。提供暫停和繼續，切換模式後保留暫停狀態。系統偏好減少動態時顯示固定球體，背景分頁及離開畫面時停止更新。WebGL 或角色圖載入失敗時回到靜態海報並顯示提示。
+
+此批在 `C:\Users\nick5\Documents\ChatGPT\Portfolio 網站設置\.preview\visual-spheres\` 中製作。執行前由建置程式列出輸入 `demos\visual-design\three-spheres.mjs`、`sphere-physics.mjs` 與輸出 `poster-spheres.js` 的絕對路徑，再回報打包與寫入進度。瀏覽器列出角色來源的絕對 URL，接著回報實例、控制和顯示就緒。
+
+執行 `node demos/visual-design/build-spheres.mjs` 建置靜態託管用套件，再設定 `$env:PORT='4307'` 並執行 `node serve.mjs`，開啟 <http://127.0.0.1:4307/MyPortfolio/demos/visual-design/?mode=spheres>。輸出不需外部 CDN。樣式和展示控制由同目錄的 `style.css`、`site.js` 提供，模式切換沿用既有非同步請求序號，防止素材載入後切回錯誤模式。
+
+物理模擬以 1/90 秒固定步長運算，限制補算時間和速度，用鼠標前後位置的線段偵測快速掃過，避免穿過小球。碰撞採等質量衝量及重疊修正，彈簧力拉回初始分布。驗證涵蓋快速掃動、長時間位置有限、邊界、復位、語言切換、原有霧效模式與手機版面。
+
+互動方向參考 [Lusion 首屏](https://lusion.co/) 的密集 3D 物件和直接操控感。
+
 `/MyPortfolio/demos/visual-design/` 是繁中版，`/MyPortfolio/demos/visual-design/en/` 是英文版。桌面置中展示完整海報，手機保留原圖 2:3。
 
 - **靜態**顯示無霧的 1024×1536 或 640×960 海報，瀏覽器按視窗大小選取 WebP。
