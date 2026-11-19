@@ -5,8 +5,9 @@ import { fileURLToPath } from 'node:url';
 const absolute = file => fileURLToPath(new URL(file, import.meta.url));
 const input = absolute('./three-dice.mjs');
 const physics = absolute('./dice-physics.mjs');
+const liquid = absolute('./liquid-glass.mjs');
 const output = absolute('./poster-dice.js');
-console.log('[0/2] Input:', input, physics);
+console.log('[0/2] Input:', input, physics, liquid);
 console.log('[0/2] Output:', output);
 const { outputFiles } = await build({
   entryPoints: [input], outfile: output, bundle: true, format: 'esm',

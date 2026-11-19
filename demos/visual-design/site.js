@@ -19,6 +19,7 @@ const diceCanvas = exhibit.querySelector('.poster-dice');
 const diceControls = exhibit.querySelector('.dice-controls');
 const diceGuide = exhibit.querySelector('.dice-guide');
 const pauseDice = exhibit.querySelector('[data-pause-dice]');
+const glassToggle = exhibit.querySelector('[data-glass-toggle]');
 
 let diceScene;
 let diceRequest;
@@ -29,6 +30,7 @@ const motion = matchMedia('(prefers-reduced-motion: reduce)');
 const languageLink = exhibit.querySelector('[data-exhibit-language]');
 const alternateLanguage = new URL(languageLink.href);
 const params = new URL(location.href).searchParams;
+let glassEnabled = params.get('glass') !== 'off';
 const classicFog = params.get('fog') === 'classic';
 const loadRenderer = () => import('./poster-fog.js?v=1');
 const lightingOptions = {
@@ -115,6 +117,7 @@ function updateLighting() {
   alternateLanguage.search = '';
   if (mode === 'dice') {
     alternateLanguage.searchParams.set('mode', 'dice');
+    if (!glassEnabled) alternateLanguage.searchParams.set('glass', 'off');
   } else if (mode !== 'still') {
     alternateLanguage.searchParams.set('mode', mode);
     if (classicFog) alternateLanguage.searchParams.set('fog', 'classic');
@@ -212,7 +215,7 @@ async function showMode(mode) {
   }
   if (mode === 'dice') {
     try {
-      diceRequest ??= import('./poster-dice.js?v=4').then(module => module.createDiceScene(diceCanvas, {
+      diceRequest ??= import('./poster-dice.js?v=liquid-r1').then(module => module.createDiceScene(diceCanvas, {
 
         onUnavailable() {
           ++modeRequest;
@@ -220,7 +223,10 @@ async function showMode(mode) {
           status.textContent = status.dataset.diceError;
           status.hidden = false;
         },
-      })).then(scene => { diceScene = scene; }).catch(error => {
+      })).then(scene => {
+        diceScene = scene;
+        diceScene.setGlassEnabled(glassEnabled);
+      }).catch(error => {
         diceRequest = null;
         throw error;
       });
@@ -304,5 +310,17 @@ pauseDice.addEventListener('click', () => {
   pauseDice.setAttribute('aria-pressed', String(dicePaused));
   pauseDice.textContent = dicePaused ? pauseDice.dataset.resumeLabel : pauseDice.dataset.pauseLabel;
 });
+
+function syncGlassToggle() {
+  glassToggle.setAttribute('aria-pressed', String(glassEnabled));
+  glassToggle.textContent = glassEnabled ? glassToggle.dataset.onLabel : glassToggle.dataset.offLabel;
+}
+glassToggle.addEventListener('click', () => {
+  glassEnabled = !glassEnabled;
+  diceScene?.setGlassEnabled(glassEnabled);
+  syncGlassToggle();
+  updateLighting();
+});
+syncGlassToggle();
 
 console.info('[視覺展示 3/3] 展示控制已顯示。');

@@ -2,6 +2,7 @@ import * as THREE from 'three';
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
 import { RoundedBoxGeometry } from 'three/addons/geometries/RoundedBoxGeometry.js';
 import { createDiceWorld, DICE_TYPES, FIXED_STEP } from './dice-physics.mjs';
+import { createLiquidGlass } from './liquid-glass.mjs';
 
 function faceTexture(number, background, ink) {
   const face = document.createElement('canvas');
@@ -81,11 +82,13 @@ export async function createDiceScene(canvas, { onUnavailable }) {
     return { type, dice, mesh };
   });
   const dummy = new THREE.Object3D();
+  const glass = createLiquidGlass(renderer);
   const motion = matchMedia('(prefers-reduced-motion: reduce)');
   let alive = true;
   let active = false;
   let visible = true;
   let paused = false;
+  let glassEnabled = true;
   let pointerId = null;
   let frame = 0;
   let previousTime = 0;
@@ -111,10 +114,10 @@ export async function createDiceScene(canvas, { onUnavailable }) {
       });
       mesh.instanceMatrix.needsUpdate = true;
     }
-    renderer.render(scene, camera);
+    glass.render(scene, camera);
   }
   function canRun() {
-    return alive && active && visible && !paused && !document.hidden && !motion.matches;
+    return alive && active && visible && (!paused || glassEnabled) && !document.hidden && !motion.matches;
   }
   function tick(now) {
     frame = 0;
@@ -122,7 +125,7 @@ export async function createDiceScene(canvas, { onUnavailable }) {
     accumulated += Math.min((now - previousTime) / 1000 || FIXED_STEP, .05);
     previousTime = now;
     while (accumulated >= FIXED_STEP) {
-      simulation.step();
+      if (!paused) simulation.step();
       accumulated -= FIXED_STEP;
     }
     render();
@@ -140,6 +143,7 @@ export async function createDiceScene(canvas, { onUnavailable }) {
     const bounds = canvas.getBoundingClientRect();
     if (!bounds.width || !bounds.height || !alive) return;
     renderer.setSize(bounds.width, bounds.height, false);
+    glass.resize(bounds.width, bounds.height);
     if (active) render();
   }
   function setPoint(x, y) {
@@ -149,7 +153,8 @@ export async function createDiceScene(canvas, { onUnavailable }) {
     cursor.x = x;
     cursor.y = y;
     cursor.active = true;
-    simulation.push(cursor);
+    if (!paused) simulation.push(cursor);
+    glass.move((x + 5) / 10, (y + 5) / 10);
   }
   function move(event) {
     if (event.pointerType !== 'mouse' && event.pointerId !== pointerId) return;
@@ -193,7 +198,10 @@ export async function createDiceScene(canvas, { onUnavailable }) {
     sync();
   }).observe(canvas);
   document.addEventListener('visibilitychange', sync);
-  motion.addEventListener('change', sync);
+  motion.addEventListener('change', () => {
+    glass.clear();
+    sync();
+  });
   resize();
   canvas.dataset.diceCount = String(simulation.dice.length);
   console.info('[骰子 2/3] Mouse impulse, touch drag, damping, keyboard and pause controls ready.');
@@ -201,12 +209,19 @@ export async function createDiceScene(canvas, { onUnavailable }) {
     setActive(value) {
       if (value && !alive) throw new Error('Dice WebGL context is unavailable');
       active = value;
+      if (!active) glass.clear();
       release();
       sync();
     },
     setPaused(value) {
       paused = value;
       release();
+      sync();
+    },
+    setGlassEnabled(value) {
+      glassEnabled = value;
+      glass.setEnabled(value);
+      canvas.dataset.glassEnabled = String(value);
       sync();
     },
   };
