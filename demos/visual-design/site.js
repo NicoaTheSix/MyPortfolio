@@ -233,7 +233,7 @@ async function showMode(mode) {
   }
   if (mode === 'dice') {
     try {
-      diceRequest ??= import('./poster-dice.js?v=liquid-controls-r1').then(module => module.createDiceScene(diceCanvas, {
+      diceRequest ??= import('./poster-dice.js?v=clear-red-r1').then(module => module.createDiceScene(diceCanvas, {
 
         onUnavailable() {
           ++modeRequest;

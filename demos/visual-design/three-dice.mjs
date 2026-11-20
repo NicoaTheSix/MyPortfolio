@@ -54,7 +54,7 @@ export async function createDiceScene(canvas, { onUnavailable }) {
   const simulation = createDiceWorld();
   const geometry = new RoundedBoxGeometry(1, 1, 1, 3, .09);
   const colors = {
-    jelly: { background: '#c90022', ink: '#ffffff' },
+    jelly: { background: '#d9002e', ink: '#ffffff' },
     white: { background: '#fbfaf6', ink: '#222634' },
     black: { background: '#141720', ink: '#ffffff' },
   };
@@ -63,11 +63,15 @@ export async function createDiceScene(canvas, { onUnavailable }) {
     const materials = [1, 6, 2, 5, 3, 4].map(number => {
       const map = faceTexture(number, background, ink);
       if (type === 'jelly') {
+        const alphaMap = faceTexture(number, '#999999', '#ffffff');
+        // Coverage is scalar data: keep 60% coverage without sRGB decoding.
+        alphaMap.colorSpace = THREE.NoColorSpace;
         return new THREE.MeshPhysicalMaterial({
           map, transmissionMap: faceTexture(number, '#ffffff', '#000000'),
-          transmission: .76, thickness: .75, ior: 1.46, roughness: .065,
-          clearcoat: 1, clearcoatRoughness: .08, metalness: 0,
-          envMapIntensity: .9, attenuationColor: new THREE.Color('#ef1230'), attenuationDistance: .85,
+          alphaMap, transparent: true, depthWrite: false,
+          transmission: .97, thickness: .3, ior: 1.38, roughness: .025,
+          clearcoat: 1, clearcoatRoughness: .045, metalness: 0,
+          envMapIntensity: .9, attenuationColor: new THREE.Color('#f46780'), attenuationDistance: 1.8,
         });
       }
       return new THREE.MeshStandardMaterial({
