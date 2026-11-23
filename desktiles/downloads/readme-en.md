@@ -8,7 +8,7 @@ DeskTiles puts notes, images, and timers into draggable hexagons, triangles, and
 
 | Platform | Version | Download |
 | --- | --- | --- |
-| Windows 10 / 11 x64 | v1.06 | [Portable ZIP](https://raw.githubusercontent.com/NicoaTheSix/DeskTile/v1.06/release/DeskTiles-Windows-x64.zip) · [DeskTiles.exe only](https://raw.githubusercontent.com/NicoaTheSix/DeskTile/v1.06/release/DeskTiles/DeskTiles.exe) |
+| Windows 10 / 11 x64 | v1.07 | [Portable ZIP](https://raw.githubusercontent.com/NicoaTheSix/DeskTile/v1.07/release/DeskTiles-Windows-x64.zip) · [DeskTiles.exe only](https://raw.githubusercontent.com/NicoaTheSix/DeskTile/v1.07/release/DeskTiles/DeskTiles.exe) |
 | macOS 12+ (Apple silicon / Intel) | v1.02 | [Universal 2 ZIP](https://raw.githubusercontent.com/NicoaTheSix/DeskTile/v1.02/DeskTile_mac/release/DeskTiles-macOS-universal.zip) |
 
 **Windows:** Extract the complete ZIP and open `DeskTiles.exe`. Use the ZIP if you want `desktiles-cli.exe`, the guides, and the example layout. The portable app needs no installer, administrator rights, or separate runtime. To update, choose **Save and exit DeskTiles** from the tray before opening the replacement. Closing the control panel keeps the app running.
@@ -29,7 +29,7 @@ DeskTiles puts notes, images, and timers into draggable hexagons, triangles, and
 | Back up a layout | Use the JSON menu to export the current layout with embedded images. Import can replace or merge the current layout. |
 | Find missing tiles | Use the tray command to move them back to the primary display. |
 
-Switch between English and Traditional Chinese using the **Language** menu. Your choice is saved. Double-click a tile or open DeskTiles from the tray to bring the control panel back.
+Switch between English and Traditional Chinese using the **Language** menu. Your choice is saved. Open DeskTiles from the tray to bring the control panel back. On Windows, double-click a text tile to edit it in place.
 
 ![DeskTiles control panel in English](docs/control-en.png)
 
@@ -95,9 +95,11 @@ The source build requires Windows x64, PowerShell, Visual Studio with the C++ de
 .\verify-package.ps1
 ```
 
+The [Windows v1.07 deployment record](docs/windows-v1.07-deployment.md) lists the accepted snapshot, packaging workflow and validation scope. The [Portfolio handoff](docs/portfolio-v1.07-handoff.md) identifies the download and bilingual documentation files.
+
 The build and verification scripts print absolute input/output paths and stage progress. Tests use isolated data directories. Optional checks include `verify-language.ps1`, `verify-activation.ps1`, `verify-interaction.ps1`, `verify-features.ps1`, `verify-icons.ps1`, and `verify-package.ps1 -Composition`. Desktop composition tests require an interactive Windows desktop with Explorer; the optional Python-based tests also require their documented dependencies.
 
-Windows v1.06 passed 235 core checks, 192 checks on the unpacked Windows package, and 38 named-layout/CLI integration checks, including a background alarm after restart.
+Windows v1.07 includes the accepted desktop tools snapshot: 235 core checks, 24 convenience-core checks, 31 native convenience checks, 192 unpacked-package checks, 38 layout/CLI checks, 8 ceramic-border checks and 14 Sage-layout checks. The CLI checks include a background alarm after restart. Steam SDK compilation and live Cloud/Workshop operations remain pending an App ID and SDK.
 
 | Path | Purpose |
 | --- | --- |
@@ -136,3 +138,27 @@ The bundled `assets/sage-gecko.jpg` is a JPEG export of a photo generated with t
 Create a photorealistic landscape photograph for a DeskTile demo, using the attached product mockup only as subject, palette and framing reference. A golden-orange leopard gecko with spotted markings facing the camera, its head just below the frame center at x=50%, y=60%, both front legs visible below the head on dark slate. Warm directional light, softly blurred charcoal background, realistic natural details. Keep the animal in the center half of the frame with extra margins, so it will be visible when the application masks the image into a triangle. Deliver only the complete rectangular photograph, without any text, graphics, border, triangle or UI.
 
 </details>
+
+## Desktop tools (Windows)
+
+The **Desktop tools** submenu is available from a tile or the system tray. Double-click a text tile to edit it in place. Click outside or press Ctrl+Enter to save; Esc cancels. Ctrl+Z and Ctrl+Y restore or redo layout edits when focus is outside a text field. Undo retains clocks on surviving tiles; recovered deleted timers and alarms start inactive. The session keeps up to 30 undo steps with an 8 MiB budget per history direction, while the recycle bin persists up to 100 deleted tiles.
+
+Drop PNG, JPEG or BMP files onto a tile or the control window to create picture tiles. Ctrl+V outside an edit field creates tiles from clipboard text, pictures or copied image files. Imports copy pictures into the data folder's assets directory. Existing text fields retain their standard paste and undo behavior.
+
+Use the submenu to lock the position of the selected tiles or enable click-through. The tray's **Restore mouse input** clears those modes and shows the control window. Default configurable global shortcuts are Ctrl+Alt+N (new note), Ctrl+Alt+T (five-minute timer), Ctrl+Alt+L (next layout), Ctrl+Alt+H (hide/show), and Ctrl+Alt+U (restore input). A conflicting shortcut reports an error and can be changed from **Global shortcuts…**.
+
+**Desktop preferences…** controls automatic fullscreen hiding, optional muted reminders, and manual focus mode. Timers and alarms keep running while tiles are hidden. Display changes remember positions for up to eight monitor arrangements, and bring disconnected-screen tiles back into view. The **Layout presets…** dialog previews Monochrome, Sage, Study and Work. It can create a layout or apply only its colors to selected tiles.
+
+**Export share package (preview)…** creates a JSON layout with embedded pictures when explicitly selected. Text and pictures are excluded by default, and schedules are inactive. A content confirmation precedes export. **Import package as new layout…** validates the package and imports it independently.
+
+### Steam and offline verification
+
+Windows v1.07 is built without a Steam App ID or SDK. Steam Cloud and Workshop network operations require the SDK-enabled build and an assigned App ID. The local sync-folder transport exercises the same package validation and conflict policy. **Sync now…** asks for an absolute folder when Steam is unavailable. An initial pre-existing remote package triggers a conflict choice. Both local and remote data are backed up under sync-backups before replacement. Sync transfers layouts, contents and owned pictures; incoming reminders start inactive.
+
+With the Steam SDK enabled, **Steam connection and subscriptions…** can enable synchronization at startup, exit and five-minute intervals, and import installed subscribed items. **Publish to Workshop (preview)…** uploads the redacted package and its rendered preview as a private item. **Browse Steam Workshop** opens the product's Workshop page so users can subscribe. Successful online upload, subscription downloads and cross-machine Cloud remain to be tested with the real App ID.
+
+Build the offline Windows app with Windows PowerShell 5.1 and build.ps1. To enable the real adapter, run build.ps1 -SteamSdkPath followed by the absolute path of the Steamworks SDK root. The build checks public/steam/steam_api.h and redistributable_bin/win64/steam_api64.lib and .dll. Configure Steam Cloud and Workshop for the assigned product, and test through Steam. The SDK and credentials are supplied separately.
+
+Run verify-convenience.ps1 after building. It prints absolute input/output paths and verifies direct editing, undo/redo, deletion, drag/drop, clipboard, input modes, shortcuts, fullscreen hiding, display recovery, presets, redacted sharing and offline upload/download. The standalone convenience_tests.cpp also verifies clock preservation, redaction and sync conflict decisions. The SDK-dependent code is excluded from the offline compilation and still requires a real SDK build.
+
+The implementation enters through win32_convenience.hpp. Reversible catalog edits are recorded after successful persistence. Preferences and per-monitor placement live in desktop-options.json, the deleted-tile records in recycle.json, managed images in assets, and sync conflict backups in sync-backups. None of these files enable Windows sign-in startup.

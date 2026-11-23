@@ -14,6 +14,7 @@ import {overview as renderOverview,platformNotice,homepageCard} from './desktile
 const root=path.dirname(fileURLToPath(import.meta.url));
 const sourcePosition=process.argv.indexOf('--source');
 const source=sourcePosition>=0&&process.argv[sourcePosition+1]?path.resolve(process.argv[sourcePosition+1]):null;
+const windowsOnly=process.argv.includes('--windows-only');
 const output=path.join(root,'desktiles');
 const repository='https://github.com/NicoaTheSix/DeskTile';
 const hash=data=>createHash('sha256').update(data).digest('hex');
@@ -23,9 +24,12 @@ const copies=[
   ['README.zh-TW.md','downloads/README.md'],['README.md','downloads/readme-en.md'],['docs/使用說明.md','downloads/guide-zh.md'],
   ['docs/UserGuide.en.md','downloads/guide-en.md'],['docs/control-en.png','assets/control-en.png'],
   ['docs/sage-layout-preview.png','assets/sage-layout-preview.png'],
+  ['docs/desktop-tools-presets.png','assets/desktop-tools-presets.png'],
   ...['shapes','control','border','background','typography'].map(name=>['docs/'+name+'.png','assets/'+name+'.png']),
   ['assets/DeskTiles.svg','assets/DeskTiles.svg'],['assets/DeskTiles-logo.png','assets/DeskTiles-logo.png'],
   ['release/DeskTiles-Windows-x64.zip','downloads/DeskTiles-Windows-x64.zip'],
+  ['release/DeskTiles/DeskTiles.exe','downloads/DeskTiles.exe'],
+  ['release/DeskTiles/desktiles-cli.exe','downloads/desktiles-cli.exe'],
   ['release/SHA256SUMS.txt','downloads/SHA256SUMS.txt'],['docs/mixed-shapes.json','downloads/mixed-shapes.json'],
   ['docs/驗證摘要.txt','downloads/validation.txt'],['docs/icon-update-delivery.md','downloads/icon-update-delivery.md'],
   ['DeskTile_mac/README.md','downloads/README-macOS.md'],['DeskTile_mac/README.md','downloads/guide-macos-zh.md'],['DeskTile_mac/release/THIRD-PARTY-NOTICES.txt','downloads/THIRD-PARTY-NOTICES-macOS.txt'],['DeskTile_mac/release/範例配置.json','downloads/example-macos.json'],['DeskTile_mac/release/DeskTiles-macOS-universal.zip',macZip],['DeskTile_mac/release/SHA256SUMS.txt','downloads/SHA256SUMS-macOS.txt'],
@@ -41,10 +45,10 @@ console.log('[0/5] SEO 版型輸入（絕對路徑）：',path.join(root,'seo-he
 console.log('[0/5] 來源目錄（絕對路徑）：',source||'缺少 --source');
 console.log('[0/5] 網站輸出目錄（絕對路徑）：',output);
 for(const [from,to] of copies)console.log('[0/5] 複製輸入／輸出（絕對路徑）：',source&&path.join(source,from),'→',path.join(output,to));
-for(const file of ['release.mjs','publish-content.mjs','content/mac-en.md','assets/DeskTiles-fixes-demo.mp4','assets/product-tile-preview.webp','landing.css','landing.js'])console.log('[0/5] 輸入（絕對路徑）：',path.join(output,file));
+for(const file of ['release.mjs','publish-content.mjs','windows-update.mjs','content/mac-en.md','assets/DeskTiles-fixes-demo.mp4','assets/product-tile-preview.webp','landing.css','landing.js'])console.log('[0/5] 輸入（絕對路徑）：',path.join(output,file));
 console.log('[0/5] 輸出（絕對路徑）：',path.join(output,'downloads/mac-en.md'));
 for(const exe of ['DeskTiles.exe','desktiles-cli.exe']) {
-  console.log('[0/5] EXE 校驗輸入（絕對路徑，不執行、不另行發布）：',source&&path.join(source,'release/DeskTiles',exe));
+  console.log('[0/5] EXE 校驗輸入（絕對路徑，不執行，原檔提供下載）：',source&&path.join(source,'release/DeskTiles',exe));
 }
 for(const file of [...generatedHtml,'macos.html','search-index.json','source-manifest.json'])console.log('[0/5] 輸出（絕對路徑）：',path.join(output,file));
 for(const file of ['index.html','en/index.html'])console.log('[0/5] 首頁輸入／輸出（絕對路徑）：',path.join(root,file));
@@ -74,6 +78,9 @@ function renderMarkdown(markdown,page) {
   const mapping={'DeskTile_mac/README.md':fileFor(page.lang,'mac'),'DeskTile_mac/release/DeskTiles-macOS-universal.zip':macZip,'release/DeskTiles-Windows-x64.zip':zipFile,'docs/使用說明.md':fileFor(page.lang,'guide'),'docs/UserGuide.en.md':fileFor('en','guide'),'UserGuide.en.md':fileFor('en','guide'),'docs/control.png':'assets/control.png','docs/control-en.png':'assets/control-en.png','docs/驗證摘要.txt':'downloads/validation.txt','docs/DeskTiles-fixes-demo.mp4':'assets/DeskTiles-fixes-demo.mp4'};
   for(const name of ['alarm','alarm-en','startup-consent','reminder'])mapping['docs/'+name+'.png']='assets/'+name+'.png';
   mapping['docs/sage-layout-preview.png']='assets/sage-layout-preview.png';
+  mapping['docs/desktop-tools-presets.png']='assets/desktop-tools-presets.png';
+  mapping['使用說明.md']=fileFor('zh','guide');
+  for(const name of ['windows-v1.07-deployment','portfolio-v1.07-handoff'])mapping['docs/'+name+'.md']=`https://github.com/NicoaTheSix/DeskTile/blob/v${release.version}/docs/${name}.md`;
   mapping['README.md']=fileFor('en','readme');
   mapping['README.zh-TW.md']=fileFor('zh','readme');
   mapping['docs/使用說明.md']=fileFor('zh','guide');
@@ -81,7 +88,7 @@ function renderMarkdown(markdown,page) {
     const href=decodeURI(link.getAttribute('href'));
     if(href==='docs/網站上架交接.md') {link.closest('p').remove();continue;}
     if(/^https?:/.test(href)) {link.setAttribute('target','_blank');link.setAttribute('rel','noopener noreferrer');}
-    else {if(href==='docs/驗證摘要.txt')link.textContent=page.lang==='zh'?'歷史驗證摘要（2026-11-03）':'Historical validation summary (2026-11-03)';assert(mapping[href],'未定義的文件入口：'+href);link.setAttribute('href',relative(page.file,mapping[href]));}
+    else {if(href==='docs/驗證摘要.txt')link.textContent=page.lang==='zh'?'歷史驗證摘要（2026-11-03）':'Historical validation summary (2026-11-03)';assert(mapping[href],'未定義的文件入口：'+href);link.setAttribute('href',/^https:/.test(mapping[href])?mapping[href]:relative(page.file,mapping[href]));if(/^https:/.test(mapping[href])){link.setAttribute('target','_blank');link.setAttribute('rel','noopener noreferrer');}}
   }
   for(const img of article.querySelectorAll('img')) {const src=decodeURI(img.getAttribute('src'));assert(mapping[src],'未定義圖片：'+src);img.setAttribute('src',relative(page.file,mapping[src]));img.setAttribute('loading','lazy');}
   for(const table of [...article.querySelectorAll('table')]) {const wrap=document.createElement('div');wrap.className='table-scroll';table.replaceWith(wrap);wrap.append(table);}
@@ -132,18 +139,19 @@ try {
   const cli=await readFile(path.join(source,'release/DeskTiles/desktiles-cli.exe'));
   assert.equal(hash(cli).toUpperCase(),release.cliSha256,'CLI EXE 雜湊不符');
   assert.equal(cli.length,release.cliBytes,'CLI EXE 大小不符');
-  const macBytes=await readFile(path.join(source,'DeskTile_mac/release/DeskTiles-macOS-universal.zip'));
-  const macSums=await readFile(path.join(source,'DeskTile_mac/release/SHA256SUMS.txt'),'utf8');
+  const macBytes=await readFile(windowsOnly?path.join(output,macZip):path.join(source,'DeskTile_mac/release/DeskTiles-macOS-universal.zip'));
+  const macSums=await readFile(windowsOnly?path.join(output,'downloads/SHA256SUMS-macOS.txt'):path.join(source,'DeskTile_mac/release/SHA256SUMS.txt'),'utf8');
   assert.equal(hash(macBytes).toUpperCase(),release.macSha256,'Mac ZIP不符');assert.equal(macBytes.length,release.macBytes,'Mac ZIP大小不符');
   assert(macSums.toLowerCase().includes(hash(macBytes)+'  DeskTiles-macOS-universal.zip'.toLowerCase()),'Mac SHA256SUMS不符');
   console.log('[1/5] ZIP 與 SHA256SUMS 核對通過；僅讀取交接清單列明的公開素材。');
   await mkdir(output,{recursive:true});
   const assets=[];
   for(const [index,[from,to]] of copies.entries()) {
-    const input=path.join(source,from),destination=path.join(output,to);
-    const bytes=await readFile(input);await mkdir(path.dirname(destination),{recursive:true});await copyFile(input,destination);
+    const destination=path.join(output,to),retain=windowsOnly&&from.startsWith('DeskTile_mac/');
+    const input=retain?destination:path.join(source,from);
+    const bytes=await readFile(input);await mkdir(path.dirname(destination),{recursive:true});if(!retain)await copyFile(input,destination);
     assets.push({path:to,source:from,sha256:hash(bytes),bytes:bytes.length});
-    console.log(`[2/5] 已複製 ${index+1}/${copies.length}：${to}`);
+    console.log(`[2/5] ${retain?'已沿用正式檔':'已複製'} ${index+1}/${copies.length}：${to}`);
   }
   const macGuide=await readFile(path.join(output,'content/mac-en.md'));
   await writeFile(path.join(output,'downloads/mac-en.md'),macGuide);
@@ -162,19 +170,21 @@ try {
     const decorated=decorate(updated),html=template(page,decorated.content,decorated.headings)
       .replace('下載檔與原始中文文件由專案提供；英文為網站翻譯。','下載檔、Windows 雙語文件與截圖由專案提供。')
       .replace('Downloads and original Chinese documents are supplied by the project; English documents are website translations.',page.key==='mac'?'The English macOS guide is a website translation.':'Downloads, bilingual Windows documentation and screenshots come from the project.');
-    const destination=path.join(output,page.file);await mkdir(path.dirname(destination),{recursive:true});await writeFile(destination,applySeoHead(html,'desktiles/'+page.file));
-    const {document}=parseHTML(html),main=document.querySelector('main');
+    const destination=path.join(output,page.file);await mkdir(path.dirname(destination),{recursive:true});
+    const retainedMac=windowsOnly&&page.key==='mac';
+    if(!retainedMac)await writeFile(destination,applySeoHead(html,'desktiles/'+page.file));
+    const {document}=parseHTML(retainedMac?await readFile(destination,'utf8'):html),main=document.querySelector('main');
     search.push({lang:page.lang,title:titles[page.lang][page.key],pageTitle:titles[page.lang][page.key],url:page.file,text:main.textContent.replace(/\s+/g,' ').slice(0,1500)});
     for(const heading of main.querySelectorAll('h2[id],h3[id]')) {
       let text='',next=heading.nextElementSibling;while(next&&!/^h[123]$/.test(next.localName)){text+=' '+next.textContent;next=next.nextElementSibling;}
       search.push({lang:page.lang,title:heading.textContent,pageTitle:titles[page.lang][page.key],url:page.file+'#'+encodeURIComponent(heading.id),text:text.replace(/\s+/g,' ').trim().slice(0,3000)});
     }
-    console.log('[3/5] 已產生線上文件：',destination);
+    console.log(retainedMac?'[3/5] 已保留 Mac 原頁：':'[3/5] 已產生線上文件：',destination);
   }
   await copyFile(path.join(output,'mac.html'),path.join(output,'macos.html'));
   const publicFiles=[...generatedHtml,'macos.html',...assets.map(asset=>asset.path),'desktiles.css','landing.css','landing.js','search-index.json','source-manifest.json'];
   await writeFile(path.join(output,'search-index.json'),JSON.stringify(search,null,2)+'\n');
-  await writeFile(path.join(output,'source-manifest.json'),JSON.stringify({schemaVersion:1,project:'DeskTiles',publishedDate:date,sourceRepository:repository,platform:'Windows 10 / 11 x64; macOS 12+ Universal 2',windowsVersion:release.version,macVersion:release.macVersion,macZipSha256:release.macSha256.toLowerCase(),macZipBytes:release.macBytes,sourceCommit:release.sourceCommit,releaseCommit:release.commit,zipSha256:zipSha,zipBytes:zipSize,releaseExeSha256:release.exeSha256.toLowerCase(),releaseExeBytes:release.exeBytes,releaseCliSha256:release.cliSha256.toLowerCase(),releaseCliBytes:release.cliBytes,generatedHtml,publicFiles,assets,sourceValidation:{coreChecks:release.coreChecks,windowsChecks:release.windowsChecks,layoutCliChecks:release.layoutCliChecks,macCoreChecks:release.macCoreChecks,macWorkflow:release.macWorkflow,languages:['zh-Hant','en'],note:'Project-provided local validation; not rerun by the website publisher. Performance samples are not universal guarantees.'}},null,2)+'\n');
+  await writeFile(path.join(output,'source-manifest.json'),JSON.stringify({schemaVersion:1,project:'DeskTiles',publishedDate:date,sourceRepository:repository,platform:'Windows 10 / 11 x64; macOS 12+ Universal 2',windowsVersion:release.version,macVersion:release.macVersion,macZipSha256:release.macSha256.toLowerCase(),macZipBytes:release.macBytes,sourceCommit:release.sourceCommit,releaseCommit:release.commit,zipSha256:zipSha,zipBytes:zipSize,releaseExeSha256:release.exeSha256.toLowerCase(),releaseExeBytes:release.exeBytes,releaseCliSha256:release.cliSha256.toLowerCase(),releaseCliBytes:release.cliBytes,generatedHtml,publicFiles,assets,sourceValidation:{coreChecks:release.coreChecks,windowsChecks:release.windowsChecks,layoutCliChecks:release.layoutCliChecks,convenienceCoreChecks:release.convenienceCoreChecks,convenienceNativeChecks:release.convenienceNativeChecks,actualScreenChecks:release.actualScreenChecks,steamSdkCompiled:false,steamLiveVerified:false,macCoreChecks:release.macCoreChecks,macWorkflow:release.macWorkflow,languages:['zh-Hant','en'],note:'Project-provided local validation; not rerun by the website publisher. Performance samples are not universal guarantees.'}},null,2)+'\n');
   console.log(`[4/5] 八頁文件、${search.length} 筆雙語搜尋索引與來源雜湊清單完成。`);
   for(const lang of ['zh','en']) {
     const page=lang==='zh'?'index.html':'en/index.html',prefix=lang==='zh'?'./':'../';

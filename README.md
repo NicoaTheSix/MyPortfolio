@@ -535,3 +535,7 @@ node .\prepare-portfolio-locales.mjs 'C:\素材\services-en.png' 'C:\素材\busi
 - JavaScript、素材準備程式與文件產生器語法通過。文件網站 70 頁、14 份來源素材及 378 筆搜尋章節通過；本機 HTTP 的 87 個頁面／素材與產物完全一致，影片 Range 正常。
 - 瀏覽器互動確認：英文兩張服務卡開啟、Escape／按鈕關閉、英文名片展開載入、信箱複製成功並顯示英文提示。英文切換至中文後保留 `#services`，窄螢幕時語言列仍固定在頂端。
 - 讀取瀏覽器 DOM 尺寸時，實際視窗寬度為 1107 與 300 CSS px，頁面未水平溢出；本次截圖工具未成功回傳截圖，因此沒有宣稱完成截圖視覺驗證。英文圖片本身已逐張目視核對。
+
+## DeskTiles Windows v1.07 發布
+
+本批從正式站基準隔離更新 Windows v1.07 下載、雙語指南及產品頁。於根目錄執行 `node build-desktiles.mjs --source D:/DeskTile --windows-only`，啟動前列出絕對輸入輸出，分階段核對套件／執行檔、原樣複製公開素材、產生 Windows 文件與首頁卡片；Mac v1.02 檔案與 HTML 保持不變。`node check-desktiles.mjs`、`node check-site.mjs` 驗證後，發布並以正式站 URL 再跑 DeskTiles HTTP 檢查。完整流程與來源範圍見 [DeskTiles 發布說明](desktiles/README.md)。

@@ -2,6 +2,18 @@
 
 ## 雙語產品入口
 
+## Windows v1.07 桌面工具（2026-11-23）
+
+本批只發布已驗收的 Windows v1.07（來源提交 `236cb523597eea599f032090c46ec9e6625ad29c`）。macOS 維持 v1.02，Mac 套件、原始指南與既有 HTML 沿用正式站位元組。
+
+在網站根目錄執行 `node build-desktiles.mjs --source D:/DeskTile --windows-only`。程式先列出來源及輸出的絕對路徑，再核對 Windows ZIP、GUI／CLI EXE 與既有 Mac ZIP，複製雙語 README、指南、下載檔、校驗清單和樣板庫截圖，產生 Windows 六頁文件、搜尋索引、來源清單及中英文首頁 DeskTiles 卡片。`--windows-only` 不重新產生 Mac HTML，也不從來源覆蓋 Mac 下載或文件；搜尋仍保留兩平台入口。
+
+`release.mjs` 保存 v1.07 的最終大小、雜湊及來源提交。`windows-update.mjs` 產生中英文版本功能與驗證界線，`publish-content.mjs` 沿用既有產品版型並提供 ZIP、GUI EXE、CLI EXE 和指南下載。來源指南保留原文，文件內相對連結轉成站內入口，開發交接文件連到 GitHub v1.07 標籤，Windows 資源使用版本快取參數。
+
+執行 `node check-desktiles.mjs` 與 `node check-site.mjs` 核對雙語內容、連結及下載；正式發布後，以 `node check-desktiles.mjs --url https://nicoathesix.github.io/MyPortfolio/desktiles/` 逐檔比對公開內容與影片 Range。GUI EXE 不在網站發布流程中執行，ZIP 不重新打包；從 ZIP 讀取兩個 EXE 核對雜湊，兩份指南需與交接來源一致。
+
+Steam Cloud／Workshop 只標示離線同步／分享整合已驗證，App ID、SDK 編譯與實際連線仍待處理。Windows 實體螢幕插拔及獨占全螢幕遊戲仍未實機驗證。完整更新檔案清單、正式站確認與部署狀態保存於本批交付紀錄。
+
 在網站根目錄執行 `node build-desktiles.mjs --source D:/DeskTile/build/ceramic-v1.06`。建置器列出絕對輸入和輸出路徑，驗證下載套件，產生雙語入口、指南及搜尋索引。產品入口載入 `landing.css` 和 `landing.js`，並使用已驗收的產品示意與 Windows 實機樣板。執行 `node check-desktiles.mjs` 核對站內連結、雙語資料與下載。
 
 ## Windows v1.06 黑白磁磚（2026-11-12）

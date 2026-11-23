@@ -1,20 +1,20 @@
 {
   "schemaVersion": 1,
   "project": "DeskTiles",
-  "publishedDate": "2026-11-12",
+  "publishedDate": "2026-11-23",
   "sourceRepository": "https://github.com/NicoaTheSix/DeskTile",
   "platform": "Windows 10 / 11 x64; macOS 12+ Universal 2",
-  "windowsVersion": "1.06",
+  "windowsVersion": "1.07",
   "macVersion": "1.02",
   "macZipSha256": "a864e6afa4b2b765a0294d54ea907f68989a677811af0f80ec62537a355c0fc8",
   "macZipBytes": 451920,
-  "sourceCommit": "9f607d4d46d6173b85002a07ac22b1a0c2b76dc7",
-  "releaseCommit": "9f607d4d46d6173b85002a07ac22b1a0c2b76dc7",
-  "zipSha256": "33a4b3fda786cb6cba79154202968a5b2a46d281c48780b47c099407b7ebceca",
-  "zipBytes": 919285,
-  "releaseExeSha256": "7ffffe50b9e9d92369ece3a5083871bc294253a85b48ffc12bf7ed10854ab129",
-  "releaseExeBytes": 1405440,
-  "releaseCliSha256": "ae230f17d873a3f28603e51d6ca270665aa35666ec62f052e6b369fc34e25f78",
+  "sourceCommit": "236cb523597eea599f032090c46ec9e6625ad29c",
+  "releaseCommit": "236cb523597eea599f032090c46ec9e6625ad29c",
+  "zipSha256": "bd515eb5e036a2f9ea9f9c5e1aede00c391297488bbe9cabb02795f8e860733e",
+  "zipBytes": 1004683,
+  "releaseExeSha256": "89fa0598f6681438cc3e259f5a1e72fdd26787cd00dd7fce13594ec7e4ec49a4",
+  "releaseExeBytes": 1587712,
+  "releaseCliSha256": "811cbc2cb306b21b58e99de487d81a77fe5acba5f70083c72447ab63c5c9245a",
   "releaseCliBytes": 322048,
   "generatedHtml": [
     "index.html",
@@ -42,6 +42,7 @@
     "downloads/guide-en.md",
     "assets/control-en.png",
     "assets/sage-layout-preview.png",
+    "assets/desktop-tools-presets.png",
     "assets/shapes.png",
     "assets/control.png",
     "assets/border.png",
@@ -50,6 +51,8 @@
     "assets/DeskTiles.svg",
     "assets/DeskTiles-logo.png",
     "downloads/DeskTiles-Windows-x64.zip",
+    "downloads/DeskTiles.exe",
+    "downloads/desktiles-cli.exe",
     "downloads/SHA256SUMS.txt",
     "downloads/mixed-shapes.json",
     "downloads/validation.txt",
@@ -77,26 +80,26 @@
     {
       "path": "downloads/README.md",
       "source": "README.zh-TW.md",
-      "sha256": "e3f35295b68301170e48a09725cf9ee3709934d2f67c860028a6bf184a683a4f",
-      "bytes": 28139
+      "sha256": "e3f69c11a3eb98662e6cbb7193c5f2d29a586580ace0c0f370e7f13caa78e119",
+      "bytes": 31547
     },
     {
       "path": "downloads/readme-en.md",
       "source": "README.md",
-      "sha256": "9a2f78acfaa46562c3bff62c54273bf735921d772492f94026c6e350b2d591bb",
-      "bytes": 11877
+      "sha256": "35829a9e1fb1e0c2d1510f4329faecf821fd0791c5e1184147babc3a724acd82",
+      "bytes": 16902
     },
     {
       "path": "downloads/guide-zh.md",
       "source": "docs/使用說明.md",
-      "sha256": "46feb2158cbf5182b13e757c2a2ffa102e8300fc7d30bf7329dee2140b5278c6",
-      "bytes": 11485
+      "sha256": "819a5241f5f47ddaf2be53d16a12f3cb4ed59d0a0d4fe309065ff468c680532d",
+      "bytes": 14009
     },
     {
       "path": "downloads/guide-en.md",
       "source": "docs/UserGuide.en.md",
-      "sha256": "eeccd0e1d78acdd74d743416fbec9035dcbfb8fdd6b777db888ba030596dce8e",
-      "bytes": 9733
+      "sha256": "22b1e35d875b12031939ba47299e19536fffcb1718ca3a81d26926204ec813dc",
+      "bytes": 12708
     },
     {
       "path": "assets/control-en.png",
@@ -109,6 +112,12 @@
       "source": "docs/sage-layout-preview.png",
       "sha256": "a60125524d4e349040c1e691ac39e8a1ff9244c8443f2dcc1dbbe38a6e8e06e9",
       "bytes": 110679
+    },
+    {
+      "path": "assets/desktop-tools-presets.png",
+      "source": "docs/desktop-tools-presets.png",
+      "sha256": "94cccd275d381a9b4dbdff0eff1e3ac0d1b1325703303bc55a254ef69e05f8dd",
+      "bytes": 15494
     },
     {
       "path": "assets/shapes.png",
@@ -155,20 +164,32 @@
     {
       "path": "downloads/DeskTiles-Windows-x64.zip",
       "source": "release/DeskTiles-Windows-x64.zip",
-      "sha256": "33a4b3fda786cb6cba79154202968a5b2a46d281c48780b47c099407b7ebceca",
-      "bytes": 919285
+      "sha256": "bd515eb5e036a2f9ea9f9c5e1aede00c391297488bbe9cabb02795f8e860733e",
+      "bytes": 1004683
+    },
+    {
+      "path": "downloads/DeskTiles.exe",
+      "source": "release/DeskTiles/DeskTiles.exe",
+      "sha256": "89fa0598f6681438cc3e259f5a1e72fdd26787cd00dd7fce13594ec7e4ec49a4",
+      "bytes": 1587712
+    },
+    {
+      "path": "downloads/desktiles-cli.exe",
+      "source": "release/DeskTiles/desktiles-cli.exe",
+      "sha256": "811cbc2cb306b21b58e99de487d81a77fe5acba5f70083c72447ab63c5c9245a",
+      "bytes": 322048
     },
     {
       "path": "downloads/SHA256SUMS.txt",
       "source": "release/SHA256SUMS.txt",
-      "sha256": "bfb56a777ae43159371f5b8fa43326ebb2d9dfb6e924117f0bec3c30d543559e",
+      "sha256": "4ece262b1a17444537cee40059e221a9052b1743e1a236dab7f035c753a63d2c",
       "bytes": 279
     },
     {
       "path": "downloads/mixed-shapes.json",
       "source": "docs/mixed-shapes.json",
-      "sha256": "c3d5cd326efd0f850a6ba73573bc61ceb425335205724d2162e32cff075f3d87",
-      "bytes": 4404
+      "sha256": "67deeca7a478c8a185370b71151ee7f6633f7b8b1633636370ce697bd4ea23b6",
+      "bytes": 4290
     },
     {
       "path": "downloads/validation.txt",
@@ -179,8 +200,8 @@
     {
       "path": "downloads/icon-update-delivery.md",
       "source": "docs/icon-update-delivery.md",
-      "sha256": "7f1cda0fa97d22eb922a11d1839399929d4fab6e38baf8c7207ea92c400066de",
-      "bytes": 3610
+      "sha256": "0c186015066a4fc73844469eafd1cf92c31b61c62f7e4748b8c808b4b7ba3af7",
+      "bytes": 3608
     },
     {
       "path": "downloads/README-macOS.md",
@@ -265,6 +286,11 @@
     "coreChecks": 235,
     "windowsChecks": 192,
     "layoutCliChecks": 38,
+    "convenienceCoreChecks": 24,
+    "convenienceNativeChecks": 31,
+    "actualScreenChecks": 64,
+    "steamSdkCompiled": false,
+    "steamLiveVerified": false,
     "macCoreChecks": 170,
     "macWorkflow": 42757989847,
     "languages": [

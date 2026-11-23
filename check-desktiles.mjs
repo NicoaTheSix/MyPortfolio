@@ -75,6 +75,9 @@ try {
   assert.equal(manifest.windowsVersion,release.version);
   assert.equal(manifest.macVersion,release.macVersion);
   assert.equal(manifest.releaseCliSha256,release.cliSha256.toLowerCase());
+  for(const [file,expected] of [['DeskTiles.exe',release.exeSha256],['desktiles-cli.exe',release.cliSha256]]) {
+    assert.equal(hash(await readFile(path.join(site,'downloads',file))).toUpperCase(),expected,`${file} 下載雜湊不符`);
+  }
   assert.equal(sums.match(/([a-f0-9]{64})\s+DeskTiles\/desktiles-cli\.exe/i)?.[1].toUpperCase(),release.cliSha256);
   assert.equal(manifest.sourceValidation.macCoreChecks,release.macCoreChecks);
   const mac=await readFile(path.join(site,'downloads/DeskTiles-macOS-universal.zip'));
@@ -90,7 +93,13 @@ try {
     assert(page.querySelector('#release-update')?.textContent.includes(lang==='zh'?'儲存並結束桌面拼格':'Save and exit DeskTiles'),'缺少結束舊版提醒');
     assert.equal(page.querySelectorAll('#release-update').length,1);
     assert(page.querySelector('#release-update h2').textContent.includes('Windows v'+release.version));
+    assert(page.querySelector('#release-update').textContent.includes('Steam'),'缺少 Steam 離線範圍');
+    assert(page.querySelector('#release-update').textContent.includes('SDK'),'缺少 SDK 待驗證說明');
     const guide=documents.get(lang==='zh'?'desktiles/guide.html':'desktiles/en/guide.html').document;
+    assert(guide.querySelector('main').textContent.includes('Windows v'+release.version),'使用說明版本未更新');
+    assert(guide.querySelector('main').textContent.includes(lang==='zh'?'桌面工具':'Desktop tools'),'指南缺少桌面工具');
+    const sourceGuide=await readFile(path.join(site,'downloads',lang==='zh'?'guide-zh.md':'guide-en.md'),'utf8');
+    assert(sourceGuide.includes('Windows v'+release.version),'原始指南版本未更新');
     assert(guide.querySelector('main').textContent.includes('desktiles-cli.exe --help'),'指南缺少 CLI 啟動說明');
     assert(guide.querySelector('main').textContent.includes('--layout'),'指南缺少指定配置說明');
     assert.equal(page.querySelectorAll('video').length,1);
