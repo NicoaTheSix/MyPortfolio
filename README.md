@@ -547,3 +547,7 @@ node .\prepare-portfolio-locales.mjs 'C:\素材\services-en.png' 'C:\素材\busi
 已驗收本機快照：`6edae19fec1ea13667a8c7dfe7e00ad6d7739c66`。正式發布只移除本機預覽標示與noindex、加入canonical及分享標籤，正文與核准版本逐字核對。素材與雜湊見 `christmas/source-manifest.json`，不包含私人來源JSON或表單回覆。
 
 準備、檢查與正式站HTTP核對流程見 `tools/README.md`。所有程式先列出絕對輸入／輸出路徑，各階段顯示進度。`node sync-seo.mjs --check` 檢查含七個新頁的109個sitemap網址；`node check-site.mjs` 檢查中英文首頁入口。
+
+## 聖誕節圓弧卡片展示
+
+2026-11-27：已驗收的卡片版位於 https://nicoathesix.github.io/MyPortfolio/christmas/cards/ ，雙語首頁的歷年紀錄入口連到此頁；原文列表仍在 /christmas/ 。支援年度雙色卡片、閉合圖案、直角內外框、向上抽取再落回前層及置中淡入原文。發布與驗證流程見 tools/christmas/README.md。

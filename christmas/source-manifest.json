@@ -7,7 +7,8 @@
     "2023/index.html",
     "2024/index.html",
     "2025/index.html",
-    "2026/index.html"
+    "2026/index.html",
+    "cards/index.html"
   ],
   "publicFiles": [
     "index.html",
@@ -77,14 +78,12 @@
     "images/2026-11.webp",
     "images/2026-11-medium.webp",
     "images/2026-11-small.webp",
-    "fonts/OFL-Cubic-11.txt"
+    "fonts/OFL-Cubic-11.txt",
+    "cards/index.html",
+    "cards/cards.css",
+    "cards/cards.js"
   ],
   "assets": [
-    {
-      "path": "index.html",
-      "sha256": "e70996389cf75412ca8b58017ac43d16201d78e6b6c543affda88c14b9df3c26",
-      "sizeBytes": 9663
-    },
     {
       "path": "archive.css",
       "sha256": "9be62d3deb381f522d4ee11dcd782b595da9ec6ddfb3d5d06c6415f6841fd268",
@@ -419,6 +418,27 @@
       "path": "fonts/OFL-Cubic-11.txt",
       "sha256": "2b6e5938e5cffa0b9e183bd05f8c363e174e7ebed1a0556e2855fd1707fa2188",
       "sizeBytes": 5364
+    },
+    {
+      "path": "index.html",
+      "sha256": "d8b5374d28cec768136deabc5749e1e21d3320247fe041fbe3e1495cffb56f72",
+      "sizeBytes": 9743
+    },
+    {
+      "path": "cards/index.html",
+      "sha256": "c37ed7a888782ab2bfe02e76964b200eb2d30b7ae22b219b2b8c7df0f56954ae",
+      "sizeBytes": 30636
+    },
+    {
+      "path": "cards/cards.css",
+      "sha256": "7876868606507be12ba161e050c03defe71238268b66c85db33b76086294c685",
+      "sizeBytes": 10542
+    },
+    {
+      "path": "cards/cards.js",
+      "sha256": "6759572c8b022260fd21ddd1a6fd55eadfe39c4f59d62e8751293df29e5b0745",
+      "sizeBytes": 9206
     }
-  ]
+  ],
+  "cardAcceptedSnapshot": "0b485d89d12392144bd4d18d7b039999c473e34a"
 }
