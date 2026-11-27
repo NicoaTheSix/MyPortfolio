@@ -431,14 +431,15 @@
     },
     {
       "path": "cards/cards.css",
-      "sha256": "7876868606507be12ba161e050c03defe71238268b66c85db33b76086294c685",
-      "sizeBytes": 10542
+      "sha256": "8f766cc981c336e0e195d80e3aec81d28952b73a7d4a12b4d0d8f22cc8eed397",
+      "sizeBytes": 10722
     },
     {
       "path": "cards/cards.js",
-      "sha256": "6759572c8b022260fd21ddd1a6fd55eadfe39c4f59d62e8751293df29e5b0745",
-      "sizeBytes": 9206
+      "sha256": "1c7e81d6245af4e58c4a2d1652f114f4a5010603fb3b817cbd7945a54300f597",
+      "sizeBytes": 10712
     }
   ],
-  "cardAcceptedSnapshot": "0b485d89d12392144bd4d18d7b039999c473e34a"
+  "cardAcceptedSnapshot": "0b485d89d12392144bd4d18d7b039999c473e34a",
+  "motionAcceptedSnapshot": "11979d8012edb3c969896dce6c7f670f29475965"
 }

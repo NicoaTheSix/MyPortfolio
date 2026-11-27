@@ -9,12 +9,12 @@ assert(process.argv[2],'Provide the absolute accepted preview site path.');
 const input=path.resolve(process.argv[2]);
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'../..');
 const live=process.argv.includes('--live');
-const report=path.resolve(input,'../'+(live?'cards-live-report.json':'cards-release-check-report.json'));
+const report=path.resolve(input,'../'+(live?'cards-motion-live-report.json':'cards-motion-check-report.json'));
 const section=path.join(root,'christmas');
 const hash=bytes=>createHash('sha256').update(bytes).digest('hex');
 console.log(`輸入已驗收卡片：${path.join(input,'cards')}\n輸入發布卡片：${path.join(section,'cards')}\n輸出檢查報告：${report}`);
-const published=await readFile(path.join(section,'cards/index.html'),'utf8');
-const accepted=await readFile(path.join(input,'cards/index.html'),'utf8');
+const published=(await readFile(path.join(section,'cards/index.html'),'utf8')).replaceAll('\r\n','\n');
+const accepted=(await readFile(path.join(input,'cards/index.html'),'utf8')).replaceAll('\r\n','\n');
 assert.equal(published.split('<body>')[1],accepted.replace('<span class="view-label">卡片預覽</span>','').split('<body>')[1]);
 const {document}=parseHTML(published);
 assert.equal(document.querySelector('link[rel="canonical"]').href,'https://nicoathesix.github.io/MyPortfolio/christmas/cards/');
@@ -45,7 +45,7 @@ if(live){
   const files=['christmas/cards/index.html','christmas/cards/cards.css','christmas/cards/cards.js','index.html','en/index.html','christmas/index.html','sitemap.xml','christmas/source-manifest.json'];
   for(const file of files){
     const url=new URL(file.replace(/index\.html$/,''),'https://nicoathesix.github.io/MyPortfolio/');
-    url.searchParams.set('release','v1.36');
+    url.searchParams.set('release','v1.37');
     const response=await fetch(url,{signal:AbortSignal.timeout(20000)});
     assert.equal(response.status,200,`${url} HTTP ${response.status}`);
     const actual=await response.text();

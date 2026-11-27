@@ -29,13 +29,14 @@ function layoutFan() {
     card.style.setProperty('--angle',`${angle}deg`);
     card.dataset.radius = radius;
     card.dataset.angle = angle;
-    card.style.zIndex = card===frontCard ? 40 : 10+Math.round((3-Math.abs(index-2.5))*2);
+    card.style.zIndex = card===frontCard ? 40 : 10+index;
   });
 }
 
 function playFan() {
   if(phase!=='ready'||drawingCard) return;
   fanAnimations.forEach(animation=>animation.cancel());
+  frontCard=null;
   layoutFan();
   if (reduced.matches) { replay.disabled=false; return; }
   replay.disabled=true;
@@ -55,6 +56,14 @@ function playFan() {
   Promise.allSettled(fanAnimations.map(animation=>animation.finished)).then(()=>{replay.disabled=false;});
 }
 
+function extractionTransform(card) {
+  const rect=card.getBoundingClientRect();
+  const deckTop=Math.min(...cards.filter(other=>other!==card).map(other=>other.getBoundingClientRect().top));
+  const distance=Math.ceil(rect.bottom-deckTop+32);
+  const base=getComputedStyle(card).transform;
+  return {base,lifted:`translateY(-${distance}px) ${base}`};
+}
+
 async function bringToFront(card) {
   if(drawingPromise) await drawingPromise;
   if(frontCard===card) return;
@@ -63,8 +72,7 @@ async function bringToFront(card) {
   const promote=()=>{frontCard=card;layoutFan();};
   drawingPromise=(async()=>{
     if(reduced.matches){promote();return;}
-    const base=getComputedStyle(card).transform;
-    const lifted=`translateY(-${Math.round(card.offsetHeight*.65+48)}px) ${base}`;
+    const {base,lifted}=extractionTransform(card);
     // Keep the old stacking order while drawing out; change it only at the apex.
     drawingAnimation=card.animate([{transform:base},{transform:lifted}],{duration:380,easing:'cubic-bezier(.3,0,.3,1)',fill:'forwards'});
     try{await drawingAnimation.finished;}catch{return;}
@@ -95,7 +103,8 @@ function fillYear(card) {
 
 function finishOpen() {
   flight.classList.add('flight-finished');
-  sheet.classList.add('sheet-active');
+  sheet.classList.remove('sheet-flipping');
+  sheet.classList.add('sheet-active','content-visible');
   phase='reading';
   closeButton.focus({preventScroll:true});
 }
@@ -105,8 +114,16 @@ async function openYear(card,trigger=card) {
   const mine=++epoch;
   phase='opening';selected=card;returnFocus=trigger;
   fanAnimations.forEach(animation=>{try{animation.finish();}catch{animation.cancel();}});
-  await bringToFront(card);
+  if(drawingPromise) await drawingPromise;
   if(mine!==epoch) return;
+  const {base,lifted}=extractionTransform(card);
+  let liftAnimation=null;
+  if(!reduced.matches){
+    liftAnimation=openingAnimation=card.animate([{transform:base},{transform:lifted}],{duration:440,easing:'cubic-bezier(.3,0,.3,1)',fill:'forwards'});
+    try{await liftAnimation.finished;}catch{return;}
+    if(mine!==epoch) return;
+  }
+  frontCard=card;layoutFan();
   const rect=card.getBoundingClientRect();
   const width=card.offsetWidth;
   const height=card.offsetHeight;
@@ -119,18 +136,31 @@ async function openYear(card,trigger=card) {
   flight.style.width=`${width}px`;flight.style.height=`${height}px`;
   flight.style.transform=`translate3d(${endX}px,${endY}px,0)`;
   flight.classList.remove('flight-finished');
-  sheet.classList.remove('sheet-active');
+  sheet.classList.remove('sheet-active','content-visible','sheet-flipping');
   card.classList.add('selected');
   document.body.classList.add('reading-open');
   dialog.showModal();
+  liftAnimation?.cancel();
   if(reduced.matches){finishOpen();return;}
-  const midpointX=(startX+endX)/2;
-  const midpointY=Math.min(startY,endY)-45;
+  const centered=`translate3d(${endX}px,${endY}px,0)`;
   openingAnimation=flight.animate([
     {transform:`translate3d(${startX}px,${startY}px,0) rotate(${card.dataset.angle}deg)`,opacity:1},
-    {transform:`translate3d(${midpointX}px,${midpointY}px,0) rotate(${Number(card.dataset.angle)*0.28}deg) scale(1.04)`,offset:.58,opacity:1},
-    {transform:`translate3d(${endX}px,${endY}px,0) rotate(0deg)`,opacity:1},
-  ],{duration:640,easing:'cubic-bezier(.22,.74,.2,1)'});
+    {transform:centered,opacity:1},
+  ],{duration:380,easing:'cubic-bezier(.22,.74,.2,1)'});
+  try{await openingAnimation.finished;}catch{return;}
+  if(mine!==epoch||!dialog.open) return;
+  openingAnimation=flight.animate([
+    {transform:`${centered} perspective(1200px) rotateY(0deg)`},
+    {transform:`${centered} perspective(1200px) rotateY(90deg)`},
+  ],{duration:260,easing:'ease-in',fill:'forwards'});
+  try{await openingAnimation.finished;}catch{return;}
+  if(mine!==epoch||!dialog.open) return;
+  flight.classList.add('flight-finished');
+  sheet.classList.add('sheet-flipping','sheet-active');
+  openingAnimation=sheet.animate([
+    {transform:'translate(-50%,-50%) perspective(1200px) rotateY(-90deg) scale(.65)',opacity:1},
+    {transform:'translate(-50%,-50%) perspective(1200px) rotateY(0deg) scale(1)',opacity:1},
+  ],{duration:420,easing:'cubic-bezier(.2,.7,.2,1)'});
   try{await openingAnimation.finished;}catch{return;}
   if(mine===epoch&&dialog.open) finishOpen();
 }
@@ -139,7 +169,7 @@ function resetReading() {
   epoch++;
   openingAnimation?.cancel();
   selected?.classList.remove('selected');
-  sheet.classList.remove('sheet-active','sheet-closing','content-switching');
+  sheet.classList.remove('sheet-active','sheet-closing','content-switching','sheet-flipping','content-visible');
   flight.classList.add('flight-finished');
   document.body.classList.remove('reading-open');
   phase='ready';
@@ -182,6 +212,9 @@ closeButton.addEventListener('click',closeReading);
 dialog.addEventListener('cancel',event=>{event.preventDefault();closeReading();});
 dialog.addEventListener('click',event=>{if(event.target===dialog) closeReading();});
 dialog.addEventListener('close',resetReading);
+document.addEventListener('keydown',event=>{
+  if(event.key==='Escape'&&phase==='opening'&&!dialog.open) resetReading();
+});
 document.querySelector('.previous-year').addEventListener('click',()=>switchYear(-1));
 document.querySelector('.next-year').addEventListener('click',()=>switchYear(1));
 replay.addEventListener('click',playFan);

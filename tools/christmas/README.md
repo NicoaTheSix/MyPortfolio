@@ -1,5 +1,15 @@
 # 聖誕卡片頁發布
 
+## v1.37 完整抽卡與翻面
+
+已測試來源快照為 `11979d8012edb3c969896dce6c7f670f29475965`，來源根目錄為 `C:/Users/nick5/Documents/ChatGPT/Portfolio 網站設置/`，隔離輸出根目錄為 `C:/Users/nick5/Documents/ChatGPT/Portfolio 網站設置/.preview/christmas-motion-release/`。本批包含上一批待部署的依年份初始疊放順序。
+
+執行 `node tools/christmas/publish-motion.mjs <來源根目錄絕對路徑>`：先列出輸入／輸出，再以三階段核對來源快照並複製 CSS／JS、更新公開素材雜湊、複製抽卡回歸檢查。`node tools/christmas/check-motion.mjs` 直接測試發布版回呼，以旋轉外框尺寸檢查六張卡片切層時已完全離開牌堆；僅輸出終端機並分兩階段顯示結果。原本按高度比例抽取距離的版本會在此檢查失敗。
+
+滑鼠移入或鍵盤聚焦先垂直抽出：卡片下緣高於整個牌堆上緣至少 32px 才移到前層，再垂直下放。點選則完整抽出並移至中央，封面旋轉至側面後接續閱讀背面的翻轉，完成後才淡入原文；手機、Escape、重播和減少動態偏好維持可用。年度文字及圖片未修改。
+
+另執行 `node tools/christmas/check-cards.mjs <原驗收網站絕對目錄>` 核對正文與連結；`--live` 版本輸出 `cards-motion-live-report.json`，記錄 v1.37 正式資源內容。保存發布快照後升版、推送 GitHub Pages，再核對正式站互動。
+
 ## 圓弧卡片正式版 v1.36
 
 已驗收來源快照為 `0b485d89d12392144bd4d18d7b039999c473e34a`。輸入網站絕對路徑為 `C:/Users/nick5/Documents/ChatGPT/Portfolio 網站設置/.preview/christmas-card-archive/site/`，驗收清單位於上層 `card-refinement-delivery.json`。隔離發布工作目錄為 `C:/Users/nick5/Documents/ChatGPT/Portfolio 網站設置/.preview/christmas-cards-release/`。
