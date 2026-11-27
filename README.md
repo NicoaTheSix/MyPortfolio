@@ -539,3 +539,11 @@ node .\prepare-portfolio-locales.mjs 'C:\素材\services-en.png' 'C:\素材\busi
 ## DeskTiles Windows v1.07 發布
 
 本批從正式站基準隔離更新 Windows v1.07 下載、雙語指南及產品頁。於根目錄執行 `node build-desktiles.mjs --source D:/DeskTile --windows-only`，啟動前列出絕對輸入輸出，分階段核對套件／執行檔、原樣複製公開素材、產生 Windows 文件與首頁卡片；Mac v1.02 檔案與 HTML 保持不變。`node check-desktiles.mjs`、`node check-site.mjs` 驗證後，發布並以正式站 URL 再跑 DeskTiles HTTP 檢查。完整流程與來源範圍見 [DeskTiles 發布說明](desktiles/README.md)。
+
+## 歷年聖誕卡片紀錄
+
+入口：`/MyPortfolio/christmas/`；中英文首頁既有的聖誕卡片區皆可進入。內容為2021–2026表單原始標題與文字、19張內文影像，保留2021／2020年份差異註記。沒有代寫年度摘要或主題標籤。
+
+已驗收本機快照：`6edae19fec1ea13667a8c7dfe7e00ad6d7739c66`。正式發布只移除本機預覽標示與noindex、加入canonical及分享標籤，正文與核准版本逐字核對。素材與雜湊見 `christmas/source-manifest.json`，不包含私人來源JSON或表單回覆。
+
+準備、檢查與正式站HTTP核對流程見 `tools/README.md`。所有程式先列出絕對輸入／輸出路徑，各階段顯示進度。`node sync-seo.mjs --check` 檢查含七個新頁的109個sitemap網址；`node check-site.mjs` 檢查中英文首頁入口。

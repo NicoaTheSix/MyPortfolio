@@ -7,7 +7,7 @@ import { applySeoHead, canonicalUrl, languagePairs, seoImages, seoPages } from '
 
 const root = path.dirname(fileURLToPath(import.meta.url));
 const checkOnly = process.argv.includes('--check');
-const manifests = ['blog', 'desktiles', 'fusion-studio'].map(directory => `${directory}/source-manifest.json`);
+const manifests = ['blog', 'desktiles', 'fusion-studio', 'christmas'].map(directory => `${directory}/source-manifest.json`);
 const demos = ['lin-da', 'pixel-pets', 'reptile-cafe', 'town-memory'];
 const demoPages = ['demos/lin-da/motion.html', ...demos.flatMap(demo =>
   ['index.html', 'advanced/index.html', 'advanced/en/index.html'].map(file => `demos/${demo}/${file}`))];

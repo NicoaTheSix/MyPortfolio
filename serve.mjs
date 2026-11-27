@@ -93,6 +93,16 @@ try {
     publicFiles.add('blog/'+relative);
   }
 } catch(error) { if(error.code!=='ENOENT')throw error; }
+
+// Christmas archive public files
+try {
+  const manifest=JSON.parse(await readFile(path.join(root,'christmas/source-manifest.json'),'utf8'));
+  for(const relative of manifest.publicFiles) {
+    const absolute=path.resolve(root,'christmas',relative);
+    if(!absolute.startsWith(path.join(root,'christmas')+path.sep))throw new Error('Christmas manifest path invalid');
+    publicFiles.add('christmas/'+relative);
+  }
+} catch(error) { if(error.code!=='ENOENT')throw error; }
 console.log('[1/3] 靜態檔案白名單完成。');
 const server = http.createServer(async (request, response) => {
   try {
