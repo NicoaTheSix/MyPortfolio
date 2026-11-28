@@ -1,5 +1,15 @@
 # 聖誕卡片頁發布
 
+## v1.38 夜色寶石與年度Logo
+
+已驗收快照 `bb9325edbfd57bea5b09eeaf8edc2f6211080483`：C 夜色寶石配色，2021信封、2022第二版學士帽、2023第二版紙鳥、2024第二版雙辮肖像、2025守宮書本及2026桌面工具。年度原文與抽卡翻面互動保持一致。
+
+輸入來源根為 `C:/Users/nick5/Documents/ChatGPT/Portfolio 網站設置/`，輸入驗收網站為該根下 `.preview/christmas-card-archive/site/`，驗收明細為網站上層的 `logo-revision-delivery.json`。輸出根為 `.preview/christmas-jewel-release/`，公開輸出位於 `christmas/cards/`。
+
+執行 `node tools/christmas/publish-logos.mjs <來源根絕對路徑> <驗收網站絕對路徑>`：開始列出絕對輸入／輸出，三階段核對已驗收HTML、保留正式SEO頭、核對六年度原文及互動程式，複製快照一致的六份單色SVG，最後更新 `christmas/source-manifest.json` 的公開檔案與來源雜湊。只發布選定方案，不發布配色比較頁。
+
+`node tools/christmas/check-cards.mjs <驗收網站絕對路徑>` 核對正文、六組配色及站內連結；加 `--live` 檢查十四個正式資源的 HTTP 與實際內容。報告位於驗收網站上層 `cards-jewel-check-report.json` 或 `cards-jewel-live-report.json`。程式執行前列出絕對路徑並逐階段顯示進度。檢查後保存發布快照、升版為v1.38並推送main與標籤，最後核對GitHub Pages及手機閱讀。
+
 ## v1.37 完整抽卡與翻面
 
 已測試來源快照為 `11979d8012edb3c969896dce6c7f670f29475965`，來源根目錄為 `C:/Users/nick5/Documents/ChatGPT/Portfolio 網站設置/`，隔離輸出根目錄為 `C:/Users/nick5/Documents/ChatGPT/Portfolio 網站設置/.preview/christmas-motion-release/`。本批包含上一批待部署的依年份初始疊放順序。

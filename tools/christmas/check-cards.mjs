@@ -9,7 +9,7 @@ assert(process.argv[2],'Provide the absolute accepted preview site path.');
 const input=path.resolve(process.argv[2]);
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'../..');
 const live=process.argv.includes('--live');
-const report=path.resolve(input,'../'+(live?'cards-motion-live-report.json':'cards-motion-check-report.json'));
+const report=path.resolve(input,'../'+(live?'cards-jewel-live-report.json':'cards-jewel-check-report.json'));
 const section=path.join(root,'christmas');
 const hash=bytes=>createHash('sha256').update(bytes).digest('hex');
 console.log(`輸入已驗收卡片：${path.join(input,'cards')}\n輸入發布卡片：${path.join(section,'cards')}\n輸出檢查報告：${report}`);
@@ -34,18 +34,28 @@ for(const doc of [document,...[...document.querySelectorAll('template')].map(t=>
 for(const p of document.querySelectorAll('.cover-symbol path')){
   assert(p.getAttribute('d').split(/(?=M)/).filter(Boolean).every(part=>/Z\s*$/i.test(part)));
 }
-for(const file of ['cards.css','cards.js'])assert.equal(hash(await readFile(path.join(section,'cards',file))),hash(await readFile(path.join(input,'cards',file))));
+for(const file of ['cards.css','cards.js'])assert.equal((await readFile(path.join(section,'cards',file),'utf8')).replaceAll('\r\n','\n'),(await readFile(path.join(input,'cards',file),'utf8')).replaceAll('\r\n','\n'));
+const manifest=JSON.parse(await readFile(path.join(section,'source-manifest.json'),'utf8'));
+assert.equal(manifest.selectedCardPalette,'c');
+const svgFiles=manifest.publicFiles.filter(file=>file.startsWith('cards/logos/'));
+assert.equal(svgFiles.length,6);
+for(const file of svgFiles){
+  const svg=parseHTML(await readFile(path.join(section,file),'utf8')).document;
+  assert.equal(svg.querySelector('svg').getAttribute('fill'),'currentColor');
+  assert.equal(svg.querySelectorAll('image,line,polyline').length,0);
+  for(const p of svg.querySelectorAll('path'))assert(p.getAttribute('d').split(/(?=M)/).filter(Boolean).every(part=>/Z\s*$/i.test(part)));
+}
 assert((await readFile(path.join(root,'index.html'),'utf8')).includes('href="./christmas/cards/">歷年紀錄'));
 assert((await readFile(path.join(root,'en/index.html'),'utf8')).includes('href="../christmas/cards/">View archive'));
 assert((await readFile(path.join(section,'index.html'),'utf8')).includes('href="cards/">卡片展示'));
 assert((await readFile(path.join(root,'sitemap.xml'),'utf8')).includes('https://nicoathesix.github.io/MyPortfolio/christmas/cards/'));
 console.log(`[1/2] 原文模板與驗收版一致，六個閉合圖案、${checkedLinks}個連結及雙語入口通過。`);
-const result={acceptedSnapshot:'0b485d89d12392144bd4d18d7b039999c473e34a',checkedLinks,live:[]};
+const result={acceptedSnapshot:'bb9325edbfd57bea5b09eeaf8edc2f6211080483',selectedPalette:'c',logos:svgFiles.length,checkedLinks,live:[]};
 if(live){
-  const files=['christmas/cards/index.html','christmas/cards/cards.css','christmas/cards/cards.js','index.html','en/index.html','christmas/index.html','sitemap.xml','christmas/source-manifest.json'];
+  const files=['christmas/cards/index.html','christmas/cards/cards.css','christmas/cards/cards.js','index.html','en/index.html','christmas/index.html','sitemap.xml','christmas/source-manifest.json',...svgFiles.map(file=>'christmas/'+file)];
   for(const file of files){
     const url=new URL(file.replace(/index\.html$/,''),'https://nicoathesix.github.io/MyPortfolio/');
-    url.searchParams.set('release','v1.37');
+    url.searchParams.set('release','v1.38');
     const response=await fetch(url,{signal:AbortSignal.timeout(20000)});
     assert.equal(response.status,200,`${url} HTTP ${response.status}`);
     const actual=await response.text();

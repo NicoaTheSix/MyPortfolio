@@ -81,7 +81,13 @@
     "fonts/OFL-Cubic-11.txt",
     "cards/index.html",
     "cards/cards.css",
-    "cards/cards.js"
+    "cards/cards.js",
+    "cards/logos/2021-remote-letter.svg",
+    "cards/logos/2022-graduation-r02.svg",
+    "cards/logos/2023-paper-bird-r02.svg",
+    "cards/logos/2024-braided-portrait-r02.svg",
+    "cards/logos/2025-gecko-book.svg",
+    "cards/logos/2026-tools-flow.svg"
   ],
   "assets": [
     {
@@ -425,11 +431,6 @@
       "sizeBytes": 9743
     },
     {
-      "path": "cards/index.html",
-      "sha256": "c37ed7a888782ab2bfe02e76964b200eb2d30b7ae22b219b2b8c7df0f56954ae",
-      "sizeBytes": 30636
-    },
-    {
       "path": "cards/cards.css",
       "sha256": "8f766cc981c336e0e195d80e3aec81d28952b73a7d4a12b4d0d8f22cc8eed397",
       "sizeBytes": 10722
@@ -438,8 +439,45 @@
       "path": "cards/cards.js",
       "sha256": "1c7e81d6245af4e58c4a2d1652f114f4a5010603fb3b817cbd7945a54300f597",
       "sizeBytes": 10712
+    },
+    {
+      "path": "cards/index.html",
+      "sha256": "66564ad30852f637852bd2f620221f99fa61b8bb46df9d69fa0bb994a4e976ab",
+      "sizeBytes": 31573
+    },
+    {
+      "path": "cards/logos/2021-remote-letter.svg",
+      "sha256": "1e41c91e5e0b7180eeed7aa2ffe69cb9ace5063285eff191d059f20c2fe42ae9",
+      "sizeBytes": 357
+    },
+    {
+      "path": "cards/logos/2022-graduation-r02.svg",
+      "sha256": "07302f53a9646c5910574750ea48e5d79b544f8c59beee42b85baf8d15c62e6d",
+      "sizeBytes": 378
+    },
+    {
+      "path": "cards/logos/2023-paper-bird-r02.svg",
+      "sha256": "367e1b95c80f34508667033a2cd0999db638cd06faa7f5110497e9728869cee5",
+      "sizeBytes": 311
+    },
+    {
+      "path": "cards/logos/2024-braided-portrait-r02.svg",
+      "sha256": "2d2dada396cbe7b7414387f326dc8d197ff304f2afc803a2110bd9aee5c7f384",
+      "sizeBytes": 662
+    },
+    {
+      "path": "cards/logos/2025-gecko-book.svg",
+      "sha256": "5b3d449045d875b5024502463da350cd7eb6d8b55ce37bb2097fda89540e13ff",
+      "sizeBytes": 732
+    },
+    {
+      "path": "cards/logos/2026-tools-flow.svg",
+      "sha256": "e42a7ca84427e222b597990a5a056ad8d70a8be740a34c125d0516b90e0c0cc6",
+      "sizeBytes": 483
     }
   ],
   "cardAcceptedSnapshot": "0b485d89d12392144bd4d18d7b039999c473e34a",
-  "motionAcceptedSnapshot": "11979d8012edb3c969896dce6c7f670f29475965"
+  "motionAcceptedSnapshot": "11979d8012edb3c969896dce6c7f670f29475965",
+  "yearLogosAcceptedSnapshot": "bb9325edbfd57bea5b09eeaf8edc2f6211080483",
+  "selectedCardPalette": "c"
 }
